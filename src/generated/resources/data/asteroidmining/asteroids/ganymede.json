@@ -1,0 +1,15 @@
+{
+  "id": "asteroidmining:ganymede",
+  "name": "Ganymede",
+  "texture": "asteroidmining:space/ganymede",
+  "diameter": 2,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 1.8,
+  "semiMinorAxis": 1.8,
+  "orbitalSpeed": 0.109,
+  "isClockwise": true,
+  "startingAngleDegrees": 80.0,
+  "isOrbitVisible": false
+}

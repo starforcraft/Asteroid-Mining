@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:helike",
+  "name": "Helike",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.3,
+  "semiMinorAxis": 9.19478,
+  "orbitalSpeed": 0.017,
+  "isClockwise": false,
+  "startingAngleDegrees": 35.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

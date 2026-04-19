@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#c:is_overworld",
+  "features": ["asteroidmining:lake_petroleum_surface", "asteroidmining:lake_petroleum_underground"],
+  "step": "lakes"
+}

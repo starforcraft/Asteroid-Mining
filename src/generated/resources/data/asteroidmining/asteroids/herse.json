@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:herse",
+  "name": "Herse",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 10.9,
+  "semiMinorAxis": 10.525133,
+  "orbitalSpeed": 0.01,
+  "isClockwise": false,
+  "startingAngleDegrees": 58.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:pasithee",
+  "name": "Pasithee",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 10.2,
+  "semiMinorAxis": 9.821175,
+  "orbitalSpeed": 0.014,
+  "isClockwise": false,
+  "startingAngleDegrees": 150.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

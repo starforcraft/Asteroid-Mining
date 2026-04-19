@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:valetudo",
+  "name": "Valetudo",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 8.6,
+  "semiMinorAxis": 8.389299,
+  "orbitalSpeed": 0.033,
+  "isClockwise": true,
+  "startingAngleDegrees": 320.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "asteroidmining:block/fluid_tank_tier_4"
+    }
+  }
+}

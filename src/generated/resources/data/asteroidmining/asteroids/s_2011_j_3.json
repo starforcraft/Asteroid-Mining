@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:s_2011_j_3",
+  "name": "S/2011 J 3",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 6.9,
+  "semiMinorAxis": 6.77431,
+  "orbitalSpeed": 0.015,
+  "isClockwise": true,
+  "startingAngleDegrees": 104.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

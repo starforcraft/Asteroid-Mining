@@ -1,0 +1,101 @@
+package com.ultramega.asteroidmining.container;
+
+import com.ultramega.asteroidmining.blockentities.AirAbsorberBlockEntity;
+import com.ultramega.asteroidmining.registry.ModBlocks;
+import com.ultramega.asteroidmining.registry.ModMenuTypes;
+
+import java.util.Objects;
+
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
+
+public class AirAbsorberContainerMenu extends AbstractContainerMenu {
+    public final AirAbsorberBlockEntity blockEntity;
+    private final ContainerLevelAccess access;
+    private final ContainerData data;
+
+    public AirAbsorberContainerMenu(final int containerId, final Inventory playerInv, final FriendlyByteBuf data) {
+        this(containerId, playerInv, getBlockEntity(playerInv, data), ContainerLevelAccess.NULL, new SimpleContainerData(2));
+    }
+
+    public AirAbsorberContainerMenu(final int containerId,
+                                    final Inventory playerInv,
+                                    final AirAbsorberBlockEntity blockEntity,
+                                    final ContainerLevelAccess access,
+                                    final ContainerData data) {
+        super(ModMenuTypes.AIR_ABSORBER.get(), containerId);
+        this.blockEntity = blockEntity;
+        this.access = access;
+        this.data = data;
+
+        this.addStandardInventorySlots(playerInv, 8, 84);
+
+        this.addDataSlots(data);
+    }
+
+    @Override
+    public ItemStack quickMoveStack(final Player player, final int index) {
+        ItemStack quickMovedStack = ItemStack.EMPTY;
+        final Slot slot = this.slots.get(index);
+
+        if (slot.hasItem()) {
+            final ItemStack rawStack = slot.getItem();
+            quickMovedStack = rawStack.copy();
+
+            if (index >= 0 && index < 36) {
+                if (index < 27) {
+                    if (!this.moveItemStackTo(rawStack, 27, 36, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (!this.moveItemStackTo(rawStack, 0, 27, false)) {
+                    return ItemStack.EMPTY;
+                }
+            }
+
+            if (rawStack.isEmpty()) {
+                slot.set(ItemStack.EMPTY);
+            } else {
+                slot.setChanged();
+            }
+
+            if (rawStack.getCount() == quickMovedStack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot.onTake(player, rawStack);
+        }
+
+        return quickMovedStack;
+    }
+
+    @Override
+    public boolean stillValid(final Player player) {
+        return AbstractContainerMenu.stillValid(this.access, player, ModBlocks.AIR_ABSORBER.get());
+    }
+
+    private static AirAbsorberBlockEntity getBlockEntity(final Inventory playerInventory, final FriendlyByteBuf data) {
+        Objects.requireNonNull(playerInventory, "playerInventory cannot be null!");
+        Objects.requireNonNull(data, "data cannot be null!");
+        final BlockEntity blockEntity = playerInventory.player.level().getBlockEntity(data.readBlockPos());
+        if (blockEntity instanceof AirAbsorberBlockEntity block) {
+            return block;
+        }
+        throw new IllegalStateException("Block entityType is not correct! " + blockEntity);
+    }
+
+    public int getEnergyStored() {
+        return this.data.get(0);
+    }
+
+    public int getMaxEnergyStored() {
+        return this.data.get(1);
+    }
+}

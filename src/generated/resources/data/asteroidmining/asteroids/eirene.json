@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:eirene",
+  "name": "Eirene",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 10.5,
+  "semiMinorAxis": 10.13889,
+  "orbitalSpeed": 0.017,
+  "isClockwise": false,
+  "startingAngleDegrees": 116.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

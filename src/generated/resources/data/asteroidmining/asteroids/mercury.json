@@ -1,0 +1,15 @@
+{
+  "id": "asteroidmining:mercury",
+  "name": "Mercury",
+  "texture": "asteroidmining:space/mercury",
+  "diameter": 4,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Sun",
+  "semiMajorAxis": 38.7,
+  "semiMinorAxis": 37.869965,
+  "orbitalSpeed": 0.1,
+  "isClockwise": true,
+  "startingAngleDegrees": 90.0,
+  "isOrbitVisible": true
+}

@@ -1,0 +1,15 @@
+{
+  "id": "asteroidmining:neptune",
+  "name": "Neptune",
+  "texture": "asteroidmining:space/neptune",
+  "diameter": 10,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Sun",
+  "semiMajorAxis": 3007.0,
+  "semiMinorAxis": 3006.8496,
+  "orbitalSpeed": 0.054,
+  "isClockwise": true,
+  "startingAngleDegrees": 140.0,
+  "isOrbitVisible": true
+}

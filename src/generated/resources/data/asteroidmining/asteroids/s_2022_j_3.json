@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:s_2022_j_3",
+  "name": "S/2022 J 3",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.4,
+  "semiMinorAxis": 9.050887,
+  "orbitalSpeed": 0.03,
+  "isClockwise": false,
+  "startingAngleDegrees": 289.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

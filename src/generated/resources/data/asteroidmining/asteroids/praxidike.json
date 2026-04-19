@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:praxidike",
+  "name": "Praxidike",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.3,
+  "semiMinorAxis": 9.004686,
+  "orbitalSpeed": 0.032,
+  "isClockwise": false,
+  "startingAngleDegrees": 260.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

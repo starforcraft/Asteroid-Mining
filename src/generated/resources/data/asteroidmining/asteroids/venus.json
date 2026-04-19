@@ -1,0 +1,15 @@
+{
+  "id": "asteroidmining:venus",
+  "name": "Venus",
+  "texture": "asteroidmining:space/venus",
+  "diameter": 6,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Sun",
+  "semiMajorAxis": 72.3,
+  "semiMinorAxis": 72.29639,
+  "orbitalSpeed": 0.35,
+  "isClockwise": true,
+  "startingAngleDegrees": 45.0,
+  "isOrbitVisible": true
+}

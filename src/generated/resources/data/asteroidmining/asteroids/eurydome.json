@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:eurydome",
+  "name": "Eurydome",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 10.3,
+  "semiMinorAxis": 9.825574,
+  "orbitalSpeed": 0.017,
+  "isClockwise": false,
+  "startingAngleDegrees": 275.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

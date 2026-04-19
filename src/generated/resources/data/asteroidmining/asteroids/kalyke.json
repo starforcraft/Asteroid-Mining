@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:kalyke",
+  "name": "Kalyke",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 11.1,
+  "semiMinorAxis": 10.718256,
+  "orbitalSpeed": 0.011,
+  "isClockwise": false,
+  "startingAngleDegrees": 155.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

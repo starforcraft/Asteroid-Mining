@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:s_2016_j_3",
+  "name": "S/2016 J 3",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 10.0,
+  "semiMinorAxis": 9.682458,
+  "orbitalSpeed": 0.011,
+  "isClockwise": false,
+  "startingAngleDegrees": 144.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

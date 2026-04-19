@@ -1,0 +1,15 @@
+{
+  "id": "asteroidmining:sun",
+  "name": "Sun",
+  "texture": "asteroidmining:space/sun",
+  "diameter": 28,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "",
+  "semiMajorAxis": 0.0,
+  "semiMinorAxis": 0.0,
+  "orbitalSpeed": 0.0,
+  "isClockwise": false,
+  "startingAngleDegrees": 0.0,
+  "isOrbitVisible": false
+}

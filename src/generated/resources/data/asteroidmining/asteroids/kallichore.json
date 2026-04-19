@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:kallichore",
+  "name": "Kallichore",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 10.5,
+  "semiMinorAxis": 10.166581,
+  "orbitalSpeed": 0.022,
+  "isClockwise": false,
+  "startingAngleDegrees": 342.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

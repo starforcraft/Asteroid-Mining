@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:carme",
+  "name": "Carme",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 10.9,
+  "semiMinorAxis": 10.525133,
+  "orbitalSpeed": 0.023,
+  "isClockwise": false,
+  "startingAngleDegrees": 57.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

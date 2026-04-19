@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "asteroidmining:item/rocket_propellant_bucket"
+  }
+}

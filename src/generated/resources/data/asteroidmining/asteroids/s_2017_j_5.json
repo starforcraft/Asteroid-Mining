@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:s_2017_j_5",
+  "name": "S/2017 J 5",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 11.0,
+  "semiMinorAxis": 10.621695,
+  "orbitalSpeed": 0.01,
+  "isClockwise": false,
+  "startingAngleDegrees": 256.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

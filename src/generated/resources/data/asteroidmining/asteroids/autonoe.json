@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:autonoe",
+  "name": "Autonoe",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 11.6,
+  "semiMinorAxis": 10.950179,
+  "orbitalSpeed": 0.023,
+  "isClockwise": false,
+  "startingAngleDegrees": 55.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

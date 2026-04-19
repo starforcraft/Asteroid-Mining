@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:s_2021_j_1",
+  "name": "S/2021 J 1",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.4,
+  "semiMinorAxis": 9.147991,
+  "orbitalSpeed": 0.016,
+  "isClockwise": false,
+  "startingAngleDegrees": 325.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

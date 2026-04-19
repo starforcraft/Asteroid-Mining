@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:megaclite",
+  "name": "Megaclite",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 11.4,
+  "semiMinorAxis": 10.345775,
+  "orbitalSpeed": 0.015,
+  "isClockwise": false,
+  "startingAngleDegrees": 165.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

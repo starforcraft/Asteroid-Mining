@@ -1,0 +1,19 @@
+{
+  "id": "asteroidmining:ceres",
+  "name": "Ceres",
+  "texture": "asteroidmining:space/asteroid_2",
+  "diameter": 4,
+  "compositionItems": {
+    "minecraft:gold_ore": 32000,
+    "minecraft:iron_ore": 32000
+  },
+  "compositionFluids": {},
+  "centralBodyName": "Sun",
+  "semiMajorAxis": 100.0,
+  "semiMinorAxis": 86.60254,
+  "orbitalSpeed": 2.3,
+  "isClockwise": false,
+  "startingAngleDegrees": 5.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

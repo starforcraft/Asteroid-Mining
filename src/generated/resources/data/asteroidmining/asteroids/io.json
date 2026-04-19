@@ -1,0 +1,15 @@
+{
+  "id": "asteroidmining:io",
+  "name": "Io",
+  "texture": "asteroidmining:space/io",
+  "diameter": 2,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 0.6,
+  "semiMinorAxis": 0.6,
+  "orbitalSpeed": 0.173,
+  "isClockwise": true,
+  "startingAngleDegrees": 0.0,
+  "isOrbitVisible": false
+}

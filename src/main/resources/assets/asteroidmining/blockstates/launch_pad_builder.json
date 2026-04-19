@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "asteroidmining:block/launch_pad_builder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "asteroidmining:block/launch_pad_builder"
+    },
+    "facing=south": {
+      "model": "asteroidmining:block/launch_pad_builder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "asteroidmining:block/launch_pad_builder",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:aitne",
+  "name": "Aitne",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 10.6,
+  "semiMinorAxis": 10.176001,
+  "orbitalSpeed": 0.019,
+  "isClockwise": false,
+  "startingAngleDegrees": 230.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

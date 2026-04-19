@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:s_2003_j_16",
+  "name": "S/2003 J 16",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.2,
+  "semiMinorAxis": 8.93111,
+  "orbitalSpeed": 0.029,
+  "isClockwise": false,
+  "startingAngleDegrees": 295.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

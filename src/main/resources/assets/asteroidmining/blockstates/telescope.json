@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "asteroidmining:block/telescope",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "asteroidmining:block/telescope"
+    },
+    "facing=south": {
+      "model": "asteroidmining:block/telescope",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "asteroidmining:block/telescope",
+      "y": 270
+    }
+  }
+}

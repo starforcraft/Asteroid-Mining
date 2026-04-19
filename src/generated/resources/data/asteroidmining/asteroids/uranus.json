@@ -1,0 +1,15 @@
+{
+  "id": "asteroidmining:uranus",
+  "name": "Uranus",
+  "texture": "asteroidmining:space/uranus",
+  "diameter": 10,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Sun",
+  "semiMajorAxis": 1919.3,
+  "semiMinorAxis": 1916.8994,
+  "orbitalSpeed": 0.068,
+  "isClockwise": true,
+  "startingAngleDegrees": 110.0,
+  "isOrbitVisible": true
+}

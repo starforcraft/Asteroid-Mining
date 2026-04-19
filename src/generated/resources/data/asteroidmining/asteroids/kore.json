@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:kore",
+  "name": "Kore",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 12.0,
+  "semiMinorAxis": 11.327771,
+  "orbitalSpeed": 0.024,
+  "isClockwise": false,
+  "startingAngleDegrees": 274.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

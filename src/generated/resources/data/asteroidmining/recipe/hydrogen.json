@@ -1,0 +1,12 @@
+{
+  "type": "asteroidmining:heat_exchanger",
+  "duration": 60,
+  "input": {
+    "amount": 85,
+    "ingredient": "asteroidmining:hydrogen"
+  },
+  "output": {
+    "amount": 10,
+    "ingredient": "asteroidmining:liquid_hydrogen"
+  }
+}

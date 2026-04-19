@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:mneme",
+  "name": "Mneme",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.1,
+  "semiMinorAxis": 8.811037,
+  "orbitalSpeed": 0.017,
+  "isClockwise": false,
+  "startingAngleDegrees": 100.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

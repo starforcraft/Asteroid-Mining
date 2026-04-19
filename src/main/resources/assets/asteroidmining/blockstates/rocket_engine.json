@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "asteroidmining:block/rocket_engine"
+    }
+  }
+}

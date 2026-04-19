@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:iocaste",
+  "name": "Iocaste",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.5,
+  "semiMinorAxis": 9.245311,
+  "orbitalSpeed": 0.01,
+  "isClockwise": false,
+  "startingAngleDegrees": 85.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

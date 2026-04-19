@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:amalthea",
+  "name": "Amalthea",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 0.4,
+  "semiMinorAxis": 0.4,
+  "orbitalSpeed": 0.027,
+  "isClockwise": true,
+  "startingAngleDegrees": 150.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:elara",
+  "name": "Elara",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 6.9,
+  "semiMinorAxis": 6.7461395,
+  "orbitalSpeed": 0.033,
+  "isClockwise": true,
+  "startingAngleDegrees": 65.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

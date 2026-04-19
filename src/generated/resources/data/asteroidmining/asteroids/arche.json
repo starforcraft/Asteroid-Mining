@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:arche",
+  "name": "Arche",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 10.7,
+  "semiMinorAxis": 10.332012,
+  "orbitalSpeed": 0.02,
+  "isClockwise": false,
+  "startingAngleDegrees": 69.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

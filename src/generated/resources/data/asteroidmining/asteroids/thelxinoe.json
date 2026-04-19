@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:thelxinoe",
+  "name": "Thelxinoe",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.4,
+  "semiMinorAxis": 9.147991,
+  "orbitalSpeed": 0.015,
+  "isClockwise": false,
+  "startingAngleDegrees": 228.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

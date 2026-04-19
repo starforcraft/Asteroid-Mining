@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:ananke",
+  "name": "Ananke",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.5,
+  "semiMinorAxis": 9.2223425,
+  "orbitalSpeed": 0.024,
+  "isClockwise": false,
+  "startingAngleDegrees": 95.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

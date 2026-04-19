@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:euanthe",
+  "name": "Euanthe",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.2,
+  "semiMinorAxis": 8.93111,
+  "orbitalSpeed": 0.017,
+  "isClockwise": false,
+  "startingAngleDegrees": 185.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

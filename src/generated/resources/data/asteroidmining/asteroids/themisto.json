@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:themisto",
+  "name": "Themisto",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 5.0,
+  "semiMinorAxis": 4.702127,
+  "orbitalSpeed": 0.024,
+  "isClockwise": true,
+  "startingAngleDegrees": 160.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

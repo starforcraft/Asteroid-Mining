@@ -1,0 +1,12 @@
+{
+  "type": "asteroidmining:heat_exchanger",
+  "duration": 20,
+  "input": {
+    "amount": 60,
+    "ingredient": "asteroidmining:methane"
+  },
+  "output": {
+    "amount": 10,
+    "ingredient": "asteroidmining:liquid_methane"
+  }
+}

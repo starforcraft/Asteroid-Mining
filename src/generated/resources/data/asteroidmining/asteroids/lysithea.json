@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:lysithea",
+  "name": "Lysithea",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 6.9,
+  "semiMinorAxis": 6.85014,
+  "orbitalSpeed": 0.033,
+  "isClockwise": true,
+  "startingAngleDegrees": 60.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:dia",
+  "name": "Dia",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 7.1,
+  "semiMinorAxis": 6.909653,
+  "orbitalSpeed": 0.01,
+  "isClockwise": true,
+  "startingAngleDegrees": 102.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:hegemone",
+  "name": "Hegemone",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 11.1,
+  "semiMinorAxis": 10.355771,
+  "orbitalSpeed": 0.018,
+  "isClockwise": false,
+  "startingAngleDegrees": 117.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

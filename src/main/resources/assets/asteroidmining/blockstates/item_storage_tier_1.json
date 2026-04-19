@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "asteroidmining:block/item_storage_tier_1"
+    }
+  }
+}

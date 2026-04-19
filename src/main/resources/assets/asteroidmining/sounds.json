@@ -1,0 +1,87 @@
+{
+  "rocket_start": {
+    "sounds": [
+      {
+        "name": "asteroidmining:rocket_start",
+        "stream": true
+      }
+    ]
+  },
+  "launch_t_minus": {
+    "sounds": [
+      {
+        "name": "asteroidmining:t_minus"
+      }
+    ]
+  },
+  "launch_ten": {
+    "sounds": [
+      {
+        "name": "asteroidmining:ten"
+      }
+    ]
+  },
+  "launch_nine": {
+    "sounds": [
+      {
+        "name": "asteroidmining:nine"
+      }
+    ]
+  },
+  "launch_eight": {
+    "sounds": [
+      {
+        "name": "asteroidmining:eight"
+      }
+    ]
+  },
+  "launch_seven": {
+    "sounds": [
+      {
+        "name": "asteroidmining:seven"
+      }
+    ]
+  },
+  "launch_six": {
+    "sounds": [
+      {
+        "name": "asteroidmining:six"
+      }
+    ]
+  },
+  "launch_five": {
+    "sounds": [
+      {
+        "name": "asteroidmining:five"
+      }
+    ]
+  },
+  "launch_four": {
+    "sounds": [
+      {
+        "name": "asteroidmining:four"
+      }
+    ]
+  },
+  "launch_three": {
+    "sounds": [
+      {
+        "name": "asteroidmining:three"
+      }
+    ]
+  },
+  "launch_two": {
+    "sounds": [
+      {
+        "name": "asteroidmining:two"
+      }
+    ]
+  },
+  "launch_one": {
+    "sounds": [
+      {
+        "name": "asteroidmining:one"
+      }
+    ]
+  }
+}

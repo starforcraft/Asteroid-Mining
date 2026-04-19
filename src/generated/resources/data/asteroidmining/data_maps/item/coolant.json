@@ -1,0 +1,24 @@
+{
+  "values": {
+    "#c:ices/blue": {
+      "duration": 568,
+      "temperature": -17
+    },
+    "#c:ices/ice": {
+      "duration": 48,
+      "temperature": -5
+    },
+    "#c:ices/packed": {
+      "duration": 192,
+      "temperature": -8
+    },
+    "minecraft:snow_block": {
+      "duration": 48,
+      "temperature": -3
+    },
+    "minecraft:snowball": {
+      "duration": 12,
+      "temperature": -3
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:erinome",
+  "name": "Erinome",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 10.5,
+  "semiMinorAxis": 10.08,
+  "orbitalSpeed": 0.009,
+  "isClockwise": false,
+  "startingAngleDegrees": 90.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

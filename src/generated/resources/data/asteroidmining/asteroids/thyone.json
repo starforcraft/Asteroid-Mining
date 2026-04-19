@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:thyone",
+  "name": "Thyone",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.4,
+  "semiMinorAxis": 9.147991,
+  "orbitalSpeed": 0.015,
+  "isClockwise": false,
+  "startingAngleDegrees": 220.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

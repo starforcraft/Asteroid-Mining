@@ -1,0 +1,16 @@
+{
+  "id": "asteroidmining:harpalyke",
+  "name": "Harpalyke",
+  "texture": "asteroidmining:space/generic_moon_1",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 9.2,
+  "semiMinorAxis": 8.953354,
+  "orbitalSpeed": 0.023,
+  "isClockwise": false,
+  "startingAngleDegrees": 50.0,
+  "isOrbitVisible": false,
+  "shouldRotate": true
+}

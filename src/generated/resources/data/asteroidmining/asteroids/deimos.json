@@ -1,0 +1,15 @@
+{
+  "id": "asteroidmining:deimos",
+  "name": "Deimos",
+  "texture": "asteroidmining:space/generic_moon_2",
+  "diameter": 1,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Mars",
+  "semiMajorAxis": 2.3,
+  "semiMinorAxis": 2.3,
+  "orbitalSpeed": 0.014,
+  "isClockwise": true,
+  "startingAngleDegrees": 120.0,
+  "isOrbitVisible": false
+}

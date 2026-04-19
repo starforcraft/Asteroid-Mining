@@ -1,0 +1,15 @@
+{
+  "id": "asteroidmining:europa",
+  "name": "Europa",
+  "texture": "asteroidmining:space/europa",
+  "diameter": 2,
+  "compositionItems": {},
+  "compositionFluids": {},
+  "centralBodyName": "Jupiter",
+  "semiMajorAxis": 1.0,
+  "semiMinorAxis": 1.0,
+  "orbitalSpeed": 0.137,
+  "isClockwise": true,
+  "startingAngleDegrees": 20.0,
+  "isOrbitVisible": false
+}
