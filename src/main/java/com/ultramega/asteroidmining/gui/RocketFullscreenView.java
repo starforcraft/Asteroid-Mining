@@ -80,8 +80,6 @@ public class RocketFullscreenView extends Screen {
 
     @Override
     public void extractRenderState(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTick) {
-        this.extractBackground(graphics, mouseX, mouseY, partialTick);
-
         if (!this.initialized) {
             this.scene = new GuidebookScene(new GuidebookLevel(), new CameraSettings());
             this.bounds = new LytRect(0, 0, this.width, this.height);

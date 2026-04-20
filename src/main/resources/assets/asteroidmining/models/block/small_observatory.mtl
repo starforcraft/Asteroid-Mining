@@ -3,4 +3,3 @@ newmtl texture0
 map_Kd #texture0
 newmtl texture1
 map_Kd #texture1
-newmtl none

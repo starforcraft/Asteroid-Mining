@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "asteroidmining:block/rocket_engine"
+  }
+}

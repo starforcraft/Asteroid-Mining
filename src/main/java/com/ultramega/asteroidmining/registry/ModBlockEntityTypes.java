@@ -50,7 +50,7 @@ public final class ModBlockEntityTypes {
             LaunchPadBuilderBlockEntity::new, ModBlocks.LAUNCH_PAD_BUILDER.get()));
     public static final Supplier<BlockEntityType<ObservatoryBlockEntity>> SMALL_OBSERVATORY =
         BLOCK_ENTITY_TYPES.register("small_observatory", () -> new BlockEntityType<>(
-            ObservatoryBlockEntity::new, ModBlocks.SMALL_OBSERVATORY.get()));
+            ObservatoryBlockEntity::new, ModBlocks.TELESCOPE.get(), ModBlocks.SMALL_OBSERVATORY.get()));
 
     //TODO: remove "ROCKET_ENGINE"
     public static final Supplier<BlockEntityType<RocketEngineBlockEntity>> ROCKET_ENGINE =

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "asteroidmining:block/fluid_tank_tier_4"
+  }
+}

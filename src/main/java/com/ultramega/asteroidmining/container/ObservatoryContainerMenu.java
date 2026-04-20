@@ -29,7 +29,7 @@ public class ObservatoryContainerMenu extends AbstractModuleContainerMenu {
         this.blockEntity = blockEntity;
 
         //TODO: decide if we want to delete the inventory (there's no use for it)
-        this.addStandardInventorySlots(playerInv, 8, 84);
+        this.addStandardInventorySlots(playerInv, 8, 100);
     }
 
     @Override
