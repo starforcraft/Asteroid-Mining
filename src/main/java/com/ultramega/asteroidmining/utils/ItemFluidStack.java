@@ -104,12 +104,12 @@ public class ItemFluidStack {
 
     @Nullable
     public ItemStack getItemStack() {
-        return this.itemStack.create();
+        return this.itemStack != null ? this.itemStack.create() : null;
     }
 
     @Nullable
     public FluidStack getFluidStack() {
-        return this.fluidStack.create();
+        return this.fluidStack != null ? this.fluidStack.create() : null;
     }
 
     public static ItemFluidStack of(final ItemStackTemplate itemStack, final FluidStackTemplate fluidStack) {

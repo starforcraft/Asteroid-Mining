@@ -2,6 +2,7 @@ package com.ultramega.asteroidmining.gui.widgets;
 
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
 import com.ultramega.asteroidmining.utils.AsteroidConfig;
+import com.ultramega.asteroidmining.utils.TextColors;
 import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.ArrayList;
@@ -10,7 +11,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.input.KeyEvent;
@@ -18,6 +18,7 @@ import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
+import org.jspecify.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
 public class AsteroidSearchBox extends PlaceholderEditBox {
@@ -31,6 +32,7 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
     private final Consumer<String> selectedAsteroid;
     private final Map<Identifier, AsteroidConfig> asteroids;
 
+    @Nullable
     private final List<String> currentSuggestions = new ArrayList<>();
 
     private int suggestionsWidth = 0;
@@ -60,13 +62,16 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
     public void onValueChange(final String newText) {
         super.onValueChange(newText);
 
-        this.offset = 0;
-        this.selectedIndex = -1;
-        this.currentSuggestions.clear();
+        // currentSuggestions can be null because of PlaceholderEditBox#setValue
+        if (this.currentSuggestions != null) {
+            this.offset = 0;
+            this.selectedIndex = -1;
+            this.currentSuggestions.clear();
 
-        for (final AsteroidConfig asteroid : this.asteroids.values()) {
-            if (asteroid.getName().toLowerCase(Locale.ROOT).contains(newText.toLowerCase(Locale.ROOT))) {
-                this.currentSuggestions.add(asteroid.getName());
+            for (final AsteroidConfig asteroid : this.asteroids.values()) {
+                if (asteroid.getName().toLowerCase(Locale.ROOT).contains(newText.toLowerCase(Locale.ROOT))) {
+                    this.currentSuggestions.add(asteroid.getName());
+                }
             }
         }
 
@@ -97,7 +102,7 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
             }
 
             graphics.fill(this.getX(), minY, this.getX() + this.getWidth(), minY + this.getHeight(), hovered ? 0xAA919492 : 0xAA676b68);
-            graphics.text(this.font, Component.literal(suggestion), this.getX() + 4, minY + 4, hovered ? ChatFormatting.YELLOW.getColor() : -1);
+            graphics.text(this.font, Component.literal(suggestion), this.getX() + 4, minY + 4, hovered ? TextColors.YELLOW.getHexCode() : -1);
 
             this.suggestionsWidth = Math.max(this.suggestionsWidth, this.font.width(suggestion));
         }

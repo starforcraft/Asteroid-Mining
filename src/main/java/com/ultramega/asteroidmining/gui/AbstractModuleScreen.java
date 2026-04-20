@@ -3,11 +3,11 @@ package com.ultramega.asteroidmining.gui;
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.container.AbstractModuleContainerMenu;
 import com.ultramega.asteroidmining.network.c2s.OpenTabModuleMessage;
+import com.ultramega.asteroidmining.utils.TextColors;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
@@ -151,7 +151,7 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
 
         if (this.shouldShowSideBar()) {
             graphics.text(this.font, Component.translatable("%s / %s", this.currentTabPage + 1, this.totalPages),
-                -60, (this.imageHeight - this.font.lineHeight) / 2 + 2, ChatFormatting.WHITE.getColor(), true);
+                -60, (this.imageHeight - this.font.lineHeight) / 2 + 2, TextColors.WHITE.getHexCode(), true);
         }
     }
 

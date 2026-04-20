@@ -8,7 +8,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 public record SetSelectConfigurationMessage(BlockPos controllerPos, int selectedConfiguration) implements CustomPacketPayload {
@@ -28,7 +27,7 @@ public record SetSelectConfigurationMessage(BlockPos controllerPos, int selected
         context.enqueueWork(() -> {
             if (context.player().level().getBlockEntity(data.controllerPos()) instanceof RocketControllerBlockEntity blockEntity) {
                 blockEntity.setSelectedConfigurationIndex(data.selectedConfiguration());
-//                blockEntity.inventoryHandler.onContentsChanged(-1, ItemStack.EMPTY);
+                blockEntity.inventoryHandler.triggerContentsChanged();
             }
         });
     }

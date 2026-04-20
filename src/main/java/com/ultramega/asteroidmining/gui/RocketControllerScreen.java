@@ -10,6 +10,7 @@ import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
 import com.ultramega.asteroidmining.storage.ClientConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
 import com.ultramega.asteroidmining.utils.FakeForwardingServerLevel;
+import com.ultramega.asteroidmining.utils.TextColors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,6 @@ import guideme.scene.CameraSettings;
 import guideme.scene.GuidebookLevelRenderer;
 import guideme.scene.GuidebookScene;
 import guideme.scene.level.GuidebookLevel;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
@@ -204,25 +204,25 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
         final int selectedConfiguration = this.getMenu().getBlockEntity().getSelectedConfigurationIndex();
         if (selectedConfiguration == -1) {
             graphics.text(this.font, Component.translatable("gui.asteroidmining.rocket_controller.no_configuration_selected"),
-                this.titleLabelX, this.titleLabelY + 19, ChatFormatting.RED.getColor(), true);
+                this.titleLabelX, this.titleLabelY + 19, TextColors.RED.getHexCode(), true);
         } else {
             final ItemResource resource = this.getMenu().getBlockEntity().inventoryHandler.getResource(selectedConfiguration);
             if (resource.isEmpty() || !resource.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get())) {
                 graphics.text(this.font, Component.translatable("gui.asteroidmining.rocket_controller.invalid_configuration"),
-                    this.titleLabelX, this.titleLabelY + 19, ChatFormatting.RED.getColor(), true);
+                    this.titleLabelX, this.titleLabelY + 19, TextColors.RED.getHexCode(), true);
             } else {
                 final UUID uuid = resource.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get());
                 if (uuid == null) {
                     graphics.text(this.font, Component.translatable("gui.asteroidmining.rocket_controller.invalid_configuration"),
-                        this.titleLabelX, this.titleLabelY + 19, ChatFormatting.RED.getColor(), true);
+                        this.titleLabelX, this.titleLabelY + 19, TextColors.RED.getHexCode(), true);
                 } else {
                     final NetworkConfiguration configuration = ClientConfigurationSavedData.INSTANCE.get(uuid);
                     if (configuration == null) {
                         graphics.text(this.font, Component.translatable("gui.asteroidmining.rocket_controller.invalid_configuration"),
-                            this.titleLabelX, this.titleLabelY + 19, ChatFormatting.RED.getColor(), true);
+                            this.titleLabelX, this.titleLabelY + 19, TextColors.RED.getHexCode(), true);
                     } else {
                         graphics.text(this.font, Component.translatable("gui.asteroidmining.rocket_controller.selected_configuration", configuration.launchPadConfiguration().name()),
-                            this.titleLabelX, this.titleLabelY + 19, ChatFormatting.GREEN.getColor(), true);
+                            this.titleLabelX, this.titleLabelY + 19, TextColors.GREEN.getHexCode(), true);
                     }
                 }
             }

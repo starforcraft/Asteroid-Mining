@@ -54,12 +54,15 @@ public record SetConfigurationStackMessage(BlockPos launchPadBuilderPos, LaunchP
                 final UUID uuid;
                 if (!resource.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get())) {
                     uuid = UUID.randomUUID();
-                    resource.with(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get(), uuid);
+                    final ItemResource newResource = resource.with(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get(), uuid);
 
-                    launchPadBlockEntity.inventoryHandler.set(0, resource, launchPadBlockEntity.inventoryHandler.getAmountAsInt(0));
+                    if (newResource != resource) {
+                        launchPadBlockEntity.inventoryHandler.set(0, newResource, launchPadBlockEntity.inventoryHandler.getAmountAsInt(0));
+                    }
                 } else {
                     uuid = resource.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get());
                 }
+                System.out.println(uuid);
                 ConfigurationSavedData.getConfigurationData(serverLevel).set(uuid,
                     new NetworkConfiguration(data.launchPadConfiguration(), Optional.empty(), new ModuleProperties(Optional.empty(), NonNullList.create())));
                 final List<PreviewInfo> previewInfos = Utils.calculateSpacePort(level, data.launchPadConfiguration(), true);

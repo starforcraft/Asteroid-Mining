@@ -49,8 +49,7 @@ public class ImageButton extends Button {
     @Override
     protected void extractContents(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTick) {
         if (this.renderBackground) {
-            //TODO
-//            super.extractContents(graphics, mouseX, mouseY, partialTick);
+            super.extractDefaultSprite(graphics);
         }
 
         final int imageWidth = this.getWidth() - this.paddingLeft;
@@ -60,9 +59,7 @@ public class ImageButton extends Button {
         final int y = this.getY() + (this.getHeight() - imageHeight) / 2;
 
         if (this.renderBackground) {
-            //TODO test
-//            graphics.setColor(0.0f, 0.0f, 0.0f, 0.5f);
-            graphics.blitSprite(GUI_TEXTURED, this.image, x + 1, y + 1, imageWidth, imageHeight, 0.5F);
+            graphics.blitSprite(GUI_TEXTURED, this.image, x + 1, y + 1, imageWidth, imageHeight, 0x7F000000);
         }
 
         graphics.blitSprite(GUI_TEXTURED, this.image, x, y, imageWidth, imageHeight);

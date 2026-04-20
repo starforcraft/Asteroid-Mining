@@ -2,10 +2,12 @@ package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
+import com.ultramega.asteroidmining.gui.renderer.OrbitRenderState;
 import com.ultramega.asteroidmining.gui.widgets.AsteroidSearchBox;
 import com.ultramega.asteroidmining.gui.widgets.ImageButton;
 import com.ultramega.asteroidmining.gui.widgets.ImagesButton;
 import com.ultramega.asteroidmining.utils.AsteroidConfig;
+import com.ultramega.asteroidmining.utils.TextColors;
 import com.ultramega.asteroidmining.utils.Utils;
 
 import java.awt.geom.Point2D;
@@ -19,6 +21,7 @@ import net.minecraft.client.GameNarrator;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Renderable;
+import net.minecraft.client.gui.navigation.ScreenRectangle;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
@@ -28,6 +31,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.ClientHooks;
+import org.joml.Matrix3x2f;
 import org.joml.Matrix3x2fStack;
 import org.jspecify.annotations.Nullable;
 
@@ -127,8 +131,6 @@ public class SolarSystemViewScreen extends Screen {
     //TODO: override extractRenderStateWithTooltipAndSubtitles?
     @Override
     public void extractRenderState(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
-        this.extractBackground(graphics, mouseX, mouseY, partialTicks);
-
         this.renderAsteroids(graphics, mouseX, mouseY);
         this.renderSelectedAsteroidDetails(graphics, mouseX, mouseY);
         for (final Renderable renderable : this.renderables) {
@@ -211,7 +213,7 @@ public class SolarSystemViewScreen extends Screen {
         // <<< Draw information text >>>
         int y = 5;
 
-        graphics.text(this.font, asteroidName, (this.detailWidth - this.font.width(asteroidName)) / 2, y, ChatFormatting.GOLD.getColor());
+        graphics.text(this.font, asteroidName, (this.detailWidth - this.font.width(asteroidName)) / 2, y, TextColors.GOLD.getHexCode());
         y += 15;
 
         graphics.text(this.font, sizeLabel, 5, y, -1);
@@ -247,7 +249,8 @@ public class SolarSystemViewScreen extends Screen {
             final boolean isSelectedAsteroid = this.selectedAsteroid != null && asteroid.getId().equals(this.selectedAsteroid.getId());
 
             if (asteroid.isOrbitVisible() || isSelectedAsteroid) {
-                this.drawOrbit(asteroid.getCenter(),
+                this.drawOrbit(graphics,
+                    asteroid.getCenter(),
                     asteroid.getSemiMajorAxis(),
                     asteroid.getSemiMinorAxis(),
                     asteroid.getCentralBody() != null ? asteroid.getCentralBody().getRadius() : 0,
@@ -291,30 +294,52 @@ public class SolarSystemViewScreen extends Screen {
         }
     }
 
-    private void drawOrbit(final Point2D.Double center,
+    private void drawOrbit(final GuiGraphicsExtractor graphics,
+                           final Point2D.Double center,
                            final double semiMajorAxis,
                            final double semiMinorAxis,
                            final double centralBodyRadius,
-                           final boolean isSelected) { //TODO!
-//        final Tesselator tesselator = Tesselator.getInstance();
-//        RenderSystem.setShader(GameRenderer::getPositionColorShader);
-//        final BufferBuilder buffer = tesselator.begin(VertexFormat.Mode.DEBUG_LINE_STRIP, DefaultVertexFormat.POSITION_COLOR);
-//
-//        final int segments = 100;
-//        for (int i = 0; i <= segments; i++) {
-//            final double angle = (2 * Math.PI * i) / segments;
-//
-//            final double offsetX = (semiMajorAxis + centralBodyRadius) * Math.cos(angle);
-//            final double offsetY = (semiMinorAxis + centralBodyRadius) * Math.sin(angle);
-//
-//            final double x = center.x + offsetX;
-//            final double y = center.y + offsetY;
-//
-//            buffer.addVertex((float) this.getTopLeftXFromCentered(x, 0), (float) this.getTopLeftYFromCentered(y, 0), 0)
-//                .setColor(255, isSelected ? 0 : 255, isSelected ? 0 : 255, 255);
-//        }
-//
-//        BufferUploader.drawWithShader(buffer.buildOrThrow());
+                           final boolean isSelected) {
+        final int segments = 100;
+        final float[] points = new float[(segments + 1) * 2];
+
+        float minX = Float.MAX_VALUE;
+        float minY = Float.MAX_VALUE;
+        float maxX = Float.MIN_VALUE;
+        float maxY = Float.MIN_VALUE;
+
+        for (int i = 0; i <= segments; i++) {
+            final double angle = (2.0 * Math.PI * i) / segments;
+
+            final double offsetX = (semiMajorAxis + centralBodyRadius) * Math.cos(angle);
+            final double offsetY = (semiMinorAxis + centralBodyRadius) * Math.sin(angle);
+
+            final float x = this.getTopLeftXFromCentered(center.x + offsetX, 0);
+            final float y = this.getTopLeftYFromCentered(center.y + offsetY, 0);
+
+            points[i * 2] = x;
+            points[i * 2 + 1] = y;
+
+            minX = Math.min(minX, x);
+            minY = Math.min(minY, y);
+            maxX = Math.max(maxX, x);
+            maxY = Math.max(maxY, y);
+        }
+
+        final int color = isSelected ? 0xFFFF0000 : 0xFFFFFFFF;
+
+        graphics.submitGuiElementRenderState(new OrbitRenderState(
+            new Matrix3x2f(graphics.pose()),
+            points,
+            color,
+            new ScreenRectangle(
+                Mth.floor(minX),
+                Mth.floor(minY),
+                Mth.ceil(maxX - minX) + 1,
+                Mth.ceil(maxY - minY) + 1
+            ),
+            graphics.peekScissorStack()
+        ));
     }
 
     @Override

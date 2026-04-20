@@ -66,40 +66,7 @@ import org.jspecify.annotations.Nullable;
 import static com.ultramega.asteroidmining.utils.Utils.rotateOffset;
 
 public class RocketControllerBlockEntity extends AbstractModuleBlockEntity implements MenuProvider, Nameable {
-    public final ItemStacksResourceHandler inventoryHandler = new ItemStacksResourceHandler(3) {
-        @Override
-        protected void onContentsChanged(final int index, final ItemStack previousContents) {
-            RocketControllerBlockEntity.super.setChanged();
-
-            final int selectedIndex = RocketControllerBlockEntity.this.getSelectedConfigurationIndex();
-            if (selectedIndex == -1) {
-                return;
-            }
-            final ItemResource stack = this.getResource(selectedIndex);
-            if (!stack.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get())) {
-                if (RocketControllerBlockEntity.this.level != null && RocketControllerBlockEntity.this.level.isClientSide()) {
-                    ClientEvents.LAUNCH_PAD_BUILDER_POS.remove(RocketControllerBlockEntity.this.getBlockPos());
-                    ClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.remove(RocketControllerBlockEntity.this.getBlockPos());
-                }
-            } else {
-                if (RocketControllerBlockEntity.this.level instanceof ServerLevel serverLevel) {
-                    final UUID uuid = stack.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get());
-                    final NetworkConfiguration configuration = ConfigurationSavedData.getConfigurationData(serverLevel).get(uuid);
-                    if (configuration != null) {
-                        final List<PreviewInfo> previewInfos = Utils.calculateSpacePort(RocketControllerBlockEntity.this.level,
-                            configuration.launchPadConfiguration(), false);
-                        PacketDistributor.sendToAllPlayers(new SendLaunchPreviewDataMessage(RocketControllerBlockEntity.this.getBlockPos(), uuid, previewInfos));
-                    }
-                }
-            }
-        }
-
-        @Override
-        public void deserialize(final ValueInput input) {
-            super.deserialize(input);
-            this.onContentsChanged(-1, ItemStack.EMPTY);
-        }
-    };
+    public final RocketControllerItemStacksResourceHandler inventoryHandler = new RocketControllerItemStacksResourceHandler(3);
 
     private final Set<BlockPos> connectedModules = new LinkedHashSet<>();
 
@@ -687,5 +654,48 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             .stream()
             .filter(config -> config.getId().equals(asteroidId))
             .findFirst();
+    }
+
+    public class RocketControllerItemStacksResourceHandler extends ItemStacksResourceHandler {
+        public RocketControllerItemStacksResourceHandler(final int size) {
+            super(size);
+        }
+
+        public void triggerContentsChanged() {
+            this.onContentsChanged(-1, ItemStack.EMPTY);
+        }
+
+        @Override
+        public void onContentsChanged(final int index, final ItemStack previousContents) {
+            RocketControllerBlockEntity.super.setChanged();
+
+            final int selectedIndex = RocketControllerBlockEntity.this.getSelectedConfigurationIndex();
+            if (selectedIndex == -1) {
+                return;
+            }
+            final ItemResource stack = this.getResource(selectedIndex);
+            if (!stack.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get())) {
+                if (RocketControllerBlockEntity.this.level != null && RocketControllerBlockEntity.this.level.isClientSide()) {
+                    ClientEvents.LAUNCH_PAD_BUILDER_POS.remove(RocketControllerBlockEntity.this.getBlockPos());
+                    ClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.remove(RocketControllerBlockEntity.this.getBlockPos());
+                }
+            } else {
+                if (RocketControllerBlockEntity.this.level instanceof ServerLevel serverLevel) {
+                    final UUID uuid = stack.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get());
+                    final NetworkConfiguration configuration = ConfigurationSavedData.getConfigurationData(serverLevel).get(uuid);
+                    if (configuration != null) {
+                        final List<PreviewInfo> previewInfos = Utils.calculateSpacePort(RocketControllerBlockEntity.this.level,
+                            configuration.launchPadConfiguration(), false);
+                        PacketDistributor.sendToAllPlayers(new SendLaunchPreviewDataMessage(RocketControllerBlockEntity.this.getBlockPos(), uuid, previewInfos));
+                    }
+                }
+            }
+        }
+
+        @Override
+        public void deserialize(final ValueInput input) {
+            super.deserialize(input);
+            this.triggerContentsChanged();
+        }
     }
 }

@@ -35,7 +35,7 @@ public class ConfigurationSavedData extends SavedData {
     }
 
     public ConfigurationSavedData(final Map<UUID, NetworkConfiguration> entries) {
-        this.entries = entries;
+        this.entries = new HashMap<>(entries);
     }
 
     // TODO: add an easy way to overwrite existing data instead of doing addConfiguration() everytime
@@ -58,7 +58,7 @@ public class ConfigurationSavedData extends SavedData {
         super.setDirty();
 
         //TODO: switch to request response system, sending the map everytime is too expensive (Check refinedstorage2 ClientStorageRepository)
-        PacketDistributor.sendToAllPlayers(new UpdateClientConfigurationDataMessage(this.entries));
+        PacketDistributor.sendToAllPlayers(new UpdateClientConfigurationDataMessage(Map.copyOf(this.entries)));
     }
 
     public static ConfigurationSavedData getConfigurationData(final ServerLevel level) {

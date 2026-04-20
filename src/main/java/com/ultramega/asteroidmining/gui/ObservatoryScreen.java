@@ -6,11 +6,11 @@ import com.ultramega.asteroidmining.events.AsteroidReloadListener;
 import com.ultramega.asteroidmining.network.c2s.SelectAsteroidMessage;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
 import com.ultramega.asteroidmining.utils.AsteroidConfig;
+import com.ultramega.asteroidmining.utils.TextColors;
 
 import java.util.Optional;
 import java.util.UUID;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
@@ -84,7 +84,7 @@ public class ObservatoryScreen extends AbstractModuleScreen<ObservatoryContainer
                 this.leftPos + (this.imageWidth - size) / 2, this.topPos + 20, size, size);
 
             graphics.text(this.font, asteroidName,
-                this.leftPos + (this.imageWidth - this.font.width(asteroidName)) / 2, this.topPos + 55, ChatFormatting.BLACK.getColor(), false);
+                this.leftPos + (this.imageWidth - this.font.width(asteroidName)) / 2, this.topPos + 55, TextColors.BLACK.getHexCode(), false);
         }
 
         final String noConfigurationLabel = Component.translatable("gui.asteroidmining.rocket_controller.no_configuration_selected").getString();
@@ -92,7 +92,7 @@ public class ObservatoryScreen extends AbstractModuleScreen<ObservatoryContainer
         // TODO: also show all other error messages (invalid configuration)
         if (this.selectedConfigurationUUID == null) {
             graphics.text(this.font, noConfigurationLabel,
-                this.leftPos + (this.imageWidth - this.font.width(noConfigurationLabel)) / 2, this.topPos + 20, ChatFormatting.RED.getColor(), true);
+                this.leftPos + (this.imageWidth - this.font.width(noConfigurationLabel)) / 2, this.topPos + 20, TextColors.RED.getHexCode(), true);
         }
     }
 

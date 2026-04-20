@@ -177,12 +177,16 @@ public final class CameraHandler {
         }
 
         public float computeIntensity(final Vec3 cameraPos) {
+            if (this.currentIntensity <= 0.0f) {
+                return 0.0f;
+            }
+
             final float percentageToCenter = this.getPercentageToCenter(cameraPos);
             if (percentageToCenter <= 0f) {
                 return 0f;
             }
-            final float intensity = 0.4f * (float) Math.pow(percentageToCenter, 3) * this.baseIntensity;
 
+            final float intensity = 0.4f * (float) Math.pow(percentageToCenter, 3) * this.currentIntensity;
             return Math.min(intensity, this.maxIntensity);
         }
 
