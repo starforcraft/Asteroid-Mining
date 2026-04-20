@@ -137,7 +137,7 @@ public class SolarSystemViewScreen extends Screen {
             renderable.extractRenderState(graphics, mouseX, mouseY, partialTicks);
         }
 
-        this.renderTooltip(graphics, mouseX, mouseY);
+        this.extractTooltip(graphics, mouseX, mouseY);
     }
 
     private void renderSelectedAsteroidDetails(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
@@ -222,7 +222,7 @@ public class SolarSystemViewScreen extends Screen {
 
         if (!this.selectedAsteroid.getCompositionStacks().isEmpty()) {
             graphics.text(this.font, compositionLabel, 5, y, -1);
-            Utils.renderStacksWithTooltip(graphics, this.font, mouseX, mouseY, 5, 41, 5,
+            Utils.renderStacksWithSlot(graphics, this.font, mouseX, mouseY, 5, 41, 5,
                 detailX, 0, this.selectedAsteroid.getCompositionStacks());
             y += compositionTextHeight + compositionStacksHeight;
         }
@@ -346,8 +346,14 @@ public class SolarSystemViewScreen extends Screen {
         graphics.fill(0, 0, this.width, this.height, 0xFF000000);
     }
 
-    private void renderTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
+    private void extractTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
         if (this.isMouseOnDetailPanel(mouseX, mouseY)) {
+            if (this.selectedAsteroid != null) {
+                final int detailX = this.width - this.detailWidth;
+                Utils.renderTooltipOfStacks(graphics, mouseX, mouseY, 5, 41, 5,
+                    detailX, 0, this.selectedAsteroid.getCompositionStacks());
+            }
+
             return;
         }
 
@@ -357,7 +363,7 @@ public class SolarSystemViewScreen extends Screen {
 
             final List<ClientTooltipComponent> clientTooltips = ClientHooks.gatherTooltipComponents(ItemStack.EMPTY, tooltip,
                 Optional.empty(), mouseX, graphics.guiWidth(), graphics.guiHeight(), this.font);
-            Utils.renderStacksTooltip(graphics, this.font, clientTooltips, mouseX, mouseY, DefaultTooltipPositioner.INSTANCE,
+            Utils.renderStacksInsideTooltip(graphics, this.font, clientTooltips, mouseX, mouseY, DefaultTooltipPositioner.INSTANCE,
                 this.hoveredAsteroid.getCompositionStacks());
         }
     }

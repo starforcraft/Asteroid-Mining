@@ -30,6 +30,7 @@ import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipPositioner;
 import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
 import net.minecraft.client.gui.screens.inventory.tooltip.TooltipRenderUtil;
+import net.minecraft.client.renderer.ShapeRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponentPatch;
@@ -37,6 +38,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.util.ARGB;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -52,12 +54,13 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.client.ClientHooks;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import org.joml.Matrix3x2fStack;
-import org.joml.Matrix4f;
 import org.joml.Vector2ic;
 import org.jspecify.annotations.Nullable;
 
@@ -104,13 +107,13 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
     private Utils() {
     }
 
-    public static void renderStacksTooltip(final GuiGraphicsExtractor graphics,
-                                           final Font font,
-                                           final List<ClientTooltipComponent> components,
-                                           final int mouseX,
-                                           final int mouseY,
-                                           final ClientTooltipPositioner tooltipPositioner,
-                                           final List<ItemFluidStack> stacks) {
+    public static void renderStacksInsideTooltip(final GuiGraphicsExtractor graphics,
+                                                 final Font font,
+                                                 final List<ClientTooltipComponent> components,
+                                                 final int mouseX,
+                                                 final int mouseY,
+                                                 final ClientTooltipPositioner tooltipPositioner,
+                                                 final List<ItemFluidStack> stacks) {
         if (components.isEmpty()) {
             return;
         }
@@ -163,50 +166,6 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
         graphics.pose().popMatrix();
     }
 
-    public static void renderStacksWithTooltip(final GuiGraphicsExtractor graphics,
-                                               final Font font,
-                                               final int mouseX,
-                                               final int mouseY,
-                                               final int posX,
-                                               final int posY,
-                                               final int lineBreak,
-                                               final int leftPos,
-                                               final int topPos,
-                                               final List<ItemFluidStack> stacks) {
-        int stackX = posX;
-        int stackY = posY;
-        for (int i = 0; i < stacks.size(); i++) {
-            final ItemFluidStack stack = stacks.get(i);
-
-            graphics.blitSprite(GUI_TEXTURED, AsteroidMining.makeId("slot"), stackX - 1, stackY - 1, 18, 18);
-            if (stack.getItemStack() != null) {
-                graphics.item(stack.getItemStack(), stackX, stackY);
-            } else if (stack.getFluidStack() != null) {
-                FluidContainerUtil.renderTiledFluid(graphics, stack.getFluidStack(), 0, 0, stackX, stackY, 16, 16);
-            }
-            renderAmount(graphics, font, stackX, stackY, Utils.formatWithUnits(stack.getCount()), TextColors.WHITE.getHexCode());
-
-            if (isMouseOver(leftPos + stackX, topPos + stackY, 18, 18, mouseX, mouseY)) {
-                drawSlotHighlight(graphics, stackX, stackY);
-
-                final Matrix3x2fStack poseStack = graphics.pose();
-                poseStack.pushMatrix();
-                poseStack.translate(-leftPos, 0);
-
-                renderResourceTooltip(graphics, stack, mouseX, mouseY);
-
-                poseStack.popMatrix();
-            }
-
-            if ((i + 1) % lineBreak == 0) {
-                stackX = posX;
-                stackY += 18;
-            } else {
-                stackX += 18;
-            }
-        }
-    }
-
     public static void renderStacks(final GuiGraphicsExtractor graphics,
                                     final Font font,
                                     final int posX,
@@ -223,6 +182,68 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
                 FluidContainerUtil.renderTiledFluid(graphics, stack.getFluidStack(), 0, 0, stackX, stackY, 16, 16);
             }
             renderAmount(graphics, font, stackX, stackY, Utils.formatWithUnits(stack.getCount()), TextColors.WHITE.getHexCode());
+
+            if ((i + 1) % lineBreak == 0) {
+                stackX = posX;
+                stackY += 18;
+            } else {
+                stackX += 18;
+            }
+        }
+    }
+
+    public static void renderStacksWithSlot(final GuiGraphicsExtractor graphics,
+                                            final Font font,
+                                            final int mouseX,
+                                            final int mouseY,
+                                            final int posX,
+                                            final int posY,
+                                            final int lineBreak,
+                                            final int leftPos,
+                                            final int topPos,
+                                            final List<ItemFluidStack> stacks) {
+        int stackX = posX;
+        int stackY = posY;
+        for (int i = 0; i < stacks.size(); i++) {
+            final ItemFluidStack stack = stacks.get(i);
+
+            graphics.blitSprite(GUI_TEXTURED, AsteroidMining.makeId("slot"), stackX - 1, stackY - 1, 18, 18);
+            if (stack.getItemStack() != null) {
+                graphics.item(stack.getItemStack(), stackX, stackY);
+            } else if (stack.getFluidStack() != null) {
+                FluidContainerUtil.renderTiledFluid(graphics, stack.getFluidStack(), 0, 0, stackX, stackY, 16, 16);
+            }
+            renderAmount(graphics, font, stackX, stackY, Utils.formatWithUnits(stack.getCount()), TextColors.WHITE.getHexCode());
+
+            if (isMouseOver(leftPos + stackX, topPos + stackY, 18, 18, mouseX, mouseY)) {
+                drawSlotHighlight(graphics, stackX, stackY);
+            }
+
+            if ((i + 1) % lineBreak == 0) {
+                stackX = posX;
+                stackY += 18;
+            } else {
+                stackX += 18;
+            }
+        }
+    }
+
+    public static void renderTooltipOfStacks(final GuiGraphicsExtractor graphics,
+                                             final int mouseX,
+                                             final int mouseY,
+                                             final int posX,
+                                             final int posY,
+                                             final int lineBreak,
+                                             final int leftPos,
+                                             final int topPos,
+                                             final List<ItemFluidStack> stacks) {
+        int stackX = posX;
+        int stackY = posY;
+        for (int i = 0; i < stacks.size(); i++) {
+            final ItemFluidStack stack = stacks.get(i);
+            if (isMouseOver(leftPos + stackX, topPos + stackY, 18, 18, mouseX, mouseY)) {
+                renderResourceTooltip(graphics, stack, mouseX, mouseY);
+            }
 
             if ((i + 1) % lineBreak == 0) {
                 stackX = posX;
@@ -256,9 +277,9 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
         }
 
         final List<Component> tooltip = new ArrayList<>();
-        if (stack.getItemStack() != null) {
+        if (stack.getItemStackTemplate() != null) {
             tooltip.addAll(Screen.getTooltipFromItem(Minecraft.getInstance(), stack.getItemStack()));
-            tooltip.add(Component.translatable("gui.asteroidmining.rocket_storage_viewer.total", stack.getItemStack().getCount())
+            tooltip.add(Component.translatable("gui.asteroidmining.rocket_storage_viewer.total", stack.getItemStackTemplate().count())
                 .withStyle(ChatFormatting.GRAY));
 
             renderResourceTooltip(graphics, stack.getItemStack(), tooltip, stack.getItemStack().getTooltipImage(), mouseX, mouseY);
@@ -334,46 +355,6 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
     public static String formatAstronomicalUnit(final float au) {
         return String.format("%.3f", au * 0.01) + " AU";
     }
-
-    //TODO reimplement?
-//    /**
-//     * Copied and modified from {@link ModelBlockRenderer#tesselateWithoutAO(
-//     *BlockAndTintGetter, BakedModel, BlockState, BlockPos, PoseStack, VertexConsumer, boolean, RandomSource, long, int, ModelData, RenderType)}
-//     */
-//    public static void tesselateBlock(final ModelBlockRenderer modelBlockRenderer,
-//                                      final BlockAndTintGetter level,
-//                                      final BakedModel model,
-//                                      final BlockState state,
-//                                      final BlockPos pos,
-//                                      final PoseStack poseStack,
-//                                      final VertexConsumer consumer,
-//                                      final boolean checkSides,
-//                                      final RandomSource random,
-//                                      final long seed,
-//                                      final int packedOverlay,
-//                                      final int packedLight,
-//                                      final ModelData modelData,
-//                                      final RenderType renderType) {
-//        final BitSet bitset = new BitSet(3);
-//        final BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
-//
-//        for (final Direction direction : Direction.values()) {
-//            random.setSeed(seed);
-//            final List<BakedQuad> list = model.getQuads(state, direction, random, modelData, renderType);
-//            if (!list.isEmpty()) {
-//                blockpos$mutableblockpos.setWithOffset(pos, direction);
-//                if (!checkSides || Block.shouldRenderFace(state, level, pos, direction, blockpos$mutableblockpos)) {
-//                    modelBlockRenderer.renderModelFaceFlat(level, state, pos, packedLight, packedOverlay, false, poseStack, consumer, list, bitset);
-//                }
-//            }
-//        }
-//
-//        random.setSeed(seed);
-//        final List<BakedQuad> list = model.getQuads(state, null, random, modelData, renderType);
-//        if (!list.isEmpty()) {
-//            modelBlockRenderer.renderModelFaceFlat(level, state, pos, packedLight, packedOverlay, false, poseStack, consumer, list, bitset);
-//        }
-//    }
 
     @SuppressWarnings("unchecked")
     @Nullable
@@ -487,21 +468,47 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
             }
 
             final BlockPos pos = info.pos();
-            final BlockState state = level.getBlockState(pos);
-            if (info.expectedBlock().get().defaultBlockState().isAir() && state.isAir()) {
+            final BlockState expectedState = info.expectedBlock().get().defaultBlockState();
+            final BlockState currentState = level.getBlockState(pos);
+
+            if (expectedState.isAir() && currentState.isAir()) {
                 continue;
             }
-            final VoxelShape shape = state.getShape(level, pos);
-            final AABB aabb = shape.isEmpty() ? new AABB(pos) : shape.bounds().move(pos);
 
-            final Optional<Vec3> intersection = aabb.clip(start, end);
-            if (intersection.isPresent()) {
-                final double distance = start.distanceToSqr(intersection.get());
-                if (distance < closestDistance) {
-                    closestDistance = distance;
-                    final Direction hitDirection = Direction.getNearest((int) rayDir.x, (int) rayDir.y, (int) rayDir.z, null);
-                    closestHit = new PreviewBlockHitResult(intersection.get(), hitDirection, pos, false, false, info);
+            final BlockState shapeState = expectedState.isAir() ? currentState : expectedState;
+            final VoxelShape shape = shapeState.getShape(level, pos);
+
+            final BlockHitResult hitResult;
+            if (shape.isEmpty()) {
+                final Optional<Vec3> intersection = new AABB(pos).clip(start, end);
+                if (intersection.isEmpty()) {
+                    continue;
                 }
+
+                hitResult = new BlockHitResult(
+                    intersection.get(),
+                    Direction.getApproximateNearest((float) rayDir.x, (float) rayDir.y, (float) rayDir.z),
+                    pos,
+                    false
+                );
+            } else {
+                hitResult = shape.clip(start, end, pos);
+                if (hitResult == null) {
+                    continue;
+                }
+            }
+
+            final double distance = start.distanceToSqr(hitResult.getLocation());
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestHit = new PreviewBlockHitResult(
+                    hitResult.getLocation(),
+                    hitResult.getDirection(),
+                    hitResult.getBlockPos(),
+                    false,
+                    false,
+                    info
+                );
             }
         }
 
@@ -509,130 +516,37 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
             return closestHit;
         }
 
-        final Direction missDirection = Direction.getNearest((int) rayDir.x, (int) rayDir.y, (int) rayDir.z, null);
-        return new PreviewBlockHitResult(true, end, missDirection, BlockPos.containing(end), false, false, null);
+        return new PreviewBlockHitResult(
+            true,
+            end,
+            Direction.getApproximateNearest((float) rayDir.x, (float) rayDir.y, (float) rayDir.z),
+            BlockPos.containing(end),
+            false,
+            false,
+            null
+        );
     }
 
     public static void drawConnectedWireframe(final PoseStack poseStack,
                                               final VertexConsumer consumer,
                                               final Set<BlockPos> blocks,
                                               final Vec3 cameraPos) {
-        final int[][] offsets = {
-            {0, 0, 0}, {1, 0, 0}, {1, 0, 1}, {0, 0, 1},
-            {0, 1, 0}, {1, 1, 0}, {1, 1, 1}, {0, 1, 1}
-        };
-
-        record Face(Direction dir, int[] idx) { }
-
-        final Face[] faces = {
-            new Face(Direction.DOWN, new int[]{0, 1, 2, 3}),
-            new Face(Direction.UP, new int[]{4, 5, 6, 7}),
-            new Face(Direction.NORTH, new int[]{3, 2, 6, 7}),
-            new Face(Direction.SOUTH, new int[]{1, 0, 4, 5}),
-            new Face(Direction.WEST, new int[]{0, 3, 7, 4}),
-            new Face(Direction.EAST, new int[]{2, 1, 5, 6})
-        };
-
-        record Edge(Vec3 a, Vec3 b) {
-            static Edge of(final Vec3 p, final Vec3 q) {
-                if (p.x < q.x || (p.x == q.x && (p.y < q.y || (p.y == q.y && p.z < q.z)))) {
-                    return new Edge(p, q);
-                } else {
-                    return new Edge(q, p);
-                }
-            }
-        }
-
-        final Set<Edge> edges = new HashSet<>();
+        VoxelShape shape = Shapes.empty();
 
         for (final BlockPos pos : blocks) {
-            final Vec3 base = Vec3.atLowerCornerOf(pos).subtract(cameraPos);
-            final Vec3[] corners = new Vec3[8];
-            for (int i = 0; i < 8; i++) {
-                corners[i] = new Vec3(
-                    base.x + offsets[i][0],
-                    base.y + offsets[i][1],
-                    base.z + offsets[i][2]
-                );
-            }
-
-            for (final Face face : faces) {
-                if (blocks.contains(pos.relative(face.dir))) {
-                    continue;
-                }
-
-                final int[] idxs = face.idx;
-                for (int j = 0; j < 4; j++) {
-                    final int aIdx = idxs[j];
-                    final int bIdx = idxs[(j + 1) & 3];
-
-                    final int[] ao = offsets[aIdx];
-                    final int[] bo = offsets[bIdx];
-
-                    if (ao[1] == bo[1] && ao[1] == 0) {
-                        if (blocks.contains(pos.below())) {
-                            continue;
-                        }
-                    }
-                    if (ao[1] == bo[1] && ao[1] == 1) {
-                        if (blocks.contains(pos.above())) {
-                            continue;
-                        }
-                    }
-
-                    if (ao[1] != bo[1]) {
-                        if (ao[0] == 0 && blocks.contains(pos.relative(Direction.WEST))) {
-                            continue;
-                        }
-                        if (ao[0] == 1 && blocks.contains(pos.relative(Direction.EAST))) {
-                            continue;
-                        }
-                        if (ao[2] == 0 && blocks.contains(pos.relative(Direction.NORTH))) {
-                            continue;
-                        }
-                        if (ao[2] == 1 && blocks.contains(pos.relative(Direction.SOUTH))) {
-                            continue;
-                        }
-                    } else {
-                        if (ao[2] == 1 && bo[2] == 0 && blocks.contains(pos.relative(Direction.WEST))) {
-                            continue;
-                        }
-                        if (ao[2] == 0 && bo[2] == 1 && blocks.contains(pos.relative(Direction.EAST))) {
-                            continue;
-                        }
-
-                        if (ao[0] == 1 && bo[0] == 0 && blocks.contains(pos.relative(Direction.SOUTH))) {
-                            continue;
-                        }
-                        if (ao[0] == 0 && bo[0] == 1 && blocks.contains(pos.relative(Direction.NORTH))) {
-                            continue;
-                        }
-
-                        if (ao[0] == 1 && ao[1] == 0 && bo[2] == 0 && blocks.contains(pos.relative(Direction.NORTH))) {
-                            continue;
-                        }
-                        if (ao[2] == 1 && ao[1] == 0 && bo[2] == 1 && blocks.contains(pos.relative(Direction.SOUTH))) {
-                            continue;
-                        }
-                    }
-
-                    final Vec3 p = corners[aIdx];
-                    final Vec3 q = corners[bIdx];
-                    edges.add(Edge.of(p, q));
-                }
-            }
+            shape = Shapes.or(shape, Shapes.block().move(pos.getX(), pos.getY(), pos.getZ()));
         }
 
-        final Matrix4f matrix = poseStack.last().pose();
-        for (final Edge edge : edges) {
-            //TODO: for some reason some lines are smaller than others (either find a better way to symbolize the area where the rocket can be build or fix this shit)
-            consumer.addVertex(matrix, (float) edge.a.x(), (float) edge.a.y(), (float) edge.a.z())
-                .setColor(0.0F, 1.0F, 0.0F, 1.0F)
-                .setNormal(poseStack.last(), 0.0F, 1.0F, 0.0F);
-            consumer.addVertex(matrix, (float) edge.b.x(), (float) edge.b.y(), (float) edge.b.z())
-                .setColor(0.0F, 1.0F, 0.0F, 1.0F)
-                .setNormal(poseStack.last(), 0.0F, 1.0F, 0.0F);
-        }
+        ShapeRenderer.renderShape(
+            poseStack,
+            consumer,
+            shape,
+            -cameraPos.x,
+            -cameraPos.y,
+            -cameraPos.z,
+            ARGB.colorFromFloat(1.0F, 0.0F, 1.0F, 0.0F),
+            4.0F
+        );
     }
 
     public static boolean isSpacePortValid(final Level level, final LaunchPadConfiguration launchPadConfiguration) {

@@ -13,6 +13,7 @@ import java.util.Optional;
 
 import com.mojang.blaze3d.platform.Window;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
@@ -37,7 +38,8 @@ public class LaunchPadConfigureScreen extends Screen {
 
     private final LaunchPadBuilderScreen parent;
 
-    private Matrix4f projectionViewMatrix;
+    @Nullable
+    private Matrix4f inverseProjectionViewMatrix;
     @Nullable
     private BlockPos blockUnderCursor;
 
@@ -103,25 +105,34 @@ public class LaunchPadConfigureScreen extends Screen {
 
     private void calculateBlockUnderCursor(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
         final Minecraft mc = Minecraft.getInstance();
-        double mx = mc.mouseHandler.xpos();
-        double my = mc.mouseHandler.ypos();
 
-        my = mc.getWindow().getScreenHeight() - my;
-        my *= mc.getWindow().getHeight() / (double) mc.getWindow().getScreenHeight();
-        mx *= mc.getWindow().getWidth() / (double) mc.getWindow().getScreenWidth();
-        final Vec3 near = this.toWorld(mx, my, 0);
-        final Vec3 far = this.toWorld(mx, my, 1);
-
-        if (near == null || far == null) {
+        final Camera camera = mc.gameRenderer.getMainCamera();
+        if (camera == null || !camera.isInitialized()) {
             return;
         }
 
-        final Vec3 cameraPos = mc.getEntityRenderDispatcher().camera.position();
+        final Window window = mc.getWindow();
+        final double rawMouseX = mc.mouseHandler.xpos();
+        final double rawMouseY = mc.mouseHandler.ypos();
 
-        final PreviewBlockHitResult hitResult = raytraceGivenBlocks(near.add(cameraPos), far.add(cameraPos),
-            ClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.getOrDefault(this.parent.getMenu().getBlockEntity().getBlockPos(), new ArrayList<>()), mc.level);
+        // Normalize to screen coordinates [-1, 1]
+        final float x = (float) ((rawMouseX / window.getScreenWidth()) * 2.0 - 1.0);
+        final float y = (float) (1.0 - (rawMouseY / window.getScreenHeight()) * 2.0);
 
-        if (hitResult.getType() == HitResult.Type.BLOCK) {
+        final Camera.NearPlane nearPlane = camera.getNearPlane(camera.getFov());
+        final Vec3 nearPlanePoint = nearPlane.getPointOnPlane(x, y);
+
+        final Vec3 start = camera.position();
+        final Vec3 direction = nearPlanePoint.normalize();
+        final Vec3 end = start.add(direction.scale(256.0));
+
+        final PreviewBlockHitResult hitResult = raytraceGivenBlocks(
+            start,
+            end,
+            ClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.getOrDefault(this.parent.getMenu().getBlockEntity().getBlockPos(), new ArrayList<>()),
+            mc.level);
+
+        if (hitResult.getType() == HitResult.Type.BLOCK && hitResult.getPreviewInfo() != null) {
             this.blockUnderCursor = hitResult.getBlockPos();
 
             // Render Tooltip
@@ -151,8 +162,32 @@ public class LaunchPadConfigureScreen extends Screen {
         }
     }
 
+    @Nullable
+    private Vec3 unproject(final double fbX, final double fbY, final double depth) {
+        if (this.inverseProjectionViewMatrix == null) {
+            return null;
+        }
+
+        final Window window = Minecraft.getInstance().getWindow();
+
+        final float ndcX = (float) ((fbX / window.getWidth()) * 2.0 - 1.0);
+        final float ndcY = (float) ((fbY / window.getHeight()) * 2.0 - 1.0);
+
+        final Vector4f pos = new Vector4f(ndcX, ndcY, (float) depth, 1.0f);
+        this.inverseProjectionViewMatrix.transform(pos);
+
+        if (Math.abs(pos.w()) < 1.0e-6f) {
+            return null;
+        }
+
+        pos.div(pos.w());
+        return new Vec3(pos.x(), pos.y(), pos.z());
+    }
+
+
+    @Nullable
     private Vec3 toWorld(final double x, final double y, final double z) {
-        if (this.projectionViewMatrix == null) {
+        if (this.inverseProjectionViewMatrix == null) {
             return null;
         }
 
@@ -162,7 +197,7 @@ public class LaunchPadConfigureScreen extends Screen {
         final double normalizedY = y / window.getHeight() * 2.0 - 1.0;
 
         final Vector4f normalizedPos = new Vector4f((float) normalizedX, (float) normalizedY, (float) z, 1.0F);
-        this.projectionViewMatrix.transform(normalizedPos);
+        this.inverseProjectionViewMatrix.transform(normalizedPos);
 
         if (normalizedPos.w() == 0) {
             return null;
@@ -192,8 +227,8 @@ public class LaunchPadConfigureScreen extends Screen {
         return false;
     }
 
-    public void setProjectionViewMatrix(final Matrix4f projectionViewMatrix) {
-        this.projectionViewMatrix = projectionViewMatrix;
+    public void setInverseProjectionViewMatrix(final Matrix4f inverseProjectionViewMatrix) {
+        this.inverseProjectionViewMatrix = inverseProjectionViewMatrix;
     }
 
     @Nullable

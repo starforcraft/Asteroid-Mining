@@ -1,5 +1,6 @@
 package com.ultramega.asteroidmining.events;
 
+import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.blockentities.renderer.RocketEngineBlockEntityRenderer;
 import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
 import com.ultramega.asteroidmining.entities.renderer.BlockStructureEntityRenderer;
@@ -9,10 +10,12 @@ import com.ultramega.asteroidmining.gui.DistillationColumnScreen;
 import com.ultramega.asteroidmining.gui.ElectrolysisPlantScreen;
 import com.ultramega.asteroidmining.gui.HeatExchangerScreen;
 import com.ultramega.asteroidmining.gui.LaunchPadBuilderScreen;
+import com.ultramega.asteroidmining.gui.LaunchPadConfigureScreen;
 import com.ultramega.asteroidmining.gui.ObservatoryScreen;
 import com.ultramega.asteroidmining.gui.RocketControllerConfigurationScreen;
 import com.ultramega.asteroidmining.gui.RocketControllerScreen;
 import com.ultramega.asteroidmining.gui.RocketStorageViewerScreen;
+import com.ultramega.asteroidmining.gui.renderer.LaunchPadPreviewRenderState;
 import com.ultramega.asteroidmining.gui.renderer.ScenePictureInPictureRenderer;
 import com.ultramega.asteroidmining.particles.BigSmokeParticle;
 import com.ultramega.asteroidmining.registry.ModBlocks;
@@ -22,6 +25,7 @@ import com.ultramega.asteroidmining.registry.ModMenuTypes;
 import com.ultramega.asteroidmining.registry.ModParticles;
 import com.ultramega.asteroidmining.utils.CameraHandler;
 import com.ultramega.asteroidmining.utils.PreviewInfo;
+import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.HashSet;
 import java.util.List;
@@ -29,22 +33,32 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.state.level.BlockOutlineRenderState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
-import net.minecraft.util.RandomSource;
+import net.minecraft.gizmos.GizmoStyle;
+import net.minecraft.gizmos.Gizmos;
+import net.minecraft.util.ARGB;
+import net.minecraft.util.context.ContextKey;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.AddSectionGeometryEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ExtractBlockOutlineRenderStateEvent;
+import net.neoforged.neoforge.client.event.ExtractLevelRenderStateEvent;
 import net.neoforged.neoforge.client.event.RegisterFluidModelsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -53,6 +67,7 @@ import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
 import net.neoforged.neoforge.client.event.RenderHandEvent;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
+import org.joml.Matrix4f;
 
 @EventBusSubscriber(value = Dist.CLIENT)
 public class ClientEvents {
@@ -61,7 +76,7 @@ public class ClientEvents {
     // TODO: Investigate if this is a good way to go about this (Hides preview blocks on launch so that the chopsticks aren't visible)
     public static final Set<BlockPos> HIDE_PREVIEW_BLOCKS = new HashSet<>();
 
-    private static final ThreadLocal<RandomSource> RANDOM = ThreadLocal.withInitial(RandomSource::create);
+    private static final ContextKey<LaunchPadPreviewRenderState> PREVIEW_STATE_KEY = new ContextKey<>(AsteroidMining.makeId("launch_pad_preview_state"));
 
     private ClientEvents() {
     }
@@ -82,71 +97,48 @@ public class ClientEvents {
     }
 
     @SubscribeEvent
-    public static void addGeometryEvent(final AddSectionGeometryEvent event) {
+    public static void onExtractLevelRenderState(final ExtractLevelRenderStateEvent event) {
         if (LAUNCH_PAD_PREVIEW_BLOCKS.isEmpty()) {
             return;
         }
 
-        final SectionPos section = SectionPos.of(event.getSectionOrigin());
-        final Map<BlockPos, BlockState> previewBlocks = new Object2ObjectOpenHashMap<>();
+        final ClientLevel level = Minecraft.getInstance().level;
+        if (level == null) {
+            return;
+        }
+
+        final LaunchPadPreviewRenderState state = new LaunchPadPreviewRenderState();
 
         LAUNCH_PAD_PREVIEW_BLOCKS.forEach((key, previewList) -> {
-            if (previewList != null) {
-                for (final PreviewInfo info : previewList) {
-                    if (SectionPos.of(info.pos()).equals(section)) {
-                        if (info.expectedBlock().isPresent()) {
-                            final BlockState state = info.expectedBlock().get().defaultBlockState();
-                            if (HIDE_PREVIEW_BLOCKS.contains(key) && !state.isAir()) {
-                                continue;
-                            }
-                            previewBlocks.put(info.pos(), state);
-                        }
+            for (final PreviewInfo info : previewList) {
+                if (info.expectedBlock().isPresent()) {
+                    BlockState previewState = info.expectedBlock().get().defaultBlockState();
+
+                    if (HIDE_PREVIEW_BLOCKS.contains(key) && !previewState.isAir()) {
+                        continue;
                     }
+
+                    final BlockState currentState = level.getBlockState(info.pos());
+                    if (previewState.is(currentState.getBlock())) {
+                        continue;
+                    }
+
+                    if (previewState.isAir()) {
+                        previewState = Blocks.RED_TERRACOTTA.defaultBlockState();
+                    }
+
+                    state.previewBlocks.add(new LaunchPadPreviewRenderState.Entry(
+                        info.pos(),
+                        previewState,
+                        !currentState.isAir()
+                    ));
+                } else {
+                    state.rocketPositions.add(info.pos());
                 }
             }
         });
 
-        //TODO reimplement
-//        event.addRenderer(context -> {
-//            final BlockAndTintGetter level = context.getRegion();
-//            final RandomSource random = RANDOM.get();
-//
-//            for (final Map.Entry<BlockPos, BlockState> entry : previewBlocks.entrySet()) {
-//                random.setSeed(42L);
-//
-//                final BlockRenderDispatcher blockRenderer = Minecraft.getInstance().getBlockRenderer();
-//                BlockState previewState = entry.getValue();
-//                final BlockPos pos = entry.getKey();
-//                final PoseStack poseStack = context.getPoseStack();
-//
-//                final BlockState currentState = level.getBlockState(pos);
-//
-//                final boolean isCorrectBlock = previewState.is(currentState.getBlock());
-//                if (isCorrectBlock) {
-//                    continue;
-//                } else if (previewState.isAir()) {
-//                    previewState = Blocks.RED_TERRACOTTA.defaultBlockState();
-//                }
-//
-//                final BakedModel targetModel = blockRenderer.getBlockModel(previewState);
-//                final ModelData modelData = targetModel.getModelData(level, pos, previewState, ModelData.EMPTY);
-//
-//                poseStack.pushPose();
-//                poseStack.translate(SectionPos.sectionRelative(pos.getX()), SectionPos.sectionRelative(pos.getY()), SectionPos.sectionRelative(pos.getZ()));
-//
-//                poseStack.translate(0.5, 0.5, 0.5);
-//                poseStack.scale(1.005F, 1.005F, 1.005F);
-//                poseStack.translate(-0.5, -0.5, -0.5);
-//
-//                for (final RenderType renderType : targetModel.getRenderTypes(previewState, random, ModelData.EMPTY)) {
-//                    VertexConsumer buffer = context.getOrCreateChunkBuffer(RenderType.translucent());
-//                    buffer = new AlphaColorWrapper(buffer, !currentState.isAir());
-//                    blockRenderer.renderBatched(previewState, pos, level, poseStack, buffer, true, random, modelData, renderType);
-//                }
-//
-//                poseStack.popPose();
-//            }
-//        });
+        event.getRenderState().setRenderData(PREVIEW_STATE_KEY, state);
     }
 
     @SubscribeEvent
@@ -173,54 +165,60 @@ public class ClientEvents {
 
     @SubscribeEvent
     public static void onRenderLevelStage2(final RenderLevelStageEvent.AfterOpaqueBlocks event) {
-        // TODO: reimplement
-//        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_BLOCK_ENTITIES) {
-//            return;
-//        }
-//
-//        final Minecraft mc = Minecraft.getInstance();
-//        final MultiBufferSource buffer = mc.renderBuffers().bufferSource();
-//        final Camera camera = mc.gameRenderer.getMainCamera();
-//        final Vec3 cameraPos = camera.getPosition();
-//
-//        // Render block highlight at cursor position
-//        if (mc.screen instanceof LaunchPadConfigureScreen configureScreen) {
-//            final PoseStack poseStack = new PoseStack();
-//            poseStack.mulPose(event.getModelViewMatrix());
-//            final Matrix4f projectionViewMatrix = new Matrix4f(event.getProjectionMatrix());
-//            projectionViewMatrix.mul(poseStack.last().pose());
-//            projectionViewMatrix.invert();
-//
-//            configureScreen.setProjectionViewMatrix(projectionViewMatrix);
-//
-//            if (configureScreen.getBlockUnderCursor() != null) {
-//                final AABB box = new AABB(configureScreen.getBlockUnderCursor()).move(-cameraPos.x, -cameraPos.y, -cameraPos.z);
-//
-//                LevelRenderer.renderLineBox(
-//                    event.getPoseStack(),
-//                    buffer.getBuffer(RenderType.lines()),
-//                    box,
-//                    0.0F, 1.0F, 0.0F,
-//                    1.0F
-//                );
-//            }
-//        }
-//
-//        // Render area where blocks for the rocket can be placed
-//        final Set<BlockPos> rocketPos = new HashSet<>();
-//        LAUNCH_PAD_PREVIEW_BLOCKS.forEach((key, previewList) -> {
-//            if (previewList != null) {
-//                for (final PreviewInfo info : previewList) {
-//                    if (info.expectedBlock().isEmpty()) {
-//                        rocketPos.add(info.pos());
-//                    }
-//                }
-//            }
-//        });
-//
-//        if (!rocketPos.isEmpty()) {
-//            Utils.drawConnectedWireframe(event.getPoseStack(), buffer.getBuffer(RenderType.lines()), rocketPos, cameraPos);
-//        }
+        final Minecraft mc = Minecraft.getInstance();
+        final Camera camera = mc.gameRenderer.getMainCamera();
+        final Vec3 cameraPos = camera.position();
+
+        // Cursor highlight
+        if (mc.screen instanceof LaunchPadConfigureScreen configureScreen) {
+            final Matrix4f projectionViewMatrix = new Matrix4f(event.getModelViewMatrix());
+            projectionViewMatrix.invert();
+
+            configureScreen.setInverseProjectionViewMatrix(projectionViewMatrix);
+
+            final BlockPos hovered = configureScreen.getBlockUnderCursor();
+            if (hovered != null) {
+                final AABB box = new AABB(hovered);
+
+                Gizmos.cuboid(
+                    box,
+                    GizmoStyle.stroke(ARGB.colorFromFloat(1.0F, 0.0F, 1.0F, 0.0F)),
+                    true
+                );
+            }
+        }
+
+        final LaunchPadPreviewRenderState state =
+            event.getLevelRenderState().getRenderData(PREVIEW_STATE_KEY);
+
+        if (state == null) {
+            return;
+        }
+
+        // Render preview block boxes
+        for (final LaunchPadPreviewRenderState.Entry entry : state.previewBlocks) {
+            final int color = entry.occupied()
+                ? ARGB.colorFromFloat(1.0F, 1.0F, 0.3F, 0.3F)
+                : ARGB.colorFromFloat(1.0F, 0.3F, 1.0F, 1.0F);
+
+            // TODO draw actual texture instead
+//            Gizmos.cuboid(
+//                new AABB(entry.pos()),
+//                GizmoStyle.stroke(color),
+//                true
+//            );
+        }
+
+        // Render area where blocks for the rocket can be placed
+        if (!state.rocketPositions.isEmpty()) {
+            final VertexConsumer lineBuffer = mc.renderBuffers().bufferSource().getBuffer(RenderTypes.lines());
+            Utils.drawConnectedWireframe(
+                event.getPoseStack(),
+                lineBuffer,
+                state.rocketPositions,
+                cameraPos
+            );
+        }
     }
 
     @SubscribeEvent

@@ -62,7 +62,6 @@ public record SetConfigurationStackMessage(BlockPos launchPadBuilderPos, LaunchP
                 } else {
                     uuid = resource.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get());
                 }
-                System.out.println(uuid);
                 ConfigurationSavedData.getConfigurationData(serverLevel).set(uuid,
                     new NetworkConfiguration(data.launchPadConfiguration(), Optional.empty(), new ModuleProperties(Optional.empty(), NonNullList.create())));
                 final List<PreviewInfo> previewInfos = Utils.calculateSpacePort(level, data.launchPadConfiguration(), true);
