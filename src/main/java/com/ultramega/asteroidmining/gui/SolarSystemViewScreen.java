@@ -147,9 +147,6 @@ public class SolarSystemViewScreen extends Screen {
             return;
         }
 
-        final Matrix3x2fStack poseStack = graphics.pose();
-        poseStack.pushMatrix();
-
         // <<< Text Content Preparation >>>
         final String asteroidName = this.selectedAsteroid.getName();
         final Component sizeLabel = Component.translatable("gui.asteroidmining.observatory.diameter").withStyle(ChatFormatting.AQUA)
@@ -204,7 +201,11 @@ public class SolarSystemViewScreen extends Screen {
         this.displayOrbitDetailsButton.setY(this.detailHeight - 38 - orbitDetailsExtraHeight);
         this.displayOrbitDetailsButton.visible = hasOrbitDetails;
 
+        final Matrix3x2fStack poseStack = graphics.pose();
+        poseStack.pushMatrix();
         poseStack.translate(detailX, 0);
+
+        graphics.fill(0, 0, this.detailWidth, this.detailHeight, 0xFF525151);
 
         if (hasOrbitDetails) {
             graphics.text(this.font, orbitDetailsLabel, 20, this.detailHeight - 34 - orbitDetailsExtraHeight, -1);
@@ -234,8 +235,6 @@ public class SolarSystemViewScreen extends Screen {
             y += 10;
             graphics.text(this.font, semiMinorAxisLabel, 5, y, -1);
         }
-
-        graphics.fill(0, 0, this.detailWidth, this.detailHeight, 0xFF525151);
 
         poseStack.popMatrix();
     }
@@ -305,8 +304,8 @@ public class SolarSystemViewScreen extends Screen {
 
         float minX = Float.MAX_VALUE;
         float minY = Float.MAX_VALUE;
-        float maxX = Float.MIN_VALUE;
-        float maxY = Float.MIN_VALUE;
+        float maxX = -Float.MIN_VALUE;
+        float maxY = -Float.MIN_VALUE;
 
         for (int i = 0; i <= segments; i++) {
             final double angle = (2.0 * Math.PI * i) / segments;
@@ -364,7 +363,7 @@ public class SolarSystemViewScreen extends Screen {
     }
 
     @Override
-    public boolean mouseDragged(final MouseButtonEvent event, final double dx, final double dy) {
+    public boolean mouseDragged(final MouseButtonEvent event, final double dragX, final double dragY) {
         if (this.isMouseOnDetailPanel(event.x(), event.y())) {
             return false;
         }

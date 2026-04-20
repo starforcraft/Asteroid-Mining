@@ -1,10 +1,11 @@
 package com.ultramega.asteroidmining.gui.renderer;
 
+import com.ultramega.asteroidmining.registry.ModRenderPipelines;
+
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.gui.navigation.ScreenRectangle;
 import net.minecraft.client.gui.render.TextureSetup;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.state.gui.GuiElementRenderState;
 import org.joml.Matrix3x2f;
 import org.jspecify.annotations.Nullable;
@@ -46,7 +47,7 @@ public class OrbitRenderState implements GuiElementRenderState {
 
     @Override
     public RenderPipeline pipeline() {
-        return RenderPipelines.GUI;
+        return ModRenderPipelines.ORBIT_LINES;
     }
 
     @Override

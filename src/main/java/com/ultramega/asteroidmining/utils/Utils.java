@@ -184,7 +184,7 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
             } else if (stack.getFluidStack() != null) {
                 FluidContainerUtil.renderTiledFluid(graphics, stack.getFluidStack(), 0, 0, stackX, stackY, 16, 16);
             }
-            renderAmount(graphics, font, stackX, stackY, Utils.formatWithUnits(stack.getCount()), 16777215);
+            renderAmount(graphics, font, stackX, stackY, Utils.formatWithUnits(stack.getCount()), TextColors.WHITE.getHexCode());
 
             if (isMouseOver(leftPos + stackX, topPos + stackY, 18, 18, mouseX, mouseY)) {
                 drawSlotHighlight(graphics, stackX, stackY);
@@ -222,7 +222,7 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
             } else if (stack.getFluidStack() != null) {
                 FluidContainerUtil.renderTiledFluid(graphics, stack.getFluidStack(), 0, 0, stackX, stackY, 16, 16);
             }
-            renderAmount(graphics, font, stackX, stackY, Utils.formatWithUnits(stack.getCount()), 0xFFFFFF);
+            renderAmount(graphics, font, stackX, stackY, Utils.formatWithUnits(stack.getCount()), TextColors.WHITE.getHexCode());
 
             if ((i + 1) % lineBreak == 0) {
                 stackX = posX;

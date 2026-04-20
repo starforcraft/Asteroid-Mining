@@ -22,10 +22,10 @@ public class ItemFluidStack {
         .xmap(
             either -> either.map(ItemFluidStack::new, ItemFluidStack::new),
             stack -> {
-                if (stack.fluidStack != null) {
-                    return Either.left(stack.fluidStack);
-                } else if (stack.itemStack != null) {
-                    return Either.right(stack.itemStack);
+                if (stack.fluidStackTemplate != null) {
+                    return Either.left(stack.fluidStackTemplate);
+                } else if (stack.itemStackTemplate != null) {
+                    return Either.right(stack.itemStackTemplate);
                 }
                 throw new IllegalStateException("ItemFluidStack must have either an ItemStack or a FluidStack");
             }
@@ -70,46 +70,60 @@ public class ItemFluidStack {
         };
 
     @Nullable
-    private FluidStackTemplate fluidStack;
+    private FluidStackTemplate fluidStackTemplate;
     @Nullable
-    private ItemStackTemplate itemStack;
+    private ItemStackTemplate itemStackTemplate;
 
-    public ItemFluidStack(final ItemStackTemplate itemStack) {
-        this.itemStack = itemStack;
+    public ItemFluidStack(final ItemStackTemplate itemStackTemplate) {
+        this.itemStackTemplate = itemStackTemplate;
     }
 
-    public ItemFluidStack(final FluidStackTemplate fluidStack) {
-        this.fluidStack = fluidStack;
+    public ItemFluidStack(final FluidStackTemplate fluidStackTemplate) {
+        this.fluidStackTemplate = fluidStackTemplate;
     }
 
     public ItemFluidStack copyWithCount(final int amount) {
-        if (this.itemStack != null) {
-            return new ItemFluidStack(this.itemStack.withCount(amount));
-        } else if (this.fluidStack != null) {
-            return new ItemFluidStack(this.fluidStack.withAmount(amount));
+        if (this.itemStackTemplate != null) {
+            return new ItemFluidStack(this.itemStackTemplate.withCount(amount));
+        } else if (this.fluidStackTemplate != null) {
+            return new ItemFluidStack(this.fluidStackTemplate.withAmount(amount));
         }
 
         throw new IllegalStateException();
     }
 
     public int getCount() {
-        if (this.itemStack != null) {
-            return this.itemStack.count();
-        } else if (this.fluidStack != null) {
-            return this.fluidStack.amount();
+        if (this.itemStackTemplate != null) {
+            return this.itemStackTemplate.count();
+        } else if (this.fluidStackTemplate != null) {
+            return this.fluidStackTemplate.amount();
         }
 
         return -1;
     }
 
+    @Deprecated
     @Nullable
     public ItemStack getItemStack() {
-        return this.itemStack != null ? this.itemStack.create() : null;
+        return this.itemStackTemplate != null
+            ? new ItemStack(this.itemStackTemplate.item(), Math.clamp(this.itemStackTemplate.count(), 1, 99), this.itemStackTemplate.components())
+            : null;
     }
 
     @Nullable
+    public ItemStackTemplate getItemStackTemplate() {
+        return this.itemStackTemplate;
+    }
+
+    @Deprecated
+    @Nullable
     public FluidStack getFluidStack() {
-        return this.fluidStack != null ? this.fluidStack.create() : null;
+        return this.fluidStackTemplate != null ? this.fluidStackTemplate.create() : null;
+    }
+
+    @Nullable
+    public FluidStackTemplate getFluidStackTemplate() {
+        return this.fluidStackTemplate;
     }
 
     public static ItemFluidStack of(final ItemStackTemplate itemStack, final FluidStackTemplate fluidStack) {

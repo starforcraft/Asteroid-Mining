@@ -46,12 +46,12 @@ public class AsteroidMiningRecipeCategory implements IRecipeCategory<AsteroidCon
         for (int i = 0; i < recipe.getCompositionStacks().size(); i++) {
             final ItemFluidStack stack = recipe.getCompositionStacks().get(i).copyWithCount(1);
 
-            if (stack.getItemStack() != null) {
+            if (stack.getItemStackTemplate() != null) {
                 builder.addOutputSlot(0, 0)
-                    .add(stack.getItemStack());
-            } else if (stack.getFluidStack() != null) {
+                    .add(stack.getItemStackTemplate());
+            } else if (stack.getFluidStackTemplate() != null) {
                 builder.addOutputSlot(0, 0)
-                    .add(stack.getFluidStack().getFluid());
+                    .add(stack.getFluidStackTemplate().fluid().value());
             }
         }
     }

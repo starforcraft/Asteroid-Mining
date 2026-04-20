@@ -7,8 +7,8 @@
     "minecraft:iron_ore": 640000
   },
   "compositionFluids": {
-    "minecraft:lava": 16000,
-    "minecraft:water": 320000
+    "minecraft:water": 320000,
+    "minecraft:lava": 16000
   },
   "centralBodyName": "Mercury",
   "semiMajorAxis": 10.0,

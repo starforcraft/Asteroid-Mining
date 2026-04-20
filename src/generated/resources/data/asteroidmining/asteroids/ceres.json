@@ -4,8 +4,8 @@
   "texture": "asteroidmining:space/asteroid_2",
   "diameter": 4,
   "compositionItems": {
-    "minecraft:gold_ore": 32000,
-    "minecraft:iron_ore": 32000
+    "minecraft:iron_ore": 32000,
+    "minecraft:gold_ore": 32000
   },
   "compositionFluids": {},
   "centralBodyName": "Sun",
