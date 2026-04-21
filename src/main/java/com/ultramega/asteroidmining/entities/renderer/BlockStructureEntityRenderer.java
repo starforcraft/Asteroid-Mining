@@ -83,6 +83,7 @@ public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureE
         poseStack.mulPose(Axis.YP.rotationDegrees(-renderState.interpolatedYRot));
         poseStack.translate(-pivot.getX(), -pivot.getY(), -pivot.getZ());
 
+        // TODO: Are blocks hidden by others rendered?
         for (final BlockStructureEntityRenderState.MovingBlockEntry entry : renderState.movingBlocks) {
             final BlockPos relativePos = entry.pos().subtract(renderState.origin);
 

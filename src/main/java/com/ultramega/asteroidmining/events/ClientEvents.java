@@ -1,6 +1,6 @@
 package com.ultramega.asteroidmining.events;
 
-import com.ultramega.asteroidmining.AsteroidMining;
+import com.ultramega.asteroidmining.blockentities.renderer.LaunchPadBuilderBlockEntityRenderer;
 import com.ultramega.asteroidmining.blockentities.renderer.RocketEngineBlockEntityRenderer;
 import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
 import com.ultramega.asteroidmining.entities.renderer.BlockStructureEntityRenderer;
@@ -15,9 +15,9 @@ import com.ultramega.asteroidmining.gui.ObservatoryScreen;
 import com.ultramega.asteroidmining.gui.RocketControllerConfigurationScreen;
 import com.ultramega.asteroidmining.gui.RocketControllerScreen;
 import com.ultramega.asteroidmining.gui.RocketStorageViewerScreen;
-import com.ultramega.asteroidmining.gui.renderer.LaunchPadPreviewRenderState;
 import com.ultramega.asteroidmining.gui.renderer.ScenePictureInPictureRenderer;
 import com.ultramega.asteroidmining.particles.BigSmokeParticle;
+import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModEntityTypes;
 import com.ultramega.asteroidmining.registry.ModFluids;
@@ -25,7 +25,6 @@ import com.ultramega.asteroidmining.registry.ModMenuTypes;
 import com.ultramega.asteroidmining.registry.ModParticles;
 import com.ultramega.asteroidmining.utils.CameraHandler;
 import com.ultramega.asteroidmining.utils.PreviewInfo;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.HashSet;
 import java.util.List;
@@ -33,32 +32,24 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.state.level.BlockOutlineRenderState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.gizmos.GizmoStyle;
 import net.minecraft.gizmos.Gizmos;
 import net.minecraft.util.ARGB;
-import net.minecraft.util.context.ContextKey;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ExtractBlockOutlineRenderStateEvent;
-import net.neoforged.neoforge.client.event.ExtractLevelRenderStateEvent;
 import net.neoforged.neoforge.client.event.RegisterFluidModelsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -71,12 +62,10 @@ import org.joml.Matrix4f;
 
 @EventBusSubscriber(value = Dist.CLIENT)
 public class ClientEvents {
-    public static final Map<BlockPos, UUID> LAUNCH_PAD_BUILDER_POS = new Object2ObjectOpenHashMap<>();
+    public static final Map<BlockPos, UUID> LAUNCH_PAD_BUILDER_POS = new Object2ObjectOpenHashMap<>(); //TODO: delete?
     public static final Map<BlockPos, List<PreviewInfo>> LAUNCH_PAD_PREVIEW_BLOCKS = new Object2ObjectOpenHashMap<>();
     // TODO: Investigate if this is a good way to go about this (Hides preview blocks on launch so that the chopsticks aren't visible)
     public static final Set<BlockPos> HIDE_PREVIEW_BLOCKS = new HashSet<>();
-
-    private static final ContextKey<LaunchPadPreviewRenderState> PREVIEW_STATE_KEY = new ContextKey<>(AsteroidMining.makeId("launch_pad_preview_state"));
 
     private ClientEvents() {
     }
@@ -97,80 +86,9 @@ public class ClientEvents {
     }
 
     @SubscribeEvent
-    public static void onExtractLevelRenderState(final ExtractLevelRenderStateEvent event) {
-        if (LAUNCH_PAD_PREVIEW_BLOCKS.isEmpty()) {
-            return;
-        }
-
-        final ClientLevel level = Minecraft.getInstance().level;
-        if (level == null) {
-            return;
-        }
-
-        final LaunchPadPreviewRenderState state = new LaunchPadPreviewRenderState();
-
-        LAUNCH_PAD_PREVIEW_BLOCKS.forEach((key, previewList) -> {
-            for (final PreviewInfo info : previewList) {
-                if (info.expectedBlock().isPresent()) {
-                    BlockState previewState = info.expectedBlock().get().defaultBlockState();
-
-                    if (HIDE_PREVIEW_BLOCKS.contains(key) && !previewState.isAir()) {
-                        continue;
-                    }
-
-                    final BlockState currentState = level.getBlockState(info.pos());
-                    if (previewState.is(currentState.getBlock())) {
-                        continue;
-                    }
-
-                    if (previewState.isAir()) {
-                        previewState = Blocks.RED_TERRACOTTA.defaultBlockState();
-                    }
-
-                    state.previewBlocks.add(new LaunchPadPreviewRenderState.Entry(
-                        info.pos(),
-                        previewState,
-                        !currentState.isAir()
-                    ));
-                } else {
-                    state.rocketPositions.add(info.pos());
-                }
-            }
-        });
-
-        event.getRenderState().setRenderData(PREVIEW_STATE_KEY, state);
-    }
-
-    @SubscribeEvent
-    public static void renderOutline(final ExtractBlockOutlineRenderStateEvent event) {
-        if (event.getCamera().entity() instanceof LivingEntity entity) {
-            final BlockHitResult hitResult = event.getHitResult();
-            final BlockPos pos = hitResult.getBlockPos();
-            final BlockState targetState = entity.level().getBlockState(pos);
-
-            if (LAUNCH_PAD_PREVIEW_BLOCKS.values().stream()
-                .anyMatch(infos -> infos.stream().anyMatch(info -> info.pos().equals(pos) && info.expectedBlock().isPresent()))
-            ) {
-                event.getLevelRenderState().blockOutlineRenderState = new BlockOutlineRenderState(
-                    pos,
-                    event.isInTranslucentPass(),
-                    event.isHighContrast(),
-                    targetState.getOcclusionShape(),
-                    List.of()
-                );
-                event.setCanceled(true);
-            }
-        }
-    }
-
-    @SubscribeEvent
     public static void onRenderLevelStage2(final RenderLevelStageEvent.AfterOpaqueBlocks event) {
-        final Minecraft mc = Minecraft.getInstance();
-        final Camera camera = mc.gameRenderer.getMainCamera();
-        final Vec3 cameraPos = camera.position();
-
         // Cursor highlight
-        if (mc.screen instanceof LaunchPadConfigureScreen configureScreen) {
+        if (Minecraft.getInstance().screen instanceof LaunchPadConfigureScreen configureScreen) {
             final Matrix4f projectionViewMatrix = new Matrix4f(event.getModelViewMatrix());
             projectionViewMatrix.invert();
 
@@ -187,37 +105,28 @@ public class ClientEvents {
                 );
             }
         }
+    }
 
-        final LaunchPadPreviewRenderState state =
-            event.getLevelRenderState().getRenderData(PREVIEW_STATE_KEY);
+    @SubscribeEvent
+    public static void renderOutline(final ExtractBlockOutlineRenderStateEvent event) {
+        if (event.getCamera().entity() instanceof LivingEntity entity) {
+            final BlockHitResult hitResult = event.getHitResult();
+            final BlockPos pos = hitResult.getBlockPos();
+            final BlockState targetState = entity.level().getBlockState(pos);
 
-        if (state == null) {
-            return;
-        }
-
-        // Render preview block boxes
-        for (final LaunchPadPreviewRenderState.Entry entry : state.previewBlocks) {
-            final int color = entry.occupied()
-                ? ARGB.colorFromFloat(1.0F, 1.0F, 0.3F, 0.3F)
-                : ARGB.colorFromFloat(1.0F, 0.3F, 1.0F, 1.0F);
-
-            // TODO draw actual texture instead
-//            Gizmos.cuboid(
-//                new AABB(entry.pos()),
-//                GizmoStyle.stroke(color),
-//                true
-//            );
-        }
-
-        // Render area where blocks for the rocket can be placed
-        if (!state.rocketPositions.isEmpty()) {
-            final VertexConsumer lineBuffer = mc.renderBuffers().bufferSource().getBuffer(RenderTypes.lines());
-            Utils.drawConnectedWireframe(
-                event.getPoseStack(),
-                lineBuffer,
-                state.rocketPositions,
-                cameraPos
-            );
+            // TODO: what does this do?
+            if (LAUNCH_PAD_PREVIEW_BLOCKS.values().stream()
+                .anyMatch(infos -> infos.stream().anyMatch(info -> info.pos().equals(pos) && info.expectedBlock().isPresent()))
+            ) {
+                event.getLevelRenderState().blockOutlineRenderState = new BlockOutlineRenderState(
+                    pos,
+                    event.isInTranslucentPass(),
+                    event.isHighContrast(),
+                    targetState.getOcclusionShape(),
+                    List.of()
+                );
+                event.setCanceled(true);
+            }
         }
     }
 
@@ -254,6 +163,7 @@ public class ClientEvents {
         for (final RocketEngineBlock.Type type : RocketEngineBlock.Type.values()) {
             event.registerBlockEntityRenderer(type.getBlockEntity().get(), RocketEngineBlockEntityRenderer::new);
         }
+        event.registerBlockEntityRenderer(ModBlockEntityTypes.LAUNCH_PAD_BUILDER.get(), LaunchPadBuilderBlockEntityRenderer::new);
         event.registerEntityRenderer(ModEntityTypes.BLOCK_STRUCTURE_ENTITY.get(), BlockStructureEntityRenderer::new);
     }
 

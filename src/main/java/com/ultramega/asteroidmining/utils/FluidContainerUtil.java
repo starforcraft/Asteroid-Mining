@@ -83,7 +83,7 @@ public final class FluidContainerUtil {
             final FluidModel fluidModel = fluidStateModelSet.get(stack.getFluid().defaultFluidState());
             final TextureAtlasSprite sprite = getFluidSprite(fluidModel);
             final int tint = getTint(fluidModel, stack);
-            renderTiledTextureAtlas(graphics, sprite, guiLeft, guiTop, x, y, width, height); //TODO
+            renderTiledTextureAtlas(graphics, sprite, guiLeft, guiTop, x, y, width, height); //TODO fluid rendering in gui
         }
     }
 

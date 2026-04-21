@@ -558,6 +558,10 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
         for (final PreviewInfo previewInfo : previewInfos) {
             if (previewInfo.expectedBlock().isPresent()) {
                 if (!level.getBlockState(previewInfo.pos()).is(previewInfo.expectedBlock().get())) {
+                    // tmp fix
+                    if (previewInfo.expectedBlock().get().defaultBlockState().isAir() && level.getBlockState(previewInfo.pos()).isAir()) {
+                        continue;
+                    }
                     return false;
                 }
             } else {

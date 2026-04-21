@@ -125,36 +125,18 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             return;
         }
 
-        if (secondsTillLaunch <= 10 * 20 + 15 && !blockEntity.playedTMinusSound) {
-            blockEntity.playedTMinusSound = true;
-            final SimpleSoundInstance instance2 = new SimpleSoundInstance(ModSounds.LAUNCH_T_MINUS.value(),
-                SoundSource.BLOCKS, 2.0f, 0.95f,
-                level.getRandom(), pos.getX(), pos.getY(), pos.getZ());
-            soundManager.play(instance2);
-        }
+//        if (secondsTillLaunch <= 10 * 20 + 15 && !blockEntity.playedTMinusSound) {
+//            blockEntity.playedTMinusSound = true;
+//            final SimpleSoundInstance instance2 = new SimpleSoundInstance(ModSounds.LAUNCH_T_MINUS.value(),
+//                SoundSource.BLOCKS, 2.0f, 0.95f,
+//                level.getRandom(), pos.getX(), pos.getY(), pos.getZ());
+//            soundManager.play(instance2);
+//        }
 
         // TODO: Switch to own AbstractTickableSoundInstance?
         SoundEvent sound = null;
-        if (secondsTillLaunch == 10 * 20) {
-            sound = ModSounds.LAUNCH_10.value();
-        } else if (secondsTillLaunch == 9 * 20) {
-            sound = ModSounds.LAUNCH_9.value();
-        } else if (secondsTillLaunch == 8 * 20) {
-            sound = ModSounds.LAUNCH_8.value();
-        } else if (secondsTillLaunch == 7 * 20) {
-            sound = ModSounds.LAUNCH_7.value();
-        } else if (secondsTillLaunch == 6 * 20) {
-            sound = ModSounds.LAUNCH_6.value();
-        } else if (secondsTillLaunch == 5 * 20) {
-            sound = ModSounds.LAUNCH_5.value();
-        } else if (secondsTillLaunch == 4 * 20) {
-            sound = ModSounds.LAUNCH_4.value();
-        } else if (secondsTillLaunch == 3 * 20) {
-            sound = ModSounds.LAUNCH_3.value();
-        } else if (secondsTillLaunch == 2 * 20) {
-            sound = ModSounds.LAUNCH_2.value();
-        } else if (secondsTillLaunch == 20) {
-            sound = ModSounds.LAUNCH_1.value();
+        if (secondsTillLaunch == 0) {
+            sound = ModSounds.COUNTDOWN.value();
         }
 
         if (sound != null) {

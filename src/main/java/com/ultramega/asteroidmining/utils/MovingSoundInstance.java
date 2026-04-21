@@ -49,11 +49,6 @@ public class MovingSoundInstance extends AbstractTickableSoundInstance {
         }
     }
 
-    @Override
-    public boolean isStopped() {
-        return this.volume <= 0.0f || super.isStopped();
-    }
-
     public void setSourcePos(final Vec3 sourcePos) {
         this.sourcePos = sourcePos;
     }

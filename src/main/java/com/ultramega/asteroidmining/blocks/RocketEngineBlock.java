@@ -1,6 +1,7 @@
 package com.ultramega.asteroidmining.blocks;
 
 import com.ultramega.asteroidmining.blockentities.RocketEngineBlockEntity;
+import com.ultramega.asteroidmining.blockentities.RocketEngineBlockEntityClient;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModFluids;
 import com.ultramega.asteroidmining.utils.Utils;
@@ -45,7 +46,7 @@ public class RocketEngineBlock extends AbstractMultiblockBlock implements Entity
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final Level level, final BlockState state, final BlockEntityType<T> blockEntityType) {
         return level.isClientSide() ? Utils.createTickerHelper(
-            blockEntityType, this.type.getBlockEntity().get(), RocketEngineBlockEntity::clientTick) : null;
+            blockEntityType, this.type.getBlockEntity().get(), RocketEngineBlockEntityClient::clientTick) : null;
     }
 
     public Type getType() {

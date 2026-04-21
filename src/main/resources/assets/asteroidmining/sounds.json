@@ -14,73 +14,10 @@
       }
     ]
   },
-  "launch_ten": {
+  "launch_countdown": {
     "sounds": [
       {
-        "name": "asteroidmining:ten"
-      }
-    ]
-  },
-  "launch_nine": {
-    "sounds": [
-      {
-        "name": "asteroidmining:nine"
-      }
-    ]
-  },
-  "launch_eight": {
-    "sounds": [
-      {
-        "name": "asteroidmining:eight"
-      }
-    ]
-  },
-  "launch_seven": {
-    "sounds": [
-      {
-        "name": "asteroidmining:seven"
-      }
-    ]
-  },
-  "launch_six": {
-    "sounds": [
-      {
-        "name": "asteroidmining:six"
-      }
-    ]
-  },
-  "launch_five": {
-    "sounds": [
-      {
-        "name": "asteroidmining:five"
-      }
-    ]
-  },
-  "launch_four": {
-    "sounds": [
-      {
-        "name": "asteroidmining:four"
-      }
-    ]
-  },
-  "launch_three": {
-    "sounds": [
-      {
-        "name": "asteroidmining:three"
-      }
-    ]
-  },
-  "launch_two": {
-    "sounds": [
-      {
-        "name": "asteroidmining:two"
-      }
-    ]
-  },
-  "launch_one": {
-    "sounds": [
-      {
-        "name": "asteroidmining:one"
+        "name": "asteroidmining:countdown"
       }
     ]
   }
