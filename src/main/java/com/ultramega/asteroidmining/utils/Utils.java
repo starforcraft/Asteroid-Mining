@@ -444,19 +444,6 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
         return Math.abs(maxY - minY + 1);
     }
 
-    public static Vec3 getBottomCenter(final List<BlockPos> positions) {
-        final int minX = positions.stream().mapToInt(BlockPos::getX).min().orElse(0);
-        final int maxX = positions.stream().mapToInt(BlockPos::getX).max().orElse(0);
-        final int minY = positions.stream().mapToInt(BlockPos::getY).min().orElse(0);
-        final int minZ = positions.stream().mapToInt(BlockPos::getZ).min().orElse(0);
-        final int maxZ = positions.stream().mapToInt(BlockPos::getZ).max().orElse(0);
-
-        final double centerX = (minX + maxX) / 2.0 + 0.5;
-        final double centerZ = (minZ + maxZ) / 2.0 + 0.5;
-
-        return new Vec3(centerX, minY, centerZ);
-    }
-
     public static PreviewBlockHitResult raytraceGivenBlocks(final Vec3 start, final Vec3 end, final List<PreviewInfo> targets, final Level level) {
         PreviewBlockHitResult closestHit = null;
         double closestDistance = Double.MAX_VALUE;
@@ -687,5 +674,27 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
         }
 
         return previewBlocks;
+    }
+
+    public static BlockPos getMinCorner(final List<BlockPos> positions) {
+        int minX = Integer.MAX_VALUE;
+        int minY = Integer.MAX_VALUE;
+        int minZ = Integer.MAX_VALUE;
+
+        for (final BlockPos pos : positions) {
+            minX = Math.min(minX, pos.getX());
+            minY = Math.min(minY, pos.getY());
+            minZ = Math.min(minZ, pos.getZ());
+        }
+
+        return new BlockPos(minX, minY, minZ);
+    }
+
+    public static List<BlockPos> toLocalPositions(final List<BlockPos> positions, final BlockPos origin) {
+        final List<BlockPos> result = new ArrayList<>(positions.size());
+        for (final BlockPos pos : positions) {
+            result.add(pos.subtract(origin));
+        }
+        return result;
     }
 }

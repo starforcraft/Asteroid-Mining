@@ -13,7 +13,6 @@ public class BlockStructureEntityRenderState extends EntityRenderState {
     public float partialTicks;
     public BlockPos pivotPoint = BlockPos.ZERO;
     public float interpolatedYRot;
-    public BlockPos origin = BlockPos.ZERO;
 
     public List<StructureTemplate.StructureBlockInfo> structureBlockInfos = List.of();
     public final List<MovingBlockEntry> movingBlocks = new ArrayList<>();

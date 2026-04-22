@@ -63,7 +63,9 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import org.jspecify.annotations.Nullable;
 
+import static com.ultramega.asteroidmining.utils.Utils.getMinCorner;
 import static com.ultramega.asteroidmining.utils.Utils.rotateOffset;
+import static com.ultramega.asteroidmining.utils.Utils.toLocalPositions;
 
 public class RocketControllerBlockEntity extends AbstractModuleBlockEntity implements MenuProvider, Nameable {
     public final RocketControllerItemStacksResourceHandler inventoryHandler = new RocketControllerItemStacksResourceHandler(3);
@@ -125,18 +127,35 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             return;
         }
 
-//        if (secondsTillLaunch <= 10 * 20 + 15 && !blockEntity.playedTMinusSound) {
-//            blockEntity.playedTMinusSound = true;
-//            final SimpleSoundInstance instance2 = new SimpleSoundInstance(ModSounds.LAUNCH_T_MINUS.value(),
-//                SoundSource.BLOCKS, 2.0f, 0.95f,
-//                level.getRandom(), pos.getX(), pos.getY(), pos.getZ());
-//            soundManager.play(instance2);
-//        }
+        if (secondsTillLaunch <= 10 * 20 + 15 && !blockEntity.playedTMinusSound) {
+            blockEntity.playedTMinusSound = true;
+            final SimpleSoundInstance instance2 = new SimpleSoundInstance(ModSounds.LAUNCH_T_MINUS.value(),
+                SoundSource.BLOCKS, 2.0f, 0.95f,
+                level.getRandom(), pos.getX(), pos.getY(), pos.getZ());
+            soundManager.play(instance2);
+        }
 
-        // TODO: Switch to own AbstractTickableSoundInstance?
         SoundEvent sound = null;
-        if (secondsTillLaunch == 0) {
-            sound = ModSounds.COUNTDOWN.value();
+        if (secondsTillLaunch == 10 * 20) {
+            sound = ModSounds.LAUNCH_10.value();
+        } else if (secondsTillLaunch == 9 * 20) {
+            sound = ModSounds.LAUNCH_9.value();
+        } else if (secondsTillLaunch == 8 * 20) {
+            sound = ModSounds.LAUNCH_8.value();
+        } else if (secondsTillLaunch == 7 * 20) {
+            sound = ModSounds.LAUNCH_7.value();
+        } else if (secondsTillLaunch == 6 * 20) {
+            sound = ModSounds.LAUNCH_6.value();
+        } else if (secondsTillLaunch == 5 * 20) {
+            sound = ModSounds.LAUNCH_5.value();
+        } else if (secondsTillLaunch == 4 * 20) {
+            sound = ModSounds.LAUNCH_4.value();
+        } else if (secondsTillLaunch == 3 * 20) {
+            sound = ModSounds.LAUNCH_3.value();
+        } else if (secondsTillLaunch == 2 * 20) {
+            sound = ModSounds.LAUNCH_2.value();
+        } else if (secondsTillLaunch == 20) {
+            sound = ModSounds.LAUNCH_1.value();
         }
 
         if (sound != null) {
@@ -342,8 +361,11 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             }
         }
 
-        final BlockStructureEntity rocketEntity = new BlockStructureEntity(this.level, rocketPos, true);
-        rocketEntity.setPos(Utils.getBottomCenter(rocketPos));
+        final BlockPos rocketOrigin = getMinCorner(rocketPos);
+        final List<BlockPos> rocketLocalPos = toLocalPositions(rocketPos, rocketOrigin);
+
+        final BlockStructureEntity rocketEntity = new BlockStructureEntity(this.level, rocketPos, rocketLocalPos, true);
+        rocketEntity.setPos(rocketOrigin.getX() + 0.5, rocketOrigin.getY(), rocketOrigin.getZ() + 0.5);
         this.level.addFreshEntity(rocketEntity);
         this.launchedRocketId = rocketEntity.getUUID();
         this.launchedRocket = rocketEntity;
@@ -374,17 +396,24 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
 
         PacketDistributor.sendToAllPlayers(new HidePreviewBlocksMessage(this.getBlockPos(), true));
 
-        final BlockStructureEntity chopstick1Entity = new BlockStructureEntity(this.level, chopstick1Pos, false);
-        chopstick1Entity.setPos(Utils.getBottomCenter(chopstick1Pos).add(0.5, 0, 0).subtract(0, 0, 1.5)); //TODO: this is dumb (and only works facing south)
-        // .add(0.5, 0, 0).subtract(0, 0, 1.5)
-        chopstick1Entity.setPivotPoint(mainPos.above(height - 2).subtract(chopstick1Entity.getOnPos().above()));
+        final BlockPos chopstick1Origin = getMinCorner(chopstick1Pos);
+        final BlockPos chopstick2Origin = getMinCorner(chopstick2Pos);
+
+        final List<BlockPos> chopstick1LocalPos = toLocalPositions(chopstick1Pos, chopstick1Origin);
+        final List<BlockPos> chopstick2LocalPos = toLocalPositions(chopstick2Pos, chopstick2Origin);
+
+        final BlockPos pivotWorldPos = mainPos.above(height - 2);
+
+        final BlockStructureEntity chopstick1Entity = new BlockStructureEntity(this.level, chopstick1Pos, chopstick1LocalPos, false);
+        chopstick1Entity.setPos(chopstick1Origin.getX() + 0.5, chopstick1Origin.getY(), chopstick1Origin.getZ() + 0.5);
+        chopstick1Entity.setPivotPoint(pivotWorldPos.subtract(chopstick1Origin));
         this.level.addFreshEntity(chopstick1Entity);
         this.chopstick1Id = chopstick1Entity.getUUID();
         this.chopstick1 = chopstick1Entity;
 
-        final BlockStructureEntity chopstick2Entity = new BlockStructureEntity(this.level, chopstick2Pos, false);
-        chopstick2Entity.setPos(Utils.getBottomCenter(chopstick2Pos).subtract(0.5, 0, 1.5)); //TODO: this is dumb (and only works facing south)
-        //chopstick2Entity.setPivotPoint(mainPos.above(height - 2).subtract(chopstick2Entity.getOnPos().above()));
+        final BlockStructureEntity chopstick2Entity = new BlockStructureEntity(this.level, chopstick2Pos, chopstick2LocalPos, false);
+        chopstick2Entity.setPos(chopstick2Origin.getX() + 0.5, chopstick2Origin.getY(), chopstick2Origin.getZ() + 0.5);
+        chopstick2Entity.setPivotPoint(pivotWorldPos.subtract(chopstick2Origin));
         this.level.addFreshEntity(chopstick2Entity);
         this.chopstick2Id = chopstick2Entity.getUUID();
         this.chopstick2 = chopstick2Entity;

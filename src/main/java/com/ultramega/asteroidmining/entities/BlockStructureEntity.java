@@ -53,13 +53,16 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
     public final Map<BlockPos, BlockEntity> blockEntityCache = new HashMap<>();
 
     public BlockStructureEntity(final Level level) {
-        this(level, new ArrayList<>(), true);
+        this(level, new ArrayList<>(), new ArrayList<>(), true);
     }
 
-    public BlockStructureEntity(final Level level, final List<BlockPos> structurePos, final boolean isRocket) {
+    public BlockStructureEntity(final Level level,
+                                final List<BlockPos> worldPositions,
+                                final List<BlockPos> localPositions,
+                                final boolean isRocket) {
         super(ModEntityTypes.BLOCK_STRUCTURE_ENTITY.get(), level);
         this.setIsRocket(isRocket);
-        this.absorbBlocks(structurePos);
+        this.absorbBlocks(worldPositions, localPositions);
         this.setRocketEnginesActiveness(true);
         this.noPhysics = true;
     }
@@ -81,6 +84,7 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         });
 
         //TODO: because of this clientside check the rotation isn't saved when rejoining the world but if I were to remove this the rotation stops being smooth
+        // also this is really hacky and can get easily broken instead specify a target yRot and rotate towards that slowly
         if (this.level().isClientSide() && this.getRotateTowards() != 0.0F) {
             this.yRotO = this.getYRot();
             this.setYRot(this.getYRot() + this.getRotateTowards());
@@ -92,23 +96,28 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         return false;
     }
 
-    private void absorbBlocks(final List<BlockPos> structurePos) {
-        if (structurePos.isEmpty()) {
+    private void absorbBlocks(final List<BlockPos> worldPositions, final List<BlockPos> localPositions) {
+        if (worldPositions.isEmpty() || worldPositions.size() != localPositions.size()) {
             return;
         }
 
-        for (final BlockPos pos : structurePos) {
-            final BlockState state = this.level().getBlockState(pos);
-            if (state.isAir() || state.getDestroySpeed(this.level(), pos) <= 0) {
+        for (int i = 0; i < worldPositions.size(); i++) {
+            final BlockPos worldPos = worldPositions.get(i);
+            final BlockPos localPos = localPositions.get(i);
+
+            final BlockState state = this.level().getBlockState(worldPos);
+            if (state.isAir() || state.getDestroySpeed(this.level(), worldPos) <= 0) {
                 return;
             }
 
-            final BlockEntity blockEntity = this.level().getBlockEntity(pos);
-            final CompoundTag nbt = (blockEntity != null) ? blockEntity.saveWithoutMetadata(this.registryAccess()) : new CompoundTag();
+            final BlockEntity blockEntity = this.level().getBlockEntity(worldPos);
+            final CompoundTag nbt = blockEntity != null
+                ? blockEntity.saveWithoutMetadata(this.registryAccess())
+                : new CompoundTag();
 
-            this.addStructureBlockInfo(new StructureTemplate.StructureBlockInfo(pos, state, nbt));
+            this.addStructureBlockInfo(new StructureTemplate.StructureBlockInfo(localPos, state, nbt));
 
-            this.level().setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
+            this.level().setBlock(worldPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
         }
 
         this.createBlockEntities();
@@ -117,12 +126,13 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
     public void freeBlocks() {
         this.setRocketEnginesActiveness(false);
 
+        final BlockPos origin = this.getStructureWorldOrigin();
         for (final StructureTemplate.StructureBlockInfo blockInfo : this.getStructureBlockInfos()) {
-            final BlockPos pos = blockInfo.pos();
-            this.level().setBlockAndUpdate(pos, blockInfo.state());
+            final BlockPos worldPos = origin.offset(blockInfo.pos());
+            this.level().setBlockAndUpdate(worldPos, blockInfo.state());
 
             if (blockInfo.nbt() != null) {
-                final BlockEntity blockEntity = this.level().getBlockEntity(pos);
+                final BlockEntity blockEntity = this.level().getBlockEntity(worldPos);
                 if (blockEntity != null) {
                     try (ProblemReporter.ScopedCollector reporter = new ProblemReporter.ScopedCollector(this.problemPath(), AsteroidMining.LOGGER)) {
                         blockEntity.loadWithComponents(TagValueInput.create(reporter, this.level().registryAccess(), blockInfo.nbt()));
@@ -134,9 +144,10 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
     }
 
     private void createBlockEntities() {
+        final BlockPos origin = this.getStructureWorldOrigin();
         for (final StructureTemplate.StructureBlockInfo blockInfo : this.getStructureBlockInfos()) {
             if (blockInfo.state().getBlock() instanceof EntityBlock entityBlock) {
-                final BlockEntity blockEntity = entityBlock.newBlockEntity(blockInfo.pos(), blockInfo.state());
+                final BlockEntity blockEntity = entityBlock.newBlockEntity(origin.offset(blockInfo.pos()), blockInfo.state());
                 if (blockEntity != null) {
                     blockEntity.setLevel(this.level());
                     this.blockEntityCache.putIfAbsent(blockInfo.pos(), blockEntity);
@@ -148,6 +159,10 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
     private void freeBlockEntities() {
         this.blockEntityCache.forEach((pos, blockEntity) -> blockEntity.setRemoved());
         this.blockEntityCache.clear();
+    }
+
+    private BlockPos getStructureWorldOrigin() {
+        return BlockPos.containing(this.getX() - 0.5, this.getY(), this.getZ() - 0.5);
     }
 
     public void setRocketEnginesActiveness(final boolean active) {

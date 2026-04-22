@@ -2,7 +2,6 @@ package com.ultramega.asteroidmining.entities.renderer;
 
 import com.ultramega.asteroidmining.entities.BlockStructureEntity;
 
-import java.util.Comparator;
 import java.util.List;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -12,17 +11,16 @@ import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.block.MovingBlockRenderState;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
-import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.phys.AABB;
 
-public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureEntity, BlockStructureEntityRenderState> { //TODO: test this class
+public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureEntity, BlockStructureEntityRenderState> {
     private final BlockEntityRenderDispatcher blockEntityRenderDispatcher;
 
     public BlockStructureEntityRenderer(final EntityRendererProvider.Context context) {
@@ -40,10 +38,6 @@ public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureE
 
         final List<StructureTemplate.StructureBlockInfo> infos = List.copyOf(entity.getStructureBlockInfos());
         state.structureBlockInfos = infos;
-        state.origin = infos.stream()
-            .map(StructureTemplate.StructureBlockInfo::pos)
-            .min(Comparator.comparingInt(Vec3i::getY))
-            .orElse(BlockPos.ZERO);
 
         state.movingBlocks.clear();
         state.blockEntities.clear();
@@ -79,16 +73,16 @@ public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureE
         poseStack.translate(-0.5, 0.0, -0.5);
 
         final BlockPos pivot = renderState.pivotPoint;
-        poseStack.translate(pivot.getX(), pivot.getY(), pivot.getZ());
+        poseStack.translate(pivot.getX() + 0.5, pivot.getY(), pivot.getZ() + 0.5);
         poseStack.mulPose(Axis.YP.rotationDegrees(-renderState.interpolatedYRot));
-        poseStack.translate(-pivot.getX(), -pivot.getY(), -pivot.getZ());
+        poseStack.translate(-(pivot.getX() + 0.5), -pivot.getY(), -(pivot.getZ() + 0.5));
 
         // TODO: Are blocks hidden by others rendered?
         for (final BlockStructureEntityRenderState.MovingBlockEntry entry : renderState.movingBlocks) {
-            final BlockPos relativePos = entry.pos().subtract(renderState.origin);
+            final BlockPos pos = entry.pos();
 
             poseStack.pushPose();
-            poseStack.translate(relativePos.getX(), relativePos.getY(), relativePos.getZ());
+            poseStack.translate(pos.getX(), pos.getY(), pos.getZ());
 
             collector.submitMovingBlock(poseStack, entry.renderState());
 
@@ -96,10 +90,10 @@ public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureE
         }
 
         for (final BlockStructureEntityRenderState.BlockEntityEntry entry : renderState.blockEntities) {
-            final BlockPos relativePos = entry.pos().subtract(renderState.origin);
+            final BlockPos pos = entry.pos();
 
             poseStack.pushPose();
-            poseStack.translate(relativePos.getX(), relativePos.getY(), relativePos.getZ());
+            poseStack.translate(pos.getX(), pos.getY(), pos.getZ());
 
             final BlockEntityRenderState beState = this.blockEntityRenderDispatcher.tryExtractRenderState(entry.blockEntity(), renderState.partialTicks, null, null);
             if (beState != null) {
@@ -113,9 +107,8 @@ public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureE
     }
 
     @Override
-    public boolean shouldRender(final BlockStructureEntity entity, final Frustum camera, final double camX, final double camY, final double camZ) {
-        //TODO or fix bounding box
-        return super.shouldRender(entity, camera, camX, camY, camZ);
+    protected AABB getBoundingBoxForCulling(final BlockStructureEntity entity) {
+        return super.getBoundingBoxForCulling(entity);
     }
 
     @Override
