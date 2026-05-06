@@ -51,7 +51,7 @@ public record SelectAsteroidMessage(Optional<Identifier> selectedAsteroid, UUID 
 
             ModuleProperties moduleProperties = configuration.moduleProperties();
             if (data.selectedAsteroid().isPresent()) {
-                moduleProperties = new ModuleProperties(data.selectedAsteroid(), moduleProperties.inventory());
+                moduleProperties = new ModuleProperties(data.selectedAsteroid(), moduleProperties.storage());
             }
             savedData.set(data.configurationUUID(),
                 new NetworkConfiguration(configuration.launchPadConfiguration(), stats, moduleProperties));

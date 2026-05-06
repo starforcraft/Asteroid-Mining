@@ -3,13 +3,26 @@ package com.ultramega.asteroidmining.gui;
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.container.RocketStorageViewerContainerMenu;
 import com.ultramega.asteroidmining.gui.widgets.ScrollbarWidget;
+import com.ultramega.asteroidmining.network.c2s.TryExtractRocketStorageMessage;
+import com.ultramega.asteroidmining.utils.FluidContainerUtil;
+import com.ultramega.asteroidmining.utils.Utils;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidType;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.fluid.FluidResource;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.resource.Resource;
+import org.jspecify.annotations.Nullable;
 
 import static com.ultramega.asteroidmining.utils.Utils.drawSlotHighlight;
 import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
@@ -24,7 +37,6 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
     private static final int ROW_SIZE = 18;
 
     private ScrollbarWidget scrollbar;
-    private boolean clicked;
 
     public RocketStorageViewerScreen(final RocketStorageViewerContainerMenu container, final Inventory inventory, final Component title) {
         super(container, inventory, title, 193, 226);
@@ -40,128 +52,190 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
             this.topPos + 20,
             106
         );
-        // TODO
-        final int slots = 0; //this.menu.getInventoryHandler() != null ? this.menu.getInventoryHandler().getSlots() : 0;
-        final int overflowingRows = Mth.ceil((double) slots / COLUMNS_DISPLAYED - ROWS_DISPLAYED);
-        final int maxOffset = overflowingRows * ROWS_DISPLAYED;
-        this.scrollbar.setMaxOffset(maxOffset);
-        this.scrollbar.setEnabled(maxOffset > 0);
+
         this.scrollbar.setListener(value -> this.updateWidgets());
         this.addWidget(this.scrollbar);
+
+        this.updateWidgets();
     }
 
-    //TODO: likely wrong method
     @Override
     public void extractRenderState(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
         super.extractRenderState(graphics, mouseX, mouseY, partialTicks);
         this.scrollbar.extractRenderState(graphics, mouseX, mouseY, partialTicks);
-        this.extractTooltip(graphics, mouseX, mouseY);
     }
 
     @Override
     public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
         super.extractBackground(graphics, mouseX, mouseY, partialTicks);
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.getLeftPos(), this.getTopPos(), 0, 0, this.getImageWidth(), this.getImageHeight(), 256, 256);
-        this.renderInventoryContent(graphics, mouseX, mouseY);
     }
 
-    private void renderInventoryContent(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
-        final int scrollbarOffset = (int) this.scrollbar.getOffset();
-        final int x = (this.width - this.imageWidth) / 2;
-        final int y = (this.height - this.imageHeight) / 2;
-        // TODO
-        final int slots = 0; //this.menu.getInventoryHandler() != null ? this.menu.getInventoryHandler().getSlots() : 0;
+    @Override
+    public void extractContents(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float a) {
+        super.extractContents(graphics, mouseX, mouseY, a);
+        this.extractInventoryContent(graphics, mouseX, mouseY, false);
+    }
 
-        for (int row = 0; row < Math.max(slots, ROWS_DISPLAYED); ++row) {
-            final int rowY = y + INV_START_Y + (row * ROW_SIZE) - scrollbarOffset * ROW_SIZE;
-            final boolean isOutOfFrame = (rowY < y + INV_START_Y)
-                || (rowY > y + INV_START_Y + (ROW_SIZE * ROWS_DISPLAYED) - ROW_SIZE);
-            if (isOutOfFrame) {
-                continue;
+    @Override
+    protected void extractTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
+        super.extractTooltip(graphics, mouseX, mouseY);
+        this.extractInventoryContent(graphics, mouseX, mouseY, true);
+    }
+
+    private void extractInventoryContent(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final boolean tooltip) {
+        final int firstRow = (int) this.scrollbar.getOffset();
+        final int displayedSlots = this.getDisplayedEntryCount();
+        final int totalRows = this.getTotalRows();
+
+        final int x = this.leftPos + INV_START_X;
+        final int y = this.topPos + INV_START_Y;
+
+        for (int visibleRow = 0; visibleRow < ROWS_DISPLAYED; visibleRow++) {
+            final int row = firstRow + visibleRow;
+            if (row >= totalRows) {
+                break;
             }
 
-            this.renderInventoryRow(graphics, x + INV_START_X, rowY, row, mouseX, mouseY, slots);
+            final int rowY = y + visibleRow * ROW_SIZE;
+            this.extractInventoryRow(graphics, x, rowY, row, mouseX, mouseY, displayedSlots, tooltip);
         }
     }
 
-    private void renderInventoryRow(final GuiGraphicsExtractor graphics,
-                                    final int rowX,
-                                    final int rowY,
-                                    final int row,
-                                    final int mouseX,
-                                    final int mouseY,
-                                    final int slots) {
-        for (int column = 0; column < COLUMNS_DISPLAYED; ++column) {
-            final int index = column + row * COLUMNS_DISPLAYED;
-            final int slotX = rowX + 1 + (column * ROW_SIZE);
+    private void extractInventoryRow(final GuiGraphicsExtractor graphics,
+                                     final int rowX,
+                                     final int rowY,
+                                     final int row,
+                                     final int mouseX,
+                                     final int mouseY,
+                                     final int displayedSlots,
+                                     final boolean tooltip) {
+        for (int column = 0; column < COLUMNS_DISPLAYED; column++) {
+            final int displayIndex = column + row * COLUMNS_DISPLAYED;
+            final int slotX = rowX + 1 + column * ROW_SIZE;
             final int slotY = rowY + 1;
-            final boolean isSlotHovered = this.isHovering(slotX - this.leftPos, slotY - this.topPos, ROW_SIZE - 2, ROW_SIZE - 2, mouseX, mouseY);
 
-            if (index >= slots) {
-                if (isSlotHovered) {
+            final boolean hovered = this.isHovering(slotX - this.leftPos, slotY - this.topPos, ROW_SIZE - 2, ROW_SIZE - 2, mouseX, mouseY);
+
+            if (displayIndex >= displayedSlots) {
+                if (hovered && !tooltip) {
                     drawSlotHighlight(graphics, slotX, slotY);
                 }
                 continue;
             }
-            // TODO
-//            if (this.menu.getInventoryHandler() == null) {
-//                continue;
-//            }
-//            final ItemFluidStack stack = this.menu.getInventoryHandler().getItemFluidStackInSlot(index);
-//            final ItemStack itemStack = stack.getItemStack();
-//            final FluidStack fluidStack = stack.getFluidStack();
-//
-//            if (itemStack != null) {
-//                graphics.item(itemStack, slotX, slotY);
-//                Utils.renderAmount(graphics, this.font, slotX, slotY, Utils.formatWithUnits(itemStack.getCount()), 16777215);
-//            } else if (fluidStack != null) {
-//                FluidContainerUtil.renderTiledFluid(graphics, this, fluidStack,
-//                    slotX - this.leftPos, slotY - this.topPos, 16, 16);
-//                Utils.renderAmount(graphics, this.font, slotX, slotY, Utils.formatWithUnitsFluid(fluidStack.getAmount()), 16777215);
-//            }
-//
-//            if (isSlotHovered) {
-//                drawSlotHighlight(graphics, slotX, slotY);
-//                Utils.renderResourceTooltip(graphics, stack, mouseX, mouseY);
-//
-//                if (this.clicked) {
-//                    final boolean shiftDown = Minecraft.getInstance().hasShiftDown();
-//                    if (itemStack != null) {
-//                        ClientPacketDistributor.sendToServer(new TryExtractRocketStorageMessage(index,
-//                            Math.min(itemStack.getCount(), itemStack.getMaxStackSize()), shiftDown));
-//                    } else if (fluidStack != null) {
-//                        ClientPacketDistributor.sendToServer(new TryExtractRocketStorageMessage(index, 1000, shiftDown));
-//                    }
-//                    this.clicked = false;
-//                }
-//            }
+
+            final DisplayedResource entry = this.getDisplayedEntry(displayIndex);
+            if (entry == null) {
+                continue;
+            }
+
+            if (!tooltip) {
+                this.drawDisplayedResource(graphics, entry, slotX, slotY);
+            }
+
+            if (hovered) {
+                if (tooltip) {
+                    entry.drawTooltip(graphics, mouseX, mouseY);
+                } else {
+                    drawSlotHighlight(graphics, slotX, slotY);
+                }
+            }
         }
+    }
+
+    private void drawDisplayedResource(final GuiGraphicsExtractor graphics, final DisplayedResource entry, final int slotX, final int slotY) {
+        if (entry.isItem()) {
+            final ItemResource resource = entry.itemResource();
+            final int displayAmount = Math.min(clampToPositiveInt(entry.amount()), resource.getMaxStackSize());
+            final ItemStack stack = resource.toStack(displayAmount);
+
+            graphics.item(stack, slotX, slotY);
+            Utils.renderAmount(graphics, this.font, slotX, slotY, Utils.formatWithUnits(entry.amount()), 0xFFFFFFFF);
+            return;
+        }
+
+        final FluidResource resource = entry.fluidResource();
+        final FluidStack stack = resource.toStack(clampToPositiveInt(entry.amount()));
+
+        FluidContainerUtil.renderTiledFluid(graphics, this, stack, slotX - this.leftPos, slotY - this.topPos, 16, 16);
+
+        Utils.renderAmount(graphics, this.font, slotX, slotY, Utils.formatWithUnitsFluid(entry.amount()), 0xFFFFFFFF);
     }
 
     @Override
     protected void extractLabels(final GuiGraphicsExtractor graphics, final int xm, final int ym) {
         super.extractLabels(graphics, xm, ym);
-
         graphics.text(this.font, this.title, 8, 6, -12566464, false);
     }
 
     private void updateWidgets() {
-        // TODO
-        final int totalRows = 0; //Mth.ceil((double) this.menu.getInventoryHandler().getSlots() / COLUMNS_DISPLAYED);
-        final double maxOffset = totalRows - ROWS_DISPLAYED;
+        final int totalRows = this.getTotalRows();
+        final int maxOffset = Math.max(0, totalRows - ROWS_DISPLAYED);
+
         this.scrollbar.setMaxOffset(maxOffset);
         this.scrollbar.setEnabled(maxOffset > 0);
     }
 
     @Override
     public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
-        this.clicked = true;
-
         if (this.scrollbar.mouseClicked(event, doubleClick)) {
             return true;
         }
 
+        if (this.tryClickStorage(event.x(), event.y())) {
+            return true;
+        }
+
         return super.mouseClicked(event, doubleClick);
+    }
+
+    private boolean tryClickStorage(final double mouseX, final double mouseY) {
+        final int displayIndex = this.getHoveredDisplayIndex(mouseX, mouseY);
+        if (displayIndex < 0) {
+            return false;
+        }
+
+        final DisplayedResource entry = this.getDisplayedEntry(displayIndex);
+        if (entry == null) {
+            return false;
+        }
+
+        final boolean shiftDown = Minecraft.getInstance().hasShiftDown();
+
+        if (entry.isItem()) {
+            final ItemResource resource = entry.itemResource();
+            final int amount = Math.min(clampToPositiveInt(entry.amount()), resource.getMaxStackSize());
+
+            ClientPacketDistributor.sendToServer(TryExtractRocketStorageMessage.item(entry.handlerIndex(), resource, amount, shiftDown));
+            return true;
+        }
+
+        final FluidResource resource = entry.fluidResource();
+        final int amount = Math.min(clampToPositiveInt(entry.amount()), FluidType.BUCKET_VOLUME);
+
+        ClientPacketDistributor.sendToServer(TryExtractRocketStorageMessage.fluid(entry.handlerIndex(), resource, amount, shiftDown));
+        return true;
+    }
+
+    private int getHoveredDisplayIndex(final double mouseX, final double mouseY) {
+        final int relX = Mth.floor(mouseX) - (this.leftPos + INV_START_X + 1);
+        final int relY = Mth.floor(mouseY) - (this.topPos + INV_START_Y + 1);
+        if (relX < 0 || relY < 0) {
+            return -1;
+        }
+
+        if (relX >= COLUMNS_DISPLAYED * ROW_SIZE || relY >= ROWS_DISPLAYED * ROW_SIZE
+            || relX % ROW_SIZE >= ROW_SIZE - 2 || relY % ROW_SIZE >= ROW_SIZE - 2) {
+            return -1;
+        }
+
+        final int column = relX / ROW_SIZE;
+        final int visibleRow = relY / ROW_SIZE;
+        final int row = visibleRow + (int) this.scrollbar.getOffset();
+
+        final int index = column + row * COLUMNS_DISPLAYED;
+
+        return index < this.getDisplayedEntryCount() ? index : -1;
     }
 
     @Override
@@ -172,8 +246,6 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
 
     @Override
     public boolean mouseReleased(final MouseButtonEvent event) {
-        this.clicked = false;
-
         if (this.scrollbar.mouseReleased(event)) {
             return true;
         }
@@ -183,6 +255,108 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
 
     @Override
     public boolean mouseScrolled(final double mouseX, final double mouseY, final double scrollX, final double scrollY) {
-        return this.scrollbar.mouseScrolled(mouseX, mouseY, scrollX, scrollY);
+        return this.scrollbar.mouseScrolled(mouseX, mouseY, scrollX, scrollY) || super.mouseScrolled(mouseX, mouseY, scrollX, scrollY);
+    }
+
+    private int getDisplayedEntryCount() {
+        return countNonEmpty(this.menu.getItemHandler()) + countNonEmpty(this.menu.getFluidHandler());
+    }
+
+    private int getTotalRows() {
+        return Math.max(ROWS_DISPLAYED, Mth.ceil((double) this.getDisplayedEntryCount() / COLUMNS_DISPLAYED));
+    }
+
+    private static <R extends Resource> int countNonEmpty(final ResourceHandler<R> handler) {
+        int count = 0;
+
+        for (int i = 0; i < handler.size(); i++) {
+            final R resource = handler.getResource(i);
+            final long amount = handler.getAmountAsLong(i);
+
+            if (!resource.isEmpty() && amount > 0L) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    private RocketStorageViewerScreen.@Nullable DisplayedResource getDisplayedEntry(final int displayIndex) {
+        int current = 0;
+
+        final ResourceHandler<ItemResource> items = this.menu.getItemHandler();
+        for (int i = 0; i < items.size(); i++) {
+            final ItemResource resource = items.getResource(i);
+            final long amount = items.getAmountAsLong(i);
+
+            if (resource.isEmpty() || amount <= 0L) {
+                continue;
+            }
+
+            if (current++ == displayIndex) {
+                return DisplayedResource.item(i, resource, amount);
+            }
+        }
+
+        final ResourceHandler<FluidResource> fluids = this.menu.getFluidHandler();
+        for (int i = 0; i < fluids.size(); i++) {
+            final FluidResource resource = fluids.getResource(i);
+            final long amount = fluids.getAmountAsLong(i);
+
+            if (resource.isEmpty() || amount <= 0L) {
+                continue;
+            }
+
+            if (current++ == displayIndex) {
+                return DisplayedResource.fluid(i, resource, amount);
+            }
+        }
+
+        return null;
+    }
+
+    private static int clampToPositiveInt(final long amount) {
+        return (int) Math.clamp(amount, 1L, Integer.MAX_VALUE);
+    }
+
+    // TODO: make this easily extensible
+    private record DisplayedResource(int handlerIndex, @Nullable ItemResource itemResource, @Nullable FluidResource fluidResource, long amount) {
+        static DisplayedResource item(final int handlerIndex, final ItemResource resource, final long amount) {
+            return new DisplayedResource(handlerIndex, resource, null, amount);
+        }
+
+        static DisplayedResource fluid(final int handlerIndex, final FluidResource resource, final long amount) {
+            return new DisplayedResource(handlerIndex, null, resource, amount);
+        }
+
+        boolean isItem() {
+            return this.itemResource != null;
+        }
+
+        @Override
+        public ItemResource itemResource() {
+            if (this.itemResource == null) {
+                throw new IllegalStateException("Entry is not an item");
+            }
+
+            return this.itemResource;
+        }
+
+        @Override
+        public FluidResource fluidResource() {
+            if (this.fluidResource == null) {
+                throw new IllegalStateException("Entry is not a fluid");
+            }
+
+            return this.fluidResource;
+        }
+
+        public void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
+            if (this.isItem()) {
+                Utils.renderItemResourceTooltip(graphics, this.itemResource(), this.amount, mouseX, mouseY);
+            } else {
+                Utils.renderFluidResourceTooltip(graphics, this.fluidResource(), this.amount, mouseX, mouseY);
+            }
+        }
     }
 }

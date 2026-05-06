@@ -16,7 +16,6 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
 import net.neoforged.neoforge.event.OnDatapackSyncEvent;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
@@ -126,17 +125,17 @@ public class CommonEvents {
             Capabilities.Fluid.BLOCK,
             ModBlockEntityTypes.BIOGAS_PLANT.get(),
             (blockEntity, side) -> blockEntity.fluidTank
-        ); //TODO
-//        event.registerBlockEntity(
-//            Capabilities.Item.BLOCK,
-//            ModBlockEntityTypes.ROCKET_STORAGE_VIEWER.get(),
-//            (blockEntity, side) -> blockEntity.itemFluidHandler
-//        );
-//        event.registerBlockEntity(
-//            Capabilities.Fluid.BLOCK,
-//            ModBlockEntityTypes.ROCKET_STORAGE_VIEWER.get(),
-//            (blockEntity, side) -> blockEntity.itemFluidHandler
-//        );
+        );
+        event.registerBlockEntity(
+            Capabilities.Item.BLOCK,
+            ModBlockEntityTypes.ROCKET_STORAGE_VIEWER.get(),
+            (blockEntity, side) -> blockEntity.getItemHandler(side)
+        );
+        event.registerBlockEntity(
+            Capabilities.Fluid.BLOCK,
+            ModBlockEntityTypes.ROCKET_STORAGE_VIEWER.get(),
+            (blockEntity, side) -> blockEntity.getFluidHandler(side)
+        );
         event.registerBlockEntity(
             Capabilities.Item.BLOCK,
             ModBlockEntityTypes.ROCKET_CONTROLLER.get(),

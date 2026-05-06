@@ -16,7 +16,7 @@ import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.FluidStackTemplate;
 import org.jspecify.annotations.Nullable;
 
-// TODO: change into interface ResourceStack and FluidResourceStack/ItemResourceStack
+// TODO: delete / rework completely
 public class ItemFluidStack {
     public static final Codec<ItemFluidStack> CODEC = Codec.either(FluidStackTemplate.CODEC, ItemStackTemplate.CODEC)
         .xmap(

@@ -60,6 +60,8 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.client.ClientHooks;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
+import net.neoforged.neoforge.transfer.fluid.FluidResource;
+import net.neoforged.neoforge.transfer.item.ItemResource;
 import org.joml.Matrix3x2fStack;
 import org.joml.Vector2ic;
 import org.jspecify.annotations.Nullable;
@@ -145,7 +147,7 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
 
         graphics.pose().pushMatrix();
         final RenderTooltipEvent.Texture event = ClientHooks.onRenderTooltipTexture(ItemStack.EMPTY, graphics, posX, posY, preEvent.getFont(), components, null);
-        TooltipRenderUtil.extractTooltipBackground(graphics, posX, posY, textWidth, totalHeight, event.getTexture());
+        TooltipRenderUtil.extractTooltipBackground(graphics, posX, posY, totalWidth, totalHeight, event.getTexture());
 
         int textY = posY;
         for (final ClientTooltipComponent component : components) {
@@ -242,7 +244,12 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
         for (int i = 0; i < stacks.size(); i++) {
             final ItemFluidStack stack = stacks.get(i);
             if (isMouseOver(leftPos + stackX, topPos + stackY, 18, 18, mouseX, mouseY)) {
-                renderResourceTooltip(graphics, stack, mouseX, mouseY);
+                // TODO: this is shit (Use DisplayedEntry)
+                if (stack.getItemStackTemplate() != null) {
+                    renderItemResourceTooltip(graphics, ItemResource.of(stack.getItemStackTemplate().item().value()), stack.getItemStackTemplate().count(), mouseX, mouseY);
+                } else if (stack.getFluidStackTemplate() != null) {
+                    renderFluidResourceTooltip(graphics, FluidResource.of(stack.getFluidStackTemplate().fluid().value()), stack.getFluidStackTemplate().amount(), mouseX, mouseY);
+                }
             }
 
             if ((i + 1) % lineBreak == 0) {
@@ -268,28 +275,31 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
         poseStack.popMatrix();
     }
 
-    public static void renderResourceTooltip(final GuiGraphicsExtractor graphics,
-                                             @Nullable final ItemFluidStack stack,
-                                             final int mouseX,
-                                             final int mouseY) {
-        if (stack == null) {
-            return;
-        }
-
+    public static void renderItemResourceTooltip(final GuiGraphicsExtractor graphics,
+                                                 final ItemResource resource,
+                                                 final long amount,
+                                                 final int mouseX,
+                                                 final int mouseY) {
+        final ItemStack stack = resource.toStack();
         final List<Component> tooltip = new ArrayList<>();
-        if (stack.getItemStackTemplate() != null) {
-            tooltip.addAll(Screen.getTooltipFromItem(Minecraft.getInstance(), stack.getItemStack()));
-            tooltip.add(Component.translatable("gui.asteroidmining.rocket_storage_viewer.total", stack.getItemStackTemplate().count())
-                .withStyle(ChatFormatting.GRAY));
+        tooltip.addAll(Screen.getTooltipFromItem(Minecraft.getInstance(), stack));
+        tooltip.add(Component.translatable("gui.asteroidmining.rocket_storage_viewer.total", amount)
+            .withStyle(ChatFormatting.GRAY));
 
-            renderResourceTooltip(graphics, stack.getItemStack(), tooltip, stack.getItemStack().getTooltipImage(), mouseX, mouseY);
-        } else if (stack.getFluidStack() != null) {
-            tooltip.add(stack.getFluidStack().getHoverName());
-            tooltip.add(Component.translatable("gui.asteroidmining.rocket_storage_viewer.total", stack.getFluidStack().getAmount() + "mB")
-                .withStyle(ChatFormatting.GRAY));
+        renderResourceTooltip(graphics, stack, tooltip, stack.getTooltipImage(), mouseX, mouseY);
+    }
 
-            renderResourceTooltip(graphics, ItemStack.EMPTY, tooltip, Optional.empty(), mouseX, mouseY);
-        }
+    public static void renderFluidResourceTooltip(final GuiGraphicsExtractor graphics,
+                                                  final FluidResource resource,
+                                                  final long amount,
+                                                  final int mouseX,
+                                                  final int mouseY) {
+        final List<Component> tooltip = new ArrayList<>();
+        tooltip.add(resource.getHoverName());
+        tooltip.add(Component.translatable("gui.asteroidmining.rocket_storage_viewer.total", amount + "mB")
+            .withStyle(ChatFormatting.GRAY));
+
+        renderResourceTooltip(graphics, ItemStack.EMPTY, tooltip, Optional.empty(), mouseX, mouseY);
     }
 
     private static void renderResourceTooltip(final GuiGraphicsExtractor graphics,

@@ -59,6 +59,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.transfer.fluid.FluidResource;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import org.jspecify.annotations.Nullable;
@@ -438,7 +439,11 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         if (asteroid.isPresent()) {
             // TODO: calculate the amount of materials mined instead of a set amount
             for (final ItemFluidStack compositionStack : asteroid.get().getCompositionStacks()) {
-                configuration.moduleProperties().addItemFluidStack(compositionStack.copyWithCount(600));
+                if (compositionStack.getItemStackTemplate() != null) {
+                    configuration.moduleProperties().addItem(ItemResource.of(compositionStack.getItemStackTemplate().item().value()), compositionStack.getItemStackTemplate().count());
+                } else if (compositionStack.getFluidStackTemplate() != null) {
+                    configuration.moduleProperties().addFluid(FluidResource.of(compositionStack.getFluidStackTemplate().fluid().value()), compositionStack.getFluidStackTemplate().amount());
+                }
             }
 
             ConfigurationSavedData.getConfigurationData(serverLevel).set(uuid, configuration);

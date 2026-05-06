@@ -83,7 +83,6 @@
         <module name="UnusedLocalVariable"/>
         <module name="RedundantImport"/>
         <module name="UnusedImports"/>
-        <module name="BooleanExpressionComplexity"/>
         <module name="NoCodeInFile"/>
         <module name="UncommentedMain"/>
         <module name="RedundantModifier"/>

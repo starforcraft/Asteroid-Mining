@@ -77,13 +77,14 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
     @Override
     public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
         super.extractBackground(graphics, mouseX, mouseY, partialTicks); //TODO?
-        // Render tabs
+
+        // Render left side tabs
         final Level level = this.getMenu().getBlockEntity().getLevel();
         if (level != null) {
             final List<BlockPos> modules = new ArrayList<>(this.getMenu().getConnectedModules());
             this.totalPages = (int) Math.ceil((double) modules.size() / MAX_SHOWN_TABS);
 
-            this.currentTabPage = Math.max(0, Math.min(this.currentTabPage, this.totalPages - 1));
+            this.currentTabPage = Math.clamp(this.currentTabPage, 0, this.totalPages - 1);
             this.hoveredTab = -1;
             this.updateTabButtons();
 
@@ -101,7 +102,6 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
 
                 final Matrix3x2fStack poseStack = graphics.pose();
                 poseStack.pushMatrix();
-//                poseStack.translate(0.0F, 0.0F, selected ? 1.0F : 0.0F); //TODO!
 
                 graphics.blitSprite(GUI_TEXTURED, selected
                     ? (tabIndexOnPage == 0 ? SELECTED_TAB_TOP : (tabIndexOnPage == MAX_SHOWN_TABS - 1 ? SELECTED_TAB_BOTTOM : SELECTED_TAB))
@@ -111,6 +111,7 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
                 poseStack.popMatrix();
 
                 if (this.isHovering(x - this.leftPos + 3, y - this.topPos + 2, 24, 22, mouseX, mouseY)) {
+                    // TODO: this needed?
 //                    graphics.tooltip(this.font, getTooltipFromContainerItem(stack), mouseX, mouseY);
                     graphics.setTooltipForNextFrame(this.font, this.getTooltipFromContainerItem(stack), stack.getTooltipImage(),
                         stack, mouseX, mouseY, stack.get(DataComponents.TOOLTIP_STYLE));

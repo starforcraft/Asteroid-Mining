@@ -13,6 +13,9 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.fluid.FluidResource;
+import net.neoforged.neoforge.transfer.item.ItemResource;
 
 public class RocketStorageViewerContainerMenu extends AbstractModuleContainerMenu {
     private final RocketStorageViewerBlockEntity blockEntity;
@@ -84,8 +87,16 @@ public class RocketStorageViewerContainerMenu extends AbstractModuleContainerMen
         throw new IllegalStateException("Block entityType is not correct! " + blockEntity);
     }
 
-    // TODO
-//    public UnlimitedItemFluidStackHandler getInventoryHandler() {
-//        return this.blockEntity.itemFluidHandler;
-//    }
+    @Override
+    public RocketStorageViewerBlockEntity getBlockEntity() {
+        return this.blockEntity;
+    }
+
+    public ResourceHandler<ItemResource> getItemHandler() {
+        return this.getBlockEntity().getItemHandler(null);
+    }
+
+    public ResourceHandler<FluidResource> getFluidHandler() {
+        return this.getBlockEntity().getFluidHandler(null);
+    }
 }
