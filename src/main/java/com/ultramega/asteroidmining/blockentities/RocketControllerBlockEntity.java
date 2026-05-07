@@ -1,5 +1,6 @@
 package com.ultramega.asteroidmining.blockentities;
 
+import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 import com.ultramega.asteroidmining.blocks.AbstractModuleBlock;
 import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
 import com.ultramega.asteroidmining.container.RocketControllerContainerMenu;
@@ -16,8 +17,6 @@ import com.ultramega.asteroidmining.registry.ModSounds;
 import com.ultramega.asteroidmining.storage.ConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
 import com.ultramega.asteroidmining.storage.RocketProperties;
-import com.ultramega.asteroidmining.utils.AsteroidConfig;
-import com.ultramega.asteroidmining.utils.ItemFluidStack;
 import com.ultramega.asteroidmining.utils.PreviewInfo;
 import com.ultramega.asteroidmining.utils.Utils;
 
@@ -59,7 +58,6 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
-import net.neoforged.neoforge.transfer.fluid.FluidResource;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import org.jspecify.annotations.Nullable;
@@ -437,14 +435,8 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
 
         final Optional<AsteroidConfig> asteroid = this.getAsteroidConfig(this.destinationAsteroid);
         if (asteroid.isPresent()) {
-            // TODO: calculate the amount of materials mined instead of a set amount
-            for (final ItemFluidStack compositionStack : asteroid.get().getCompositionStacks()) {
-                if (compositionStack.getItemStackTemplate() != null) {
-                    configuration.moduleProperties().addItem(ItemResource.of(compositionStack.getItemStackTemplate().item().value()), compositionStack.getItemStackTemplate().count());
-                } else if (compositionStack.getFluidStackTemplate() != null) {
-                    configuration.moduleProperties().addFluid(FluidResource.of(compositionStack.getFluidStackTemplate().fluid().value()), compositionStack.getFluidStackTemplate().amount());
-                }
-            }
+            // TODO: calculate the amount of materials mined instead of just giving everything
+            configuration.moduleProperties().addResources(asteroid.get().getComposition());
 
             ConfigurationSavedData.getConfigurationData(serverLevel).set(uuid, configuration);
         }

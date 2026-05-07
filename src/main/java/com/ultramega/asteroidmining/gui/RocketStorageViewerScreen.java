@@ -1,10 +1,10 @@
 package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
+import com.ultramega.asteroidmining.asteroids.AsteroidResource;
 import com.ultramega.asteroidmining.container.RocketStorageViewerContainerMenu;
 import com.ultramega.asteroidmining.gui.widgets.ScrollbarWidget;
 import com.ultramega.asteroidmining.network.c2s.TryExtractRocketStorageMessage;
-import com.ultramega.asteroidmining.utils.FluidContainerUtil;
 import com.ultramega.asteroidmining.utils.Utils;
 
 import net.minecraft.client.Minecraft;
@@ -14,9 +14,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
-import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.transfer.ResourceHandler;
 import net.neoforged.neoforge.transfer.fluid.FluidResource;
@@ -47,12 +45,7 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
     protected void init() {
         super.init();
 
-        this.scrollbar = new ScrollbarWidget(
-            this.leftPos + 174,
-            this.topPos + 20,
-            106
-        );
-
+        this.scrollbar = new ScrollbarWidget(this.leftPos + 174, this.topPos + 20, 106);
         this.scrollbar.setListener(value -> this.updateWidgets());
         this.addWidget(this.scrollbar);
 
@@ -124,42 +117,23 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
                 continue;
             }
 
-            final DisplayedResource entry = this.getDisplayedEntry(displayIndex);
-            if (entry == null) {
+            final DisplayedResource displayedResource = this.getDisplayedResource(displayIndex);
+            if (displayedResource == null) {
                 continue;
             }
 
             if (!tooltip) {
-                this.drawDisplayedResource(graphics, entry, slotX, slotY);
+                Utils.renderResource(graphics, this.font, slotX, slotY, displayedResource.resource());
             }
 
             if (hovered) {
                 if (tooltip) {
-                    entry.drawTooltip(graphics, mouseX, mouseY);
+                    displayedResource.resource().drawTooltip(graphics, mouseX, mouseY);
                 } else {
                     drawSlotHighlight(graphics, slotX, slotY);
                 }
             }
         }
-    }
-
-    private void drawDisplayedResource(final GuiGraphicsExtractor graphics, final DisplayedResource entry, final int slotX, final int slotY) {
-        if (entry.isItem()) {
-            final ItemResource resource = entry.itemResource();
-            final int displayAmount = Math.min(clampToPositiveInt(entry.amount()), resource.getMaxStackSize());
-            final ItemStack stack = resource.toStack(displayAmount);
-
-            graphics.item(stack, slotX, slotY);
-            Utils.renderAmount(graphics, this.font, slotX, slotY, Utils.formatWithUnits(entry.amount()), 0xFFFFFFFF);
-            return;
-        }
-
-        final FluidResource resource = entry.fluidResource();
-        final FluidStack stack = resource.toStack(clampToPositiveInt(entry.amount()));
-
-        FluidContainerUtil.renderTiledFluid(graphics, this, stack, slotX - this.leftPos, slotY - this.topPos, 16, 16);
-
-        Utils.renderAmount(graphics, this.font, slotX, slotY, Utils.formatWithUnitsFluid(entry.amount()), 0xFFFFFFFF);
     }
 
     @Override
@@ -195,25 +169,26 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
             return false;
         }
 
-        final DisplayedResource entry = this.getDisplayedEntry(displayIndex);
-        if (entry == null) {
+        final DisplayedResource displayedResource = this.getDisplayedResource(displayIndex);
+        if (displayedResource == null) {
             return false;
         }
 
         final boolean shiftDown = Minecraft.getInstance().hasShiftDown();
 
-        if (entry.isItem()) {
-            final ItemResource resource = entry.itemResource();
-            final int amount = Math.min(clampToPositiveInt(entry.amount()), resource.getMaxStackSize());
+        // TODO: not happy about this either
+        switch (displayedResource.resource()) {
+            case AsteroidResource.ItemEntry item -> {
+                final int amount = Math.min(clampToPositiveInt(displayedResource.resource().amount()), item.resource().getMaxStackSize());
+                ClientPacketDistributor.sendToServer(new TryExtractRocketStorageMessage(displayedResource.handlerIndex(), item, amount, shiftDown));
+            }
 
-            ClientPacketDistributor.sendToServer(TryExtractRocketStorageMessage.item(entry.handlerIndex(), resource, amount, shiftDown));
-            return true;
+            case AsteroidResource.FluidEntry fluid -> {
+                final int amount = Math.min(clampToPositiveInt(displayedResource.resource().amount()), FluidType.BUCKET_VOLUME);
+                ClientPacketDistributor.sendToServer(new TryExtractRocketStorageMessage(displayedResource.handlerIndex(), fluid, amount, shiftDown));
+            }
         }
 
-        final FluidResource resource = entry.fluidResource();
-        final int amount = Math.min(clampToPositiveInt(entry.amount()), FluidType.BUCKET_VOLUME);
-
-        ClientPacketDistributor.sendToServer(TryExtractRocketStorageMessage.fluid(entry.handlerIndex(), resource, amount, shiftDown));
         return true;
     }
 
@@ -281,9 +256,11 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
         return count;
     }
 
-    private RocketStorageViewerScreen.@Nullable DisplayedResource getDisplayedEntry(final int displayIndex) {
+    @Nullable
+    private DisplayedResource getDisplayedResource(final int displayIndex) {
         int current = 0;
 
+        // TODO: this is shit and not extensible
         final ResourceHandler<ItemResource> items = this.menu.getItemHandler();
         for (int i = 0; i < items.size(); i++) {
             final ItemResource resource = items.getResource(i);
@@ -294,7 +271,7 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
             }
 
             if (current++ == displayIndex) {
-                return DisplayedResource.item(i, resource, amount);
+                return new DisplayedResource(i, new AsteroidResource.ItemEntry(resource, amount));
             }
         }
 
@@ -308,7 +285,7 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
             }
 
             if (current++ == displayIndex) {
-                return DisplayedResource.fluid(i, resource, amount);
+                return new DisplayedResource(i, new AsteroidResource.FluidEntry(resource, amount));
             }
         }
 
@@ -319,44 +296,6 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
         return (int) Math.clamp(amount, 1L, Integer.MAX_VALUE);
     }
 
-    // TODO: make this easily extensible
-    private record DisplayedResource(int handlerIndex, @Nullable ItemResource itemResource, @Nullable FluidResource fluidResource, long amount) {
-        static DisplayedResource item(final int handlerIndex, final ItemResource resource, final long amount) {
-            return new DisplayedResource(handlerIndex, resource, null, amount);
-        }
-
-        static DisplayedResource fluid(final int handlerIndex, final FluidResource resource, final long amount) {
-            return new DisplayedResource(handlerIndex, null, resource, amount);
-        }
-
-        boolean isItem() {
-            return this.itemResource != null;
-        }
-
-        @Override
-        public ItemResource itemResource() {
-            if (this.itemResource == null) {
-                throw new IllegalStateException("Entry is not an item");
-            }
-
-            return this.itemResource;
-        }
-
-        @Override
-        public FluidResource fluidResource() {
-            if (this.fluidResource == null) {
-                throw new IllegalStateException("Entry is not a fluid");
-            }
-
-            return this.fluidResource;
-        }
-
-        public void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
-            if (this.isItem()) {
-                Utils.renderItemResourceTooltip(graphics, this.itemResource(), this.amount, mouseX, mouseY);
-            } else {
-                Utils.renderFluidResourceTooltip(graphics, this.fluidResource(), this.amount, mouseX, mouseY);
-            }
-        }
+    private record DisplayedResource(int handlerIndex, AsteroidResource resource) {
     }
 }

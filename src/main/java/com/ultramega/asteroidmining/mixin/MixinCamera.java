@@ -1,6 +1,6 @@
 package com.ultramega.asteroidmining.mixin;
 
-import com.ultramega.asteroidmining.utils.CameraHandler;
+import com.ultramega.asteroidmining.camera.CameraHandler;
 
 import net.minecraft.client.Camera;
 import net.minecraft.world.entity.Entity;

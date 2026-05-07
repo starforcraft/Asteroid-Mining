@@ -1,26 +1,23 @@
-package com.ultramega.asteroidmining.utils;
+package com.ultramega.asteroidmining.asteroids;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.level.material.Fluid;
-import net.neoforged.neoforge.fluids.FluidStackTemplate;
+import net.neoforged.neoforge.transfer.fluid.FluidResource;
+import net.neoforged.neoforge.transfer.item.ItemResource;
 import org.jspecify.annotations.Nullable;
 
 public final class AsteroidConfig {
@@ -29,8 +26,7 @@ public final class AsteroidConfig {
         Codec.STRING.fieldOf("name").forGetter(c -> c.name),
         Identifier.CODEC.fieldOf("texture").forGetter(c -> c.texture),
         Codec.INT.fieldOf("diameter").forGetter(c -> c.diameter),
-        Codec.unboundedMap(BuiltInRegistries.ITEM.byNameCodec(), Codec.INT).fieldOf("compositionItems").forGetter(c -> c.compositionItems),
-        Codec.unboundedMap(BuiltInRegistries.FLUID.byNameCodec(), Codec.INT).fieldOf("compositionFluids").forGetter(c -> c.compositionFluids),
+        AsteroidResource.LIST_CODEC.fieldOf("composition").forGetter(c -> c.composition),
         Codec.STRING.fieldOf("centralBodyName").forGetter(c -> c.centralBodyName),
         Codec.FLOAT.fieldOf("semiMajorAxis").forGetter(c -> c.semiMajorAxis),
         Codec.FLOAT.fieldOf("semiMinorAxis").forGetter(c -> c.semiMinorAxis),
@@ -45,10 +41,9 @@ public final class AsteroidConfig {
     private String name;
     private final Identifier texture;
     private final int diameter;
-    private Map<Item, Integer> compositionItems = new HashMap<>();
-    private Map<Fluid, Integer> compositionFluids = new HashMap<>();
-    private List<ItemFluidStack> compositionStacks = new ArrayList<>();
+    private List<AsteroidResource> composition = new ArrayList<>();
 
+    @Nullable
     private AsteroidConfig centralBody;
     private String centralBodyName = "";
     private float semiMajorAxis;
@@ -71,12 +66,11 @@ public final class AsteroidConfig {
         this.setInitialRotation();
     }
 
-    public AsteroidConfig(final Identifier id,
+    public AsteroidConfig(@Nullable final Identifier id,
                           final String name,
                           final Identifier texture,
                           final int diameter,
-                          final Map<Item, Integer> compositionItems,
-                          final Map<Fluid, Integer> compositionFluids,
+                          final List<AsteroidResource> composition,
                           final String centralBodyName,
                           final float semiMajorAxis,
                           final float semiMinorAxis,
@@ -89,8 +83,7 @@ public final class AsteroidConfig {
         this.id = id == null ? AsteroidMining.makeId(this.getFileName1()) : id;
         this.texture = texture;
         this.diameter = diameter;
-        this.compositionItems = compositionItems;
-        this.compositionFluids = compositionFluids;
+        this.composition = composition;
         this.centralBodyName = centralBodyName;
         this.semiMajorAxis = semiMajorAxis;
         this.semiMinorAxis = semiMinorAxis;
@@ -102,17 +95,15 @@ public final class AsteroidConfig {
         this.shouldRotate = shouldRotate;
 
         this.setInitialRotation();
-        this.buildCompositionStacks();
     }
 
-    //TODO: I think this can be done better than two different lists I guess
-    public AsteroidConfig item(final Item item, final int amount) {
-        this.compositionItems.put(item, amount);
+    public AsteroidConfig item(final Item item, final long amount) { //TODO: this currently crashes on datagen
+        this.composition.add(new AsteroidResource.ItemEntry(ItemResource.of(item), amount));
         return this;
     }
 
-    public AsteroidConfig fluid(final Fluid item, final int amount) {
-        this.compositionFluids.put(item, amount);
+    public AsteroidConfig fluid(final Fluid fluid, final long amount) {
+        this.composition.add(new AsteroidResource.FluidEntry(FluidResource.of(fluid), amount));
         return this;
     }
 
@@ -137,22 +128,6 @@ public final class AsteroidConfig {
     public AsteroidConfig rotation(final boolean shouldRotate) {
         this.shouldRotate = shouldRotate;
         return this;
-    }
-
-    private void buildCompositionStacks() {
-        final List<ItemFluidStack> stacks = new ArrayList<>(
-            this.compositionItems.size() + this.compositionFluids.size()
-        );
-
-        this.compositionItems.forEach((item, amount) ->
-            stacks.add(new ItemFluidStack(new ItemStackTemplate(item, amount)))
-        );
-
-        this.compositionFluids.forEach((fluid, amount) ->
-            stacks.add(new ItemFluidStack(new FluidStackTemplate(fluid, amount)))
-        );
-
-        this.compositionStacks = stacks;
     }
 
     public Identifier getId() {
@@ -188,8 +163,8 @@ public final class AsteroidConfig {
         return this.diameter / 1.5;
     }
 
-    public List<ItemFluidStack> getCompositionStacks() {
-        return this.compositionStacks;
+    public List<AsteroidResource> getComposition() {
+        return List.copyOf(this.composition);
     }
 
     public float getSemiMajorAxis() {

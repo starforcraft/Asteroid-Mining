@@ -1,7 +1,7 @@
 package com.ultramega.asteroidmining.events;
 
 import com.ultramega.asteroidmining.AsteroidMining;
-import com.ultramega.asteroidmining.utils.AsteroidConfig;
+import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.ultramega.asteroidmining.utils;
+package com.ultramega.asteroidmining.asteroids;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 

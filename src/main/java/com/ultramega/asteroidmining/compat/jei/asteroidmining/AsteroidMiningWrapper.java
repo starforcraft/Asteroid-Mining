@@ -1,6 +1,6 @@
 package com.ultramega.asteroidmining.compat.jei.asteroidmining;
 
-import com.ultramega.asteroidmining.utils.AsteroidConfig;
+import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.ArrayList;

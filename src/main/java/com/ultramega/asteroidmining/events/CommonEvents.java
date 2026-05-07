@@ -2,10 +2,10 @@ package com.ultramega.asteroidmining.events;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.blockentities.BoundingBoxBlockEntity;
+import com.ultramega.asteroidmining.camera.CameraHandler;
 import com.ultramega.asteroidmining.network.AsteroidDataMessage;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.storage.ConfigurationSavedData;
-import com.ultramega.asteroidmining.utils.CameraHandler;
 import com.ultramega.asteroidmining.utils.CoolantData;
 
 import net.minecraft.server.level.ServerLevel;

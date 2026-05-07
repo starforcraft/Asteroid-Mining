@@ -1,8 +1,8 @@
 package com.ultramega.asteroidmining.datagen;
 
+import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
+import com.ultramega.asteroidmining.asteroids.AsteroidTextures;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
-import com.ultramega.asteroidmining.utils.AsteroidConfig;
-import com.ultramega.asteroidmining.utils.AsteroidTextures;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -29,6 +29,8 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Util;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.Fluids;
+
+import static com.ultramega.asteroidmining.utils.Utils.BUCKET_AMOUNT;
 
 public class AsteroidProvider implements DataProvider {
     private final PackOutput output;
@@ -417,15 +419,15 @@ public class AsteroidProvider implements DataProvider {
         //TODO!!
 
         asteroids.add(new AsteroidConfig("1989 ML", AsteroidTextures.ASTEROID_1, 1)
-            .item(Items.IRON_ORE, 640_000)
-            .fluid(Fluids.WATER, 320_000)
-            .fluid(Fluids.LAVA, 16_000)
+            .item(Items.IRON_ORE, 640_000L)
+            .fluid(Fluids.WATER, 320L * BUCKET_AMOUNT)
+            .fluid(Fluids.LAVA, 16L * BUCKET_AMOUNT)
             .orbit("Mercury", 10f, 0.5f, 2.3f, true, 0f, false)
             .rotation(true));
 
         asteroids.add(new AsteroidConfig("Ceres", AsteroidTextures.ASTEROID_2, 4)
-            .item(Items.IRON_ORE, 32000)
-            .item(Items.GOLD_ORE, 32000)
+            .item(Items.IRON_ORE, 32000L)
+            .item(Items.GOLD_ORE, 32000L)
             .orbit("Sun", 100f, 0.5f, 2.3f, false, 5f, false)
             .rotation(true));
 

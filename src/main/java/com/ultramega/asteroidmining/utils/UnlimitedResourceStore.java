@@ -1,5 +1,6 @@
 package com.ultramega.asteroidmining.utils;
 
+import com.ultramega.asteroidmining.asteroids.AsteroidResource;
 import com.ultramega.asteroidmining.storage.ModuleProperties;
 
 import java.util.LinkedHashMap;
@@ -117,7 +118,7 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
         final ModuleProperties.Storage storage = this.storage();
 
         long current = 0L;
-        for (final ModuleProperties.StorageEntry entry : storage.inventory()) {
+        for (final AsteroidResource entry : storage.inventory()) {
             if (this.adapter.matches(entry) && this.adapter.resource(entry).equals(resource)) {
                 current = entry.amount();
                 break;
@@ -199,7 +200,7 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
     public Map<R, Long> view() {
         final Map<R, Long> result = new LinkedHashMap<>();
 
-        for (final ModuleProperties.StorageEntry entry : this.storage().inventory()) {
+        for (final AsteroidResource entry : this.storage().inventory()) {
             if (this.adapter.matches(entry)) {
                 result.put(this.adapter.resource(entry), entry.amount());
             }
@@ -259,8 +260,8 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
     private int countMatchingEntries() {
         int count = 0;
 
-        for (final ModuleProperties.StorageEntry entry : this.storage().inventory()) {
-            if (this.adapter.matches(entry) && !entry.isEmpty() && entry.amount() > 0L) {
+        for (final AsteroidResource entry : this.storage().inventory()) {
+            if (this.adapter.matches(entry) && !entry.isEmpty()) {
                 count++;
             }
         }
@@ -279,8 +280,7 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
         final ModuleProperties.Storage storage = this.storage();
 
         for (int storageIndex = 0; storageIndex < storage.inventory().size(); storageIndex++) {
-            final ModuleProperties.StorageEntry entry = storage.inventory().get(storageIndex);
-
+            final AsteroidResource entry = storage.inventory().get(storageIndex);
             if (!this.adapter.matches(entry) || entry.isEmpty() || entry.amount() <= 0L) {
                 continue;
             }
@@ -295,7 +295,7 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
         return null;
     }
 
-    private record IndexedEntry(int storageIndex, ModuleProperties.StorageEntry entry) {
+    private record IndexedEntry(int storageIndex, AsteroidResource entry) {
     }
 
     public interface ResourceAdapter<R extends Resource> {
@@ -306,18 +306,18 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
             }
 
             @Override
-            public boolean matches(final ModuleProperties.StorageEntry entry) {
-                return entry instanceof ModuleProperties.StoredItem;
+            public boolean matches(final AsteroidResource entry) {
+                return entry instanceof AsteroidResource.ItemEntry;
             }
 
             @Override
-            public ItemResource resource(final ModuleProperties.StorageEntry entry) {
-                return ((ModuleProperties.StoredItem) entry).resource();
+            public ItemResource resource(final AsteroidResource entry) {
+                return ((AsteroidResource.ItemEntry) entry).resource();
             }
 
             @Override
-            public ModuleProperties.StorageEntry create(final ItemResource resource, final long amount) {
-                return new ModuleProperties.StoredItem(resource, amount);
+            public AsteroidResource create(final ItemResource resource, final long amount) {
+                return new AsteroidResource.ItemEntry(resource, amount);
             }
         };
 
@@ -328,28 +328,28 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
             }
 
             @Override
-            public boolean matches(final ModuleProperties.StorageEntry entry) {
-                return entry instanceof ModuleProperties.StoredFluid;
+            public boolean matches(final AsteroidResource entry) {
+                return entry instanceof AsteroidResource.FluidEntry;
             }
 
             @Override
-            public FluidResource resource(final ModuleProperties.StorageEntry entry) {
-                return ((ModuleProperties.StoredFluid) entry).resource();
+            public FluidResource resource(final AsteroidResource entry) {
+                return ((AsteroidResource.FluidEntry) entry).resource();
             }
 
             @Override
-            public ModuleProperties.StorageEntry create(final FluidResource resource, final long amount) {
-                return new ModuleProperties.StoredFluid(resource, amount);
+            public AsteroidResource create(final FluidResource resource, final long amount) {
+                return new AsteroidResource.FluidEntry(resource, amount);
             }
         };
 
         R empty();
 
-        boolean matches(ModuleProperties.StorageEntry entry);
+        boolean matches(AsteroidResource entry);
 
-        R resource(ModuleProperties.StorageEntry entry);
+        R resource(AsteroidResource entry);
 
-        ModuleProperties.StorageEntry create(R resource, long amount);
+        AsteroidResource create(R resource, long amount);
     }
 }
 

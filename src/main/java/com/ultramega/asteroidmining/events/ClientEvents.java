@@ -3,6 +3,7 @@ package com.ultramega.asteroidmining.events;
 import com.ultramega.asteroidmining.blockentities.renderer.LaunchPadBuilderBlockEntityRenderer;
 import com.ultramega.asteroidmining.blockentities.renderer.RocketEngineBlockEntityRenderer;
 import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
+import com.ultramega.asteroidmining.camera.CameraHandler;
 import com.ultramega.asteroidmining.entities.renderer.BlockStructureEntityRenderer;
 import com.ultramega.asteroidmining.gui.AirAbsorberScreen;
 import com.ultramega.asteroidmining.gui.BiogasPlantScreen;
@@ -23,7 +24,6 @@ import com.ultramega.asteroidmining.registry.ModEntityTypes;
 import com.ultramega.asteroidmining.registry.ModFluids;
 import com.ultramega.asteroidmining.registry.ModMenuTypes;
 import com.ultramega.asteroidmining.registry.ModParticles;
-import com.ultramega.asteroidmining.utils.CameraHandler;
 import com.ultramega.asteroidmining.utils.PreviewInfo;
 
 import java.util.HashSet;

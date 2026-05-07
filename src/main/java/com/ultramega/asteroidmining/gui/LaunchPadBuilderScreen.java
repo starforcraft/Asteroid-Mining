@@ -2,6 +2,7 @@ package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.blocks.AbstractFacingBlock;
+import com.ultramega.asteroidmining.camera.CameraHandler;
 import com.ultramega.asteroidmining.container.LaunchPadBuilderContainerMenu;
 import com.ultramega.asteroidmining.gui.widgets.PlaceholderEditBox;
 import com.ultramega.asteroidmining.network.c2s.SetConfigurationStackMessage;
@@ -9,7 +10,6 @@ import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
 import com.ultramega.asteroidmining.storage.ClientConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.LaunchPadConfiguration;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
-import com.ultramega.asteroidmining.utils.CameraHandler;
 import com.ultramega.asteroidmining.utils.Utils;
 
 import net.minecraft.client.Minecraft;

@@ -1,8 +1,8 @@
 package com.ultramega.asteroidmining.blockentities;
 
 import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
+import com.ultramega.asteroidmining.camera.CameraHandler;
 import com.ultramega.asteroidmining.registry.ModSounds;
-import com.ultramega.asteroidmining.utils.CameraHandler;
 import com.ultramega.asteroidmining.utils.MovingSoundInstance;
 
 import java.util.Map;

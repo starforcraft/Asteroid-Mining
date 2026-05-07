@@ -1,12 +1,12 @@
 package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
+import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
 import com.ultramega.asteroidmining.gui.renderer.OrbitRenderState;
 import com.ultramega.asteroidmining.gui.widgets.AsteroidSearchBox;
 import com.ultramega.asteroidmining.gui.widgets.ImageButton;
 import com.ultramega.asteroidmining.gui.widgets.ImagesButton;
-import com.ultramega.asteroidmining.utils.AsteroidConfig;
 import com.ultramega.asteroidmining.utils.TextColors;
 import com.ultramega.asteroidmining.utils.Utils;
 
@@ -152,7 +152,7 @@ public class SolarSystemViewScreen extends Screen {
         final Component sizeLabel = Component.translatable("gui.asteroidmining.observatory.diameter").withStyle(ChatFormatting.AQUA)
             .append(Component.literal(Utils.formatPlanetSize(this.selectedAsteroid.getDiameter())).withStyle(ChatFormatting.WHITE));
 
-        final boolean hasComposition = !this.selectedAsteroid.getCompositionStacks().isEmpty();
+        final boolean hasComposition = !this.selectedAsteroid.getComposition().isEmpty();
         final Component compositionLabel = Component.translatable("gui.asteroidmining.observatory.composition").withStyle(ChatFormatting.AQUA);
 
         final boolean hasOrbitDetails = !this.selectedAsteroid.getCentralBodyName().isBlank();
@@ -185,7 +185,7 @@ public class SolarSystemViewScreen extends Screen {
         // <<< Text Height Calculation >>>
         final int baseTextHeight = 55;
         final int compositionTextHeight = hasComposition ? 25 : 0;
-        final int compositionStacksHeight = (this.selectedAsteroid.getCompositionStacks().size() / 5) * 18;
+        final int compositionStacksHeight = (this.selectedAsteroid.getComposition().size() / 5) * 18;
         final int orbitDetailsButtonExtraHeight = hasOrbitDetails ? 20 : 0;
         final int orbitDetailsExtraHeight = this.displayOrbitDetails ? 35 : 0;
         this.detailHeight = baseTextHeight + compositionTextHeight + compositionStacksHeight + orbitDetailsButtonExtraHeight + orbitDetailsExtraHeight;
@@ -220,10 +220,10 @@ public class SolarSystemViewScreen extends Screen {
         graphics.text(this.font, sizeLabel, 5, y, -1);
         y += 10;
 
-        if (!this.selectedAsteroid.getCompositionStacks().isEmpty()) {
+        if (!this.selectedAsteroid.getComposition().isEmpty()) {
             graphics.text(this.font, compositionLabel, 5, y, -1);
-            Utils.renderStacksWithSlot(graphics, this.font, mouseX, mouseY, 5, 41, 5,
-                detailX, 0, this.selectedAsteroid.getCompositionStacks());
+            Utils.renderResourcesWithSlot(graphics, this.font, mouseX, mouseY, 5, 41, 5,
+                detailX, 0, this.selectedAsteroid.getComposition());
             y += compositionTextHeight + compositionStacksHeight;
         }
 
@@ -350,8 +350,8 @@ public class SolarSystemViewScreen extends Screen {
         if (this.isMouseOnDetailPanel(mouseX, mouseY)) {
             if (this.selectedAsteroid != null) {
                 final int detailX = this.width - this.detailWidth;
-                Utils.renderTooltipOfStacks(graphics, mouseX, mouseY, 5, 41, 5,
-                    detailX, 0, this.selectedAsteroid.getCompositionStacks());
+                Utils.renderTooltipOfResources(graphics, mouseX, mouseY, 5, 41, 5,
+                    detailX, 0, this.selectedAsteroid.getComposition());
             }
 
             return;
@@ -363,8 +363,8 @@ public class SolarSystemViewScreen extends Screen {
 
             final List<ClientTooltipComponent> clientTooltips = ClientHooks.gatherTooltipComponents(ItemStack.EMPTY, tooltip,
                 Optional.empty(), mouseX, graphics.guiWidth(), graphics.guiHeight(), this.font);
-            Utils.renderStacksInsideTooltip(graphics, this.font, clientTooltips, mouseX, mouseY, DefaultTooltipPositioner.INSTANCE,
-                this.hoveredAsteroid.getCompositionStacks());
+            Utils.renderResourcesInsideTooltip(graphics, this.font, clientTooltips, mouseX, mouseY, DefaultTooltipPositioner.INSTANCE,
+                this.hoveredAsteroid.getComposition());
         }
     }
 

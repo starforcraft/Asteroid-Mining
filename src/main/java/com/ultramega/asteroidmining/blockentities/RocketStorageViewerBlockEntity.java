@@ -32,7 +32,7 @@ public class RocketStorageViewerBlockEntity extends AbstractModuleBlockEntity im
         () -> this.getConfiguration().moduleProperties(),
         properties -> {
             final NetworkConfiguration configuration = this.getConfiguration();
-            this.setConfiguration(configuration.withModuleProperties(properties)); //TODO: is this updated on the server too?
+            this.setConfiguration(configuration.withModuleProperties(properties));
         }, this::setChanged);
 
     private final ResourceHandler<FluidResource> fluidStorage = UnlimitedResourceStore.fluids(

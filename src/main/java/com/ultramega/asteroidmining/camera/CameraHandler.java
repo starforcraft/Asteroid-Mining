@@ -1,4 +1,6 @@
-package com.ultramega.asteroidmining.utils;
+package com.ultramega.asteroidmining.camera;
+
+import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,9 +1,9 @@
 package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
+import com.ultramega.asteroidmining.camera.CameraHandler;
 import com.ultramega.asteroidmining.events.ClientEvents;
 import com.ultramega.asteroidmining.gui.widgets.ImageButton;
-import com.ultramega.asteroidmining.utils.CameraHandler;
 import com.ultramega.asteroidmining.utils.PreviewBlockHitResult;
 import com.ultramega.asteroidmining.utils.Utils;
 

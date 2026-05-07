@@ -4,7 +4,7 @@
 //import com.ultramega.asteroidmining.events.AsteroidReloadListener;
 //import com.ultramega.asteroidmining.gui.widgets.PlaceholderEditBox;
 //import com.ultramega.asteroidmining.gui.widgets.ScrollbarWidget;
-//import com.ultramega.asteroidmining.utils.AsteroidConfig;
+//import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 //
 //import java.util.ArrayList;
 //import java.util.List;

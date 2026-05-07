@@ -57,11 +57,11 @@ public class BigSmokeParticle extends BaseAshSmokeParticle {
                                        final double x,
                                        final double y,
                                        final double z,
-                                       final double xAux,
-                                       final double yAux,
-                                       final double zAux,
+                                       final double auxX,
+                                       final double auxY,
+                                       final double auxZ,
                                        final RandomSource random) {
-            return new BigSmokeParticle(level, x, y, z, xAux, yAux, zAux, 1.0F, this.sprites);
+            return new BigSmokeParticle(level, x, y, z, auxX, auxY, auxZ, 1.0F, this.sprites);
         }
     }
 }

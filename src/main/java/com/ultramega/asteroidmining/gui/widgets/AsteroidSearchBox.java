@@ -1,7 +1,7 @@
 package com.ultramega.asteroidmining.gui.widgets;
 
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
-import com.ultramega.asteroidmining.utils.AsteroidConfig;
+import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 import com.ultramega.asteroidmining.utils.TextColors;
 import com.ultramega.asteroidmining.utils.Utils;
 

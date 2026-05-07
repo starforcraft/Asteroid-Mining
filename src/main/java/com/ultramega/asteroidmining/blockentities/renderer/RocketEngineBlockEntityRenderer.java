@@ -159,7 +159,7 @@ public class RocketEngineBlockEntityRenderer implements BlockEntityRenderer<Rock
     }
 
     //TODO: I don't like this at all
-    private static float random01(long seed, int a, int b) {
+    private static float random01(final long seed, final int a, final int b) {
         long x = seed;
         x ^= 0x9E3779B97F4A7C15L * (a + 1L);
         x ^= 0xC2B2AE3D27D4EB4FL * (b + 1L);

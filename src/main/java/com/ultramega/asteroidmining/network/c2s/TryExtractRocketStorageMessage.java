@@ -1,6 +1,7 @@
 package com.ultramega.asteroidmining.network.c2s;
 
 import com.ultramega.asteroidmining.AsteroidMining;
+import com.ultramega.asteroidmining.asteroids.AsteroidResource;
 import com.ultramega.asteroidmining.container.RocketStorageViewerContainerMenu;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -19,31 +20,20 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.PlayerInventoryWrapper;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
 
-public record TryExtractRocketStorageMessage(boolean fluid,
-                                             int handlerIndex,
-                                             ItemResource itemResource,
-                                             FluidResource fluidResource,
+// TODO: make this easily extensible instead of only item + fluid
+public record TryExtractRocketStorageMessage(int handlerIndex,
+                                             AsteroidResource resource,
                                              int amount,
                                              boolean shiftDown) implements CustomPacketPayload {
     public static final Type<TryExtractRocketStorageMessage> TYPE = new Type<>(AsteroidMining.makeId("try_carry_rocket_storage"));
 
     public static final StreamCodec<RegistryFriendlyByteBuf, TryExtractRocketStorageMessage> STREAM_CODEC = StreamCodec.composite(
-        ByteBufCodecs.BOOL, TryExtractRocketStorageMessage::fluid,
         ByteBufCodecs.INT, TryExtractRocketStorageMessage::handlerIndex,
-        ItemResource.STREAM_CODEC, TryExtractRocketStorageMessage::itemResource,
-        FluidResource.STREAM_CODEC, TryExtractRocketStorageMessage::fluidResource,
+        AsteroidResource.STREAM_CODEC, TryExtractRocketStorageMessage::resource,
         ByteBufCodecs.INT, TryExtractRocketStorageMessage::amount,
         ByteBufCodecs.BOOL, TryExtractRocketStorageMessage::shiftDown,
         TryExtractRocketStorageMessage::new
     );
-
-    public static TryExtractRocketStorageMessage item(final int handlerIndex, final ItemResource resource, final int amount, final boolean shiftDown) {
-        return new TryExtractRocketStorageMessage(false, handlerIndex, resource, FluidResource.EMPTY, amount, shiftDown);
-    }
-
-    public static TryExtractRocketStorageMessage fluid(final int handlerIndex, final FluidResource resource, final int amount, final boolean shiftDown) {
-        return new TryExtractRocketStorageMessage(true, handlerIndex, ItemResource.EMPTY, resource, amount, shiftDown);
-    }
 
     @Override
     public Type<? extends CustomPacketPayload> type() {
@@ -56,24 +46,23 @@ public record TryExtractRocketStorageMessage(boolean fluid,
                 return;
             }
 
-            if (data.fluid()) {
-                handleFluidExtraction(data, context.player(), containerMenu);
-            } else {
-                handleItemExtraction(data, context.player(), containerMenu);
+            switch (data.resource()) {
+                case AsteroidResource.ItemEntry item -> handleItemExtraction(item, data, context.player(), containerMenu);
+                case AsteroidResource.FluidEntry fluid -> handleFluidExtraction(fluid, data, context.player(), containerMenu);
             }
 
             containerMenu.broadcastChanges();
         });
     }
 
-    private static void handleItemExtraction(final TryExtractRocketStorageMessage data, final Player player, final RocketStorageViewerContainerMenu containerMenu) {
+    private static void handleItemExtraction(final AsteroidResource.ItemEntry item, final TryExtractRocketStorageMessage data, final Player player, final RocketStorageViewerContainerMenu containerMenu) {
         final ResourceHandler<ItemResource> source = containerMenu.getItemHandler();
         if (data.handlerIndex() >= source.size()) {
             return;
         }
 
         final ItemResource currentResource = source.getResource(data.handlerIndex());
-        if (currentResource.isEmpty() || !currentResource.equals(data.itemResource())) {
+        if (currentResource.isEmpty() || !currentResource.equals(item.resource())) {
             return;
         }
 
@@ -99,14 +88,14 @@ public record TryExtractRocketStorageMessage(boolean fluid,
         }
     }
 
-    private static void handleFluidExtraction(final TryExtractRocketStorageMessage data, final Player player, final RocketStorageViewerContainerMenu containerMenu) {
+    private static void handleFluidExtraction(final AsteroidResource.FluidEntry fluid, final TryExtractRocketStorageMessage data, final Player player, final RocketStorageViewerContainerMenu containerMenu) {
         final ResourceHandler<FluidResource> source = containerMenu.getFluidHandler();
         if (data.handlerIndex() >= source.size()) {
             return;
         }
 
         final FluidResource currentResource = source.getResource(data.handlerIndex());
-        if (currentResource.isEmpty() || !currentResource.equals(data.fluidResource())) {
+        if (currentResource.isEmpty() || !currentResource.equals(fluid.resource())) {
             return;
         }
 

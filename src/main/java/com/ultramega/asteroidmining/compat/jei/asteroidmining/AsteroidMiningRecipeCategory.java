@@ -1,9 +1,9 @@
 package com.ultramega.asteroidmining.compat.jei.asteroidmining;
 
 import com.ultramega.asteroidmining.AsteroidMining;
+import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
+import com.ultramega.asteroidmining.asteroids.AsteroidResource;
 import com.ultramega.asteroidmining.registry.ModBlocks;
-import com.ultramega.asteroidmining.utils.AsteroidConfig;
-import com.ultramega.asteroidmining.utils.ItemFluidStack;
 
 import java.util.List;
 
@@ -43,15 +43,17 @@ public class AsteroidMiningRecipeCategory implements IRecipeCategory<AsteroidCon
 
     @Override
     public void setRecipe(final IRecipeLayoutBuilder builder, final AsteroidConfig recipe, final IFocusGroup focuses) {
-        for (int i = 0; i < recipe.getCompositionStacks().size(); i++) {
-            final ItemFluidStack stack = recipe.getCompositionStacks().get(i).copyWithCount(1);
+        for (int i = 0; i < recipe.getComposition().size(); i++) {
+            final AsteroidResource resource = recipe.getComposition().get(i);
 
-            if (stack.getItemStackTemplate() != null) {
-                builder.addOutputSlot(0, 0)
-                    .add(stack.getItemStackTemplate());
-            } else if (stack.getFluidStackTemplate() != null) {
-                builder.addOutputSlot(0, 0)
-                    .add(stack.getFluidStackTemplate().fluid().value());
+            switch (resource) {
+                case AsteroidResource.ItemEntry item ->
+                    builder.addOutputSlot(0, 0)
+                        .add(item.resource().getItem());
+
+                case AsteroidResource.FluidEntry fluid ->
+                    builder.addOutputSlot(0, 0)
+                        .add(fluid.resource().value());
             }
         }
     }

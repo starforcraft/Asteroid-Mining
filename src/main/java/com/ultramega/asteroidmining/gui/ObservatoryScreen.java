@@ -1,11 +1,11 @@
 package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
+import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 import com.ultramega.asteroidmining.container.ObservatoryContainerMenu;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
 import com.ultramega.asteroidmining.network.c2s.SelectAsteroidMessage;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
-import com.ultramega.asteroidmining.utils.AsteroidConfig;
 import com.ultramega.asteroidmining.utils.TextColors;
 
 import java.util.Optional;

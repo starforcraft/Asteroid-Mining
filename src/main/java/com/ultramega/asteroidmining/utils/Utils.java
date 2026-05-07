@@ -1,6 +1,7 @@
 package com.ultramega.asteroidmining.utils;
 
 import com.ultramega.asteroidmining.AsteroidMining;
+import com.ultramega.asteroidmining.asteroids.AsteroidResource;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.storage.LaunchPadConfiguration;
 
@@ -109,13 +110,13 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
     private Utils() {
     }
 
-    public static void renderStacksInsideTooltip(final GuiGraphicsExtractor graphics,
-                                                 final Font font,
-                                                 final List<ClientTooltipComponent> components,
-                                                 final int mouseX,
-                                                 final int mouseY,
-                                                 final ClientTooltipPositioner tooltipPositioner,
-                                                 final List<ItemFluidStack> stacks) {
+    public static void renderResourcesInsideTooltip(final GuiGraphicsExtractor graphics,
+                                                    final Font font,
+                                                    final List<ClientTooltipComponent> components,
+                                                    final int mouseX,
+                                                    final int mouseY,
+                                                    final ClientTooltipPositioner tooltipPositioner,
+                                                    final List<AsteroidResource> resources) {
         if (components.isEmpty()) {
             return;
         }
@@ -133,8 +134,8 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
             .mapToInt(c -> c.getHeight(font))
             .sum() + (components.size() > 1 ? 0 : -2);
 
-        final int itemRows = (int) Math.ceil(stacks.size() / 4.0);
-        final int itemWidth = Math.min(stacks.size(), 4) * 18;
+        final int itemRows = (int) Math.ceil(resources.size() / 4.0);
+        final int itemWidth = Math.min(resources.size(), 4) * 18;
         final int itemHeight = itemRows * 18;
 
         final int totalWidth = Math.max(textWidth, itemWidth);
@@ -161,63 +162,65 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
             textY += component.getHeight(font) + (textY == posY ? 2 : 0);
         }
 
-        if (!stacks.isEmpty()) {
-            renderStacks(graphics, font, posX, textY, 4, stacks);
+        if (!resources.isEmpty()) {
+            renderResources(graphics, font, posX, textY, 4, resources);
         }
 
         graphics.pose().popMatrix();
     }
 
-    public static void renderStacks(final GuiGraphicsExtractor graphics,
-                                    final Font font,
-                                    final int posX,
-                                    final int posY,
-                                    final int lineBreak,
-                                    final List<ItemFluidStack> stacks) {
-        int stackX = posX;
-        int stackY = posY;
-        for (int i = 0; i < stacks.size(); i++) {
-            final ItemFluidStack stack = stacks.get(i);
-            if (stack.getItemStack() != null) {
-                graphics.item(stack.getItemStack(), stackX, stackY);
-            } else if (stack.getFluidStack() != null) {
-                FluidContainerUtil.renderTiledFluid(graphics, stack.getFluidStack(), 0, 0, stackX, stackY, 16, 16);
-            }
-            renderAmount(graphics, font, stackX, stackY, Utils.formatWithUnits(stack.getCount()), TextColors.WHITE.getHexCode());
-
-            if ((i + 1) % lineBreak == 0) {
-                stackX = posX;
-                stackY += 18;
-            } else {
-                stackX += 18;
-            }
-        }
+    public static void renderResource(final GuiGraphicsExtractor graphics,
+                                       final Font font,
+                                       final int posX,
+                                       final int posY,
+                                       final AsteroidResource resource) {
+        renderResourcesWithSlot(graphics, font, 0, 0, posX, posY, 0, 0, 0, List.of(resource), false);
     }
 
-    public static void renderStacksWithSlot(final GuiGraphicsExtractor graphics,
-                                            final Font font,
-                                            final int mouseX,
-                                            final int mouseY,
-                                            final int posX,
-                                            final int posY,
-                                            final int lineBreak,
-                                            final int leftPos,
-                                            final int topPos,
-                                            final List<ItemFluidStack> stacks) {
+    public static void renderResources(final GuiGraphicsExtractor graphics,
+                                       final Font font,
+                                       final int posX,
+                                       final int posY,
+                                       final int lineBreak,
+                                       final List<AsteroidResource> resources) {
+        renderResourcesWithSlot(graphics, font, 0, 0, posX, posY, lineBreak, 0, 0, resources, false);
+    }
+
+    public static void renderResourcesWithSlot(final GuiGraphicsExtractor graphics,
+                                               final Font font,
+                                               final int mouseX,
+                                               final int mouseY,
+                                               final int posX,
+                                               final int posY,
+                                               final int lineBreak,
+                                               final int leftPos,
+                                               final int topPos,
+                                               final List<AsteroidResource> resources) {
+        renderResourcesWithSlot(graphics, font, mouseX, mouseY, posX, posY, lineBreak, leftPos, topPos, resources, true);
+    }
+
+    private static void renderResourcesWithSlot(final GuiGraphicsExtractor graphics,
+                                                final Font font,
+                                                final int mouseX,
+                                                final int mouseY,
+                                                final int posX,
+                                                final int posY,
+                                                final int lineBreak,
+                                                final int leftPos,
+                                                final int topPos,
+                                                final List<AsteroidResource> resources,
+                                                final boolean drawSlot) {
         int stackX = posX;
         int stackY = posY;
-        for (int i = 0; i < stacks.size(); i++) {
-            final ItemFluidStack stack = stacks.get(i);
+        for (int i = 0; i < resources.size(); i++) {
+            final AsteroidResource resource = resources.get(i);
 
-            graphics.blitSprite(GUI_TEXTURED, AsteroidMining.makeId("slot"), stackX - 1, stackY - 1, 18, 18);
-            if (stack.getItemStack() != null) {
-                graphics.item(stack.getItemStack(), stackX, stackY);
-            } else if (stack.getFluidStack() != null) {
-                FluidContainerUtil.renderTiledFluid(graphics, stack.getFluidStack(), 0, 0, stackX, stackY, 16, 16);
+            if (drawSlot) {
+                graphics.blitSprite(GUI_TEXTURED, AsteroidMining.makeId("slot"), stackX - 1, stackY - 1, 18, 18);
             }
-            renderAmount(graphics, font, stackX, stackY, Utils.formatWithUnits(stack.getCount()), TextColors.WHITE.getHexCode());
+            resource.drawResourceWithAmount(graphics, font, stackX, stackY);
 
-            if (isMouseOver(leftPos + stackX, topPos + stackY, 18, 18, mouseX, mouseY)) {
+            if (drawSlot && isMouseOver(leftPos + stackX, topPos + stackY, 18, 18, mouseX, mouseY)) {
                 drawSlotHighlight(graphics, stackX, stackY);
             }
 
@@ -230,26 +233,21 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
         }
     }
 
-    public static void renderTooltipOfStacks(final GuiGraphicsExtractor graphics,
-                                             final int mouseX,
-                                             final int mouseY,
-                                             final int posX,
-                                             final int posY,
-                                             final int lineBreak,
-                                             final int leftPos,
-                                             final int topPos,
-                                             final List<ItemFluidStack> stacks) {
+    public static void renderTooltipOfResources(final GuiGraphicsExtractor graphics,
+                                                final int mouseX,
+                                                final int mouseY,
+                                                final int posX,
+                                                final int posY,
+                                                final int lineBreak,
+                                                final int leftPos,
+                                                final int topPos,
+                                                final List<AsteroidResource> resources) {
         int stackX = posX;
         int stackY = posY;
-        for (int i = 0; i < stacks.size(); i++) {
-            final ItemFluidStack stack = stacks.get(i);
+        for (int i = 0; i < resources.size(); i++) {
+            final AsteroidResource resource = resources.get(i);
             if (isMouseOver(leftPos + stackX, topPos + stackY, 18, 18, mouseX, mouseY)) {
-                // TODO: this is shit (Use DisplayedEntry)
-                if (stack.getItemStackTemplate() != null) {
-                    renderItemResourceTooltip(graphics, ItemResource.of(stack.getItemStackTemplate().item().value()), stack.getItemStackTemplate().count(), mouseX, mouseY);
-                } else if (stack.getFluidStackTemplate() != null) {
-                    renderFluidResourceTooltip(graphics, FluidResource.of(stack.getFluidStackTemplate().fluid().value()), stack.getFluidStackTemplate().amount(), mouseX, mouseY);
-                }
+                resource.drawTooltip(graphics, mouseX, mouseY);
             }
 
             if ((i + 1) % lineBreak == 0) {

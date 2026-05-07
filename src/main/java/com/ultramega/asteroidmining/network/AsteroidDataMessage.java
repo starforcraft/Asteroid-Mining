@@ -2,7 +2,7 @@ package com.ultramega.asteroidmining.network;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
-import com.ultramega.asteroidmining.utils.AsteroidConfig;
+import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 
 import java.util.Map;
 
