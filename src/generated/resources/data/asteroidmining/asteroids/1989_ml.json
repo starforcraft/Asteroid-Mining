@@ -3,13 +3,29 @@
   "name": "1989 ML",
   "texture": "asteroidmining:space/asteroid_1",
   "diameter": 1,
-  "compositionItems": {
-    "minecraft:iron_ore": 640000
-  },
-  "compositionFluids": {
-    "minecraft:water": 320000,
-    "minecraft:lava": 16000
-  },
+  "composition": [
+    {
+      "resource": {
+        "id": "minecraft:iron_ore"
+      },
+      "amount": 640000,
+      "type": "item"
+    },
+    {
+      "resource": {
+        "id": "minecraft:water"
+      },
+      "amount": 320000,
+      "type": "fluid"
+    },
+    {
+      "resource": {
+        "id": "minecraft:lava"
+      },
+      "amount": 16000,
+      "type": "fluid"
+    }
+  ],
   "centralBodyName": "Mercury",
   "semiMajorAxis": 10.0,
   "semiMinorAxis": 8.6602545,

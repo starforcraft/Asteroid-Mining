@@ -312,12 +312,12 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
 
             @Override
             public ItemResource resource(final AsteroidResource entry) {
-                return ((AsteroidResource.ItemEntry) entry).resource();
+                return ItemResource.of(((AsteroidResource.ItemEntry) entry).resource());
             }
 
             @Override
             public AsteroidResource create(final ItemResource resource, final long amount) {
-                return new AsteroidResource.ItemEntry(resource, amount);
+                return new AsteroidResource.ItemEntry(resource.getItem(), amount);
             }
         };
 
@@ -334,12 +334,12 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
 
             @Override
             public FluidResource resource(final AsteroidResource entry) {
-                return ((AsteroidResource.FluidEntry) entry).resource();
+                return FluidResource.of(((AsteroidResource.FluidEntry) entry).resource());
             }
 
             @Override
             public AsteroidResource create(final FluidResource resource, final long amount) {
-                return new AsteroidResource.FluidEntry(resource, amount);
+                return new AsteroidResource.FluidEntry(resource.getFluid(), amount);
             }
         };
 

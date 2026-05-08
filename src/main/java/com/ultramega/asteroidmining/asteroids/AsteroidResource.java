@@ -6,6 +6,7 @@ import com.ultramega.asteroidmining.utils.TextColors;
 import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.List;
+import java.util.Objects;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
@@ -13,11 +14,17 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.core.component.DataComponentPatch;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.StringRepresentable;
-import net.neoforged.neoforge.transfer.fluid.FluidResource;
-import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
+import net.neoforged.neoforge.fluids.FluidStackTemplate;
 
 import static com.ultramega.asteroidmining.utils.Utils.renderAmount;
 
@@ -30,27 +37,13 @@ public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, Ast
         @Override
         public AsteroidResource decode(final RegistryFriendlyByteBuf buf) {
             final EntryType type = EntryType.values()[buf.readVarInt()];
-
-            return switch (type) {
-                case ITEM -> new ItemEntry(ItemResource.STREAM_CODEC.decode(buf), buf.readVarInt());
-                case FLUID -> new FluidEntry(FluidResource.STREAM_CODEC.decode(buf), buf.readVarInt());
-            };
+            return type.decode(buf);
         }
 
         @Override
-        public void encode(final RegistryFriendlyByteBuf buf, final AsteroidResource value) {
-            buf.writeVarInt(value.type().ordinal());
-
-            switch (value) {
-                case ItemEntry item -> {
-                    ItemResource.STREAM_CODEC.encode(buf, item.resource());
-                    buf.writeVarLong(item.amount());
-                }
-                case FluidEntry fluid -> {
-                    FluidResource.STREAM_CODEC.encode(buf, fluid.resource());
-                    buf.writeVarLong(fluid.amount());
-                }
-            }
+        public void encode(final RegistryFriendlyByteBuf buf, final AsteroidResource resource) {
+            buf.writeVarInt(resource.type().ordinal());
+            resource.encode(buf);
         }
     };
 
@@ -61,6 +54,8 @@ public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, Ast
     AsteroidResource withAmount(long amount);
 
     boolean isEmpty();
+
+    void encode(RegistryFriendlyByteBuf buf);
 
     void drawTooltip(GuiGraphicsExtractor graphics, int mouseX, int mouseY);
 
@@ -79,14 +74,22 @@ public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, Ast
             : DataResult.error(() -> "Amount must be positive"));
     }
 
-    record ItemEntry(ItemResource resource, long amount) implements AsteroidResource {
+    record ItemEntry(ItemStackTemplate resource, long amount) implements AsteroidResource {
         public static final MapCodec<ItemEntry> MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-            ItemResource.CODEC.fieldOf("resource").forGetter(ItemEntry::resource),
+            ItemStackTemplate.CODEC.fieldOf("resource").forGetter(ItemEntry::resource),
             positiveLongCodec().fieldOf("amount").forGetter(ItemEntry::amount)
         ).apply(instance, ItemEntry::new));
 
+        public ItemEntry(final Item item, final long amount) {
+            this(new ItemStackTemplate(item), amount);
+        }
+
         public ItemEntry {
-            CoreValidations.validateFalse(resource.isEmpty(), "Stored item resource cannot be empty");
+            Objects.requireNonNull(resource, "Stored item template cannot be null");
+
+            resource = resource.withCount(1);
+
+            CoreValidations.validateFalse(resource.is(Items.AIR), "Stored item template cannot be air");
             CoreValidations.validateLargerThanZero(amount, "Stored item amount must be positive");
         }
 
@@ -102,29 +105,52 @@ public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, Ast
 
         @Override
         public boolean isEmpty() {
-            return this.resource.isEmpty() || this.amount <= 0;
+            return this.resource.is(Items.AIR) || this.amount <= 0;
+        }
+
+        @Override
+        public void encode(final RegistryFriendlyByteBuf buf) {
+            ItemStackTemplate.STREAM_CODEC.encode(buf, this.resource());
+            buf.writeVarLong(this.amount());
+        }
+
+        public static ItemEntry decode(final RegistryFriendlyByteBuf buf) {
+            return new ItemEntry(ItemStackTemplate.STREAM_CODEC.decode(buf), buf.readVarLong());
         }
 
         @Override
         public void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
-            Utils.renderItemResourceTooltip(graphics, this.resource, this.amount, mouseX, mouseY);
+            Utils.renderItemStackTooltip(graphics, this.resource.create(), this.amount, mouseX, mouseY);
         }
 
         @Override
         public void drawResourceWithAmount(final GuiGraphicsExtractor graphics, final Font font, final int x, final int y) {
-            graphics.item(this.resource.toStack(), x, y);
+            graphics.item(this.resource.create(), x, y);
             renderAmount(graphics, font, x, y, Utils.formatWithUnits(this.amount()), TextColors.WHITE.getHexCode());
         }
     }
 
-    record FluidEntry(FluidResource resource, long amount) implements AsteroidResource {
+    record FluidEntry(FluidStackTemplate resource, long amount) implements AsteroidResource {
+        private static final Codec<FluidStackTemplate> FLUID_STACK_TEMPLATE_NO_AMOUNT_CODEC = RecordCodecBuilder.create(instance -> instance.group(
+            BuiltInRegistries.FLUID.byNameCodec().fieldOf("id").forGetter(template -> template.fluid().value()),
+            DataComponentPatch.CODEC.optionalFieldOf("components", DataComponentPatch.EMPTY).forGetter(FluidStackTemplate::components)
+        ).apply(instance, (fluid, components) -> new FluidStackTemplate(fluid, 1, components)));
+
         public static final MapCodec<FluidEntry> MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-            FluidResource.CODEC.fieldOf("resource").forGetter(FluidEntry::resource),
+            FLUID_STACK_TEMPLATE_NO_AMOUNT_CODEC.fieldOf("resource").forGetter(FluidEntry::resource),
             positiveLongCodec().fieldOf("amount").forGetter(FluidEntry::amount)
         ).apply(instance, FluidEntry::new));
 
+        public FluidEntry(final Fluid fluid, final long amount) {
+            this(new FluidStackTemplate(fluid, 1), amount);
+        }
+
         public FluidEntry {
-            CoreValidations.validateFalse(resource.isEmpty(), "Stored fluid resource cannot be empty");
+            Objects.requireNonNull(resource, "Stored fluid resource cannot be null");
+
+            resource = resource.withAmount(1);
+
+            CoreValidations.validateFalse(resource.is(Fluids.EMPTY), "Stored fluid resource cannot be empty");
             CoreValidations.validateLargerThanZero(amount, "Stored fluid amount must be positive");
         }
 
@@ -140,17 +166,27 @@ public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, Ast
 
         @Override
         public boolean isEmpty() {
-            return this.resource.isEmpty() || this.amount <= 0;
+            return this.resource.is(Fluids.EMPTY) || this.amount <= 0;
+        }
+
+        @Override
+        public void encode(final RegistryFriendlyByteBuf buf) {
+            FluidStackTemplate.STREAM_CODEC.encode(buf, this.resource());
+            buf.writeVarLong(this.amount());
+        }
+
+        public static FluidEntry decode(final RegistryFriendlyByteBuf buf) {
+            return new FluidEntry(FluidStackTemplate.STREAM_CODEC.decode(buf), buf.readVarLong());
         }
 
         @Override
         public void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
-            Utils.renderFluidResourceTooltip(graphics, this.resource, this.amount, mouseX, mouseY);
+            Utils.renderFluidStackTooltip(graphics, this.resource.create(), this.amount, mouseX, mouseY);
         }
 
         @Override
         public void drawResourceWithAmount(final GuiGraphicsExtractor graphics, final Font font, final int x, final int y) {
-            FluidContainerUtil.renderTiledFluid(graphics, this.resource.toStack(1), 0, 0, x, y, 16, 16);
+            FluidContainerUtil.renderTiledFluid(graphics, this.resource.create(), 0, 0, x, y, 16, 16);
             renderAmount(graphics, font, x, y, Utils.formatWithUnitsFluid(this.amount()), TextColors.WHITE.getHexCode());
         }
     }
@@ -176,6 +212,13 @@ public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, Ast
             return switch (this) {
                 case ITEM -> ItemEntry.MAP_CODEC;
                 case FLUID -> FluidEntry.MAP_CODEC;
+            };
+        }
+
+        public AsteroidResource decode(final RegistryFriendlyByteBuf buf) {
+            return switch (this) {
+                case ITEM -> ItemEntry.decode(buf);
+                case FLUID -> FluidEntry.decode(buf);
             };
         }
     }

@@ -75,7 +75,9 @@ public class AsteroidReloadListener extends SimpleJsonResourceReloadListener<Jso
                 }
 
                 if (enabled) {
-                    final Identifier simpleId = id.getPath().contains("/") ? Identifier.fromNamespaceAndPath(id.getNamespace(), id.getPath().substring(id.getPath().lastIndexOf("/") + 1)) : id;
+                    final Identifier simpleId = id.getPath().contains("/")
+                        ? Identifier.fromNamespaceAndPath(id.getNamespace(), id.getPath().substring(id.getPath().lastIndexOf("/") + 1))
+                        : id;
                     final AsteroidConfig asteroid = AsteroidConfig.fromJson(jsonValue);
 
                     // Overwrite existing asteroid data or add new asteroid data
@@ -110,20 +112,20 @@ public class AsteroidReloadListener extends SimpleJsonResourceReloadListener<Jso
     public void setData(final Map<Identifier, AsteroidConfig> data) {
         // Config has priority over datapack
         final Map<Identifier, AsteroidConfig> mutableData = new HashMap<>(data);
-        mutableData.putAll(asteroidDataConfig);
-        asteroidData = sortByName(mutableData);
+        mutableData.putAll(this.asteroidDataConfig);
+        this.asteroidData = this.sortByName(mutableData);
     }
 
     public Map<Identifier, AsteroidConfig> getData() {
-        return asteroidData;
+        return this.asteroidData;
     }
 
     public AsteroidConfig getData(final Identifier id) {
-        return asteroidData.get(id);
+        return this.asteroidData.get(id);
     }
 
     public void updateData(final AsteroidConfig data) {
-        asteroidData.put(data.getId(), data);
+        this.asteroidData.put(data.getId(), data);
 
         AsteroidReloadListener.saveAsteroidInConfig(data.toJson(), data.getFileName2());
     }
@@ -151,15 +153,14 @@ public class AsteroidReloadListener extends SimpleJsonResourceReloadListener<Jso
 
         try {
             Files.createDirectories(CONFIG_DIR);
-            final DirectoryStream<Path> stream = Files.newDirectoryStream(CONFIG_DIR, "*.json");
 
-            for (final Path path : stream) {
-                try {
+            try (DirectoryStream<Path> stream = Files.newDirectoryStream(CONFIG_DIR, "*.json")) {
+                for (final Path path : stream) {
                     final JsonElement json = GSON.fromJson(Files.newBufferedReader(path), JsonElement.class);
                     asteroids.add(AsteroidConfig.fromJson(json));
-                } catch (Exception e) {
-                    AsteroidMining.LOGGER.error("Failed to parse asteroid JSON: {}", path);
                 }
+            } catch (Exception e) {
+                AsteroidMining.LOGGER.error("Failed to parse asteroid JSON: %s", e);
             }
         } catch (IOException e) {
             AsteroidMining.LOGGER.error(e.getMessage());

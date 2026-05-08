@@ -111,8 +111,6 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
                 poseStack.popMatrix();
 
                 if (this.isHovering(x - this.leftPos + 3, y - this.topPos + 2, 24, 22, mouseX, mouseY)) {
-                    // TODO: this needed?
-//                    graphics.tooltip(this.font, getTooltipFromContainerItem(stack), mouseX, mouseY);
                     graphics.setTooltipForNextFrame(this.font, this.getTooltipFromContainerItem(stack), stack.getTooltipImage(),
                         stack, mouseX, mouseY, stack.get(DataComponents.TOOLTIP_STYLE));
                     this.hoveredTab = i;

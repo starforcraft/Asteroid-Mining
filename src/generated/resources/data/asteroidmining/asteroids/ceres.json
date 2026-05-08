@@ -3,11 +3,22 @@
   "name": "Ceres",
   "texture": "asteroidmining:space/asteroid_2",
   "diameter": 4,
-  "compositionItems": {
-    "minecraft:iron_ore": 32000,
-    "minecraft:gold_ore": 32000
-  },
-  "compositionFluids": {},
+  "composition": [
+    {
+      "resource": {
+        "id": "minecraft:iron_ore"
+      },
+      "amount": 32000,
+      "type": "item"
+    },
+    {
+      "resource": {
+        "id": "minecraft:gold_ore"
+      },
+      "amount": 32000,
+      "type": "item"
+    }
+  ],
   "centralBodyName": "Sun",
   "semiMajorAxis": 100.0,
   "semiMinorAxis": 86.60254,

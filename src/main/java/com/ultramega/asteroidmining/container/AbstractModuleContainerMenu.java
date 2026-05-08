@@ -39,13 +39,11 @@ public abstract class AbstractModuleContainerMenu extends AbstractContainerMenu 
             return Set.of();
         }
 
-        // For modules
         if (this.blockEntity.getControllerPos() != null) {
-            if (this.blockEntity.getLevel().getBlockEntity(this.blockEntity.getControllerPos()) instanceof RocketControllerBlockEntity controller) {
+            if (this.blockEntity.getLevel().getBlockEntity(this.blockEntity.getControllerPos()) instanceof RocketControllerBlockEntity controller) { // For modules
                 return controller.getConnectedModules();
             }
-        } // For controller
-        else if (this.blockEntity.getLevel().getBlockEntity(this.blockEntity.getBlockPos()) instanceof RocketControllerBlockEntity controller) {
+        } else if (this.blockEntity.getLevel().getBlockEntity(this.blockEntity.getBlockPos()) instanceof RocketControllerBlockEntity controller) { // For controller
             return controller.getConnectedModules();
         }
 

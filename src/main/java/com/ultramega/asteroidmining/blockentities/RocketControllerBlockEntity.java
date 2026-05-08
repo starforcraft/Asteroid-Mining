@@ -330,10 +330,9 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             blockEntity.landedRocket(uuid, configuration);
         }
 
-        // TODO
         // Rocket has reached orbit so remove it and wait for the mining duration to tick off
         if (blockEntity.launchedRocket != null && blockEntity.launchedRocket.getOnPos().getY() > 300) {
-
+            // TODO
         }
 
         blockEntity.launchingRocketTick++;

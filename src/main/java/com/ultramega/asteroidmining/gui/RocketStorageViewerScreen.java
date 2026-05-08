@@ -271,7 +271,7 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
             }
 
             if (current++ == displayIndex) {
-                return new DisplayedResource(i, new AsteroidResource.ItemEntry(resource, amount));
+                return new DisplayedResource(i, new AsteroidResource.ItemEntry(resource.getItem(), amount));
             }
         }
 
@@ -285,7 +285,7 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
             }
 
             if (current++ == displayIndex) {
-                return new DisplayedResource(i, new AsteroidResource.FluidEntry(resource, amount));
+                return new DisplayedResource(i, new AsteroidResource.FluidEntry(resource.getFluid(), amount));
             }
         }
 

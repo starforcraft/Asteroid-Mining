@@ -16,8 +16,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.material.Fluid;
-import net.neoforged.neoforge.transfer.fluid.FluidResource;
-import net.neoforged.neoforge.transfer.item.ItemResource;
 import org.jspecify.annotations.Nullable;
 
 public final class AsteroidConfig {
@@ -97,13 +95,13 @@ public final class AsteroidConfig {
         this.setInitialRotation();
     }
 
-    public AsteroidConfig item(final Item item, final long amount) { //TODO: this currently crashes on datagen
-        this.composition.add(new AsteroidResource.ItemEntry(ItemResource.of(item), amount));
+    public AsteroidConfig item(final Item item, final long amount) {
+        this.composition.add(new AsteroidResource.ItemEntry(item, amount));
         return this;
     }
 
     public AsteroidConfig fluid(final Fluid fluid, final long amount) {
-        this.composition.add(new AsteroidResource.FluidEntry(FluidResource.of(fluid), amount));
+        this.composition.add(new AsteroidResource.FluidEntry(fluid, amount));
         return this;
     }
 
@@ -276,8 +274,8 @@ public final class AsteroidConfig {
         final JsonObject orderedJson = new JsonObject();
 
         final String[] fieldOrder = {
-            "id", "name", "texture", "diameter", "compositionItems", "compositionFluids",
-            "centralBodyName", "semiMajorAxis", "semiMinorAxis", "orbitalSpeed", "isClockwise", "startingAngleDegrees", "isOrbitVisible", "shouldRotate"
+            "id", "name", "texture", "diameter", "composition", "centralBodyName", "semiMajorAxis", "semiMinorAxis",
+            "orbitalSpeed", "isClockwise", "startingAngleDegrees", "isOrbitVisible", "shouldRotate"
         };
 
         for (final String field : fieldOrder) {

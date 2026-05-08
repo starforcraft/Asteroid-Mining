@@ -221,8 +221,8 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
                         graphics.text(this.font, Component.translatable("gui.asteroidmining.rocket_controller.invalid_configuration"),
                             this.titleLabelX, this.titleLabelY + 19, TextColors.RED.getHexCode(), true);
                     } else {
-                        graphics.text(this.font, Component.translatable("gui.asteroidmining.rocket_controller.selected_configuration", configuration.launchPadConfiguration().name()),
-                            this.titleLabelX, this.titleLabelY + 19, TextColors.GREEN.getHexCode(), true);
+                        graphics.text(this.font, Component.translatable("gui.asteroidmining.rocket_controller.selected_configuration",
+                                configuration.launchPadConfiguration().name()), this.titleLabelX, this.titleLabelY + 19, TextColors.GREEN.getHexCode(), true);
                     }
                 }
             }

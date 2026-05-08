@@ -61,8 +61,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.client.ClientHooks;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
-import net.neoforged.neoforge.transfer.fluid.FluidResource;
-import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.fluids.FluidStack;
 import org.joml.Matrix3x2fStack;
 import org.joml.Vector2ic;
 import org.jspecify.annotations.Nullable;
@@ -273,12 +272,11 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
         poseStack.popMatrix();
     }
 
-    public static void renderItemResourceTooltip(final GuiGraphicsExtractor graphics,
-                                                 final ItemResource resource,
-                                                 final long amount,
-                                                 final int mouseX,
-                                                 final int mouseY) {
-        final ItemStack stack = resource.toStack();
+    public static void renderItemStackTooltip(final GuiGraphicsExtractor graphics,
+                                              final ItemStack stack,
+                                              final long amount,
+                                              final int mouseX,
+                                              final int mouseY) {
         final List<Component> tooltip = new ArrayList<>();
         tooltip.addAll(Screen.getTooltipFromItem(Minecraft.getInstance(), stack));
         tooltip.add(Component.translatable("gui.asteroidmining.rocket_storage_viewer.total", amount)
@@ -287,13 +285,13 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
         renderResourceTooltip(graphics, stack, tooltip, stack.getTooltipImage(), mouseX, mouseY);
     }
 
-    public static void renderFluidResourceTooltip(final GuiGraphicsExtractor graphics,
-                                                  final FluidResource resource,
-                                                  final long amount,
-                                                  final int mouseX,
-                                                  final int mouseY) {
+    public static void renderFluidStackTooltip(final GuiGraphicsExtractor graphics,
+                                               final FluidStack stack,
+                                               final long amount,
+                                               final int mouseX,
+                                               final int mouseY) {
         final List<Component> tooltip = new ArrayList<>();
-        tooltip.add(resource.getHoverName());
+        tooltip.add(stack.getHoverName());
         tooltip.add(Component.translatable("gui.asteroidmining.rocket_storage_viewer.total", amount + "mB")
             .withStyle(ChatFormatting.GRAY));
 

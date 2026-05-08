@@ -49,11 +49,11 @@ public class AsteroidMiningRecipeCategory implements IRecipeCategory<AsteroidCon
             switch (resource) {
                 case AsteroidResource.ItemEntry item ->
                     builder.addOutputSlot(0, 0)
-                        .add(item.resource().getItem());
+                        .add(item.resource());
 
                 case AsteroidResource.FluidEntry fluid ->
                     builder.addOutputSlot(0, 0)
-                        .add(fluid.resource().value());
+                        .add(fluid.resource().fluid().value());
             }
         }
     }
