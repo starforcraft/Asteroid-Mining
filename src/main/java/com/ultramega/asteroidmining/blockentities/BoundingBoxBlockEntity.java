@@ -55,7 +55,7 @@ public class BoundingBoxBlockEntity extends BlockEntity implements Nameable {
 
     @Override
     public boolean hasCustomName() {
-        return this.getMainBlockEntity() instanceof Nameable blockEntity && blockEntity.hasCustomName();
+        return this.getMainBlockEntity() instanceof Nameable;
     }
 
     @Override
@@ -68,9 +68,10 @@ public class BoundingBoxBlockEntity extends BlockEntity implements Nameable {
         return this.getMainBlockEntity() instanceof Nameable blockEntity ? blockEntity.getDisplayName() : Component.empty();
     }
 
+    @Nullable
     @Override
-    public @Nullable Component getCustomName() {
-        return this.getMainBlockEntity() instanceof Nameable blockEntity ? blockEntity.getCustomName() : null;
+    public Component getCustomName() {
+        return this.getMainBlockEntity() instanceof Nameable blockEntity ? blockEntity.getDisplayName() : null;
     }
 
     public static <T, C> void redirectCapability(final RegisterCapabilitiesEvent event, final BlockCapability<T, C> capability) {

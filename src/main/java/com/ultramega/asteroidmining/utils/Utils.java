@@ -173,7 +173,7 @@ public final class Utils { //TODO: split this class into Client and Common/Serve
                                        final int posX,
                                        final int posY,
                                        final AsteroidResource resource) {
-        renderResourcesWithSlot(graphics, font, 0, 0, posX, posY, 0, 0, 0, List.of(resource), false);
+        renderResourcesWithSlot(graphics, font, 0, 0, posX, posY, 1, 0, 0, List.of(resource), false);
     }
 
     public static void renderResources(final GuiGraphicsExtractor graphics,

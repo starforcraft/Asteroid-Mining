@@ -99,14 +99,18 @@ public final class ModBlocks {
             new StorageTankBlock(StorageTankBlock.Type.FLUIDS, StorageTankBlock.Capacity.TIER_4, props),
         () -> BlockBehaviour.Properties.of().requiresCorrectToolForDrops().noOcclusion().strength(4F, 5F));
 
-    public static final DeferredBlock<Block> IRON_ROCKET_DRILL = BLOCKS.registerBlock("iron_rocket_drill", RocketDrillBlock::new,
+    public static final DeferredBlock<Block> IRON_ROCKET_DRILL = BLOCKS.registerBlock("iron_rocket_drill", (props) ->
+            new RocketDrillBlock(props, RocketDrillBlock.DrillType.IRON),
         () -> BlockBehaviour.Properties.of().requiresCorrectToolForDrops().noOcclusion().strength(4F, 5F));
-    public static final DeferredBlock<Block> DIAMOND_ROCKET_DRILL = BLOCKS.registerBlock("diamond_rocket_drill", RocketDrillBlock::new,
+    public static final DeferredBlock<Block> DIAMOND_ROCKET_DRILL = BLOCKS.registerBlock("diamond_rocket_drill", (props) ->
+            new RocketDrillBlock(props, RocketDrillBlock.DrillType.DIAMOND),
         () -> BlockBehaviour.Properties.of().requiresCorrectToolForDrops().noOcclusion().strength(5F, 6F));
-    public static final DeferredBlock<Block> EMERALD_ROCKET_DRILL = BLOCKS.registerBlock("emerald_rocket_drill", RocketDrillBlock::new,
-        () -> BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5F, 6F));
-    public static final DeferredBlock<Block> NETHERITE_ROCKET_DRILL = BLOCKS.registerBlock("netherite_rocket_drill", RocketDrillBlock::new,
-        () -> BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(50F, 1200F));
+    public static final DeferredBlock<Block> EMERALD_ROCKET_DRILL = BLOCKS.registerBlock("emerald_rocket_drill", (props) ->
+            new RocketDrillBlock(props, RocketDrillBlock.DrillType.EMERALD),
+        () -> BlockBehaviour.Properties.of().requiresCorrectToolForDrops().noOcclusion().strength(5F, 6F));
+    public static final DeferredBlock<Block> NETHERITE_ROCKET_DRILL = BLOCKS.registerBlock("netherite_rocket_drill", (props) ->
+            new RocketDrillBlock(props, RocketDrillBlock.DrillType.NETHERITE),
+        () -> BlockBehaviour.Properties.of().requiresCorrectToolForDrops().noOcclusion().strength(50F, 1200F));
 
     public static final DeferredBlock<Block> BOUNDING_BOX = BLOCKS.registerBlock("bounding_box", BoundingBoxBlock::new,
         () -> BlockBehaviour.Properties.of().requiresCorrectToolForDrops().noOcclusion());

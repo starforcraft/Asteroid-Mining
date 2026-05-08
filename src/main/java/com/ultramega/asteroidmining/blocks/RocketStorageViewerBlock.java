@@ -31,11 +31,4 @@ public class RocketStorageViewerBlock extends AbstractModuleBlock implements Ent
     public BlockEntity newBlockEntity(final BlockPos pos, final BlockState state) {
         return new RocketStorageViewerBlockEntity(pos, state);
     }
-
-    // TODO: test if stuff is inside dropped and this isn't needed
-//    @Override
-//    protected void onRemove(final BlockState state, final Level level, final BlockPos pos, final BlockState newState, final boolean isMoving) {
-//        Containers.dropContentsOnDestroy(state, newState, level, pos);
-//        super.onRemove(state, level, pos, newState, isMoving);
-//    }
 }

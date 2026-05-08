@@ -185,7 +185,7 @@ public class BoundingBoxBlock extends Block implements EntityBlock {
         }
 
         final BlockState mainState = level.getBlockState(mainPos);
-        return mainState.getBlock().getCloneItemStack(level, pos, state, includeData, player);
+        return mainState.getBlock().getCloneItemStack(level, mainPos, mainState, includeData, player);
     }
 
     @Nullable

@@ -1,6 +1,6 @@
 {
 	"loader": "neoforge:obj",
-	"model": "asteroidmining:models/block/diamond_drill.obj",
+	"model": "asteroidmining:models/block/big_drill.obj",
 	"textures": {
 		"texture0": "minecraft:block/diamond_block",
 		"particle": "minecraft:block/diamond_block"
