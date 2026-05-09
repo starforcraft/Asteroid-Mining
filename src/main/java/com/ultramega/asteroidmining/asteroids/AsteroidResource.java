@@ -1,9 +1,10 @@
 package com.ultramega.asteroidmining.asteroids;
 
+import com.ultramega.asteroidmining.utils.ClientUtils;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 import com.ultramega.asteroidmining.utils.CoreValidations;
 import com.ultramega.asteroidmining.utils.FluidContainerUtil;
 import com.ultramega.asteroidmining.utils.TextColors;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.List;
 import java.util.Objects;
@@ -26,7 +27,9 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.fluids.FluidStackTemplate;
 
-import static com.ultramega.asteroidmining.utils.Utils.renderAmount;
+import static com.ultramega.asteroidmining.utils.ClientUtils.renderAmount;
+import static com.ultramega.asteroidmining.utils.ClientUtils.renderFluidStackTooltip;
+import static com.ultramega.asteroidmining.utils.ClientUtils.renderItemStackTooltip;
 
 public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, AsteroidResource.FluidEntry {
     Codec<AsteroidResource> CODEC = EntryType.CODEC.dispatch("type", AsteroidResource::type, EntryType::mapCodec);
@@ -120,13 +123,13 @@ public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, Ast
 
         @Override
         public void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
-            Utils.renderItemStackTooltip(graphics, this.resource.create(), this.amount, mouseX, mouseY);
+            renderItemStackTooltip(graphics, this.resource.create(), this.amount, mouseX, mouseY);
         }
 
         @Override
         public void drawResourceWithAmount(final GuiGraphicsExtractor graphics, final Font font, final int x, final int y) {
             graphics.item(this.resource.create(), x, y);
-            renderAmount(graphics, font, x, y, Utils.formatWithUnits(this.amount()), TextColors.WHITE.getHexCode());
+            renderAmount(graphics, font, x, y, CommonUtils.formatWithUnits(this.amount()), TextColors.WHITE.getHexCode());
         }
     }
 
@@ -181,13 +184,13 @@ public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, Ast
 
         @Override
         public void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
-            Utils.renderFluidStackTooltip(graphics, this.resource.create(), this.amount, mouseX, mouseY);
+            renderFluidStackTooltip(graphics, this.resource.create(), this.amount, mouseX, mouseY);
         }
 
         @Override
         public void drawResourceWithAmount(final GuiGraphicsExtractor graphics, final Font font, final int x, final int y) {
             FluidContainerUtil.renderTiledFluid(graphics, this.resource.create(), 0, 0, x, y, 16, 16);
-            renderAmount(graphics, font, x, y, Utils.formatWithUnitsFluid(this.amount()), TextColors.WHITE.getHexCode());
+            renderAmount(graphics, font, x, y, CommonUtils.formatWithUnitsFluid(this.amount()), TextColors.WHITE.getHexCode());
         }
     }
 

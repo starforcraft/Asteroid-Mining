@@ -4,7 +4,7 @@ import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
 import com.ultramega.asteroidmining.registry.ModEntityDataSerializers;
 import com.ultramega.asteroidmining.registry.ModEntityTypes;
-import com.ultramega.asteroidmining.utils.Utils;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -193,13 +193,13 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
 
     @Override
     protected void readAdditionalSaveData(final ValueInput input) {
-        input.read("BlockList", Utils.STRUCTURE_BLOCK_INFO_LIST_CODEC).ifPresent(this::setStructureBlockInfo);
+        input.read("BlockList", CommonUtils.STRUCTURE_BLOCK_INFO_LIST_CODEC).ifPresent(this::setStructureBlockInfo);
         this.setIsRocket(input.getBooleanOr("isRocket", false));
     }
 
     @Override
     protected void addAdditionalSaveData(final ValueOutput output) {
-        output.store("BlockList", Utils.STRUCTURE_BLOCK_INFO_LIST_CODEC, this.getStructureBlockInfos());
+        output.store("BlockList", CommonUtils.STRUCTURE_BLOCK_INFO_LIST_CODEC, this.getStructureBlockInfos());
         output.putBoolean("isRocket", this.isRocket());
     }
 
@@ -245,8 +245,8 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
 
     private void updateBoundingBox() {
         final List<StructureTemplate.StructureBlockInfo> structureBlockInfos = this.getStructureBlockInfos();
-        final int width = Utils.getWidth(structureBlockInfos);
-        final int height = Utils.getHeight(structureBlockInfos);
+        final int width = CommonUtils.getWidth(structureBlockInfos);
+        final int height = CommonUtils.getHeight(structureBlockInfos);
         this.dimensions = EntityDimensions.scalable(width, height);
     }
 

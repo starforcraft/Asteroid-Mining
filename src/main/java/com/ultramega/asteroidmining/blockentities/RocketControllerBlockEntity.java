@@ -17,8 +17,8 @@ import com.ultramega.asteroidmining.registry.ModSounds;
 import com.ultramega.asteroidmining.storage.ConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
 import com.ultramega.asteroidmining.storage.RocketProperties;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 import com.ultramega.asteroidmining.utils.PreviewInfo;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -62,9 +62,9 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import org.jspecify.annotations.Nullable;
 
-import static com.ultramega.asteroidmining.utils.Utils.getMinCorner;
-import static com.ultramega.asteroidmining.utils.Utils.rotateOffset;
-import static com.ultramega.asteroidmining.utils.Utils.toLocalPositions;
+import static com.ultramega.asteroidmining.utils.CommonUtils.getMinCorner;
+import static com.ultramega.asteroidmining.utils.CommonUtils.rotateOffset;
+import static com.ultramega.asteroidmining.utils.CommonUtils.toLocalPositions;
 
 public class RocketControllerBlockEntity extends AbstractModuleBlockEntity implements MenuProvider, Nameable {
     public final RocketControllerItemStacksResourceHandler inventoryHandler = new RocketControllerItemStacksResourceHandler(3);
@@ -209,7 +209,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             return;
         }
 
-        if (!Utils.isSpacePortValid(level, configuration.launchPadConfiguration()) && blockEntity.chopstick1 == null) { //TODO: is this dumb?
+        if (!CommonUtils.isSpacePortValid(level, configuration.launchPadConfiguration()) && blockEntity.chopstick1 == null) { //TODO: is this dumb?
             // TODO: what if someone started the launch but then broke the launch pad?
             // PacketDistributor.sendToAllPlayers(new HidePreviewBlocksMessage(pos, false));
             return;
@@ -311,9 +311,9 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
 
             if (blockEntity.launchingRocketTick >= 1 && blockEntity.launchingRocketTick <= 10
                 || (blockEntity.launchingRocketTick >= 780 && blockEntity.launchingRocketTick <= 810)) {
-                final double offsetX = Utils.randomOffset(random, 1F);
+                final double offsetX = CommonUtils.randomOffset(random, 1F);
                 final double offsetY = random.nextDouble() * 0.01;
-                final double offsetZ = Utils.randomOffset(random, 1F);
+                final double offsetZ = CommonUtils.randomOffset(random, 1F);
 
                 serverLevel.sendParticles(
                     ModParticles.BIG_SMOKE_PARTICLE.get(),
@@ -540,7 +540,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         this.inventoryHandler.deserialize(input);
 
         this.connectedModules.clear();
-        this.connectedModules.addAll(input.read("connectedModules", Utils.BLOCK_POS_LIST).orElse(List.of()));
+        this.connectedModules.addAll(input.read("connectedModules", CommonUtils.BLOCK_POS_LIST).orElse(List.of()));
 
         this.launchCooldown = input.getIntOr("launchCooldown", 0);
         this.nextLaunchCooldown = input.getIntOr("nextLaunchCooldown", 20 * 10);
@@ -565,7 +565,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
 
         this.inventoryHandler.serialize(output);
 
-        output.store("connectedModules", Utils.BLOCK_POS_LIST, this.connectedModules.stream().toList());
+        output.store("connectedModules", CommonUtils.BLOCK_POS_LIST, this.connectedModules.stream().toList());
 
         output.putInt("launchCooldown", this.launchCooldown);
         output.putInt("nextLaunchCooldown", this.nextLaunchCooldown);
@@ -691,7 +691,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
                     final UUID uuid = stack.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get());
                     final NetworkConfiguration configuration = ConfigurationSavedData.getConfigurationData(serverLevel).get(uuid);
                     if (configuration != null) {
-                        final List<PreviewInfo> previewInfos = Utils.calculateSpacePort(RocketControllerBlockEntity.this.level,
+                        final List<PreviewInfo> previewInfos = CommonUtils.calculateSpacePort(RocketControllerBlockEntity.this.level,
                             configuration.launchPadConfiguration(), false);
                         PacketDistributor.sendToAllPlayers(new SendLaunchPreviewDataMessage(RocketControllerBlockEntity.this.getBlockPos(), uuid, previewInfos));
                     }

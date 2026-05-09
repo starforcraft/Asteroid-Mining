@@ -31,6 +31,7 @@ public final class ModFluids {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(BuiltInRegistries.FLUID, AsteroidMining.MOD_ID);
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, AsteroidMining.MOD_ID);
 
+    // Non-placeable
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> AIR =
         FLUIDS.register("air", () -> new BaseFlowingFluid.Source(ModFluids.AIR_PROPERTIES.apply(false)));
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> LIQUID_AIR =
@@ -48,6 +49,7 @@ public final class ModFluids {
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> ROCKET_PROPELLANT =
         FLUIDS.register("rocket_propellant", () -> new BaseFlowingFluid.Source(ModFluids.ROCKET_PROPELLANT_PROPERTIES));
 
+    // Placeable
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> PETROLEUM_SOURCE =
         FLUIDS.register("petroleum_source", () -> new BaseFlowingFluid.Source(ModFluids.PETROLEUM_PROPERTIES));
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> PETROLEUM_FLOWING =
@@ -57,50 +59,42 @@ public final class ModFluids {
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> KEROSENE_FLOWING =
         FLUIDS.register("kerosene_flowing", () -> new BaseFlowingFluid.Flowing(ModFluids.KEROSENE_PROPERTIES));
 
-    public static final DeferredHolder<FluidType, FluidType> AIR_TYPE = FLUID_TYPES.register("air", () -> new FluidType(
-        FluidType.Properties.create()
-            .descriptionId("block.asteroidmining.air")
-            .density(0)) {
+    public static final DeferredHolder<FluidType, FluidType> AIR_TYPE = FLUID_TYPES.register("air", () -> new FluidType(FluidType.Properties.create()
+        .descriptionId("block.asteroidmining.air")
+        .density(0)) {
     });
-    public static final DeferredHolder<FluidType, FluidType> LIQUID_OXYGEN_TYPE = FLUID_TYPES.register("liquid_oxygen", () -> new FluidType(
-        FluidType.Properties.create()
-            .descriptionId("block.asteroidmining.liquid_oxygen")
-            .density(1141)
-            .temperature(90)) { //-183°C
+    public static final DeferredHolder<FluidType, FluidType> LIQUID_OXYGEN_TYPE = FLUID_TYPES.register("liquid_oxygen", () -> new FluidType(FluidType.Properties.create()
+        .descriptionId("block.asteroidmining.liquid_oxygen")
+        .density(1141)
+        .temperature(90)) { // -183°C
     });
-    public static final DeferredHolder<FluidType, FluidType> LIQUID_AIR_TYPE = FLUID_TYPES.register("liquid_air", () -> new FluidType(
-        FluidType.Properties.create()
-            .descriptionId("block.asteroidmining.liquid_air")
-            .density(870)
-            .temperature(77)) { //-196°C
+    public static final DeferredHolder<FluidType, FluidType> LIQUID_AIR_TYPE = FLUID_TYPES.register("liquid_air", () -> new FluidType(FluidType.Properties.create()
+        .descriptionId("block.asteroidmining.liquid_air")
+        .density(870)
+        .temperature(77)) { // -196°C
     });
-    public static final DeferredHolder<FluidType, FluidType> METHANE_TYPE = FLUID_TYPES.register("methane", () -> new FluidType(
-        FluidType.Properties.create()
-            .descriptionId("block.asteroidmining.methane")
-            .density(1)) {
+    public static final DeferredHolder<FluidType, FluidType> METHANE_TYPE = FLUID_TYPES.register("methane", () -> new FluidType(FluidType.Properties.create()
+        .descriptionId("block.asteroidmining.methane")
+        .density(1)) {
     });
-    public static final DeferredHolder<FluidType, FluidType> LIQUID_METHANE_TYPE = FLUID_TYPES.register("liquid_methane", () -> new FluidType(
-        FluidType.Properties.create()
-            .descriptionId("block.asteroidmining.liquid_methane")
-            .density(426)
-            .temperature(111)) { //-162°C
+    public static final DeferredHolder<FluidType, FluidType> LIQUID_METHANE_TYPE = FLUID_TYPES.register("liquid_methane", () -> new FluidType(FluidType.Properties.create()
+        .descriptionId("block.asteroidmining.liquid_methane")
+        .density(426)
+        .temperature(111)) { // -162°C
     });
-    public static final DeferredHolder<FluidType, FluidType> HYDROGEN_TYPE = FLUID_TYPES.register("hydrogen", () -> new FluidType(
-        FluidType.Properties.create()
-            .descriptionId("block.asteroidmining.hydrogen")
-            .density(15)) {
+    public static final DeferredHolder<FluidType, FluidType> HYDROGEN_TYPE = FLUID_TYPES.register("hydrogen", () -> new FluidType(FluidType.Properties.create()
+        .descriptionId("block.asteroidmining.hydrogen")
+        .density(15)) {
     });
-    public static final DeferredHolder<FluidType, FluidType> LIQUID_HYDROGEN_TYPE = FLUID_TYPES.register("liquid_hydrogen", () -> new FluidType(
-        FluidType.Properties.create()
-            .descriptionId("block.asteroidmining.liquid_hydrogen")
-            .density(71)
-            .temperature(20)) { //-253°C
+    public static final DeferredHolder<FluidType, FluidType> LIQUID_HYDROGEN_TYPE = FLUID_TYPES.register("liquid_hydrogen", () -> new FluidType(FluidType.Properties.create()
+        .descriptionId("block.asteroidmining.liquid_hydrogen")
+        .density(71)
+        .temperature(20)) { // -253°C
     });
-    public static final DeferredHolder<FluidType, FluidType> ROCKET_PROPELLANT_TYPE = FLUID_TYPES.register("rocket_propellant", () -> new FluidType(
-        FluidType.Properties.create()
-            .descriptionId("block.asteroidmining.rocket_propellant")
-            .density(1500)
-            .temperature(293)) { //20°C
+    public static final DeferredHolder<FluidType, FluidType> ROCKET_PROPELLANT_TYPE = FLUID_TYPES.register("rocket_propellant", () -> new FluidType(FluidType.Properties.create()
+        .descriptionId("block.asteroidmining.rocket_propellant")
+        .density(1500)
+        .temperature(293)) { // 20°C
     });
     public static final DeferredHolder<FluidType, FluidType> PETROLEUM_TYPE = FLUID_TYPES.register("petroleum", () -> new FluidType(FluidType.Properties.create()
         .descriptionId("block.asteroidmining.petroleum")
@@ -108,7 +102,7 @@ public final class ModFluids {
         .fallDistanceModifier(0F)
         .density(900)
         .viscosity(3000)
-        .temperature(293)) { //20°C
+        .temperature(293)) { // 20°C
     });
     public static final DeferredHolder<FluidType, FluidType> KEROSENE_TYPE = FLUID_TYPES.register("kerosene", () -> new FluidType(FluidType.Properties.create()
         .descriptionId("block.asteroidmining.kerosene")
@@ -116,7 +110,7 @@ public final class ModFluids {
         .fallDistanceModifier(0F)
         .density(800)
         .viscosity(2500)
-        .temperature(293)) { //20°C
+        .temperature(293)) { // 20°C
     });
 
     public static final Function<Boolean, BaseFlowingFluid.Properties> AIR_PROPERTIES = (isLiquid) ->
@@ -151,7 +145,13 @@ public final class ModFluids {
         new Material(AsteroidMining.makeId("fluid/" + name + "_still")),
         new Material(AsteroidMining.makeId("fluid/" + name + "_flow")),
         new Material(AsteroidMining.makeId("fluid/" + name + "_overlay")),
-        FluidTintSources.water() //TODO
+        null
+    );
+    public static final Function<String, FluidModel.Unbaked> NON_PLACEABLE_FLUID_UNBAKED_MODEL = (name) -> new FluidModel.Unbaked(
+        new Material(AsteroidMining.makeId("fluid/" + name)),
+        new Material(AsteroidMining.makeId("fluid/" + name)),
+        new Material(AsteroidMining.makeId("fluid/" + name)),
+        null
     );
 
     public static final Function<String, IClientFluidTypeExtensions> STILL_EXTENSION = (name) -> new IClientFluidTypeExtensions() {

@@ -2,7 +2,7 @@ package com.ultramega.asteroidmining.blocks;
 
 import com.ultramega.asteroidmining.blockentities.BiogasPlantBlockEntity;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
-import com.ultramega.asteroidmining.utils.Utils;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
@@ -44,7 +44,7 @@ public class BiogasPlantBlock extends AbstractDataPreservingBlock implements Ent
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final Level level, final BlockState state, final BlockEntityType<T> blockEntityType) {
-        return !level.isClientSide() ? Utils.createTickerHelper(
+        return !level.isClientSide() ? CommonUtils.createTickerHelper(
             blockEntityType, ModBlockEntityTypes.BIOGAS_PLANT.get(), BiogasPlantBlockEntity::serverTick) : null;
     }
 }

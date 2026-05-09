@@ -1,5 +1,5 @@
 {
-  "type": "asteroidmining:heat_exchanger",
+  "type": "asteroidmining:heat_exchange",
   "duration": 60,
   "input": {
     "amount": 85,

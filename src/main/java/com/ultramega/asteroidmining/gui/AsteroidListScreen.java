@@ -206,13 +206,6 @@
 //        return this.scrollbar.mouseScrolled(mouseX - leftPos, mouseY - topPos, scrollX, scrollY);
 //    }
 //
-//    private boolean isHovering(final int x, final int y, final int width, final int height, final double mouseX, final double mouseY) {
-//        final double correctMouseX = mouseX - this.leftPos;
-//        final double correctMouseY = mouseY - this.topPos;
-//        return correctMouseX >= (double) (x - 1) && correctMouseX < (double) (x + width + 1)
-//            && correctMouseY >= (double) (y - 1) && correctMouseY < (double) (y + height + 1);
-//    }
-//
 //    @Override
 //    public boolean isPauseScreen() {
 //        return false;

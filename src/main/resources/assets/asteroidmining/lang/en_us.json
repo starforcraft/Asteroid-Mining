@@ -91,7 +91,7 @@
   "gui.asteroidmining.select": "Select",
   "gui.asteroidmining.selected": "Selected",
   "gui.asteroidmining.energy": "Energy: %s FE",
-  "gui.asteroidmining.fluid": "%s: %s mB",
+  "gui.asteroidmining.fluid_amount": "Amount: %s mB",
   "gui.asteroidmining.fluid_empty": "Empty",
   "tooltip.asteroidmining.configuration_card.saved_configuration": "Saved configuration: %s",
   "tooltip.asteroidmining.storage_tank.capacity": "Capacity: ",

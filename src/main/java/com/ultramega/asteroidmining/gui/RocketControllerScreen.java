@@ -42,7 +42,7 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import org.joml.Matrix3x2f;
 import org.jspecify.annotations.Nullable;
 
-import static com.ultramega.asteroidmining.utils.Utils.rotateOffset;
+import static com.ultramega.asteroidmining.utils.CommonUtils.rotateOffset;
 import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
 
 public class RocketControllerScreen extends AbstractModuleScreen<RocketControllerContainerMenu> {

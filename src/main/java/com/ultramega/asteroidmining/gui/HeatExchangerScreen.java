@@ -2,8 +2,8 @@ package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.container.HeatExchangerContainerMenu;
+import com.ultramega.asteroidmining.utils.ClientUtils;
 import com.ultramega.asteroidmining.utils.FluidContainerUtil;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -46,6 +46,7 @@ public class HeatExchangerScreen extends AbstractContainerScreen<HeatExchangerCo
             this.menu.blockEntity.fluidTank.getAmountAsInt(1), 115, 20, 6, FLUID_BAR_HEIGHT, 0);
 
         // Draw gas tank overlay
+        // TODO womp womp (something is wrong here)
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 67, this.topPos + 20, 101, 182, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
 
         // Draw progress
@@ -62,15 +63,15 @@ public class HeatExchangerScreen extends AbstractContainerScreen<HeatExchangerCo
         super.extractTooltip(graphics, mouseX, mouseY);
 
         if (this.isHovering(7, 18, 8, ENERGY_BAR_HEIGHT + 1, mouseX, mouseY)) {
-            graphics.tooltip(this.font, Utils.createTooltip(Component.translatable("gui.asteroidmining.energy",
+            graphics.tooltip(this.font, ClientUtils.createTooltip(Component.translatable("gui.asteroidmining.energy",
                 this.menu.getEnergyStored())), mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
         }
 
         if (this.isHovering(67, 20, 6, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
-            FluidContainerUtil.renderFluidTooltip(graphics, font, this.menu.blockEntity.fluidTank.getStackInTank(0), mouseX, mouseY);
+            FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.fluidTank.getStackInTank(0), mouseX, mouseY);
         }
         if (this.isHovering(115, 20, 6, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
-            FluidContainerUtil.renderFluidTooltip(graphics, font, this.menu.blockEntity.fluidTank.getStackInTank(1), mouseX, mouseY);
+            FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.fluidTank.getStackInTank(1), mouseX, mouseY);
         }
     }
 }

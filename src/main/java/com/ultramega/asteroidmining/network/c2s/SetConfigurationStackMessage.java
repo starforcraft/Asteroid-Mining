@@ -8,8 +8,8 @@ import com.ultramega.asteroidmining.storage.ConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.LaunchPadConfiguration;
 import com.ultramega.asteroidmining.storage.ModuleProperties;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 import com.ultramega.asteroidmining.utils.PreviewInfo;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,7 +63,7 @@ public record SetConfigurationStackMessage(BlockPos launchPadBuilderPos, LaunchP
                 }
                 ConfigurationSavedData.getConfigurationData(serverLevel).set(uuid,
                     new NetworkConfiguration(data.launchPadConfiguration(), Optional.empty(), new ModuleProperties(Optional.empty(), new ModuleProperties.Storage())));
-                final List<PreviewInfo> previewInfos = Utils.calculateSpacePort(level, data.launchPadConfiguration(), true);
+                final List<PreviewInfo> previewInfos = CommonUtils.calculateSpacePort(level, data.launchPadConfiguration(), true);
                 PacketDistributor.sendToAllPlayers(new SendLaunchPreviewDataMessage(data.launchPadBuilderPos(), uuid, previewInfos));
                 launchPadBlockEntity.setChanged();
             }

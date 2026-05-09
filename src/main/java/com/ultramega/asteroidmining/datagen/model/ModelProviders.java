@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
@@ -20,6 +21,8 @@ import net.minecraft.world.level.block.Block;
 
 import static com.ultramega.asteroidmining.AsteroidMining.MOD_ID;
 import static com.ultramega.asteroidmining.AsteroidMining.makeId;
+import static net.minecraft.client.data.models.BlockModelGenerators.createSimpleBlock;
+import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
 
 public class ModelProviders extends ModelProvider {
     public ModelProviders(final PackOutput output) {
@@ -28,9 +31,10 @@ public class ModelProviders extends ModelProvider {
 
     @Override
     protected void registerModels(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels) {
-        this.registerSimpleItems(itemModels);
-        this.registerSimpleBlockItems(blockModels, itemModels);
         this.registerModelBlockItems(itemModels);
+        this.registerSimpleBlockItems(blockModels, itemModels);
+        this.registerFluids(blockModels);
+        this.registerSimpleItems(itemModels);
     }
 
     private void registerModelBlockItems(final ItemModelGenerators itemModels) {
@@ -66,6 +70,11 @@ public class ModelProviders extends ModelProvider {
         this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.FLUID_TANK_TIER_4.get());
     }
 
+    private void registerFluids(final BlockModelGenerators blockModels) {
+        this.registerParticleOnlyBlock(blockModels, "petroleum", ModBlocks.PETROLEUM.get());
+        this.registerParticleOnlyBlock(blockModels, "kerosene", ModBlocks.KEROSENE.get());
+    }
+
     private void registerSimpleItems(final ItemModelGenerators itemModels) {
         itemModels.generateFlatItem(ModItems.CONFIGURATION_CARD.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.AIR_BUCKET.get(), ModelTemplates.FLAT_ITEM);
@@ -89,6 +98,13 @@ public class ModelProviders extends ModelProvider {
     private void registerWithParentBlockItem(final ItemModelGenerators itemModels, final Block block) {
         final Identifier id = this.getBlockId(block);
         itemModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(id));
+    }
+
+    private void registerParticleOnlyBlock(final BlockModelGenerators blockModels, final String name, final Block block) {
+        // TODO: get name from block id instead
+        final MultiVariant model = plainVariant(ModelTemplates.PARTICLE_ONLY.create(block,
+            TextureMapping.particle(texture(makeId("fluid/" + name + "_still"))), blockModels.modelOutput));
+        blockModels.blockStateOutput.accept(createSimpleBlock(block, model));
     }
 
     private Identifier getBlockId(final Block block) {

@@ -1,0 +1,18 @@
+{
+  "type": "asteroidmining:distillation",
+  "duration": 40,
+  "input": {
+    "amount": 200,
+    "ingredient": "asteroidmining:petroleum_source"
+  },
+  "max_temperature": 300,
+  "min_temperature": 150,
+  "output": {
+    "amount": 20,
+    "id": "asteroidmining:kerosene_source"
+  },
+  "reagent": {
+    "amount": 1,
+    "ingredient": "asteroidmining:hydrogen"
+  }
+}

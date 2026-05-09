@@ -4,8 +4,8 @@ import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.config.ServerConfig;
 import com.ultramega.asteroidmining.container.ElectrolysisPlantContainerMenu;
 import com.ultramega.asteroidmining.registry.ModFluids;
+import com.ultramega.asteroidmining.utils.ClientUtils;
 import com.ultramega.asteroidmining.utils.FluidContainerUtil;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -35,7 +35,7 @@ public class ElectrolysisPlantScreen extends AbstractContainerScreen<Electrolysi
 
     @Override
     public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
-        graphics.blit(GUI_TEXTURED, BACKGROUND, getLeftPos(), getTopPos(), 0, 0, getImageWidth(), getImageHeight(), 256, 256);
+        graphics.blit(GUI_TEXTURED, BACKGROUND, this.getLeftPos(), this.getTopPos(), 0, 0, this.getImageWidth(), this.getImageHeight(), 256, 256);
 
         // Draw energy bar
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 8, this.topPos + 18, 176, 0, 6, ENERGY_BAR_HEIGHT, 256, 256);
@@ -50,6 +50,7 @@ public class ElectrolysisPlantScreen extends AbstractContainerScreen<Electrolysi
             this.menu.blockEntity.fluidTank.getCapacityAsInt(1), 115, 20, 6, FLUID_BAR_HEIGHT, 0);
 
         // Draw fluid tank overlays
+        // TODO: something is wrong here:
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 67 + 6, this.topPos + 20, 101, 184, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 115, this.topPos + 20, 101, 182, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
 
@@ -83,16 +84,16 @@ public class ElectrolysisPlantScreen extends AbstractContainerScreen<Electrolysi
     protected void extractTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
         super.extractTooltip(graphics, mouseX, mouseY);
 
-        if (isHovering(7, 18, 8, ENERGY_BAR_HEIGHT + 1, mouseX, mouseY)) {
-            graphics.tooltip(font, Utils.createTooltip(Component.translatable("gui.asteroidmining.energy",
+        if (this.isHovering(7, 18, 8, ENERGY_BAR_HEIGHT + 1, mouseX, mouseY)) {
+            graphics.tooltip(this.font, ClientUtils.createTooltip(Component.translatable("gui.asteroidmining.energy",
                 this.menu.getEnergyStored())), mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
         }
 
-        if (isHovering(67, 20, 14, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
-            FluidContainerUtil.renderFluidTooltip(graphics, font, this.menu.blockEntity.fluidTank.getStackInTank(0), mouseX, mouseY);
+        if (this.isHovering(67, 20, 14, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
+            FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.fluidTank.getStackInTank(0), mouseX, mouseY);
         }
-        if (isHovering(115, 20, 6, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
-            FluidContainerUtil.renderFluidTooltip(graphics, font, this.menu.blockEntity.fluidTank.getStackInTank(1), mouseX, mouseY);
+        if (this.isHovering(115, 20, 6, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
+            FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.fluidTank.getStackInTank(1), mouseX, mouseY);
         }
     }
 }

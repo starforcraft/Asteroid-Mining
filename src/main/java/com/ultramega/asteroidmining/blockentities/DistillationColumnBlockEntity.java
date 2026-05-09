@@ -2,20 +2,25 @@ package com.ultramega.asteroidmining.blockentities;
 
 import com.ultramega.asteroidmining.config.ServerConfig;
 import com.ultramega.asteroidmining.container.DistillationColumnContainerMenu;
+import com.ultramega.asteroidmining.recipe.DistillationInput;
+import com.ultramega.asteroidmining.recipe.DistillationRecipe;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
-import com.ultramega.asteroidmining.registry.ModFluids;
+import com.ultramega.asteroidmining.registry.ModRecipeTypes;
 import com.ultramega.asteroidmining.utils.CoolantData;
 import com.ultramega.asteroidmining.utils.ItemStacksResourceHandler;
 import com.ultramega.asteroidmining.utils.MultiFluidStacksResourceHandler;
 import com.ultramega.asteroidmining.utils.MutableEnergy;
 import com.ultramega.asteroidmining.utils.PreserveData;
 
+import java.util.Optional;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.Nameable;
 import net.minecraft.world.entity.player.Inventory;
@@ -24,19 +29,26 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStackTemplate;
+import net.neoforged.neoforge.fluids.crafting.SizedFluidIngredient;
 import net.neoforged.neoforge.transfer.fluid.FluidResource;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
 import org.jspecify.annotations.Nullable;
 
 public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEntity implements MenuProvider, Nameable, PreserveData {
-    public static final int RECIPE_DURATION = 40;
+    public static final int RECIPE_DURATION = 40; //TODO: delete?
+    public static final int MAX_TEMPERATURE = 500;
+    public static final int MIN_TEMPERATURE = -273;
+
+    //private static final Map<String, Optional<RecipeHolder<DistillationRecipe>>> RECIPE_CACHE = new HashMap<>();
 
     public final MutableEnergy energyStorage = new MutableEnergy(ServerConfig.DISTILLATION_COLUMN_ENERGY_CAPACITY.get());
     public final ItemStacksResourceHandler inventoryHandler = new ItemStacksResourceHandler(1) {
@@ -54,6 +66,11 @@ public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEn
     }) {
         @Override
         protected void onContentsChanged(final int index, final FluidStack previousContents) {
+            if (index == 0 || index == 1) { //TODO: only remove the recipe if the required ingredients are gone
+                DistillationColumnBlockEntity.this.recipeProgress = 0;
+                DistillationColumnBlockEntity.this.activeRecipe = null;
+            }
+
             DistillationColumnBlockEntity.this.setChanged();
         }
     };
@@ -109,6 +126,8 @@ public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEn
         }
     };
 
+    @Nullable
+    private DistillationRecipe activeRecipe;
     private int recipeProgress = RECIPE_DURATION;
 
     private int litTime;
@@ -123,118 +142,224 @@ public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEn
         super(ModBlockEntityTypes.DISTILLATION_COLUMN.get(), pos, blockState);
     }
 
-    //TODO: full recipe system?
     public static void serverTick(final Level level, final BlockPos pos, final BlockState state, final DistillationColumnBlockEntity blockEntity) {
-        if (blockEntity.cannotOperate()) {
+        if (!(level instanceof ServerLevel serverLevel) || blockEntity.cannotOperate()) {
             return;
         }
-        if (blockEntity.isLit()) {
-            --blockEntity.litTime;
-        }
-        if (blockEntity.isCooling()) {
-            --blockEntity.coolingTime;
-        }
 
-        --blockEntity.temperatureCooldown;
-        if (blockEntity.temperatureCooldown <= 0) {
-            if (blockEntity.isLit()) {
-                // Increase temperature with a cap of 500°C
-                if (blockEntity.temperature < 500) {
-                    ++blockEntity.temperature;
-                }
-            } else if (blockEntity.isCooling()) {
-                // Decrease temperature with a cap of -273°C
-                if (blockEntity.temperature > -273) { //TODO: update calculation (take temperature into account)
-                    --blockEntity.temperature;
-                }
-            } else {
-                // Slowly go back to 0°C temperature
-                if (blockEntity.temperature > 0) {
-                    --blockEntity.temperature;
-                } else if (blockEntity.temperature < 0) {
-                    ++blockEntity.temperature;
-                }
-            }
-            if (blockEntity.isLit()) {
-                blockEntity.temperatureCooldown = (int) ((double) (blockEntity.temperature / 20) + 2);
-            } else if (blockEntity.isCooling()) {
-                blockEntity.temperatureCooldown = (int) ((double) (-blockEntity.temperature / 20) + 2);
-            } else {
-                blockEntity.temperatureCooldown = (int) ((double) (Math.abs(blockEntity.temperature) / 70) + 2);
-            }
-        }
+        boolean changed = false;
+
+        changed |= tickHeatTimers(blockEntity);
+        changed |= tickTemperature(blockEntity);
 
         if (!blockEntity.isLit() && !blockEntity.isCooling()) {
-            // Consume burnable fuels or coolants
-            final ItemResource resource = blockEntity.inventoryHandler.getResource(0);
-            if (!resource.isEmpty()) {
-                final int burnTime = blockEntity.inventoryHandler.getStack(0).getBurnTime(null, level.fuelValues());
-                if (burnTime > 0) {
-                    blockEntity.litTime = burnTime / 10;
-                    blockEntity.litDuration = blockEntity.litTime;
-                    try (Transaction tx = Transaction.openRoot()) {
-                        blockEntity.inventoryHandler.extract(resource, 1, tx);
-                        tx.commit();
-                    }
-                } else {
-                    final CoolantData data = resource.typeHolder().getData(CoolantData.COOLANT_DATA);
-                    if (data != null) {
-                        blockEntity.coolingTime = data.duration() / 10;
-                        blockEntity.coolingDuration = blockEntity.coolingTime;
-                        try (Transaction tx = Transaction.openRoot()) {
-                            blockEntity.inventoryHandler.extract(resource, 1, tx);
-                            tx.commit();
-                        }
-                    }
-                }
-            }
+            changed |= tryConsumeFuelOrCoolant(level, blockEntity);
         }
 
-        if (blockEntity.fluidTank.getAmountAsInt(2) >= blockEntity.fluidTank.getCapacityAsInt(2)) {
+        changed |= tickDistillation(serverLevel, level, blockEntity);
+
+        if (changed) {
+            blockEntity.setChanged();
+        }
+    }
+
+    private static boolean tickHeatTimers(final DistillationColumnBlockEntity blockEntity) {
+        boolean changed = false;
+
+        if (blockEntity.isLit()) {
+            --blockEntity.litTime;
+            changed = true;
+        }
+
+        if (blockEntity.isCooling()) {
+            --blockEntity.coolingTime;
+            changed = true;
+        }
+
+        return changed;
+    }
+
+    private static boolean tickTemperature(final DistillationColumnBlockEntity blockEntity) {
+        final int oldTemperature = blockEntity.temperature;
+        final int oldCooldown = blockEntity.temperatureCooldown;
+
+        --blockEntity.temperatureCooldown;
+
+        if (blockEntity.temperatureCooldown > 0) {
+            return oldCooldown != blockEntity.temperatureCooldown;
+        }
+
+        updateTemperature(blockEntity);
+        blockEntity.temperatureCooldown = getNextTemperatureCooldown(blockEntity);
+
+        return oldTemperature != blockEntity.temperature || oldCooldown != blockEntity.temperatureCooldown;
+    }
+
+    private static void updateTemperature(final DistillationColumnBlockEntity blockEntity) {
+        if (blockEntity.isLit()) {
+            if (blockEntity.temperature < MAX_TEMPERATURE) {
+                ++blockEntity.temperature;
+            }
             return;
         }
 
-        final FluidResource extractFluid = blockEntity.fluidTank.getResource(1);
-        final FluidResource hydrotreatingFluid = blockEntity.fluidTank.getResource(0);
-        // Kerosene Production
-        if (blockEntity.temperature > 300
-            && extractFluid.is(ModFluids.PETROLEUM_SOURCE) && blockEntity.fluidTank.getAmountAsInt(1) > 200
-            && hydrotreatingFluid.is(ModFluids.HYDROGEN) && blockEntity.fluidTank.getAmountAsInt(0) > 1) {
-            if (--blockEntity.recipeProgress > 0) {
-                return;
+        if (blockEntity.isCooling()) {
+            if (blockEntity.temperature > MIN_TEMPERATURE) {
+                --blockEntity.temperature;
             }
-
-            try (Transaction tx = Transaction.openRoot()) {
-                blockEntity.fluidTank.extract(1, extractFluid, 200, tx);
-                blockEntity.fluidTank.extract(0, hydrotreatingFluid, 1, tx);
-                blockEntity.fluidTank.insert(2, FluidResource.of(ModFluids.KEROSENE_SOURCE), 20, tx);
-                blockEntity.energyStorage.extract(ServerConfig.DISTILLATION_COLUMN_ENERGY_USAGE.get(), tx);
-                tx.commit();
-            }
-
-            blockEntity.recipeProgress = RECIPE_DURATION;
+            return;
         }
-        // Liquid Oxygen Production
-        else if (blockEntity.temperature < -185
-            && extractFluid.is(ModFluids.AIR) && blockEntity.fluidTank.getAmountAsInt(1) > 850
-            /*&& hydrotreatingFluid.isEmpty()*/) { //TODO: re-enable
-            if (--blockEntity.recipeProgress > 0) {
-                return;
+
+        if (blockEntity.temperature > 0) {
+            --blockEntity.temperature;
+        } else if (blockEntity.temperature < 0) {
+            ++blockEntity.temperature;
+        }
+    }
+
+    private static int getNextTemperatureCooldown(final DistillationColumnBlockEntity blockEntity) {
+        if (blockEntity.isLit()) {
+            return blockEntity.temperature / 20 + 2;
+        }
+
+        if (blockEntity.isCooling()) {
+            return -blockEntity.temperature / 20 + 2;
+        }
+
+        return Math.abs(blockEntity.temperature) / 70 + 2;
+    }
+
+    private static boolean tryConsumeFuelOrCoolant(final Level level, final DistillationColumnBlockEntity blockEntity) {
+        final ItemResource resource = blockEntity.inventoryHandler.getResource(0);
+        if (resource.isEmpty()) {
+            return false;
+        }
+
+        final int burnTime = blockEntity.inventoryHandler.getStack(0).getBurnTime(null, level.fuelValues());
+        if (burnTime > 0) {
+            if (!consumeOneInputItem(blockEntity, resource)) {
+                return false;
             }
 
-            try (Transaction tx = Transaction.openRoot()) {
-                blockEntity.fluidTank.extract(1, extractFluid, 850, tx);
-                blockEntity.fluidTank.insert(2, FluidResource.of(ModFluids.LIQUID_OXYGEN), 1, tx);
-                blockEntity.energyStorage.extract(ServerConfig.DISTILLATION_COLUMN_ENERGY_USAGE.get(), tx);
-                tx.commit();
+            final int duration = burnTime / 10;
+            blockEntity.litTime = duration;
+            blockEntity.litDuration = duration;
+            return true;
+        }
+
+        final CoolantData coolantData = resource.typeHolder().getData(CoolantData.COOLANT_DATA);
+        if (coolantData == null || !consumeOneInputItem(blockEntity, resource)) {
+            return false;
+        }
+
+        final int duration = coolantData.duration() / 10;
+        blockEntity.coolingTime = duration;
+        blockEntity.coolingDuration = duration;
+        return true;
+    }
+
+    private static boolean consumeOneInputItem(final DistillationColumnBlockEntity blockEntity, final ItemResource resource) {
+        try (Transaction tx = Transaction.openRoot()) {
+            final long extracted = blockEntity.inventoryHandler.extract(0, resource, 1, tx);
+            if (extracted != 1) {
+                return false;
             }
 
-            blockEntity.recipeProgress = RECIPE_DURATION;
+            tx.commit();
+            return true;
+        }
+    }
+
+    private static boolean tickDistillation(final ServerLevel serverLevel, final Level level, final DistillationColumnBlockEntity blockEntity) {
+        if (blockEntity.fluidTank.getAmountAsInt(2) >= blockEntity.fluidTank.getCapacityAsInt(2)) {
+            return false;
+        }
+
+        final FluidStack inputStack = blockEntity.fluidTank.getStackInTank(1);
+        final FluidStack reagentStack = blockEntity.fluidTank.getStackInTank(0);
+
+        final DistillationInput recipeInput = new DistillationInput(inputStack, reagentStack, blockEntity.temperature);
+
+        // TODO: cache via RECIPE_CACHE / getRecipeHolderFromInput
+        final Optional<RecipeHolder<DistillationRecipe>> recipeHolder = serverLevel.recipeAccess().getRecipeFor(ModRecipeTypes.DISTILLATION.get(), recipeInput, level);
+        if (recipeHolder.isEmpty()) {
+            if (blockEntity.recipeProgress == 0 && blockEntity.activeRecipe == null) {
+                return false;
+            }
+
+            blockEntity.recipeProgress = 0;
+            blockEntity.activeRecipe = null;
+            return true;
+        }
+
+        final int energyUsage = ServerConfig.DISTILLATION_COLUMN_ENERGY_USAGE.get();
+        if (blockEntity.energyStorage.getAmountAsInt() < energyUsage) {
+            return false;
+        }
+
+        final DistillationRecipe recipe = recipeHolder.get().value();
+
+        try (Transaction tx = Transaction.openRoot()) {
+            final long inserted = blockEntity.fluidTank.insert(2, FluidResource.of(recipe.output().fluid().value()), recipe.output().amount(), tx);
+            if (inserted != recipe.output().amount()) {
+                return false;
+            }
+        }
+
+        if (blockEntity.activeRecipe != recipe || blockEntity.recipeProgress <= 0 || blockEntity.recipeProgress > recipe.duration()) {
+            blockEntity.activeRecipe = recipe;
+            blockEntity.recipeProgress = recipe.duration();
+        }
+
+        --blockEntity.recipeProgress;
+        if (blockEntity.recipeProgress > 0) {
+            return true;
+        }
+
+        if (blockEntity.craftRecipe(recipe, inputStack, reagentStack, energyUsage)) {
+            blockEntity.recipeProgress = recipe.duration();
+        } else {
+            blockEntity.recipeProgress = 1;
+        }
+
+        return true;
+    }
+
+    private boolean craftRecipe(final DistillationRecipe recipe, final FluidStack inputStack, final FluidStack reagentStack, final int energyUsage) {
+        try (Transaction tx = Transaction.openRoot()) {
+            final long extractedInput = this.fluidTank.extract(1, FluidResource.of(inputStack.getFluid()), recipe.input().amount(), tx);
+            if (extractedInput != recipe.input().amount()) {
+                return false;
+            }
+
+            if (recipe.reagent().isPresent()) {
+                final SizedFluidIngredient reagent = recipe.reagent().get();
+
+                final long extractedReagent = this.fluidTank.extract(0, FluidResource.of(reagentStack.getFluid()), reagent.amount(), tx);
+                if (extractedReagent != reagent.amount()) {
+                    return false;
+                }
+            }
+
+            final FluidStackTemplate output = recipe.output();
+            final long insertedOutput = this.fluidTank.insert(2, FluidResource.of(output.fluid().value()), output.amount(), tx);
+            if (insertedOutput != output.amount()) {
+                return false;
+            }
+
+            final long extractedEnergy = this.energyStorage.extract(energyUsage, tx);
+
+            if (extractedEnergy != energyUsage) {
+                return false;
+            }
+
+            tx.commit();
+            return true;
         }
     }
 
     public boolean cannotOperate() {
-        return energyStorage.getAmountAsInt() < ServerConfig.DISTILLATION_COLUMN_ENERGY_USAGE.get();
+        return this.energyStorage.getAmountAsInt() < ServerConfig.DISTILLATION_COLUMN_ENERGY_USAGE.get();
     }
 
     private boolean isLit() {
@@ -311,6 +436,6 @@ public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEn
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(final int containerId, final Inventory inventory, final Player player) {
-        return new DistillationColumnContainerMenu(containerId, inventory, this, ContainerLevelAccess.create(level, getBlockPos()), containerData);
+        return new DistillationColumnContainerMenu(containerId, inventory, this, ContainerLevelAccess.create(this.level, this.getBlockPos()), this.containerData);
     }
 }

@@ -2,7 +2,7 @@ package com.ultramega.asteroidmining.blockentities.renderer;
 
 import com.ultramega.asteroidmining.blockentities.RocketEngineBlockEntity;
 import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
-import com.ultramega.asteroidmining.utils.Utils;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -114,8 +114,8 @@ public class RocketEngineBlockEntityRenderer implements BlockEntityRenderer<Rock
                 final float midT1 = j / (float) steps;
                 final float midT2 = (j + 1) / (float) steps;
 
-                final int[] color1 = Utils.interpolateGradient(midT1, YELLOW, ORANGE, BLUE);
-                final int[] color2 = Utils.interpolateGradient(midT2, YELLOW, ORANGE, BLUE);
+                final int[] color1 = CommonUtils.interpolateGradient(midT1, YELLOW, ORANGE, BLUE);
+                final int[] color2 = CommonUtils.interpolateGradient(midT2, YELLOW, ORANGE, BLUE);
 
                 // Rotate the quad around its center on the Y axis.
                 final float x1l = -w1 / 2.0f;

@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.block.FluidModel;
@@ -17,6 +18,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.neoforge.client.fluid.FluidTintSource;
 import net.neoforged.neoforge.fluids.FluidStack;
+
+import static com.ultramega.asteroidmining.utils.ClientUtils.createTooltip;
 
 public final class FluidContainerUtil {
     private FluidContainerUtil() {
@@ -185,8 +188,19 @@ public final class FluidContainerUtil {
     }
 
     public static void renderFluidTooltip(final GuiGraphicsExtractor graphics, final Font font, final FluidStack stack, final int mouseX, final int mouseY) {
-        final Minecraft mc = Minecraft.getInstance();
-        final List<Component> tooltip = stack.getTooltipLines(Item.TooltipContext.EMPTY, mc.player, mc.options.advancedItemTooltips ? TooltipFlag.ADVANCED : TooltipFlag.NORMAL);
-        graphics.tooltip(font, Utils.createTooltip(tooltip), mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
+        final List<ClientTooltipComponent> tooltip;
+        if (stack.isEmpty()) {
+            tooltip = createTooltip(Component.translatable("gui.asteroidmining.fluid_empty"));
+        } else {
+            final Minecraft mc = Minecraft.getInstance();
+            final TooltipFlag flag = mc.options.advancedItemTooltips ? TooltipFlag.ADVANCED : TooltipFlag.NORMAL;
+
+            final List<Component> lines = stack.getTooltipLines(Item.TooltipContext.of(mc.level), mc.player, flag);
+            lines.add(Component.translatable("gui.asteroidmining.fluid_amount", stack.getAmount()));
+
+            tooltip = createTooltip(lines);
+        }
+
+        graphics.tooltip(font, tooltip, mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
     }
 }

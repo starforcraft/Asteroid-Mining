@@ -19,9 +19,11 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.resources.Identifier;
 
+import static com.ultramega.asteroidmining.AsteroidMining.makeId;
+
 @JeiPlugin
 public final class AsteroidMiningJeiPlugin implements IModPlugin {
-    private static final Identifier PLUGIN_UID = Identifier.fromNamespaceAndPath(AsteroidMining.MOD_ID, AsteroidMining.MOD_ID);
+    private static final Identifier PLUGIN_UID = makeId(AsteroidMining.MOD_ID);
 
     @Override
     public void registerCategories(final IRecipeCategoryRegistration registration) {

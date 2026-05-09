@@ -2,8 +2,8 @@ package com.ultramega.asteroidmining.gui.widgets;
 
 import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
+import com.ultramega.asteroidmining.utils.ClientUtils;
 import com.ultramega.asteroidmining.utils.TextColors;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,6 @@ import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
-import org.jspecify.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
 public class AsteroidSearchBox extends PlaceholderEditBox {
@@ -32,7 +31,6 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
     private final Consumer<String> selectedAsteroid;
     private final Map<Identifier, AsteroidConfig> asteroids;
 
-    @Nullable
     private final List<String> currentSuggestions = new ArrayList<>();
 
     private int suggestionsWidth = 0;
@@ -95,7 +93,7 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
             final int minY = this.getY() + this.getHeight() + this.getHeight() * index;
             final boolean hovered = index == this.selectedIndex;
 
-            if (Utils.isMouseOver(this.getX(), minY, this.getWidth(), this.getHeight(), mouseX, mouseY)) {
+            if (ClientUtils.isMouseOver(this.getX(), minY, this.getWidth(), this.getHeight(), mouseX, mouseY)) {
                 this.selectedIndex = index;
                 this.lastSelectedIndex = index;
                 isHovering = true;
@@ -121,7 +119,7 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
         }
 
         final int textWidth = Math.max(this.font.width(text), this.suggestionsWidth);
-        final int newWidth = Math.min(Math.max(textWidth + PADDING, this.defaultWidth), MAX_WIDTH);
+        final int newWidth = Math.clamp(textWidth + PADDING, this.defaultWidth, MAX_WIDTH);
 
         if (newWidth != this.getWidth()) {
             this.setWidth(newWidth);
@@ -192,7 +190,7 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
     }
 
     public boolean isInBounds(final double mouseX, final double mouseY) {
-        return Utils.isMouseOver(this.getX(), this.getY(), this.getWidth(), this.getHeight() + this.getHeight() * this.shownSuggestions(), mouseX, mouseY);
+        return ClientUtils.isMouseOver(this.getX(), this.getY(), this.getWidth(), this.getHeight() + this.getHeight() * this.shownSuggestions(), mouseX, mouseY);
     }
 
     private int shownSuggestions() {

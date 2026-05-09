@@ -1,7 +1,7 @@
 package com.ultramega.asteroidmining.gui.widgets;
 
 import com.ultramega.asteroidmining.AsteroidMining;
-import com.ultramega.asteroidmining.utils.Utils;
+import com.ultramega.asteroidmining.utils.ClientUtils;
 
 import java.util.function.DoubleConsumer;
 
@@ -76,7 +76,7 @@ public class ScrollbarWidget extends AbstractWidget {
         }
         final double mouseX = event.x();
         final double mouseY = event.y();
-        final boolean inBounds = Utils.isMouseOver(this.getX(), this.getY(), this.width, this.height, mouseX, mouseY);
+        final boolean inBounds = ClientUtils.isMouseOver(this.getX(), this.getY(), this.width, this.height, mouseX, mouseY);
         if (event.button() == 0 && inBounds) {
             this.updateOffset(mouseY);
             this.clicked = true;

@@ -5,7 +5,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.neoforged.neoforge.fluids.FluidStack;
 
-public record HeatExchangerInput(FluidStack input) implements RecipeInput {
+public record HeatExchangeInput(FluidStack input) implements RecipeInput {
     @Override
     public ItemStack getItem(final int slot) {
         return Items.AIR.getDefaultInstance();

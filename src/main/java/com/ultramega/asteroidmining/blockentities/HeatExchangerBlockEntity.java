@@ -2,8 +2,8 @@ package com.ultramega.asteroidmining.blockentities;
 
 import com.ultramega.asteroidmining.config.ServerConfig;
 import com.ultramega.asteroidmining.container.HeatExchangerContainerMenu;
-import com.ultramega.asteroidmining.recipe.HeatExchangerInput;
-import com.ultramega.asteroidmining.recipe.HeatExchangerRecipe;
+import com.ultramega.asteroidmining.recipe.HeatExchangeInput;
+import com.ultramega.asteroidmining.recipe.HeatExchangeRecipe;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModRecipeTypes;
@@ -41,7 +41,7 @@ import net.neoforged.neoforge.transfer.transaction.Transaction;
 import org.jspecify.annotations.Nullable;
 
 public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity implements MenuProvider, Nameable, PreserveData {
-    private static final Map<String, Optional<RecipeHolder<HeatExchangerRecipe>>> RECIPE_CACHE = new HashMap<>();
+    private static final Map<String, Optional<RecipeHolder<HeatExchangeRecipe>>> RECIPE_CACHE = new HashMap<>();
 
     public final MutableEnergy energyStorage = new MutableEnergy(ServerConfig.HEAT_EXCHANGER_ENERGY_CAPACITY.get());
     public final MultiFluidStacksResourceHandler fluidTank = new MultiFluidStacksResourceHandler(2, new int[] {
@@ -51,7 +51,7 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
         @Override
         protected void onContentsChanged(final int index, final FluidStack previousContents) {
             if (this.getAmountAsInt(0) == 0 && HeatExchangerBlockEntity.this.level instanceof ServerLevel serverLevel) {
-                final Optional<RecipeHolder<HeatExchangerRecipe>> recipeHolder = getRecipeHolderFromInput(this.getStackInTank(0), serverLevel);
+                final Optional<RecipeHolder<HeatExchangeRecipe>> recipeHolder = getRecipeHolderFromInput(this.getStackInTank(0), serverLevel);
                 if (recipeHolder.isPresent()) {
                     HeatExchangerBlockEntity.this.recipeDuration = recipeHolder.get().value().duration();
                     HeatExchangerBlockEntity.this.recipeProgress = HeatExchangerBlockEntity.this.recipeDuration;
@@ -110,41 +110,59 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
         if (!(level instanceof ServerLevel serverLevel) || blockEntity.cannotOperate()) {
             return;
         }
-        if (blockEntity.fluidTank.getRemainingSpace(1) == 0) {
+
+        final Optional<RecipeHolder<HeatExchangeRecipe>> recipeHolder = getRecipeHolderFromInput(blockEntity.fluidTank.getStackInTank(0), serverLevel);
+        if (recipeHolder.isEmpty()) {
+            blockEntity.recipeProgress = blockEntity.recipeDuration;
             return;
         }
 
-        final Optional<RecipeHolder<HeatExchangerRecipe>> recipeHolder = getRecipeHolderFromInput(blockEntity.fluidTank.getStackInTank(0), serverLevel);
-        if (recipeHolder.isPresent()) {
-            final HeatExchangerRecipe recipe = recipeHolder.get().value();
-            if (blockEntity.fluidTank.getRemainingSpace(1) >= recipe.output().amount()) {
-                try (Transaction tx = Transaction.openRoot()) {
-                    if (blockEntity.fluidTank.insert(1, FluidResource.of(recipe.getOutputFluid()), recipe.getOutputFluid().getAmount(), tx) <= 0) {
-                        return;
-                    }
-                }
-                if (--blockEntity.recipeProgress > 0) {
-                    return;
-                }
+        final HeatExchangeRecipe recipe = recipeHolder.get().value();
 
-                try (Transaction tx = Transaction.openRoot()) {
-                    blockEntity.fluidTank.extract(FluidResource.of(recipe.getInputFluid()), recipe.getInputFluid().getAmount(), tx);
-                    blockEntity.fluidTank.insert(1, FluidResource.of(recipe.getOutputFluid()), recipe.getOutputFluid().getAmount(), tx);
-                    blockEntity.energyStorage.extract(ServerConfig.HEAT_EXCHANGER_ENERGY_USAGE.get(), tx);
-                    tx.commit();
-                }
+        final FluidStack inputStack = recipe.getInputFluid();
+        final FluidStack outputStack = recipe.getOutputFluid();
 
-                blockEntity.recipeDuration = recipe.duration();
-                blockEntity.recipeProgress = blockEntity.recipeDuration;
+        final FluidResource inputResource = FluidResource.of(inputStack);
+        final FluidResource outputResource = FluidResource.of(outputStack);
+
+        final int inputAmount = inputStack.getAmount();
+        final int outputAmount = outputStack.getAmount();
+        final int energyAmount = ServerConfig.HEAT_EXCHANGER_ENERGY_USAGE.get();
+
+        try (Transaction tx = Transaction.openRoot()) {
+            if (blockEntity.fluidTank.insert(1, outputResource, outputAmount, tx) != outputAmount) {
+                return;
             }
         }
+
+        if (--blockEntity.recipeProgress > 0) {
+            return;
+        }
+
+        try (Transaction tx = Transaction.openRoot()) {
+            if (blockEntity.fluidTank.extract(0, inputResource, inputAmount, tx) != inputAmount) {
+                return;
+            }
+            if (blockEntity.fluidTank.insert(1, outputResource, outputAmount, tx) != outputAmount) {
+                return;
+            }
+            if (blockEntity.energyStorage.extract(energyAmount, tx) != energyAmount) {
+                return;
+            }
+
+            tx.commit();
+        }
+
+        blockEntity.recipeDuration = recipe.duration();
+        blockEntity.recipeProgress = blockEntity.recipeDuration;
+        blockEntity.setChanged();
     }
 
-    private static Optional<RecipeHolder<HeatExchangerRecipe>> getRecipeHolderFromInput(final FluidStack inputStack, final ServerLevel serverLevel) {
+    private static Optional<RecipeHolder<HeatExchangeRecipe>> getRecipeHolderFromInput(final FluidStack inputStack, final ServerLevel serverLevel) {
         final RecipeManager recipeManager = serverLevel.recipeAccess();
         if (!RECIPE_CACHE.containsKey(inputStack.getDescriptionId())) {
-            final HeatExchangerInput input = new HeatExchangerInput(inputStack);
-            final Optional<RecipeHolder<HeatExchangerRecipe>> recipe = recipeManager.getRecipeFor(ModRecipeTypes.HEAT_EXCHANGER.get(), input, serverLevel);
+            final HeatExchangeInput input = new HeatExchangeInput(inputStack);
+            final Optional<RecipeHolder<HeatExchangeRecipe>> recipe = recipeManager.getRecipeFor(ModRecipeTypes.HEAT_EXCHANGE.get(), input, serverLevel);
             RECIPE_CACHE.put(inputStack.getDescriptionId(), recipe);
         }
 

@@ -1,4 +1,4 @@
-package com.ultramega.asteroidmining.datagen.builder;
+package com.ultramega.asteroidmining.datagen.recipe.builder;
 
 import java.util.ArrayList;
 import java.util.List;

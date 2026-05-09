@@ -5,7 +5,8 @@ import com.ultramega.asteroidmining.asteroids.AsteroidResource;
 import com.ultramega.asteroidmining.container.RocketStorageViewerContainerMenu;
 import com.ultramega.asteroidmining.gui.widgets.ScrollbarWidget;
 import com.ultramega.asteroidmining.network.c2s.TryExtractRocketStorageMessage;
-import com.ultramega.asteroidmining.utils.Utils;
+import com.ultramega.asteroidmining.utils.ClientUtils;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -22,7 +23,7 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.resource.Resource;
 import org.jspecify.annotations.Nullable;
 
-import static com.ultramega.asteroidmining.utils.Utils.drawSlotHighlight;
+import static com.ultramega.asteroidmining.utils.ClientUtils.drawSlotHighlight;
 import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
 
 public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorageViewerContainerMenu> {
@@ -123,7 +124,7 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
             }
 
             if (!tooltip) {
-                Utils.renderResource(graphics, this.font, slotX, slotY, displayedResource.resource());
+                ClientUtils.renderResource(graphics, this.font, slotX, slotY, displayedResource.resource());
             }
 
             if (hovered) {

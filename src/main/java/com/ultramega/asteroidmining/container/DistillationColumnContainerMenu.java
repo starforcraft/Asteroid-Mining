@@ -17,15 +17,18 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
 
 public class DistillationColumnContainerMenu extends AbstractContainerMenu {
+    private static final int DATA_COUNT = 8;
+
     public final DistillationColumnBlockEntity blockEntity;
     private final ContainerLevelAccess access;
     private final ContainerData data;
 
     public DistillationColumnContainerMenu(final int containerId, final Inventory playerInv, final FriendlyByteBuf data) {
-        this(containerId, playerInv, getBlockEntity(playerInv, data), ContainerLevelAccess.NULL, new SimpleContainerData(8));
+        this(containerId, playerInv, getBlockEntity(playerInv, data), ContainerLevelAccess.NULL, new SimpleContainerData(DATA_COUNT), new ItemStacksResourceHandler(1));
     }
 
     public DistillationColumnContainerMenu(final int containerId,
@@ -33,12 +36,24 @@ public class DistillationColumnContainerMenu extends AbstractContainerMenu {
                                            final DistillationColumnBlockEntity blockEntity,
                                            final ContainerLevelAccess access,
                                            final ContainerData data) {
+        this(containerId, playerInv, blockEntity, access, data, blockEntity.inventoryHandler);
+    }
+
+    public DistillationColumnContainerMenu(final int containerId,
+                                           final Inventory playerInv,
+                                           final DistillationColumnBlockEntity blockEntity,
+                                           final ContainerLevelAccess access,
+                                           final ContainerData data,
+                                           final ItemStacksResourceHandler slotHandler) {
         super(ModMenuTypes.DISTILLATION_COLUMN.get(), containerId);
+
+        checkContainerDataCount(data, DATA_COUNT);
+
         this.blockEntity = blockEntity;
         this.access = access;
         this.data = data;
 
-        this.addSlot(new ResourceHandlerSlot(blockEntity.inventoryHandler, blockEntity.inventoryHandler::set, 0, 56, 58));
+        this.addSlot(new ResourceHandlerSlot(slotHandler, slotHandler::set, 0, 56, 58));
 
         this.addStandardInventorySlots(playerInv, 8, 84);
 
@@ -127,7 +142,7 @@ public class DistillationColumnContainerMenu extends AbstractContainerMenu {
             duration = DistillationColumnBlockEntity.RECIPE_DURATION;
         }
 
-        return Mth.clamp((float) getLitTime() / (float) duration, 0.0F, 1.0F);
+        return Mth.clamp((float) this.getLitTime() / (float) duration, 0.0F, 1.0F);
     }
 
     public int getCoolingTime() {
@@ -140,7 +155,7 @@ public class DistillationColumnContainerMenu extends AbstractContainerMenu {
             duration = DistillationColumnBlockEntity.RECIPE_DURATION;
         }
 
-        return Mth.clamp((float) getCoolingTime() / (float) duration, 0.0F, 1.0F);
+        return Mth.clamp((float) this.getCoolingTime() / (float) duration, 0.0F, 1.0F);
     }
 
     public int getTemperature() {

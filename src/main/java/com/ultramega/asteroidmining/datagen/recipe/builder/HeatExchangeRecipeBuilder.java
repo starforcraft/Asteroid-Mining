@@ -1,6 +1,6 @@
-package com.ultramega.asteroidmining.datagen.builder;
+package com.ultramega.asteroidmining.datagen.recipe.builder;
 
-import com.ultramega.asteroidmining.recipe.HeatExchangerRecipe;
+import com.ultramega.asteroidmining.recipe.HeatExchangeRecipe;
 
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceKey;
@@ -23,7 +23,7 @@ public class HeatExchangeRecipeBuilder extends SimpleRecipeBuilder {
 
     @Override
     public void save(final RecipeOutput recipeOutput, final ResourceKey<Recipe<?>> resourceKey) {
-        final HeatExchangerRecipe recipe = new HeatExchangerRecipe(this.input, this.output, this.duration);
+        final HeatExchangeRecipe recipe = new HeatExchangeRecipe(this.input, this.output, this.duration);
         recipeOutput.accept(resourceKey, recipe, null, this.conditions.toArray(new ICondition[0]));
     }
 }

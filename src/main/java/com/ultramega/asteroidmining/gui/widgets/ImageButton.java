@@ -8,7 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import org.jspecify.annotations.Nullable;
 
-import static com.ultramega.asteroidmining.utils.Utils.createTooltip;
+import static com.ultramega.asteroidmining.utils.ClientUtils.createTooltip;
 import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
 
 public class ImageButton extends Button {

@@ -61,7 +61,7 @@ import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsE
 import org.joml.Matrix4f;
 
 @EventBusSubscriber(value = Dist.CLIENT)
-public class ClientEvents {
+public final class ClientEvents {
     public static final Map<BlockPos, UUID> LAUNCH_PAD_BUILDER_POS = new Object2ObjectOpenHashMap<>(); //TODO: delete?
     public static final Map<BlockPos, List<PreviewInfo>> LAUNCH_PAD_PREVIEW_BLOCKS = new Object2ObjectOpenHashMap<>();
     // TODO: Investigate if this is a good way to go about this (Hides preview blocks on launch so that the chopsticks aren't visible)
@@ -182,7 +182,15 @@ public class ClientEvents {
     }
 
     @SubscribeEvent
-    public static void registerFluidModels(final RegisterFluidModelsEvent event) { //TODO: test this
+    public static void registerFluidModels(final RegisterFluidModelsEvent event) {
+        event.register(ModFluids.NON_PLACEABLE_FLUID_UNBAKED_MODEL.apply("air"), ModFluids.AIR.get());
+        event.register(ModFluids.NON_PLACEABLE_FLUID_UNBAKED_MODEL.apply("liquid_oxygen"), ModFluids.LIQUID_OXYGEN.get());
+        event.register(ModFluids.NON_PLACEABLE_FLUID_UNBAKED_MODEL.apply("liquid_air"), ModFluids.LIQUID_AIR.get());
+        event.register(ModFluids.NON_PLACEABLE_FLUID_UNBAKED_MODEL.apply("methane"), ModFluids.METHANE.get());
+        event.register(ModFluids.NON_PLACEABLE_FLUID_UNBAKED_MODEL.apply("liquid_methane"), ModFluids.LIQUID_METHANE.get());
+        event.register(ModFluids.NON_PLACEABLE_FLUID_UNBAKED_MODEL.apply("hydrogen"), ModFluids.HYDROGEN.get());
+        event.register(ModFluids.NON_PLACEABLE_FLUID_UNBAKED_MODEL.apply("liquid_hydrogen"), ModFluids.LIQUID_HYDROGEN.get());
+        event.register(ModFluids.NON_PLACEABLE_FLUID_UNBAKED_MODEL.apply("rocket_propellant"), ModFluids.ROCKET_PROPELLANT.get());
         event.register(ModFluids.FLUID_UNBAKED_MODEL.apply("petroleum"), ModFluids.PETROLEUM_SOURCE.get(), ModFluids.PETROLEUM_FLOWING.get());
         event.register(ModFluids.FLUID_UNBAKED_MODEL.apply("kerosene"), ModFluids.KEROSENE_SOURCE.get(), ModFluids.KEROSENE_FLOWING.get());
     }

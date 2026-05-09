@@ -7,8 +7,9 @@ import com.ultramega.asteroidmining.gui.renderer.OrbitRenderState;
 import com.ultramega.asteroidmining.gui.widgets.AsteroidSearchBox;
 import com.ultramega.asteroidmining.gui.widgets.ImageButton;
 import com.ultramega.asteroidmining.gui.widgets.ImagesButton;
+import com.ultramega.asteroidmining.utils.ClientUtils;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 import com.ultramega.asteroidmining.utils.TextColors;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -150,7 +151,7 @@ public class SolarSystemViewScreen extends Screen {
         // <<< Text Content Preparation >>>
         final String asteroidName = this.selectedAsteroid.getName();
         final Component sizeLabel = Component.translatable("gui.asteroidmining.observatory.diameter").withStyle(ChatFormatting.AQUA)
-            .append(Component.literal(Utils.formatPlanetSize(this.selectedAsteroid.getDiameter())).withStyle(ChatFormatting.WHITE));
+            .append(Component.literal(CommonUtils.formatPlanetSize(this.selectedAsteroid.getDiameter())).withStyle(ChatFormatting.WHITE));
 
         final boolean hasComposition = !this.selectedAsteroid.getComposition().isEmpty();
         final Component compositionLabel = Component.translatable("gui.asteroidmining.observatory.composition").withStyle(ChatFormatting.AQUA);
@@ -160,9 +161,9 @@ public class SolarSystemViewScreen extends Screen {
         final Component centralBodyLabel = Component.translatable("gui.asteroidmining.observatory.central_body").withStyle(ChatFormatting.AQUA)
             .append(Component.literal(this.selectedAsteroid.getCentralBodyName()).withStyle(ChatFormatting.WHITE));
         final Component semiMayorAxisLabel = Component.translatable("gui.asteroidmining.observatory.semi_mayor_axis").withStyle(ChatFormatting.AQUA)
-            .append(Component.literal(Utils.formatAstronomicalUnit(this.selectedAsteroid.getSemiMajorAxis())).withStyle(ChatFormatting.WHITE));
+            .append(Component.literal(CommonUtils.formatAstronomicalUnit(this.selectedAsteroid.getSemiMajorAxis())).withStyle(ChatFormatting.WHITE));
         final Component semiMinorAxisLabel = Component.translatable("gui.asteroidmining.observatory.semi_minor_axis").withStyle(ChatFormatting.AQUA)
-            .append(Component.literal(Utils.formatAstronomicalUnit(this.selectedAsteroid.getSemiMinorAxis())).withStyle(ChatFormatting.WHITE));
+            .append(Component.literal(CommonUtils.formatAstronomicalUnit(this.selectedAsteroid.getSemiMinorAxis())).withStyle(ChatFormatting.WHITE));
 
         //TODO: add orbital trustForce
 
@@ -222,7 +223,7 @@ public class SolarSystemViewScreen extends Screen {
 
         if (!this.selectedAsteroid.getComposition().isEmpty()) {
             graphics.text(this.font, compositionLabel, 5, y, -1);
-            Utils.renderResourcesWithSlot(graphics, this.font, mouseX, mouseY, 5, 41, 5,
+            ClientUtils.renderResourcesWithSlot(graphics, this.font, mouseX, mouseY, 5, 41, 5,
                 detailX, 0, this.selectedAsteroid.getComposition());
             y += compositionTextHeight + compositionStacksHeight;
         }
@@ -272,7 +273,7 @@ public class SolarSystemViewScreen extends Screen {
             final float topLeftX = this.getTopLeftXFromCentered(position.getX(), size);
             final float topLeftY = this.getTopLeftYFromCentered(position.getY(), size);
 
-            if (Utils.isMouseOver(topLeftX, topLeftY, size, size, mouseX, mouseY)) {
+            if (ClientUtils.isMouseOver(topLeftX, topLeftY, size, size, mouseX, mouseY)) {
                 this.hoveredAsteroid = asteroid;
             }
 
@@ -350,7 +351,7 @@ public class SolarSystemViewScreen extends Screen {
         if (this.isMouseOnDetailPanel(mouseX, mouseY)) {
             if (this.selectedAsteroid != null) {
                 final int detailX = this.width - this.detailWidth;
-                Utils.renderTooltipOfResources(graphics, mouseX, mouseY, 5, 41, 5,
+                ClientUtils.renderTooltipOfResources(graphics, mouseX, mouseY, 5, 41, 5,
                     detailX, 0, this.selectedAsteroid.getComposition());
             }
 
@@ -363,7 +364,7 @@ public class SolarSystemViewScreen extends Screen {
 
             final List<ClientTooltipComponent> clientTooltips = ClientHooks.gatherTooltipComponents(ItemStack.EMPTY, tooltip,
                 Optional.empty(), mouseX, graphics.guiWidth(), graphics.guiHeight(), this.font);
-            Utils.renderResourcesInsideTooltip(graphics, this.font, clientTooltips, mouseX, mouseY, DefaultTooltipPositioner.INSTANCE,
+            ClientUtils.renderResourcesInsideTooltip(graphics, this.font, clientTooltips, mouseX, mouseY, DefaultTooltipPositioner.INSTANCE,
                 this.hoveredAsteroid.getComposition());
         }
     }
@@ -437,7 +438,7 @@ public class SolarSystemViewScreen extends Screen {
 
     private boolean isMouseOnDetailPanel(final double mouseX, final double mouseY) {
         return this.selectedAsteroid != null
-            && Utils.isMouseOver(this.width - this.detailWidth, 0, this.detailWidth, this.detailHeight, mouseX, mouseY);
+            && ClientUtils.isMouseOver(this.width - this.detailWidth, 0, this.detailWidth, this.detailHeight, mouseX, mouseY);
     }
 
     public float getTopLeftXFromCentered(final double x, final int size) {

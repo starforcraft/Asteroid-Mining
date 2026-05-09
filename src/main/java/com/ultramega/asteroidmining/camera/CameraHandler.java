@@ -1,6 +1,6 @@
 package com.ultramega.asteroidmining.camera;
 
-import com.ultramega.asteroidmining.utils.Utils;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -73,8 +73,8 @@ public final class CameraHandler {
         totalIntensity = Math.min(totalIntensity, scaledMax);
 
         // Apply shake effect
-        yawOffset = Utils.randomOffset(random, totalIntensity);
-        pitchOffset = Utils.randomOffset(random, totalIntensity);
+        yawOffset = CommonUtils.randomOffset(random, totalIntensity);
+        pitchOffset = CommonUtils.randomOffset(random, totalIntensity);
         camera.setRotation(camera.yRot() + yawOffset, camera.xRot() + pitchOffset, 0.0F);
     }
 

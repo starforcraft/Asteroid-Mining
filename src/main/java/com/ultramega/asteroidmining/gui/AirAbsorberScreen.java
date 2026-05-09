@@ -2,8 +2,8 @@ package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.container.AirAbsorberContainerMenu;
+import com.ultramega.asteroidmining.utils.ClientUtils;
 import com.ultramega.asteroidmining.utils.FluidContainerUtil;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -34,7 +34,7 @@ public class AirAbsorberScreen extends AbstractContainerScreen<AirAbsorberContai
     @Override
     public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
         super.extractBackground(graphics, mouseX, mouseY, partialTicks);
-        graphics.blit(GUI_TEXTURED, BACKGROUND, getLeftPos(), getTopPos(), 0, 0, getImageWidth(), getImageHeight(), 256, 256);
+        graphics.blit(GUI_TEXTURED, BACKGROUND, this.getLeftPos(), this.getTopPos(), 0, 0, this.getImageWidth(), this.getImageHeight(), 256, 256);
 
         // Draw energy bar
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 8, this.topPos + 18, 176, 0, 6, ENERGY_BAR_HEIGHT, 256, 256);
@@ -55,14 +55,14 @@ public class AirAbsorberScreen extends AbstractContainerScreen<AirAbsorberContai
     protected void extractTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
         super.extractTooltip(graphics, mouseX, mouseY);
 
-        if (isHovering(7, 18, 8, ENERGY_BAR_HEIGHT + 1, mouseX, mouseY)) {
-            graphics.tooltip(font, Utils.createTooltip(Component.translatable("gui.asteroidmining.energy",
+        if (this.isHovering(7, 18, 8, ENERGY_BAR_HEIGHT + 1, mouseX, mouseY)) {
+            graphics.tooltip(this.font, ClientUtils.createTooltip(Component.translatable("gui.asteroidmining.energy",
                 this.menu.getEnergyStored())), mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
         }
 
-        if (isHovering(85, 20, 6, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
+        if (this.isHovering(85, 20, 6, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
             final FluidResource resource = this.menu.blockEntity.fluidTank.getResource(0);
-            FluidContainerUtil.renderFluidTooltip(graphics, font, resource.toStack(this.menu.blockEntity.fluidTank.getAmountAsInt(0)), mouseX, mouseY);
+            FluidContainerUtil.renderFluidTooltip(graphics, this.font, resource.toStack(this.menu.blockEntity.fluidTank.getAmountAsInt(0)), mouseX, mouseY);
         }
     }
 }

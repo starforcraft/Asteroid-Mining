@@ -1,4 +1,4 @@
 @NullMarked
-package com.ultramega.asteroidmining.datagen.builder;
+package com.ultramega.asteroidmining.datagen.recipe;
 
 import org.jspecify.annotations.NullMarked;

@@ -30,7 +30,7 @@ import net.minecraft.util.Util;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.Fluids;
 
-import static com.ultramega.asteroidmining.utils.Utils.BUCKET_AMOUNT;
+import static com.ultramega.asteroidmining.utils.CommonUtils.BUCKET_AMOUNT;
 
 public class AsteroidProvider implements DataProvider {
     private final PackOutput output;

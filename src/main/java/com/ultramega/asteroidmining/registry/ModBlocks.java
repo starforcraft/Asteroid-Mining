@@ -15,6 +15,8 @@ import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
 import com.ultramega.asteroidmining.blocks.RocketStorageViewerBlock;
 import com.ultramega.asteroidmining.blocks.StorageTankBlock;
 
+import java.util.function.Supplier;
+
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.client.particle.TerrainParticle;
@@ -26,6 +28,7 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.AABB;
@@ -115,16 +118,25 @@ public final class ModBlocks {
     public static final DeferredBlock<Block> BOUNDING_BOX = BLOCKS.registerBlock("bounding_box", BoundingBoxBlock::new,
         () -> BlockBehaviour.Properties.of().requiresCorrectToolForDrops().noOcclusion());
 
-    public static final DeferredBlock<LiquidBlock> PETROLEUM = BLOCKS.registerBlock("petroleum", (props) -> new LiquidBlock(ModFluids.PETROLEUM_SOURCE.get(), props),
-        () -> BlockBehaviour.Properties.of()
-            .mapColor(MapColor.COLOR_BROWN).replaceable().noCollision().strength(100.0F)
-            .pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY));
-    public static final DeferredBlock<LiquidBlock> KEROSENE = BLOCKS.registerBlock("kerosene", (props) -> new LiquidBlock(ModFluids.KEROSENE_SOURCE.get(), props),
-        () -> BlockBehaviour.Properties.of()
-            .mapColor(MapColor.COLOR_YELLOW).replaceable().noCollision().strength(100.0F)
-            .pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY));
+    public static final DeferredBlock<LiquidBlock> PETROLEUM = registerFluid("petroleum", ModFluids.PETROLEUM_SOURCE, MapColor.COLOR_BROWN);
+    public static final DeferredBlock<LiquidBlock> KEROSENE = registerFluid("kerosene", ModFluids.KEROSENE_SOURCE, MapColor.COLOR_YELLOW);
 
     private ModBlocks() {
+    }
+
+    private static DeferredBlock<LiquidBlock> registerFluid(final String name, final Supplier<? extends FlowingFluid> fluid, final MapColor mapColor) {
+        return BLOCKS.registerBlock(name,
+            props -> new LiquidBlock(fluid.get(), props),
+            () -> BlockBehaviour.Properties.of()
+                .mapColor(mapColor)
+                .replaceable()
+                .noCollision()
+                .strength(100.0F)
+                .pushReaction(PushReaction.DESTROY)
+                .noLootTable()
+                .liquid()
+                .sound(SoundType.EMPTY)
+        );
     }
 
     /**

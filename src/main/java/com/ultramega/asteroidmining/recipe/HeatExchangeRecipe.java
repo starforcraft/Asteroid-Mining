@@ -20,26 +20,26 @@ import net.neoforged.neoforge.fluids.crafting.SizedFluidIngredient;
 
 import static com.ultramega.asteroidmining.AsteroidMining.MOD_ID;
 
-public record HeatExchangerRecipe(SizedFluidIngredient input, SizedFluidIngredient output, int duration) implements Recipe<HeatExchangerInput> {
-    public static final MapCodec<HeatExchangerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-        SizedFluidIngredient.CODEC.fieldOf("input").forGetter(HeatExchangerRecipe::input),
-        SizedFluidIngredient.CODEC.fieldOf("output").forGetter(HeatExchangerRecipe::output),
-        Codec.INT.fieldOf("duration").orElse(20).forGetter(HeatExchangerRecipe::duration)
-    ).apply(inst, HeatExchangerRecipe::new));
-    public static final StreamCodec<RegistryFriendlyByteBuf, HeatExchangerRecipe> STREAM_CODEC = StreamCodec.composite(
-        SizedFluidIngredient.STREAM_CODEC, HeatExchangerRecipe::input,
-        SizedFluidIngredient.STREAM_CODEC, HeatExchangerRecipe::output,
-        ByteBufCodecs.INT, HeatExchangerRecipe::duration,
-        HeatExchangerRecipe::new
+public record HeatExchangeRecipe(SizedFluidIngredient input, SizedFluidIngredient output, int duration) implements Recipe<HeatExchangeInput> {
+    public static final MapCodec<HeatExchangeRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
+        SizedFluidIngredient.CODEC.fieldOf("input").forGetter(HeatExchangeRecipe::input),
+        SizedFluidIngredient.CODEC.fieldOf("output").forGetter(HeatExchangeRecipe::output),
+        Codec.INT.fieldOf("duration").orElse(20).forGetter(HeatExchangeRecipe::duration)
+    ).apply(inst, HeatExchangeRecipe::new));
+    public static final StreamCodec<RegistryFriendlyByteBuf, HeatExchangeRecipe> STREAM_CODEC = StreamCodec.composite(
+        SizedFluidIngredient.STREAM_CODEC, HeatExchangeRecipe::input,
+        SizedFluidIngredient.STREAM_CODEC, HeatExchangeRecipe::output,
+        ByteBufCodecs.INT, HeatExchangeRecipe::duration,
+        HeatExchangeRecipe::new
     );
 
     @Override
-    public boolean matches(final HeatExchangerInput heatExchangerInput, final Level level) {
-        return this.input.ingredient().fluids().getFirst().value().isSame(heatExchangerInput.input().getFluid());
+    public boolean matches(final HeatExchangeInput input, final Level level) {
+        return this.input.ingredient().fluids().getFirst().value().isSame(input.input().getFluid());
     }
 
     @Override
-    public ItemStack assemble(final HeatExchangerInput heatExchangerInput) {
+    public ItemStack assemble(final HeatExchangeInput input) {
         return ItemStack.EMPTY;
     }
 
@@ -52,13 +52,13 @@ public record HeatExchangerRecipe(SizedFluidIngredient input, SizedFluidIngredie
     }
 
     @Override
-    public RecipeSerializer<? extends Recipe<HeatExchangerInput>> getSerializer() {
-        return ModRecipeTypes.HEAT_EXCHANGER_SERIALIZER.get();
+    public RecipeSerializer<? extends Recipe<HeatExchangeInput>> getSerializer() {
+        return ModRecipeTypes.HEAT_EXCHANGE_SERIALIZER.get();
     }
 
     @Override
-    public RecipeType<? extends Recipe<HeatExchangerInput>> getType() {
-        return ModRecipeTypes.HEAT_EXCHANGER.get();
+    public RecipeType<? extends Recipe<HeatExchangeInput>> getType() {
+        return ModRecipeTypes.HEAT_EXCHANGE.get();
     }
 
     @Override
@@ -83,6 +83,6 @@ public record HeatExchangerRecipe(SizedFluidIngredient input, SizedFluidIngredie
 
     @Override
     public String group() {
-        return MOD_ID + "_heat_exchanger";
+        return MOD_ID + "_heat_exchange";
     }
 }

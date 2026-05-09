@@ -4,8 +4,8 @@ import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.camera.CameraHandler;
 import com.ultramega.asteroidmining.events.ClientEvents;
 import com.ultramega.asteroidmining.gui.widgets.ImageButton;
+import com.ultramega.asteroidmining.utils.ClientUtils;
 import com.ultramega.asteroidmining.utils.PreviewBlockHitResult;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ import org.joml.Matrix4f;
 import org.joml.Vector4f;
 import org.jspecify.annotations.Nullable;
 
-import static com.ultramega.asteroidmining.utils.Utils.raytraceGivenBlocks;
+import static com.ultramega.asteroidmining.utils.ClientUtils.raytraceGivenBlocks;
 
 public class LaunchPadConfigureScreen extends Screen {
     private static final Identifier ROTATE_TEXTURE = AsteroidMining.makeId("rotate");
@@ -107,7 +107,7 @@ public class LaunchPadConfigureScreen extends Screen {
         final Minecraft mc = Minecraft.getInstance();
 
         final Camera camera = mc.gameRenderer.getMainCamera();
-        if (camera == null || !camera.isInitialized()) {
+        if (!camera.isInitialized()) {
             return;
         }
 
@@ -156,7 +156,7 @@ public class LaunchPadConfigureScreen extends Screen {
                     Component.translatable("gui.asteroidmining.launch_pad_configure.currently").withStyle(ChatFormatting.DARK_RED)
                         .append(Component.literal(currentName).withStyle(ChatFormatting.WHITE)));
             }
-            graphics.tooltip(this.font, Utils.createTooltip(text), mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
+            graphics.tooltip(this.font, ClientUtils.createTooltip(text), mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
         } else {
             this.blockUnderCursor = null;
         }

@@ -3,8 +3,8 @@ package com.ultramega.asteroidmining.blockentities.renderer;
 import com.ultramega.asteroidmining.blockentities.LaunchPadBuilderBlockEntity;
 import com.ultramega.asteroidmining.events.ClientEvents;
 import com.ultramega.asteroidmining.gui.renderer.LaunchPadPreviewRenderState;
+import com.ultramega.asteroidmining.utils.ClientUtils;
 import com.ultramega.asteroidmining.utils.PreviewInfo;
-import com.ultramega.asteroidmining.utils.Utils;
 
 import java.util.List;
 
@@ -119,7 +119,7 @@ public class LaunchPadBuilderBlockEntityRenderer implements BlockEntityRenderer<
             collector.submitCustomGeometry(
                 poseStack,
                 RenderTypes.lines(),
-                (_, consumer) -> Utils.drawConnectedWireframe(
+                (_, consumer) -> ClientUtils.drawConnectedWireframe(
                     poseStack,
                     consumer,
                     state.previewState.rocketPositions,

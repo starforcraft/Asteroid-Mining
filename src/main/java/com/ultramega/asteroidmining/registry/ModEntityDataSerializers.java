@@ -1,7 +1,7 @@
 package com.ultramega.asteroidmining.registry;
 
 import com.ultramega.asteroidmining.AsteroidMining;
-import com.ultramega.asteroidmining.utils.Utils;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -16,7 +16,7 @@ public final class ModEntityDataSerializers {
         DeferredRegister.create(NeoForgeRegistries.ENTITY_DATA_SERIALIZERS, AsteroidMining.MOD_ID);
 
     public static final Supplier<EntityDataSerializer<List<StructureTemplate.StructureBlockInfo>>> STRUCTURE_BLOCK_INFO_LIST_REGISTER =
-        ENTITY_DATA_SERIALIZERS.register("structure_block_info_list", () -> EntityDataSerializer.forValueType(Utils.STRUCTURE_BLOCK_INFO_STREAM_CODEC_LIST));
+        ENTITY_DATA_SERIALIZERS.register("structure_block_info_list", () -> EntityDataSerializer.forValueType(CommonUtils.STRUCTURE_BLOCK_INFO_STREAM_CODEC_LIST));
 
     private ModEntityDataSerializers() {
     }

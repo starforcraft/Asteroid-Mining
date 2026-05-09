@@ -1,7 +1,7 @@
 package com.ultramega.asteroidmining.compat.jei.asteroidmining;
 
 import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
-import com.ultramega.asteroidmining.utils.Utils;
+import com.ultramega.asteroidmining.utils.ClientUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class AsteroidMiningWrapper implements IRecipeCategoryExtension<AsteroidC
         final List<Component> tooltip = new ArrayList<>();
         final int size = 32;
 
-        if (Utils.isMouseOver((recipeWidth / 2 - size) / 2, (recipeHeight - size) / 2, size, size, mouseX, mouseY)) {
+        if (ClientUtils.isMouseOver((recipeWidth / 2 - size) / 2, (recipeHeight - size) / 2, size, size, mouseX, mouseY)) {
             tooltip.add(Component.literal(asteroid.getName()));
         }
 

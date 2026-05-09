@@ -10,7 +10,7 @@ import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
 import com.ultramega.asteroidmining.storage.ClientConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.LaunchPadConfiguration;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
-import com.ultramega.asteroidmining.utils.Utils;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -151,7 +151,7 @@ public class LaunchPadBuilderScreen extends AbstractContainerScreen<LaunchPadBui
     public void rotate() {
         final LaunchPadConfiguration launchPadConfiguration = this.getRocketInfo();
         this.sendUpdate(new LaunchPadConfiguration(
-            launchPadConfiguration.name(), Utils.rotateCounterClockwise(this.menu.getBlockEntity().getBlockPos(), launchPadConfiguration.mainPos()),
+            launchPadConfiguration.name(), CommonUtils.rotateCounterClockwise(this.menu.getBlockEntity().getBlockPos(), launchPadConfiguration.mainPos()),
             launchPadConfiguration.width(), launchPadConfiguration.height(), launchPadConfiguration.facing().getClockWise()), true);
     }
 

@@ -1,6 +1,6 @@
 package com.ultramega.asteroidmining.particles;
 
-import com.ultramega.asteroidmining.utils.Utils;
+import com.ultramega.asteroidmining.utils.CommonUtils;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.BaseAshSmokeParticle;
@@ -23,7 +23,7 @@ public class BigSmokeParticle extends BaseAshSmokeParticle {
         super(level, x, y, z, 0.1F, 0.1F, 0.1F, xa, ya, za, scale, sprites, 0.3F, 8, -0.1F, true);
 
         this.setSprite(sprites.get(this.random));
-        this.scale(6.0F + Utils.randomOffset(this.random, 2));
+        this.scale(6.0F + CommonUtils.randomOffset(this.random, 2));
         this.friction = 0.95F;
         this.lifetime = 10000;
     }
