@@ -3,8 +3,8 @@ package com.ultramega.asteroidmining.gui;
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.container.SelectConfigurationContainerMenu;
 import com.ultramega.asteroidmining.gui.widgets.ImageButton;
-import com.ultramega.asteroidmining.network.c2s.OpenSaveRocketControllerMessage;
-import com.ultramega.asteroidmining.network.c2s.SetSelectConfigurationMessage;
+import com.ultramega.asteroidmining.network.c2s.OpenSaveRocketControllerPayload;
+import com.ultramega.asteroidmining.network.c2s.SetSelectConfigurationPayload;
 import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
 import com.ultramega.asteroidmining.storage.ClientConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
@@ -37,8 +37,8 @@ public class RocketControllerConfigurationScreen extends AbstractContainerScreen
     private Checkbox overlayCheckbox;
     private Checkbox commentatorCheckbox;
 
-    public RocketControllerConfigurationScreen(final SelectConfigurationContainerMenu container, final Inventory inventory, final Component title) {
-        super(container, inventory, title, 176, 166);
+    public RocketControllerConfigurationScreen(final SelectConfigurationContainerMenu menu, final Inventory inventory, final Component title) {
+        super(menu, inventory, title, 176, 166);
         this.selectButtons = new ImageButton[this.getMenu().getBlockEntity().inventoryHandler.size()];
     }
 
@@ -55,7 +55,7 @@ public class RocketControllerConfigurationScreen extends AbstractContainerScreen
             final int index = i;
             this.selectButtons[i] = new ImageButton(this.leftPos + this.imageWidth - 25, this.topPos + 17 + (18 * i), 18, 18,
                 2, 2, CLOSE, (button) -> {
-                ClientPacketDistributor.sendToServer(new SetSelectConfigurationMessage(this.getMenu().getBlockEntity().getBlockPos(), index));
+                ClientPacketDistributor.sendToServer(new SetSelectConfigurationPayload(this.getMenu().getBlockEntity().getBlockPos(), index));
                 RocketControllerConfigurationScreen.this.updateSelectButtons(index);
             });
             this.selectButtons[i].setActiveTooltip(Component.translatable("gui.asteroidmining.select"));
@@ -95,7 +95,7 @@ public class RocketControllerConfigurationScreen extends AbstractContainerScreen
 
     @Override
     public void onClose() {
-        ClientPacketDistributor.sendToServer(new OpenSaveRocketControllerMessage(
+        ClientPacketDistributor.sendToServer(new OpenSaveRocketControllerPayload(
             this.getMenu().getBlockEntity().getBlockPos(),
             (int) this.cooldownSlider.getValue() * 20,
             this.overlayCheckbox.selected(),

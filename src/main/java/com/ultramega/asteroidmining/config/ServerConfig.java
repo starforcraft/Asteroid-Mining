@@ -2,7 +2,7 @@ package com.ultramega.asteroidmining.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-public class ServerConfig { //TODO: change to common? and balance all values
+public final class ServerConfig { //TODO: change to common? and balance all values
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
     public static final ModConfigSpec.IntValue DISTILLATION_COLUMN_ENERGY_CAPACITY = BUILDER

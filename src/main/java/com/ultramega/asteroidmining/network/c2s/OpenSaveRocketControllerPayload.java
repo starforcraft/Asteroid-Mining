@@ -14,15 +14,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record OpenSaveRocketControllerMessage(BlockPos controllerPos, int launchCooldown, boolean launchCooldownOverlay, boolean launchCooldownCommentator)
+public record OpenSaveRocketControllerPayload(BlockPos controllerPos, int launchCooldown, boolean launchCooldownOverlay, boolean launchCooldownCommentator)
     implements CustomPacketPayload {
-    public static final Type<OpenSaveRocketControllerMessage> TYPE = new Type<>(AsteroidMining.makeId("open_save_rocket_controller"));
-    public static final StreamCodec<ByteBuf, OpenSaveRocketControllerMessage> STREAM_CODEC = StreamCodec.composite(
-        BlockPos.STREAM_CODEC, OpenSaveRocketControllerMessage::controllerPos,
-        ByteBufCodecs.INT, OpenSaveRocketControllerMessage::launchCooldown,
-        ByteBufCodecs.BOOL, OpenSaveRocketControllerMessage::launchCooldownOverlay,
-        ByteBufCodecs.BOOL, OpenSaveRocketControllerMessage::launchCooldownCommentator,
-        OpenSaveRocketControllerMessage::new
+    public static final Type<OpenSaveRocketControllerPayload> TYPE = new Type<>(AsteroidMining.makeId("open_save_rocket_controller"));
+    public static final StreamCodec<ByteBuf, OpenSaveRocketControllerPayload> STREAM_CODEC = StreamCodec.composite(
+        BlockPos.STREAM_CODEC, OpenSaveRocketControllerPayload::controllerPos,
+        ByteBufCodecs.INT, OpenSaveRocketControllerPayload::launchCooldown,
+        ByteBufCodecs.BOOL, OpenSaveRocketControllerPayload::launchCooldownOverlay,
+        ByteBufCodecs.BOOL, OpenSaveRocketControllerPayload::launchCooldownCommentator,
+        OpenSaveRocketControllerPayload::new
     );
 
     @Override
@@ -30,7 +30,7 @@ public record OpenSaveRocketControllerMessage(BlockPos controllerPos, int launch
         return TYPE;
     }
 
-    public static void handle(final OpenSaveRocketControllerMessage data, final IPayloadContext context) {
+    public static void handle(final OpenSaveRocketControllerPayload data, final IPayloadContext context) {
         context.enqueueWork(() -> {
             final Player player = context.player();
             if (player.level().getBlockEntity(data.controllerPos()) instanceof RocketControllerBlockEntity blockEntity) {

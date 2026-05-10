@@ -2,7 +2,7 @@ package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.container.AbstractModuleContainerMenu;
-import com.ultramega.asteroidmining.network.c2s.OpenTabModuleMessage;
+import com.ultramega.asteroidmining.network.c2s.OpenTabModulePayload;
 import com.ultramega.asteroidmining.utils.TextColors;
 
 import java.util.ArrayList;
@@ -135,7 +135,7 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
                 .skip(this.selectedTab)
                 .findFirst()
                 .ifPresent(blockPos ->
-                    ClientPacketDistributor.sendToServer(new OpenTabModuleMessage(blockPos, (int) Math.round(cursorX[0]), (int) Math.round(cursorY[0]))));
+                    ClientPacketDistributor.sendToServer(new OpenTabModulePayload(blockPos, (int) Math.round(cursorX[0]), (int) Math.round(cursorY[0]))));
         }
 
         return super.mouseClicked(event, doubleClick);

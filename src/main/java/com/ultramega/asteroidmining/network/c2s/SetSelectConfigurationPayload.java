@@ -10,12 +10,12 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record SetSelectConfigurationMessage(BlockPos controllerPos, int selectedConfiguration) implements CustomPacketPayload {
-    public static final Type<SetSelectConfigurationMessage> TYPE = new Type<>(AsteroidMining.makeId("set_select_configuration"));
-    public static final StreamCodec<ByteBuf, SetSelectConfigurationMessage> STREAM_CODEC = StreamCodec.composite(
-        BlockPos.STREAM_CODEC, SetSelectConfigurationMessage::controllerPos,
-        ByteBufCodecs.INT, SetSelectConfigurationMessage::selectedConfiguration,
-        SetSelectConfigurationMessage::new
+public record SetSelectConfigurationPayload(BlockPos controllerPos, int selectedConfiguration) implements CustomPacketPayload {
+    public static final Type<SetSelectConfigurationPayload> TYPE = new Type<>(AsteroidMining.makeId("set_select_configuration"));
+    public static final StreamCodec<ByteBuf, SetSelectConfigurationPayload> STREAM_CODEC = StreamCodec.composite(
+        BlockPos.STREAM_CODEC, SetSelectConfigurationPayload::controllerPos,
+        ByteBufCodecs.INT, SetSelectConfigurationPayload::selectedConfiguration,
+        SetSelectConfigurationPayload::new
     );
 
     @Override
@@ -23,7 +23,7 @@ public record SetSelectConfigurationMessage(BlockPos controllerPos, int selected
         return TYPE;
     }
 
-    public static void handle(final SetSelectConfigurationMessage data, final IPayloadContext context) {
+    public static void handle(final SetSelectConfigurationPayload data, final IPayloadContext context) {
         context.enqueueWork(() -> {
             if (context.player().level().getBlockEntity(data.controllerPos()) instanceof RocketControllerBlockEntity blockEntity) {
                 blockEntity.setSelectedConfigurationIndex(data.selectedConfiguration());

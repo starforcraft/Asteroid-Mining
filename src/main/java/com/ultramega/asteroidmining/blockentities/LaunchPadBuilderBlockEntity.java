@@ -1,8 +1,8 @@
 package com.ultramega.asteroidmining.blockentities;
 
 import com.ultramega.asteroidmining.container.LaunchPadBuilderContainerMenu;
-import com.ultramega.asteroidmining.events.ClientEvents;
-import com.ultramega.asteroidmining.network.c2s.SetConfigurationStackMessage;
+import com.ultramega.asteroidmining.events.PreviewClientEvents;
+import com.ultramega.asteroidmining.network.c2s.SetConfigurationStackPayload;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
@@ -47,26 +47,12 @@ public class LaunchPadBuilderBlockEntity extends AbstractDataPreservingBlockEnti
         super(ModBlockEntityTypes.LAUNCH_PAD_BUILDER.get(), pos, blockState);
     }
 
-    @Override
-    protected void loadAdditional(final ValueInput input) {
-        super.loadAdditional(input);
-
-        this.inventoryHandler.deserialize(input);
-    }
-
-    @Override
-    public void onLoad() {
-        super.onLoad();
-
-        this.updateConfigurationSettings();
-    }
-
     protected void updateConfigurationSettings() {
         final ItemResource resource = this.inventoryHandler.getResource(0);
         if (!resource.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get())) {
             if (this.level != null && this.level.isClientSide()) {
-                ClientEvents.LAUNCH_PAD_BUILDER_POS.remove(this.getBlockPos());
-                ClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.remove(this.getBlockPos());
+                PreviewClientEvents.LAUNCH_PAD_BUILDER_POS.remove(this.getBlockPos());
+                PreviewClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.remove(this.getBlockPos());
             }
             return;
         }
@@ -75,16 +61,30 @@ public class LaunchPadBuilderBlockEntity extends AbstractDataPreservingBlockEnti
         if (uuid != null) {
             final NetworkConfiguration configuration = ClientConfigurationSavedData.INSTANCE.get(uuid);
             if (configuration != null) {
-                ClientPacketDistributor.sendToServer(new SetConfigurationStackMessage(this.getBlockPos(), configuration.launchPadConfiguration()));
+                ClientPacketDistributor.sendToServer(new SetConfigurationStackPayload(this.getBlockPos(), configuration.launchPadConfiguration()));
             }
         }
+    }
+
+    @Override
+    protected void loadAdditional(final ValueInput input) {
+        super.loadAdditional(input);
+
+        this.inventoryHandler.deserialize(input.childOrEmpty("inventory"));
     }
 
     @Override
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
 
-        this.inventoryHandler.serialize(output);
+        this.inventoryHandler.serialize(output.child("inventory"));
+    }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+
+        this.updateConfigurationSettings();
     }
 
     @Override

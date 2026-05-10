@@ -22,8 +22,8 @@ public class BiogasPlantScreen extends AbstractContainerScreen<BiogasPlantContai
     private static final int ENERGY_BAR_HEIGHT = 52;
     private static final int FLUID_BAR_HEIGHT = 48;
 
-    public BiogasPlantScreen(final BiogasPlantContainerMenu container, final Inventory inventory, final Component title) {
-        super(container, inventory, title, 176, 166);
+    public BiogasPlantScreen(final BiogasPlantContainerMenu menu, final Inventory inventory, final Component title) {
+        super(menu, inventory, title, 176, 166);
         this.inventoryLabelY = this.imageHeight - 94;
     }
 
@@ -49,8 +49,7 @@ public class BiogasPlantScreen extends AbstractContainerScreen<BiogasPlantContai
             this.menu.blockEntity.fluidTank.getCapacityAsInt(0, resource), 121, 20, 6, FLUID_BAR_HEIGHT, 0);
 
         // Draw gas tank overlay
-        // TODO: something is wrong here:
-        graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 121, this.topPos + 20, 101, 182, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
+        graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 121, this.topPos + 20, 182, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
 
         // Draw progress
         if (this.menu.getRecipeProgress() > 0) {

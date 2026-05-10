@@ -6,7 +6,7 @@ import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.storage.ClientConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.ConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
-import com.ultramega.asteroidmining.utils.UnlimitedResourceStore;
+import com.ultramega.asteroidmining.utils.handlers.UnlimitedResourceStore;
 
 import java.util.UUID;
 

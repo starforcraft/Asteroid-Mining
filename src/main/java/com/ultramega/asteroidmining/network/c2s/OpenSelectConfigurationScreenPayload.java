@@ -14,11 +14,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record OpenSelectConfigurationScreenMessage(BlockPos controllerPos) implements CustomPacketPayload {
-    public static final Type<OpenSelectConfigurationScreenMessage> TYPE = new Type<>(AsteroidMining.makeId("open_select_configuration_screen"));
-    public static final StreamCodec<ByteBuf, OpenSelectConfigurationScreenMessage> STREAM_CODEC = StreamCodec.composite(
-        BlockPos.STREAM_CODEC, OpenSelectConfigurationScreenMessage::controllerPos,
-        OpenSelectConfigurationScreenMessage::new
+public record OpenSelectConfigurationScreenPayload(BlockPos controllerPos) implements CustomPacketPayload {
+    public static final Type<OpenSelectConfigurationScreenPayload> TYPE = new Type<>(AsteroidMining.makeId("open_select_configuration_screen"));
+    public static final StreamCodec<ByteBuf, OpenSelectConfigurationScreenPayload> STREAM_CODEC = StreamCodec.composite(
+        BlockPos.STREAM_CODEC, OpenSelectConfigurationScreenPayload::controllerPos,
+        OpenSelectConfigurationScreenPayload::new
     );
 
     @Override
@@ -26,7 +26,7 @@ public record OpenSelectConfigurationScreenMessage(BlockPos controllerPos) imple
         return TYPE;
     }
 
-    public static void handle(final OpenSelectConfigurationScreenMessage data, final IPayloadContext context) {
+    public static void handle(final OpenSelectConfigurationScreenPayload data, final IPayloadContext context) {
         context.enqueueWork(() -> {
             final Player player = context.player();
             if (player.level().getBlockEntity(data.controllerPos()) instanceof RocketControllerBlockEntity blockEntity) {

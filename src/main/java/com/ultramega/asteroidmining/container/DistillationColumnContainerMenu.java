@@ -13,22 +13,21 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
 
-public class DistillationColumnContainerMenu extends AbstractContainerMenu {
-    private static final int DATA_COUNT = 8;
+public class DistillationColumnContainerMenu extends AbstractSideConfigContainerMenu<DistillationColumnBlockEntity> {
+    private static final int MACHINE_DATA_COUNT = DistillationColumnBlockEntity.MACHINE_DATA_COUNT;
 
     public final DistillationColumnBlockEntity blockEntity;
     private final ContainerLevelAccess access;
     private final ContainerData data;
 
     public DistillationColumnContainerMenu(final int containerId, final Inventory playerInv, final FriendlyByteBuf data) {
-        this(containerId, playerInv, getBlockEntity(playerInv, data), ContainerLevelAccess.NULL, new SimpleContainerData(DATA_COUNT), new ItemStacksResourceHandler(1));
+        this(containerId, playerInv, getBlockEntity(playerInv, data), ContainerLevelAccess.NULL, AbstractSideConfigContainerMenu.createClientData(MACHINE_DATA_COUNT), new ItemStacksResourceHandler(1));
     }
 
     public DistillationColumnContainerMenu(final int containerId,
@@ -45,9 +44,7 @@ public class DistillationColumnContainerMenu extends AbstractContainerMenu {
                                            final ContainerLevelAccess access,
                                            final ContainerData data,
                                            final ItemStacksResourceHandler slotHandler) {
-        super(ModMenuTypes.DISTILLATION_COLUMN.get(), containerId);
-
-        checkContainerDataCount(data, DATA_COUNT);
+        super(ModMenuTypes.DISTILLATION_COLUMN.get(), containerId, playerInv, blockEntity, access, data, MACHINE_DATA_COUNT);
 
         this.blockEntity = blockEntity;
         this.access = access;
@@ -57,7 +54,7 @@ public class DistillationColumnContainerMenu extends AbstractContainerMenu {
 
         this.addStandardInventorySlots(playerInv, 8, 84);
 
-        this.addDataSlots(data);
+        this.addSideConfigDataSlots();
     }
 
     @Override

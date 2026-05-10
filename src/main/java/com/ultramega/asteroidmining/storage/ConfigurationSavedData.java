@@ -1,7 +1,7 @@
 package com.ultramega.asteroidmining.storage;
 
 import com.ultramega.asteroidmining.AsteroidMining;
-import com.ultramega.asteroidmining.network.s2c.UpdateClientConfigurationDataMessage;
+import com.ultramega.asteroidmining.network.s2c.UpdateClientConfigurationDataPayload;
 import com.ultramega.asteroidmining.utils.CoreValidations;
 
 import java.util.HashMap;
@@ -58,7 +58,7 @@ public class ConfigurationSavedData extends SavedData {
         super.setDirty();
 
         //TODO: switch to request response system, sending the map everytime is too expensive (Check refinedstorage2 ClientStorageRepository)
-        PacketDistributor.sendToAllPlayers(new UpdateClientConfigurationDataMessage(Map.copyOf(this.entries)));
+        PacketDistributor.sendToAllPlayers(new UpdateClientConfigurationDataPayload(Map.copyOf(this.entries)));
     }
 
     public static ConfigurationSavedData getConfigurationData(final ServerLevel level) {

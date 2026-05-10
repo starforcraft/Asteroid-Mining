@@ -1,19 +1,20 @@
 package com.ultramega.asteroidmining.network;
 
 import com.ultramega.asteroidmining.AsteroidMining;
-import com.ultramega.asteroidmining.network.c2s.LaunchRocketMessage;
-import com.ultramega.asteroidmining.network.c2s.OpenSaveRocketControllerMessage;
-import com.ultramega.asteroidmining.network.c2s.OpenSelectConfigurationScreenMessage;
-import com.ultramega.asteroidmining.network.c2s.OpenTabModuleMessage;
-import com.ultramega.asteroidmining.network.c2s.SelectAsteroidMessage;
-import com.ultramega.asteroidmining.network.c2s.SetConfigurationStackMessage;
-import com.ultramega.asteroidmining.network.c2s.SetSelectConfigurationMessage;
-import com.ultramega.asteroidmining.network.c2s.TryExtractRocketStorageMessage;
-import com.ultramega.asteroidmining.network.s2c.HidePreviewBlocksMessage;
-import com.ultramega.asteroidmining.network.s2c.OpenAsteroidEditScreenMessage;
-import com.ultramega.asteroidmining.network.s2c.SendLaunchPreviewDataMessage;
-import com.ultramega.asteroidmining.network.s2c.SetCursorMessage;
-import com.ultramega.asteroidmining.network.s2c.UpdateClientConfigurationDataMessage;
+import com.ultramega.asteroidmining.network.c2s.LaunchRocketPayload;
+import com.ultramega.asteroidmining.network.c2s.OpenSaveRocketControllerPayload;
+import com.ultramega.asteroidmining.network.c2s.OpenSelectConfigurationScreenPayload;
+import com.ultramega.asteroidmining.network.c2s.OpenTabModulePayload;
+import com.ultramega.asteroidmining.network.c2s.SelectAsteroidPayload;
+import com.ultramega.asteroidmining.network.c2s.SetConfigurationStackPayload;
+import com.ultramega.asteroidmining.network.c2s.SetSelectConfigurationPayload;
+import com.ultramega.asteroidmining.network.c2s.SetSideConfigPayload;
+import com.ultramega.asteroidmining.network.c2s.TryExtractRocketStoragePayload;
+import com.ultramega.asteroidmining.network.s2c.HidePreviewBlocksPayload;
+import com.ultramega.asteroidmining.network.s2c.OpenAsteroidEditScreenPayload;
+import com.ultramega.asteroidmining.network.s2c.SendLaunchPreviewDataPayload;
+import com.ultramega.asteroidmining.network.s2c.SetCursorPayload;
+import com.ultramega.asteroidmining.network.s2c.UpdateClientConfigurationDataPayload;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -21,7 +22,7 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
 @EventBusSubscriber
-public class PayloadRegister {
+public final class PayloadRegister {
     private PayloadRegister() {
     }
 
@@ -29,77 +30,82 @@ public class PayloadRegister {
     public static void registerPayloads(final RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar registrar = event.registrar(AsteroidMining.MOD_ID).versioned("1.0");
         registrar.playToClient(
-            OpenAsteroidEditScreenMessage.TYPE,
-            OpenAsteroidEditScreenMessage.STREAM_CODEC,
-            OpenAsteroidEditScreenMessage::handle
+            OpenAsteroidEditScreenPayload.TYPE,
+            OpenAsteroidEditScreenPayload.STREAM_CODEC,
+            OpenAsteroidEditScreenPayload::handle
         );
         registrar.playToClient(
-            UpdateClientConfigurationDataMessage.TYPE,
-            UpdateClientConfigurationDataMessage.STREAM_CODEC,
-            UpdateClientConfigurationDataMessage::handle
+            UpdateClientConfigurationDataPayload.TYPE,
+            UpdateClientConfigurationDataPayload.STREAM_CODEC,
+            UpdateClientConfigurationDataPayload::handle
         );
         registrar.playToClient(
-            SendLaunchPreviewDataMessage.TYPE,
-            SendLaunchPreviewDataMessage.STREAM_CODEC,
-            SendLaunchPreviewDataMessage::handle
+            SendLaunchPreviewDataPayload.TYPE,
+            SendLaunchPreviewDataPayload.STREAM_CODEC,
+            SendLaunchPreviewDataPayload::handle
         );
         registrar.playToClient(
-            HidePreviewBlocksMessage.TYPE,
-            HidePreviewBlocksMessage.STREAM_CODEC,
-            HidePreviewBlocksMessage::handle
+            HidePreviewBlocksPayload.TYPE,
+            HidePreviewBlocksPayload.STREAM_CODEC,
+            HidePreviewBlocksPayload::handle
         );
         registrar.playToClient(
-            SetCursorMessage.TYPE,
-            SetCursorMessage.STREAM_CODEC,
-            SetCursorMessage::handle
+            SetCursorPayload.TYPE,
+            SetCursorPayload.STREAM_CODEC,
+            SetCursorPayload::handle
         );
 
         registrar.playToServer(
-            LaunchRocketMessage.TYPE,
-            LaunchRocketMessage.STREAM_CODEC,
-            LaunchRocketMessage::handle
+            LaunchRocketPayload.TYPE,
+            LaunchRocketPayload.STREAM_CODEC,
+            LaunchRocketPayload::handle
         );
         registrar.playToServer(
-            SetConfigurationStackMessage.TYPE,
-            SetConfigurationStackMessage.STREAM_CODEC,
-            SetConfigurationStackMessage::handle
+            SetConfigurationStackPayload.TYPE,
+            SetConfigurationStackPayload.STREAM_CODEC,
+            SetConfigurationStackPayload::handle
         );
         registrar.playToServer(
-            TryExtractRocketStorageMessage.TYPE,
-            TryExtractRocketStorageMessage.STREAM_CODEC,
-            TryExtractRocketStorageMessage::handle
+            TryExtractRocketStoragePayload.TYPE,
+            TryExtractRocketStoragePayload.STREAM_CODEC,
+            TryExtractRocketStoragePayload::handle
         );
         registrar.playToServer(
-            OpenSaveRocketControllerMessage.TYPE,
-            OpenSaveRocketControllerMessage.STREAM_CODEC,
-            OpenSaveRocketControllerMessage::handle
+            OpenSaveRocketControllerPayload.TYPE,
+            OpenSaveRocketControllerPayload.STREAM_CODEC,
+            OpenSaveRocketControllerPayload::handle
         );
         registrar.playToServer(
-            OpenSelectConfigurationScreenMessage.TYPE,
-            OpenSelectConfigurationScreenMessage.STREAM_CODEC,
-            OpenSelectConfigurationScreenMessage::handle
+            OpenSelectConfigurationScreenPayload.TYPE,
+            OpenSelectConfigurationScreenPayload.STREAM_CODEC,
+            OpenSelectConfigurationScreenPayload::handle
         );
         registrar.playToServer(
-            SetSelectConfigurationMessage.TYPE,
-            SetSelectConfigurationMessage.STREAM_CODEC,
-            SetSelectConfigurationMessage::handle
+            SetSelectConfigurationPayload.TYPE,
+            SetSelectConfigurationPayload.STREAM_CODEC,
+            SetSelectConfigurationPayload::handle
         );
         registrar.playToServer(
-            SelectAsteroidMessage.TYPE,
-            SelectAsteroidMessage.STREAM_CODEC,
-            SelectAsteroidMessage::handle
+            SelectAsteroidPayload.TYPE,
+            SelectAsteroidPayload.STREAM_CODEC,
+            SelectAsteroidPayload::handle
         );
         registrar.playToServer(
-            OpenTabModuleMessage.TYPE,
-            OpenTabModuleMessage.STREAM_CODEC,
-            OpenTabModuleMessage::handle
+            OpenTabModulePayload.TYPE,
+            OpenTabModulePayload.STREAM_CODEC,
+            OpenTabModulePayload::handle
+        );
+        registrar.playToServer(
+            SetSideConfigPayload.TYPE,
+            SetSideConfigPayload.STREAM_CODEC,
+            SetSideConfigPayload::handle
         );
 
         registrar.playBidirectional(
-            AsteroidDataMessage.TYPE,
-            AsteroidDataMessage.STREAM_CODEC,
-            AsteroidDataMessage::handle,
-            AsteroidDataMessage::handle
+            AsteroidDataPayload.TYPE,
+            AsteroidDataPayload.STREAM_CODEC,
+            AsteroidDataPayload::handle,
+            AsteroidDataPayload::handle
         );
     }
 }

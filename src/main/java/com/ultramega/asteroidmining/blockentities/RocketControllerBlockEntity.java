@@ -6,9 +6,9 @@ import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
 import com.ultramega.asteroidmining.container.RocketControllerContainerMenu;
 import com.ultramega.asteroidmining.entities.BlockStructureEntity;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
-import com.ultramega.asteroidmining.events.ClientEvents;
-import com.ultramega.asteroidmining.network.s2c.HidePreviewBlocksMessage;
-import com.ultramega.asteroidmining.network.s2c.SendLaunchPreviewDataMessage;
+import com.ultramega.asteroidmining.events.PreviewClientEvents;
+import com.ultramega.asteroidmining.network.s2c.HidePreviewBlocksPayload;
+import com.ultramega.asteroidmining.network.s2c.SendLaunchPreviewDataPayload;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
@@ -255,7 +255,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
                 blockEntity.chopstick2.setRotateTowards(0F);
 
                 if (blockEntity.launchingRocketTick != 40 && blockEntity.launchingRocketTick != 690 + 40) {
-                    PacketDistributor.sendToAllPlayers(new HidePreviewBlocksMessage(pos, false));
+                    PacketDistributor.sendToAllPlayers(new HidePreviewBlocksPayload(pos, false));
                 }
             }
         }
@@ -392,7 +392,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             }
         }
 
-        PacketDistributor.sendToAllPlayers(new HidePreviewBlocksMessage(this.getBlockPos(), true));
+        PacketDistributor.sendToAllPlayers(new HidePreviewBlocksPayload(this.getBlockPos(), true));
 
         final BlockPos chopstick1Origin = getMinCorner(chopstick1Pos);
         final BlockPos chopstick2Origin = getMinCorner(chopstick2Pos);
@@ -537,7 +537,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
 
         this.selectedConfigurationIndex = input.getIntOr("selectedConfigurationIndex", -1);
 
-        this.inventoryHandler.deserialize(input);
+        this.inventoryHandler.deserialize(input.childOrEmpty("inventory"));
 
         this.connectedModules.clear();
         this.connectedModules.addAll(input.read("connectedModules", CommonUtils.BLOCK_POS_LIST).orElse(List.of()));
@@ -563,7 +563,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
 
         output.putInt("selectedConfigurationIndex", this.selectedConfigurationIndex);
 
-        this.inventoryHandler.serialize(output);
+        this.inventoryHandler.serialize(output.child("inventory"));
 
         output.store("connectedModules", CommonUtils.BLOCK_POS_LIST, this.connectedModules.stream().toList());
 
@@ -683,8 +683,8 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             final ItemResource stack = this.getResource(selectedIndex);
             if (!stack.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get())) {
                 if (RocketControllerBlockEntity.this.level != null && RocketControllerBlockEntity.this.level.isClientSide()) {
-                    ClientEvents.LAUNCH_PAD_BUILDER_POS.remove(RocketControllerBlockEntity.this.getBlockPos());
-                    ClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.remove(RocketControllerBlockEntity.this.getBlockPos());
+                    PreviewClientEvents.LAUNCH_PAD_BUILDER_POS.remove(RocketControllerBlockEntity.this.getBlockPos());
+                    PreviewClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.remove(RocketControllerBlockEntity.this.getBlockPos());
                 }
             } else {
                 if (RocketControllerBlockEntity.this.level instanceof ServerLevel serverLevel) {
@@ -693,7 +693,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
                     if (configuration != null) {
                         final List<PreviewInfo> previewInfos = CommonUtils.calculateSpacePort(RocketControllerBlockEntity.this.level,
                             configuration.launchPadConfiguration(), false);
-                        PacketDistributor.sendToAllPlayers(new SendLaunchPreviewDataMessage(RocketControllerBlockEntity.this.getBlockPos(), uuid, previewInfos));
+                        PacketDistributor.sendToAllPlayers(new SendLaunchPreviewDataPayload(RocketControllerBlockEntity.this.getBlockPos(), uuid, previewInfos));
                     }
                 }
             }

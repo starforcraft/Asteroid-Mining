@@ -14,11 +14,11 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record AsteroidDataMessage(Map<Identifier, AsteroidConfig> data) implements CustomPacketPayload {
-    public static final Type<AsteroidDataMessage> TYPE = new Type<>(AsteroidMining.makeId("asteroid_data"));
-    public static final StreamCodec<ByteBuf, AsteroidDataMessage> STREAM_CODEC = StreamCodec.composite(
-        ByteBufCodecs.fromCodec(Codec.unboundedMap(Identifier.CODEC, AsteroidConfig.CODEC)), AsteroidDataMessage::data,
-        AsteroidDataMessage::new
+public record AsteroidDataPayload(Map<Identifier, AsteroidConfig> data) implements CustomPacketPayload {
+    public static final Type<AsteroidDataPayload> TYPE = new Type<>(AsteroidMining.makeId("asteroid_data"));
+    public static final StreamCodec<ByteBuf, AsteroidDataPayload> STREAM_CODEC = StreamCodec.composite(
+        ByteBufCodecs.fromCodec(Codec.unboundedMap(Identifier.CODEC, AsteroidConfig.CODEC)), AsteroidDataPayload::data,
+        AsteroidDataPayload::new
     );
 
     @Override
@@ -26,7 +26,7 @@ public record AsteroidDataMessage(Map<Identifier, AsteroidConfig> data) implemen
         return TYPE;
     }
 
-    public static void handle(final AsteroidDataMessage data, final IPayloadContext context) {
+    public static void handle(final AsteroidDataPayload data, final IPayloadContext context) {
         context.enqueueWork(() ->
             AsteroidReloadListener.INSTANCE.setData(data.data)
         );

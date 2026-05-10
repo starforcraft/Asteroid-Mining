@@ -1,5 +1,6 @@
 package com.ultramega.asteroidmining;
 
+import com.ultramega.asteroidmining.config.ClientConfig;
 import com.ultramega.asteroidmining.config.ServerConfig;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
@@ -17,10 +18,14 @@ import com.ultramega.asteroidmining.registry.ModSounds;
 import com.mojang.logging.LogUtils;
 import guideme.Guide;
 import net.minecraft.resources.Identifier;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.loading.FMLEnvironment;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.slf4j.Logger;
 
 @Mod(AsteroidMining.MOD_ID)
@@ -46,6 +51,12 @@ public final class AsteroidMining {
         ModSounds.SOUND_EVENTS.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC);
+
+        if (FMLEnvironment.getDist() == Dist.CLIENT) {
+            // TODO: add lang entries for all the configs
+            modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+        }
 
         this.createGuide();
     }

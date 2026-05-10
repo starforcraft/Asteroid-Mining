@@ -1,8 +1,8 @@
-package com.ultramega.asteroidmining.utils;
+package com.ultramega.asteroidmining.utils.handlers;
 
 import net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler;
 
-public class MutableEnergy extends SimpleEnergyHandler { //TODO: switch to SimpleEnergyHandler
+public class MutableEnergy extends SimpleEnergyHandler {
     public MutableEnergy(final int capacity) {
         super(capacity);
     }

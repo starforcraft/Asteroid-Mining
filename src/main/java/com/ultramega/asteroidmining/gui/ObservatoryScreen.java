@@ -4,7 +4,7 @@ import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 import com.ultramega.asteroidmining.container.ObservatoryContainerMenu;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
-import com.ultramega.asteroidmining.network.c2s.SelectAsteroidMessage;
+import com.ultramega.asteroidmining.network.c2s.SelectAsteroidPayload;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
 import com.ultramega.asteroidmining.utils.TextColors;
 
@@ -33,8 +33,8 @@ public class ObservatoryScreen extends AbstractModuleScreen<ObservatoryContainer
     @Nullable
     private UUID selectedConfigurationUUID;
 
-    public ObservatoryScreen(final ObservatoryContainerMenu container, final Inventory inventory, final Component title) {
-        super(container, inventory, title, 176, 182);
+    public ObservatoryScreen(final ObservatoryContainerMenu menu, final Inventory inventory, final Component title) {
+        super(menu, inventory, title, 176, 182);
         this.inventoryLabelY = this.imageHeight - 94;
 
         this.updateSelectedConfigurationUUID();
@@ -60,7 +60,7 @@ public class ObservatoryScreen extends AbstractModuleScreen<ObservatoryContainer
             }
 
             Minecraft.getInstance().setScreen(new SolarSystemViewScreen(this.selectedAsteroid, (selectedAsteroid -> {
-                ClientPacketDistributor.sendToServer(new SelectAsteroidMessage(Optional.ofNullable(selectedAsteroid), this.selectedConfigurationUUID));
+                ClientPacketDistributor.sendToServer(new SelectAsteroidPayload(Optional.ofNullable(selectedAsteroid), this.selectedConfigurationUUID));
 
                 this.updateSelectedAsteroid(selectedAsteroid);
             }), this));

@@ -1,4 +1,4 @@
-package com.ultramega.asteroidmining.utils;
+package com.ultramega.asteroidmining.utils.handlers;
 
 import com.ultramega.asteroidmining.asteroids.AsteroidResource;
 import com.ultramega.asteroidmining.storage.ModuleProperties;

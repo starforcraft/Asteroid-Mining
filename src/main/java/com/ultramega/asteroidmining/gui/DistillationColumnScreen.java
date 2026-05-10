@@ -11,7 +11,6 @@ import java.util.List;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -23,7 +22,7 @@ import net.minecraft.world.item.ItemStack;
 
 import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
 
-public class DistillationColumnScreen extends AbstractContainerScreen<DistillationColumnContainerMenu> {
+public class DistillationColumnScreen extends AbstractSideConfigScreen<DistillationColumnContainerMenu> {
     private static final Identifier BACKGROUND = AsteroidMining.makeId("textures/gui/distillation_column.png");
     private static final Identifier BURN_PROGRESS_SPRITE = Identifier.withDefaultNamespace("container/furnace/burn_progress");
     private static final Identifier LIT_PROGRESS_SPRITE = Identifier.withDefaultNamespace("container/furnace/lit_progress");
@@ -31,8 +30,8 @@ public class DistillationColumnScreen extends AbstractContainerScreen<Distillati
     private static final int ENERGY_BAR_HEIGHT = 52;
     private static final int FLUID_BAR_HEIGHT = 22;
 
-    public DistillationColumnScreen(final DistillationColumnContainerMenu container, final Inventory inventory, final Component title) {
-        super(container, inventory, title, 176, 166);
+    public DistillationColumnScreen(final DistillationColumnContainerMenu menu, final Inventory inventory, final Component title) {
+        super(menu, inventory, title, 176, 166);
         this.inventoryLabelY = this.imageHeight - 94;
     }
 
@@ -66,8 +65,7 @@ public class DistillationColumnScreen extends AbstractContainerScreen<Distillati
             this.menu.blockEntity.fluidTank.getCapacityAsInt(2), 121, 18, 6, ENERGY_BAR_HEIGHT, 0);
 
         // Draw gas tank overlay
-        // TODO: something is wrong here:
-        graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 34, this.topPos + 16, 101, 182, 2, FLUID_BAR_HEIGHT, 256, 256);
+        graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 34, this.topPos + 16, 182, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
 
         // Draw progress
         if (this.menu.getRecipeProgress() > 0) {
@@ -86,9 +84,7 @@ public class DistillationColumnScreen extends AbstractContainerScreen<Distillati
     }
 
     @Override
-    protected void extractTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
-        super.extractTooltip(graphics, mouseX, mouseY);
-
+    protected void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
         if (this.menu.getCarried().isEmpty() && this.hoveredSlot != null && this.hoveredSlot.hasItem()) {
             final ItemStack stack = this.hoveredSlot.getItem();
             final CoolantData data = stack.typeHolder().getData(CoolantData.COOLANT_DATA);

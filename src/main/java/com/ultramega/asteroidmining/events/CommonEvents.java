@@ -1,9 +1,10 @@
 package com.ultramega.asteroidmining.events;
 
 import com.ultramega.asteroidmining.AsteroidMining;
+import com.ultramega.asteroidmining.blockentities.AbstractSideConfigurableBlockEntity;
 import com.ultramega.asteroidmining.blockentities.BoundingBoxBlockEntity;
 import com.ultramega.asteroidmining.camera.CameraHandler;
-import com.ultramega.asteroidmining.network.AsteroidDataMessage;
+import com.ultramega.asteroidmining.network.AsteroidDataPayload;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.storage.ConfigurationSavedData;
 import com.ultramega.asteroidmining.utils.CoolantData;
@@ -21,7 +22,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 
 @EventBusSubscriber
-public class CommonEvents {
+public final class CommonEvents {
     private CommonEvents() {
     }
 
@@ -53,9 +54,9 @@ public class CommonEvents {
     @SubscribeEvent
     public static void onDataSync(final OnDatapackSyncEvent event) {
         if (event.getPlayer() == null) { //TODO: is this really required?
-            PacketDistributor.sendToAllPlayers(new AsteroidDataMessage(AsteroidReloadListener.INSTANCE.getData()));
+            PacketDistributor.sendToAllPlayers(new AsteroidDataPayload(AsteroidReloadListener.INSTANCE.getData()));
         } else {
-            PacketDistributor.sendToPlayer(event.getPlayer(), new AsteroidDataMessage(AsteroidReloadListener.INSTANCE.getData()));
+            PacketDistributor.sendToPlayer(event.getPlayer(), new AsteroidDataPayload(AsteroidReloadListener.INSTANCE.getData()));
         }
     }
 
@@ -69,17 +70,17 @@ public class CommonEvents {
         event.registerBlockEntity(
             Capabilities.Energy.BLOCK,
             ModBlockEntityTypes.DISTILLATION_COLUMN.get(),
-            (blockEntity, side) -> blockEntity.energyStorage
+            AbstractSideConfigurableBlockEntity::getEnergyCapability
         );
         event.registerBlockEntity(
             Capabilities.Item.BLOCK,
             ModBlockEntityTypes.DISTILLATION_COLUMN.get(),
-            (blockEntity, side) -> blockEntity.inventoryHandler
+            AbstractSideConfigurableBlockEntity::getItemCapability
         );
         event.registerBlockEntity(
             Capabilities.Fluid.BLOCK,
             ModBlockEntityTypes.DISTILLATION_COLUMN.get(),
-            (blockEntity, side) -> blockEntity.fluidTank
+            AbstractSideConfigurableBlockEntity::getFluidCapability
         );
         event.registerBlockEntity(
             Capabilities.Energy.BLOCK,

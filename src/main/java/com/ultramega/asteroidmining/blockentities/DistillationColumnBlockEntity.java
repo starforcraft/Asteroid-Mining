@@ -8,10 +8,9 @@ import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModRecipeTypes;
 import com.ultramega.asteroidmining.utils.CoolantData;
-import com.ultramega.asteroidmining.utils.ItemStacksResourceHandler;
-import com.ultramega.asteroidmining.utils.MultiFluidStacksResourceHandler;
-import com.ultramega.asteroidmining.utils.MutableEnergy;
-import com.ultramega.asteroidmining.utils.PreserveData;
+import com.ultramega.asteroidmining.utils.handlers.ItemStacksResourceHandler;
+import com.ultramega.asteroidmining.utils.handlers.MultiFluidStacksResourceHandler;
+import com.ultramega.asteroidmining.utils.handlers.MutableEnergy;
 
 import java.util.Optional;
 
@@ -26,7 +25,6 @@ import net.minecraft.world.Nameable;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -38,15 +36,19 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.FluidStackTemplate;
 import net.neoforged.neoforge.fluids.crafting.SizedFluidIngredient;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.energy.EnergyHandler;
 import net.neoforged.neoforge.transfer.fluid.FluidResource;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
 import org.jspecify.annotations.Nullable;
 
-public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEntity implements MenuProvider, Nameable, PreserveData {
-    public static final int RECIPE_DURATION = 40; //TODO: delete?
+public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlockEntity implements MenuProvider, Nameable {
+    public static final int RECIPE_DURATION = 40; //TODO: delete because this is wrong. Get it instead from activeRecipe.duration()
     public static final int MAX_TEMPERATURE = 500;
     public static final int MIN_TEMPERATURE = -273;
+
+    public static final int MACHINE_DATA_COUNT = 8;
 
     //private static final Map<String, Optional<RecipeHolder<DistillationRecipe>>> RECIPE_CACHE = new HashMap<>();
 
@@ -72,57 +74,6 @@ public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEn
             }
 
             DistillationColumnBlockEntity.this.setChanged();
-        }
-    };
-    private final ContainerData containerData = new ContainerData() {
-        @Override
-        public int get(final int index) {
-            return switch (index) {
-                case 0 -> DistillationColumnBlockEntity.this.energyStorage.getAmountAsInt();
-                case 1 -> DistillationColumnBlockEntity.this.energyStorage.getCapacityAsInt();
-                case 2 -> DistillationColumnBlockEntity.this.recipeProgress;
-                case 3 -> DistillationColumnBlockEntity.this.litTime;
-                case 4 -> DistillationColumnBlockEntity.this.litDuration;
-                case 5 -> DistillationColumnBlockEntity.this.coolingTime;
-                case 6 -> DistillationColumnBlockEntity.this.coolingDuration;
-                case 7 -> DistillationColumnBlockEntity.this.temperature;
-                default -> throw new IllegalStateException("Unexpected value: " + index);
-            };
-        }
-
-        @Override
-        public void set(final int index, final int value) {
-            switch (index) {
-                case 0:
-                    DistillationColumnBlockEntity.this.energyStorage.set(value);
-                    break;
-                case 1:
-                    DistillationColumnBlockEntity.this.energyStorage.setCapacity(value);
-                    break;
-                case 2:
-                    DistillationColumnBlockEntity.this.recipeProgress = value;
-                    break;
-                case 3:
-                    DistillationColumnBlockEntity.this.litTime = value;
-                    break;
-                case 4:
-                    DistillationColumnBlockEntity.this.litDuration = value;
-                    break;
-                case 5:
-                    DistillationColumnBlockEntity.this.coolingTime = value;
-                    break;
-                case 6:
-                    DistillationColumnBlockEntity.this.coolingDuration = value;
-                    break;
-                case 7:
-                    DistillationColumnBlockEntity.this.temperature = value;
-                    break;
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return 8;
         }
     };
 
@@ -151,6 +102,7 @@ public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEn
 
         changed |= tickHeatTimers(blockEntity);
         changed |= tickTemperature(blockEntity);
+        changed |= blockEntity.autoEjectEnergyToConfiguredOutputs(ServerConfig.DISTILLATION_COLUMN_ENERGY_CAPACITY.get() / 20);
 
         if (!blockEntity.isLit() && !blockEntity.isCooling()) {
             changed |= tryConsumeFuelOrCoolant(level, blockEntity);
@@ -374,9 +326,9 @@ public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEn
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
 
-        this.energyStorage.deserialize(input);
-        this.inventoryHandler.deserialize(input);
-        this.fluidTank.deserialize(input);
+        this.energyStorage.deserialize(input.childOrEmpty("energy"));
+        this.inventoryHandler.deserialize(input.childOrEmpty("inventory"));
+        this.fluidTank.deserialize(input.childOrEmpty("fluidTank"));
 
         this.recipeProgress = input.getInt("recipeProgress").orElse(RECIPE_DURATION);
         this.litTime = input.getInt("litTime").orElse(0);
@@ -391,9 +343,9 @@ public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEn
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
 
-        this.energyStorage.serialize(output);
-        this.inventoryHandler.serialize(output);
-        this.fluidTank.serialize(output);
+        this.energyStorage.serialize(output.child("energy"));
+        this.inventoryHandler.serialize(output.child("inventory"));
+        this.fluidTank.serialize(output.child("fluidTank"));
 
         output.putInt("recipeProgress", this.recipeProgress);
         output.putInt("litTime", this.litTime);
@@ -433,9 +385,59 @@ public class DistillationColumnBlockEntity extends AbstractDataPreservingBlockEn
         return this.getName();
     }
 
+    @Override
+    protected int getMachineDataCount() {
+        return MACHINE_DATA_COUNT;
+    }
+
+    @Override
+    protected int getMachineData(final int index) {
+        return switch (index) {
+            case 0 -> this.energyStorage.getAmountAsInt();
+            case 1 -> this.energyStorage.getCapacityAsInt();
+            case 2 -> this.recipeProgress;
+            case 3 -> this.litTime;
+            case 4 -> this.litDuration;
+            case 5 -> this.coolingTime;
+            case 6 -> this.coolingDuration;
+            case 7 -> this.temperature;
+            default -> throw new IllegalStateException("Unexpected machine data index: " + index);
+        };
+    }
+
+    @Override
+    protected void setMachineData(final int index, final int value) {
+        switch (index) {
+            case 0 -> this.energyStorage.set(value);
+            case 1 -> this.energyStorage.setCapacity(value);
+            case 2 -> this.recipeProgress = value;
+            case 3 -> this.litTime = value;
+            case 4 -> this.litDuration = value;
+            case 5 -> this.coolingTime = value;
+            case 6 -> this.coolingDuration = value;
+            case 7 -> this.temperature = value;
+            default -> throw new IllegalStateException("Unexpected machine data index: " + index);
+        }
+    }
+
+    @Override
+    protected EnergyHandler getEnergyStorageForSideConfig() {
+        return this.energyStorage;
+    }
+
+    @Override
+    protected ResourceHandler<ItemResource> getItemHandlerForSideConfig() {
+        return this.inventoryHandler;
+    }
+
+    @Override
+    protected ResourceHandler<FluidResource> getFluidHandlerForSideConfig() {
+        return this.fluidTank;
+    }
+
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(final int containerId, final Inventory inventory, final Player player) {
-        return new DistillationColumnContainerMenu(containerId, inventory, this, ContainerLevelAccess.create(this.level, this.getBlockPos()), this.containerData);
+        return new DistillationColumnContainerMenu(containerId, inventory, this, ContainerLevelAccess.create(this.level, this.getBlockPos()), this.getContainerData());
     }
 }

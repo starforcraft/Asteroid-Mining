@@ -5,8 +5,8 @@ import com.ultramega.asteroidmining.container.ElectrolysisPlantContainerMenu;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModFluids;
-import com.ultramega.asteroidmining.utils.MultiFluidStacksResourceHandler;
-import com.ultramega.asteroidmining.utils.MutableEnergy;
+import com.ultramega.asteroidmining.utils.handlers.MultiFluidStacksResourceHandler;
+import com.ultramega.asteroidmining.utils.handlers.MutableEnergy;
 import com.ultramega.asteroidmining.utils.PreserveData;
 
 import net.minecraft.core.BlockPos;
@@ -125,8 +125,8 @@ public class ElectrolysisPlantBlockEntity extends AbstractDataPreservingBlockEnt
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
 
-        this.energyStorage.deserialize(input);
-        this.fluidTank.deserialize(input);
+        this.energyStorage.deserialize(input.childOrEmpty("energy"));
+        this.fluidTank.deserialize(input.childOrEmpty("fluidTank"));
         this.recipeProgress = input.getInt("recipeProgress").orElse(0);
     }
 
@@ -134,8 +134,8 @@ public class ElectrolysisPlantBlockEntity extends AbstractDataPreservingBlockEnt
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
 
-        this.energyStorage.serialize(output);
-        this.fluidTank.serialize(output);
+        this.energyStorage.serialize(output.child("energy"));
+        this.fluidTank.serialize(output.child("fluidTank"));
         output.putInt("recipeProgress", this.recipeProgress);
     }
 

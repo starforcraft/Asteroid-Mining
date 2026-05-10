@@ -18,12 +18,12 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record SelectAsteroidMessage(Optional<Identifier> selectedAsteroid, UUID configurationUUID) implements CustomPacketPayload {
-    public static final Type<SelectAsteroidMessage> TYPE = new Type<>(AsteroidMining.makeId("select_asteroid"));
-    public static final StreamCodec<ByteBuf, SelectAsteroidMessage> STREAM_CODEC = StreamCodec.composite(
-        Identifier.STREAM_CODEC.apply(ByteBufCodecs::optional), SelectAsteroidMessage::selectedAsteroid,
-        UUIDUtil.STREAM_CODEC, SelectAsteroidMessage::configurationUUID,
-        SelectAsteroidMessage::new
+public record SelectAsteroidPayload(Optional<Identifier> selectedAsteroid, UUID configurationUUID) implements CustomPacketPayload {
+    public static final Type<SelectAsteroidPayload> TYPE = new Type<>(AsteroidMining.makeId("select_asteroid"));
+    public static final StreamCodec<ByteBuf, SelectAsteroidPayload> STREAM_CODEC = StreamCodec.composite(
+        Identifier.STREAM_CODEC.apply(ByteBufCodecs::optional), SelectAsteroidPayload::selectedAsteroid,
+        UUIDUtil.STREAM_CODEC, SelectAsteroidPayload::configurationUUID,
+        SelectAsteroidPayload::new
     );
 
     @Override
@@ -31,7 +31,7 @@ public record SelectAsteroidMessage(Optional<Identifier> selectedAsteroid, UUID 
         return TYPE;
     }
 
-    public static void handle(final SelectAsteroidMessage data, final IPayloadContext context) {
+    public static void handle(final SelectAsteroidPayload data, final IPayloadContext context) {
         context.enqueueWork(() -> {
             //TODO: add util methods so these if statement abominations aren't everywhere
             if (!(context.player().level() instanceof ServerLevel serverLevel)) {

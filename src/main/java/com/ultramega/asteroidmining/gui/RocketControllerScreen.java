@@ -4,8 +4,8 @@ import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.container.RocketControllerContainerMenu;
 import com.ultramega.asteroidmining.gui.renderer.ScenePictureInPictureRenderer;
 import com.ultramega.asteroidmining.gui.widgets.ImageButton;
-import com.ultramega.asteroidmining.network.c2s.LaunchRocketMessage;
-import com.ultramega.asteroidmining.network.c2s.OpenSelectConfigurationScreenMessage;
+import com.ultramega.asteroidmining.network.c2s.LaunchRocketPayload;
+import com.ultramega.asteroidmining.network.c2s.OpenSelectConfigurationScreenPayload;
 import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
 import com.ultramega.asteroidmining.storage.ClientConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
@@ -61,8 +61,8 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
     @Nullable
     private GuidebookScene scene;
 
-    public RocketControllerScreen(final RocketControllerContainerMenu container, final Inventory inventory, final Component title) {
-        super(container, inventory, title, 223, 182);
+    public RocketControllerScreen(final RocketControllerContainerMenu menu, final Inventory inventory, final Component title) {
+        super(menu, inventory, title, 223, 182);
         this.inventoryLabelX = -1;
         this.inventoryLabelY = -1;
 
@@ -111,10 +111,10 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
         // TODO: disable button if errors are present
         this.addRenderableWidget(Button.builder(Component.translatable("gui.asteroidmining.rocket_controller.launch_rocket"), (button) -> {
             this.getMenu().getBlockEntity().playedTMinusSound = false;
-            ClientPacketDistributor.sendToServer(new LaunchRocketMessage(this.getMenu().getBlockEntity().getBlockPos()));
+            ClientPacketDistributor.sendToServer(new LaunchRocketPayload(this.getMenu().getBlockEntity().getBlockPos()));
         }).bounds(this.leftPos + (this.imageWidth - 80) / 2, this.topPos + 158, 85, 18).build());
         final ImageButton configureButton = new ImageButton(this.leftPos + this.imageWidth - (24 + 5), this.topPos + 5, 24, 24, 6, 6, CONFIGURE, (button) ->
-            ClientPacketDistributor.sendToServer(new OpenSelectConfigurationScreenMessage(this.getMenu().getBlockEntity().getBlockPos())));
+            ClientPacketDistributor.sendToServer(new OpenSelectConfigurationScreenPayload(this.getMenu().getBlockEntity().getBlockPos())));
         configureButton.setActiveTooltip(Component.translatable("gui.asteroidmining.rocket_controller.configuration"));
         this.addRenderableWidget(configureButton);
 

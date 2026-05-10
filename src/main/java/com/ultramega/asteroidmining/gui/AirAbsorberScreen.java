@@ -20,8 +20,8 @@ public class AirAbsorberScreen extends AbstractContainerScreen<AirAbsorberContai
     private static final int ENERGY_BAR_HEIGHT = 52;
     private static final int FLUID_BAR_HEIGHT = 48;
 
-    public AirAbsorberScreen(final AirAbsorberContainerMenu container, final Inventory inventory, final Component title) {
-        super(container, inventory, title, 176, 166);
+    public AirAbsorberScreen(final AirAbsorberContainerMenu menu, final Inventory inventory, final Component title) {
+        super(menu, inventory, title, 176, 166);
         this.inventoryLabelY = this.imageHeight - 94;
     }
 

@@ -2,7 +2,7 @@ package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.camera.CameraHandler;
-import com.ultramega.asteroidmining.events.ClientEvents;
+import com.ultramega.asteroidmining.events.PreviewClientEvents;
 import com.ultramega.asteroidmining.gui.widgets.ImageButton;
 import com.ultramega.asteroidmining.utils.ClientUtils;
 import com.ultramega.asteroidmining.utils.PreviewBlockHitResult;
@@ -129,7 +129,7 @@ public class LaunchPadConfigureScreen extends Screen {
         final PreviewBlockHitResult hitResult = raytraceGivenBlocks(
             start,
             end,
-            ClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.getOrDefault(this.parent.getMenu().getBlockEntity().getBlockPos(), new ArrayList<>()),
+            PreviewClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.getOrDefault(this.parent.getMenu().getBlockEntity().getBlockPos(), new ArrayList<>()),
             mc.level);
 
         if (hitResult.getType() == HitResult.Type.BLOCK && hitResult.getPreviewInfo() != null) {

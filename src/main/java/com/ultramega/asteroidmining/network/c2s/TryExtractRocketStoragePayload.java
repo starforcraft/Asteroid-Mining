@@ -21,18 +21,18 @@ import net.neoforged.neoforge.transfer.item.PlayerInventoryWrapper;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 // TODO: make this easily extensible instead of only item + fluid
-public record TryExtractRocketStorageMessage(int handlerIndex,
+public record TryExtractRocketStoragePayload(int handlerIndex,
                                              AsteroidResource resource,
                                              int amount,
                                              boolean shiftDown) implements CustomPacketPayload {
-    public static final Type<TryExtractRocketStorageMessage> TYPE = new Type<>(AsteroidMining.makeId("try_carry_rocket_storage"));
+    public static final Type<TryExtractRocketStoragePayload> TYPE = new Type<>(AsteroidMining.makeId("try_carry_rocket_storage"));
 
-    public static final StreamCodec<RegistryFriendlyByteBuf, TryExtractRocketStorageMessage> STREAM_CODEC = StreamCodec.composite(
-        ByteBufCodecs.INT, TryExtractRocketStorageMessage::handlerIndex,
-        AsteroidResource.STREAM_CODEC, TryExtractRocketStorageMessage::resource,
-        ByteBufCodecs.INT, TryExtractRocketStorageMessage::amount,
-        ByteBufCodecs.BOOL, TryExtractRocketStorageMessage::shiftDown,
-        TryExtractRocketStorageMessage::new
+    public static final StreamCodec<RegistryFriendlyByteBuf, TryExtractRocketStoragePayload> STREAM_CODEC = StreamCodec.composite(
+        ByteBufCodecs.INT, TryExtractRocketStoragePayload::handlerIndex,
+        AsteroidResource.STREAM_CODEC, TryExtractRocketStoragePayload::resource,
+        ByteBufCodecs.INT, TryExtractRocketStoragePayload::amount,
+        ByteBufCodecs.BOOL, TryExtractRocketStoragePayload::shiftDown,
+        TryExtractRocketStoragePayload::new
     );
 
     @Override
@@ -40,7 +40,7 @@ public record TryExtractRocketStorageMessage(int handlerIndex,
         return TYPE;
     }
 
-    public static void handle(final TryExtractRocketStorageMessage data, final IPayloadContext context) {
+    public static void handle(final TryExtractRocketStoragePayload data, final IPayloadContext context) {
         context.enqueueWork(() -> {
             if (!(context.player().containerMenu instanceof RocketStorageViewerContainerMenu containerMenu) || data.amount() <= 0 || data.handlerIndex() < 0) {
                 return;
@@ -55,7 +55,7 @@ public record TryExtractRocketStorageMessage(int handlerIndex,
         });
     }
 
-    private static void handleItemExtraction(final AsteroidResource.ItemEntry item, final TryExtractRocketStorageMessage data, final Player player, final RocketStorageViewerContainerMenu containerMenu) {
+    private static void handleItemExtraction(final AsteroidResource.ItemEntry item, final TryExtractRocketStoragePayload data, final Player player, final RocketStorageViewerContainerMenu containerMenu) {
         final ResourceHandler<ItemResource> source = containerMenu.getItemHandler();
         if (data.handlerIndex() >= source.size()) {
             return;
@@ -88,7 +88,7 @@ public record TryExtractRocketStorageMessage(int handlerIndex,
         }
     }
 
-    private static void handleFluidExtraction(final AsteroidResource.FluidEntry fluid, final TryExtractRocketStorageMessage data, final Player player, final RocketStorageViewerContainerMenu containerMenu) {
+    private static void handleFluidExtraction(final AsteroidResource.FluidEntry fluid, final TryExtractRocketStoragePayload data, final Player player, final RocketStorageViewerContainerMenu containerMenu) {
         final ResourceHandler<FluidResource> source = containerMenu.getFluidHandler();
         if (data.handlerIndex() >= source.size()) {
             return;

@@ -7,8 +7,8 @@ import com.ultramega.asteroidmining.recipe.HeatExchangeRecipe;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModRecipeTypes;
-import com.ultramega.asteroidmining.utils.MultiFluidStacksResourceHandler;
-import com.ultramega.asteroidmining.utils.MutableEnergy;
+import com.ultramega.asteroidmining.utils.handlers.MultiFluidStacksResourceHandler;
+import com.ultramega.asteroidmining.utils.handlers.MutableEnergy;
 import com.ultramega.asteroidmining.utils.PreserveData;
 
 import java.util.HashMap;
@@ -177,8 +177,8 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
 
-        this.energyStorage.deserialize(input);
-        this.fluidTank.deserialize(input);
+        this.energyStorage.deserialize(input.childOrEmpty("energy"));
+        this.fluidTank.deserialize(input.childOrEmpty("fluidTank"));
         this.recipeProgress = input.getInt("recipeProgress").orElse(0);
         this.recipeDuration = input.getInt("recipeDuration").orElse(0);
     }
@@ -187,8 +187,8 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
 
-        this.energyStorage.serialize(output);
-        this.fluidTank.serialize(output);
+        this.energyStorage.serialize(output.child("energy"));
+        this.fluidTank.serialize(output.child("fluidTank"));
         output.putInt("recipeProgress", this.recipeProgress);
         output.putInt("recipeDuration", this.recipeDuration);
     }

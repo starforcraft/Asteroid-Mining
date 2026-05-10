@@ -2,7 +2,7 @@ package com.ultramega.asteroidmining.network.c2s;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.blockentities.LaunchPadBuilderBlockEntity;
-import com.ultramega.asteroidmining.network.s2c.SendLaunchPreviewDataMessage;
+import com.ultramega.asteroidmining.network.s2c.SendLaunchPreviewDataPayload;
 import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
 import com.ultramega.asteroidmining.storage.ConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.LaunchPadConfiguration;
@@ -26,12 +26,12 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 
-public record SetConfigurationStackMessage(BlockPos launchPadBuilderPos, LaunchPadConfiguration launchPadConfiguration) implements CustomPacketPayload {
-    public static final Type<SetConfigurationStackMessage> TYPE = new Type<>(AsteroidMining.makeId("set_configuration_stack"));
-    public static final StreamCodec<RegistryFriendlyByteBuf, SetConfigurationStackMessage> STREAM_CODEC = StreamCodec.composite(
-        BlockPos.STREAM_CODEC, SetConfigurationStackMessage::launchPadBuilderPos,
-        LaunchPadConfiguration.STREAM_CODEC, SetConfigurationStackMessage::launchPadConfiguration,
-        SetConfigurationStackMessage::new
+public record SetConfigurationStackPayload(BlockPos launchPadBuilderPos, LaunchPadConfiguration launchPadConfiguration) implements CustomPacketPayload {
+    public static final Type<SetConfigurationStackPayload> TYPE = new Type<>(AsteroidMining.makeId("set_configuration_stack"));
+    public static final StreamCodec<RegistryFriendlyByteBuf, SetConfigurationStackPayload> STREAM_CODEC = StreamCodec.composite(
+        BlockPos.STREAM_CODEC, SetConfigurationStackPayload::launchPadBuilderPos,
+        LaunchPadConfiguration.STREAM_CODEC, SetConfigurationStackPayload::launchPadConfiguration,
+        SetConfigurationStackPayload::new
     );
 
     @Override
@@ -39,7 +39,7 @@ public record SetConfigurationStackMessage(BlockPos launchPadBuilderPos, LaunchP
         return TYPE;
     }
 
-    public static void handle(final SetConfigurationStackMessage data, final IPayloadContext context) {
+    public static void handle(final SetConfigurationStackPayload data, final IPayloadContext context) {
         context.enqueueWork(() -> {
             final Level level = context.player().level();
             if (!(level instanceof ServerLevel serverLevel)) {
@@ -64,7 +64,7 @@ public record SetConfigurationStackMessage(BlockPos launchPadBuilderPos, LaunchP
                 ConfigurationSavedData.getConfigurationData(serverLevel).set(uuid,
                     new NetworkConfiguration(data.launchPadConfiguration(), Optional.empty(), new ModuleProperties(Optional.empty(), new ModuleProperties.Storage())));
                 final List<PreviewInfo> previewInfos = CommonUtils.calculateSpacePort(level, data.launchPadConfiguration(), true);
-                PacketDistributor.sendToAllPlayers(new SendLaunchPreviewDataMessage(data.launchPadBuilderPos(), uuid, previewInfos));
+                PacketDistributor.sendToAllPlayers(new SendLaunchPreviewDataPayload(data.launchPadBuilderPos(), uuid, previewInfos));
                 launchPadBlockEntity.setChanged();
             }
         });

@@ -10,12 +10,12 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.lwjgl.glfw.GLFW;
 
-public record SetCursorMessage(int cursorX, int cursorY) implements CustomPacketPayload {
-    public static final Type<SetCursorMessage> TYPE = new Type<>(AsteroidMining.makeId("set_cursor"));
-    public static final StreamCodec<RegistryFriendlyByteBuf, SetCursorMessage> STREAM_CODEC = StreamCodec.composite(
-        ByteBufCodecs.INT, SetCursorMessage::cursorX,
-        ByteBufCodecs.INT, SetCursorMessage::cursorY,
-        SetCursorMessage::new
+public record SetCursorPayload(int cursorX, int cursorY) implements CustomPacketPayload {
+    public static final Type<SetCursorPayload> TYPE = new Type<>(AsteroidMining.makeId("set_cursor"));
+    public static final StreamCodec<RegistryFriendlyByteBuf, SetCursorPayload> STREAM_CODEC = StreamCodec.composite(
+        ByteBufCodecs.INT, SetCursorPayload::cursorX,
+        ByteBufCodecs.INT, SetCursorPayload::cursorY,
+        SetCursorPayload::new
     );
 
     @Override
@@ -23,7 +23,7 @@ public record SetCursorMessage(int cursorX, int cursorY) implements CustomPacket
         return TYPE;
     }
 
-    public static void handle(final SetCursorMessage data, final IPayloadContext context) {
+    public static void handle(final SetCursorPayload data, final IPayloadContext context) {
         context.enqueueWork(() ->
             GLFW.glfwSetCursorPos(Minecraft.getInstance().getWindow().handle(), data.cursorX(), data.cursorY())
         );

@@ -5,7 +5,7 @@ import com.ultramega.asteroidmining.blocks.AbstractFacingBlock;
 import com.ultramega.asteroidmining.camera.CameraHandler;
 import com.ultramega.asteroidmining.container.LaunchPadBuilderContainerMenu;
 import com.ultramega.asteroidmining.gui.widgets.PlaceholderEditBox;
-import com.ultramega.asteroidmining.network.c2s.SetConfigurationStackMessage;
+import com.ultramega.asteroidmining.network.c2s.SetConfigurationStackPayload;
 import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
 import com.ultramega.asteroidmining.storage.ClientConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.LaunchPadConfiguration;
@@ -37,8 +37,8 @@ public class LaunchPadBuilderScreen extends AbstractContainerScreen<LaunchPadBui
     private Button configureButton;
     private PlaceholderEditBox nameEditBox;
 
-    public LaunchPadBuilderScreen(final LaunchPadBuilderContainerMenu container, final Inventory inventory, final Component title) {
-        super(container, inventory, title, 176, 166);
+    public LaunchPadBuilderScreen(final LaunchPadBuilderContainerMenu menu, final Inventory inventory, final Component title) {
+        super(menu, inventory, title, 176, 166);
         this.inventoryLabelY = this.imageHeight - 94;
     }
 
@@ -162,7 +162,7 @@ public class LaunchPadBuilderScreen extends AbstractContainerScreen<LaunchPadBui
     }
 
     private void sendUpdate(final LaunchPadConfiguration launchPadConfiguration, final boolean updateCamera) {
-        ClientPacketDistributor.sendToServer(new SetConfigurationStackMessage(this.menu.getBlockEntity().getBlockPos(), launchPadConfiguration));
+        ClientPacketDistributor.sendToServer(new SetConfigurationStackPayload(this.menu.getBlockEntity().getBlockPos(), launchPadConfiguration));
         if (updateCamera) {
             this.updateCamera(launchPadConfiguration);
         }

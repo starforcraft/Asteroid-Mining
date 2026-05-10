@@ -1,4 +1,4 @@
-package com.ultramega.asteroidmining.utils;
+package com.ultramega.asteroidmining.utils.handlers;
 
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.transfer.fluid.FluidResource;

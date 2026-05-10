@@ -85,6 +85,7 @@
   "gui.asteroidmining.launch_pad_configure.correct": "Correct: ",
   "gui.asteroidmining.launch_pad_configure.expected": "Expected: ",
   "gui.asteroidmining.launch_pad_configure.currently": "Currently: ",
+  "gui.asteroidmining.side_configuration.title": "Side configuration",
   "tooltip.asteroidmining.rocket_engine.fuel": "Fuel: ",
   "tooltip.asteroidmining.rocket_engine.oxidizer": "Oxidizer: ",
   "gui.asteroidmining.return": "Return",

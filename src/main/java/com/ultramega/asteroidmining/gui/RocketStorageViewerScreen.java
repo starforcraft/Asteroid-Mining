@@ -4,9 +4,8 @@ import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.asteroids.AsteroidResource;
 import com.ultramega.asteroidmining.container.RocketStorageViewerContainerMenu;
 import com.ultramega.asteroidmining.gui.widgets.ScrollbarWidget;
-import com.ultramega.asteroidmining.network.c2s.TryExtractRocketStorageMessage;
+import com.ultramega.asteroidmining.network.c2s.TryExtractRocketStoragePayload;
 import com.ultramega.asteroidmining.utils.ClientUtils;
-import com.ultramega.asteroidmining.utils.CommonUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -37,8 +36,8 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
 
     private ScrollbarWidget scrollbar;
 
-    public RocketStorageViewerScreen(final RocketStorageViewerContainerMenu container, final Inventory inventory, final Component title) {
-        super(container, inventory, title, 193, 226);
+    public RocketStorageViewerScreen(final RocketStorageViewerContainerMenu menu, final Inventory inventory, final Component title) {
+        super(menu, inventory, title, 193, 226);
         this.inventoryLabelY = this.imageHeight - 94;
     }
 
@@ -181,12 +180,12 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
         switch (displayedResource.resource()) {
             case AsteroidResource.ItemEntry item -> {
                 final int amount = Math.min(clampToPositiveInt(displayedResource.resource().amount()), item.resource().getMaxStackSize());
-                ClientPacketDistributor.sendToServer(new TryExtractRocketStorageMessage(displayedResource.handlerIndex(), item, amount, shiftDown));
+                ClientPacketDistributor.sendToServer(new TryExtractRocketStoragePayload(displayedResource.handlerIndex(), item, amount, shiftDown));
             }
 
             case AsteroidResource.FluidEntry fluid -> {
                 final int amount = Math.min(clampToPositiveInt(displayedResource.resource().amount()), FluidType.BUCKET_VOLUME);
-                ClientPacketDistributor.sendToServer(new TryExtractRocketStorageMessage(displayedResource.handlerIndex(), fluid, amount, shiftDown));
+                ClientPacketDistributor.sendToServer(new TryExtractRocketStoragePayload(displayedResource.handlerIndex(), fluid, amount, shiftDown));
             }
         }
 

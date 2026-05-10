@@ -23,8 +23,8 @@ public class ElectrolysisPlantScreen extends AbstractContainerScreen<Electrolysi
     private static final int ENERGY_BAR_HEIGHT = 52;
     private static final int FLUID_BAR_HEIGHT = 48;
 
-    public ElectrolysisPlantScreen(final ElectrolysisPlantContainerMenu container, final Inventory inventory, final Component title) {
-        super(container, inventory, title, 176, 166);
+    public ElectrolysisPlantScreen(final ElectrolysisPlantContainerMenu menu, final Inventory inventory, final Component title) {
+        super(menu, inventory, title, 176, 166);
         this.inventoryLabelY = this.imageHeight - 94;
     }
 
@@ -50,9 +50,8 @@ public class ElectrolysisPlantScreen extends AbstractContainerScreen<Electrolysi
             this.menu.blockEntity.fluidTank.getCapacityAsInt(1), 115, 20, 6, FLUID_BAR_HEIGHT, 0);
 
         // Draw fluid tank overlays
-        // TODO: something is wrong here:
-        graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 67 + 6, this.topPos + 20, 101, 184, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
-        graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 115, this.topPos + 20, 101, 182, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
+        graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 67 + 6, this.topPos + 20, 184, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
+        graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 115, this.topPos + 20, 182, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
 
         // Draw progress
         if (this.menu.getRecipeProgress() > 0) {
