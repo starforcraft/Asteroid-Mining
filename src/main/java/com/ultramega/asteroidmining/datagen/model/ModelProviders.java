@@ -9,6 +9,7 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.MultiVariant;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
@@ -21,8 +22,13 @@ import net.minecraft.world.level.block.Block;
 
 import static com.ultramega.asteroidmining.AsteroidMining.MOD_ID;
 import static com.ultramega.asteroidmining.AsteroidMining.makeId;
+import static net.minecraft.client.data.models.BlockModelGenerators.ROTATION_HORIZONTAL_FACING;
 import static net.minecraft.client.data.models.BlockModelGenerators.createSimpleBlock;
 import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
+import static net.minecraft.client.data.models.model.TextureSlot.FRONT;
+import static net.minecraft.client.data.models.model.TextureSlot.PARTICLE;
+import static net.minecraft.client.data.models.model.TextureSlot.SIDE;
+import static net.minecraft.client.data.models.model.TextureSlot.TOP;
 
 public class ModelProviders extends ModelProvider {
     public ModelProviders(final PackOutput output) {
@@ -31,13 +37,13 @@ public class ModelProviders extends ModelProvider {
 
     @Override
     protected void registerModels(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels) {
-        this.registerModelBlockItems(itemModels);
+        this.registerModelBlockItems(blockModels, itemModels);
         this.registerSimpleBlockItems(blockModels, itemModels);
         this.registerFluids(blockModels);
         this.registerSimpleItems(itemModels);
     }
 
-    private void registerModelBlockItems(final ItemModelGenerators itemModels) {
+    private void registerModelBlockItems(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels) {
         this.registerWithParentBlockItem(itemModels, ModBlocks.TELESCOPE.get());
         this.registerWithParentBlockItem(itemModels, ModBlocks.SMALL_OBSERVATORY.get());
         this.registerWithParentBlockItem(itemModels, ModBlocks.DISTILLATION_COLUMN.get());
@@ -51,10 +57,11 @@ public class ModelProviders extends ModelProvider {
         this.registerWithParentBlockItem(itemModels, ModBlocks.DIAMOND_ROCKET_DRILL.get());
         this.registerWithParentBlockItem(itemModels, ModBlocks.EMERALD_ROCKET_DRILL.get());
         this.registerWithParentBlockItem(itemModels, ModBlocks.NETHERITE_ROCKET_DRILL.get());
+
+        this.registerWithFrontBlockItem(blockModels, itemModels, ModBlocks.AIR_ABSORBER.get());
     }
 
     private void registerSimpleBlockItems(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels) {
-        this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.AIR_ABSORBER.get());
         this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.HEAT_EXCHANGER.get());
         this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.ELECTROLYSIS_PLANT.get());
         this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.TRANSFORMER.get());
@@ -71,8 +78,8 @@ public class ModelProviders extends ModelProvider {
     }
 
     private void registerFluids(final BlockModelGenerators blockModels) {
-        this.registerParticleOnlyBlock(blockModels, "petroleum", ModBlocks.PETROLEUM.get());
-        this.registerParticleOnlyBlock(blockModels, "kerosene", ModBlocks.KEROSENE.get());
+        this.registerParticleOnlyBlock(blockModels, ModBlocks.PETROLEUM.get());
+        this.registerParticleOnlyBlock(blockModels, ModBlocks.KEROSENE.get());
     }
 
     private void registerSimpleItems(final ItemModelGenerators itemModels) {
@@ -100,10 +107,31 @@ public class ModelProviders extends ModelProvider {
         itemModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(id));
     }
 
-    private void registerParticleOnlyBlock(final BlockModelGenerators blockModels, final String name, final Block block) {
-        // TODO: get name from block id instead
+    private void registerWithFrontBlockItem(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels, final Block block) {
+        final Identifier id = this.getBlockId(block);
+        final Identifier frontTexture = id.withSuffix("_front");
+        final Identifier sideTexture = id.withSuffix("_side");
+
+        final Identifier blockModel = ModelTemplates.CUBE_ORIENTABLE.create(
+            block,
+            new TextureMapping()
+                .put(PARTICLE, texture(sideTexture))
+                .put(FRONT, texture(frontTexture))
+                .put(TOP, texture(sideTexture))
+                .put(SIDE, texture(sideTexture)),
+            blockModels.modelOutput
+        );
+
+        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(blockModel))
+            .with(ROTATION_HORIZONTAL_FACING));
+        itemModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(blockModel));
+    }
+
+    private void registerParticleOnlyBlock(final BlockModelGenerators blockModels, final Block block) {
+        final String id = this.getBlockId(block).getPath().replace("block/", "fluid/");
+
         final MultiVariant model = plainVariant(ModelTemplates.PARTICLE_ONLY.create(block,
-            TextureMapping.particle(texture(makeId("fluid/" + name + "_still"))), blockModels.modelOutput));
+            TextureMapping.particle(texture(makeId(id + "_still"))), blockModels.modelOutput));
         blockModels.blockStateOutput.accept(createSimpleBlock(block, model));
     }
 

@@ -82,7 +82,8 @@ public class AirAbsorberBlockEntity extends AbstractDataPreservingBlockEntity im
             return;
         }
 
-        //TODO: add cooldown?
+        // TODO: add cooldown?
+        // TODO: check if facing direction has air in it's vacancy
         try (Transaction tx = Transaction.openRoot()) {
             blockEntity.fluidTank.insert(FluidResource.of(ModFluids.AIR.get()), blockEntity.airAmount, tx);
             blockEntity.energyStorage.extract(blockEntity.airAmount * 20, tx);
@@ -134,6 +135,7 @@ public class AirAbsorberBlockEntity extends AbstractDataPreservingBlockEntity im
     public void neighborChanged() {
         int result = 0;
 
+        // TODO: this is now wrong because of the facing
         for (final Direction direction : Direction.values()) {
             if (this.level.getBlockState(this.getBlockPos().relative(direction)).isAir()) {
                 result++;

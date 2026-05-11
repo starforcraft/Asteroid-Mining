@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/orientable",
   "textures": {
-    "all": "asteroidmining:block/air_absorber"
+    "front": "asteroidmining:block/air_absorber_front",
+    "side": "asteroidmining:block/air_absorber_side",
+    "top": "asteroidmining:block/air_absorber_side"
   }
 }
