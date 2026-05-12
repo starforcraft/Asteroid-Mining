@@ -1,5 +1,6 @@
 package com.ultramega.asteroidmining.datagen.model;
 
+import com.ultramega.asteroidmining.blocks.AbstractModuleBlock;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModItems;
 
@@ -58,14 +59,14 @@ public class ModelProviders extends ModelProvider {
         this.registerWithParentBlockItem(itemModels, ModBlocks.EMERALD_ROCKET_DRILL.get());
         this.registerWithParentBlockItem(itemModels, ModBlocks.NETHERITE_ROCKET_DRILL.get());
 
-        this.registerWithFrontBlockItem(blockModels, itemModels, ModBlocks.AIR_ABSORBER.get());
+        this.registerWithFrontBlockAndItem(blockModels, itemModels, ModBlocks.AIR_ABSORBER.get());
+        this.registerWithFrontBlockAndItem(blockModels, itemModels, ModBlocks.ROCKET_STORAGE_VIEWER.get());
     }
 
     private void registerSimpleBlockItems(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels) {
         this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.HEAT_EXCHANGER.get());
         this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.ELECTROLYSIS_PLANT.get());
         this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.TRANSFORMER.get());
-        this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.ROCKET_STORAGE_VIEWER.get());
         this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.ROCKET_BASE.get());
         this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.ITEM_STORAGE_TIER_1.get());
         this.registerCubeAllBlockItem(blockModels, itemModels, ModBlocks.ITEM_STORAGE_TIER_2.get());
@@ -107,7 +108,7 @@ public class ModelProviders extends ModelProvider {
         itemModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(id));
     }
 
-    private void registerWithFrontBlockItem(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels, final Block block) {
+    private void registerWithFrontBlockAndItem(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels, final Block block) {
         final Identifier id = this.getBlockId(block);
         final Identifier frontTexture = id.withSuffix("_front");
         final Identifier sideTexture = id.withSuffix("_side");
@@ -122,8 +123,12 @@ public class ModelProviders extends ModelProvider {
             blockModels.modelOutput
         );
 
-        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(blockModel))
-            .with(ROTATION_HORIZONTAL_FACING));
+        MultiVariantGenerator variant = MultiVariantGenerator.dispatch(block, plainVariant(blockModel))
+            .with(ROTATION_HORIZONTAL_FACING);
+        if (block instanceof AbstractModuleBlock) {
+            variant.with(AbstractModuleBlock.ACTIVE); //TODO
+        }
+        blockModels.blockStateOutput.accept(variant);
         itemModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(blockModel));
     }
 

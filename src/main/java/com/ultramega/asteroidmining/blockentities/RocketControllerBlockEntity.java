@@ -511,12 +511,13 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
                 }
 
                 final BlockState adjacentState = this.level.getBlockState(adjacentPos);
-
-                if (adjacentState.getBlock() instanceof AbstractModuleBlock) {
+                if (adjacentState.getBlock() instanceof AbstractModuleBlock moduleBlock) {
                     if (this.level.getBlockEntity(adjacentPos) instanceof AbstractModuleBlockEntity moduleBlockEntity) {
                         moduleBlockEntity.setControllerPos(this.getBlockPos());
                         moduleBlockEntity.setChanged();
                     }
+                    //TODO: active = false missing
+                    level.setBlock(adjacentPos, adjacentState.setValue(AbstractModuleBlock.ACTIVE, true), Block.UPDATE_ALL);
 
                     this.connectedModules.add(adjacentPos);
                     toCheck.add(adjacentPos);
