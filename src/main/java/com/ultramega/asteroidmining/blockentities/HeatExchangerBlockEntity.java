@@ -7,9 +7,10 @@ import com.ultramega.asteroidmining.recipe.HeatExchangeRecipe;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModRecipeTypes;
-import com.ultramega.asteroidmining.utils.handlers.MultiFluidStacksResourceHandler;
-import com.ultramega.asteroidmining.utils.handlers.MutableEnergy;
 import com.ultramega.asteroidmining.utils.PreserveData;
+import com.ultramega.asteroidmining.utils.handlers.MultiFluidStacksResourceHandler;
+import com.ultramega.asteroidmining.utils.handlers.MultiGasStacksResourceHandler;
+import com.ultramega.asteroidmining.utils.handlers.MutableEnergy;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,10 +45,7 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
     private static final Map<String, Optional<RecipeHolder<HeatExchangeRecipe>>> RECIPE_CACHE = new HashMap<>();
 
     public final MutableEnergy energyStorage = new MutableEnergy(ServerConfig.HEAT_EXCHANGER_ENERGY_CAPACITY.get());
-    public final MultiFluidStacksResourceHandler fluidTank = new MultiFluidStacksResourceHandler(2, new int[] {
-        ServerConfig.HEAT_EXCHANGER_TANK_CAPACITY.get(),
-        ServerConfig.HEAT_EXCHANGER_TANK_CAPACITY.get()
-    }) {
+    public final MultiGasStacksResourceHandler gasTank = new MultiGasStacksResourceHandler(new int[] {ServerConfig.HEAT_EXCHANGER_TANK_CAPACITY.get()}) {
         @Override
         protected void onContentsChanged(final int index, final FluidStack previousContents) {
             if (this.getAmountAsInt(0) == 0 && HeatExchangerBlockEntity.this.level instanceof ServerLevel serverLevel) {
@@ -59,6 +57,12 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
                     HeatExchangerBlockEntity.this.recipeProgress = 0;
                 }
             }
+            HeatExchangerBlockEntity.this.setChanged();
+        }
+    };
+    public final MultiFluidStacksResourceHandler fluidTank = new MultiFluidStacksResourceHandler(new int[] {ServerConfig.HEAT_EXCHANGER_TANK_CAPACITY.get()}) {
+        @Override
+        protected void onContentsChanged(final int index, final FluidStack previousContents) {
             HeatExchangerBlockEntity.this.setChanged();
         }
     };
@@ -111,7 +115,7 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
             return;
         }
 
-        final Optional<RecipeHolder<HeatExchangeRecipe>> recipeHolder = getRecipeHolderFromInput(blockEntity.fluidTank.getStackInTank(0), serverLevel);
+        final Optional<RecipeHolder<HeatExchangeRecipe>> recipeHolder = getRecipeHolderFromInput(blockEntity.gasTank.getStackInTank(0), serverLevel);
         if (recipeHolder.isEmpty()) {
             blockEntity.recipeProgress = blockEntity.recipeDuration;
             return;
@@ -130,7 +134,7 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
         final int energyAmount = ServerConfig.HEAT_EXCHANGER_ENERGY_USAGE.get();
 
         try (Transaction tx = Transaction.openRoot()) {
-            if (blockEntity.fluidTank.insert(1, outputResource, outputAmount, tx) != outputAmount) {
+            if (blockEntity.fluidTank.insert(0, outputResource, outputAmount, tx) != outputAmount) {
                 return;
             }
         }
@@ -140,10 +144,10 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
         }
 
         try (Transaction tx = Transaction.openRoot()) {
-            if (blockEntity.fluidTank.extract(0, inputResource, inputAmount, tx) != inputAmount) {
+            if (blockEntity.gasTank.extract(0, inputResource, inputAmount, tx) != inputAmount) {
                 return;
             }
-            if (blockEntity.fluidTank.insert(1, outputResource, outputAmount, tx) != outputAmount) {
+            if (blockEntity.fluidTank.insert(0, outputResource, outputAmount, tx) != outputAmount) {
                 return;
             }
             if (blockEntity.energyStorage.extract(energyAmount, tx) != energyAmount) {
@@ -179,6 +183,7 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
 
         this.energyStorage.deserialize(input.childOrEmpty("energy"));
         this.fluidTank.deserialize(input.childOrEmpty("fluidTank"));
+        this.gasTank.deserialize(input.childOrEmpty("gasTank"));
         this.recipeProgress = input.getInt("recipeProgress").orElse(0);
         this.recipeDuration = input.getInt("recipeDuration").orElse(0);
     }
@@ -189,6 +194,7 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
 
         this.energyStorage.serialize(output.child("energy"));
         this.fluidTank.serialize(output.child("fluidTank"));
+        this.gasTank.serialize(output.child("gasTank"));
         output.putInt("recipeProgress", this.recipeProgress);
         output.putInt("recipeDuration", this.recipeDuration);
     }

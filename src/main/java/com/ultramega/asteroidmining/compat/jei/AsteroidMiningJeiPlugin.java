@@ -3,9 +3,10 @@ package com.ultramega.asteroidmining.compat.jei;
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.compat.jei.asteroidmining.AsteroidMiningRecipeCategory;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
-import com.ultramega.asteroidmining.gui.RocketControllerConfigurationScreen;
-import com.ultramega.asteroidmining.gui.RocketControllerScreen;
+import com.ultramega.asteroidmining.gui.AbstractMovableWidgetContainerScreen;
+import com.ultramega.asteroidmining.gui.widgets.AbstractMovableWidget;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mezz.jei.api.IModPlugin;
@@ -16,6 +17,8 @@ import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import net.minecraft.client.gui.components.events.GuiEventListener;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.resources.Identifier;
 
@@ -45,18 +48,22 @@ public final class AsteroidMiningJeiPlugin implements IModPlugin {
 
     @Override
     public void registerGuiHandlers(final IGuiHandlerRegistration registration) {
-        registration.addGuiContainerHandler(RocketControllerScreen.class, new IGuiContainerHandler<>() {
-            @Override
-            public List<Rect2i> getGuiExtraAreas(final RocketControllerScreen screen) {
-                return List.of(new Rect2i(screen.getLeftPos() + screen.getImageWidth() + 3, screen.getTopPos() + 40, 97, 112));
+        registration.addGenericGuiContainerHandler(AbstractMovableWidgetContainerScreen.class,
+            new IGuiContainerHandler<>() {
+                @Override
+                public List<Rect2i> getGuiExtraAreas(final AbstractContainerScreen<?> screen) {
+                    final List<Rect2i> areas = new ArrayList<>();
+
+                    for (final GuiEventListener child : screen.children()) {
+                        if (child instanceof AbstractMovableWidget movableWidget) {
+                            areas.addAll(movableWidget.getGuiExtraAreas());
+                        }
+                    }
+
+                    return areas;
+                }
             }
-        });
-        registration.addGuiContainerHandler(RocketControllerConfigurationScreen.class, new IGuiContainerHandler<>() {
-            @Override
-            public List<Rect2i> getGuiExtraAreas(final RocketControllerConfigurationScreen screen) {
-                return List.of(new Rect2i(screen.getLeftPos() + screen.getImageWidth() + 3, screen.getTopPos() + 30, 97, 112));
-            }
-        });
+        );
     }
 
     @Override

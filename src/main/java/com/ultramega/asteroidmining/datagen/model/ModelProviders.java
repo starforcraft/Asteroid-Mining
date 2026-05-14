@@ -11,6 +11,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
@@ -49,7 +50,6 @@ public class ModelProviders extends ModelProvider {
         this.registerWithParentBlockItem(itemModels, ModBlocks.SMALL_OBSERVATORY.get());
         this.registerWithParentBlockItem(itemModels, ModBlocks.DISTILLATION_COLUMN.get());
         this.registerWithParentBlockItem(itemModels, ModBlocks.BIOGAS_PLANT.get());
-        this.registerWithParentBlockItem(itemModels, ModBlocks.ROCKET_CONTROLLER.get());
         this.registerWithParentBlockItem(itemModels, ModBlocks.LAUNCH_PAD_BUILDER.get());
         this.registerWithParentBlockItem(itemModels, ModBlocks.ROCKET_ENGINE.get());
         this.registerWithParentBlockItem(itemModels, ModBlocks.RS25_ENGINE.get());
@@ -60,7 +60,8 @@ public class ModelProviders extends ModelProvider {
         this.registerWithParentBlockItem(itemModels, ModBlocks.NETHERITE_ROCKET_DRILL.get());
 
         this.registerWithFrontBlockAndItem(blockModels, itemModels, ModBlocks.AIR_ABSORBER.get());
-        this.registerWithFrontBlockAndItem(blockModels, itemModels, ModBlocks.ROCKET_STORAGE_VIEWER.get());
+        this.registerWithFrontBlockAndItem(blockModels, itemModels, ModBlocks.ROCKET_CONTROLLER.get());
+        this.registerWithFrontBlockAndItemWithActiveness(blockModels, itemModels, ModBlocks.ROCKET_STORAGE_VIEWER.get());
     }
 
     private void registerSimpleBlockItems(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels) {
@@ -108,13 +109,45 @@ public class ModelProviders extends ModelProvider {
         itemModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(id));
     }
 
+    private void registerWithFrontBlockAndItemWithActiveness(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels, final Block block) {
+        final Identifier id = this.getBlockId(block);
+        final Identifier frontActiveTexture = id.withSuffix("_front_active");
+        final Identifier frontInactiveTexture = id.withSuffix("_front_inactive");
+        final Identifier sideTexture = id.withSuffix("_side");
+
+        final Identifier activeModel = ModelTemplates.CUBE_ORIENTABLE.create(id.withSuffix("_active"),
+            new TextureMapping()
+                .put(PARTICLE, texture(sideTexture))
+                .put(FRONT, texture(frontActiveTexture))
+                .put(TOP, texture(sideTexture))
+                .put(SIDE, texture(sideTexture)),
+            blockModels.modelOutput
+        );
+
+        final Identifier inactiveModel = ModelTemplates.CUBE_ORIENTABLE.create(id.withSuffix("_inactive"),
+            new TextureMapping()
+                .put(PARTICLE, texture(sideTexture))
+                .put(FRONT, texture(frontInactiveTexture))
+                .put(TOP, texture(sideTexture))
+                .put(SIDE, texture(sideTexture)),
+            blockModels.modelOutput
+        );
+
+        final MultiVariantGenerator variant = MultiVariantGenerator.dispatch(block)
+            .with(PropertyDispatch.initial(AbstractModuleBlock.ACTIVE)
+                .select(false, plainVariant(inactiveModel))
+                .select(true, plainVariant(activeModel)))
+            .with(ROTATION_HORIZONTAL_FACING);
+        blockModels.blockStateOutput.accept(variant);
+        itemModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(activeModel));
+    }
+
     private void registerWithFrontBlockAndItem(final BlockModelGenerators blockModels, final ItemModelGenerators itemModels, final Block block) {
         final Identifier id = this.getBlockId(block);
         final Identifier frontTexture = id.withSuffix("_front");
         final Identifier sideTexture = id.withSuffix("_side");
 
-        final Identifier blockModel = ModelTemplates.CUBE_ORIENTABLE.create(
-            block,
+        final Identifier blockModel = ModelTemplates.CUBE_ORIENTABLE.create(block,
             new TextureMapping()
                 .put(PARTICLE, texture(sideTexture))
                 .put(FRONT, texture(frontTexture))
@@ -123,11 +156,8 @@ public class ModelProviders extends ModelProvider {
             blockModels.modelOutput
         );
 
-        MultiVariantGenerator variant = MultiVariantGenerator.dispatch(block, plainVariant(blockModel))
+        final MultiVariantGenerator variant = MultiVariantGenerator.dispatch(block, plainVariant(blockModel))
             .with(ROTATION_HORIZONTAL_FACING);
-        if (block instanceof AbstractModuleBlock) {
-            variant.with(AbstractModuleBlock.ACTIVE); //TODO
-        }
         blockModels.blockStateOutput.accept(variant);
         itemModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(blockModel));
     }

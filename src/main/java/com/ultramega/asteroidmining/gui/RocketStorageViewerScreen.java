@@ -2,6 +2,7 @@ package com.ultramega.asteroidmining.gui;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.asteroids.AsteroidResource;
+import com.ultramega.asteroidmining.blocks.AbstractModuleBlock;
 import com.ultramega.asteroidmining.container.RocketStorageViewerContainerMenu;
 import com.ultramega.asteroidmining.gui.widgets.ScrollbarWidget;
 import com.ultramega.asteroidmining.network.c2s.TryExtractRocketStoragePayload;
@@ -22,6 +23,7 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.resource.Resource;
 import org.jspecify.annotations.Nullable;
 
+import static com.ultramega.asteroidmining.utils.ClientUtils.drawDisabledSlot;
 import static com.ultramega.asteroidmining.utils.ClientUtils.drawSlotHighlight;
 import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
 
@@ -71,8 +73,7 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
     }
 
     @Override
-    protected void extractTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
-        super.extractTooltip(graphics, mouseX, mouseY);
+    protected void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
         this.extractInventoryContent(graphics, mouseX, mouseY, true);
     }
 
@@ -109,6 +110,10 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
             final int slotY = rowY + 1;
 
             final boolean hovered = this.isHovering(slotX - this.leftPos, slotY - this.topPos, ROW_SIZE - 2, ROW_SIZE - 2, mouseX, mouseY);
+
+            if (!this.getMenu().getBlockEntity().getBlockState().getValue(AbstractModuleBlock.ACTIVE)) {
+                drawDisabledSlot(graphics, slotX, slotY);
+            }
 
             if (displayIndex >= displayedSlots) {
                 if (hovered && !tooltip) {

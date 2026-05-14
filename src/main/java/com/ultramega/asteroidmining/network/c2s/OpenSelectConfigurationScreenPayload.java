@@ -2,7 +2,7 @@ package com.ultramega.asteroidmining.network.c2s;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.blockentities.RocketControllerBlockEntity;
-import com.ultramega.asteroidmining.container.SelectConfigurationContainerMenu;
+import com.ultramega.asteroidmining.container.RocketControllerConfigurationContainerMenu;
 import com.ultramega.asteroidmining.utils.SimpleMenuProvider;
 
 import io.netty.buffer.ByteBuf;
@@ -32,7 +32,7 @@ public record OpenSelectConfigurationScreenPayload(BlockPos controllerPos) imple
             if (player.level().getBlockEntity(data.controllerPos()) instanceof RocketControllerBlockEntity blockEntity) {
                 player.openMenu(new SimpleMenuProvider(
                     (containerId, playerInventory, player2) ->
-                        new SelectConfigurationContainerMenu(containerId, playerInventory, blockEntity,
+                        new RocketControllerConfigurationContainerMenu(containerId, playerInventory, blockEntity,
                             ContainerLevelAccess.create(player.level(), data.controllerPos()),
                             blockEntity.nextLaunchCooldown, blockEntity.launchCooldownOverlay, blockEntity.launchCooldownCommentator),
                     Component.translatable("gui.asteroidmining.select_configuration.title")

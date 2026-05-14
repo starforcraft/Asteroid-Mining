@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "asteroidmining:block/rocket_storage_viewer"
+    "model": "asteroidmining:block/rocket_storage_viewer_active"
   }
 }

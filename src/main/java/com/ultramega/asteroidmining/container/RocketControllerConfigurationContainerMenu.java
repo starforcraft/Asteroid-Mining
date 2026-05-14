@@ -17,24 +17,24 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
 
-public class SelectConfigurationContainerMenu extends AbstractContainerMenu {
+public class RocketControllerConfigurationContainerMenu extends AbstractContainerMenu {
     private final RocketControllerBlockEntity blockEntity;
     private final ContainerLevelAccess access;
     private final int launchCooldown;
     private final boolean launchCooldownOverlay;
     private final boolean launchCooldownCommentator;
 
-    public SelectConfigurationContainerMenu(final int containerId, final Inventory playerInv, final FriendlyByteBuf data) {
+    public RocketControllerConfigurationContainerMenu(final int containerId, final Inventory playerInv, final FriendlyByteBuf data) {
         this(containerId, playerInv, getBlockEntity(playerInv, data), ContainerLevelAccess.NULL, data.readInt(), data.readBoolean(), data.readBoolean());
     }
 
-    public SelectConfigurationContainerMenu(final int containerId,
-                                            final Inventory playerInv,
-                                            final RocketControllerBlockEntity blockEntity,
-                                            final ContainerLevelAccess access,
-                                            final int launchCooldown,
-                                            final boolean launchCooldownOverlay,
-                                            final boolean launchCooldownCommentator) {
+    public RocketControllerConfigurationContainerMenu(final int containerId,
+                                                      final Inventory playerInv,
+                                                      final RocketControllerBlockEntity blockEntity,
+                                                      final ContainerLevelAccess access,
+                                                      final int launchCooldown,
+                                                      final boolean launchCooldownOverlay,
+                                                      final boolean launchCooldownCommentator) {
         super(ModMenuTypes.SELECT_CONFIGURATION.get(), containerId);
         this.blockEntity = blockEntity;
         this.access = access;
@@ -105,7 +105,7 @@ public class SelectConfigurationContainerMenu extends AbstractContainerMenu {
     }
 
     public RocketControllerBlockEntity getBlockEntity() {
-        return blockEntity;
+        return this.blockEntity;
     }
 
     private static RocketControllerBlockEntity getBlockEntity(final Inventory playerInventory, final FriendlyByteBuf data) {

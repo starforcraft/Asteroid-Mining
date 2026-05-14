@@ -1,6 +1,7 @@
 package com.ultramega.asteroidmining.datagen.tag;
 
 import com.ultramega.asteroidmining.registry.ModBlocks;
+import com.ultramega.asteroidmining.registry.ModFluids;
 import com.ultramega.asteroidmining.utils.ITags;
 
 import java.util.concurrent.CompletableFuture;
@@ -12,6 +13,7 @@ import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
 import net.neoforged.neoforge.common.data.BlockTagCopyingItemTagProvider;
 
 import static com.ultramega.asteroidmining.AsteroidMining.MOD_ID;
@@ -52,6 +54,21 @@ public class TagsProviderImpl {
             this.copy(ITags.Blocks.ICES_ICE, ITags.Items.ICES_ICE);
             this.copy(ITags.Blocks.ICES_PACKED, ITags.Items.ICES_PACKED);
             this.copy(ITags.Blocks.ICES_BLUE, ITags.Items.ICES_BLUE);
+        }
+    }
+
+    public static class Fluids extends IntrinsicHolderTagsProvider<Fluid> {
+        @SuppressWarnings("deprecation")
+        public Fluids(final PackOutput packOutput, final CompletableFuture<HolderLookup.Provider> registries) {
+            super(packOutput, Registries.FLUID, registries, fluid -> fluid.builtInRegistryHolder().key(), MOD_ID);
+        }
+
+        @Override
+        protected void addTags(final HolderLookup.Provider provider) {
+            this.tag(ITags.Fluids.GASES)
+                .add(ModFluids.AIR.get())
+                .add(ModFluids.METHANE.get())
+                .add(ModFluids.HYDROGEN.get());
         }
     }
 }

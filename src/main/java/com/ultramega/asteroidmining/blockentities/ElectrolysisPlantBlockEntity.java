@@ -5,9 +5,10 @@ import com.ultramega.asteroidmining.container.ElectrolysisPlantContainerMenu;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModFluids;
-import com.ultramega.asteroidmining.utils.handlers.MultiFluidStacksResourceHandler;
-import com.ultramega.asteroidmining.utils.handlers.MutableEnergy;
 import com.ultramega.asteroidmining.utils.PreserveData;
+import com.ultramega.asteroidmining.utils.handlers.MultiFluidStacksResourceHandler;
+import com.ultramega.asteroidmining.utils.handlers.MultiGasStacksResourceHandler;
+import com.ultramega.asteroidmining.utils.handlers.MutableEnergy;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -35,10 +36,16 @@ import org.jspecify.annotations.Nullable;
 
 public class ElectrolysisPlantBlockEntity extends AbstractDataPreservingBlockEntity implements MenuProvider, Nameable, PreserveData {
     public final MutableEnergy energyStorage = new MutableEnergy(ServerConfig.ELECTROLYSIS_PLANT_ENERGY_CAPACITY.get());
-    public final MultiFluidStacksResourceHandler fluidTank = new MultiFluidStacksResourceHandler(2, new int[] {
-        ServerConfig.ELECTROLYSIS_PLANT_TANK_CAPACITY.get(),
-        ServerConfig.ELECTROLYSIS_PLANT_TANK_CAPACITY.get()
-    }) {
+    public final MultiFluidStacksResourceHandler fluidTank = new MultiFluidStacksResourceHandler(new int[] {ServerConfig.ELECTROLYSIS_PLANT_TANK_CAPACITY.get()}) {
+        @Override
+        protected void onContentsChanged(final int index, final FluidStack previousContents) {
+            if (this.getAmountAsInt(0) == 0 && ElectrolysisPlantBlockEntity.this.level instanceof ServerLevel) {
+                ElectrolysisPlantBlockEntity.this.recipeProgress = ServerConfig.ELECTROLYSIS_PLANT_RECIPE_DURATION.get();
+            }
+            ElectrolysisPlantBlockEntity.this.setChanged();
+        }
+    };
+    public final MultiGasStacksResourceHandler gasTank = new MultiGasStacksResourceHandler(new int[] {ServerConfig.ELECTROLYSIS_PLANT_TANK_CAPACITY.get()}) {
         @Override
         protected void onContentsChanged(final int index, final FluidStack previousContents) {
             if (this.getAmountAsInt(0) == 0 && ElectrolysisPlantBlockEntity.this.level instanceof ServerLevel) {
@@ -90,15 +97,16 @@ public class ElectrolysisPlantBlockEntity extends AbstractDataPreservingBlockEnt
         if (!(level instanceof ServerLevel serverLevel) || blockEntity.cannotOperate()) {
             return;
         }
-        if (blockEntity.fluidTank.getRemainingSpace(1) == 0) {
+        if (blockEntity.gasTank.getRemainingSpace(0) == 0) {
             return;
         }
 
-        if (blockEntity.fluidTank.getRemainingSpace(1) >= 10) {
+        // TODO: this is bullshit also make it into a recipe system
+        if (blockEntity.gasTank.getRemainingSpace(0) >= 10) {
             final FluidStack inputStack = new FluidStack(Fluids.WATER, 10);
             final FluidStack outputStack = new FluidStack(ModFluids.HYDROGEN.get(), 8);
             try (Transaction tx = Transaction.openRoot()) {
-                if (blockEntity.fluidTank.insert(1, FluidResource.of(outputStack), outputStack.getAmount(), tx) <= 0) {
+                if (blockEntity.gasTank.insert(0, FluidResource.of(outputStack), outputStack.getAmount(), tx) <= 0) {
                     return;
                 }
             }
@@ -108,7 +116,7 @@ public class ElectrolysisPlantBlockEntity extends AbstractDataPreservingBlockEnt
 
             try (Transaction tx = Transaction.openRoot()) {
                 blockEntity.fluidTank.extract(FluidResource.of(inputStack), inputStack.getAmount(), tx);
-                blockEntity.fluidTank.insert(1, FluidResource.of(outputStack), outputStack.getAmount(), tx);
+                blockEntity.gasTank.insert(FluidResource.of(outputStack), outputStack.getAmount(), tx);
                 blockEntity.energyStorage.extract(ServerConfig.ELECTROLYSIS_PLANT_ENERGY_USAGE.get(), tx);
                 tx.commit();
             }
@@ -127,6 +135,7 @@ public class ElectrolysisPlantBlockEntity extends AbstractDataPreservingBlockEnt
 
         this.energyStorage.deserialize(input.childOrEmpty("energy"));
         this.fluidTank.deserialize(input.childOrEmpty("fluidTank"));
+        this.gasTank.deserialize(input.childOrEmpty("gasTank"));
         this.recipeProgress = input.getInt("recipeProgress").orElse(0);
     }
 
@@ -136,6 +145,7 @@ public class ElectrolysisPlantBlockEntity extends AbstractDataPreservingBlockEnt
 
         this.energyStorage.serialize(output.child("energy"));
         this.fluidTank.serialize(output.child("fluidTank"));
+        this.gasTank.serialize(output.child("gasTank"));
         output.putInt("recipeProgress", this.recipeProgress);
     }
 

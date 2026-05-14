@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "asteroidmining:block/rocket_storage_viewer_front_inactive",
+    "side": "asteroidmining:block/rocket_storage_viewer_side",
+    "top": "asteroidmining:block/rocket_storage_viewer_side"
+  }
+}

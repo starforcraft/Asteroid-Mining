@@ -10,6 +10,7 @@ import com.ultramega.asteroidmining.registry.ModRecipeTypes;
 import com.ultramega.asteroidmining.utils.CoolantData;
 import com.ultramega.asteroidmining.utils.handlers.ItemStacksResourceHandler;
 import com.ultramega.asteroidmining.utils.handlers.MultiFluidStacksResourceHandler;
+import com.ultramega.asteroidmining.utils.handlers.MultiGasStacksResourceHandler;
 import com.ultramega.asteroidmining.utils.handlers.MutableEnergy;
 
 import java.util.Optional;
@@ -60,18 +61,28 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
             DistillationColumnBlockEntity.this.setChanged();
         }
     };
-    //TODO: add a configuration screen like in Mekanism to specify input sides for each tank (To every block!)
-    public final MultiFluidStacksResourceHandler fluidTank = new MultiFluidStacksResourceHandler(3, new int[] {
-        ServerConfig.DISTILLATION_COLUMN_TANK_CAPACITY.get() / 10,
+    public final MultiFluidStacksResourceHandler fluidTank = new MultiFluidStacksResourceHandler(new int[] {
         ServerConfig.DISTILLATION_COLUMN_TANK_CAPACITY.get(),
         ServerConfig.DISTILLATION_COLUMN_TANK_CAPACITY.get()
     }) {
         @Override
         protected void onContentsChanged(final int index, final FluidStack previousContents) {
-            if (index == 0 || index == 1) { //TODO: only remove the recipe if the required ingredients are gone
+            if (index == 0) { //TODO: only remove the recipe if the required ingredients are gone
                 DistillationColumnBlockEntity.this.recipeProgress = 0;
                 DistillationColumnBlockEntity.this.activeRecipe = null;
             }
+
+            DistillationColumnBlockEntity.this.setChanged();
+        }
+    };
+    public final MultiGasStacksResourceHandler gasTank = new MultiGasStacksResourceHandler(new int[] {
+        ServerConfig.DISTILLATION_COLUMN_TANK_CAPACITY.get()
+    }) {
+        @Override
+        protected void onContentsChanged(final int index, final FluidStack previousContents) {
+            //TODO: only remove the recipe if the required ingredients are gone
+            DistillationColumnBlockEntity.this.recipeProgress = 0;
+            DistillationColumnBlockEntity.this.activeRecipe = null;
 
             DistillationColumnBlockEntity.this.setChanged();
         }
@@ -223,12 +234,12 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
     }
 
     private static boolean tickDistillation(final ServerLevel serverLevel, final Level level, final DistillationColumnBlockEntity blockEntity) {
-        if (blockEntity.fluidTank.getAmountAsInt(2) >= blockEntity.fluidTank.getCapacityAsInt(2)) {
+        if (blockEntity.fluidTank.getAmountAsInt(1) >= blockEntity.fluidTank.getCapacityAsInt(1)) {
             return false;
         }
 
-        final FluidStack inputStack = blockEntity.fluidTank.getStackInTank(1);
-        final FluidStack reagentStack = blockEntity.fluidTank.getStackInTank(0);
+        final FluidStack inputStack = blockEntity.fluidTank.getStackInTank(0);
+        final FluidStack reagentStack = blockEntity.gasTank.getStackInTank(0);
 
         final DistillationInput recipeInput = new DistillationInput(inputStack, reagentStack, blockEntity.temperature);
 
@@ -252,7 +263,7 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
         final DistillationRecipe recipe = recipeHolder.get().value();
 
         try (Transaction tx = Transaction.openRoot()) {
-            final long inserted = blockEntity.fluidTank.insert(2, FluidResource.of(recipe.output().fluid().value()), recipe.output().amount(), tx);
+            final long inserted = blockEntity.fluidTank.insert(1, FluidResource.of(recipe.output().fluid().value()), recipe.output().amount(), tx);
             if (inserted != recipe.output().amount()) {
                 return false;
             }
@@ -279,7 +290,7 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
 
     private boolean craftRecipe(final DistillationRecipe recipe, final FluidStack inputStack, final FluidStack reagentStack, final int energyUsage) {
         try (Transaction tx = Transaction.openRoot()) {
-            final long extractedInput = this.fluidTank.extract(1, FluidResource.of(inputStack.getFluid()), recipe.input().amount(), tx);
+            final long extractedInput = this.fluidTank.extract(0, FluidResource.of(inputStack.getFluid()), recipe.input().amount(), tx);
             if (extractedInput != recipe.input().amount()) {
                 return false;
             }
@@ -287,14 +298,14 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
             if (recipe.reagent().isPresent()) {
                 final SizedFluidIngredient reagent = recipe.reagent().get();
 
-                final long extractedReagent = this.fluidTank.extract(0, FluidResource.of(reagentStack.getFluid()), reagent.amount(), tx);
+                final long extractedReagent = this.gasTank.extract(0, FluidResource.of(reagentStack.getFluid()), reagent.amount(), tx);
                 if (extractedReagent != reagent.amount()) {
                     return false;
                 }
             }
 
             final FluidStackTemplate output = recipe.output();
-            final long insertedOutput = this.fluidTank.insert(2, FluidResource.of(output.fluid().value()), output.amount(), tx);
+            final long insertedOutput = this.fluidTank.insert(1, FluidResource.of(output.fluid().value()), output.amount(), tx);
             if (insertedOutput != output.amount()) {
                 return false;
             }
@@ -329,6 +340,7 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
         this.energyStorage.deserialize(input.childOrEmpty("energy"));
         this.inventoryHandler.deserialize(input.childOrEmpty("inventory"));
         this.fluidTank.deserialize(input.childOrEmpty("fluidTank"));
+        this.gasTank.deserialize(input.childOrEmpty("gasTank"));
 
         this.recipeProgress = input.getInt("recipeProgress").orElse(RECIPE_DURATION);
         this.litTime = input.getInt("litTime").orElse(0);
@@ -346,6 +358,7 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
         this.energyStorage.serialize(output.child("energy"));
         this.inventoryHandler.serialize(output.child("inventory"));
         this.fluidTank.serialize(output.child("fluidTank"));
+        this.gasTank.serialize(output.child("gasTank"));
 
         output.putInt("recipeProgress", this.recipeProgress);
         output.putInt("litTime", this.litTime);
@@ -433,6 +446,11 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
     @Override
     protected ResourceHandler<FluidResource> getFluidHandlerForSideConfig() {
         return this.fluidTank;
+    }
+
+    @Override
+    protected ResourceHandler<FluidResource> getGasHandlerForSideConfig() {
+        return this.gasTank;
     }
 
     @Nullable

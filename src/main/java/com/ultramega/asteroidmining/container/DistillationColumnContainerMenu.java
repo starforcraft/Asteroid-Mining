@@ -27,7 +27,8 @@ public class DistillationColumnContainerMenu extends AbstractSideConfigContainer
     private final ContainerData data;
 
     public DistillationColumnContainerMenu(final int containerId, final Inventory playerInv, final FriendlyByteBuf data) {
-        this(containerId, playerInv, getBlockEntity(playerInv, data), ContainerLevelAccess.NULL, AbstractSideConfigContainerMenu.createClientData(MACHINE_DATA_COUNT), new ItemStacksResourceHandler(1));
+        this(containerId, playerInv, getBlockEntity(playerInv, data), ContainerLevelAccess.NULL,
+            AbstractSideConfigContainerMenu.createClientData(MACHINE_DATA_COUNT), new ItemStacksResourceHandler(1));
     }
 
     public DistillationColumnContainerMenu(final int containerId,

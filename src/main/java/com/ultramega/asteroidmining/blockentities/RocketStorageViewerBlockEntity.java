@@ -29,16 +29,28 @@ import org.jspecify.annotations.Nullable;
 
 public class RocketStorageViewerBlockEntity extends AbstractModuleBlockEntity implements MenuProvider, Nameable {
     private final ResourceHandler<ItemResource> itemStorage = UnlimitedResourceStore.items(
-        () -> this.getConfiguration().moduleProperties(),
+        () -> {
+            final NetworkConfiguration configuration = this.getConfiguration();
+            return configuration == null ? null : configuration.moduleProperties();
+        },
         properties -> {
             final NetworkConfiguration configuration = this.getConfiguration();
+            if (configuration == null) {
+                return;
+            }
             this.setConfiguration(configuration.withModuleProperties(properties));
         }, this::setChanged);
 
     private final ResourceHandler<FluidResource> fluidStorage = UnlimitedResourceStore.fluids(
-        () -> this.getConfiguration().moduleProperties(),
+        () -> {
+            final NetworkConfiguration configuration = this.getConfiguration();
+            return configuration == null ? null : configuration.moduleProperties();
+        },
         properties -> {
             final NetworkConfiguration configuration = this.getConfiguration();
+            if (configuration == null) {
+                return;
+            }
             this.setConfiguration(configuration.withModuleProperties(properties));
         }, this::setChanged);
 

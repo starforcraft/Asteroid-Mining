@@ -83,6 +83,11 @@ public final class CommonEvents {
             AbstractSideConfigurableBlockEntity::getFluidCapability
         );
         event.registerBlockEntity(
+            Capabilities.Fluid.BLOCK,
+            ModBlockEntityTypes.DISTILLATION_COLUMN.get(),
+            AbstractSideConfigurableBlockEntity::getGasCapability
+        );
+        event.registerBlockEntity(
             Capabilities.Energy.BLOCK,
             ModBlockEntityTypes.AIR_ABSORBER.get(),
             (blockEntity, side) -> blockEntity.energyStorage

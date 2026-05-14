@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class RocketStorageViewerBlock extends AbstractModuleBlock implements EntityBlock {
+public class RocketStorageViewerBlock extends AbstractFacingBlock implements EntityBlock {
     public RocketStorageViewerBlock(final Properties properties) {
         super(properties);
     }

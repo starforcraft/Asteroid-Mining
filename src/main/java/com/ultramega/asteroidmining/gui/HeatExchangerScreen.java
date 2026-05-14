@@ -31,7 +31,7 @@ public class HeatExchangerScreen extends AbstractContainerScreen<HeatExchangerCo
 
     @Override
     public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
-        graphics.blit(GUI_TEXTURED, BACKGROUND, getLeftPos(), getTopPos(), 0, 0, getImageWidth(), getImageHeight(), 256, 256);
+        graphics.blit(GUI_TEXTURED, BACKGROUND, this.getLeftPos(), this.getTopPos(), 0, 0, this.getImageWidth(), this.getImageHeight(), 256, 256);
 
         // Draw energy bar
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 8, this.topPos + 18, 176, 0, 6, ENERGY_BAR_HEIGHT, 256, 256);
@@ -40,10 +40,10 @@ public class HeatExchangerScreen extends AbstractContainerScreen<HeatExchangerCo
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 8, this.topPos + 18, 8, 18, 6, ENERGY_BAR_HEIGHT - energyLevel, 256, 256);
 
         // Draw fluid tanks
+        FluidContainerUtil.renderFluidTank(graphics, this, this.menu.blockEntity.gasTank.getStackInTank(0),
+            this.menu.blockEntity.gasTank.getAmountAsInt(0), 67, 20, 6, FLUID_BAR_HEIGHT, 0);
         FluidContainerUtil.renderFluidTank(graphics, this, this.menu.blockEntity.fluidTank.getStackInTank(0),
-            this.menu.blockEntity.fluidTank.getAmountAsInt(0), 67, 20, 6, FLUID_BAR_HEIGHT, 0);
-        FluidContainerUtil.renderFluidTank(graphics, this, this.menu.blockEntity.fluidTank.getStackInTank(1),
-            this.menu.blockEntity.fluidTank.getAmountAsInt(1), 115, 20, 6, FLUID_BAR_HEIGHT, 0);
+            this.menu.blockEntity.fluidTank.getAmountAsInt(0), 115, 20, 6, FLUID_BAR_HEIGHT, 0);
 
         // Draw gas tank overlay
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 67, this.topPos + 20, 182, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
@@ -67,10 +67,10 @@ public class HeatExchangerScreen extends AbstractContainerScreen<HeatExchangerCo
         }
 
         if (this.isHovering(67, 20, 6, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
-            FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.fluidTank.getStackInTank(0), mouseX, mouseY);
+            FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.gasTank.getStackInTank(0), mouseX, mouseY);
         }
         if (this.isHovering(115, 20, 6, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
-            FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.fluidTank.getStackInTank(1), mouseX, mouseY);
+            FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.fluidTank.getStackInTank(0), mouseX, mouseY);
         }
     }
 }

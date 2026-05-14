@@ -25,7 +25,7 @@ public class DistillationRecipes extends AsteroidMiningRecipeProvider {
         ).save(this.output, this.recipeId("kerosene"));
 
         DistillationRecipeBuilder.of(
-            SizedFluidIngredient.of(ModFluids.AIR.get(), 850),
+            SizedFluidIngredient.of(ModFluids.LIQUID_AIR.get(), 850),
             new FluidStackTemplate(ModFluids.LIQUID_OXYGEN.get(), 1),
             40,
             -196,

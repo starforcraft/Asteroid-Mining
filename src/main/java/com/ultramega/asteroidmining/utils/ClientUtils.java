@@ -42,6 +42,8 @@ import org.joml.Vector2ic;
 import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
 
 public final class ClientUtils {
+    private static final int DISABLED_SLOT_COLOR = 0xFF5B5B5B;
+
     private ClientUtils() {
     }
 
@@ -259,6 +261,10 @@ public final class ClientUtils {
 
     public static List<ClientTooltipComponent> createTooltip(final Component component) {
         return List.of(ClientTooltipComponent.create(component.getVisualOrderText()));
+    }
+
+    public static void drawDisabledSlot(final GuiGraphicsExtractor graphics, final int slotX, final int slotY) {
+        graphics.fill(slotX, slotY, slotX + 16, slotY + 16, DISABLED_SLOT_COLOR);
     }
 
     public static void drawSlotHighlight(final GuiGraphicsExtractor graphics, final int x, final int y) {

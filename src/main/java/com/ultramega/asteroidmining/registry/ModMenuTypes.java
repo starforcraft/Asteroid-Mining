@@ -8,9 +8,9 @@ import com.ultramega.asteroidmining.container.ElectrolysisPlantContainerMenu;
 import com.ultramega.asteroidmining.container.HeatExchangerContainerMenu;
 import com.ultramega.asteroidmining.container.LaunchPadBuilderContainerMenu;
 import com.ultramega.asteroidmining.container.ObservatoryContainerMenu;
+import com.ultramega.asteroidmining.container.RocketControllerConfigurationContainerMenu;
 import com.ultramega.asteroidmining.container.RocketControllerContainerMenu;
 import com.ultramega.asteroidmining.container.RocketStorageViewerContainerMenu;
-import com.ultramega.asteroidmining.container.SelectConfigurationContainerMenu;
 
 import java.util.function.Supplier;
 
@@ -35,8 +35,8 @@ public final class ModMenuTypes {
 
     public static final Supplier<MenuType<RocketControllerContainerMenu>> ROCKET_CONTROLLER = MENU_TYPES.register("rocket_controller", () ->
         IMenuTypeExtension.create(RocketControllerContainerMenu::new));
-    public static final Supplier<MenuType<SelectConfigurationContainerMenu>> SELECT_CONFIGURATION = MENU_TYPES.register("select_configuration", () ->
-        IMenuTypeExtension.create(SelectConfigurationContainerMenu::new));
+    public static final Supplier<MenuType<RocketControllerConfigurationContainerMenu>> SELECT_CONFIGURATION = MENU_TYPES.register("select_configuration", () ->
+        IMenuTypeExtension.create(RocketControllerConfigurationContainerMenu::new));
     public static final Supplier<MenuType<RocketStorageViewerContainerMenu>> ROCKET_STORAGE_VIEWER = MENU_TYPES.register("rocket_storage_viewer", () ->
         IMenuTypeExtension.create(RocketStorageViewerContainerMenu::new));
     public static final Supplier<MenuType<LaunchPadBuilderContainerMenu>> LAUNCH_PAD_BUILDER = MENU_TYPES.register("launch_pad_builder", () ->

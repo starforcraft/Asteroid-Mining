@@ -96,6 +96,10 @@ public class ObservatoryScreen extends AbstractModuleScreen<ObservatoryContainer
         }
     }
 
+    @Override
+    protected void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
+    }
+
     private void updateSelectedConfigurationUUID() {
         this.selectedConfigurationUUID = this.menu.getBlockEntity().getSelectedConfigurationUUID();
     }

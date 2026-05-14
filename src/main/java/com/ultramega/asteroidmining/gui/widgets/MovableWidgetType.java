@@ -1,7 +1,9 @@
 package com.ultramega.asteroidmining.gui.widgets;
 
 public enum MovableWidgetType {
-    SIDE_CONFIG("side_config");
+    SIDE_CONFIG("side_config"),
+    ROCKET_VIEWER("rocket_viewer"),
+    ROCKET_CONFIGURATION("rocket_configuration");
 
     private final String savePath;
 

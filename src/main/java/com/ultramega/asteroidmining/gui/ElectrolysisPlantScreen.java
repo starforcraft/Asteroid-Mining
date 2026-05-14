@@ -46,8 +46,8 @@ public class ElectrolysisPlantScreen extends AbstractContainerScreen<Electrolysi
         // Draw fluid tanks
         FluidContainerUtil.renderFluidTank(graphics, this, this.menu.blockEntity.fluidTank.getStackInTank(0),
             this.menu.blockEntity.fluidTank.getCapacityAsInt(0), 67, 20, 14, FLUID_BAR_HEIGHT, 0);
-        FluidContainerUtil.renderFluidTank(graphics, this, this.menu.blockEntity.fluidTank.getStackInTank(1),
-            this.menu.blockEntity.fluidTank.getCapacityAsInt(1), 115, 20, 6, FLUID_BAR_HEIGHT, 0);
+        FluidContainerUtil.renderFluidTank(graphics, this, this.menu.blockEntity.gasTank.getStackInTank(0),
+            this.menu.blockEntity.gasTank.getCapacityAsInt(0), 115, 20, 6, FLUID_BAR_HEIGHT, 0);
 
         // Draw fluid tank overlays
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos + 67 + 6, this.topPos + 20, 184, 0, 2, FLUID_BAR_HEIGHT, 256, 256);
@@ -92,7 +92,7 @@ public class ElectrolysisPlantScreen extends AbstractContainerScreen<Electrolysi
             FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.fluidTank.getStackInTank(0), mouseX, mouseY);
         }
         if (this.isHovering(115, 20, 6, FLUID_BAR_HEIGHT + 1, mouseX, mouseY)) {
-            FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.fluidTank.getStackInTank(1), mouseX, mouseY);
+            FluidContainerUtil.renderFluidTooltip(graphics, this.font, this.menu.blockEntity.gasTank.getStackInTank(0), mouseX, mouseY);
         }
     }
 }

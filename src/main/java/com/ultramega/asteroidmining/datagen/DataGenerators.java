@@ -28,6 +28,7 @@ public final class DataGenerators {
         pack.addProvider(output -> new LootTableProviderImpl(output, e.getLookupProvider()));
         final TagsProviderImpl.Blocks blockTagsProvider = pack.addProvider(output -> new TagsProviderImpl.Blocks(output, e.getLookupProvider()));
         pack.addProvider(output -> new TagsProviderImpl.Items(output, e.getLookupProvider(), blockTagsProvider.contentsGetter()));
+        pack.addProvider(output -> new TagsProviderImpl.Fluids(output, e.getLookupProvider()));
 
         pack.addProvider(output -> new DataMapProviderImpl(output, e.getLookupProvider()));
     }

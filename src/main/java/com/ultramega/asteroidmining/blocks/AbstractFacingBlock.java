@@ -15,7 +15,7 @@ public abstract class AbstractFacingBlock extends AbstractModuleBlock {
 
     public AbstractFacingBlock(final Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(ACTIVE, false).setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH));
     }
 
     @Override

@@ -41,6 +41,10 @@ public abstract class AbstractSideConfigurableBlockEntity extends AbstractDataPr
     @Nullable
     private final ResourceHandler<FluidResource>[] sidedFluidHandlers = (ResourceHandler<FluidResource>[]) new ResourceHandler<?>[SIDE_COUNT];
 
+    @SuppressWarnings("unchecked")
+    @Nullable
+    private final ResourceHandler<FluidResource>[] sidedGasesHandlers = (ResourceHandler<FluidResource>[]) new ResourceHandler<?>[SIDE_COUNT];
+
     private final ContainerData containerData = new ContainerData() {
         @Override
         public int get(final int index) {
@@ -182,6 +186,11 @@ public abstract class AbstractSideConfigurableBlockEntity extends AbstractDataPr
         return null;
     }
 
+    @Nullable
+    protected ResourceHandler<FluidResource> getGasHandlerForSideConfig() {
+        return null;
+    }
+
     public final ContainerData getContainerData() {
         return this.containerData;
     }
@@ -195,6 +204,7 @@ public abstract class AbstractSideConfigurableBlockEntity extends AbstractDataPr
             case ENERGY -> this.getEnergyStorageForSideConfig() != null;
             case ITEMS -> this.getItemHandlerForSideConfig() != null;
             case FLUIDS -> this.getFluidHandlerForSideConfig() != null;
+            case GASES -> this.getGasHandlerForSideConfig() != null;
         };
     }
 
@@ -299,6 +309,33 @@ public abstract class AbstractSideConfigurableBlockEntity extends AbstractDataPr
         }
 
         return this.sidedFluidHandlers[index];
+    }
+
+    @Nullable
+    public ResourceHandler<FluidResource> getGasCapability(@Nullable final Direction side) {
+        final ResourceHandler<FluidResource> delegate = this.getGasHandlerForSideConfig();
+        if (delegate == null) {
+            return null;
+        }
+
+        if (side == null) {
+            return delegate;
+        }
+
+        if (this.getSideConfig(SideConfigType.GASES, side) == SideIoMode.NONE) {
+            return null;
+        }
+
+        final int index = side.ordinal();
+        if (this.sidedGasesHandlers[index] == null) {
+            this.sidedGasesHandlers[index] = new SidedResourceHandler<>(
+                delegate,
+                () -> this.getSideConfig(SideConfigType.GASES, side).canInput(),
+                () -> this.getSideConfig(SideConfigType.GASES, side).canOutput()
+            );
+        }
+
+        return this.sidedGasesHandlers[index];
     }
 
     @Override

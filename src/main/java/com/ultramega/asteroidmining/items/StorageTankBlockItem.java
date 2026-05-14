@@ -30,7 +30,7 @@ public class StorageTankBlockItem extends BaseBlockItem {
         builder.accept(Component.translatable("tooltip.asteroidmining.storage_tank.capacity").withStyle(ChatFormatting.GOLD)
             .append(Component.literal(this.capacity.getName() + " ").withStyle(ChatFormatting.WHITE)
                 .append(this.type == StorageTankBlock.Type.ITEMS
-                    ? Component.translatable("tooltip.asteroidmining.storage_tank.items") //TODO: if fluid add B (Buckets) to the capacity
-                    : Component.translatable("tooltip.asteroidmining.storage_tank.fluids").withStyle(ChatFormatting.WHITE))));
+                    ? Component.translatable("tooltip.asteroidmining.items") //TODO: if fluid add B (Buckets) to the capacity
+                    : Component.translatable("tooltip.asteroidmining.fluids").withStyle(ChatFormatting.WHITE))));
     }
 }

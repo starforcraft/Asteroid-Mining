@@ -12,7 +12,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -20,11 +19,16 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractModuleBlock extends AbstractDataPreservingBlock {
-    public static final BooleanProperty ACTIVE = BooleanProperty.create("active"); //TODO: make gui gray if not active for all blocks
+    public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
 
     public AbstractModuleBlock(final Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(ACTIVE, false));
+
+        BlockState state = this.getStateDefinition().any();
+        if (state.hasProperty(ACTIVE)) {
+            state = state.setValue(ACTIVE, false);
+        }
+        this.registerDefaultState(state);
     }
 
     @Override
@@ -109,8 +113,14 @@ public abstract class AbstractModuleBlock extends AbstractDataPreservingBlock {
         return null;
     }
 
+    protected boolean hasActiveState() {
+        return true;
+    }
+
     @Override
     protected void createBlockStateDefinition(final StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(ACTIVE);
+        if (this.hasActiveState()) {
+            builder.add(ACTIVE);
+        }
     }
 }

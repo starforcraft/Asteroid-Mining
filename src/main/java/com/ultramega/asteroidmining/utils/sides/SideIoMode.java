@@ -1,19 +1,42 @@
 package com.ultramega.asteroidmining.utils.sides;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+
 public enum SideIoMode {
-    NONE(false, false, "—"), //TODO
-    INPUT(true, false, "IN"),
-    OUTPUT(false, true, "OUT"),
-    BOTH(true, true, "I/O");
+    NONE(false,
+        false,
+        Component.literal("—"),
+        Component.translatable("gui.asteroidmining.side_io_mode.none"),
+        0xFF303030), //TODO defaults
+    INPUT(true,
+        false,
+        Component.translatable("gui.asteroidmining.side_io_mode.input.short"),
+        Component.translatable("gui.asteroidmining.side_io_mode.input"),
+        0xFF1E5A8A),
+    OUTPUT(false,
+        true,
+        Component.translatable("gui.asteroidmining.side_io_mode.output.short"),
+        Component.translatable("gui.asteroidmining.side_io_mode.output"),
+        0xFF8A4A1E),
+    BOTH(true,
+        true,
+        Component.translatable("gui.asteroidmining.side_io_mode.input_output.short"),
+        Component.translatable("gui.asteroidmining.side_io_mode.input_output"),
+        0xFF3E7A3E);
 
     private final boolean input;
     private final boolean output;
-    private final String label;
+    private final Component abbreviation;
+    private final MutableComponent name;
+    private final int color;
 
-    SideIoMode(final boolean input, final boolean output, final String label) {
+    SideIoMode(final boolean input, final boolean output, final Component abbreviation, final MutableComponent name, final int color) {
         this.input = input;
         this.output = output;
-        this.label = label;
+        this.abbreviation = abbreviation;
+        this.name = name.withColor(color);
+        this.color = color;
     }
 
     public boolean canInput() {
@@ -24,8 +47,16 @@ public enum SideIoMode {
         return this.output;
     }
 
-    public String label() {
-        return this.label;
+    public Component getAbbreviation() {
+        return this.abbreviation;
+    }
+
+    public Component getName() {
+        return this.name;
+    }
+
+    public int getColor() {
+        return this.color;
     }
 
     public SideIoMode next() {

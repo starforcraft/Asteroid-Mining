@@ -3,7 +3,7 @@
   "duration": 40,
   "input": {
     "amount": 850,
-    "ingredient": "asteroidmining:air"
+    "ingredient": "asteroidmining:liquid_air"
   },
   "max_temperature": -183,
   "min_temperature": -196,

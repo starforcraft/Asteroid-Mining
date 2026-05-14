@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "asteroidmining:block/rocket_storage_viewer"
-  }
-}

@@ -1,16 +1,20 @@
 package com.ultramega.asteroidmining.gui.widgets;
 
 import com.ultramega.asteroidmining.container.AbstractSideConfigContainerMenu;
+import com.ultramega.asteroidmining.gui.PagedSideTabs;
 import com.ultramega.asteroidmining.network.c2s.SetSideConfigPayload;
 import com.ultramega.asteroidmining.utils.ClientUtils;
 import com.ultramega.asteroidmining.utils.sides.SideConfigType;
 import com.ultramega.asteroidmining.utils.sides.SideIoMode;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.IntSupplier;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.core.Direction;
@@ -18,13 +22,14 @@ import net.minecraft.network.chat.Component;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import org.jspecify.annotations.Nullable;
 
-// TODO: don't keep this open all the time but make it openable/closeable with a side tab button instead
-public class SideConfigWidget extends AbstractMovableWidget {
-    public static final int WIDTH = 112;
-    public static final int HEIGHT = 81;
+import static com.ultramega.asteroidmining.utils.ClientUtils.createTooltip;
 
-    private static final int TAB_WIDTH = 20;
-    private static final int TAB_HEIGHT = 20;
+// TODO: don't keep this open all the time but make it openable/closeable with a side tab button instead
+// TODO: also make the tabs smaller
+public class SideConfigWidget extends AbstractTabbedMovableWidget<SideConfigType> {
+    public static final int WIDTH = 100;
+    public static final int HEIGHT = 86;
+
     private static final int TAB_ICON_SIZE = 16;
     private static final int CELL_WIDTH = 28;
     private static final int CELL_HEIGHT = 16;
@@ -48,92 +53,58 @@ public class SideConfigWidget extends AbstractMovableWidget {
                             final int y,
                             final IntSupplier screenWidth,
                             final IntSupplier screenHeight) {
-        super(MovableWidgetType.SIDE_CONFIG, x, y, WIDTH, HEIGHT, Component.translatable("gui.asteroidmining.side_configuration.title"), screenWidth, screenHeight);
+        super(MovableWidgetType.SIDE_CONFIG, x, y, WIDTH, HEIGHT, screenWidth, screenHeight);
         this.menu = menu;
 
         this.ensureActiveTypeSupported();
+        this.syncSelectedTabToActiveType();
     }
 
     @Override
-    protected void extractMovableContents(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
+    protected void extractTabbedMovableContents(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
         this.ensureActiveTypeSupported();
 
-        final Font font = Minecraft.getInstance().font;
-        final int x = this.getX();
-        final int y = this.getY() + this.headerHeight();
+        // TODO hover highlight the respective slots.
+        // TODO: separate fluid tank and gas tank? Or give all tanks a number if more than one?
 
-        for (final SideConfigType type : SideConfigType.values()) {
-            final int tabX = x + 2;
-            final int tabY = y + type.ordinal() * (TAB_HEIGHT + 2) + 2;
-
-            final boolean supported = this.menu.supportsSideConfig(type);
-            final boolean selected = supported && type == this.activeType;
-
-            final int color = !supported ? 0xFF181818 : selected ? 0xFF585859 : 0xFF242424;
-
-            graphics.fill(tabX, tabY, tabX + TAB_WIDTH, tabY + TAB_HEIGHT, color);
-            graphics.outline(tabX, tabY, TAB_WIDTH, TAB_HEIGHT, 0xFF707070);
-
-            final int iconX = tabX + (TAB_WIDTH - TAB_ICON_SIZE) / 2;
-            final int iconY = tabY + (TAB_HEIGHT - TAB_ICON_SIZE) / 2;
-
-            graphics.blitSprite(RenderPipelines.GUI_TEXTURED, type.tabIcon(), iconX, iconY, TAB_ICON_SIZE, TAB_ICON_SIZE);
-        }
-
-        graphics.text(font, this.activeType.title(), x + TAB_WIDTH + 6, y + 4, 0xFFFFFFFF, false);
-
-        final int cellsX = x + TAB_WIDTH + 4;
-        final int cellsY = y + CELL_HEIGHT;
-
+        final int cellsX = this.getX() + 4;
+        final int cellsY = this.getY() + this.getHeaderHeight() + CELL_HEIGHT;
         for (final SideCellLayout cell : SIDE_CELL_LAYOUTS) {
-            this.drawSideCell(
-                graphics,
-                cell.direction(),
-                cellsX + cell.col() * (CELL_WIDTH + 1),
-                cellsY + cell.row() * (CELL_HEIGHT + 1),
-                cell.label()
-            );
+            this.drawSideCell(graphics, cell.direction(), cellsX + cell.col() * (CELL_WIDTH + 1), cellsY + cell.row() * (CELL_HEIGHT + 1), cell.label());
         }
     }
 
     private void drawSideCell(final GuiGraphicsExtractor graphics, final Direction side, final int x, final int y, final String sideLabel) {
-        final var font = Minecraft.getInstance().font;
+        final Font font = Minecraft.getInstance().font;
         final SideIoMode mode = this.menu.getSideConfig(this.activeType, side);
 
-        final int color = switch (mode) {
-            case NONE -> 0xFF303030;
-            case INPUT -> 0xFF1E5A8A;
-            case OUTPUT -> 0xFF8A4A1E;
-            case BOTH -> 0xFF3E7A3E;
-        };
-
-        graphics.fill(x, y, x + CELL_WIDTH, y + CELL_HEIGHT, color);
+        graphics.fill(x, y, x + CELL_WIDTH, y + CELL_HEIGHT, mode.getColor());
         graphics.outline(x, y, CELL_WIDTH, CELL_HEIGHT, 0xFF909090);
 
         graphics.text(font, sideLabel, x + 3, y + 4, 0xFFFFFFFF, false);
-        graphics.text(font, mode.label(), x + 12, y + 4, 0xFFFFFFFF, false);
+
+        graphics.text(font, mode.getAbbreviation(), x + 12, y + 4, 0xFFFFFFFF, false);
     }
 
     @Override
-    protected boolean mouseClickedInside(final MouseButtonEvent event, final boolean doubleClick) {
-        final int mouseX = (int) event.x();
-        final int mouseY = (int) event.y();
+    protected void renderTab(final GuiGraphicsExtractor graphics,
+                             final SideConfigType type,
+                             final int x,
+                             final int y,
+                             final int mouseX,
+                             final int mouseY,
+                             final boolean hovered) {
+        graphics.blitSprite(RenderPipelines.GUI_TEXTURED, type.getTabIcon(), x, y, TAB_ICON_SIZE, TAB_ICON_SIZE);
 
-        final int x = this.getX();
-        final int y = this.getY() + this.headerHeight();
-
-        for (final SideConfigType type : SideConfigType.values()) {
-            final int tabX = x + 2;
-            final int tabY = y + type.ordinal() * (TAB_HEIGHT + 2) + 2;
-            if (ClientUtils.isMouseOver(tabX, tabY, TAB_WIDTH, TAB_HEIGHT, mouseX, mouseY)) {
-                if (this.menu.supportsSideConfig(type)) {
-                    this.activeType = type;
-                }
-                return true;
-            }
+        if (hovered) {
+            final Font font = Minecraft.getInstance().font;
+            graphics.tooltip(font, createTooltip(List.of(type.getTooltip())), mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
         }
+    }
 
-        final Direction clickedSide = this.getClickedSide(mouseX, mouseY);
+    @Override
+    protected boolean mouseClickedInsideTabbed(final MouseButtonEvent event, final boolean doubleClick) {
+        final Direction clickedSide = this.getClickedSide(event.x(), event.y());
         if (clickedSide == null) {
             return false;
         }
@@ -144,8 +115,54 @@ public class SideConfigWidget extends AbstractMovableWidget {
         this.menu.setClientSideConfig(this.activeType, clickedSide, next);
 
         ClientPacketDistributor.sendToServer(new SetSideConfigPayload(this.menu.blockEntity.getBlockPos(), this.activeType, clickedSide, next));
-
         return true;
+    }
+
+    @Override
+    protected void onTabClicked(final int index, final SideConfigType type) {
+        this.setActiveType(type);
+    }
+
+    @Override
+    protected void extractTooltips(final GuiGraphicsExtractor graphics, final Font font, final int mouseX, final int mouseY) { //TODO: refactor
+        final int cellsX = this.getX() + 4;
+        final int cellsY = this.getY() + this.getHeaderHeight() + CELL_HEIGHT;
+        for (final SideCellLayout cell : SIDE_CELL_LAYOUTS) {
+            if (ClientUtils.isMouseOver(cellsX + cell.col() * (CELL_WIDTH + 1), cellsY + cell.row() * (CELL_HEIGHT + 1), CELL_WIDTH, CELL_HEIGHT, mouseX, mouseY)) {
+                final SideIoMode mode = this.menu.getSideConfig(this.activeType, cell.direction());
+                final List<Component> tooltips = new ArrayList<>();
+                tooltips.add(Component.literal(cell.direction().getName()));
+                tooltips.add(mode.getName());
+                graphics.tooltip(font, createTooltip(tooltips), mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
+            }
+        }
+    }
+
+    @Override
+    protected Component getTitle() {
+        return this.activeType.getTitle();
+    }
+
+    @Override
+    protected List<SideConfigType> getTabItems() {
+        final List<SideConfigType> supportedTypes = new ArrayList<>();
+
+        for (final SideConfigType type : SideConfigType.values()) {
+            if (this.menu.supportsSideConfig(type)) {
+                supportedTypes.add(type);
+            }
+        }
+
+        return supportedTypes;
+    }
+
+    private void setActiveType(final SideConfigType type) {
+        this.activeType = type;
+        this.syncSelectedTabToActiveType();
+    }
+
+    private void syncSelectedTabToActiveType() {
+        this.tabs().setSelectedIndex(this.getTabItems().indexOf(this.activeType));
     }
 
     private void ensureActiveTypeSupported() {
@@ -164,11 +181,11 @@ public class SideConfigWidget extends AbstractMovableWidget {
     }
 
     @Nullable
-    private Direction getClickedSide(final int mouseX, final int mouseY) {
+    private Direction getClickedSide(final double mouseX, final double mouseY) {
         final int x = this.getX();
-        final int y = this.getY() + this.headerHeight();
+        final int y = this.getY() + this.getHeaderHeight();
 
-        final int cellsX = x + TAB_WIDTH + 4;
+        final int cellsX = x + 4;
         final int cellsY = y + CELL_HEIGHT;
 
         for (final SideCellLayout cell : SIDE_CELL_LAYOUTS) {

@@ -19,20 +19,20 @@ import org.jspecify.annotations.Nullable;
 
 public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJournal<ModuleProperties.Storage> implements ResourceHandler<R> {
     private final ResourceAdapter<R> adapter;
-    private final Supplier<ModuleProperties> propertiesGetter;
+    private final Supplier<@Nullable ModuleProperties> propertiesGetter;
     private final Consumer<ModuleProperties> propertiesSetter;
     private final Runnable onChanged;
     private final boolean allowInsert;
 
     public UnlimitedResourceStore(final ResourceAdapter<R> adapter,
-                                  final Supplier<ModuleProperties> propertiesGetter,
+                                  final Supplier<@Nullable ModuleProperties> propertiesGetter,
                                   final Consumer<ModuleProperties> propertiesSetter,
                                   final Runnable onChanged) {
         this(adapter, propertiesGetter, propertiesSetter, onChanged, true);
     }
 
     public UnlimitedResourceStore(final ResourceAdapter<R> adapter,
-                                  final Supplier<ModuleProperties> propertiesGetter,
+                                  final Supplier<@Nullable ModuleProperties> propertiesGetter,
                                   final Consumer<ModuleProperties> propertiesSetter,
                                   final Runnable onChanged, final boolean allowInsert) {
         this.adapter = adapter;
@@ -42,13 +42,13 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
         this.allowInsert = allowInsert;
     }
 
-    public static UnlimitedResourceStore<ItemResource> items(final Supplier<ModuleProperties> propertiesGetter,
+    public static UnlimitedResourceStore<ItemResource> items(final Supplier<@Nullable ModuleProperties> propertiesGetter,
                                                              final Consumer<ModuleProperties> propertiesSetter,
                                                              final Runnable onChanged) {
         return new UnlimitedResourceStore<>(ResourceAdapter.ITEMS, propertiesGetter, propertiesSetter, onChanged);
     }
 
-    public static UnlimitedResourceStore<FluidResource> fluids(final Supplier<ModuleProperties> propertiesGetter,
+    public static UnlimitedResourceStore<FluidResource> fluids(final Supplier<@Nullable ModuleProperties> propertiesGetter,
                                                                final Consumer<ModuleProperties> propertiesSetter,
                                                                final Runnable onChanged) {
         return new UnlimitedResourceStore<>(ResourceAdapter.FLUIDS, propertiesGetter, propertiesSetter, onChanged);
@@ -111,11 +111,10 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
     public int insert(final R resource, final int amount, final TransactionContext transaction) {
         TransferPreconditions.checkNonEmptyNonNegative(resource, amount);
 
-        if (!this.allowInsert || amount == 0) {
+        final ModuleProperties.Storage storage = this.storage();
+        if (storage == null || !this.allowInsert || amount == 0) {
             return 0;
         }
-
-        final ModuleProperties.Storage storage = this.storage();
 
         long current = 0L;
         for (final AsteroidResource entry : storage.inventory()) {
@@ -133,8 +132,8 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
 
         this.updateSnapshots(transaction);
 
-        this.storage().add(this.adapter.create(resource, inserted));
-        this.writeStorage(this.storage());
+        storage.add(this.adapter.create(resource, inserted));
+        this.writeStorage(storage);
 
         return inserted;
     }
@@ -144,6 +143,11 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
         TransferPreconditions.checkNonEmptyNonNegative(resource, amount);
 
         if (amount == 0) {
+            return 0;
+        }
+
+        final ModuleProperties.Storage storage = this.storage();
+        if (storage == null) {
             return 0;
         }
 
@@ -164,9 +168,7 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
 
         this.updateSnapshots(transaction);
 
-        final ModuleProperties.Storage storage = this.storage();
         final long remaining = indexedEntry.entry().amount() - extracted;
-
         if (remaining <= 0L) {
             storage.remove(indexedEntry.storageIndex());
         } else {
@@ -198,9 +200,13 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
     }
 
     public Map<R, Long> view() {
-        final Map<R, Long> result = new LinkedHashMap<>();
+        final ModuleProperties.Storage storage = this.storage();
+        if (storage == null) {
+            return Map.of();
+        }
 
-        for (final AsteroidResource entry : this.storage().inventory()) {
+        final Map<R, Long> result = new LinkedHashMap<>();
+        for (final AsteroidResource entry : storage.inventory()) {
             if (this.adapter.matches(entry)) {
                 result.put(this.adapter.resource(entry), entry.amount());
             }
@@ -215,12 +221,18 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
         }
 
         final ModuleProperties.Storage storage = this.storage();
+        if (storage == null) {
+            return;
+        }
         storage.add(this.adapter.create(resource, amount));
         this.writeStorage(storage);
     }
 
     public void clear() {
         final ModuleProperties.Storage storage = this.storage();
+        if (storage == null) {
+            return;
+        }
 
         for (int i = storage.inventory().size() - 1; i >= 0; i--) {
             if (this.adapter.matches(storage.inventory().get(i))) {
@@ -234,7 +246,8 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
 
     @Override
     protected ModuleProperties.Storage createSnapshot() {
-        return this.storage().copy();
+        final ModuleProperties.Storage storage = this.storage();
+        return storage == null ? new ModuleProperties.Storage() : storage.copy();
     }
 
     @Override
@@ -247,20 +260,27 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
         this.onChanged.run();
     }
 
-    private ModuleProperties.Storage storage() {
+    private ModuleProperties.@Nullable Storage storage() {
         final ModuleProperties properties = this.propertiesGetter.get();
-        return properties.storage();
+        return properties == null ? null : properties.storage();
     }
 
     private void writeStorage(final ModuleProperties.Storage storage) {
         final ModuleProperties current = this.propertiesGetter.get();
+        if (current == null) {
+            return;
+        }
         this.propertiesSetter.accept(current.withStorage(storage));
     }
 
     private int countMatchingEntries() {
-        int count = 0;
+        final ModuleProperties.Storage storage = this.storage();
+        if (storage == null) {
+            return 0;
+        }
 
-        for (final AsteroidResource entry : this.storage().inventory()) {
+        int count = 0;
+        for (final AsteroidResource entry : storage.inventory()) {
             if (this.adapter.matches(entry) && !entry.isEmpty()) {
                 count++;
             }
@@ -275,10 +295,13 @@ public final class UnlimitedResourceStore<R extends Resource> extends SnapshotJo
             throw new IndexOutOfBoundsException(handlerIndex);
         }
 
-        int current = 0;
-
         final ModuleProperties.Storage storage = this.storage();
+        if (storage == null) {
+            return null;
+        }
 
+
+        int current = 0;
         for (int storageIndex = 0; storageIndex < storage.inventory().size(); storageIndex++) {
             final AsteroidResource entry = storage.inventory().get(storageIndex);
             if (!this.adapter.matches(entry) || entry.isEmpty() || entry.amount() <= 0L) {

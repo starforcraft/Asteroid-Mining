@@ -19,7 +19,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.neoforged.neoforge.client.fluid.FluidTintSources;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -130,7 +129,7 @@ public final class ModFluids {
         new BaseFlowingFluid.Properties(isLiquid ? LIQUID_HYDROGEN_TYPE::value : HYDROGEN_TYPE::value,
             isLiquid ? LIQUID_HYDROGEN::value : HYDROGEN::value,
             isLiquid ? LIQUID_HYDROGEN::value : HYDROGEN::value)
-            .bucket(isLiquid ? ModItems.LIQUID_HYDROGEN_BUCKET : ModItems.HYDROGEN_BUCKET);
+            .bucket(isLiquid ? ModItems.LIQUID_HYDROGEN_BUCKET : ModItems.HYDROGEN_BUCKET); //TODO: change all gases from bucket to tank texture
     public static final BaseFlowingFluid.Properties PETROLEUM_PROPERTIES =
         new BaseFlowingFluid.Properties(PETROLEUM_TYPE::value, PETROLEUM_SOURCE::value, PETROLEUM_FLOWING::value)
             .bucket(ModItems.PETROLEUM_BUCKET).block(ModBlocks.PETROLEUM);
