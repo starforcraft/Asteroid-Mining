@@ -23,9 +23,7 @@ import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import org.lwjgl.glfw.GLFW;
 
 public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu> extends AbstractMovableWidgetContainerScreen<T> {
-    private static final int MAX_SHOWN_TABS = 7;
-
-    private final PagedSideTabs<BlockPos> tabs = new PagedSideTabs<>(MAX_SHOWN_TABS);
+    private final PagedSideTabs<BlockPos> tabs = new PagedSideTabs<>(this.imageHeight, false, 16);
 
     private Button upButton;
     private Button downButton;
@@ -61,39 +59,46 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
 
     @Override
     public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
-        super.extractBackground(graphics, mouseX, mouseY, partialTicks);
-
         final Level level = this.getMenu().getBlockEntity().getLevel();
         if (level == null) {
+            super.extractBackground(graphics, mouseX, mouseY, partialTicks);
             return;
         }
 
         final List<BlockPos> modules = new ArrayList<>(this.getMenu().getConnectedModules());
-        this.tabs.renderTabs(
-            graphics,
-            modules,
-            this.leftPos - 28,
-            this.topPos,
-            mouseX,
-            mouseY,
-            (g, pos, iconX, iconY, mx, my, hovered) -> {
-                final ItemStack stack = new ItemStack(level.getBlockState(pos).getBlock());
-                g.item(stack, iconX, iconY);
 
-                if (hovered) {
-                    g.setTooltipForNextFrame(this.font, this.getTooltipFromContainerItem(stack), stack.getTooltipImage(), stack, mx, my, stack.get(DataComponents.TOOLTIP_STYLE));
-                }
-            }
-        );
+        this.tabs.renderUnselectedTabs(graphics, modules, this.leftPos - this.tabs.getTabWidth(), this.topPos, mouseX, mouseY,
+            (g, pos, iconX, iconY, mx, my, hovered) ->
+                this.renderModuleTab(level, g, pos, iconX, iconY, mx, my, hovered));
 
+        super.extractBackground(graphics, mouseX, mouseY, partialTicks);
+
+        this.tabs.renderSelectedTab(graphics, modules, this.leftPos - this.tabs.getTabWidth(), this.topPos, mouseX, mouseY,
+            (g, pos, iconX, iconY, mx, my, hovered) ->
+                this.renderModuleTab(level, g, pos, iconX, iconY, mx, my, hovered));
         this.updateTabButtons();
+    }
+
+    private void renderModuleTab(final Level level,
+                                 final GuiGraphicsExtractor graphics,
+                                 final BlockPos pos,
+                                 final int iconX,
+                                 final int iconY,
+                                 final int mouseX,
+                                 final int mouseY,
+                                 final boolean hovered) {
+        final ItemStack stack = new ItemStack(level.getBlockState(pos).getBlock());
+        graphics.item(stack, iconX, iconY);
+        if (hovered) {
+            graphics.setTooltipForNextFrame(this.font, this.getTooltipFromContainerItem(stack), stack.getTooltipImage(), stack, mouseX, mouseY, stack.get(DataComponents.TOOLTIP_STYLE));
+        }
     }
 
     @Override
     public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
         final List<BlockPos> modules = new ArrayList<>(this.getMenu().getConnectedModules());
 
-        if (this.tabs.mouseClickedTab(event, modules, this.leftPos - 28, this.topPos, this::openModuleTab)) {
+        if (this.tabs.mouseClickedTab(event, modules, this.leftPos - this.tabs.getTabWidth(), this.topPos, this::openModuleTab)) {
             Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F));
             return true;
         }

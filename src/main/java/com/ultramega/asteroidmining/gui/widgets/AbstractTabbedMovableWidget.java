@@ -20,13 +20,20 @@ public abstract class AbstractTabbedMovableWidget<T> extends AbstractMovableWidg
                                           final int width,
                                           final int height,
                                           final IntSupplier screenWidth,
-                                          final IntSupplier screenHeight) {
+                                          final IntSupplier screenHeight,
+                                          final boolean smallTabs,
+                                          final int tabIconSize) {
         super(widgetType, defaultX, defaultY, width, height, screenWidth, screenHeight);
-        this.tabs = new PagedSideTabs<>(height / PagedSideTabs.TAB_HEIGHT);
+        this.tabs = new PagedSideTabs<>(height, smallTabs, tabIconSize);
     }
 
-    protected final PagedSideTabs<T> tabs() {
-        return this.tabs;
+    @Override
+    protected final void extractBehindMovableContents(final GuiGraphicsExtractor graphics,
+                                                      final int mouseX,
+                                                      final int mouseY,
+                                                      final float partialTicks) {
+        final List<T> items = this.getTabItems();
+        this.tabs.renderUnselectedTabs(graphics, items, this.getTabX(), this.getTabY(), mouseX, mouseY, this::renderTab);
     }
 
     @Override
@@ -34,10 +41,10 @@ public abstract class AbstractTabbedMovableWidget<T> extends AbstractMovableWidg
                                                 final int mouseX,
                                                 final int mouseY,
                                                 final float partialTicks) {
-        final List<T> items = this.getTabItems();
-        this.tabs.renderTabs(graphics, items, this.getTabX(), this.getTabY(), mouseX, mouseY, this::renderTab);
-
         this.extractTabbedMovableContents(graphics, mouseX, mouseY, partialTicks);
+
+        final List<T> items = this.getTabItems();
+        this.tabs.renderSelectedTab(graphics, items, this.getTabX(), this.getTabY(), mouseX, mouseY, this::renderTab);
     }
 
     @Override
@@ -69,11 +76,15 @@ public abstract class AbstractTabbedMovableWidget<T> extends AbstractMovableWidg
     }
 
     protected int getTabX() {
-        return this.getX() - 28;
+        return this.getX() - (this.tabs != null ? this.tabs.getTabWidth() : 0);
     }
 
     protected int getTabY() {
         return this.getY();
+    }
+
+    protected final PagedSideTabs<T> tabs() {
+        return this.tabs;
     }
 
     @Override
@@ -93,7 +104,7 @@ public abstract class AbstractTabbedMovableWidget<T> extends AbstractMovableWidg
         final int startIndex = this.tabs.getCurrentPage() * this.tabs.getMaxShownTabs();
         final int visibleTabs = Math.min(this.tabs.getMaxShownTabs(), itemCount - startIndex);
         if (visibleTabs > 0) {
-            areas.add(new Rect2i(this.getTabX(), this.getTabY(), PagedSideTabs.TAB_WIDTH, visibleTabs * PagedSideTabs.TAB_HEIGHT));
+            areas.add(new Rect2i(this.getTabX(), this.getTabY(), this.tabs.getTabWidth(), visibleTabs * this.tabs.getTabHeight()));
         }
 
         return areas;

@@ -13,27 +13,34 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 public final class PagedSideTabs<T> {
-    public static final int TAB_WIDTH = 32;
-    public static final int TAB_HEIGHT = 26;
+    private static final int TAB_WIDTH = 32;
+    private static final int TAB_HEIGHT = 26;
+    private static final int TAB_WIDTH_SMALL = 24;
+    private static final int TAB_HEIGHT_SMALL = 20;
+
+    private static final int TAB_SCREEN_OVERLAP = 4;
 
     private static final Identifier SELECTED_TAB_TOP = AsteroidMining.makeId("selected_tab_top");
     private static final Identifier SELECTED_TAB_BOTTOM = AsteroidMining.makeId("selected_tab_bottom");
     private static final Identifier SELECTED_TAB = AsteroidMining.makeId("selected_tab");
     private static final Identifier UNSELECTED_TAB = AsteroidMining.makeId("unselected_tab");
+    private static final Identifier SELECTED_TAB_TOP_SMALL = AsteroidMining.makeId("selected_tab_top_small");
+    private static final Identifier SELECTED_TAB_BOTTOM_SMALL = AsteroidMining.makeId("selected_tab_bottom_small");
+    private static final Identifier SELECTED_TAB_SMALL = AsteroidMining.makeId("selected_tab_small");
+    private static final Identifier UNSELECTED_TAB_SMALL = AsteroidMining.makeId("unselected_tab_small");
 
-    private static final int TAB_HIT_X_OFFSET = 3;
-    private static final int TAB_HIT_Y_OFFSET = 2;
-    private static final int TAB_HIT_WIDTH = 24;
-    private static final int TAB_HIT_HEIGHT = 22;
-
+    private final boolean smallTabs;
+    private final int tabIconSize;
     private final int maxShownTabs;
 
     private int selectedIndex = -1;
     private int currentPage;
     private int totalPages;
 
-    public PagedSideTabs(final int maxShownTabs) {
-        this.maxShownTabs = maxShownTabs;
+    public PagedSideTabs(final int guiHeight, final boolean smallTabs, final int tabIconSize) {
+        this.smallTabs = smallTabs;
+        this.tabIconSize = tabIconSize;
+        this.maxShownTabs = guiHeight / this.getTabHeight();
     }
 
     public void setSelectedIndex(final int selectedIndex) {
@@ -78,13 +85,34 @@ public final class PagedSideTabs<T> {
         }
     }
 
-    public void renderTabs(final GuiGraphicsExtractor graphics,
-                           final List<T> items,
-                           final int x,
-                           final int y,
-                           final int mouseX,
-                           final int mouseY,
-                           final TabRenderer<T> tabRenderer) {
+    public void renderUnselectedTabs(final GuiGraphicsExtractor graphics,
+                                     final List<T> items,
+                                     final int x,
+                                     final int y,
+                                     final int mouseX,
+                                     final int mouseY,
+                                     final TabRenderer<T> tabRenderer) {
+        this.renderTabs(graphics, items, x, y, mouseX, mouseY, tabRenderer, TabRenderLayer.UNSELECTED);
+    }
+
+    public void renderSelectedTab(final GuiGraphicsExtractor graphics,
+                                  final List<T> items,
+                                  final int x,
+                                  final int y,
+                                  final int mouseX,
+                                  final int mouseY,
+                                  final TabRenderer<T> tabRenderer) {
+        this.renderTabs(graphics, items, x, y, mouseX, mouseY, tabRenderer, TabRenderLayer.SELECTED);
+    }
+
+    private void renderTabs(final GuiGraphicsExtractor graphics,
+                            final List<T> items,
+                            final int x,
+                            final int y,
+                            final int mouseX,
+                            final int mouseY,
+                            final TabRenderer<T> tabRenderer,
+                            final TabRenderLayer renderLayer) {
         this.update(items.size());
 
         if (items.isEmpty()) {
@@ -97,13 +125,22 @@ public final class PagedSideTabs<T> {
 
         for (int i = startIndex; i < endIndex; i++) {
             final int slot = i - startIndex;
-            final int tabY = y + TAB_HEIGHT * slot;
+            final int tabX = x + TAB_SCREEN_OVERLAP;
+            final int tabY = y + this.getTabHeight() * slot;
 
             final T item = items.get(i);
             final boolean selected = i == this.selectedIndex;
 
-            graphics.blitSprite(RenderPipelines.GUI_TEXTURED, selected ? this.selectedSprite(slot, lastSlotOnPage) : UNSELECTED_TAB, x, tabY, TAB_WIDTH, TAB_HEIGHT);
-            tabRenderer.render(graphics, item, x + 9, tabY + 5, mouseX, mouseY, this.isMouseOverTab(x, tabY, mouseX, mouseY));
+            if (renderLayer.shouldRender(selected)) {
+                final Identifier texture = selected ? this.selectedSprite(slot, lastSlotOnPage) : !this.smallTabs ? UNSELECTED_TAB : UNSELECTED_TAB_SMALL;
+                graphics.blitSprite(RenderPipelines.GUI_TEXTURED, texture, tabX, tabY, this.getTabWidth(), this.getTabHeight());
+            }
+
+            if (renderLayer == TabRenderLayer.SELECTED) {
+                final int iconX = tabX + (this.getTabWidth() - this.tabIconSize) / 2;
+                final int iconY = tabY + (this.getTabHeight() - this.tabIconSize) / 2;
+                tabRenderer.render(graphics, item, iconX, iconY, mouseX, mouseY, this.isMouseOverTab(tabX, tabY, mouseX, mouseY));
+            }
         }
     }
 
@@ -151,9 +188,10 @@ public final class PagedSideTabs<T> {
 
         for (int i = startIndex; i < endIndex; i++) {
             final int slot = i - startIndex;
-            final int tabY = y + TAB_HEIGHT * slot;
+            final int tabX = x + TAB_SCREEN_OVERLAP;
+            final int tabY = y + this.getTabHeight() * slot;
 
-            if (this.isMouseOverTab(x, tabY, mouseX, mouseY)) {
+            if (this.isMouseOverTab(tabX, tabY, mouseX, mouseY)) {
                 return i;
             }
         }
@@ -165,17 +203,25 @@ public final class PagedSideTabs<T> {
                                    final int tabY,
                                    final double mouseX,
                                    final double mouseY) {
-        return ClientUtils.isMouseOver(tabX + TAB_HIT_X_OFFSET, tabY + TAB_HIT_Y_OFFSET, TAB_HIT_WIDTH, TAB_HIT_HEIGHT, mouseX, mouseY);
+        return ClientUtils.isMouseOver(tabX, tabY, this.getTabWidth(), this.getTabHeight(), mouseX, mouseY);
     }
 
     private Identifier selectedSprite(final int slot, final int lastSlotOnPage) {
         if (slot == 0) {
-            return SELECTED_TAB_TOP;
+            return !this.smallTabs ? SELECTED_TAB_TOP : SELECTED_TAB_TOP_SMALL;
         }
         if (slot == lastSlotOnPage) {
-            return SELECTED_TAB_BOTTOM;
+            return !this.smallTabs ? SELECTED_TAB_BOTTOM : SELECTED_TAB_BOTTOM_SMALL;
         }
-        return SELECTED_TAB;
+        return !this.smallTabs ? SELECTED_TAB : SELECTED_TAB_SMALL;
+    }
+
+    public int getTabHeight() {
+        return !this.smallTabs ? TAB_HEIGHT : TAB_HEIGHT_SMALL;
+    }
+
+    public int getTabWidth() {
+        return !this.smallTabs ? TAB_WIDTH : TAB_WIDTH_SMALL;
     }
 
     public int getMaxShownTabs() {
@@ -184,6 +230,14 @@ public final class PagedSideTabs<T> {
 
     public int getCurrentPage() {
         return this.currentPage;
+    }
+
+    private enum TabRenderLayer {
+        ALL, SELECTED, UNSELECTED;
+
+        private boolean shouldRender(final boolean selected) {
+            return this == ALL || (this == SELECTED && selected) || (this == UNSELECTED && !selected);
+        }
     }
 
     @FunctionalInterface

@@ -60,8 +60,10 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
         final int y = this.getY();
         final Font font = Minecraft.getInstance().font;
 
+        this.extractBehindMovableContents(graphics, mouseX, mouseY, partialTicks);
+
         graphics.blitSprite(RenderPipelines.GUI_TEXTURED, BACKGROUND, x, y, this.getWidth(), this.getHeight());
-        graphics.text(font, this.getTitle(), x + (this.getWidth() - font.width(this.getTitle())) / 2, y + 4, -12566464, false);
+        graphics.text(font, this.getTitle(), x + (this.getWidth() - font.width(this.getTitle())) / 2, y + 5, -12566464, false);
 
         this.extractMovableContents(graphics, mouseX, mouseY, partialTicks);
         this.extractTooltips(graphics, Minecraft.getInstance().font, mouseX, mouseY);
@@ -157,6 +159,9 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
         }
 
         return List.of(new Rect2i(this.getX(), this.getY(), this.getWidth(), this.getHeight()));
+    }
+
+    protected void extractBehindMovableContents(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
     }
 
     protected abstract void extractMovableContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTicks);
