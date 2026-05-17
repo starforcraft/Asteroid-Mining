@@ -161,10 +161,4 @@ public final class CommonEvents {
     private static void registerDataMapTypes(final RegisterDataMapTypesEvent event) {
         event.register(CoolantData.COOLANT_DATA);
     }
-
-    /*@SubscribeEvent
-    public static void registerCommands(final RegisterCommandsEvent event) {
-        //TODO
-        ModCommands.register(event.getDispatcher());
-    }*/
 }

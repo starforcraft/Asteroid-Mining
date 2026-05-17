@@ -23,6 +23,7 @@ import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jspecify.annotations.Nullable;
 
+// TODO: breaking with a pickaxe in survival is completely broken since porting
 public class BoundingBoxBlock extends Block implements EntityBlock {
     public BoundingBoxBlock(final Properties properties) {
         super(properties);
@@ -41,22 +42,6 @@ public class BoundingBoxBlock extends Block implements EntityBlock {
 
         final BlockState mainState = level.getBlockState(mainPos);
         return mainState.useWithoutItem(level, player, hitResult.withPosition(mainPos));
-    }
-
-    @Override
-    protected void affectNeighborsAfterRemoval(final BlockState state, final ServerLevel level, final BlockPos pos, final boolean movedByPiston) {
-        super.affectNeighborsAfterRemoval(state, level, pos, movedByPiston);
-
-        if (!state.is(state.getBlock())) {
-            final BlockPos mainPos = getMainBlockPos(level, pos);
-            if (mainPos != null) {
-                final BlockState mainState = level.getBlockState(mainPos);
-                if (!mainState.isAir()) {
-                    level.removeBlock(mainPos, movedByPiston);
-                }
-            }
-            super.affectNeighborsAfterRemoval(state, level, pos, movedByPiston);
-        }
     }
 
     @Override
@@ -87,7 +72,7 @@ public class BoundingBoxBlock extends Block implements EntityBlock {
         if (mainPos != null) {
             final BlockState mainState = level.getBlockState(mainPos);
             if (!mainState.isAir()) {
-                mainState.getBlock().playerWillDestroy(level, mainPos, mainState, player);
+                level.destroyBlock(mainPos, true, player);
                 return state;
             }
         }
@@ -144,8 +129,6 @@ public class BoundingBoxBlock extends Block implements EntityBlock {
                                    final Block block,
                                    @Nullable final Orientation orientation,
                                    final boolean movedByPiston) {
-        super.neighborChanged(state, level, pos, block, orientation, movedByPiston);
-
         final BlockPos mainPos = getMainBlockPos(level, pos);
         if (mainPos != null) {
             level.getBlockState(mainPos).handleNeighborChanged(level, mainPos, state.getBlock(), orientation, movedByPiston);

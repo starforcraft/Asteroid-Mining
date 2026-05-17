@@ -105,14 +105,23 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
     }
 
     public static void serverTick(final Level level, final BlockPos pos, final BlockState state, final DistillationColumnBlockEntity blockEntity) {
-        if (!(level instanceof ServerLevel serverLevel) || blockEntity.cannotOperate()) {
+        if (!(level instanceof ServerLevel serverLevel)) {
             return;
         }
 
         boolean changed = false;
 
+        if (blockEntity.cannotOperate()) {
+            changed |= blockEntity.autoEjectEnergyToConfiguredOutputs(ServerConfig.DISTILLATION_COLUMN_ENERGY_CAPACITY.get() / 20);
+            if (changed) {
+                blockEntity.setChanged();
+            }
+            return;
+        }
+
         changed |= tickHeatTimers(blockEntity);
         changed |= tickTemperature(blockEntity);
+
         changed |= blockEntity.autoEjectEnergyToConfiguredOutputs(ServerConfig.DISTILLATION_COLUMN_ENERGY_CAPACITY.get() / 20);
 
         if (!blockEntity.isLit() && !blockEntity.isCooling()) {

@@ -5,6 +5,7 @@ import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -77,7 +78,22 @@ public class BoundingBoxBlockEntity extends BlockEntity implements Nameable {
     public static <T, C> void redirectCapability(final RegisterCapabilitiesEvent event, final BlockCapability<T, C> capability) {
         event.registerBlock(capability, (level, pos, state, blockEntity, context) -> {
             final BlockPos mainPos = BoundingBoxBlock.getMainBlockPos(level, pos);
-            return mainPos == null ? null : level.getCapability(capability, mainPos, context);
+            if (mainPos == null) {
+                return null;
+            }
+
+            if (context instanceof Direction direction) {
+                final BlockPos sidePos = pos.relative(direction);
+
+                // Do not expose capabilities on internal multiblock faces if:
+                // face points directly at the main block
+                // or face points at another bounding box block
+                if (sidePos.equals(mainPos) || level.getBlockState(sidePos).is(ModBlocks.BOUNDING_BOX.get())) {
+                    return null;
+                }
+            }
+
+            return level.getCapability(capability, mainPos, context);
         }, ModBlocks.BOUNDING_BOX.get());
     }
 

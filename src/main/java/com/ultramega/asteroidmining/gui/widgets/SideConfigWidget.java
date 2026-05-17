@@ -30,7 +30,7 @@ public class SideConfigWidget extends AbstractTabbedMovableWidget<SideConfigType
     public static final int HEIGHT = 20 * 4;
 
     private static final int TAB_ICON_SIZE = 12;
-    private static final int CELL_WIDTH = 28;
+    private static final int CELL_WIDTH = 30;
     private static final int CELL_HEIGHT = 16;
 
     private static final SideCellLayout[] SIDE_CELL_LAYOUTS = {
@@ -66,7 +66,7 @@ public class SideConfigWidget extends AbstractTabbedMovableWidget<SideConfigType
         // TODO hover highlight the respective slots.
         // TODO: separate fluid tank and gas tank? Or give all tanks a number if more than one?
 
-        final int cellsX = this.getX() + 8;
+        final int cellsX = this.getX() + 4;
         final int cellsY = this.getY() + this.getHeaderHeight() + CELL_HEIGHT / 2;
         for (final SideCellLayout cell : SIDE_CELL_LAYOUTS) {
             this.drawSideCell(graphics, cell.direction(), cellsX + cell.col() * (CELL_WIDTH + 1), cellsY + cell.row() * (CELL_HEIGHT + 1), cell.label());
@@ -80,8 +80,17 @@ public class SideConfigWidget extends AbstractTabbedMovableWidget<SideConfigType
         graphics.fill(x, y, x + CELL_WIDTH, y + CELL_HEIGHT, mode.getColor());
         graphics.outline(x, y, CELL_WIDTH, CELL_HEIGHT, 0xFF909090);
 
-        graphics.text(font, sideLabel, x + 2, y + 4, 0xFFFFFFFF, false);
-        graphics.text(font, mode.getAbbreviation(), x + 10, y + 4, 0xFFFFFFFF, false);
+        final Component abbreviation = mode.getAbbreviation();
+
+        final int labelWidth = font.width(sideLabel);
+        final int abbreviationWidth = font.width(abbreviation);
+        final int totalWidth = labelWidth + 2 + abbreviationWidth;
+
+        final int textX = x + (CELL_WIDTH - totalWidth) / 2;
+        final int textY = y + (CELL_HEIGHT - font.lineHeight) / 2 + 1;
+
+        graphics.text(font, sideLabel, textX, textY, 0xFFFFFFFF, false);
+        graphics.text(font, abbreviation, textX + labelWidth + 2, textY, 0xFFFFFFFF, false);
     }
 
     @Override
@@ -123,7 +132,7 @@ public class SideConfigWidget extends AbstractTabbedMovableWidget<SideConfigType
 
     @Override
     protected void extractTooltips(final GuiGraphicsExtractor graphics, final Font font, final int mouseX, final int mouseY) { //TODO: refactor
-        final int cellsX = this.getX() + 8;
+        final int cellsX = this.getX() + 4;
         final int cellsY = this.getY() + this.getHeaderHeight() + CELL_HEIGHT / 2;
         for (final SideCellLayout cell : SIDE_CELL_LAYOUTS) {
             if (ClientUtils.isMouseOver(cellsX + cell.col() * (CELL_WIDTH + 1), cellsY + cell.row() * (CELL_HEIGHT + 1), CELL_WIDTH, CELL_HEIGHT, mouseX, mouseY)) {
@@ -183,7 +192,7 @@ public class SideConfigWidget extends AbstractTabbedMovableWidget<SideConfigType
         final int x = this.getX();
         final int y = this.getY() + this.getHeaderHeight();
 
-        final int cellsX = x + 8;
+        final int cellsX = x + 4;
         final int cellsY = y + CELL_HEIGHT / 2;
 
         for (final SideCellLayout cell : SIDE_CELL_LAYOUTS) {

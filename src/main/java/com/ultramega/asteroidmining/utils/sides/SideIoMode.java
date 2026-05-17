@@ -8,7 +8,7 @@ public enum SideIoMode {
         false,
         Component.literal("—"),
         Component.translatable("gui.asteroidmining.side_io_mode.none"),
-        0xFF303030), //TODO defaults
+        0xFF303030),
     INPUT(true,
         false,
         Component.translatable("gui.asteroidmining.side_io_mode.input.short"),

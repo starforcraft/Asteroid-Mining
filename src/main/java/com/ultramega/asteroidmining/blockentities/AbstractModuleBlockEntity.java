@@ -101,6 +101,14 @@ public abstract class AbstractModuleBlockEntity extends AbstractDataPreservingBl
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
+    @Override
+    public void setChanged() {
+        // Don't cause useless Level#updateNeighbourForOutputSignal update as we don't use any redstone logic at all
+        if (this.level != null) {
+            this.level.blockEntityChanged(this.worldPosition);
+        }
+    }
+
     public void setControllerPos(final BlockPos controllerPos) {
         this.controllerPos = controllerPos;
     }

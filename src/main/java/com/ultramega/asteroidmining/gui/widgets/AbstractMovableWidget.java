@@ -6,7 +6,6 @@ import com.ultramega.asteroidmining.utils.ClientUtils;
 
 import java.util.List;
 import java.util.function.IntSupplier;
-import java.util.function.Supplier;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -29,6 +28,9 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
     private final IntSupplier screenWidth;
     private final IntSupplier screenHeight;
 
+    private int lastScreenWidth;
+    private int lastScreenHeight;
+
     private boolean dragging;
     private int lastSavedX;
     private int lastSavedY;
@@ -40,13 +42,24 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
                                     final int height,
                                     final IntSupplier screenWidth,
                                     final IntSupplier screenHeight) {
-        final int x = ClientConfig.getWidgetPosition(widgetType).map(ClientConfig.SavedPosition::x).orElse(defaultX);
-        final int y = ClientConfig.getWidgetPosition(widgetType).map(ClientConfig.SavedPosition::y).orElse(defaultY);
-        super(x, y, width, height, Component.empty());
+        this(widgetType, ClientConfig.getWidgetPosition(widgetType, screenWidth.getAsInt(), screenHeight.getAsInt(), width, height)
+                .orElse(new ClientConfig.SavedPosition(defaultX, defaultY)), width, height, screenWidth, screenHeight);
+    }
+
+    private AbstractMovableWidget(final MovableWidgetType widgetType,
+                                  final ClientConfig.SavedPosition initialPosition,
+                                  final int width,
+                                  final int height,
+                                  final IntSupplier screenWidth,
+                                  final IntSupplier screenHeight) {
+        super(initialPosition.x(), initialPosition.y(), width, height, Component.empty());
 
         this.widgetType = widgetType;
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
+
+        this.lastScreenWidth = screenWidth.getAsInt();
+        this.lastScreenHeight = screenHeight.getAsInt();
 
         this.clampToScreen();
 
@@ -56,6 +69,8 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
 
     @Override
     protected final void extractWidgetRenderState(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
+        this.updatePositionAfterScreenResize();
+
         final int x = this.getX();
         final int y = this.getY();
         final Font font = Minecraft.getInstance().font;
@@ -112,6 +127,31 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
         return false;
     }
 
+    private void updatePositionAfterScreenResize() {
+        if (this.dragging) {
+            return;
+        }
+
+        final int currentScreenWidth = this.screenWidth.getAsInt();
+        final int currentScreenHeight = this.screenHeight.getAsInt();
+
+        if (currentScreenWidth == this.lastScreenWidth && currentScreenHeight == this.lastScreenHeight) {
+            return;
+        }
+
+        this.lastScreenWidth = currentScreenWidth;
+        this.lastScreenHeight = currentScreenHeight;
+
+        ClientConfig.getWidgetPosition(this.widgetType, currentScreenWidth, currentScreenHeight, this.width, this.height)
+            .ifPresentOrElse(position -> {
+                this.setX(position.x());
+                this.setY(position.y());
+            }, this::clampToScreen);
+
+        this.lastSavedX = this.getX();
+        this.lastSavedY = this.getY();
+    }
+
     public final void savePosition() {
         if (this.getX() == this.lastSavedX && this.getY() == this.lastSavedY) {
             return;
@@ -120,7 +160,7 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
         this.lastSavedX = this.getX();
         this.lastSavedY = this.getY();
 
-        ClientConfig.setWidgetPosition(this.widgetType, this.getX(), this.getY());
+        ClientConfig.setWidgetPosition(this.widgetType, this.getX(), this.getY(), this.screenWidth.getAsInt(), this.screenHeight.getAsInt(), this.width, this.height);
     }
 
     protected boolean isMouseOverWidgetArea(final double mouseX, final double mouseY) {

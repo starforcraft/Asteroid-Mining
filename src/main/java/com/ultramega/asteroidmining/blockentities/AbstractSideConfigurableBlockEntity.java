@@ -1,12 +1,19 @@
 package com.ultramega.asteroidmining.blockentities;
 
+import com.ultramega.asteroidmining.blocks.BoundingBoxBlock;
+import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.utils.PreserveData;
 import com.ultramega.asteroidmining.utils.handlers.SidedEnergyHandler;
 import com.ultramega.asteroidmining.utils.handlers.SidedResourceHandler;
 import com.ultramega.asteroidmining.utils.sides.SideConfigType;
 import com.ultramega.asteroidmining.utils.sides.SideIoMode;
 
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Queue;
+import java.util.Set;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -97,8 +104,10 @@ public abstract class AbstractSideConfigurableBlockEntity extends AbstractDataPr
     public AbstractSideConfigurableBlockEntity(final BlockEntityType<?> type, final BlockPos pos, final BlockState blockState) {
         super(type, pos, blockState);
 
-        for (final SideIoMode[] configs : this.sideConfigs) {
-            Arrays.fill(configs, SideIoMode.NONE);
+        for (final SideConfigType sideType : SideConfigType.values()) {
+            for (final Direction side : Direction.values()) {
+                this.sideConfigs[sideType.ordinal()][side.ordinal()] = this.getDefaultSideConfig(sideType, side);
+            }
         }
     }
 
@@ -117,7 +126,6 @@ public abstract class AbstractSideConfigurableBlockEntity extends AbstractDataPr
         }
 
         boolean changed = false;
-
         for (final Direction side : Direction.values()) {
             if (!this.getSideConfig(SideConfigType.ENERGY, side).canOutput()) {
                 continue;
@@ -127,42 +135,110 @@ public abstract class AbstractSideConfigurableBlockEntity extends AbstractDataPr
                 break;
             }
 
-            final EnergyHandler target = this.level.getCapability(Capabilities.Energy.BLOCK, this.getBlockPos().relative(side), side.getOpposite());
-            if (target == null) {
-                continue;
-            }
+            for (final EnergyHandler target : this.getEnergyOutputTargets(side)) {
+                final int amountToTry = (int) Math.min(maxEnergyPerSide, source.getAmountAsLong());
+                if (amountToTry <= 0) {
+                    break;
+                }
 
-            final int amountToTry = (int) Math.min(maxEnergyPerSide, source.getAmountAsLong());
-            if (amountToTry <= 0) {
-                break;
-            }
-
-            final int accepted;
-            try (Transaction tx = Transaction.openRoot()) {
-                final int extracted = source.extract(amountToTry, tx);
-                accepted = target.insert(extracted, tx);
-            }
-            if (accepted <= 0) {
-                continue;
-            }
-
-            try (Transaction tx = Transaction.openRoot()) {
-                final int extracted = source.extract(accepted, tx);
-                if (extracted != accepted) {
+                final int accepted;
+                try (Transaction tx = Transaction.openRoot()) {
+                    final int extracted = source.extract(amountToTry, tx);
+                    accepted = target.insert(extracted, tx);
+                }
+                if (accepted <= 0) {
                     continue;
                 }
 
-                final int inserted = target.insert(extracted, tx);
-                if (inserted != extracted) {
-                    continue;
-                }
+                try (Transaction tx = Transaction.openRoot()) {
+                    final int extracted = source.extract(accepted, tx);
+                    if (extracted != accepted) {
+                        continue;
+                    }
 
-                tx.commit();
-                changed = true;
+                    final int inserted = target.insert(extracted, tx);
+                    if (inserted != extracted) {
+                        continue;
+                    }
+
+                    tx.commit();
+                    changed = true;
+                }
             }
         }
 
         return changed;
+    }
+
+    private List<EnergyHandler> getEnergyOutputTargets(final Direction side) {
+        if (this.level == null) {
+            return List.of();
+        }
+
+        final List<EnergyHandler> targets = new ArrayList<>();
+        final Set<BlockPos> checkedTargets = new HashSet<>();
+        for (final BlockPos outputPartPos : this.getConnectedOutputPartPositions()) {
+            final BlockPos targetPos = outputPartPos.relative(side);
+            if (targetPos.equals(this.getBlockPos()) || this.isConnectedBoundingBox(targetPos)) {
+                continue;
+            }
+            if (!checkedTargets.add(targetPos)) {
+                continue;
+            }
+
+            final EnergyHandler target = this.level.getCapability(Capabilities.Energy.BLOCK, targetPos, side.getOpposite());
+            if (target != null) {
+                targets.add(target);
+            }
+        }
+
+        return targets;
+    }
+
+    private Set<BlockPos> getConnectedOutputPartPositions() {
+        final Set<BlockPos> parts = new HashSet<>();
+        final Queue<BlockPos> queue = new ArrayDeque<>();
+
+        final BlockPos mainPos = this.getBlockPos();
+        parts.add(mainPos);
+        queue.add(mainPos);
+
+        while (!queue.isEmpty()) {
+            final BlockPos current = queue.remove();
+            for (final Direction direction : Direction.values()) {
+                final BlockPos next = current.relative(direction);
+                if (parts.contains(next)) {
+                    continue;
+                }
+
+                if (!this.isConnectedBoundingBox(next)) {
+                    continue;
+                }
+
+                parts.add(next);
+                queue.add(next);
+            }
+        }
+
+        return parts;
+    }
+
+    private boolean isConnectedBoundingBox(final BlockPos pos) {
+        if (this.level == null || !this.level.getBlockState(pos).is(ModBlocks.BOUNDING_BOX.get())) {
+            return false;
+        }
+
+        final BlockPos mainPos = BoundingBoxBlock.getMainBlockPos(this.level, pos);
+        return mainPos != null && mainPos.equals(this.getBlockPos());
+    }
+
+    protected SideIoMode getDefaultSideConfig(final SideConfigType type, final Direction side) {
+        return switch (type) {
+            case ENERGY -> SideIoMode.INPUT;
+            case ITEMS -> SideIoMode.BOTH;
+            case FLUIDS -> side != Direction.UP ? SideIoMode.INPUT : SideIoMode.NONE;
+            case GASES -> side != Direction.DOWN ? SideIoMode.INPUT : SideIoMode.NONE;
+        };
     }
 
     protected abstract int getMachineDataCount();
@@ -344,7 +420,8 @@ public abstract class AbstractSideConfigurableBlockEntity extends AbstractDataPr
 
         for (final SideConfigType type : SideConfigType.values()) {
             for (final Direction side : Direction.values()) {
-                this.sideConfigs[type.ordinal()][side.ordinal()] = SideIoMode.byId(input.getInt(sideConfigKey(type, side)).orElse(SideIoMode.NONE.ordinal()));
+                this.sideConfigs[type.ordinal()][side.ordinal()] = SideIoMode.byId(input.getInt(sideConfigKey(type, side))
+                    .orElse(this.getDefaultSideConfig(type, side).ordinal()));
             }
         }
     }
