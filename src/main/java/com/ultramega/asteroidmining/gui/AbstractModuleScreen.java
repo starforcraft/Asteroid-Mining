@@ -90,7 +90,8 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
         final ItemStack stack = new ItemStack(level.getBlockState(pos).getBlock());
         graphics.item(stack, iconX, iconY);
         if (hovered) {
-            graphics.setTooltipForNextFrame(this.font, this.getTooltipFromContainerItem(stack), stack.getTooltipImage(), stack, mouseX, mouseY, stack.get(DataComponents.TOOLTIP_STYLE));
+            graphics.setTooltipForNextFrame(this.font, this.getTooltipFromContainerItem(stack), stack.getTooltipImage(), stack,
+                mouseX, mouseY, stack.get(DataComponents.TOOLTIP_STYLE));
         }
     }
 

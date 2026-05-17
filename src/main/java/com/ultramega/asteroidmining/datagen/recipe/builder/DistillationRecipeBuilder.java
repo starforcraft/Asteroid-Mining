@@ -9,7 +9,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.neoforged.neoforge.common.conditions.ICondition;
-import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.FluidStackTemplate;
 import net.neoforged.neoforge.fluids.crafting.SizedFluidIngredient;
 import org.jspecify.annotations.Nullable;
@@ -57,7 +56,8 @@ public class DistillationRecipeBuilder extends SimpleRecipeBuilder {
 
     @Override
     public void save(final RecipeOutput recipeOutput, final ResourceKey<Recipe<?>> resourceKey) {
-        final DistillationRecipe recipe = new DistillationRecipe(this.input, Optional.ofNullable(this.reagent), this.output, this.duration, this.minTemperature, this.maxTemperature);
+        final DistillationRecipe recipe =
+            new DistillationRecipe(this.input, Optional.ofNullable(this.reagent), this.output, this.duration, this.minTemperature, this.maxTemperature);
         recipeOutput.accept(resourceKey, recipe, null, this.conditions.toArray(new ICondition[0]));
     }
 }

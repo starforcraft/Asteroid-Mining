@@ -3,8 +3,6 @@ package com.ultramega.asteroidmining.utils;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.function.BiFunction;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
@@ -65,6 +63,7 @@ import net.neoforged.neoforge.common.world.AuxiliaryLightManager;
 import net.neoforged.neoforge.model.data.ModelData;
 import org.jspecify.annotations.Nullable;
 
+@SuppressWarnings("checkstyle:MethodCount")
 public final class FakeForwardingServerLevel implements ServerLevelAccessor {
     private final LevelAccessor delegate;
 
@@ -523,11 +522,6 @@ public final class FakeForwardingServerLevel implements ServerLevelAccessor {
     @Override
     public double getBlockFloorHeight(final BlockPos pos) {
         return this.delegate.getBlockFloorHeight(pos);
-    }
-
-    public static <T, C> T traverseBlocks(final Vec3 from, final Vec3 to, final C context, final BiFunction<C, BlockPos, T> tester,
-                                          final Function<C, T> onFail) {
-        return BlockGetter.traverseBlocks(from, to, context, tester, onFail);
     }
 
     @Override

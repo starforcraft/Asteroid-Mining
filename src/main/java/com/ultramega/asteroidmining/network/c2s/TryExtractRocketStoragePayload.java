@@ -55,14 +55,17 @@ public record TryExtractRocketStoragePayload(int handlerIndex,
         });
     }
 
-    private static void handleItemExtraction(final AsteroidResource.ItemEntry item, final TryExtractRocketStoragePayload data, final Player player, final RocketStorageViewerContainerMenu containerMenu) {
-        final ResourceHandler<ItemResource> source = containerMenu.getItemHandler();
+    private static void handleItemExtraction(final AsteroidResource.ItemEntry item,
+                                             final TryExtractRocketStoragePayload data,
+                                             final Player player,
+                                             final RocketStorageViewerContainerMenu menu) {
+        final ResourceHandler<ItemResource> source = menu.getItemHandler();
         if (data.handlerIndex() >= source.size()) {
             return;
         }
 
         final ItemResource currentResource = source.getResource(data.handlerIndex());
-        if (currentResource.isEmpty() || !currentResource.equals(item.resource())) {
+        if (currentResource.isEmpty() || !currentResource.equals(ItemResource.of(item.resource()))) {
             return;
         }
 
@@ -73,7 +76,7 @@ public record TryExtractRocketStoragePayload(int handlerIndex,
 
         final ResourceHandler<ItemResource> target = data.shiftDown()
             ? PlayerInventoryWrapper.of(player)
-            : CarriedSlotWrapper.of(containerMenu);
+            : CarriedSlotWrapper.of(menu);
 
         try (Transaction tx = Transaction.openRoot()) {
             final int extracted = source.extract(data.handlerIndex(), currentResource, amount, tx);
@@ -88,14 +91,17 @@ public record TryExtractRocketStoragePayload(int handlerIndex,
         }
     }
 
-    private static void handleFluidExtraction(final AsteroidResource.FluidEntry fluid, final TryExtractRocketStoragePayload data, final Player player, final RocketStorageViewerContainerMenu containerMenu) {
-        final ResourceHandler<FluidResource> source = containerMenu.getFluidHandler();
+    private static void handleFluidExtraction(final AsteroidResource.FluidEntry fluid,
+                                              final TryExtractRocketStoragePayload data,
+                                              final Player player,
+                                              final RocketStorageViewerContainerMenu menu) {
+        final ResourceHandler<FluidResource> source = menu.getFluidHandler();
         if (data.handlerIndex() >= source.size()) {
             return;
         }
 
         final FluidResource currentResource = source.getResource(data.handlerIndex());
-        if (currentResource.isEmpty() || !currentResource.equals(fluid.resource())) {
+        if (currentResource.isEmpty() || !currentResource.equals(FluidResource.of(fluid.resource()))) {
             return;
         }
 
