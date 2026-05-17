@@ -231,6 +231,9 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(final int containerId, final Inventory inventory, final Player player) {
+        if (this.level == null) {
+            return null;
+        }
         return new HeatExchangerContainerMenu(containerId, inventory, this, ContainerLevelAccess.create(this.level, this.getBlockPos()), this.containerData);
     }
 }

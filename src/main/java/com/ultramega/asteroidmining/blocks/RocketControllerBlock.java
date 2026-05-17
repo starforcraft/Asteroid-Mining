@@ -39,6 +39,12 @@ public class RocketControllerBlock extends AbstractFacingBlock implements Entity
     }
 
     @Override
+    protected void onPlace(final BlockState state, final Level level, final BlockPos pos, final BlockState oldState, final boolean movedByPiston) {
+        super.onPlace(state, level, pos, oldState, movedByPiston);
+        // TODO: dont allow placing next to a controller or inside a controller network
+    }
+
+    @Override
     public BlockEntity newBlockEntity(final BlockPos pos, final BlockState state) {
         return new RocketControllerBlockEntity(pos, state);
     }
@@ -46,8 +52,8 @@ public class RocketControllerBlock extends AbstractFacingBlock implements Entity
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final Level level, final BlockState state, final BlockEntityType<T> blockEntityType) {
-        return CommonUtils.createTickerHelper(blockEntityType, ModBlockEntityTypes.ROCKET_CONTROLLER.get(),
-            level.isClientSide() ? RocketControllerBlockEntity::clientTick : RocketControllerBlockEntity::serverTick);
+        return !level.isClientSide() ? CommonUtils.createTickerHelper(
+            blockEntityType, ModBlockEntityTypes.ROCKET_CONTROLLER.get(), RocketControllerBlockEntity::serverTick) : null;
     }
 
     @Override

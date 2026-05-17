@@ -61,8 +61,7 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
     }
 
     @Override
-    public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
-        super.extractBackground(graphics, mouseX, mouseY, partialTicks);
+    public void extractModuleBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.getLeftPos(), this.getTopPos(), 0, 0, this.getImageWidth(), this.getImageHeight(), 256, 256);
     }
 

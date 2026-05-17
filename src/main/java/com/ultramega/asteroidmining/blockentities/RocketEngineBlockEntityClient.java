@@ -18,8 +18,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 public final class RocketEngineBlockEntityClient {
-    private static final Map<BlockPos, UUID> SHAKES = new WeakHashMap<>();
-    private static final Map<BlockPos, MovingSoundInstance> SOUNDS = new WeakHashMap<>();
+    private static final Map<RocketEngineBlockEntity, UUID> SHAKES = new WeakHashMap<>();
+    private static final Map<RocketEngineBlockEntity, MovingSoundInstance> SOUNDS = new WeakHashMap<>();
 
     private RocketEngineBlockEntityClient() {
     }
@@ -30,17 +30,17 @@ public final class RocketEngineBlockEntityClient {
         }
 
         if (!state.getValue(RocketEngineBlock.RUNNING)) {
-            stopEffects(blockEntity.getBlockPos());
+            stopEffects(blockEntity);
             return;
         }
 
-        final UUID shakeUUID = SHAKES.computeIfAbsent(blockEntity.getBlockPos(), _ -> UUID.randomUUID());
+        final UUID shakeUUID = SHAKES.computeIfAbsent(blockEntity, _ -> UUID.randomUUID());
         final Vec3 centerPos = new Vec3(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D);
 
         CameraHandler.addScreenShake(shakeUUID, centerPos, 5f, 70);
 
         final SoundManager soundManager = Minecraft.getInstance().getSoundManager();
-        final MovingSoundInstance current = SOUNDS.get(blockEntity.getBlockPos());
+        final MovingSoundInstance current = SOUNDS.get(blockEntity);
 
         // TODO: too many rocket engines next to each other break this. So just make a single rocket engine sound for all and just increase the volume then
         if (current == null || !soundManager.isActive(current)) {
@@ -54,17 +54,17 @@ public final class RocketEngineBlockEntityClient {
                 level.getRandom().nextLong()
             );
             soundManager.play(instance);
-            SOUNDS.put(blockEntity.getBlockPos(), instance);
+            SOUNDS.put(blockEntity, instance);
         } else {
             current.setSourcePos(centerPos);
         }
     }
 
-    private static void stopEffects(final BlockPos pos) {
-        final UUID shakeUUID = SHAKES.remove(pos);
+    public static void stopEffects(final RocketEngineBlockEntity blockEntity) {
+        final UUID shakeUUID = SHAKES.remove(blockEntity);
         if (shakeUUID != null) {
             CameraHandler.removeScreenShake(shakeUUID);
         }
-        SOUNDS.remove(pos);
+        SOUNDS.remove(blockEntity);
     }
 }

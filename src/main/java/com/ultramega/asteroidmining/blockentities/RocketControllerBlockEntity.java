@@ -6,9 +6,8 @@ import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
 import com.ultramega.asteroidmining.container.RocketControllerContainerMenu;
 import com.ultramega.asteroidmining.entities.BlockStructureEntity;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
-import com.ultramega.asteroidmining.events.PreviewClientEvents;
+import com.ultramega.asteroidmining.launch.RocketLaunchManager;
 import com.ultramega.asteroidmining.network.s2c.HidePreviewBlocksPayload;
-import com.ultramega.asteroidmining.network.s2c.SendLaunchPreviewDataPayload;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
@@ -18,7 +17,8 @@ import com.ultramega.asteroidmining.storage.ConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
 import com.ultramega.asteroidmining.storage.RocketProperties;
 import com.ultramega.asteroidmining.utils.CommonUtils;
-import com.ultramega.asteroidmining.utils.PreviewInfo;
+import com.ultramega.asteroidmining.utils.PreserveData;
+import com.ultramega.asteroidmining.utils.handlers.RocketControllerItemStacksResourceHandler;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -29,9 +29,6 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.UUID;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.client.sounds.SoundManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.UUIDUtil;
@@ -49,7 +46,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -59,26 +55,33 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.transfer.item.ItemResource;
-import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import org.jspecify.annotations.Nullable;
 
 import static com.ultramega.asteroidmining.utils.CommonUtils.getMinCorner;
 import static com.ultramega.asteroidmining.utils.CommonUtils.rotateOffset;
 import static com.ultramega.asteroidmining.utils.CommonUtils.toLocalPositions;
 
-public class RocketControllerBlockEntity extends AbstractModuleBlockEntity implements MenuProvider, Nameable {
-    public final RocketControllerItemStacksResourceHandler inventoryHandler = new RocketControllerItemStacksResourceHandler(3);
+// TODO: breaking the rocket controller on launch breaks everything
+public class RocketControllerBlockEntity extends AbstractModuleBlockEntity implements MenuProvider, Nameable, PreserveData {
+    private static final int COUNTDOWN_COMMENTARY_SECONDS = 10;
+    private static final int COUNTDOWN_TICKS_PER_SECOND = 20;
+    private static final int SMOKE_START_TICKS = 2 * COUNTDOWN_TICKS_PER_SECOND;
+    private static final int LAUNCH_OVERLAY_RANGE = 100;
+
+    public final RocketControllerItemStacksResourceHandler inventoryHandler = new RocketControllerItemStacksResourceHandler(3, this);
 
     private final Set<BlockPos> connectedModules = new LinkedHashSet<>();
 
     private int selectedConfigurationIndex = -1;
 
     private int launchCooldown;
-    public int nextLaunchCooldown = 20 * 10; // default: 10 seconds
+    private int nextLaunchCooldown = 20 * 10; // default: 10 seconds
     private int launchCooldownTick;
-    public boolean launchCooldownOverlay = true;
-    public boolean launchCooldownCommentator = true;
-    public boolean playedTMinusSound = true;
+    private boolean launchCooldownOverlay = true;
+    private boolean launchCooldownCommentator = true;
+    private boolean playedTMinusSound = true;
+    private int lastCommentatedSecond = Integer.MIN_VALUE;
+    private boolean managedLaunchStarted = false;
 
     private boolean launchingRocket;
     private int launchingRocketTick;
@@ -102,127 +105,56 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         super(ModBlockEntityTypes.ROCKET_CONTROLLER.get(), pos, blockState);
     }
 
-    public static void clientTick(final Level level, final BlockPos pos, final BlockState state, final RocketControllerBlockEntity blockEntity) {
-        /*if (blockEntity.launchedRocket != null) {
-            if (blockEntity.launchingRocketTick == 720) {
-                blockEntity.launchedRocket.setRocketEnginesActiveness(false);
-            } else if (blockEntity.launchingRocketTick == 760) {
-                blockEntity.launchedRocket.setRocketEnginesActiveness(true);
-            }
-        }*/
-
-        if (!blockEntity.launchCooldownCommentator) {
-            return;
-        }
-
-        final SoundManager soundManager = Minecraft.getInstance().getSoundManager();
-
-        if (blockEntity.launchCooldown == 0) {
-            return;
-        }
-
-        final int secondsTillLaunch = (blockEntity.launchCooldown - blockEntity.launchCooldownTick + 15);
-        if (secondsTillLaunch == -1 + 15 || secondsTillLaunch == blockEntity.launchCooldown + 15) {
-            return;
-        }
-
-        if (secondsTillLaunch <= 10 * 20 + 15 && !blockEntity.playedTMinusSound) {
-            blockEntity.playedTMinusSound = true;
-            final SimpleSoundInstance instance2 = new SimpleSoundInstance(ModSounds.LAUNCH_T_MINUS.value(),
-                SoundSource.BLOCKS, 2.0f, 0.95f,
-                level.getRandom(), pos.getX(), pos.getY(), pos.getZ());
-            soundManager.play(instance2);
-        }
-
-        SoundEvent sound = null;
-        if (secondsTillLaunch == 10 * 20) {
-            sound = ModSounds.LAUNCH_10.value();
-        } else if (secondsTillLaunch == 9 * 20) {
-            sound = ModSounds.LAUNCH_9.value();
-        } else if (secondsTillLaunch == 8 * 20) {
-            sound = ModSounds.LAUNCH_8.value();
-        } else if (secondsTillLaunch == 7 * 20) {
-            sound = ModSounds.LAUNCH_7.value();
-        } else if (secondsTillLaunch == 6 * 20) {
-            sound = ModSounds.LAUNCH_6.value();
-        } else if (secondsTillLaunch == 5 * 20) {
-            sound = ModSounds.LAUNCH_5.value();
-        } else if (secondsTillLaunch == 4 * 20) {
-            sound = ModSounds.LAUNCH_4.value();
-        } else if (secondsTillLaunch == 3 * 20) {
-            sound = ModSounds.LAUNCH_3.value();
-        } else if (secondsTillLaunch == 2 * 20) {
-            sound = ModSounds.LAUNCH_2.value();
-        } else if (secondsTillLaunch == 20) {
-            sound = ModSounds.LAUNCH_1.value();
-        }
-
-        if (sound != null) {
-            final SimpleSoundInstance instance = new SimpleSoundInstance(sound,
-                SoundSource.BLOCKS, 2.0f, 0.95f,
-                level.getRandom(), pos.getX(), pos.getY(), pos.getZ());
-
-            soundManager.play(instance);
-        }
-    }
-
     public static void serverTick(final Level level, final BlockPos pos, final BlockState state, final RocketControllerBlockEntity blockEntity) {
         if (!(level instanceof ServerLevel serverLevel)) {
             return;
         }
 
-        // Load entities
-        if (blockEntity.launchedRocketId != null
-            && blockEntity.launchedRocket == null
-            && serverLevel.getEntity(blockEntity.launchedRocketId) instanceof BlockStructureEntity entity) {
-            blockEntity.launchedRocket = entity;
-        }
-        if (blockEntity.chopstick1Id != null
-            && blockEntity.chopstick1 == null
-            && serverLevel.getEntity(blockEntity.chopstick1Id) instanceof BlockStructureEntity entity) {
-            blockEntity.chopstick1 = entity;
-        }
-        if (blockEntity.chopstick2Id != null
-            && blockEntity.chopstick2 == null
-            && serverLevel.getEntity(blockEntity.chopstick2Id) instanceof BlockStructureEntity entity) {
-            blockEntity.chopstick2 = entity;
+        // TODO: starting a rocket from the same launch pad is possible as of now
+
+        blockEntity.resolveControllerOwnedEntities(serverLevel);
+
+        if (!blockEntity.launchingRocket) {
+            return;
         }
 
-        // Rocket launch logic
+        final RocketLaunchManager launchManager = RocketLaunchManager.get(serverLevel);
+        if (blockEntity.managedLaunchStarted) {
+            final RocketLaunchManager.RocketLaunchSnapshot snapshot = launchManager.getSnapshotForController(pos);
+            if (snapshot == null) {
+                blockEntity.finishManagedLaunch();
+                return;
+            }
+
+            blockEntity.tickChopsticks(snapshot);
+            blockEntity.launchingRocketTick++;
+            blockEntity.setChanged();
+            return;
+        }
+
         if (blockEntity.getSelectedConfigurationIndex() == -1) {
             return;
         }
 
         final ItemResource stack = blockEntity.inventoryHandler.getResource(blockEntity.getSelectedConfigurationIndex());
-        if (!blockEntity.launchingRocket || stack.isEmpty() || !stack.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA)) {
-            blockEntity.launchingRocketTick = 0; //TODO: this doesn't make sense right now
+        if (stack.isEmpty() || !stack.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA)) {
+            blockEntity.cancelLaunch();
             return;
         }
 
-        final UUID uuid = stack.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA);
-        if (uuid == null) {
+        final UUID configurationId = stack.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA);
+        if (configurationId == null) {
+            blockEntity.cancelLaunch();
             return;
         }
 
-        final NetworkConfiguration configuration = ConfigurationSavedData.getConfigurationData(serverLevel).get(uuid);
-        if (configuration == null) {
+        final NetworkConfiguration configuration = ConfigurationSavedData.getConfigurationData(serverLevel).get(configurationId);
+        if (configuration == null || blockEntity.destinationAsteroid == null) {
+            blockEntity.cancelLaunch();
             return;
         }
 
-        if (!CommonUtils.isSpacePortValid(level, configuration.launchPadConfiguration()) && blockEntity.chopstick1 == null) { //TODO: is this dumb?
-            // TODO: what if someone started the launch but then broke the launch pad?
-            // PacketDistributor.sendToAllPlayers(new HidePreviewBlocksMessage(pos, false));
-            return;
-        }
-
-        // Cooldown
-        if (blockEntity.launchCooldownTick++ <= blockEntity.launchCooldown) {
-            if (blockEntity.launchCooldownOverlay) {
-                for (final Player player : serverLevel.getNearbyPlayers(TargetingConditions.forNonCombat(), null, new AABB(pos).inflate(100))) {
-                    player.sendOverlayMessage(Component.literal("T-" + (blockEntity.launchCooldown - blockEntity.launchCooldownTick + 20) / 20));
-                }
-            }
-            blockEntity.setChanged();
+        if (!CommonUtils.isSpacePortValid(level, configuration.launchPadConfiguration()) && blockEntity.chopstick1 == null) {
             return;
         }
 
@@ -231,111 +163,205 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         final int height = configuration.launchPadConfiguration().height();
         final Direction facing = configuration.launchPadConfiguration().facing();
 
-        if (blockEntity.launchingRocketTick == 0) {
-            blockEntity.buildEntitiesFromBlocks(mainPos, width, height, facing);
+        final int ticksRemaining = Math.max(0, blockEntity.launchCooldown - blockEntity.launchCooldownTick);
+        if (ticksRemaining <= SMOKE_START_TICKS) {
+            blockEntity.ensureLaunchEntitiesBuilt(mainPos, width, height, facing);
+            blockEntity.spawnCountdownSmoke(serverLevel);
         }
 
-        // Open chopsticks
-        if (blockEntity.chopstick1 != null && blockEntity.chopstick2 != null) {
-            if (blockEntity.launchingRocketTick == 0 || blockEntity.launchingRocketTick == 690) {
-                blockEntity.chopstick1.setRotateTowards(0.8F);
-                blockEntity.chopstick2.setRotateTowards(-0.8F);
-            }
-
-            // Close chopsticks once opened
-            if (blockEntity.launchingRocketTick == 80 || blockEntity.launchingRocketTick == 750) {
-                blockEntity.chopstick1.setRotateTowards(-0.8F);
-                blockEntity.chopstick2.setRotateTowards(0.8F);
-            }
-
-            // Stop chopsticks rotating
-            if (blockEntity.launchingRocketTick == 40 || blockEntity.launchingRocketTick == 80 + 40
-                || blockEntity.launchingRocketTick == 690 + 40 || blockEntity.launchingRocketTick == 750 + 40) {
-                blockEntity.chopstick1.setRotateTowards(0F);
-                blockEntity.chopstick2.setRotateTowards(0F);
-
-                if (blockEntity.launchingRocketTick != 40 && blockEntity.launchingRocketTick != 690 + 40) {
-                    PacketDistributor.sendToAllPlayers(new HidePreviewBlocksPayload(pos, false));
-                }
-            }
+        if (blockEntity.launchCooldownTick < blockEntity.launchCooldown) {
+            blockEntity.playCountdownCommentary(serverLevel, pos, ticksRemaining);
+            blockEntity.sendCountdownOverlay(serverLevel, ticksRemaining);
+            blockEntity.launchCooldownTick++;
+            blockEntity.setChanged();
+            return;
         }
 
-        // TODO: actually calculate the speed by the weight and thrust force?
+        blockEntity.playCountdownCommentary(serverLevel, pos, 0);
+        blockEntity.ensureLaunchEntitiesBuilt(mainPos, width, height, facing);
+
         if (blockEntity.launchedRocket != null) {
-            double velocityY = 0;
+            launchManager.startLaunch(pos, configurationId, blockEntity.destinationAsteroid, blockEntity.launchedRocket, facing.getOpposite());
 
-            final int tick = blockEntity.launchingRocketTick;
+            // Launch manager now owns and manages the rocket entity
+            blockEntity.launchedRocket = null;
+            blockEntity.launchedRocketId = null;
+            blockEntity.managedLaunchStarted = true;
+            blockEntity.launchingRocketTick = 0;
+            blockEntity.setChanged();
+        }
+    }
 
-            // Ascend rocket
-            if (tick >= 1 && tick <= 20) {
-                velocityY = 0.04;    // 20 ticks
-            } else if (tick <= 40) {
-                velocityY = 0.08;    // next 20 ticks
-            } else if (tick <= 50) {
-                velocityY = 0.10;    // next 10 ticks
-            } else if (tick <= 60) {
-                velocityY = 0.20;    // next 10 ticks
-            } else if (tick <= 70) {
-                velocityY = 0.30;    // next 10 ticks
-            } else if (tick <= 80) {
-                velocityY = 0.40;    // next 10 ticks
-            } else if (tick <= 400) {
-                velocityY = 0.50;    // next 320 ticks
+    private static int getCommentarySecondForFirstTick(final int launchCooldownTick, final int ticksRemaining) {
+        if (ticksRemaining < 0) {
+            return -1;
+        }
+
+        final int second = Math.min(COUNTDOWN_COMMENTARY_SECONDS, (ticksRemaining + COUNTDOWN_TICKS_PER_SECOND - 1) / COUNTDOWN_TICKS_PER_SECOND);
+        if (second < 0) {
+            return -1;
+        }
+
+        final boolean firstTickOfCountdown = launchCooldownTick == 0;
+        final boolean firstTickOfDisplayedSecond = ticksRemaining % COUNTDOWN_TICKS_PER_SECOND == 0;
+
+        return firstTickOfCountdown || firstTickOfDisplayedSecond ? second : -1;
+    }
+
+    private void playCountdownCommentary(final ServerLevel serverLevel, final BlockPos pos, final int ticksRemaining) {
+        if (!this.launchCooldownCommentator || this.launchCooldown <= 0) {
+            return;
+        }
+
+        final int second = getCommentarySecondForFirstTick(this.launchCooldownTick, ticksRemaining);
+        if (second < 0 || second == this.lastCommentatedSecond) {
+            return;
+        }
+
+        if (!this.playedTMinusSound) {
+            this.playedTMinusSound = true;
+            serverLevel.playSound(null, pos, ModSounds.LAUNCH_T_MINUS.value(), SoundSource.BLOCKS, 2.0F, 0.95F);
+        }
+
+        final SoundEvent sound = switch (second) {
+            case 10 -> ModSounds.LAUNCH_10.value();
+            case 9 -> ModSounds.LAUNCH_9.value();
+            case 8 -> ModSounds.LAUNCH_8.value();
+            case 7 -> ModSounds.LAUNCH_7.value();
+            case 6 -> ModSounds.LAUNCH_6.value();
+            case 5 -> ModSounds.LAUNCH_5.value();
+            case 4 -> ModSounds.LAUNCH_4.value();
+            case 3 -> ModSounds.LAUNCH_3.value();
+            case 2 -> ModSounds.LAUNCH_2.value();
+            case 1 -> ModSounds.LAUNCH_1.value();
+            default -> null;
+        };
+
+        if (sound != null) {
+            serverLevel.playSound(null, pos, sound, SoundSource.BLOCKS, 2.0F, 0.95F);
+        }
+
+        this.lastCommentatedSecond = second;
+    }
+
+    private void resolveControllerOwnedEntities(final ServerLevel serverLevel) {
+        if (this.launchedRocketId != null && this.launchedRocket == null && serverLevel.getEntity(this.launchedRocketId) instanceof BlockStructureEntity entity) {
+            this.launchedRocket = entity;
+        }
+
+        if (this.chopstick1Id != null && this.chopstick1 == null && serverLevel.getEntity(this.chopstick1Id) instanceof BlockStructureEntity entity) {
+            this.chopstick1 = entity;
+        }
+
+        if (this.chopstick2Id != null && this.chopstick2 == null && serverLevel.getEntity(this.chopstick2Id) instanceof BlockStructureEntity entity) {
+            this.chopstick2 = entity;
+        }
+    }
+
+    private void ensureLaunchEntitiesBuilt(final BlockPos mainPos, final int width, final int height, final Direction facing) {
+        if (this.launchedRocket == null) {
+            this.buildEntitiesFromBlocks(mainPos, width, height, facing);
+            this.openChopsticks();
+        }
+    }
+
+    private void sendCountdownOverlay(final ServerLevel serverLevel, final int ticksRemaining) {
+        if (!this.launchCooldownOverlay) {
+            return;
+        }
+
+        final int secondsRemaining = Math.clamp((ticksRemaining + 19) / 20, 0, COUNTDOWN_COMMENTARY_SECONDS);
+        final List<Player> players = serverLevel.getNearbyPlayers(TargetingConditions.forNonCombat(), null, new AABB(this.getBlockPos()).inflate(LAUNCH_OVERLAY_RANGE));
+        for (final Player player : players) {
+            player.sendOverlayMessage(Component.literal("T-" + secondsRemaining));
+        }
+    }
+
+    private void spawnCountdownSmoke(final ServerLevel serverLevel) {
+        if (this.launchedRocket == null) {
+            return;
+        }
+
+        final Vec3 rocketPos = this.launchedRocket.position();
+        final RandomSource random = serverLevel.getRandom();
+        final double offsetX = CommonUtils.randomOffset(random, 1F);
+        final double offsetY = random.nextDouble() * 0.01D;
+        final double offsetZ = CommonUtils.randomOffset(random, 1F);
+
+        serverLevel.sendParticles(ModParticles.BIG_SMOKE_PARTICLE.get(), true, true, rocketPos.x, rocketPos.y - 2.0D, rocketPos.z, 10, offsetX, offsetY, offsetZ, 0.0D);
+    }
+
+    private void tickChopsticks(final RocketLaunchManager.RocketLaunchSnapshot snapshot) {
+        if (this.chopstick1 == null || this.chopstick2 == null) {
+            return;
+        }
+
+        if (snapshot.isAscending()) {
+            //TODO: chopsticks dont properly close themselves anymore (also change from rotate towards logic)
+            if (snapshot.phaseTick() == 40) {
+                this.chopstick1.setRotateTowards(0F);
+                this.chopstick2.setRotateTowards(0F);
+            } else if (snapshot.phaseTick() == 80) {
+                this.chopstick1.setRotateTowards(-0.8F);
+                this.chopstick2.setRotateTowards(0.8F);
+            } else if (snapshot.phaseTick() == 120) {
+                this.chopstick1.setRotateTowards(0F);
+                this.chopstick2.setRotateTowards(0F);
+                PacketDistributor.sendToAllPlayers(new HidePreviewBlocksPayload(this.getBlockPos(), false));
             }
-            // Descend rocket (mirror of above)
-            else if (tick <= 720) { // 400 + 320
-                //blockEntity.launchedRocket.setRocketEnginesActiveness(false);
-                velocityY = -0.50;   // 320 ticks descending at 0.5
-            } else if (tick <= 730) { // +10
-                velocityY = -0.40;   // 10 ticks at 0.4
-            } else if (tick <= 740) { // +10
-                velocityY = -0.30;   // 10 ticks at 0.3
-            } else if (tick <= 750) { // +10
-                velocityY = -0.20;   // 10 ticks at 0.2
-            } else if (tick <= 760) { // +10
-                //blockEntity.launchedRocket.setRocketEnginesActiveness(true);
-                velocityY = -0.10;   // 10 ticks at 0.1
-            } else if (tick <= 780) { // +20
-                velocityY = -0.08;   // 20 ticks at 0.08
-            } else if (tick <= 800) { // +20
-                velocityY = -0.04;   // final 20 ticks at 0.04
-            }
-
-            blockEntity.launchedRocket.setDeltaMovement(0, velocityY, 0);
-        }
-
-        // Smoke
-        if (blockEntity.launchedRocket != null) {
-            final Vec3 rocketPos = blockEntity.launchedRocket.position();
-            final RandomSource random = blockEntity.launchedRocket.getRandom();
-
-            if (blockEntity.launchingRocketTick >= 1 && blockEntity.launchingRocketTick <= 10
-                || (blockEntity.launchingRocketTick >= 780 && blockEntity.launchingRocketTick <= 810)) {
-                final double offsetX = CommonUtils.randomOffset(random, 1F);
-                final double offsetY = random.nextDouble() * 0.01;
-                final double offsetZ = CommonUtils.randomOffset(random, 1F);
-
-                serverLevel.sendParticles(
-                    ModParticles.BIG_SMOKE_PARTICLE.get(),
-                    rocketPos.x, rocketPos.y - 2, rocketPos.z,
-                    10,
-                    offsetX, offsetY, offsetZ,
-                    0.0
-                );
+        } else if (snapshot.isDescending()) {
+            if (snapshot.phaseTick() == 0) {
+                this.openChopsticks();
+            } else if (snapshot.phaseTick() == 40) {
+                this.chopstick1.setRotateTowards(0F);
+                this.chopstick2.setRotateTowards(0F);
             }
         }
+    }
 
-        //TODO: remove later
-        if (blockEntity.launchingRocketTick > 810) {
-            blockEntity.landedRocket(uuid, configuration);
+    private void openChopsticks() {
+        if (this.chopstick1 != null) {
+            this.chopstick1.setRotateTowards(0.8F);
+        }
+        if (this.chopstick2 != null) {
+            this.chopstick2.setRotateTowards(-0.8F);
+        }
+    }
+
+    public void onManagedRocketLanded(final UUID launchId) {
+        this.finishManagedLaunch();
+    }
+
+    private void cancelLaunch() {
+        if (this.launchedRocket != null) {
+            this.launchedRocket.remove(Entity.RemovalReason.DISCARDED);
+            this.launchedRocket = null;
+            this.launchedRocketId = null;
         }
 
-        // Rocket has reached orbit so remove it and wait for the mining duration to tick off
-        if (blockEntity.launchedRocket != null && blockEntity.launchedRocket.getOnPos().getY() > 300) {
-            // TODO
+        this.finishManagedLaunch();
+    }
+
+    private void finishManagedLaunch() {
+        if (this.chopstick1 != null) {
+            this.chopstick1.remove(Entity.RemovalReason.DISCARDED);
+            this.chopstick1 = null;
+            this.chopstick1Id = null;
         }
 
-        blockEntity.launchingRocketTick++;
+        if (this.chopstick2 != null) {
+            this.chopstick2.remove(Entity.RemovalReason.DISCARDED);
+            this.chopstick2 = null;
+            this.chopstick2Id = null;
+        }
+
+        this.launchCooldownTick = 0;
+        this.launchingRocketTick = 0;
+        this.launchingRocket = false;
+        this.managedLaunchStarted = false;
+        this.playedTMinusSound = true;
+        this.lastCommentatedSecond = Integer.MIN_VALUE;
+        this.setChanged();
     }
 
     public void buildEntitiesFromBlocks(final BlockPos mainPos, final int width, final int height, final Direction facing) {
@@ -417,30 +443,6 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         this.chopstick2 = chopstick2Entity;
     }
 
-    public void landedRocket(final UUID uuid, final NetworkConfiguration configuration) {
-        if (!(this.level instanceof ServerLevel serverLevel)) {
-            return;
-        }
-
-        if (this.launchedRocket != null && this.chopstick1 != null && this.chopstick2 != null) {
-            this.launchedRocket.remove(Entity.RemovalReason.KILLED);
-            this.chopstick1.remove(Entity.RemovalReason.KILLED);
-            this.chopstick2.remove(Entity.RemovalReason.KILLED);
-        }
-        this.launchCooldownTick = 0;
-        this.launchingRocketTick = 0;
-        this.launchingRocket = false;
-        this.setChanged();
-
-        final Optional<AsteroidConfig> asteroid = this.getAsteroidConfig(this.destinationAsteroid);
-        if (asteroid.isPresent()) {
-            // TODO: calculate the amount of materials mined instead of just giving everything
-            configuration.moduleProperties().addResources(asteroid.get().getComposition());
-
-            ConfigurationSavedData.getConfigurationData(serverLevel).set(uuid, configuration);
-        }
-    }
-
     public void updateRocketStats() {
         // TODO: refactor
         if (this.launchingRocket || !(this.level instanceof ServerLevel serverLevel)) {
@@ -452,7 +454,8 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             final ConfigurationSavedData data = ConfigurationSavedData.getConfigurationData(serverLevel);
             final NetworkConfiguration configuration = data.get(uuid);
             if (configuration != null) {
-                data.set(uuid, new NetworkConfiguration(configuration.launchPadConfiguration(), Optional.of(this.calculateRocketStats(configuration)), configuration.moduleProperties()));
+                data.set(uuid, new NetworkConfiguration(configuration.launchPadConfiguration(),
+                    Optional.of(this.calculateRocketStats(configuration)), configuration.moduleProperties()));
             }
         }
     }
@@ -465,7 +468,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
 
         int weight = 0;
         int thrustForce = 0;
-        int fuelUsage = 0; //TODO: calculate this too (also split into fuel and oxidizer)
+        final int fuelUsage = 0; //TODO: calculate this too (also split into fuel and oxidizer)
 
         if (this.level != null) {
             // TODO: this is duplicate again
@@ -548,6 +551,9 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         this.launchCooldownTick = input.getIntOr("launchCooldownTick", 0);
         this.launchCooldownOverlay = input.getBooleanOr("launchCooldownOverlay", true);
         this.launchCooldownCommentator = input.getBooleanOr("launchCooldownCommentator", true);
+        this.playedTMinusSound = input.getBooleanOr("playedTMinusSound", true);
+        this.lastCommentatedSecond = input.getIntOr("lastCommentatedSecond", Integer.MIN_VALUE);
+        this.managedLaunchStarted = input.getBooleanOr("managedLaunchStarted", false);
 
         this.launchingRocket = input.getBooleanOr("launchingRocket", false);
         this.launchingRocketTick = input.getIntOr("launchingRocketTick", 0);
@@ -573,6 +579,9 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         output.putInt("launchCooldownTick", this.launchCooldownTick);
         output.putBoolean("launchCooldownOverlay", this.launchCooldownOverlay);
         output.putBoolean("launchCooldownCommentator", this.launchCooldownCommentator);
+        output.putBoolean("playedTMinusSound", this.playedTMinusSound);
+        output.putInt("lastCommentatedSecond", this.lastCommentatedSecond);
+        output.putBoolean("managedLaunchStarted", this.managedLaunchStarted);
 
         output.putBoolean("launchingRocket", this.launchingRocket);
         output.putInt("launchingRocketTick", this.launchingRocketTick);
@@ -613,6 +622,9 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(final int containerId, final Inventory inventory, final Player player) {
+        if (this.level == null) {
+            return null;
+        }
         final var menu = new RocketControllerContainerMenu(containerId, inventory, this, ContainerLevelAccess.create(this.level, this.getBlockPos()));
         menu.setOverwriteStillValid(this.overwriteStillValid);
         return menu;
@@ -624,12 +636,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             return;
         }
 
-        final var properties = config.moduleProperties();
-        if (properties == null) {
-            return;
-        }
-
-        final var optionalSelectedAsteroid = properties.selectedAsteroid();
+        final var optionalSelectedAsteroid = config.moduleProperties().selectedAsteroid();
         if (optionalSelectedAsteroid.isEmpty()) {
             return;
         }
@@ -640,12 +647,14 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         }
 
         this.launchingRocket = launchingRocket;
-        this.launchCooldown = this.nextLaunchCooldown;
+        this.launchCooldown = Math.max(0, this.nextLaunchCooldown);
+        this.launchCooldownTick = 0;
+        this.launchingRocketTick = 0;
+        this.managedLaunchStarted = false;
+        this.playedTMinusSound = false;
+        this.lastCommentatedSecond = Integer.MIN_VALUE;
         this.destinationAsteroid = selectedAsteroid;
-    }
-
-    public boolean isLaunchingRocket() {
-        return this.launchingRocket;
+        this.setChanged();
     }
 
     public void setSelectedConfigurationIndex(final int selectedConfigurationIndex) {
@@ -657,53 +666,38 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         return this.selectedConfigurationIndex;
     }
 
+    public void setNextLaunchCooldown(final int nextLaunchCooldown) {
+        this.nextLaunchCooldown = nextLaunchCooldown;
+    }
+
+    public int getNextLaunchCooldown() {
+        return this.nextLaunchCooldown;
+    }
+
+    public void setLaunchCooldownOverlay(final boolean launchCooldownOverlay) {
+        this.launchCooldownOverlay = launchCooldownOverlay;
+    }
+
+    public boolean isLaunchCooldownOverlay() {
+        return this.launchCooldownOverlay;
+    }
+
+    public void setLaunchCooldownCommentator(final boolean launchCooldownCommentator) {
+        this.launchCooldownCommentator = launchCooldownCommentator;
+    }
+
+    public boolean isLaunchCooldownCommentator() {
+        return this.launchCooldownCommentator;
+    }
+
+    public void setPlayedTMinusSound(final boolean playedTMinusSound) {
+        this.playedTMinusSound = playedTMinusSound;
+    }
+
     public Optional<AsteroidConfig> getAsteroidConfig(final Identifier asteroidId) {
         return AsteroidReloadListener.INSTANCE.getData().values()
             .stream()
             .filter(config -> config.getId().equals(asteroidId))
             .findFirst();
-    }
-
-    public class RocketControllerItemStacksResourceHandler extends ItemStacksResourceHandler {
-        public RocketControllerItemStacksResourceHandler(final int size) {
-            super(size);
-        }
-
-        public void triggerContentsChanged() {
-            this.onContentsChanged(-1, ItemStack.EMPTY);
-        }
-
-        @Override
-        public void onContentsChanged(final int index, final ItemStack previousContents) {
-            RocketControllerBlockEntity.super.setChanged();
-
-            final int selectedIndex = RocketControllerBlockEntity.this.getSelectedConfigurationIndex();
-            if (selectedIndex == -1) {
-                return;
-            }
-            final ItemResource stack = this.getResource(selectedIndex);
-            if (!stack.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get())) {
-                if (RocketControllerBlockEntity.this.level != null && RocketControllerBlockEntity.this.level.isClientSide()) {
-                    PreviewClientEvents.LAUNCH_PAD_BUILDER_POS.remove(RocketControllerBlockEntity.this.getBlockPos());
-                    PreviewClientEvents.LAUNCH_PAD_PREVIEW_BLOCKS.remove(RocketControllerBlockEntity.this.getBlockPos());
-                }
-            } else {
-                if (RocketControllerBlockEntity.this.level instanceof ServerLevel serverLevel) {
-                    final UUID uuid = stack.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get());
-                    final NetworkConfiguration configuration = ConfigurationSavedData.getConfigurationData(serverLevel).get(uuid);
-                    if (configuration != null) {
-                        final List<PreviewInfo> previewInfos = CommonUtils.calculateSpacePort(RocketControllerBlockEntity.this.level,
-                            configuration.launchPadConfiguration(), false);
-                        PacketDistributor.sendToAllPlayers(new SendLaunchPreviewDataPayload(RocketControllerBlockEntity.this.getBlockPos(), uuid, previewInfos));
-                    }
-                }
-            }
-        }
-
-        @Override
-        public void deserialize(final ValueInput input) {
-            super.deserialize(input);
-            this.triggerContentsChanged();
-        }
     }
 }

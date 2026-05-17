@@ -2,6 +2,7 @@ package com.ultramega.asteroidmining;
 
 import com.ultramega.asteroidmining.config.ClientConfig;
 import com.ultramega.asteroidmining.config.ServerConfig;
+import com.ultramega.asteroidmining.launch.RocketLaunchManager;
 import com.ultramega.asteroidmining.registry.ModBlockEntityTypes;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.registry.ModCreativeTabs;
@@ -26,6 +27,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.common.NeoForge;
 import org.slf4j.Logger;
 
 @Mod(AsteroidMining.MOD_ID)
@@ -35,6 +37,8 @@ public final class AsteroidMining {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public AsteroidMining(final IEventBus modEventBus, final ModContainer modContainer) {
+        NeoForge.EVENT_BUS.addListener(RocketLaunchManager::onServerTick);
+
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModFluids.FLUIDS.register(modEventBus);

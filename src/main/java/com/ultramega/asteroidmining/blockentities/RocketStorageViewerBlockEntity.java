@@ -80,6 +80,9 @@ public class RocketStorageViewerBlockEntity extends AbstractModuleBlockEntity im
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(final int containerId, final Inventory inventory, final Player player) {
+        if (this.level == null) {
+            return null;
+        }
         final var menu = new RocketStorageViewerContainerMenu(containerId, inventory, this, ContainerLevelAccess.create(this.level, this.getBlockPos()));
         menu.setOverwriteStillValid(this.overwriteStillValid);
         return menu;

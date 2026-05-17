@@ -1,6 +1,8 @@
 package com.ultramega.asteroidmining.entities;
 
 import com.ultramega.asteroidmining.AsteroidMining;
+import com.ultramega.asteroidmining.blockentities.RocketEngineBlockEntity;
+import com.ultramega.asteroidmining.blockentities.RocketEngineBlockEntityClient;
 import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
 import com.ultramega.asteroidmining.registry.ModEntityDataSerializers;
 import com.ultramega.asteroidmining.registry.ModEntityTypes;
@@ -52,6 +54,8 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
 
     public final Map<BlockPos, BlockEntity> blockEntityCache = new HashMap<>();
 
+    private boolean freeBlocksOnRemove = true;
+
     public BlockStructureEntity(final Level level) {
         this(level, new ArrayList<>(), new ArrayList<>(), true);
     }
@@ -67,27 +71,45 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         this.noPhysics = true;
     }
 
+    public BlockStructureEntity(final Level level,
+                                final List<StructureTemplate.StructureBlockInfo> structureBlockInfos,
+                                final boolean isRocket,
+                                final double x,
+                                final double y,
+                                final double z) {
+        super(ModEntityTypes.BLOCK_STRUCTURE_ENTITY.get(), level);
+        this.setPos(x, y, z);
+        this.setIsRocket(isRocket);
+        this.createBlockEntities();
+        this.setStructureBlockInfo(structureBlockInfos);
+        this.noPhysics = true;
+    }
+
     @Override
     public void tick() {
         this.move(MoverType.SELF, this.getDeltaMovement());
 
-        // Tick Block Entities
-        this.blockEntityCache.forEach((pos, blockEntity) -> {
-            final BlockEntityTicker<BlockEntity> ticker = blockEntity.getBlockState().getTicker(this.level(), (BlockEntityType<BlockEntity>) blockEntity.getType());
-            if (ticker != null) {
-                final BlockPos realPos = new BlockPos(
-                    pos.getX() + Math.abs(pos.getX() - this.getOnPos().getX()),
-                    pos.getY() + Math.abs(pos.getY() - this.getOnPos().getY()),
-                    pos.getZ() + Math.abs(pos.getZ() - this.getOnPos().getZ()));
-                ticker.tick(this.level(), realPos, blockEntity.getBlockState(), blockEntity);
-            }
-        });
+        this.tickBlockEntities();
 
         //TODO: because of this clientside check the rotation isn't saved when rejoining the world but if I were to remove this the rotation stops being smooth
         // also this is really hacky and can get easily broken instead specify a target yRot and rotate towards that slowly
         if (this.level().isClientSide() && this.getRotateTowards() != 0.0F) {
             this.yRotO = this.getYRot();
             this.setYRot(this.getYRot() + this.getRotateTowards());
+        }
+    }
+
+    private void tickBlockEntities() {
+        for (final StructureTemplate.StructureBlockInfo blockInfo : this.getStructureBlockInfos()) {
+            final BlockEntity blockEntity = this.blockEntityCache.get(blockInfo.pos());
+            if (blockEntity == null) {
+                continue;
+            }
+
+            final BlockEntityTicker<BlockEntity> ticker = blockInfo.state().getTicker(this.level(), (BlockEntityType<BlockEntity>) blockEntity.getType());
+            if (ticker != null) {
+                ticker.tick(this.level(), this.getStructureWorldOrigin().offset(blockInfo.pos()), blockInfo.state(), blockEntity);
+            }
         }
     }
 
@@ -204,6 +226,15 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
     }
 
     @Override
+    public void onSyncedDataUpdated(final EntityDataAccessor<?> key) {
+        super.onSyncedDataUpdated(key);
+
+        if (STRUCTURE_BLOCK_INFO_DATA.equals(key)) {
+            this.updateBoundingBox();
+        }
+    }
+
+    @Override
     public void readSpawnData(final RegistryFriendlyByteBuf buf) {
         final int size = buf.readVarInt();
         final List<StructureTemplate.StructureBlockInfo> blockInfos = new ArrayList<>(size);
@@ -211,7 +242,7 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         for (int i = 0; i < size; i++) {
             final BlockPos pos = buf.readBlockPos();
             final CompoundTag stateTag = buf.readNbt();
-            final BlockState state = NbtUtils.readBlockState(this.level().holderLookup(Registries.BLOCK), stateTag);
+            final BlockState state = NbtUtils.readBlockState(this.level().holderLookup(Registries.BLOCK), stateTag == null ? new CompoundTag() : stateTag);
             CompoundTag nbt = buf.readNbt();
             if (nbt != null && nbt.isEmpty()) {
                 nbt = null;
@@ -250,15 +281,30 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         this.dimensions = EntityDimensions.scalable(width, height);
     }
 
+    public void discardWithoutFreeingBlocks() {
+        this.freeBlocksOnRemove = false;
+        this.remove(RemovalReason.DISCARDED);
+    }
+
     @Override
     public void remove(final RemovalReason reason) {
-        this.freeBlocks();
+        if (this.freeBlocksOnRemove) {
+            this.freeBlocks();
+        }
 
         super.remove(reason);
     }
 
     @Override
     public void onRemovedFromLevel() {
+        if (this.level().isClientSide()) {
+            this.blockEntityCache.values().forEach(blockEntity -> {
+                if (blockEntity instanceof RocketEngineBlockEntity rocketEngine) {
+                    RocketEngineBlockEntityClient.stopEffects(rocketEngine);
+                }
+            });
+        }
+
         this.freeBlockEntities();
 
         super.onRemovedFromLevel();

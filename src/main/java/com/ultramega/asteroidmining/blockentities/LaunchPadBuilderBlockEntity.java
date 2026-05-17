@@ -110,6 +110,9 @@ public class LaunchPadBuilderBlockEntity extends AbstractDataPreservingBlockEnti
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(final int containerId, final Inventory inventory, final Player player) {
+        if (this.level == null) {
+            return null;
+        }
         return new LaunchPadBuilderContainerMenu(containerId, inventory, this, ContainerLevelAccess.create(this.level, this.getBlockPos()));
     }
 }

@@ -21,6 +21,7 @@ import com.ultramega.asteroidmining.registry.ModEntityTypes;
 import com.ultramega.asteroidmining.registry.ModFluids;
 import com.ultramega.asteroidmining.registry.ModMenuTypes;
 import com.ultramega.asteroidmining.registry.ModParticles;
+import com.ultramega.asteroidmining.registry.ModRenderPipelines;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -30,6 +31,7 @@ import net.neoforged.neoforge.client.event.RegisterFluidModelsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.event.RegisterPictureInPictureRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterRenderPipelinesEvent;
 import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
 import net.neoforged.neoforge.client.event.RenderHandEvent;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
@@ -70,7 +72,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void registerEntityRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         for (final RocketEngineBlock.Type type : RocketEngineBlock.Type.values()) {
-            event.registerBlockEntityRenderer(type.getBlockEntity().get(), RocketEngineBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(type.getBlockEntity().get(), (ctx) -> new RocketEngineBlockEntityRenderer());
         }
         event.registerEntityRenderer(ModEntityTypes.BLOCK_STRUCTURE_ENTITY.get(), BlockStructureEntityRenderer::new);
     }
@@ -111,5 +113,11 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void registerPipRenderers(final RegisterPictureInPictureRenderersEvent event) {
         event.register(ScenePictureInPictureRenderer.State.class, ScenePictureInPictureRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void registerPipelines(final RegisterRenderPipelinesEvent event) {
+        event.registerPipeline(ModRenderPipelines.ORBIT_LINES);
+        event.registerPipeline(ModRenderPipelines.ROCKET_FLAME);
     }
 }

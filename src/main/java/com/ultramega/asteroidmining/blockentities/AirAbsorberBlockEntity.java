@@ -158,6 +158,9 @@ public class AirAbsorberBlockEntity extends AbstractDataPreservingBlockEntity im
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(final int containerId, final Inventory inventory, final Player player) {
+        if (this.level == null) {
+            return null;
+        }
         return new AirAbsorberContainerMenu(containerId, inventory, this, ContainerLevelAccess.create(this.level, this.getBlockPos()), this.containerData);
     }
 }

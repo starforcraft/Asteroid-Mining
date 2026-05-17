@@ -2,6 +2,7 @@ package com.ultramega.asteroidmining.registry;
 
 import com.mojang.blaze3d.pipeline.BlendFunction;
 import com.mojang.blaze3d.pipeline.ColorTargetState;
+import com.mojang.blaze3d.pipeline.DepthStencilState;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
@@ -16,6 +17,16 @@ public final class ModRenderPipelines {
         .withFragmentShader("core/position_color")
         .withColorTargetState(new ColorTargetState(BlendFunction.TRANSLUCENT))
         .withVertexFormat(DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.DEBUG_LINE_STRIP)
+        .build();
+
+    public static final RenderPipeline ROCKET_FLAME = RenderPipeline.builder(RenderPipelines.MATRICES_FOG_SNIPPET)
+        .withLocation(makeId("pipeline/rocket_flame"))
+        .withVertexShader("core/rendertype_lightning")
+        .withFragmentShader("core/rendertype_lightning")
+        .withColorTargetState(new ColorTargetState(BlendFunction.TRANSLUCENT))
+        .withVertexFormat(DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS)
+        .withDepthStencilState(DepthStencilState.DEFAULT)
+        .withCull(false)
         .build();
 
     private ModRenderPipelines() {

@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jspecify.annotations.Nullable;
 
 public class ObservatoryBlockEntity extends AbstractModuleBlockEntity implements MenuProvider, Nameable {
     public ObservatoryBlockEntity(final BlockPos pos,
@@ -30,8 +31,12 @@ public class ObservatoryBlockEntity extends AbstractModuleBlockEntity implements
         return Component.translatable(ModBlocks.SMALL_OBSERVATORY.get().getDescriptionId());
     }
 
+    @Nullable
     @Override
     public AbstractContainerMenu createMenu(final int containerId, final Inventory inventory, final Player player) {
+        if (this.level == null) {
+            return null;
+        }
         final var menu = new ObservatoryContainerMenu(containerId, inventory, this, ContainerLevelAccess.create(this.level, this.getBlockPos()));
         menu.setOverwriteStillValid(this.overwriteStillValid);
         return menu;

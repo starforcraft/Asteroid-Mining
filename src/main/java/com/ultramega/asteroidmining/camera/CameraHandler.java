@@ -51,7 +51,7 @@ public final class CameraHandler {
         float totalIntensity = 0f;
         float maxPercentageToCenter = 0f;
 
-        for (Iterator<ShakeSource> iterator = SOURCES.iterator(); iterator.hasNext();) {
+        for (final Iterator<ShakeSource> iterator = SOURCES.iterator(); iterator.hasNext();) {
             final ShakeSource source = iterator.next();
             totalIntensity += source.computeIntensity(camera.position());
 

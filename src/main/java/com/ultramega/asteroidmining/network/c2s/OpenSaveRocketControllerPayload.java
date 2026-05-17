@@ -34,9 +34,9 @@ public record OpenSaveRocketControllerPayload(BlockPos controllerPos, int launch
         context.enqueueWork(() -> {
             final Player player = context.player();
             if (player.level().getBlockEntity(data.controllerPos()) instanceof RocketControllerBlockEntity blockEntity) {
-                blockEntity.nextLaunchCooldown = data.launchCooldown();
-                blockEntity.launchCooldownOverlay = data.launchCooldownOverlay();
-                blockEntity.launchCooldownCommentator = data.launchCooldownCommentator();
+                blockEntity.setNextLaunchCooldown(data.launchCooldown());
+                blockEntity.setLaunchCooldownOverlay(data.launchCooldownOverlay());
+                blockEntity.setLaunchCooldownCommentator(data.launchCooldownCommentator());
                 blockEntity.setChanged();
 
                 player.openMenu(new SimpleMenuProvider(

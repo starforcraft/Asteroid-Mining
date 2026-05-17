@@ -3,29 +3,28 @@ package com.ultramega.asteroidmining.particles;
 import com.ultramega.asteroidmining.utils.CommonUtils;
 
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.particle.BaseAshSmokeParticle;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
+import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.RandomSource;
 
-public class BigSmokeParticle extends BaseAshSmokeParticle {
+public class BigSmokeParticle extends SingleQuadParticle {
     public BigSmokeParticle(final ClientLevel level,
                             final double x,
                             final double y,
                             final double z,
-                            final double xa,
-                            final double ya,
-                            final double za,
-                            final float scale,
+                            final double speedX,
+                            final double speedY,
+                            final double speedZ,
                             final SpriteSet sprites) {
-        super(level, x, y, z, 0.1F, 0.1F, 0.1F, xa, ya, za, scale, sprites, 0.3F, 8, -0.1F, true);
+        super(level, x, y, z, speedX, speedY, speedZ, sprites.first());
 
         this.setSprite(sprites.get(this.random));
         this.scale(6.0F + CommonUtils.randomOffset(this.random, 2));
         this.friction = 0.95F;
-        this.lifetime = 10000;
+        this.lifetime = 8000;
     }
 
     @Override
@@ -61,7 +60,7 @@ public class BigSmokeParticle extends BaseAshSmokeParticle {
                                        final double auxY,
                                        final double auxZ,
                                        final RandomSource random) {
-            return new BigSmokeParticle(level, x, y, z, auxX, auxY, auxZ, 1.0F, this.sprites);
+            return new BigSmokeParticle(level, x, y, z, auxX, auxY, auxZ, this.sprites);
         }
     }
 }

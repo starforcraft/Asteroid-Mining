@@ -7,6 +7,7 @@ import java.util.List;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.block.MovingBlockRenderState;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureEntity, BlockStructureEntityRenderState> {
     private final BlockEntityRenderDispatcher blockEntityRenderDispatcher;
@@ -42,19 +44,27 @@ public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureE
         state.movingBlocks.clear();
         state.blockEntities.clear();
 
+        final Vec3 entityPos = entity.getPosition(partialTicks);
+
         for (final StructureTemplate.StructureBlockInfo info : infos) {
-            final BlockPos pos = info.pos();
+            final BlockPos localPos = info.pos();
             final BlockState blockState = info.state();
+            final BlockPos worldPos = BlockPos.containing(entityPos.x + localPos.getX(), entityPos.y + localPos.getY(), entityPos.z + localPos.getZ());
 
             final MovingBlockRenderState movingBlockRenderState = new MovingBlockRenderState();
-            movingBlockRenderState.blockPos = pos;
+            movingBlockRenderState.blockPos = worldPos;
             movingBlockRenderState.blockState = blockState;
-            state.movingBlocks.add(new BlockStructureEntityRenderState.MovingBlockEntry(pos, movingBlockRenderState));
+            if (entity.level() instanceof ClientLevel clientLevel) {
+                movingBlockRenderState.biome = clientLevel.getBiome(worldPos);
+                movingBlockRenderState.cardinalLighting = clientLevel.cardinalLighting();
+                movingBlockRenderState.lightEngine = clientLevel.getLightEngine();
+            }
+            state.movingBlocks.add(new BlockStructureEntityRenderState.MovingBlockEntry(localPos, movingBlockRenderState));
 
             if (blockState.hasBlockEntity()) {
-                final BlockEntity blockEntity = entity.blockEntityCache.get(pos);
+                final BlockEntity blockEntity = entity.blockEntityCache.get(localPos);
                 if (blockEntity != null) {
-                    state.blockEntities.add(new BlockStructureEntityRenderState.BlockEntityEntry(pos, blockEntity));
+                    state.blockEntities.add(new BlockStructureEntityRenderState.BlockEntityEntry(localPos, blockEntity));
                 }
             }
         }

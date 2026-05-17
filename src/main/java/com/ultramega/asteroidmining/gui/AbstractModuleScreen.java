@@ -58,10 +58,11 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
     }
 
     @Override
-    public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
+    public final void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
+        super.extractBackground(graphics, mouseX, mouseY, partialTicks);
+
         final Level level = this.getMenu().getBlockEntity().getLevel();
         if (level == null) {
-            super.extractBackground(graphics, mouseX, mouseY, partialTicks);
             return;
         }
 
@@ -71,7 +72,7 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
             (g, pos, iconX, iconY, mx, my, hovered) ->
                 this.renderModuleTab(level, g, pos, iconX, iconY, mx, my, hovered));
 
-        super.extractBackground(graphics, mouseX, mouseY, partialTicks);
+        this.extractModuleBackground(graphics, mouseX, mouseY, partialTicks);
 
         this.tabs.renderSelectedTab(graphics, modules, this.leftPos - this.tabs.getTabWidth(), this.topPos, mouseX, mouseY,
             (g, pos, iconX, iconY, mx, my, hovered) ->
@@ -137,4 +138,6 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
         this.upButton.active = this.tabs.canPageUp();
         this.downButton.active = this.tabs.canPageDown();
     }
+
+    protected abstract void extractModuleBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTicks);
 }

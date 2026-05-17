@@ -60,7 +60,7 @@ public class ObservatoryScreen extends AbstractModuleScreen<ObservatoryContainer
             }
 
             Minecraft.getInstance().setScreen(new SolarSystemViewScreen(this.selectedAsteroid, (selectedAsteroid -> {
-                ClientPacketDistributor.sendToServer(new SelectAsteroidPayload(Optional.ofNullable(selectedAsteroid), this.selectedConfigurationUUID));
+                ClientPacketDistributor.sendToServer(new SelectAsteroidPayload(Optional.of(selectedAsteroid), this.selectedConfigurationUUID));
 
                 this.updateSelectedAsteroid(selectedAsteroid);
             }), this));
@@ -70,9 +70,7 @@ public class ObservatoryScreen extends AbstractModuleScreen<ObservatoryContainer
     }
 
     @Override
-    public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
-        super.extractBackground(graphics, mouseX, mouseY, partialTicks);
-
+    public void extractModuleBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.getImageWidth(), this.getImageHeight(), 256, 256);
 
         // TODO: overhaul UI

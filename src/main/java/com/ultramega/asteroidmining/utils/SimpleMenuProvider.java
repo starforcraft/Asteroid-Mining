@@ -6,6 +6,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuConstructor;
+import org.jspecify.annotations.Nullable;
 
 public final class SimpleMenuProvider implements MenuProvider {
     private final Component title;
@@ -16,10 +17,13 @@ public final class SimpleMenuProvider implements MenuProvider {
         this.title = title;
     }
 
+    @Override
     public Component getDisplayName() {
         return this.title;
     }
 
+    @Nullable
+    @Override
     public AbstractContainerMenu createMenu(final int containerId, final Inventory playerInventory, final Player player) {
         return this.menuConstructor.createMenu(containerId, playerInventory, player);
     }

@@ -49,7 +49,7 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
         // TODO: add cancel launch
         // TODO: disable button if errors are present
         this.addRenderableWidget(Button.builder(Component.translatable("gui.asteroidmining.rocket_controller.launch_rocket"), (button) -> {
-            this.getMenu().getBlockEntity().playedTMinusSound = false;
+            this.getMenu().getBlockEntity().setPlayedTMinusSound(false);
             ClientPacketDistributor.sendToServer(new LaunchRocketPayload(this.getMenu().getBlockEntity().getBlockPos()));
         }).bounds(this.leftPos + (this.imageWidth - 80) / 2, this.topPos + 158, 85, 18).build());
         final ImageButton configureButton = new ImageButton(this.leftPos + this.imageWidth - (24 + 5), this.topPos + 5, 24, 24, 6, 6, CONFIGURE, (button) ->
@@ -69,8 +69,7 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
     }
 
     @Override
-    public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
-        super.extractBackground(graphics, mouseX, mouseY, partialTicks);
+    public void extractModuleBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.getImageWidth(), this.getImageHeight(), 256, 256);
     }
 
