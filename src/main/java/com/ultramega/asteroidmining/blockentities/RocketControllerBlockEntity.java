@@ -68,6 +68,10 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
     private static final int SMOKE_START_TICKS = 2 * COUNTDOWN_TICKS_PER_SECOND;
     private static final int LAUNCH_OVERLAY_RANGE = 100;
 
+    private static final float CHOPSTICK_OPEN_DEGREES = 40F;
+    private static final double DESCENT_OPEN_HEIGHT_ABOVE_CHOPSTICKS = 50.0D;
+    private static final double DESCENT_CLOSE_HEIGHT_ABOVE_CHOPSTICKS = 8.0D;
+
     public final RocketControllerItemStacksResourceHandler inventoryHandler = new RocketControllerItemStacksResourceHandler(3, this);
 
     private final Set<BlockPos> connectedModules = new LinkedHashSet<>();
@@ -82,6 +86,10 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
     private boolean playedTMinusSound = true;
     private int lastCommentatedSecond = Integer.MIN_VALUE;
     private boolean managedLaunchStarted = false;
+
+    private boolean wasDescending = false;
+    private boolean descentChopsticksOpened = false;
+    private boolean descentChopsticksClosed = false;
 
     private boolean launchingRocket;
     private int launchingRocketTick;
@@ -297,35 +305,56 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         }
 
         if (snapshot.isAscending()) {
-            //TODO: chopsticks dont properly close themselves anymore (also change from rotate towards logic)
-            if (snapshot.phaseTick() == 40) {
-                this.chopstick1.setRotateTowards(0F);
-                this.chopstick2.setRotateTowards(0F);
-            } else if (snapshot.phaseTick() == 80) {
-                this.chopstick1.setRotateTowards(-0.8F);
-                this.chopstick2.setRotateTowards(0.8F);
+            this.wasDescending = false;
+
+            if (snapshot.phaseTick() == 80) {
+                this.openChopsticks();
             } else if (snapshot.phaseTick() == 120) {
-                this.chopstick1.setRotateTowards(0F);
-                this.chopstick2.setRotateTowards(0F);
+                this.closeChopsticks();
+
                 PacketDistributor.sendToAllPlayers(new HidePreviewBlocksPayload(this.getBlockPos(), false));
             }
+
+            return;
         } else if (snapshot.isDescending()) {
-            if (snapshot.phaseTick() == 0) {
-                this.openChopsticks();
-            } else if (snapshot.phaseTick() == 40) {
-                this.chopstick1.setRotateTowards(0F);
-                this.chopstick2.setRotateTowards(0F);
+            if (!this.wasDescending) {
+                this.wasDescending = true;
+                this.descentChopsticksOpened = false;
+                this.descentChopsticksClosed = false;
             }
+
+            final double heightAboveChopsticks = snapshot.getRocketHeightAboveLanding();
+            if (!this.descentChopsticksClosed && heightAboveChopsticks <= DESCENT_CLOSE_HEIGHT_ABOVE_CHOPSTICKS) {
+                this.closeChopsticks();
+                this.descentChopsticksClosed = true;
+                return;
+            }
+
+            if (!this.descentChopsticksOpened && heightAboveChopsticks <= DESCENT_OPEN_HEIGHT_ABOVE_CHOPSTICKS) {
+                this.openChopsticks();
+                this.descentChopsticksOpened = true;
+            }
+
+            return;
         }
+
+        this.wasDescending = false;
     }
 
     private void openChopsticks() {
-        if (this.chopstick1 != null) {
-            this.chopstick1.setRotateTowards(0.8F);
+        if (this.chopstick1 == null || this.chopstick2 == null) {
+            return;
         }
-        if (this.chopstick2 != null) {
-            this.chopstick2.setRotateTowards(-0.8F);
+        this.chopstick1.setTargetYRot(CHOPSTICK_OPEN_DEGREES);
+        this.chopstick2.setTargetYRot(-CHOPSTICK_OPEN_DEGREES);
+    }
+
+    private void closeChopsticks() {
+        if (this.chopstick1 == null || this.chopstick2 == null) {
+            return;
         }
+        this.chopstick1.setTargetYRot(0F);
+        this.chopstick2.setTargetYRot(0F);
     }
 
     public void onManagedRocketLanded(final UUID launchId) {
@@ -555,6 +584,10 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         this.lastCommentatedSecond = input.getIntOr("lastCommentatedSecond", Integer.MIN_VALUE);
         this.managedLaunchStarted = input.getBooleanOr("managedLaunchStarted", false);
 
+        this.wasDescending = input.getBooleanOr("wasDescending", false);
+        this.descentChopsticksOpened = input.getBooleanOr("descentChopsticksOpened", false);
+        this.descentChopsticksClosed = input.getBooleanOr("descentChopsticksClosed", false);
+
         this.launchingRocket = input.getBooleanOr("launchingRocket", false);
         this.launchingRocketTick = input.getIntOr("launchingRocketTick", 0);
         this.destinationAsteroid = input.read("destinationAsteroid", Identifier.CODEC).orElse(null);
@@ -582,6 +615,10 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         output.putBoolean("playedTMinusSound", this.playedTMinusSound);
         output.putInt("lastCommentatedSecond", this.lastCommentatedSecond);
         output.putBoolean("managedLaunchStarted", this.managedLaunchStarted);
+
+        output.putBoolean("wasDescending", this.wasDescending);
+        output.putBoolean("descentChopsticksOpened", this.descentChopsticksOpened);
+        output.putBoolean("descentChopsticksClosed", this.descentChopsticksClosed);
 
         output.putBoolean("launchingRocket", this.launchingRocket);
         output.putInt("launchingRocketTick", this.launchingRocketTick);

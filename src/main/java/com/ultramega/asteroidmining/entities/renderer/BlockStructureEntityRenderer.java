@@ -37,6 +37,7 @@ public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureE
         state.partialTicks = partialTicks;
         state.pivotPoint = entity.getPivotPoint();
         state.interpolatedYRot = entity.getPreciseBodyRotation(partialTicks);
+        state.interpolatedXRot = entity.getPrecisePitchRotation(partialTicks);
 
         final List<StructureTemplate.StructureBlockInfo> infos = List.copyOf(entity.getStructureBlockInfos());
         state.structureBlockInfos = infos;
@@ -85,6 +86,7 @@ public class BlockStructureEntityRenderer extends EntityRenderer<BlockStructureE
         final BlockPos pivot = renderState.pivotPoint;
         poseStack.translate(pivot.getX() + 0.5, pivot.getY(), pivot.getZ() + 0.5);
         poseStack.mulPose(Axis.YP.rotationDegrees(-renderState.interpolatedYRot));
+        poseStack.mulPose(Axis.XP.rotationDegrees(renderState.interpolatedXRot));
         poseStack.translate(-(pivot.getX() + 0.5), -pivot.getY(), -(pivot.getZ() + 0.5));
 
         // TODO: Are blocks hidden by others rendered?

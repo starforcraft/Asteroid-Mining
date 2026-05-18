@@ -38,7 +38,7 @@ public class MovingSoundInstance extends AbstractTickableSoundInstance {
         this.y = (float) this.sourcePos.y();
         this.z = (float) this.sourcePos.z();
 
-        if (Minecraft.getInstance().player != null) {
+        if (Minecraft.getInstance().player != null) { //TODO: update calculation to make y less 'important'
             final double distance = Minecraft.getInstance().player.position().distanceTo(this.sourcePos);
             final double maxDistance = 64.0;
             this.volume = distance > maxDistance ? 0.0f : 4.0f * (float) ((maxDistance - distance) / maxDistance);

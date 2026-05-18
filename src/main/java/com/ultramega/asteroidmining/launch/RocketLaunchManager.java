@@ -42,8 +42,14 @@ import static java.util.Objects.requireNonNull;
 public class RocketLaunchManager extends SavedData {
     private static final double ORBIT_Y = 500.0D;
     private static final int ORBIT_WAIT_TICKS = 20 /* * 60 * 3*/; //TODO: calculate and set this value accordingly
+
     private static final double REENTRY_ALIGNMENT_START_ABOVE_LANDING = 96.0D;
     private static final double REENTRY_OFFSET_BLOCKS = 16.0D;
+    private static final double REENTRY_FORCE_ALIGNED_ABOVE_LANDING = 8.0D;
+
+    private static final float LANDING_MAX_PITCH_DEGREES = 8.0F;
+    private static final double LANDING_PITCH_START_ABOVE_LANDING = 60.0D;
+    private static final double LANDING_FORCE_UPRIGHT_ABOVE_LANDING = 6.0D;
 
     private static final Codec<RocketFlight> ROCKET_FLIGHT_CODEC = RecordCodecBuilder.create(instance -> instance.group(
         UUIDUtil.CODEC.fieldOf("id").forGetter(flight -> flight.id),
@@ -138,10 +144,10 @@ public class RocketLaunchManager extends SavedData {
             return null;
         }
 
-        return new RocketLaunchSnapshot(launch.id, launch.phase, launch.phaseTick, Optional.ofNullable(launch.rocketEntityId));
+        return new RocketLaunchSnapshot(launch.id, launch.phase, launch.phaseTick, launch.rocketY, launch.landingY, Optional.ofNullable(launch.rocketEntityId));
     }
 
-    public boolean hasLaunchForController(final BlockPos controllerPos) { //TODO
+    public boolean hasLaunchForController(final BlockPos controllerPos) { //TODO: what are we going to do if the controller was removed?
         return this.getLaunchForController(controllerPos) != null;
     }
 
@@ -226,16 +232,31 @@ public class RocketLaunchManager extends SavedData {
     private boolean tickDescent(final ServerLevel level, final RocketFlight launch) {
         final BlockStructureEntity rocket = this.getOrRespawnRocket(level, launch, launch.rocketX, launch.rocketY, launch.rocketZ);
 
+        final double heightAboveLanding = rocket.getY() - launch.landingY;
+        final double pitchHeightProgress = Mth.clamp(
+            (heightAboveLanding - LANDING_FORCE_UPRIGHT_ABOVE_LANDING) / (LANDING_PITCH_START_ABOVE_LANDING - LANDING_FORCE_UPRIGHT_ABOVE_LANDING),
+            0.0D,
+            1.0D);
+        final double easedPitchProgress = 1.0D - Math.pow(1.0D - pitchHeightProgress, 4.0D);
+        final float targetPitch = (float) (LANDING_MAX_PITCH_DEGREES * easedPitchProgress);
+        rocket.setTargetXRot(targetPitch);
+
         final double fullDrop = Math.max(1.0D, ORBIT_Y - launch.landingY);
-        final double remainingDrop = Mth.clamp((rocket.getY() - launch.landingY) / fullDrop, 0.0D, 1.0D);
+        final double remainingDrop = Mth.clamp(heightAboveLanding / fullDrop, 0.0D, 1.0D);
         final double landingProgress = 1.0D - remainingDrop;
         final double easedLandingProgress = smoothStep(landingProgress);
 
-        final double alignmentRemainingDrop = Mth.clamp((rocket.getY() - launch.landingY) / REENTRY_ALIGNMENT_START_ABOVE_LANDING, 0.0D, 1.0D);
-        final double alignmentProgress = smoothStep(1.0D - alignmentRemainingDrop);
+        final double alignmentHeightProgress = Mth.clamp(
+            (heightAboveLanding - REENTRY_FORCE_ALIGNED_ABOVE_LANDING)
+                / (REENTRY_ALIGNMENT_START_ABOVE_LANDING - REENTRY_FORCE_ALIGNED_ABOVE_LANDING),
+            0.0D,
+            1.0D
+        );
+        final double rawAlignmentProgress = 1.0D - alignmentHeightProgress;
+        final double alignmentProgress = Math.pow(rawAlignmentProgress, 2.0D);
         final double remainingOffsetMultiplier = 1.0D - alignmentProgress;
 
-        // TODO: also add a small rotation towards the launch pad when descending
+        // TODO: when descending the rocket currently flies a bit back before flying to the launch pad again
         final double desiredX = launch.landingX + launch.reentryOffsetX * remainingOffsetMultiplier;
         final double desiredZ = launch.landingZ + launch.reentryOffsetZ * remainingOffsetMultiplier;
         final double velocityX = (desiredX - rocket.getX()) * 0.45D;
@@ -247,6 +268,7 @@ public class RocketLaunchManager extends SavedData {
         //this.spawnRocketSmoke(level, rocket, 1, 1.25D);
 
         if (rocket.getY() + velocityY <= launch.landingY) {
+            rocket.setTargetXRot(0F);
             rocket.setPos(launch.landingX, launch.landingY, launch.landingZ);
             rocket.setDeltaMovement(Vec3.ZERO);
             rocket.setRocketEnginesActiveness(false);
@@ -281,9 +303,6 @@ public class RocketLaunchManager extends SavedData {
         if (existing != null) {
             return existing;
         }
-
-        // TODO
-        // This only happens after a save/load (?) or if the entity was externally removed
         return this.spawnRocket(level, launch, x, y, z);
     }
 
@@ -323,7 +342,7 @@ public class RocketLaunchManager extends SavedData {
             final double offsetY = random.nextDouble() * 0.01D;
             final double offsetZ = CommonUtils.randomOffset(random, (float) radius);
 
-            level.sendParticles(ModParticles.BIG_SMOKE_PARTICLE.get(), true, true, base.x(), base.y() - 5.0D, base.z(), 2, offsetX, offsetY, offsetZ, 0.0D);
+            level.sendParticles(ModParticles.BIG_SMOKE_PARTICLE.get(), true, true, base.x(), base.y() - 4.0D, base.z(), 2, offsetX, offsetY, offsetZ, 0.0D);
         }
     }
 
@@ -364,7 +383,7 @@ public class RocketLaunchManager extends SavedData {
         return t * t * (3.0D - 2.0D * t);
     }
 
-    public record RocketLaunchSnapshot(UUID id, RocketPhase phase, int phaseTick, Optional<UUID> rocketEntityId) {
+    public record RocketLaunchSnapshot(UUID id, RocketPhase phase, int phaseTick, double rocketY, double landingY, Optional<UUID> rocketEntityId) {
         public boolean isAscending() {
             return this.phase == RocketPhase.PHASE_ASCENT;
         }
@@ -375,6 +394,10 @@ public class RocketLaunchManager extends SavedData {
 
         public boolean isDescending() {
             return this.phase == RocketPhase.PHASE_DESCENT;
+        }
+
+        public double getRocketHeightAboveLanding() {
+            return this.rocketY - this.landingY;
         }
     }
 

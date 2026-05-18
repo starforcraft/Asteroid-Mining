@@ -23,6 +23,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -49,8 +50,13 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         SynchedEntityData.defineId(BlockStructureEntity.class, EntityDataSerializers.BOOLEAN);
     public static final EntityDataAccessor<BlockPos> PIVOT_POINT =
         SynchedEntityData.defineId(BlockStructureEntity.class, EntityDataSerializers.BLOCK_POS);
-    public static final EntityDataAccessor<Float> ROTATE_TOWARDS =
+    public static final EntityDataAccessor<Float> TARGET_Y_ROT =
         SynchedEntityData.defineId(BlockStructureEntity.class, EntityDataSerializers.FLOAT);
+    public static final EntityDataAccessor<Float> TARGET_X_ROT =
+        SynchedEntityData.defineId(BlockStructureEntity.class, EntityDataSerializers.FLOAT);
+
+    private static final float ROTATION_SPEED_DEGREES_PER_TICK = 0.4F;
+    private static final float PITCH_SPEED_DEGREES_PER_TICK = 0.5F;
 
     public final Map<BlockPos, BlockEntity> blockEntityCache = new HashMap<>();
 
@@ -90,13 +96,8 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         this.move(MoverType.SELF, this.getDeltaMovement());
 
         this.tickBlockEntities();
-
-        //TODO: because of this clientside check the rotation isn't saved when rejoining the world but if I were to remove this the rotation stops being smooth
-        // also this is really hacky and can get easily broken instead specify a target yRot and rotate towards that slowly
-        if (this.level().isClientSide() && this.getRotateTowards() != 0.0F) {
-            this.yRotO = this.getYRot();
-            this.setYRot(this.getYRot() + this.getRotateTowards());
-        }
+        this.tickTargetYRotation();
+        this.tickTargetXRotation();
     }
 
     private void tickBlockEntities() {
@@ -111,6 +112,40 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
                 ticker.tick(this.level(), this.getStructureWorldOrigin().offset(blockInfo.pos()), blockInfo.state(), blockEntity);
             }
         }
+    }
+
+    private void tickTargetYRotation() {
+        final float current = this.getYRot();
+        final float target = this.getTargetYRot();
+        final float difference = Mth.wrapDegrees(target - current);
+
+        if (Math.abs(difference) < 0.01F) {
+            this.setYRot(target);
+            this.yRotO = target;
+            return;
+        }
+
+        this.yRotO = current;
+
+        final float step = Mth.clamp(difference, -ROTATION_SPEED_DEGREES_PER_TICK, ROTATION_SPEED_DEGREES_PER_TICK);
+        this.setYRot(Mth.wrapDegrees(current + step));
+    }
+
+    private void tickTargetXRotation() {
+        final float current = this.getXRot();
+        final float target = this.getTargetXRot();
+        final float difference = target - current;
+
+        if (Math.abs(difference) < 0.01F) {
+            this.setXRot(target);
+            this.xRotO = target;
+            return;
+        }
+
+        this.xRotO = current;
+
+        final float step = Mth.clamp(difference, -PITCH_SPEED_DEGREES_PER_TICK, PITCH_SPEED_DEGREES_PER_TICK);
+        this.setXRot(current + step);
     }
 
     @Override
@@ -210,19 +245,26 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         builder.define(STRUCTURE_BLOCK_INFO_DATA, List.of());
         builder.define(IS_ROCKET, true);
         builder.define(PIVOT_POINT, BlockPos.ZERO);
-        builder.define(ROTATE_TOWARDS, 0F);
+        builder.define(TARGET_Y_ROT, 0F);
+        builder.define(TARGET_X_ROT, 0F);
     }
 
     @Override
     protected void readAdditionalSaveData(final ValueInput input) {
         input.read("BlockList", CommonUtils.STRUCTURE_BLOCK_INFO_LIST_CODEC).ifPresent(this::setStructureBlockInfo);
         this.setIsRocket(input.getBooleanOr("isRocket", false));
+        input.read("PivotPoint", BlockPos.CODEC).ifPresent(this::setPivotPoint);
+        this.setTargetYRot(input.getFloatOr("TargetYRot", 0F));
+        this.setTargetXRot(input.getFloatOr("TargetXRot", 0F));
     }
 
     @Override
     protected void addAdditionalSaveData(final ValueOutput output) {
         output.store("BlockList", CommonUtils.STRUCTURE_BLOCK_INFO_LIST_CODEC, this.getStructureBlockInfos());
         output.putBoolean("isRocket", this.isRocket());
+        output.store("PivotPoint", BlockPos.CODEC, this.getPivotPoint());
+        output.putFloat("TargetYRot", this.getTargetYRot());
+        output.putFloat("TargetXRot", this.getTargetXRot());
     }
 
     @Override
@@ -351,11 +393,23 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         return this.getEntityData().get(PIVOT_POINT);
     }
 
-    public void setRotateTowards(final float rotateTowards) {
-        this.getEntityData().set(ROTATE_TOWARDS, rotateTowards);
+    public void setTargetYRot(final float targetYRot) {
+        this.getEntityData().set(TARGET_Y_ROT, Mth.wrapDegrees(targetYRot));
     }
 
-    public float getRotateTowards() {
-        return this.getEntityData().get(ROTATE_TOWARDS);
+    public float getTargetYRot() {
+        return this.getEntityData().get(TARGET_Y_ROT);
+    }
+
+    public void setTargetXRot(final float targetXRot) {
+        this.getEntityData().set(TARGET_X_ROT, Mth.clamp(targetXRot, -45F, 45F));
+    }
+
+    public float getTargetXRot() {
+        return this.getEntityData().get(TARGET_X_ROT);
+    }
+
+    public float getPrecisePitchRotation(final float partialTicks) {
+        return Mth.lerp(partialTicks, this.xRotO, this.getXRot());
     }
 }

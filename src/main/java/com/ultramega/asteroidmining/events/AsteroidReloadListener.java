@@ -36,7 +36,7 @@ import net.neoforged.neoforge.common.conditions.ICondition;
 import static com.ultramega.asteroidmining.AsteroidMining.MOD_ID;
 
 // TODO: https://docs.neoforged.net/primer/docs/1.21.4/#simplejsonresourcereloadlistener change from JsonElement to AsteroidConfig
-public class AsteroidReloadListener extends SimpleJsonResourceReloadListener<JsonElement> {
+public final class AsteroidReloadListener extends SimpleJsonResourceReloadListener<JsonElement> {
     public static final AsteroidReloadListener INSTANCE = new AsteroidReloadListener();
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
