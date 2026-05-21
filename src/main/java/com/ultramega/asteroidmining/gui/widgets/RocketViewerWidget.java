@@ -65,7 +65,7 @@ public class RocketViewerWidget extends AbstractMovableWidget {
                               final int defaultY,
                               final IntSupplier screenWidth,
                               final IntSupplier screenHeight) {
-        super(MovableWidgetType.ROCKET_VIEWER, defaultX, defaultY, WIDTH, HEIGHT, screenWidth, screenHeight);
+        super(MovableWidgetType.ROCKET_VIEWER, defaultX, defaultY, WIDTH, HEIGHT, screenWidth, screenHeight, true);
         this.menu = menu;
 
         //TODO: these lines are duplicate with RocketControllerBlockEntity

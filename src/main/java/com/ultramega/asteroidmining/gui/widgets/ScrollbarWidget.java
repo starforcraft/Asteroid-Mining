@@ -9,6 +9,7 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.input.MouseButtonEvent;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import org.jspecify.annotations.Nullable;
@@ -16,6 +17,7 @@ import org.jspecify.annotations.Nullable;
 import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
 
 public class ScrollbarWidget extends AbstractWidget {
+    private static final Identifier BACKGROUND = AsteroidMining.makeId("scrollbar_background");
     private static final Identifier SCROLLBAR = AsteroidMining.makeId("widget/scrollbar");
     private static final Identifier SCROLLBAR_CLICKED = AsteroidMining.makeId("widget/scrollbar_clicked");
     private static final Identifier SCROLLBAR_DISABLED = AsteroidMining.makeId("widget/scrollbar_disabled");
@@ -24,6 +26,7 @@ public class ScrollbarWidget extends AbstractWidget {
 
     private double offset;
     private double maxOffset;
+    private double scrollAmount = 1.0;
     private boolean enabled = true;
     private boolean clicked;
 
@@ -34,19 +37,8 @@ public class ScrollbarWidget extends AbstractWidget {
         super(x, y, 12, height, Component.empty());
     }
 
-    public void setListener(@Nullable final DoubleConsumer listener) {
-        this.listener = listener;
-    }
-
-    public void setEnabled(final boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    private Identifier getTexture() {
-        if (!this.enabled) {
-            return SCROLLBAR_DISABLED;
-        }
-        return this.clicked ? SCROLLBAR_CLICKED : SCROLLBAR;
+    public void extractWidgetBackground(final GuiGraphicsExtractor graphics) {
+        graphics.blitSprite(RenderPipelines.GUI_TEXTURED, BACKGROUND, this.getX() - 1, this.getY() - 1, this.getWidth() + 2, this.getHeight() + 2);
     }
 
     @Override
@@ -56,7 +48,7 @@ public class ScrollbarWidget extends AbstractWidget {
             this.getTexture(),
             this.getX(),
             this.getY() + (int) ((float) this.offset / (float) this.maxOffset * (this.height - SCROLLER_HEIGHT)),
-            12,
+            this.getWidth(),
             SCROLLER_HEIGHT
         );
     }
@@ -98,10 +90,33 @@ public class ScrollbarWidget extends AbstractWidget {
     public boolean mouseScrolled(final double x, final double y, final double scrollX, final double scrollY) {
         if (this.enabled) {
             final int scrollDirection = Math.clamp(-(int) scrollY, -1, 1);
-            this.setOffset(this.offset + scrollDirection);
+            this.setOffset(this.offset + scrollDirection * this.scrollAmount);
             return true;
         }
         return false;
+    }
+
+    public void setScrollAmount(final double scrollAmount) {
+        this.scrollAmount = Math.max(0.0, scrollAmount);
+    }
+
+    public void setEnabled(final boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public void setListener(@Nullable final DoubleConsumer listener) {
+        this.listener = listener;
+    }
+
+    public boolean isClicked() {
+        return this.clicked;
+    }
+
+    private Identifier getTexture() {
+        if (!this.enabled) {
+            return SCROLLBAR_DISABLED;
+        }
+        return this.clicked ? SCROLLBAR_CLICKED : SCROLLBAR;
     }
 
     public void setMaxOffset(final double maxOffset) {

@@ -20,7 +20,6 @@ import com.ultramega.asteroidmining.utils.CommonUtils;
 import com.ultramega.asteroidmining.utils.PreserveData;
 import com.ultramega.asteroidmining.utils.handlers.RocketControllerItemStacksResourceHandler;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -58,7 +57,6 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import org.jspecify.annotations.Nullable;
 
 import static com.ultramega.asteroidmining.utils.CommonUtils.getMinCorner;
-import static com.ultramega.asteroidmining.utils.CommonUtils.rotateOffset;
 import static com.ultramega.asteroidmining.utils.CommonUtils.toLocalPositions;
 
 // TODO: breaking the rocket controller on launch breaks everything
@@ -162,18 +160,14 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             return;
         }
 
-        if (!CommonUtils.isSpacePortValid(level, configuration.launchPadConfiguration()) && blockEntity.chopstick1 == null) {
+        final CommonUtils.SpacePortAnalysis spacePortAnalysis = CommonUtils.analyzeSpacePort(level, configuration.launchPadConfiguration());
+        if (!spacePortAnalysis.valid() && blockEntity.chopstick1 == null) {
             return;
         }
 
-        final BlockPos mainPos = configuration.launchPadConfiguration().mainPos();
-        final int width = configuration.launchPadConfiguration().width();
-        final int height = configuration.launchPadConfiguration().height();
-        final Direction facing = configuration.launchPadConfiguration().facing();
-
         final int ticksRemaining = Math.max(0, blockEntity.launchCooldown - blockEntity.launchCooldownTick);
         if (ticksRemaining <= SMOKE_START_TICKS) {
-            blockEntity.ensureLaunchEntitiesBuilt(mainPos, width, height, facing);
+            blockEntity.ensureLaunchEntitiesBuilt(spacePortAnalysis);
             blockEntity.spawnCountdownSmoke(serverLevel);
         }
 
@@ -186,9 +180,10 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         }
 
         blockEntity.playCountdownCommentary(serverLevel, pos, 0);
-        blockEntity.ensureLaunchEntitiesBuilt(mainPos, width, height, facing);
+        blockEntity.ensureLaunchEntitiesBuilt(spacePortAnalysis);
 
         if (blockEntity.launchedRocket != null) {
+            final Direction facing = configuration.launchPadConfiguration().facing();
             launchManager.startLaunch(pos, configurationId, blockEntity.destinationAsteroid, blockEntity.launchedRocket, facing.getOpposite());
 
             // Launch manager now owns and manages the rocket entity
@@ -266,9 +261,9 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         }
     }
 
-    private void ensureLaunchEntitiesBuilt(final BlockPos mainPos, final int width, final int height, final Direction facing) {
+    private void ensureLaunchEntitiesBuilt(final CommonUtils.SpacePortAnalysis spacePortAnalysis) {
         if (this.launchedRocket == null) {
-            this.buildEntitiesFromBlocks(mainPos, width, height, facing);
+            this.buildEntitiesFromBlocks(spacePortAnalysis);
             this.openChopsticks();
         }
     }
@@ -357,7 +352,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         this.chopstick2.setTargetYRot(0F);
     }
 
-    public void onManagedRocketLanded(final UUID launchId) {
+    public void onManagedRocketLanded() {
         this.finishManagedLaunch();
     }
 
@@ -393,59 +388,24 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         this.setChanged();
     }
 
-    public void buildEntitiesFromBlocks(final BlockPos mainPos, final int width, final int height, final Direction facing) {
-        if (this.level == null) {
+    public void buildEntitiesFromBlocks(final CommonUtils.SpacePortAnalysis spacePortAnalysis) {
+        if (this.level == null || !spacePortAnalysis.valid() || spacePortAnalysis.rocketPositions().isEmpty()) {
             return;
         }
 
-        // TODO: duplicate
-        // Build Rocket
-        final List<BlockPos> rocketPos = new ArrayList<>();
-        int minOffset = -(width - 1) / 2;
-        final int maxOffset = width / 2;
-        for (int dx = minOffset + 4; dx <= maxOffset - 4; dx++) {
-            for (int dz = 2; dz <= width - 7; dz++) {
-                for (int dy = 0; dy < height + 1; dy++) { // + 1 because the height starts at the floor
-                    final BlockPos rotatedPos = rotateOffset(mainPos.above(dy), facing.getOpposite(), dx, dz);
-                    if (!this.level.getBlockState(rotatedPos).isAir()) {
-                        rocketPos.add(rotatedPos);
-                    }
-                }
-            }
-        }
-
+        final List<BlockPos> rocketPos = spacePortAnalysis.rocketPositions();
         final BlockPos rocketOrigin = getMinCorner(rocketPos);
         final List<BlockPos> rocketLocalPos = toLocalPositions(rocketPos, rocketOrigin);
 
         final BlockStructureEntity rocketEntity = new BlockStructureEntity(this.level, rocketPos, rocketLocalPos, true);
         rocketEntity.setPos(rocketOrigin.getX() + 0.5, rocketOrigin.getY(), rocketOrigin.getZ() + 0.5);
+
         this.level.addFreshEntity(rocketEntity);
         this.launchedRocketId = rocketEntity.getUUID();
         this.launchedRocket = rocketEntity;
 
-        // TODO: duplicate
-        // Build chopsticks
-        final int towerWidth = width - 8;
-        minOffset = -(towerWidth - 1) / 2;
-
-        final List<BlockPos> chopstick1Pos = new ArrayList<>();
-        final List<BlockPos> chopstick2Pos = new ArrayList<>();
-        final int chopstickWidth = width - 5;
-        for (int dz = 0; dz < chopstickWidth; dz++) {
-            final BlockPos targetPos1 = rotateOffset(mainPos.above(height - 2), facing.getOpposite(), -minOffset + 1, dz);
-            final BlockPos targetPos2 = rotateOffset(mainPos.above(height - 2), facing.getOpposite(), minOffset - 1, dz);
-
-            chopstick1Pos.add(targetPos1);
-            chopstick2Pos.add(targetPos2);
-
-            if (dz != 0) {
-                final BlockPos targetPos3 = rotateOffset(mainPos.above(height - 2), facing.getOpposite(), -minOffset + 2, dz);
-                final BlockPos targetPos4 = rotateOffset(mainPos.above(height - 2), facing.getOpposite(), minOffset - 2, dz);
-
-                chopstick1Pos.add(targetPos3);
-                chopstick2Pos.add(targetPos4);
-            }
-        }
+        final List<BlockPos> chopstick1Pos = spacePortAnalysis.chopstick1Positions();
+        final List<BlockPos> chopstick2Pos = spacePortAnalysis.chopstick2Positions();
 
         PacketDistributor.sendToAllPlayers(new HidePreviewBlocksPayload(this.getBlockPos(), true));
 
@@ -455,11 +415,12 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         final List<BlockPos> chopstick1LocalPos = toLocalPositions(chopstick1Pos, chopstick1Origin);
         final List<BlockPos> chopstick2LocalPos = toLocalPositions(chopstick2Pos, chopstick2Origin);
 
-        final BlockPos pivotWorldPos = mainPos.above(height - 2);
+        final BlockPos pivotWorldPos = spacePortAnalysis.chopstickPivotWorldPos();
 
         final BlockStructureEntity chopstick1Entity = new BlockStructureEntity(this.level, chopstick1Pos, chopstick1LocalPos, false);
         chopstick1Entity.setPos(chopstick1Origin.getX() + 0.5, chopstick1Origin.getY(), chopstick1Origin.getZ() + 0.5);
         chopstick1Entity.setPivotPoint(pivotWorldPos.subtract(chopstick1Origin));
+
         this.level.addFreshEntity(chopstick1Entity);
         this.chopstick1Id = chopstick1Entity.getUUID();
         this.chopstick1 = chopstick1Entity;
@@ -467,6 +428,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         final BlockStructureEntity chopstick2Entity = new BlockStructureEntity(this.level, chopstick2Pos, chopstick2LocalPos, false);
         chopstick2Entity.setPos(chopstick2Origin.getX() + 0.5, chopstick2Origin.getY(), chopstick2Origin.getZ() + 0.5);
         chopstick2Entity.setPivotPoint(pivotWorldPos.subtract(chopstick2Origin));
+
         this.level.addFreshEntity(chopstick2Entity);
         this.chopstick2Id = chopstick2Entity.getUUID();
         this.chopstick2 = chopstick2Entity;
@@ -490,36 +452,22 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
     }
 
     private RocketProperties calculateRocketStats(final NetworkConfiguration configuration) {
-        final BlockPos mainPos = configuration.launchPadConfiguration().mainPos();
-        final int width = configuration.launchPadConfiguration().width();
-        final int height = configuration.launchPadConfiguration().height();
-        final Direction facing = configuration.launchPadConfiguration().facing();
-
         int weight = 0;
         int thrustForce = 0;
-        final int fuelUsage = 0; //TODO: calculate this too (also split into fuel and oxidizer)
+        final int fuelUsage = 0;
 
         if (this.level != null) {
-            // TODO: this is duplicate again
-            final int minOffset = -(width - 1) / 2;
-            final int maxOffset = width / 2;
-            for (int dx = minOffset + 4; dx <= maxOffset - 4; dx++) {
-                for (int dz = 2; dz <= width - 7; dz++) {
-                    for (int dy = 0; dy < height + 1; dy++) { // + 1 because the height starts at the floor
-                        final BlockPos rotatedPos = rotateOffset(mainPos.above(dy), facing.getOpposite(), dx, dz);
-                        final BlockState state = this.level.getBlockState(rotatedPos);
-
-                        if (state.getBlock() instanceof RocketEngineBlock rocketEngineBlock) {
-                            thrustForce += rocketEngineBlock.getType().getThrustForce();
-                            weight += rocketEngineBlock.getType().getWeight();
-                        } else if (!state.isAir()) {
-                            weight += 1;
-                        }
-                    }
+            final CommonUtils.SpacePortAnalysis spacePortAnalysis = CommonUtils.analyzeSpacePort(this.level, configuration.launchPadConfiguration());
+            for (final BlockPos rocketPos : spacePortAnalysis.rocketPositions()) {
+                final BlockState state = this.level.getBlockState(rocketPos);
+                if (state.getBlock() instanceof RocketEngineBlock rocketEngineBlock) {
+                    thrustForce += rocketEngineBlock.getType().getThrustForce();
+                    weight += rocketEngineBlock.getType().getWeight();
+                } else if (!state.isAir()) {
+                    weight += 1;
                 }
             }
         }
-
 
         return new RocketProperties(weight, thrustForce, fuelUsage);
     }

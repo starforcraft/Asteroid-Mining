@@ -25,7 +25,7 @@ public class RocketConfigurationWidget extends AbstractMovableWidget {
                                      final int defaultY,
                                      final IntSupplier screenWidth,
                                      final IntSupplier screenHeight) {
-        super(MovableWidgetType.ROCKET_CONFIGURATION, defaultX, defaultY, WIDTH, HEIGHT, screenWidth, screenHeight);
+        super(MovableWidgetType.ROCKET_CONFIGURATION, defaultX, defaultY, WIDTH, HEIGHT, screenWidth, screenHeight, true);
 
         final Font font = Minecraft.getInstance().font;
         this.cooldownSlider = new ExtendedSlider(0, 0, 82, 16,

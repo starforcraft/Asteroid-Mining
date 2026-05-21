@@ -239,7 +239,7 @@ public class RocketLaunchManager extends SavedData {
             1.0D);
         final double easedPitchProgress = 1.0D - Math.pow(1.0D - pitchHeightProgress, 4.0D);
         final float targetPitch = (float) (LANDING_MAX_PITCH_DEGREES * easedPitchProgress);
-        rocket.setTargetXRot(targetPitch);
+        rocket.setTargetXRot(targetPitch); //TODO: give it a pitch only once close to landing y
 
         final double fullDrop = Math.max(1.0D, ORBIT_Y - launch.landingY);
         final double remainingDrop = Mth.clamp(heightAboveLanding / fullDrop, 0.0D, 1.0D);
@@ -256,7 +256,6 @@ public class RocketLaunchManager extends SavedData {
         final double alignmentProgress = Math.pow(rawAlignmentProgress, 2.0D);
         final double remainingOffsetMultiplier = 1.0D - alignmentProgress;
 
-        // TODO: when descending the rocket currently flies a bit back before flying to the launch pad again
         final double desiredX = launch.landingX + launch.reentryOffsetX * remainingOffsetMultiplier;
         final double desiredZ = launch.landingZ + launch.reentryOffsetZ * remainingOffsetMultiplier;
         final double velocityX = (desiredX - rocket.getX()) * 0.45D;
@@ -363,7 +362,7 @@ public class RocketLaunchManager extends SavedData {
         }
 
         if (level.getBlockEntity(launch.controllerPos) instanceof RocketControllerBlockEntity controller) {
-            controller.onManagedRocketLanded(launch.id);
+            controller.onManagedRocketLanded();
         }
     }
 

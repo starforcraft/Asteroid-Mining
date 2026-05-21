@@ -215,8 +215,7 @@ public final class ClientUtils {
                                               final long amount,
                                               final int mouseX,
                                               final int mouseY) {
-        final List<Component> tooltip = new ArrayList<>();
-        tooltip.addAll(Screen.getTooltipFromItem(Minecraft.getInstance(), stack));
+        final List<Component> tooltip = new ArrayList<>(Screen.getTooltipFromItem(Minecraft.getInstance(), stack));
         tooltip.add(Component.translatable("gui.asteroidmining.rocket_storage_viewer.total", amount)
             .withStyle(ChatFormatting.GRAY));
 

@@ -83,6 +83,16 @@ public abstract class AbstractMovableWidgetContainerScreen<M extends AbstractCon
     }
 
     @Override
+    public boolean mouseScrolled(final double x, final double y, final double scrollX, final double scrollY) {
+        for (int i = this.movableWidgets.size() - 1; i >= 0; --i) {
+            if (this.movableWidgets.get(i).mouseScrolled(x, y, scrollX, scrollY)) {
+                return true;
+            }
+        }
+        return super.mouseScrolled(x, y, scrollX, scrollY);
+    }
+
+    @Override
     protected final void extractTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
         if (this.isMouseOverMovableWidget(mouseX, mouseY)) {
             return;
@@ -101,7 +111,7 @@ public abstract class AbstractMovableWidgetContainerScreen<M extends AbstractCon
         return super.getHoveredSlot(x, y);
     }
 
-    private boolean isMouseOverMovableWidget(final double mouseX, final double mouseY) {
+    protected final boolean isMouseOverMovableWidget(final double mouseX, final double mouseY) {
         for (final AbstractMovableWidget widget : this.movableWidgets) {
             if (widget.visible && ClientUtils.isMouseOver(widget.getX(), widget.getY(), widget.getWidth(), widget.getHeight(), mouseX, mouseY)) {
                 return true;

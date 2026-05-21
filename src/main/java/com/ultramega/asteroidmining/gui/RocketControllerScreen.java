@@ -4,18 +4,23 @@ import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.container.RocketControllerContainerMenu;
 import com.ultramega.asteroidmining.gui.widgets.ImageButton;
 import com.ultramega.asteroidmining.gui.widgets.RocketViewerWidget;
+import com.ultramega.asteroidmining.gui.widgets.SpacePortErrorsWidget;
 import com.ultramega.asteroidmining.network.c2s.LaunchRocketPayload;
 import com.ultramega.asteroidmining.network.c2s.OpenSelectConfigurationScreenPayload;
 import com.ultramega.asteroidmining.registry.ModDataComponentTypes;
 import com.ultramega.asteroidmining.storage.ClientConfigurationSavedData;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
+import com.ultramega.asteroidmining.utils.CommonUtils;
+import com.ultramega.asteroidmining.utils.LaunchError;
 import com.ultramega.asteroidmining.utils.TextColors;
 
+import java.util.List;
 import java.util.UUID;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
@@ -28,6 +33,9 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
     private static final Identifier BACKGROUND = AsteroidMining.makeId("textures/gui/rocket_controller.png");
     private static final Identifier CONFIGURE = AsteroidMining.makeId("configure");
     private static final Identifier ERROR = AsteroidMining.makeId("error");
+
+    private static final int LAUNCH_ROCKET_BUTTON_WIDTH = 85;
+    private static final int LAUNCH_ROCKET_BUTTON_HEIGHT = 18;
 
     public RocketControllerScreen(final RocketControllerContainerMenu menu, final Inventory inventory, final Component title) {
         super(menu, inventory, title, 223, 182);
@@ -46,31 +54,46 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
             () -> this.width,
             () -> this.height));
 
+        final List<LaunchError> spacePortErrors = this.getSpacePortErrors();
+        final SpacePortErrorsWidget spacePortErrorsWidget = new SpacePortErrorsWidget(
+            this.leftPos + this.imageWidth,
+            this.topPos + (this.imageHeight - RocketViewerWidget.HEIGHT) / 2,
+            () -> this.width,
+            () -> this.height,
+            spacePortErrors);
+        this.addTopLayerWidget(spacePortErrorsWidget);
+
         // TODO: add cancel launch
-        // TODO: disable button if errors are present
-        this.addRenderableWidget(Button.builder(Component.translatable("gui.asteroidmining.rocket_controller.launch_rocket"), (button) -> {
+        final int launchRocketX = this.leftPos + (this.imageWidth - 80) / 2;
+        final int launchRocketY = this.topPos + 158;
+        final Button launchRocket = Button.builder(Component.translatable("gui.asteroidmining.rocket_controller.launch_rocket"), (button) -> {
             this.getMenu().getBlockEntity().setPlayedTMinusSound(false);
             ClientPacketDistributor.sendToServer(new LaunchRocketPayload(this.getMenu().getBlockEntity().getBlockPos()));
-        }).bounds(this.leftPos + (this.imageWidth - 80) / 2, this.topPos + 158, 85, 18).build());
-        final ImageButton configureButton = new ImageButton(this.leftPos + this.imageWidth - (24 + 5), this.topPos + 5, 24, 24, 6, 6, CONFIGURE, (button) ->
-            ClientPacketDistributor.sendToServer(new OpenSelectConfigurationScreenPayload(this.getMenu().getBlockEntity().getBlockPos())));
-        configureButton.setActiveTooltip(Component.translatable("gui.asteroidmining.rocket_controller.configuration"));
-        this.addRenderableWidget(configureButton);
+        }).bounds(launchRocketX, launchRocketY, LAUNCH_ROCKET_BUTTON_WIDTH, LAUNCH_ROCKET_BUTTON_HEIGHT).build();
+        launchRocket.active = this.canLaunchRocket();
+        this.addRenderableWidget(launchRocket);
 
-        // TODO: implement this
-        if (false) {
-            final ImageButton errorButton = new ImageButton(this.leftPos + 5, this.topPos - 19, 24, 24, 0, 0, ERROR, (button) ->
-                Minecraft.getInstance().pushGuiLayer(new RocketControllerErrorScreen())
-            );
+        if (!spacePortErrors.isEmpty()) {
+            final ImageButton errorButton = new ImageButton(launchRocketX + LAUNCH_ROCKET_BUTTON_WIDTH - 8, launchRocketY - LAUNCH_ROCKET_BUTTON_HEIGHT / 2,
+                16, 16, 0, 0, ERROR, (button) -> spacePortErrorsWidget.openOrClose());
             errorButton.setActiveTooltip(Component.translatable("gui.asteroidmining.rocket_controller.show_errors"));
             errorButton.setRenderBackground(false);
             this.addRenderableWidget(errorButton);
         }
+
+        final ImageButton configureButton = new ImageButton(this.leftPos + this.imageWidth - (24 + 5), this.topPos + 5, 24, 24, 6, 6, CONFIGURE, (button) ->
+            ClientPacketDistributor.sendToServer(new OpenSelectConfigurationScreenPayload(this.getMenu().getBlockEntity().getBlockPos())));
+        configureButton.setActiveTooltip(Component.translatable("gui.asteroidmining.rocket_controller.configuration"));
+        this.addRenderableWidget(configureButton);
     }
 
     @Override
     public void extractModuleBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
         graphics.blit(GUI_TEXTURED, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.getImageWidth(), this.getImageHeight(), 256, 256);
+    }
+
+    @Override
+    protected void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
     }
 
     @Override
@@ -123,7 +146,31 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
             this.titleLabelX, this.titleLabelY + 19 + 16 * 2, -1, false);
     }
 
-    @Override
-    protected void drawTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
+    private boolean canLaunchRocket() {
+        if (!this.getSpacePortErrors().isEmpty()) {
+            return false;
+        }
+
+        final int selectedConfiguration = this.getMenu().getBlockEntity().getSelectedConfigurationIndex();
+        if (selectedConfiguration == -1) {
+            return false;
+        }
+
+        final ItemResource resource = this.getMenu().getBlockEntity().inventoryHandler.getResource(selectedConfiguration);
+        if (resource.isEmpty() || !resource.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get())) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public List<LaunchError> getSpacePortErrors() {
+        final ClientLevel level = Minecraft.getInstance().level;
+        final NetworkConfiguration configuration = this.getMenu().getBlockEntity().getSelectedClientNetworkConfiguration();
+        if (configuration == null || level == null) {
+            return List.of();
+        }
+
+        return CommonUtils.getSpacePortErrors(level, configuration.launchPadConfiguration());
     }
 }

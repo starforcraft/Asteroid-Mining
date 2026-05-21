@@ -75,6 +75,7 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
         this.extractModuleBackground(graphics, mouseX, mouseY, partialTicks);
 
         this.tabs.renderSelectedTab(graphics, modules, this.leftPos - this.tabs.getTabWidth(), this.topPos, mouseX, mouseY,
+            () -> this.isMouseOverMovableWidget(mouseX, mouseY),
             (g, pos, iconX, iconY, mx, my, hovered) ->
                 this.renderModuleTab(level, g, pos, iconX, iconY, mx, my, hovered));
         this.updateTabButtons();
@@ -99,8 +100,8 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
     @Override
     public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
         final List<BlockPos> modules = new ArrayList<>(this.getMenu().getConnectedModules());
-
-        if (this.tabs.mouseClickedTab(event, modules, this.leftPos - this.tabs.getTabWidth(), this.topPos, this::openModuleTab)) {
+        if (!this.isMouseOverMovableWidget(event.x(), event.y())
+            && this.tabs.mouseClickedTab(event, modules, this.leftPos - this.tabs.getTabWidth(), this.topPos, this::openModuleTab)) {
             Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F));
             return true;
         }
@@ -129,7 +130,7 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
         }
     }
 
-    private void updateTabButtons() { //TODO: add this to AbstractTabbedMovableWidget
+    private void updateTabButtons() { //TODO: add this to AbstractTabbedMovableWidget?
         this.tabs.update(this.getMenu().getConnectedModules().size());
 
         this.upButton.visible = this.tabs.shouldShowPageControls();

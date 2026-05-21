@@ -52,7 +52,8 @@ public class SideConfigWidget extends AbstractTabbedMovableWidget<SideConfigType
                             final int y,
                             final IntSupplier screenWidth,
                             final IntSupplier screenHeight) {
-        super(MovableWidgetType.SIDE_CONFIG, x, y, WIDTH, HEIGHT, screenWidth, screenHeight, true, TAB_ICON_SIZE);
+        //TODO: change to visible (by default) to false
+        super(MovableWidgetType.SIDE_CONFIG, x, y, WIDTH, HEIGHT, screenWidth, screenHeight, true, TAB_ICON_SIZE, true);
         this.menu = menu;
 
         this.ensureActiveTypeSupported();

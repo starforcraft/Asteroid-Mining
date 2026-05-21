@@ -48,10 +48,10 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
         super.init();
 
         this.scrollbar = new ScrollbarWidget(this.leftPos + 174, this.topPos + 20, 106);
-        this.scrollbar.setListener(value -> this.updateWidgets());
+        this.scrollbar.setListener(value -> this.updateScrollbarState());
         this.addWidget(this.scrollbar);
 
-        this.updateWidgets();
+        this.updateScrollbarState();
     }
 
     @Override
@@ -146,25 +146,10 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
         graphics.text(this.font, this.title, 8, 6, -12566464, false);
     }
 
-    private void updateWidgets() {
-        final int totalRows = this.getTotalRows();
-        final int maxOffset = Math.max(0, totalRows - ROWS_DISPLAYED);
-
+    private void updateScrollbarState() {
+        final int maxOffset = Math.max(0, this.getTotalRows() - ROWS_DISPLAYED);
         this.scrollbar.setMaxOffset(maxOffset);
         this.scrollbar.setEnabled(maxOffset > 0);
-    }
-
-    @Override
-    public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
-        if (this.scrollbar.mouseClicked(event, doubleClick)) {
-            return true;
-        }
-
-        if (this.tryClickStorage(event.x(), event.y())) {
-            return true;
-        }
-
-        return super.mouseClicked(event, doubleClick);
     }
 
     private boolean tryClickStorage(final double mouseX, final double mouseY) {
@@ -218,9 +203,16 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
     }
 
     @Override
-    public void mouseMoved(final double mouseX, final double mouseY) {
-        this.scrollbar.mouseMoved(mouseX, mouseY);
-        super.mouseMoved(mouseX, mouseY);
+    public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
+        if (this.scrollbar.mouseClicked(event, doubleClick)) {
+            return true;
+        }
+
+        if (this.tryClickStorage(event.x(), event.y())) {
+            return true;
+        }
+
+        return super.mouseClicked(event, doubleClick);
     }
 
     @Override
@@ -230,6 +222,12 @@ public class RocketStorageViewerScreen extends AbstractModuleScreen<RocketStorag
         }
 
         return super.mouseReleased(event);
+    }
+
+    @Override
+    public void mouseMoved(final double mouseX, final double mouseY) {
+        this.scrollbar.mouseMoved(mouseX, mouseY);
+        super.mouseMoved(mouseX, mouseY);
     }
 
     @Override

@@ -41,9 +41,10 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
                                     final int width,
                                     final int height,
                                     final IntSupplier screenWidth,
-                                    final IntSupplier screenHeight) {
+                                    final IntSupplier screenHeight,
+                                    final boolean visible) {
         this(widgetType, ClientConfig.getWidgetPosition(widgetType, screenWidth.getAsInt(), screenHeight.getAsInt(), width, height)
-                .orElse(new ClientConfig.SavedPosition(defaultX, defaultY)), width, height, screenWidth, screenHeight);
+                .orElse(new ClientConfig.SavedPosition(defaultX, defaultY)), width, height, screenWidth, screenHeight, visible);
     }
 
     private AbstractMovableWidget(final MovableWidgetType widgetType,
@@ -51,12 +52,14 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
                                   final int width,
                                   final int height,
                                   final IntSupplier screenWidth,
-                                  final IntSupplier screenHeight) {
+                                  final IntSupplier screenHeight,
+                                  final boolean visible) {
         super(initialPosition.x(), initialPosition.y(), width, height, Component.empty());
 
         this.widgetType = widgetType;
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
+        this.visible = visible;
 
         this.lastScreenWidth = screenWidth.getAsInt();
         this.lastScreenHeight = screenHeight.getAsInt();
@@ -199,6 +202,10 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
         }
 
         return List.of(new Rect2i(this.getX(), this.getY(), this.getWidth(), this.getHeight()));
+    }
+
+    public void openOrClose() {
+        this.visible = !this.visible;
     }
 
     protected void extractBehindMovableContents(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {

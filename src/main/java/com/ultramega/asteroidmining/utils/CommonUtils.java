@@ -8,6 +8,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -163,48 +164,81 @@ public final class CommonUtils {
         return Math.abs(maxY - minY + 1);
     }
 
+    public static BlockPos getMinCorner(final List<BlockPos> positions) {
+        int minX = Integer.MAX_VALUE;
+        int minY = Integer.MAX_VALUE;
+        int minZ = Integer.MAX_VALUE;
+
+        for (final BlockPos pos : positions) {
+            minX = Math.min(minX, pos.getX());
+            minY = Math.min(minY, pos.getY());
+            minZ = Math.min(minZ, pos.getZ());
+        }
+
+        return new BlockPos(minX, minY, minZ);
+    }
+
+    public static List<BlockPos> toLocalPositions(final List<BlockPos> positions, final BlockPos origin) {
+        final List<BlockPos> result = new ArrayList<>(positions.size());
+        for (final BlockPos pos : positions) {
+            result.add(pos.subtract(origin));
+        }
+        return result;
+    }
+
     public static boolean isSpacePortValid(final Level level, final LaunchPadConfiguration launchPadConfiguration) {
-        //TODO: send error messages to client
-        final Set<BlockPos> rocketPositions = new HashSet<>();
+        return analyzeSpacePort(level, launchPadConfiguration).valid();
+    }
 
-        // Check if all correct blocks are placed
+    public static List<LaunchError> getSpacePortErrors(final Level level, final LaunchPadConfiguration launchPadConfiguration) {
+        return analyzeSpacePort(level, launchPadConfiguration).errors();
+    }
+
+    public static SpacePortAnalysis analyzeSpacePort(final Level level, final LaunchPadConfiguration launchPadConfiguration) {
         final List<PreviewInfo> previewInfos = calculateSpacePort(level, launchPadConfiguration, true);
+        final List<BlockPos> rocketPositions = getRocketBlockPositions(level, launchPadConfiguration);
+        final ChopstickPositions chopstickPositions = getChopstickPositions(launchPadConfiguration);
+
+        final Set<LaunchError> errors = new LinkedHashSet<>();
+
         for (final PreviewInfo previewInfo : previewInfos) {
-            if (previewInfo.expectedBlock().isPresent()) {
-                if (!level.getBlockState(previewInfo.pos()).is(previewInfo.expectedBlock().get())) {
-                    // tmp fix
-                    if (previewInfo.expectedBlock().get().defaultBlockState().isAir() && level.getBlockState(previewInfo.pos()).isAir()) {
-                        continue;
-                    }
-                    return false;
-                }
-            } else {
-                rocketPositions.add(previewInfo.pos());
-            }
-        }
-
-        // Check if all rocket blocks are connected
-        if (!rocketPositions.isEmpty()) {
-            final Set<BlockPos> visited = new HashSet<>();
-            final Queue<BlockPos> queue = new LinkedList<>();
-            final BlockPos start = rocketPositions.iterator().next();
-            queue.add(start);
-            visited.add(start);
-
-            while (!queue.isEmpty()) {
-                final BlockPos current = queue.poll();
-                for (final Direction direction : Direction.values()) {
-                    final BlockPos neighbor = current.relative(direction);
-                    if (rocketPositions.contains(neighbor) && visited.add(neighbor)) {
-                        queue.add(neighbor);
-                    }
-                }
+            if (previewInfo.expectedBlock().isEmpty()) {
+                continue;
             }
 
-            return visited.size() == rocketPositions.size();
+            final Block expectedBlock = previewInfo.expectedBlock().get();
+            final BlockState expectedState = expectedBlock.defaultBlockState();
+            final BlockState actualState = level.getBlockState(previewInfo.pos());
+
+            if (actualState.is(expectedBlock) || expectedBlock.defaultBlockState().isAir() && actualState.isAir()) {
+                continue;
+            }
+
+            errors.add(LaunchError.at(
+                expectedState.isAir() ? LaunchError.LaunchErrors.BLOCKS_ABOVE_LAUNCH_PAD : LaunchError.LaunchErrors.WRONG_BLOCK,
+                previewInfo.pos(),
+                expectedState,
+                actualState
+            ));
         }
 
-        return true;
+        final List<BlockPos> disconnectedRocketPositions = getDisconnectedPositions(rocketPositions);
+        if (!disconnectedRocketPositions.isEmpty()) {
+            errors.add(LaunchError.positions(LaunchError.LaunchErrors.ROCKET_HAS_AIR_GAP, disconnectedRocketPositions));
+        }
+
+        addUnmovableBlockErrors(level, rocketPositions, errors);
+        addUnmovableBlockErrors(level, chopstickPositions.chopstick1Positions(), errors);
+        addUnmovableBlockErrors(level, chopstickPositions.chopstick2Positions(), errors);
+
+        return new SpacePortAnalysis(
+            previewInfos,
+            rocketPositions,
+            chopstickPositions.chopstick1Positions(),
+            chopstickPositions.chopstick2Positions(),
+            chopstickPositions.pivotWorldPos(),
+            List.copyOf(errors)
+        );
     }
 
     public static List<PreviewInfo> calculateSpacePort(final Level level, final LaunchPadConfiguration launchPadConfiguration, final boolean includeRocketArea) {
@@ -255,8 +289,6 @@ public final class CommonUtils {
             }
         }
 
-        ///TODO: there are many duplicate for loops/functions with {@link RocketControllerBlockEntity#serverTick(Level, BlockPos, BlockState, RocketControllerBlockEntity)}
-
         // Tower rod
         final Block scaffolding = ModBlocks.METAL_SCAFFOLDING.get();
         final int towerWidth = width - 8;
@@ -294,34 +326,144 @@ public final class CommonUtils {
         }
 
         for (final BlockPos checkPos : allPos) {
-            // TODO: because I removed this check previewList can now be immensely big (because the pos stretch to the sky) so definitely improve the performance somehow
-            //if (!level.getBlockState(checkPos).isAir()) {
             previewBlocks.add(new PreviewInfo(checkPos, Optional.of(Blocks.AIR)));
-            //}
         }
 
         return previewBlocks;
     }
 
-    public static BlockPos getMinCorner(final List<BlockPos> positions) {
-        int minX = Integer.MAX_VALUE;
-        int minY = Integer.MAX_VALUE;
-        int minZ = Integer.MAX_VALUE;
+    public static List<BlockPos> getRocketBlockPositions(final Level level, final LaunchPadConfiguration launchPadConfiguration) {
+        final List<BlockPos> rocketPositions = new ArrayList<>();
 
-        for (final BlockPos pos : positions) {
-            minX = Math.min(minX, pos.getX());
-            minY = Math.min(minY, pos.getY());
-            minZ = Math.min(minZ, pos.getZ());
+        final BlockPos mainPos = launchPadConfiguration.mainPos();
+        final int width = launchPadConfiguration.width();
+        final int height = launchPadConfiguration.height();
+        final Direction facing = launchPadConfiguration.facing();
+
+        final int minOffset = -(width - 1) / 2;
+        final int maxOffset = width / 2;
+
+        for (int dx = minOffset + 4; dx <= maxOffset - 4; dx++) {
+            for (int dz = 2; dz <= width - 7; dz++) {
+                for (int dy = 0; dy < height + 1; dy++) {
+                    final BlockPos rotatedPos = rotateOffset(mainPos.above(dy), facing.getOpposite(), dx, dz);
+
+                    if (!level.getBlockState(rotatedPos).isAir()) {
+                        rocketPositions.add(rotatedPos);
+                    }
+                }
+            }
         }
 
-        return new BlockPos(minX, minY, minZ);
+        return rocketPositions;
     }
 
-    public static List<BlockPos> toLocalPositions(final List<BlockPos> positions, final BlockPos origin) {
-        final List<BlockPos> result = new ArrayList<>(positions.size());
-        for (final BlockPos pos : positions) {
-            result.add(pos.subtract(origin));
+    public static ChopstickPositions getChopstickPositions(final LaunchPadConfiguration launchPadConfiguration) {
+        final BlockPos mainPos = launchPadConfiguration.mainPos();
+        final int width = launchPadConfiguration.width();
+        final int height = launchPadConfiguration.height();
+        final Direction facing = launchPadConfiguration.facing();
+
+        final int towerWidth = width - 8;
+        final int minOffset = -(towerWidth - 1) / 2;
+        final int chopstickWidth = width - 5;
+
+        final List<BlockPos> chopstick1Positions = new ArrayList<>();
+        final List<BlockPos> chopstick2Positions = new ArrayList<>();
+
+        for (int dz = 0; dz < chopstickWidth; dz++) {
+            final BlockPos targetPos1 = rotateOffset(mainPos.above(height - 2), facing.getOpposite(), -minOffset + 1, dz);
+            final BlockPos targetPos2 = rotateOffset(mainPos.above(height - 2), facing.getOpposite(), minOffset - 1, dz);
+
+            chopstick1Positions.add(targetPos1);
+            chopstick2Positions.add(targetPos2);
+
+            if (dz != 0) {
+                final BlockPos targetPos3 = rotateOffset(mainPos.above(height - 2), facing.getOpposite(), -minOffset + 2, dz);
+                final BlockPos targetPos4 = rotateOffset(mainPos.above(height - 2), facing.getOpposite(), minOffset - 2, dz);
+
+                chopstick1Positions.add(targetPos3);
+                chopstick2Positions.add(targetPos4);
+            }
         }
-        return result;
+
+        return new ChopstickPositions(chopstick1Positions, chopstick2Positions, mainPos.above(height - 2));
+    }
+
+    private static List<BlockPos> getDisconnectedPositions(final List<BlockPos> positions) {
+        if (positions.isEmpty()) {
+            return List.of();
+        }
+
+        final Set<BlockPos> allPositions = new HashSet<>(positions);
+        final Set<BlockPos> visited = new HashSet<>();
+        final Queue<BlockPos> queue = new LinkedList<>();
+
+        final BlockPos start = allPositions.iterator().next();
+        visited.add(start);
+        queue.add(start);
+
+        while (!queue.isEmpty()) {
+            final BlockPos current = queue.poll();
+
+            for (final Direction direction : Direction.values()) {
+                final BlockPos neighbor = current.relative(direction);
+
+                if (allPositions.contains(neighbor) && visited.add(neighbor)) {
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+        if (visited.size() == allPositions.size()) {
+            return List.of();
+        }
+
+        final List<BlockPos> disconnectedPositions = new ArrayList<>();
+        for (final BlockPos pos : positions) {
+            if (!visited.contains(pos)) {
+                disconnectedPositions.add(pos);
+            }
+        }
+
+        return disconnectedPositions;
+    }
+
+    private static void addUnmovableBlockErrors(final Level level, final List<BlockPos> positions, final Set<LaunchError> errors) {
+        for (final BlockPos pos : positions) {
+            final BlockState state = level.getBlockState(pos);
+            if (!state.isAir() && state.getDestroySpeed(level, pos) <= 0) {
+                errors.add(LaunchError.at(
+                    LaunchError.LaunchErrors.UNMOVABLE_BLOCK,
+                    pos,
+                    null,
+                    state
+                ));
+                return;
+            }
+        }
+    }
+
+    public record SpacePortAnalysis(List<PreviewInfo> previewInfos,
+                                    List<BlockPos> rocketPositions,
+                                    List<BlockPos> chopstick1Positions,
+                                    List<BlockPos> chopstick2Positions,
+                                    BlockPos chopstickPivotWorldPos,
+                                    List<LaunchError> errors) {
+        public boolean valid() {
+            return this.errors.isEmpty();
+        }
+
+        public List<LaunchError.LaunchErrors> errorTypes() {
+            return this.errors.stream()
+                .map(LaunchError::type)
+                .distinct()
+                .toList();
+        }
+    }
+
+    public record ChopstickPositions(List<BlockPos> chopstick1Positions,
+                                     List<BlockPos> chopstick2Positions,
+                                     BlockPos pivotWorldPos) {
     }
 }

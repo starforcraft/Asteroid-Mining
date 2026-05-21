@@ -4,6 +4,7 @@ import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.utils.ClientUtils;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.input.MouseButtonEvent;
@@ -92,7 +93,7 @@ public final class PagedSideTabs<T> {
                                      final int mouseX,
                                      final int mouseY,
                                      final TabRenderer<T> tabRenderer) {
-        this.renderTabs(graphics, items, x, y, mouseX, mouseY, tabRenderer, TabRenderLayer.UNSELECTED);
+        this.renderTabs(graphics, items, x, y, mouseX, mouseY, () -> false, tabRenderer, TabRenderLayer.UNSELECTED);
     }
 
     public void renderSelectedTab(final GuiGraphicsExtractor graphics,
@@ -101,8 +102,9 @@ public final class PagedSideTabs<T> {
                                   final int y,
                                   final int mouseX,
                                   final int mouseY,
+                                  final Supplier<Boolean> blockTooltip,
                                   final TabRenderer<T> tabRenderer) {
-        this.renderTabs(graphics, items, x, y, mouseX, mouseY, tabRenderer, TabRenderLayer.SELECTED);
+        this.renderTabs(graphics, items, x, y, mouseX, mouseY, blockTooltip, tabRenderer, TabRenderLayer.SELECTED);
     }
 
     private void renderTabs(final GuiGraphicsExtractor graphics,
@@ -111,6 +113,7 @@ public final class PagedSideTabs<T> {
                             final int y,
                             final int mouseX,
                             final int mouseY,
+                            final Supplier<Boolean> blockTooltip,
                             final TabRenderer<T> tabRenderer,
                             final TabRenderLayer renderLayer) {
         this.update(items.size());
@@ -139,7 +142,7 @@ public final class PagedSideTabs<T> {
             if (renderLayer == TabRenderLayer.SELECTED) {
                 final int iconX = tabX + (this.getTabWidth() - this.tabIconSize) / 2;
                 final int iconY = tabY + (this.getTabHeight() - this.tabIconSize) / 2;
-                tabRenderer.render(graphics, item, iconX, iconY, mouseX, mouseY, this.isMouseOverTab(tabX, tabY, mouseX, mouseY));
+                tabRenderer.render(graphics, item, iconX, iconY, mouseX, mouseY, !blockTooltip.get() && this.isMouseOverTab(tabX, tabY, mouseX, mouseY));
             }
         }
     }
