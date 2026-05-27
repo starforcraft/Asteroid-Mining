@@ -1,5 +1,7 @@
 package com.ultramega.asteroidmining.utils;
 
+import com.ultramega.asteroidmining.blocks.RocketEngineBlock;
+import com.ultramega.asteroidmining.blocks.StorageTankBlock;
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.storage.LaunchPadConfiguration;
 import com.ultramega.asteroidmining.storage.NetworkConfiguration;
@@ -197,7 +199,8 @@ public final class CommonUtils {
 
     public static SpacePortAnalysis analyzeSpacePort(final Level level, final NetworkConfiguration configuration) {
         final List<PreviewInfo> previewInfos = calculateSpacePort(level, configuration.launchPadConfiguration(), true);
-        final List<BlockPos> rocketPositions = getRocketBlockPositions(level, configuration.launchPadConfiguration());
+        final RocketBlockPositions rocketBlocks = getRocketBlockPositions(level, configuration.launchPadConfiguration());
+        final List<BlockPos> rocketPositions = rocketBlocks.positions();
         final ChopstickPositions chopstickPositions = getChopstickPositions(configuration.launchPadConfiguration());
 
         final Set<LaunchError> errors = new LinkedHashSet<>();
@@ -232,7 +235,14 @@ public final class CommonUtils {
         addUnmovableBlockErrors(level, chopstickPositions.chopstick1Positions(), errors);
         addUnmovableBlockErrors(level, chopstickPositions.chopstick2Positions(), errors);
 
-        //TODO: implement all other launch errors (MISSING_ENGINE, MISSING_ITEM_STORAGE_OR_FLUID_TANK)
+        if (!rocketBlocks.hasEngine()) {
+            errors.add(LaunchError.simple(LaunchError.LaunchErrors.MISSING_ENGINE));
+        }
+
+        if (!rocketBlocks.hasItemStorageOrFluidTank()) {
+            errors.add(LaunchError.simple(LaunchError.LaunchErrors.MISSING_ITEM_STORAGE_OR_FLUID_TANK));
+        }
+
         if (configuration.moduleProperties().selectedAsteroid().isEmpty()) {
             errors.add(LaunchError.simple(LaunchError.LaunchErrors.NO_DESTINATION_SELECTED));
         }
@@ -338,8 +348,10 @@ public final class CommonUtils {
         return previewBlocks;
     }
 
-    public static List<BlockPos> getRocketBlockPositions(final Level level, final LaunchPadConfiguration launchPadConfiguration) {
+    public static RocketBlockPositions getRocketBlockPositions(final Level level, final LaunchPadConfiguration launchPadConfiguration) {
         final List<BlockPos> rocketPositions = new ArrayList<>();
+        boolean hasEngine = false;
+        boolean hasItemStorageOrFluidTank = false;
 
         final BlockPos mainPos = launchPadConfiguration.mainPos();
         final int width = launchPadConfiguration.width();
@@ -353,15 +365,21 @@ public final class CommonUtils {
             for (int dz = 2; dz <= width - 7; dz++) {
                 for (int dy = 0; dy < height + 1; dy++) {
                     final BlockPos rotatedPos = rotateOffset(mainPos.above(dy), facing.getOpposite(), dx, dz);
-
-                    if (!level.getBlockState(rotatedPos).isAir()) {
+                    final BlockState state = level.getBlockState(rotatedPos);
+                    if (!state.isAir()) {
                         rocketPositions.add(rotatedPos);
+
+                        if (state.getBlock() instanceof RocketEngineBlock) {
+                            hasEngine = true;
+                        } else if (state.getBlock() instanceof StorageTankBlock) {
+                            hasItemStorageOrFluidTank = true;
+                        }
                     }
                 }
             }
         }
 
-        return rocketPositions;
+        return new RocketBlockPositions(rocketPositions, hasEngine, hasItemStorageOrFluidTank);
     }
 
     public static ChopstickPositions getChopstickPositions(final LaunchPadConfiguration launchPadConfiguration) {
@@ -466,6 +484,11 @@ public final class CommonUtils {
                 .distinct()
                 .toList();
         }
+    }
+
+    public record RocketBlockPositions(List<BlockPos> positions,
+                                       boolean hasEngine,
+                                       boolean hasItemStorageOrFluidTank) {
     }
 
     public record ChopstickPositions(List<BlockPos> chopstick1Positions,
