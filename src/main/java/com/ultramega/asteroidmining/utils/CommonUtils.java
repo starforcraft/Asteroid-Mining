@@ -2,6 +2,7 @@ package com.ultramega.asteroidmining.utils;
 
 import com.ultramega.asteroidmining.registry.ModBlocks;
 import com.ultramega.asteroidmining.storage.LaunchPadConfiguration;
+import com.ultramega.asteroidmining.storage.NetworkConfiguration;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -186,18 +187,18 @@ public final class CommonUtils {
         return result;
     }
 
-    public static boolean isSpacePortValid(final Level level, final LaunchPadConfiguration launchPadConfiguration) {
-        return analyzeSpacePort(level, launchPadConfiguration).valid();
+    public static boolean isSpacePortValid(final Level level, final NetworkConfiguration configuration) {
+        return analyzeSpacePort(level, configuration).valid();
     }
 
-    public static List<LaunchError> getSpacePortErrors(final Level level, final LaunchPadConfiguration launchPadConfiguration) {
-        return analyzeSpacePort(level, launchPadConfiguration).errors();
+    public static List<LaunchError> getSpacePortErrors(final Level level, final NetworkConfiguration configuration) {
+        return analyzeSpacePort(level, configuration).errors();
     }
 
-    public static SpacePortAnalysis analyzeSpacePort(final Level level, final LaunchPadConfiguration launchPadConfiguration) {
-        final List<PreviewInfo> previewInfos = calculateSpacePort(level, launchPadConfiguration, true);
-        final List<BlockPos> rocketPositions = getRocketBlockPositions(level, launchPadConfiguration);
-        final ChopstickPositions chopstickPositions = getChopstickPositions(launchPadConfiguration);
+    public static SpacePortAnalysis analyzeSpacePort(final Level level, final NetworkConfiguration configuration) {
+        final List<PreviewInfo> previewInfos = calculateSpacePort(level, configuration.launchPadConfiguration(), true);
+        final List<BlockPos> rocketPositions = getRocketBlockPositions(level, configuration.launchPadConfiguration());
+        final ChopstickPositions chopstickPositions = getChopstickPositions(configuration.launchPadConfiguration());
 
         final Set<LaunchError> errors = new LinkedHashSet<>();
 
@@ -230,6 +231,11 @@ public final class CommonUtils {
         addUnmovableBlockErrors(level, rocketPositions, errors);
         addUnmovableBlockErrors(level, chopstickPositions.chopstick1Positions(), errors);
         addUnmovableBlockErrors(level, chopstickPositions.chopstick2Positions(), errors);
+
+        //TODO: implement all other launch errors (MISSING_ENGINE, MISSING_ITEM_STORAGE_OR_FLUID_TANK)
+        if (configuration.moduleProperties().selectedAsteroid().isEmpty()) {
+            errors.add(LaunchError.simple(LaunchError.LaunchErrors.NO_DESTINATION_SELECTED));
+        }
 
         return new SpacePortAnalysis(
             previewInfos,

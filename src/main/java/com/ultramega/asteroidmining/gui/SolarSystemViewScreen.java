@@ -26,6 +26,8 @@ import net.minecraft.client.gui.navigation.ScreenRectangle;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
+import net.minecraft.client.input.CharacterEvent;
+import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -35,6 +37,7 @@ import net.neoforged.neoforge.client.ClientHooks;
 import org.joml.Matrix3x2f;
 import org.joml.Matrix3x2fStack;
 import org.jspecify.annotations.Nullable;
+import org.lwjgl.glfw.GLFW;
 
 import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
 
@@ -48,7 +51,7 @@ public class SolarSystemViewScreen extends Screen {
     private static final int MIN_MAX_X = 5000;
     private static final int MIN_MAX_Y = 3000;
 
-    private final Consumer<Identifier> selectAsteroid;
+    private final Consumer<@Nullable Identifier> selectAsteroid;
     private final ObservatoryScreen parent;
 
     private int detailWidth;
@@ -78,14 +81,14 @@ public class SolarSystemViewScreen extends Screen {
 
     private boolean cancelMouseRelease;
 
-    public SolarSystemViewScreen(@Nullable final AsteroidConfig selectedAsteroid, final Consumer<Identifier> selectAsteroid, final ObservatoryScreen parent) {
+    public SolarSystemViewScreen(@Nullable final AsteroidConfig selectedAsteroid, final Consumer<@Nullable Identifier> selectAsteroid, final ObservatoryScreen parent) {
         super(GameNarrator.NO_TITLE);
         this.selectedAsteroid = selectedAsteroid;
         this.selectAsteroid = selectAsteroid;
         this.parent = parent;
         this.cancelMouseRelease = true;
 
-        if (this.selectAsteroid != null) {
+        if (selectedAsteroid != null) {
             this.followAsteroid = true;
             this.zoomOntoAsteroid = true;
         }
@@ -134,6 +137,7 @@ public class SolarSystemViewScreen extends Screen {
     public void extractRenderState(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {
         this.renderAsteroids(graphics, mouseX, mouseY);
         this.renderSelectedAsteroidDetails(graphics, mouseX, mouseY);
+
         for (final Renderable renderable : this.renderables) {
             renderable.extractRenderState(graphics, mouseX, mouseY, partialTicks);
         }
@@ -279,13 +283,21 @@ public class SolarSystemViewScreen extends Screen {
 
             poseStack.pushMatrix();
             poseStack.translate(topLeftX, topLeftY);
-            if (asteroid.isShouldRotate()) {
+
+            if (asteroid.isRotateAroundItself()) {
                 asteroid.increaseRotation();
-                //TODO
-                poseStack.rotateAbout(asteroid.getRotation(), size / 2.0f, size / 2.0f);
+
+                final float center = size / 2.0f;
+                poseStack.pushMatrix();
+                poseStack.rotateAbout(asteroid.getRotation(), center, center);
+
+                graphics.blitSprite(GUI_TEXTURED, asteroid.getTexture(), size, size, 0, 0, 0, 0, size, size);
+
+                poseStack.popMatrix();
+            } else {
+                graphics.blitSprite(GUI_TEXTURED, asteroid.getTexture(), size, size, 0, 0, 0, 0, size, size);
             }
 
-            graphics.blitSprite(GUI_TEXTURED, asteroid.getTexture(), size, size, 0, 0, 0, 0, size, size);
             if (isSelectedAsteroid) {
                 graphics.blitSprite(GUI_TEXTURED, SELECTED, size, size, 0, 0, 0, 0, size, size);
             }
@@ -370,38 +382,11 @@ public class SolarSystemViewScreen extends Screen {
     }
 
     @Override
-    public boolean mouseDragged(final MouseButtonEvent event, final double dragX, final double dragY) {
-        if (this.isMouseOnDetailPanel(event.x(), event.y())) {
-            return false;
+    public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
+        if (this.searchBox.mouseClicked(event, doubleClick)) {
+            return true;
         }
-
-        if (Math.abs(dragX) > 0.02 || Math.abs(dragY) > 0.02) {
-            this.isDragging = true;
-        }
-        this.dragX += dragX / this.zoom;
-        this.dragY += dragY / this.zoom;
-        this.dragX = Mth.clamp(this.dragX, -MIN_MAX_X * this.zoom, MIN_MAX_X * this.zoom); //TODO: improve these calculation, as they are currently not zoom independent
-        this.dragY = Mth.clamp(this.dragY, -MIN_MAX_Y * this.zoom, MIN_MAX_Y * this.zoom);
-
-        this.followAsteroid = false;
-        this.zoomOntoAsteroid = false;
-
-        return super.mouseDragged(event, dragX, dragY);
-    }
-
-    @Override
-    public boolean mouseScrolled(final double mouseX, final double mouseY, final double scrollX, final double scrollY) {
-        if (this.searchBox.mouseScrolled(mouseX, mouseY, scrollX, scrollY)) {
-            return false;
-        }
-
-        final float scrollAmount = (float) scrollY * 0.1f * this.zoom;
-        this.zoom += scrollAmount;
-        this.zoom = Mth.clamp(this.zoom, 0.05f, MAX_ZOOM);
-
-        this.zoomOntoAsteroid = false;
-
-        return super.mouseScrolled(mouseX, mouseY, scrollX, scrollY);
+        return super.mouseClicked(event, doubleClick);
     }
 
     @Override
@@ -432,8 +417,63 @@ public class SolarSystemViewScreen extends Screen {
     }
 
     @Override
+    public boolean mouseDragged(final MouseButtonEvent event, final double dragX, final double dragY) {
+        if (this.isMouseOnDetailPanel(event.x(), event.y())) {
+            return false;
+        }
+
+        if (Math.abs(dragX) > 0.02 || Math.abs(dragY) > 0.02) {
+            this.isDragging = true;
+        }
+        this.dragX += dragX / this.zoom;
+        this.dragY += dragY / this.zoom;
+        this.dragX = Mth.clamp(this.dragX, -MIN_MAX_X * this.zoom, MIN_MAX_X * this.zoom); //TODO: improve these calculation, as they are currently not zoom independent (<- What?)
+        this.dragY = Mth.clamp(this.dragY, -MIN_MAX_Y * this.zoom, MIN_MAX_Y * this.zoom);
+
+        this.followAsteroid = false;
+        this.zoomOntoAsteroid = false;
+
+        return super.mouseDragged(event, dragX, dragY);
+    }
+
+    @Override
+    public boolean mouseScrolled(final double mouseX, final double mouseY, final double scrollX, final double scrollY) {
+        if (this.searchBox.mouseScrolled(mouseX, mouseY, scrollX, scrollY)) {
+            return false;
+        }
+
+        final float scrollAmount = (float) scrollY * 0.1f * this.zoom;
+        this.zoom += scrollAmount;
+        this.zoom = Mth.clamp(this.zoom, 0.05f, MAX_ZOOM);
+
+        this.zoomOntoAsteroid = false;
+
+        return super.mouseScrolled(mouseX, mouseY, scrollX, scrollY);
+    }
+
+    @Override
     public void mouseMoved(final double mouseX, final double mouseY) {
         this.searchBox.mouseMoved(mouseX, mouseY);
+    }
+
+    @Override
+    public boolean keyPressed(final KeyEvent event) {
+        if (!this.searchBox.isFocused() && event.key() == GLFW.GLFW_KEY_ESCAPE) {
+            this.onClose();
+            return true;
+        }
+        if (this.searchBox.keyPressed(event)) {
+            return true;
+        }
+        return super.keyPressed(event);
+    }
+
+    @Override
+    public boolean charTyped(final CharacterEvent event) {
+        if (this.searchBox.charTyped(event)) {
+            return true;
+        }
+        return super.charTyped(event);
     }
 
     private boolean isMouseOnDetailPanel(final double mouseX, final double mouseY) {

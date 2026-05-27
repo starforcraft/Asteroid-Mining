@@ -160,7 +160,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
             return;
         }
 
-        final CommonUtils.SpacePortAnalysis spacePortAnalysis = CommonUtils.analyzeSpacePort(level, configuration.launchPadConfiguration());
+        final CommonUtils.SpacePortAnalysis spacePortAnalysis = CommonUtils.analyzeSpacePort(level, configuration);
         if (!spacePortAnalysis.valid() && blockEntity.chopstick1 == null) {
             return;
         }
@@ -457,7 +457,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         final int fuelUsage = 0;
 
         if (this.level != null) {
-            final CommonUtils.SpacePortAnalysis spacePortAnalysis = CommonUtils.analyzeSpacePort(this.level, configuration.launchPadConfiguration());
+            final CommonUtils.SpacePortAnalysis spacePortAnalysis = CommonUtils.analyzeSpacePort(this.level, configuration);
             for (final BlockPos rocketPos : spacePortAnalysis.rocketPositions()) {
                 final BlockState state = this.level.getBlockState(rocketPos);
                 if (state.getBlock() instanceof RocketEngineBlock rocketEngineBlock) {
@@ -638,7 +638,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         this.managedLaunchStarted = false;
         this.playedTMinusSound = false;
         this.lastCommentatedSecond = Integer.MIN_VALUE;
-        this.destinationAsteroid = selectedAsteroid;
+        this.destinationAsteroid = selectedAsteroid; //TODO: remove destinationAsteroid?
         this.setChanged();
     }
 

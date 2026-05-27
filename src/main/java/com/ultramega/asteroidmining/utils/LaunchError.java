@@ -15,6 +15,10 @@ public record LaunchError(LaunchErrors type,
         relatedPositions = List.copyOf(relatedPositions);
     }
 
+    public static LaunchError simple(final LaunchErrors type) {
+        return new LaunchError(type, null, null, null, List.of());
+    }
+
     public static LaunchError at(final LaunchErrors type,
                                  final BlockPos pos,
                                  @Nullable final BlockState expectedState,

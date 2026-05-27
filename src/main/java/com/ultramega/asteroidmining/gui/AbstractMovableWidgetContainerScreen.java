@@ -8,6 +8,7 @@ import java.util.List;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -46,6 +47,16 @@ public abstract class AbstractMovableWidgetContainerScreen<M extends AbstractCon
                 widget.extractRenderState(graphics, mouseX, mouseY, partialTicks);
             }
         }
+    }
+
+    @Override
+    protected final void extractTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
+        if (this.isMouseOverMovableWidget(mouseX, mouseY)) {
+            return;
+        }
+
+        super.extractTooltip(graphics, mouseX, mouseY);
+        this.drawTooltip(graphics, mouseX, mouseY);
     }
 
     @Override
@@ -93,13 +104,13 @@ public abstract class AbstractMovableWidgetContainerScreen<M extends AbstractCon
     }
 
     @Override
-    protected final void extractTooltip(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY) {
-        if (this.isMouseOverMovableWidget(mouseX, mouseY)) {
-            return;
+    public boolean keyPressed(final KeyEvent event) {
+        for (int i = this.movableWidgets.size() - 1; i >= 0; --i) {
+            if (this.movableWidgets.get(i).keyPressed(event)) {
+                return true;
+            }
         }
-
-        super.extractTooltip(graphics, mouseX, mouseY);
-        this.drawTooltip(graphics, mouseX, mouseY);
+        return super.keyPressed(event);
     }
 
     @Nullable

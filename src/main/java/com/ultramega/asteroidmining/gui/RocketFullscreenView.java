@@ -73,7 +73,7 @@ public class RocketFullscreenView extends Screen {
 
         final ImageButton closeButton = new ImageButton(2, 2, 24, 24, 0, 0, CLOSE, (button) ->
             this.onClose());
-        closeButton.setActiveTooltip(Component.translatable("gui.asteroidmining.rocket_controller.view.close"));
+        closeButton.setActiveTooltip(Component.translatable("gui.asteroidmining.close"));
         closeButton.setRenderBackground(false);
         this.addRenderableWidget(closeButton);
     }

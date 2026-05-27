@@ -33,5 +33,5 @@
   "isClockwise": true,
   "startingAngleDegrees": 0.0,
   "isOrbitVisible": false,
-  "shouldRotate": true
+  "rotateAroundItself": true
 }

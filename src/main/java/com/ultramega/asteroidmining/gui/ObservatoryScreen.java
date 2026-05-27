@@ -60,7 +60,7 @@ public class ObservatoryScreen extends AbstractModuleScreen<ObservatoryContainer
             }
 
             Minecraft.getInstance().setScreen(new SolarSystemViewScreen(this.selectedAsteroid, (selectedAsteroid -> {
-                ClientPacketDistributor.sendToServer(new SelectAsteroidPayload(Optional.of(selectedAsteroid), this.selectedConfigurationUUID));
+                ClientPacketDistributor.sendToServer(new SelectAsteroidPayload(Optional.ofNullable(selectedAsteroid), this.selectedConfigurationUUID));
 
                 this.updateSelectedAsteroid(selectedAsteroid);
             }), this));
@@ -102,7 +102,7 @@ public class ObservatoryScreen extends AbstractModuleScreen<ObservatoryContainer
         this.selectedConfigurationUUID = this.menu.getBlockEntity().getSelectedConfigurationUUID();
     }
 
-    private void updateSelectedAsteroid(final Identifier asteroidId) {
+    private void updateSelectedAsteroid(@Nullable final Identifier asteroidId) {
         final Optional<AsteroidConfig> asteroid = AsteroidReloadListener.INSTANCE.getData().values()
             .stream()
             .filter(config -> config.getId().equals(asteroidId))

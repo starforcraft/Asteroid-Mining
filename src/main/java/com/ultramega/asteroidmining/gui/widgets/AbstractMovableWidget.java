@@ -4,7 +4,9 @@ import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.config.ClientConfig;
 import com.ultramega.asteroidmining.utils.ClientUtils;
 
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.IntSupplier;
 
 import net.minecraft.client.Minecraft;
@@ -12,21 +14,33 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
+import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
+import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
+import org.lwjgl.glfw.GLFW;
+
+import static com.ultramega.asteroidmining.utils.ClientUtils.createTooltip;
 
 public abstract class AbstractMovableWidget extends AbstractWidget {
     private static final Identifier BACKGROUND = AsteroidMining.makeId("white_side_panel");
 
+    private static final Identifier CLOSE = AsteroidMining.makeId("close_small");
+    private static final int CLOSE_SIZE = 7;
+    private static final int CLOSE_OFFSET = 5;
+
     private static final int HEADER_HEIGHT = 13;
+
+    private static final Map<MovableWidgetType, Boolean> VISIBILITY_STATES = new EnumMap<>(MovableWidgetType.class);
 
     private final MovableWidgetType widgetType;
     private final IntSupplier screenWidth;
     private final IntSupplier screenHeight;
+    private final boolean isCloseable;
 
     private int lastScreenWidth;
     private int lastScreenHeight;
@@ -42,9 +56,9 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
                                     final int height,
                                     final IntSupplier screenWidth,
                                     final IntSupplier screenHeight,
-                                    final boolean visible) {
+                                    final boolean defaultVisible) {
         this(widgetType, ClientConfig.getWidgetPosition(widgetType, screenWidth.getAsInt(), screenHeight.getAsInt(), width, height)
-                .orElse(new ClientConfig.SavedPosition(defaultX, defaultY)), width, height, screenWidth, screenHeight, visible);
+                .orElse(new ClientConfig.SavedPosition(defaultX, defaultY)), width, height, screenWidth, screenHeight, defaultVisible);
     }
 
     private AbstractMovableWidget(final MovableWidgetType widgetType,
@@ -53,13 +67,14 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
                                   final int height,
                                   final IntSupplier screenWidth,
                                   final IntSupplier screenHeight,
-                                  final boolean visible) {
+                                  final boolean defaultVisible) {
         super(initialPosition.x(), initialPosition.y(), width, height, Component.empty());
 
         this.widgetType = widgetType;
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
-        this.visible = visible;
+        this.visible = VISIBILITY_STATES.getOrDefault(widgetType, defaultVisible);
+        this.isCloseable = !defaultVisible;
 
         this.lastScreenWidth = screenWidth.getAsInt();
         this.lastScreenHeight = screenHeight.getAsInt();
@@ -81,16 +96,35 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
         this.extractBehindMovableContents(graphics, mouseX, mouseY, partialTicks);
 
         graphics.blitSprite(RenderPipelines.GUI_TEXTURED, BACKGROUND, x, y, this.getWidth(), this.getHeight());
+        if (this.isCloseable) {
+            graphics.blitSprite(RenderPipelines.GUI_TEXTURED, CLOSE, x + this.getWidth() - CLOSE_SIZE - CLOSE_OFFSET, y + CLOSE_OFFSET, CLOSE_SIZE, CLOSE_SIZE);
+        }
         graphics.text(font, this.getTitle(), x + (this.getWidth() - font.width(this.getTitle())) / 2, y + 5, -12566464, false);
 
         this.extractMovableContents(graphics, mouseX, mouseY, partialTicks);
-        this.extractTooltips(graphics, Minecraft.getInstance().font, mouseX, mouseY);
+        this.extractAllTooltips(graphics, Minecraft.getInstance().font, mouseX, mouseY);
+    }
+
+    private void extractAllTooltips(final GuiGraphicsExtractor graphics, final Font font, final int mouseX, final int mouseY) {
+        if (this.isCloseable
+            && ClientUtils.isMouseOver(this.getX() + this.getWidth() - CLOSE_SIZE - CLOSE_OFFSET, this.getY() + CLOSE_OFFSET, CLOSE_SIZE, CLOSE_SIZE, mouseX, mouseY)) {
+            graphics.tooltip(font, createTooltip(Component.translatable("gui.asteroidmining.close")), mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
+            return;
+        }
+        this.extractTooltips(graphics, font, mouseX, mouseY);
     }
 
     @Override
     public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
         if (!this.visible || !this.active || !this.isMouseOverWidgetArea(event.x(), event.y())) {
             return false;
+        }
+
+        if (this.isCloseable
+            && ClientUtils.isMouseOver(this.getX() + this.getWidth() - CLOSE_SIZE - CLOSE_OFFSET, this.getY() + CLOSE_OFFSET, CLOSE_SIZE, CLOSE_SIZE, event.x(), event.y())) {
+            this.setMovableVisible(false);
+            this.playDownSound(Minecraft.getInstance().getSoundManager());
+            return true;
         }
 
         final boolean click = this.mouseClickedInside(event, doubleClick);
@@ -124,6 +158,16 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
         if (this.dragging) {
             this.dragging = false;
             this.savePosition();
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean keyPressed(final KeyEvent event) {
+        if (this.isCloseable && this.visible && event.key() == GLFW.GLFW_KEY_ESCAPE) {
+            this.setMovableVisible(false);
             return true;
         }
 
@@ -205,7 +249,12 @@ public abstract class AbstractMovableWidget extends AbstractWidget {
     }
 
     public void openOrClose() {
-        this.visible = !this.visible;
+        this.setMovableVisible(!this.visible);
+    }
+
+    public final void setMovableVisible(final boolean visible) {
+        this.visible = visible;
+        VISIBILITY_STATES.put(this.widgetType, visible);
     }
 
     protected void extractBehindMovableContents(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float partialTicks) {

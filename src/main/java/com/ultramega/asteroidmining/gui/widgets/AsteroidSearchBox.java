@@ -143,7 +143,6 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
                     this.setValue(suggestion);
                     this.selectedAsteroid.accept(suggestion);
                     this.setFocused(false);
-                    return false;
                 }
             }
         }

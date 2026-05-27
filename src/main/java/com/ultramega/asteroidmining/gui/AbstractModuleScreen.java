@@ -140,5 +140,9 @@ public abstract class AbstractModuleScreen<T extends AbstractModuleContainerMenu
         this.downButton.active = this.tabs.canPageDown();
     }
 
+    public PagedSideTabs<BlockPos> getTabs() {
+        return this.tabs;
+    }
+
     protected abstract void extractModuleBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTicks);
 }

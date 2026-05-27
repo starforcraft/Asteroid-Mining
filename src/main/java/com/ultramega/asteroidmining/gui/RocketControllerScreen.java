@@ -26,6 +26,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.neoforged.neoforge.transfer.item.ItemResource;
+import org.jspecify.annotations.Nullable;
 
 import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
 
@@ -36,6 +37,9 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
 
     private static final int LAUNCH_ROCKET_BUTTON_WIDTH = 85;
     private static final int LAUNCH_ROCKET_BUTTON_HEIGHT = 18;
+
+    @Nullable
+    private SpacePortErrorsWidget spacePortErrorsWidget;
 
     public RocketControllerScreen(final RocketControllerContainerMenu menu, final Inventory inventory, final Component title) {
         super(menu, inventory, title, 223, 182);
@@ -55,13 +59,13 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
             () -> this.height));
 
         final List<LaunchError> spacePortErrors = this.getSpacePortErrors();
-        final SpacePortErrorsWidget spacePortErrorsWidget = new SpacePortErrorsWidget(
-            this.leftPos + this.imageWidth,
+        this.spacePortErrorsWidget = new SpacePortErrorsWidget(
+            this.leftPos - this.getTabs().getTabWidth() + (this.imageWidth - RocketViewerWidget.WIDTH) / 2,
             this.topPos + (this.imageHeight - RocketViewerWidget.HEIGHT) / 2,
             () -> this.width,
             () -> this.height,
             spacePortErrors);
-        this.addTopLayerWidget(spacePortErrorsWidget);
+        this.addTopLayerWidget(this.spacePortErrorsWidget);
 
         // TODO: add cancel launch
         final int launchRocketX = this.leftPos + (this.imageWidth - 80) / 2;
@@ -75,7 +79,7 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
 
         if (!spacePortErrors.isEmpty()) {
             final ImageButton errorButton = new ImageButton(launchRocketX + LAUNCH_ROCKET_BUTTON_WIDTH - 8, launchRocketY - LAUNCH_ROCKET_BUTTON_HEIGHT / 2,
-                16, 16, 0, 0, ERROR, (button) -> spacePortErrorsWidget.openOrClose());
+                16, 16, 0, 0, ERROR, (button) -> this.spacePortErrorsWidget.openOrClose());
             errorButton.setActiveTooltip(Component.translatable("gui.asteroidmining.rocket_controller.show_errors"));
             errorButton.setRenderBackground(false);
             this.addRenderableWidget(errorButton);
@@ -171,6 +175,6 @@ public class RocketControllerScreen extends AbstractModuleScreen<RocketControlle
             return List.of();
         }
 
-        return CommonUtils.getSpacePortErrors(level, configuration.launchPadConfiguration());
+        return CommonUtils.getSpacePortErrors(level, configuration);
     }
 }

@@ -40,6 +40,7 @@ public class PlaceholderEditBox extends EditBox {
     public boolean keyPressed(final KeyEvent event) {
         if (event.key() == GLFW.GLFW_KEY_ESCAPE) {
             this.setFocused(false);
+            return true;
         }
         return super.keyPressed(event);
     }
@@ -48,6 +49,8 @@ public class PlaceholderEditBox extends EditBox {
     public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
         if (!this.isMouseOver(event.x(), event.y())) {
             this.setFocused(false);
+        } else {
+            this.setFocused(true);
         }
         return super.mouseClicked(event, doubleClick);
     }

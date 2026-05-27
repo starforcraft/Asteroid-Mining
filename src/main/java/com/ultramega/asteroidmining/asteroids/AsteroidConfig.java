@@ -32,7 +32,7 @@ public final class AsteroidConfig {
         Codec.BOOL.fieldOf("isClockwise").forGetter(c -> c.isClockwise),
         Codec.FLOAT.fieldOf("startingAngleDegrees").forGetter(c -> c.startingAngleDegrees),
         Codec.BOOL.fieldOf("isOrbitVisible").forGetter(c -> c.isOrbitVisible),
-        Codec.BOOL.optionalFieldOf("shouldRotate", false).forGetter(c -> c.shouldRotate)
+        Codec.BOOL.optionalFieldOf("rotateAroundItself", false).forGetter(c -> c.rotateAroundItself)
     ).apply(instance, AsteroidConfig::new));
 
     private final Identifier id;
@@ -52,7 +52,7 @@ public final class AsteroidConfig {
     private float currentAngleDegrees;
     private boolean isOrbitVisible;
 
-    private boolean shouldRotate; //TODO: rename these to something like shouldRotateAroundItself
+    private boolean rotateAroundItself;
     private float rotation;
 
     public AsteroidConfig(final String name, final Identifier texture, final int diameter) {
@@ -64,6 +64,7 @@ public final class AsteroidConfig {
         this.setInitialRotation();
     }
 
+    //TODO: what if a config has the exact same id as an already existing asteroid? Will it replace it? And how do you remove provided asteroids by this mod?
     public AsteroidConfig(@Nullable final Identifier id,
                           final String name,
                           final Identifier texture,
@@ -76,7 +77,7 @@ public final class AsteroidConfig {
                           final boolean isClockwise,
                           final float startingAngleDegrees,
                           final boolean isOrbitVisible,
-                          final boolean shouldRotate) { //TODO: add priority value (what did I mean by this?)
+                          final boolean rotateAroundItself) {
         this.name = name;
         this.id = id == null ? AsteroidMining.makeId(this.getFileName1()) : id;
         this.texture = texture;
@@ -90,7 +91,7 @@ public final class AsteroidConfig {
         this.startingAngleDegrees = startingAngleDegrees;
         this.currentAngleDegrees = startingAngleDegrees;
         this.isOrbitVisible = isOrbitVisible;
-        this.shouldRotate = shouldRotate;
+        this.rotateAroundItself = rotateAroundItself;
 
         this.setInitialRotation();
     }
@@ -123,8 +124,8 @@ public final class AsteroidConfig {
         return this;
     }
 
-    public AsteroidConfig rotation(final boolean shouldRotate) {
-        this.shouldRotate = shouldRotate;
+    public AsteroidConfig rotation(final boolean rotateAroundItself) {
+        this.rotateAroundItself = rotateAroundItself;
         return this;
     }
 
@@ -209,8 +210,8 @@ public final class AsteroidConfig {
         return this.isOrbitVisible;
     }
 
-    public boolean isShouldRotate() {
-        return this.shouldRotate;
+    public boolean isRotateAroundItself() {
+        return this.rotateAroundItself;
     }
 
     public void setInitialRotation() {
@@ -275,7 +276,7 @@ public final class AsteroidConfig {
 
         final String[] fieldOrder = {
             "id", "name", "texture", "diameter", "composition", "centralBodyName", "semiMajorAxis", "semiMinorAxis",
-            "orbitalSpeed", "isClockwise", "startingAngleDegrees", "isOrbitVisible", "shouldRotate"
+            "orbitalSpeed", "isClockwise", "startingAngleDegrees", "isOrbitVisible", "rotateAroundItself"
         };
 
         for (final String field : fieldOrder) {
