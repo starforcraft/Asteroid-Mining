@@ -20,6 +20,8 @@ import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import org.jspecify.annotations.Nullable;
 
 public class BoundingBoxBlockEntity extends BlockEntity implements Nameable {
+    private static final String TAG_MAIN_POS = "mainPos";
+
     @Nullable
     private BlockPos mainBlockPos;
 
@@ -31,16 +33,14 @@ public class BoundingBoxBlockEntity extends BlockEntity implements Nameable {
     @Override
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
-
-        input.read("mainPos", BlockPos.CODEC).ifPresent(pos -> this.mainBlockPos = pos);
+        input.read(TAG_MAIN_POS, BlockPos.CODEC).ifPresent(pos -> this.mainBlockPos = pos);
     }
 
     @Override
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
-
         if (this.mainBlockPos != null) {
-            output.store("mainPos", BlockPos.CODEC, this.mainBlockPos);
+            output.store(TAG_MAIN_POS, BlockPos.CODEC, this.mainBlockPos);
         }
     }
 
@@ -99,7 +99,7 @@ public class BoundingBoxBlockEntity extends BlockEntity implements Nameable {
 
     @Nullable
     private BlockEntity getMainBlockEntity() {
-        if (this.mainBlockPos != null) {
+        if (this.level != null && this.mainBlockPos != null) {
             return this.level.getBlockEntity(this.mainBlockPos);
         }
 

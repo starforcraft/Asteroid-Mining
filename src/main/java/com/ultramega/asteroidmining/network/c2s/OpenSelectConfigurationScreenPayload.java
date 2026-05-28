@@ -34,13 +34,13 @@ public record OpenSelectConfigurationScreenPayload(BlockPos controllerPos) imple
                     (containerId, playerInventory, player2) ->
                         new RocketControllerConfigurationContainerMenu(containerId, playerInventory, blockEntity,
                             ContainerLevelAccess.create(player.level(), data.controllerPos()),
-                            blockEntity.getNextLaunchCooldown(), blockEntity.isLaunchCooldownOverlay(), blockEntity.isLaunchCooldownCommentator()),
+                            blockEntity.getNextLaunchCooldown(), blockEntity.isLaunchCooldownOverlay(), blockEntity.isLaunchCooldownCommentary()),
                     Component.translatable("gui.asteroidmining.select_configuration.title")
                 ), (buf) -> {
                     buf.writeBlockPos(data.controllerPos());
                     buf.writeInt(blockEntity.getNextLaunchCooldown());
                     buf.writeBoolean(blockEntity.isLaunchCooldownOverlay());
-                    buf.writeBoolean(blockEntity.isLaunchCooldownCommentator());
+                    buf.writeBoolean(blockEntity.isLaunchCooldownCommentary());
                 });
             }
         });

@@ -51,6 +51,18 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
 
     public static final int MACHINE_DATA_COUNT = 8;
 
+    private static final String TAG_ENERGY = "energy";
+    private static final String TAG_INVENTORY = "inventory";
+    private static final String TAG_FLUID_TANK = "fluidTank";
+    private static final String TAG_GAS_TANK = "gasTank";
+    private static final String TAG_RECIPE_PROGRESS = "recipeProgress";
+    private static final String TAG_LIT_TIME = "litTime";
+    private static final String TAG_LIT_DURATION = "litDuration";
+    private static final String TAG_COOLING_TIME = "coolingTime";
+    private static final String TAG_COOLING_DURATION = "coolingDuration";
+    private static final String TAG_TEMPERATURE = "temperature";
+    private static final String TAG_TEMPERATURE_COOLDOWN = "temperatureCooldown";
+
     //private static final Map<String, Optional<RecipeHolder<DistillationRecipe>>> RECIPE_CACHE = new HashMap<>();
 
     public final MutableEnergy energyStorage = new MutableEnergy(ServerConfig.DISTILLATION_COLUMN_ENERGY_CAPACITY.get());
@@ -345,37 +357,35 @@ public class DistillationColumnBlockEntity extends AbstractSideConfigurableBlock
     @Override
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
+        this.energyStorage.deserialize(input.childOrEmpty(TAG_ENERGY));
+        this.inventoryHandler.deserialize(input.childOrEmpty(TAG_INVENTORY));
+        this.fluidTank.deserialize(input.childOrEmpty(TAG_FLUID_TANK));
+        this.gasTank.deserialize(input.childOrEmpty(TAG_GAS_TANK));
 
-        this.energyStorage.deserialize(input.childOrEmpty("energy"));
-        this.inventoryHandler.deserialize(input.childOrEmpty("inventory"));
-        this.fluidTank.deserialize(input.childOrEmpty("fluidTank"));
-        this.gasTank.deserialize(input.childOrEmpty("gasTank"));
-
-        this.recipeProgress = input.getInt("recipeProgress").orElse(RECIPE_DURATION);
-        this.litTime = input.getInt("litTime").orElse(0);
-        this.litDuration = input.getInt("litDuration").orElse(0);
-        this.coolingTime = input.getInt("coolingTime").orElse(0);
-        this.coolingDuration = input.getInt("coolingDuration").orElse(0);
-        this.temperature = input.getInt("temperature").orElse(0);
-        this.temperatureCooldown = input.getInt("temperatureCooldown").orElse(0);
+        this.recipeProgress = input.getInt(TAG_RECIPE_PROGRESS).orElse(RECIPE_DURATION);
+        this.litTime = input.getInt(TAG_LIT_TIME).orElse(0);
+        this.litDuration = input.getInt(TAG_LIT_DURATION).orElse(0);
+        this.coolingTime = input.getInt(TAG_COOLING_TIME).orElse(0);
+        this.coolingDuration = input.getInt(TAG_COOLING_DURATION).orElse(0);
+        this.temperature = input.getInt(TAG_TEMPERATURE).orElse(0);
+        this.temperatureCooldown = input.getInt(TAG_TEMPERATURE_COOLDOWN).orElse(0);
     }
 
     @Override
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
+        this.energyStorage.serialize(output.child(TAG_ENERGY));
+        this.inventoryHandler.serialize(output.child(TAG_INVENTORY));
+        this.fluidTank.serialize(output.child(TAG_FLUID_TANK));
+        this.gasTank.serialize(output.child(TAG_GAS_TANK));
 
-        this.energyStorage.serialize(output.child("energy"));
-        this.inventoryHandler.serialize(output.child("inventory"));
-        this.fluidTank.serialize(output.child("fluidTank"));
-        this.gasTank.serialize(output.child("gasTank"));
-
-        output.putInt("recipeProgress", this.recipeProgress);
-        output.putInt("litTime", this.litTime);
-        output.putInt("litDuration", this.litDuration);
-        output.putInt("coolingTime", this.coolingTime);
-        output.putInt("coolingDuration", this.coolingDuration);
-        output.putInt("temperature", this.temperature);
-        output.putInt("temperatureCooldown", this.temperatureCooldown);
+        output.putInt(TAG_RECIPE_PROGRESS, this.recipeProgress);
+        output.putInt(TAG_LIT_TIME, this.litTime);
+        output.putInt(TAG_LIT_DURATION, this.litDuration);
+        output.putInt(TAG_COOLING_TIME, this.coolingTime);
+        output.putInt(TAG_COOLING_DURATION, this.coolingDuration);
+        output.putInt(TAG_TEMPERATURE, this.temperature);
+        output.putInt(TAG_TEMPERATURE_COOLDOWN, this.temperatureCooldown);
     }
 
     @Override

@@ -33,6 +33,8 @@ import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import org.jspecify.annotations.Nullable;
 
 public class LaunchPadBuilderBlockEntity extends AbstractDataPreservingBlockEntity implements MenuProvider, Nameable, PreserveData {
+    private static final String TAG_INVENTORY = "inventory";
+
     public final ItemStacksResourceHandler inventoryHandler = new ItemStacksResourceHandler(1) {
         @Override
         protected void onContentsChanged(final int index, final ItemStack previousContents) {
@@ -69,15 +71,13 @@ public class LaunchPadBuilderBlockEntity extends AbstractDataPreservingBlockEnti
     @Override
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
-
-        this.inventoryHandler.deserialize(input.childOrEmpty("inventory"));
+        this.inventoryHandler.deserialize(input.childOrEmpty(TAG_INVENTORY));
     }
 
     @Override
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
-
-        this.inventoryHandler.serialize(output.child("inventory"));
+        this.inventoryHandler.serialize(output.child(TAG_INVENTORY));
     }
 
     @Override

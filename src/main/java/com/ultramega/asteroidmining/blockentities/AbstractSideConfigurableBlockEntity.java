@@ -35,6 +35,8 @@ public abstract class AbstractSideConfigurableBlockEntity extends AbstractDataPr
     public static final int SIDE_COUNT = Direction.values().length;
     public static final int SIDE_CONFIG_DATA_COUNT = SideConfigType.values().length * SIDE_COUNT;
 
+    private static final String TAG_SIDE_CONFIG_PREFIX = "sideConfig_";
+
     private final SideIoMode[][] sideConfigs = new SideIoMode[SideConfigType.values().length][SIDE_COUNT];
 
     @Nullable
@@ -438,6 +440,6 @@ public abstract class AbstractSideConfigurableBlockEntity extends AbstractDataPr
     }
 
     private static String sideConfigKey(final SideConfigType type, final Direction side) {
-        return "sideConfig_" + type.ordinal() + "_" + side.ordinal();
+        return TAG_SIDE_CONFIG_PREFIX + type.ordinal() + "_" + side.ordinal();
     }
 }

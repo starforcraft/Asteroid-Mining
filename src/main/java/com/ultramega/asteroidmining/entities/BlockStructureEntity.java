@@ -55,6 +55,12 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
     public static final EntityDataAccessor<Float> TARGET_X_ROT =
         SynchedEntityData.defineId(BlockStructureEntity.class, EntityDataSerializers.FLOAT);
 
+    private static final String TAG_BLOCK_LIST = "BlockList";
+    private static final String TAG_IS_ROCKET = "IsRocket";
+    private static final String TAG_PIVOT_POINT = "PivotPoint";
+    private static final String TAG_TARGET_X_ROT = "TargetXRot";
+    private static final String TAG_TARGET_Y_ROT = "TargetYRot";
+
     private static final float ROTATION_SPEED_DEGREES_PER_TICK = 0.4F;
     private static final float PITCH_SPEED_DEGREES_PER_TICK = 0.5F;
 
@@ -245,26 +251,26 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         builder.define(STRUCTURE_BLOCK_INFO_DATA, List.of());
         builder.define(IS_ROCKET, true);
         builder.define(PIVOT_POINT, BlockPos.ZERO);
-        builder.define(TARGET_Y_ROT, 0F);
         builder.define(TARGET_X_ROT, 0F);
+        builder.define(TARGET_Y_ROT, 0F);
     }
 
     @Override
     protected void readAdditionalSaveData(final ValueInput input) {
-        input.read("BlockList", CommonUtils.STRUCTURE_BLOCK_INFO_LIST_CODEC).ifPresent(this::setStructureBlockInfo);
-        this.setIsRocket(input.getBooleanOr("isRocket", false));
-        input.read("PivotPoint", BlockPos.CODEC).ifPresent(this::setPivotPoint);
-        this.setTargetYRot(input.getFloatOr("TargetYRot", 0F));
-        this.setTargetXRot(input.getFloatOr("TargetXRot", 0F));
+        input.read(TAG_BLOCK_LIST, CommonUtils.STRUCTURE_BLOCK_INFO_LIST_CODEC).ifPresent(this::setStructureBlockInfo);
+        this.setIsRocket(input.getBooleanOr(TAG_IS_ROCKET, false));
+        input.read(TAG_PIVOT_POINT, BlockPos.CODEC).ifPresent(this::setPivotPoint);
+        this.setTargetXRot(input.getFloatOr(TAG_TARGET_X_ROT, 0F));
+        this.setTargetYRot(input.getFloatOr(TAG_TARGET_Y_ROT, 0F));
     }
 
     @Override
     protected void addAdditionalSaveData(final ValueOutput output) {
-        output.store("BlockList", CommonUtils.STRUCTURE_BLOCK_INFO_LIST_CODEC, this.getStructureBlockInfos());
-        output.putBoolean("isRocket", this.isRocket());
-        output.store("PivotPoint", BlockPos.CODEC, this.getPivotPoint());
-        output.putFloat("TargetYRot", this.getTargetYRot());
-        output.putFloat("TargetXRot", this.getTargetXRot());
+        output.store(TAG_BLOCK_LIST, CommonUtils.STRUCTURE_BLOCK_INFO_LIST_CODEC, this.getStructureBlockInfos());
+        output.putBoolean(TAG_IS_ROCKET, this.isRocket());
+        output.store(TAG_PIVOT_POINT, BlockPos.CODEC, this.getPivotPoint());
+        output.putFloat(TAG_TARGET_X_ROT, this.getTargetXRot());
+        output.putFloat(TAG_TARGET_Y_ROT, this.getTargetYRot());
     }
 
     @Override
@@ -393,20 +399,20 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         return this.getEntityData().get(PIVOT_POINT);
     }
 
-    public void setTargetYRot(final float targetYRot) {
-        this.getEntityData().set(TARGET_Y_ROT, Mth.wrapDegrees(targetYRot));
-    }
-
-    public float getTargetYRot() {
-        return this.getEntityData().get(TARGET_Y_ROT);
-    }
-
     public void setTargetXRot(final float targetXRot) {
         this.getEntityData().set(TARGET_X_ROT, Mth.clamp(targetXRot, -45F, 45F));
     }
 
     public float getTargetXRot() {
         return this.getEntityData().get(TARGET_X_ROT);
+    }
+
+    public void setTargetYRot(final float targetYRot) {
+        this.getEntityData().set(TARGET_Y_ROT, Mth.wrapDegrees(targetYRot));
+    }
+
+    public float getTargetYRot() {
+        return this.getEntityData().get(TARGET_Y_ROT);
     }
 
     public float getPrecisePitchRotation(final float partialTicks) {

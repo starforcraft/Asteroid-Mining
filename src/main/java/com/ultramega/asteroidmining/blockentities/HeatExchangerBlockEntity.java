@@ -44,6 +44,12 @@ import org.jspecify.annotations.Nullable;
 public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity implements MenuProvider, Nameable, PreserveData {
     private static final Map<String, Optional<RecipeHolder<HeatExchangeRecipe>>> RECIPE_CACHE = new HashMap<>();
 
+    private static final String TAG_ENERGY = "energy";
+    private static final String TAG_FLUID_TANK = "fluidTank";
+    private static final String TAG_GAS_TANK = "gasTank";
+    private static final String TAG_RECIPE_PROGRESS = "recipeProgress";
+    private static final String TAG_RECIPE_DURATION = "recipeDuration";
+
     public final MutableEnergy energyStorage = new MutableEnergy(ServerConfig.HEAT_EXCHANGER_ENERGY_CAPACITY.get());
     public final MultiGasStacksResourceHandler gasTank = new MultiGasStacksResourceHandler(new int[] {ServerConfig.HEAT_EXCHANGER_TANK_CAPACITY.get()}) {
         @Override
@@ -180,23 +186,23 @@ public class HeatExchangerBlockEntity extends AbstractDataPreservingBlockEntity 
     @Override
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
+        this.energyStorage.deserialize(input.childOrEmpty(TAG_ENERGY));
+        this.fluidTank.deserialize(input.childOrEmpty(TAG_FLUID_TANK));
+        this.gasTank.deserialize(input.childOrEmpty(TAG_GAS_TANK));
 
-        this.energyStorage.deserialize(input.childOrEmpty("energy"));
-        this.fluidTank.deserialize(input.childOrEmpty("fluidTank"));
-        this.gasTank.deserialize(input.childOrEmpty("gasTank"));
-        this.recipeProgress = input.getInt("recipeProgress").orElse(0);
-        this.recipeDuration = input.getInt("recipeDuration").orElse(0);
+        this.recipeProgress = input.getInt(TAG_RECIPE_PROGRESS).orElse(0);
+        this.recipeDuration = input.getInt(TAG_RECIPE_DURATION).orElse(0);
     }
 
     @Override
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
+        this.energyStorage.serialize(output.child(TAG_ENERGY));
+        this.fluidTank.serialize(output.child(TAG_FLUID_TANK));
+        this.gasTank.serialize(output.child(TAG_GAS_TANK));
 
-        this.energyStorage.serialize(output.child("energy"));
-        this.fluidTank.serialize(output.child("fluidTank"));
-        this.gasTank.serialize(output.child("gasTank"));
-        output.putInt("recipeProgress", this.recipeProgress);
-        output.putInt("recipeDuration", this.recipeDuration);
+        output.putInt(TAG_RECIPE_PROGRESS, this.recipeProgress);
+        output.putInt(TAG_RECIPE_DURATION, this.recipeDuration);
     }
 
     @Override

@@ -10,6 +10,7 @@ import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -21,6 +22,8 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractModuleBlockEntity extends AbstractDataPreservingBlockEntity {
+    private static final String TAG_CONTROLLER_POS = "controllerPos";
+
     protected boolean overwriteStillValid;
     @Nullable
     private BlockPos controllerPos;
@@ -31,26 +34,43 @@ public abstract class AbstractModuleBlockEntity extends AbstractDataPreservingBl
         super(type, pos, blockState);
     }
 
-    @Nullable //TODO: return Optional<> instead
+    @Nullable
     public UUID getSelectedConfigurationUUID() {
+        final SelectedConfigurationResult result = this.getSelectedConfigurationResult();
+        return result.uuid();
+    }
+
+    public SelectedConfigurationResult getSelectedConfigurationResult() {
         if (this.level == null) {
-            return null;
+            return SelectedConfigurationResult.error(Component.translatable("gui.asteroidmining.rocket_controller.invalid_configuration"));
         }
 
         final BlockPos targetPos = this.controllerPos != null ? this.controllerPos : this.getBlockPos();
         final BlockEntity blockEntity = this.level.getBlockEntity(targetPos);
 
-        if (blockEntity instanceof RocketControllerBlockEntity controller && controller.getSelectedConfigurationIndex() != -1) {
-            final ItemResource stack = controller.inventoryHandler.getResource(controller.getSelectedConfigurationIndex());
-            if (!stack.isEmpty() && stack.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA)) {
-                return stack.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA);
-            }
+        if (!(blockEntity instanceof RocketControllerBlockEntity controller)) {
+            return SelectedConfigurationResult.error(Component.translatable("gui.asteroidmining.rocket_controller.invalid_configuration"));
         }
 
-        return null;
+        final int selectedConfiguration = controller.getSelectedConfigurationIndex();
+        if (selectedConfiguration == -1) {
+            return SelectedConfigurationResult.error(Component.translatable("gui.asteroidmining.rocket_controller.no_configuration_selected"));
+        }
+
+        final ItemResource resource = controller.inventoryHandler.getResource(selectedConfiguration);
+        if (resource.isEmpty() || !resource.has(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get())) {
+            return SelectedConfigurationResult.error(Component.translatable("gui.asteroidmining.rocket_controller.invalid_configuration"));
+        }
+
+        final UUID uuid = resource.get(ModDataComponentTypes.CONFIGURATION_PATH_DATA.get());
+        if (uuid == null) {
+            return SelectedConfigurationResult.error(Component.translatable("gui.asteroidmining.rocket_controller.invalid_configuration"));
+        }
+
+        return SelectedConfigurationResult.valid(uuid);
     }
 
-    @Nullable //TODO: return Optional<> instead
+    @Nullable
     public NetworkConfiguration getSelectedClientNetworkConfiguration() {
         final UUID uuid = this.getSelectedConfigurationUUID();
         if (uuid != null) {
@@ -60,7 +80,7 @@ public abstract class AbstractModuleBlockEntity extends AbstractDataPreservingBl
         return null;
     }
 
-    @Nullable //TODO: return Optional<> instead
+    @Nullable
     public NetworkConfiguration getSelectedServerNetworkConfiguration() {
         if (this.level == null || !(this.level instanceof ServerLevel serverLevel)) {
             return null;
@@ -77,17 +97,14 @@ public abstract class AbstractModuleBlockEntity extends AbstractDataPreservingBl
     @Override
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
-
-        // TODO: turn the strings into static final fields (everywhere)
-        input.read("controllerPos", BlockPos.CODEC).ifPresent(pos -> this.controllerPos = pos);
+        input.read(TAG_CONTROLLER_POS, BlockPos.CODEC).ifPresent(pos -> this.controllerPos = pos);
     }
 
     @Override
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
-
         if (this.controllerPos != null) {
-            output.store("controllerPos", BlockPos.CODEC, this.controllerPos);
+            output.store(TAG_CONTROLLER_POS, BlockPos.CODEC, this.controllerPos);
         }
     }
 
@@ -120,5 +137,23 @@ public abstract class AbstractModuleBlockEntity extends AbstractDataPreservingBl
 
     public void setOverwriteStillValid(final boolean overwriteStillValid) {
         this.overwriteStillValid = overwriteStillValid;
+    }
+
+    public record SelectedConfigurationResult(@Nullable UUID uuid, @Nullable Component errorMessage) {
+        public boolean isValid() {
+            return this.uuid != null;
+        }
+
+        public boolean hasError() {
+            return this.errorMessage != null;
+        }
+
+        public static SelectedConfigurationResult valid(final UUID uuid) {
+            return new SelectedConfigurationResult(uuid, null);
+        }
+
+        public static SelectedConfigurationResult error(final Component message) {
+            return new SelectedConfigurationResult(null, message);
+        }
     }
 }

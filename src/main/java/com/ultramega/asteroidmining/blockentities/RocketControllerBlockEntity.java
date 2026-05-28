@@ -61,6 +61,27 @@ import static com.ultramega.asteroidmining.utils.CommonUtils.toLocalPositions;
 
 // TODO: breaking the rocket controller on launch breaks everything
 public class RocketControllerBlockEntity extends AbstractModuleBlockEntity implements MenuProvider, Nameable, PreserveData {
+    private static final String TAG_SELECTED_CONFIGURATION_INDEX = "selectedConfigurationIndex";
+    private static final String TAG_INVENTORY = "inventory";
+    private static final String TAG_CONNECTED_MODULES = "connectedModules";
+    private static final String TAG_DESTINATION_ASTEROID = "destinationAsteroid";
+    private static final String TAG_LAUNCHED_ROCKET_ID = "launchedRocketId";
+    private static final String TAG_CHOPSTICK_1_ID = "chopstick1Id";
+    private static final String TAG_CHOPSTICK_2_ID = "chopstick2Id";
+    private static final String TAG_LAUNCH_COOLDOWN = "launchCooldown";
+    private static final String TAG_NEXT_LAUNCH_COOLDOWN = "nextLaunchCooldown";
+    private static final String TAG_LAUNCH_COOLDOWN_TICK = "launchCooldownTick";
+    private static final String TAG_LAUNCH_COOLDOWN_OVERLAY = "launchCooldownOverlay";
+    private static final String TAG_LAUNCH_COOLDOWN_COMMENTARY = "launchCooldownCommentary";
+    private static final String TAG_PLAYED_T_MINUS_SOUND = "playedTMinusSound";
+    private static final String TAG_LAST_COMMENTATED_SECOND = "lastCommentatedSecond";
+    private static final String TAG_MANAGED_LAUNCH_STARTED = "managedLaunchStarted";
+    private static final String TAG_WAS_DESCENDING = "wasDescending";
+    private static final String TAG_DESCENT_CHOPSTICKS_OPENED = "descentChopsticksOpened";
+    private static final String TAG_DESCENT_CHOPSTICKS_CLOSED = "descentChopsticksClosed";
+    private static final String TAG_LAUNCHING_ROCKET = "launchingRocket";
+    private static final String TAG_LAUNCHING_ROCKET_TICK = "launchingRocketTick";
+
     private static final int COUNTDOWN_COMMENTARY_SECONDS = 10;
     private static final int COUNTDOWN_TICKS_PER_SECOND = 20;
     private static final int SMOKE_START_TICKS = 2 * COUNTDOWN_TICKS_PER_SECOND;
@@ -80,7 +101,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
     private int nextLaunchCooldown = 20 * 10; // default: 10 seconds
     private int launchCooldownTick;
     private boolean launchCooldownOverlay = true;
-    private boolean launchCooldownCommentator = true;
+    private boolean launchCooldownCommentary = true;
     private boolean playedTMinusSound = true;
     private int lastCommentatedSecond = Integer.MIN_VALUE;
     private boolean managedLaunchStarted = false;
@@ -212,7 +233,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
     }
 
     private void playCountdownCommentary(final ServerLevel serverLevel, final BlockPos pos, final int ticksRemaining) {
-        if (!this.launchCooldownCommentator || this.launchCooldown <= 0) {
+        if (!this.launchCooldownCommentary || this.launchCooldown <= 0) {
             return;
         }
 
@@ -515,73 +536,71 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
     @Override
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
+        this.selectedConfigurationIndex = input.getIntOr(TAG_SELECTED_CONFIGURATION_INDEX, -1);
 
-        this.selectedConfigurationIndex = input.getIntOr("selectedConfigurationIndex", -1);
-
-        this.inventoryHandler.deserialize(input.childOrEmpty("inventory"));
+        this.inventoryHandler.deserialize(input.childOrEmpty(TAG_INVENTORY));
 
         this.connectedModules.clear();
-        this.connectedModules.addAll(input.read("connectedModules", CommonUtils.BLOCK_POS_LIST).orElse(List.of()));
+        this.connectedModules.addAll(input.read(TAG_CONNECTED_MODULES, CommonUtils.BLOCK_POS_LIST).orElse(List.of()));
 
-        this.launchCooldown = input.getIntOr("launchCooldown", 0);
-        this.nextLaunchCooldown = input.getIntOr("nextLaunchCooldown", 20 * 10);
-        this.launchCooldownTick = input.getIntOr("launchCooldownTick", 0);
-        this.launchCooldownOverlay = input.getBooleanOr("launchCooldownOverlay", true);
-        this.launchCooldownCommentator = input.getBooleanOr("launchCooldownCommentator", true);
-        this.playedTMinusSound = input.getBooleanOr("playedTMinusSound", true);
-        this.lastCommentatedSecond = input.getIntOr("lastCommentatedSecond", Integer.MIN_VALUE);
-        this.managedLaunchStarted = input.getBooleanOr("managedLaunchStarted", false);
+        this.launchCooldown = input.getIntOr(TAG_LAUNCH_COOLDOWN, 0);
+        this.nextLaunchCooldown = input.getIntOr(TAG_NEXT_LAUNCH_COOLDOWN, 20 * 10);
+        this.launchCooldownTick = input.getIntOr(TAG_LAUNCH_COOLDOWN_TICK, 0);
+        this.launchCooldownOverlay = input.getBooleanOr(TAG_LAUNCH_COOLDOWN_OVERLAY, true);
+        this.launchCooldownCommentary = input.getBooleanOr(TAG_LAUNCH_COOLDOWN_COMMENTARY, true);
+        this.playedTMinusSound = input.getBooleanOr(TAG_PLAYED_T_MINUS_SOUND, true);
+        this.lastCommentatedSecond = input.getIntOr(TAG_LAST_COMMENTATED_SECOND, Integer.MIN_VALUE);
+        this.managedLaunchStarted = input.getBooleanOr(TAG_MANAGED_LAUNCH_STARTED, false);
 
-        this.wasDescending = input.getBooleanOr("wasDescending", false);
-        this.descentChopsticksOpened = input.getBooleanOr("descentChopsticksOpened", false);
-        this.descentChopsticksClosed = input.getBooleanOr("descentChopsticksClosed", false);
+        this.wasDescending = input.getBooleanOr(TAG_WAS_DESCENDING, false);
+        this.descentChopsticksOpened = input.getBooleanOr(TAG_DESCENT_CHOPSTICKS_OPENED, false);
+        this.descentChopsticksClosed = input.getBooleanOr(TAG_DESCENT_CHOPSTICKS_CLOSED, false);
 
-        this.launchingRocket = input.getBooleanOr("launchingRocket", false);
-        this.launchingRocketTick = input.getIntOr("launchingRocketTick", 0);
-        this.destinationAsteroid = input.read("destinationAsteroid", Identifier.CODEC).orElse(null);
+        this.launchingRocket = input.getBooleanOr(TAG_LAUNCHING_ROCKET, false);
+        this.launchingRocketTick = input.getIntOr(TAG_LAUNCHING_ROCKET_TICK, 0);
+        this.destinationAsteroid = input.read(TAG_DESTINATION_ASTEROID, Identifier.CODEC).orElse(null);
 
-        this.launchedRocketId = input.read("launchedRocketId", UUIDUtil.CODEC).orElse(null);
-        this.chopstick1Id = input.read("chopstick1Id", UUIDUtil.CODEC).orElse(null);
-        this.chopstick2Id = input.read("chopstick2Id", UUIDUtil.CODEC).orElse(null);
+        this.launchedRocketId = input.read(TAG_LAUNCHED_ROCKET_ID, UUIDUtil.CODEC).orElse(null);
+        this.chopstick1Id = input.read(TAG_CHOPSTICK_1_ID, UUIDUtil.CODEC).orElse(null);
+        this.chopstick2Id = input.read(TAG_CHOPSTICK_2_ID, UUIDUtil.CODEC).orElse(null);
     }
 
     @Override
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
+        output.putInt(TAG_SELECTED_CONFIGURATION_INDEX, this.selectedConfigurationIndex);
 
-        output.putInt("selectedConfigurationIndex", this.selectedConfigurationIndex);
+        this.inventoryHandler.serialize(output.child(TAG_INVENTORY));
 
-        this.inventoryHandler.serialize(output.child("inventory"));
+        output.store(TAG_CONNECTED_MODULES, CommonUtils.BLOCK_POS_LIST, this.connectedModules.stream().toList());
 
-        output.store("connectedModules", CommonUtils.BLOCK_POS_LIST, this.connectedModules.stream().toList());
+        output.putInt(TAG_LAUNCH_COOLDOWN, this.launchCooldown);
+        output.putInt(TAG_NEXT_LAUNCH_COOLDOWN, this.nextLaunchCooldown);
+        output.putInt(TAG_LAUNCH_COOLDOWN_TICK, this.launchCooldownTick);
+        output.putBoolean(TAG_LAUNCH_COOLDOWN_OVERLAY, this.launchCooldownOverlay);
+        output.putBoolean(TAG_LAUNCH_COOLDOWN_COMMENTARY, this.launchCooldownCommentary);
+        output.putBoolean(TAG_PLAYED_T_MINUS_SOUND, this.playedTMinusSound);
+        output.putInt(TAG_LAST_COMMENTATED_SECOND, this.lastCommentatedSecond);
+        output.putBoolean(TAG_MANAGED_LAUNCH_STARTED, this.managedLaunchStarted);
 
-        output.putInt("launchCooldown", this.launchCooldown);
-        output.putInt("nextLaunchCooldown", this.nextLaunchCooldown);
-        output.putInt("launchCooldownTick", this.launchCooldownTick);
-        output.putBoolean("launchCooldownOverlay", this.launchCooldownOverlay);
-        output.putBoolean("launchCooldownCommentator", this.launchCooldownCommentator);
-        output.putBoolean("playedTMinusSound", this.playedTMinusSound);
-        output.putInt("lastCommentatedSecond", this.lastCommentatedSecond);
-        output.putBoolean("managedLaunchStarted", this.managedLaunchStarted);
+        output.putBoolean(TAG_WAS_DESCENDING, this.wasDescending);
+        output.putBoolean(TAG_DESCENT_CHOPSTICKS_OPENED, this.descentChopsticksOpened);
+        output.putBoolean(TAG_DESCENT_CHOPSTICKS_CLOSED, this.descentChopsticksClosed);
 
-        output.putBoolean("wasDescending", this.wasDescending);
-        output.putBoolean("descentChopsticksOpened", this.descentChopsticksOpened);
-        output.putBoolean("descentChopsticksClosed", this.descentChopsticksClosed);
-
-        output.putBoolean("launchingRocket", this.launchingRocket);
-        output.putInt("launchingRocketTick", this.launchingRocketTick);
+        output.putBoolean(TAG_LAUNCHING_ROCKET, this.launchingRocket);
+        output.putInt(TAG_LAUNCHING_ROCKET_TICK, this.launchingRocketTick);
         if (this.destinationAsteroid != null) {
-            output.store("destinationAsteroid", Identifier.CODEC, this.destinationAsteroid);
+            output.store(TAG_DESTINATION_ASTEROID, Identifier.CODEC, this.destinationAsteroid);
         }
 
         if (this.launchedRocketId != null) {
-            output.store("launchedRocketId", UUIDUtil.CODEC, this.launchedRocketId);
+            output.store(TAG_LAUNCHED_ROCKET_ID, UUIDUtil.CODEC, this.launchedRocketId);
         }
         if (this.chopstick1Id != null) {
-            output.store("chopstick1Id", UUIDUtil.CODEC, this.chopstick1Id);
+            output.store(TAG_CHOPSTICK_1_ID, UUIDUtil.CODEC, this.chopstick1Id);
         }
         if (this.chopstick2Id != null) {
-            output.store("chopstick2Id", UUIDUtil.CODEC, this.chopstick2Id);
+            output.store(TAG_CHOPSTICK_2_ID, UUIDUtil.CODEC, this.chopstick2Id);
         }
     }
 
@@ -667,12 +686,12 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
         return this.launchCooldownOverlay;
     }
 
-    public void setLaunchCooldownCommentator(final boolean launchCooldownCommentator) {
-        this.launchCooldownCommentator = launchCooldownCommentator;
+    public void setLaunchCooldownCommentary(final boolean launchCooldownCommentary) {
+        this.launchCooldownCommentary = launchCooldownCommentary;
     }
 
-    public boolean isLaunchCooldownCommentator() {
-        return this.launchCooldownCommentator;
+    public boolean isLaunchCooldownCommentary() {
+        return this.launchCooldownCommentary;
     }
 
     public void setPlayedTMinusSound(final boolean playedTMinusSound) {

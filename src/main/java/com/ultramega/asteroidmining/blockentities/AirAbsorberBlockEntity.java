@@ -33,6 +33,10 @@ import net.neoforged.neoforge.transfer.transaction.Transaction;
 import org.jspecify.annotations.Nullable;
 
 public class AirAbsorberBlockEntity extends AbstractDataPreservingBlockEntity implements MenuProvider, Nameable, PreserveData {
+    private static final String TAG_ENERGY = "energy";
+    private static final String TAG_FLUID_TANK = "fluidTank";
+    private static final String TAG_AIR_AMOUNT = "airAmount";
+
     public final MutableEnergy energyStorage = new MutableEnergy(ServerConfig.AIR_ABSORBER_ENERGY_CAPACITY.get());
     public final FluidStacksResourceHandler fluidTank = new FluidStacksResourceHandler(1, ServerConfig.AIR_ABSORBER_TANK_CAPACITY.get()) {
         @Override
@@ -98,19 +102,19 @@ public class AirAbsorberBlockEntity extends AbstractDataPreservingBlockEntity im
     @Override
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
+        this.energyStorage.deserialize(input.childOrEmpty(TAG_ENERGY));
+        this.fluidTank.deserialize(input.childOrEmpty(TAG_FLUID_TANK));
 
-        this.energyStorage.deserialize(input.childOrEmpty("energy"));
-        this.fluidTank.deserialize(input.childOrEmpty("fluidTank"));
-        this.airAmount = input.getInt("airAmount").orElse(0);
+        this.airAmount = input.getInt(TAG_AIR_AMOUNT).orElse(0);
     }
 
     @Override
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
+        this.energyStorage.serialize(output.child(TAG_ENERGY));
+        this.fluidTank.serialize(output.child(TAG_FLUID_TANK));
 
-        this.energyStorage.serialize(output.child("energy"));
-        this.fluidTank.serialize(output.child("fluidTank"));
-        output.putInt("airAmount", this.airAmount);
+        output.putInt(TAG_AIR_AMOUNT, this.airAmount);
     }
 
     @Override

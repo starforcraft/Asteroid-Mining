@@ -40,6 +40,11 @@ import org.jspecify.annotations.Nullable;
 public class BiogasPlantBlockEntity extends AbstractDataPreservingBlockEntity implements MenuProvider, Nameable, PreserveData {
     public static final int RECIPE_DURATION = 20;
 
+    private static final String TAG_ENERGY = "energy";
+    private static final String TAG_INVENTORY = "inventory";
+    private static final String TAG_FLUID_TANK = "fluidTank";
+    private static final String TAG_RECIPE_PROGRESS = "recipeProgress";
+
     public final MutableEnergy energyStorage = new MutableEnergy(ServerConfig.BIOGAS_PLANT_ENERGY_CAPACITY.get());
     public final ItemStacksResourceHandler inventoryHandler = new ItemStacksResourceHandler(1) {
         @Override
@@ -134,21 +139,21 @@ public class BiogasPlantBlockEntity extends AbstractDataPreservingBlockEntity im
     @Override
     protected void loadAdditional(final ValueInput input) {
         super.loadAdditional(input);
+        this.energyStorage.deserialize(input.childOrEmpty(TAG_ENERGY));
+        this.inventoryHandler.deserialize(input.childOrEmpty(TAG_INVENTORY));
+        this.fluidTank.deserialize(input.childOrEmpty(TAG_FLUID_TANK));
 
-        this.energyStorage.deserialize(input.childOrEmpty("energy"));
-        this.inventoryHandler.deserialize(input.childOrEmpty("inventory"));
-        this.fluidTank.deserialize(input.childOrEmpty("fluidTank"));
-        this.recipeProgress = input.getInt("recipeProgress").orElse(RECIPE_DURATION);
+        this.recipeProgress = input.getInt(TAG_RECIPE_PROGRESS).orElse(RECIPE_DURATION);
     }
 
     @Override
     protected void saveAdditional(final ValueOutput output) {
         super.saveAdditional(output);
+        this.energyStorage.serialize(output.child(TAG_ENERGY));
+        this.inventoryHandler.serialize(output.child(TAG_INVENTORY));
+        this.fluidTank.serialize(output.child(TAG_FLUID_TANK));
 
-        this.energyStorage.serialize(output.child("energy"));
-        this.inventoryHandler.serialize(output.child("inventory"));
-        this.fluidTank.serialize(output.child("fluidTank"));
-        output.putInt("recipeProgress", this.recipeProgress);
+        output.putInt(TAG_RECIPE_PROGRESS, this.recipeProgress);
     }
 
     @Override
