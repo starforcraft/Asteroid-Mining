@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:664_judith_a908_mc",
+  "name": "664 Judith (A908 MC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 85.214,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.9,
+    "eccentricity": 0.2416,
+    "inclination": 8.57,
+    "orbital_speed": 0.157,
+    "clockwise": true,
+    "angle": 87.804
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2646247,
+      "minecraft:raw_gold": 81883,
+      "minecraft:redstone": 120548,
+      "mekanism:raw_osmium": 89580,
+      "mekanism:pellet_polonium": 227
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1341285,
+      "mekanism:dirty_gold_slurry": 11073,
+      "mekanism:dirty_osmium_slurry": 58933
+    }
+  }
+}

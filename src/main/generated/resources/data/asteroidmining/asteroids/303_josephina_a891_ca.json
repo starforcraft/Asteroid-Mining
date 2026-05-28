@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:303_josephina_a891_ca",
+  "name": "303 Josephina (A891 CA)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 124.923,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.5,
+    "eccentricity": 0.0561,
+    "inclination": 6.88,
+    "orbital_speed": 0.1584,
+    "clockwise": true,
+    "angle": 127.416
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 2089558,
+      "minecraft:blue_ice": 208388,
+      "minecraft:coal": 132611
+    },
+    "fluids": {
+      "minecraft:water": 5015495592
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 1402642,
+      "mekanism:oxygen": 2668120,
+      "mekanism:heavy_water": 37331
+    }
+  }
+}

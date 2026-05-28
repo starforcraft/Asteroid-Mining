@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:657_gunlod_a908_bk",
+  "name": "657 Gunlod (A908 BK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 39.401,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 261.3,
+    "eccentricity": 0.1127,
+    "inclination": 10.24,
+    "orbital_speed": 0.1732,
+    "clockwise": true,
+    "angle": 205.248
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 568831,
+      "minecraft:raw_iron": 172321,
+      "minecraft:raw_copper": 33261,
+      "minecraft:quartz": 73813,
+      "minecraft:redstone": 8743,
+      "minecraft:diamond": 520,
+      "mekanism:dust_osmium": 7245
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 125409
+    }
+  }
+}

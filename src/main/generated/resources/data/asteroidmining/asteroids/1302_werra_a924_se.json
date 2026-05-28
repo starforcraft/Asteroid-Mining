@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1302_werra_a924_se",
+  "name": "1302 Werra (A924 SE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 35.041,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.3,
+    "eccentricity": 0.1747,
+    "inclination": 2.6,
+    "orbital_speed": 0.1587,
+    "clockwise": true,
+    "angle": 337.908
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 894401,
+      "minecraft:raw_iron": 237433,
+      "minecraft:raw_copper": 60944,
+      "minecraft:quartz": 126127,
+      "minecraft:redstone": 22773,
+      "minecraft:diamond": 753
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 95723
+    }
+  }
+}

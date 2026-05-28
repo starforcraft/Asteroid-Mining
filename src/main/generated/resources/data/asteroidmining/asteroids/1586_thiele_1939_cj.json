@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1586_thiele_1939_cj",
+  "name": "1586 Thiele (1939 CJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.415,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 243.0,
+    "eccentricity": 0.1062,
+    "inclination": 4.06,
+    "orbital_speed": 0.1796,
+    "clockwise": true,
+    "angle": 150.18
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 164008,
+      "minecraft:raw_iron": 46206,
+      "minecraft:raw_copper": 10964,
+      "minecraft:quartz": 14152,
+      "minecraft:redstone": 5550
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 41707
+    }
+  }
+}

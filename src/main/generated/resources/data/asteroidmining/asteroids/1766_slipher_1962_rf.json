@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1766_slipher_1962_rf",
+  "name": "1766 Slipher (1962 RF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 19.099,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 275.0,
+    "eccentricity": 0.0865,
+    "inclination": 5.23,
+    "orbital_speed": 0.1688,
+    "clockwise": true,
+    "angle": 61.62
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 57423,
+      "minecraft:clay_ball": 83350,
+      "minecraft:raw_iron": 31228,
+      "minecraft:raw_copper": 21754,
+      "mekanism:dust_sulfur": 18487,
+      "mekanism:yellow_cake_uranium": 311
+    },
+    "fluids": {
+      "minecraft:water": 84614109
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 79229,
+      "mekanism:oxygen": 76732,
+      "mekanism:sulfur_dioxide": 34407
+    }
+  }
+}

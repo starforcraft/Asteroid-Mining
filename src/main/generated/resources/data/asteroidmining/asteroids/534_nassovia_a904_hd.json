@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:534_nassovia_a904_hd",
+  "name": "534 Nassovia (A904 HD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 32.333,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 288.4,
+    "eccentricity": 0.0602,
+    "inclination": 3.28,
+    "orbital_speed": 0.1649,
+    "clockwise": true,
+    "angle": 211.764
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 827820,
+      "minecraft:raw_iron": 232373,
+      "minecraft:raw_copper": 11624,
+      "minecraft:quartz": 28839,
+      "minecraft:redstone": 5206
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 85200
+    }
+  }
+}

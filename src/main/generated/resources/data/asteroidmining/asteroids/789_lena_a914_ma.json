@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:789_lena_a914_ma",
+  "name": "789 Lena (A914 MA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 22.483,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.5,
+    "eccentricity": 0.1467,
+    "inclination": 10.78,
+    "orbital_speed": 0.1709,
+    "clockwise": true,
+    "angle": 356.304
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 519802,
+      "minecraft:raw_gold": 23004,
+      "minecraft:redstone": 11353,
+      "mekanism:raw_osmium": 10062,
+      "minecraft:diamond": 792
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 192537,
+      "mekanism:dirty_gold_slurry": 16232,
+      "mekanism:dirty_osmium_slurry": 11338
+    }
+  }
+}

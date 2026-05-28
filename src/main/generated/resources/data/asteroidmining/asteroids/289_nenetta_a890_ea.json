@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:289_nenetta_a890_ea",
+  "name": "289 Nenetta (A890 EA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 37.586,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 287.7,
+    "eccentricity": 0.2027,
+    "inclination": 6.68,
+    "orbital_speed": 0.1651,
+    "clockwise": true,
+    "angle": 2.304
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 504338,
+      "minecraft:raw_iron": 311529,
+      "minecraft:raw_copper": 29142,
+      "minecraft:quartz": 38790,
+      "minecraft:redstone": 30936,
+      "minecraft:diamond": 670
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 111991
+    }
+  }
+}

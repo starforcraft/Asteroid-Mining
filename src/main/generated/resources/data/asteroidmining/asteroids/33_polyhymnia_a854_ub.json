@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:33_polyhymnia_a854_ub",
+  "name": "33 Polyhymnia (A854 UB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 52.929,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 287.4,
+    "eccentricity": 0.3333,
+    "inclination": 1.85,
+    "orbital_speed": 0.1652,
+    "clockwise": true,
+    "angle": 80.256
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1280775,
+      "minecraft:raw_iron": 438757,
+      "minecraft:raw_copper": 141528,
+      "minecraft:quartz": 170579,
+      "minecraft:redstone": 39573,
+      "minecraft:diamond": 2050
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 298089
+    }
+  }
+}

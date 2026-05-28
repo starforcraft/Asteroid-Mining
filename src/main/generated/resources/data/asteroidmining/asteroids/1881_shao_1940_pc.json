@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:1881_shao_1940_pc",
+  "name": "1881 Shao (1940 PC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 24.083,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.7,
+    "eccentricity": 0.1028,
+    "inclination": 9.87,
+    "orbital_speed": 0.1573,
+    "clockwise": true,
+    "angle": 35.04
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 97660,
+      "minecraft:clay_ball": 171130,
+      "minecraft:raw_iron": 48743,
+      "minecraft:raw_copper": 18033,
+      "mekanism:dust_sulfur": 50201
+    },
+    "fluids": {
+      "minecraft:water": 80454444
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 120188,
+      "mekanism:oxygen": 118921,
+      "mekanism:sulfur_dioxide": 33583
+    }
+  }
+}

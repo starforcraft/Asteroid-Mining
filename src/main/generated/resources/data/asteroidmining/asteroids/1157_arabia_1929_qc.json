@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1157_arabia_1929_qc",
+  "name": "1157 Arabia (1929 QC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 29.113,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.5,
+    "eccentricity": 0.1432,
+    "inclination": 9.55,
+    "orbital_speed": 0.1569,
+    "clockwise": true,
+    "angle": 199.248
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 586753,
+      "minecraft:raw_iron": 89500,
+      "minecraft:raw_copper": 49310,
+      "minecraft:quartz": 93629,
+      "minecraft:redstone": 6205,
+      "mekanism:dust_osmium": 1779
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 62588
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:945_barcelona_a921_cb",
+  "name": "945 Barcelona (A921 CB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 25.618,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 263.8,
+    "eccentricity": 0.1607,
+    "inclination": 32.84,
+    "orbital_speed": 0.1724,
+    "clockwise": true,
+    "angle": 207.552
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 423128,
+      "minecraft:raw_iron": 121277,
+      "minecraft:raw_copper": 29080,
+      "minecraft:quartz": 47516,
+      "minecraft:redstone": 3545,
+      "minecraft:diamond": 225,
+      "mekanism:dust_osmium": 3487
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 60177
+    }
+  }
+}

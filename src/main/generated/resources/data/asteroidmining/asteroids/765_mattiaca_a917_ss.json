@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:765_mattiaca_a917_ss",
+  "name": "765 Mattiaca (A917 SS)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 7.991,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.5,
+    "eccentricity": 0.2852,
+    "inclination": 5.53,
+    "orbital_speed": 0.1755,
+    "clockwise": true,
+    "angle": 296.112
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 111086,
+      "minecraft:raw_gold": 5273,
+      "minecraft:redstone": 3696,
+      "mekanism:raw_osmium": 3134
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 75787,
+      "mekanism:dirty_gold_slurry": 2637,
+      "mekanism:dirty_osmium_slurry": 1470
+    }
+  }
+}

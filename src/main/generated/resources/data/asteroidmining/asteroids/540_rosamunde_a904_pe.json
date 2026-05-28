@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:540_rosamunde_a904_pe",
+  "name": "540 Rosamunde (A904 PE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 19.152,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 221.9,
+    "eccentricity": 0.0892,
+    "inclination": 5.58,
+    "orbital_speed": 0.188,
+    "clockwise": true,
+    "angle": 316.812
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 309659,
+      "minecraft:raw_iron": 72670,
+      "minecraft:raw_copper": 25218,
+      "minecraft:quartz": 34243,
+      "minecraft:redstone": 9651
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 44385
+    }
+  }
+}

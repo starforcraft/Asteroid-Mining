@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:799_gudula_a915_ea",
+  "name": "799 Gudula (A915 EA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 47.185,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.2,
+    "eccentricity": 0.0213,
+    "inclination": 5.28,
+    "orbital_speed": 0.1756,
+    "clockwise": true,
+    "angle": 291.384
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 199710,
+      "minecraft:clay_ball": 423576,
+      "minecraft:raw_iron": 83485,
+      "minecraft:raw_copper": 67191,
+      "mekanism:dust_sulfur": 56425,
+      "mekanism:fluorite_gem": 3846,
+      "mekanism:yellow_cake_uranium": 435
+    },
+    "fluids": {
+      "minecraft:water": 398257215
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 259489,
+      "mekanism:oxygen": 359071,
+      "mekanism:sulfur_dioxide": 12886
+    }
+  }
+}

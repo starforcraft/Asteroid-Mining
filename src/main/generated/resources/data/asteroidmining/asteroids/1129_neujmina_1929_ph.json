@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1129_neujmina_1929_ph",
+  "name": "1129 Neujmina (1929 PH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 34.576,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.5,
+    "eccentricity": 0.0862,
+    "inclination": 8.62,
+    "orbital_speed": 0.161,
+    "clockwise": true,
+    "angle": 309.024
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 866004,
+      "minecraft:raw_iron": 191328,
+      "minecraft:raw_copper": 71699,
+      "minecraft:quartz": 60525,
+      "minecraft:redstone": 12736,
+      "mekanism:dust_osmium": 2789
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 128924
+    }
+  }
+}

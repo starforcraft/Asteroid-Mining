@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:184_dejopeja_a878_da",
+  "name": "184 Dejopeja (A878 DA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 62.483,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.1,
+    "eccentricity": 0.0589,
+    "inclination": 1.13,
+    "orbital_speed": 0.1567,
+    "clockwise": true,
+    "angle": 323.964
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1288767,
+      "minecraft:raw_gold": 140469,
+      "minecraft:redstone": 30857,
+      "mekanism:raw_osmium": 78753,
+      "minecraft:diamond": 2670
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 889091,
+      "mekanism:dirty_gold_slurry": 64015,
+      "mekanism:dirty_osmium_slurry": 25619
+    }
+  }
+}

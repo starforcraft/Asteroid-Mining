@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:752_sulamitis_a913_hg",
+  "name": "752 Sulamitis (A913 HG)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 60.171,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 246.3,
+    "eccentricity": 0.0729,
+    "inclination": 5.96,
+    "orbital_speed": 0.1784,
+    "clockwise": true,
+    "angle": 308.508
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 523346,
+      "minecraft:clay_ball": 410400,
+      "minecraft:raw_iron": 112668,
+      "minecraft:raw_copper": 51633,
+      "mekanism:dust_sulfur": 53656,
+      "mekanism:fluorite_gem": 4528
+    },
+    "fluids": {
+      "minecraft:water": 712974653
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 218677,
+      "mekanism:oxygen": 319859,
+      "mekanism:sulfur_dioxide": 94674
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:4_vesta_a807_fa",
+  "name": "4 Vesta (A807 FA)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 522.77,
+  "game_diameter": 10,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.2,
+    "eccentricity": 0.0902,
+    "inclination": 7.14,
+    "orbital_speed": 0.1822,
+    "clockwise": true,
+    "angle": 52.524
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 4107837,
+      "minecraft:raw_iron": 1219795,
+      "minecraft:quartz": 993216,
+      "minecraft:magma_cream": 76472,
+      "mekanism:dust_osmium": 11004
+    },
+    "fluids": {
+      "minecraft:lava": 239360880
+    },
+    "chemicals": {
+      "mekanism:oxygen": 660380
+    }
+  }
+}

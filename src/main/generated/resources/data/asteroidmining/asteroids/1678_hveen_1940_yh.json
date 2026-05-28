@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1678_hveen_1940_yh",
+  "name": "1678 Hveen (1940 YH)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 42.665,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.0,
+    "eccentricity": 0.1085,
+    "inclination": 10.18,
+    "orbital_speed": 0.1575,
+    "clockwise": true,
+    "angle": 200.916
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 288745,
+      "minecraft:clay_ball": 273326,
+      "minecraft:raw_iron": 71834,
+      "minecraft:raw_copper": 19729,
+      "mekanism:dust_sulfur": 120037,
+      "mekanism:fluorite_gem": 6770
+    },
+    "fluids": {
+      "minecraft:water": 576470324
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 105433,
+      "mekanism:oxygen": 90653,
+      "mekanism:sulfur_dioxide": 77407
+    }
+  }
+}

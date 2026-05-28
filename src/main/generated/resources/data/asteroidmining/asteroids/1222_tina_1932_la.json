@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1222_tina_1932_la",
+  "name": "1222 Tina (1932 LA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 25.781,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.5,
+    "eccentricity": 0.2496,
+    "inclination": 19.59,
+    "orbital_speed": 0.1675,
+    "clockwise": true,
+    "angle": 137.268
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 525458,
+      "minecraft:raw_gold": 7102,
+      "minecraft:redstone": 16585,
+      "mekanism:raw_osmium": 13626
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 150028,
+      "mekanism:dirty_gold_slurry": 17480,
+      "mekanism:dirty_osmium_slurry": 3712
+    }
+  }
+}

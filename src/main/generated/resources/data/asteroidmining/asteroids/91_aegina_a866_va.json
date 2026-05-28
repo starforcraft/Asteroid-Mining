@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:91_aegina_a866_va",
+  "name": "91 Aegina (A866 VA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 103.402,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 259.0,
+    "eccentricity": 0.1082,
+    "inclination": 2.1,
+    "orbital_speed": 0.174,
+    "clockwise": true,
+    "angle": 135.72
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1335794,
+      "minecraft:clay_ball": 934053,
+      "minecraft:raw_iron": 417544,
+      "minecraft:raw_copper": 61862,
+      "mekanism:dust_sulfur": 234852,
+      "mekanism:yellow_cake_uranium": 7709
+    },
+    "fluids": {
+      "minecraft:water": 1231088814
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 302656,
+      "mekanism:oxygen": 974144,
+      "mekanism:sulfur_dioxide": 353271
+    }
+  }
+}

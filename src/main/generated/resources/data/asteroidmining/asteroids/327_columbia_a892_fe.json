@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:327_columbia_a892_fe",
+  "name": "327 Columbia (A892 FE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 30.291,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 277.5,
+    "eccentricity": 0.0637,
+    "inclination": 7.13,
+    "orbital_speed": 0.1681,
+    "clockwise": true,
+    "angle": 187.608
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 883173,
+      "minecraft:raw_iron": 144057,
+      "minecraft:raw_copper": 56297,
+      "minecraft:quartz": 80572,
+      "minecraft:redstone": 20251
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 105670
+    }
+  }
+}

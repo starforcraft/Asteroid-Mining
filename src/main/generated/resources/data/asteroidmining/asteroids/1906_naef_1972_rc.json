@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1906_naef_1972_rc",
+  "name": "1906 Naef (1972 RC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 7.923,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.3,
+    "eccentricity": 0.1352,
+    "inclination": 6.47,
+    "orbital_speed": 0.1818,
+    "clockwise": true,
+    "angle": 232.74
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 27602,
+      "minecraft:clay_ball": 34910,
+      "minecraft:raw_iron": 10544,
+      "minecraft:raw_copper": 4418,
+      "mekanism:dust_sulfur": 9113,
+      "mekanism:fluorite_gem": 586
+    },
+    "fluids": {
+      "minecraft:water": 31869661
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 15279,
+      "mekanism:oxygen": 28779,
+      "mekanism:sulfur_dioxide": 8357
+    }
+  }
+}

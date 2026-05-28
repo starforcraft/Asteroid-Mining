@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1283_komsomolia_1925_sc",
+  "name": "1283 Komsomolia (1925 SC)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 29.569,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.1,
+    "eccentricity": 0.2216,
+    "inclination": 8.91,
+    "orbital_speed": 0.157,
+    "clockwise": true,
+    "angle": 245.256
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 767807,
+      "minecraft:blue_ice": 140628,
+      "minecraft:coal": 19484,
+      "mekanism:pellet_plutonium": 29
+    },
+    "fluids": {
+      "minecraft:water": 349503198
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 225235,
+      "mekanism:oxygen": 346868,
+      "mekanism:heavy_water": 15585
+    }
+  }
+}

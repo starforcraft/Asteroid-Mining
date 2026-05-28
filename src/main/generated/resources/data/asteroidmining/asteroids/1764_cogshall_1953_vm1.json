@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1764_cogshall_1953_vm1",
+  "name": "1764 Cogshall (1953 VM1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 26.97,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 310.2,
+    "eccentricity": 0.1154,
+    "inclination": 2.24,
+    "orbital_speed": 0.159,
+    "clockwise": true,
+    "angle": 146.604
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 357908,
+      "minecraft:raw_iron": 99740,
+      "minecraft:raw_copper": 45160,
+      "minecraft:quartz": 62041,
+      "minecraft:redstone": 9014
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 98851
+    }
+  }
+}

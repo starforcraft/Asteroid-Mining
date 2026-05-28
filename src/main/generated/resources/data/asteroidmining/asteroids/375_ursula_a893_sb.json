@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:375_ursula_a893_sb",
+  "name": "375 Ursula (A893 SB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 216.0,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.7,
+    "eccentricity": 0.1024,
+    "inclination": 15.94,
+    "orbital_speed": 0.1583,
+    "clockwise": true,
+    "angle": 307.992
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1205194,
+      "minecraft:clay_ball": 688326,
+      "minecraft:raw_iron": 405575,
+      "minecraft:raw_copper": 110516,
+      "mekanism:dust_sulfur": 329535,
+      "mekanism:fluorite_gem": 22937
+    },
+    "fluids": {
+      "minecraft:water": 1142359781
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 599015,
+      "mekanism:oxygen": 672243,
+      "mekanism:sulfur_dioxide": 58367
+    }
+  }
+}

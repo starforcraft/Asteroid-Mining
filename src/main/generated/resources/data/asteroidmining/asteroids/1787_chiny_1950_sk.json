@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1787_chiny_1950_sk",
+  "name": "1787 Chiny (1950 SK)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 19.9,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 300.2,
+    "eccentricity": 0.0482,
+    "inclination": 8.92,
+    "orbital_speed": 0.1616,
+    "clockwise": true,
+    "angle": 69.288
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 393162,
+      "minecraft:raw_gold": 25027,
+      "minecraft:redstone": 21318,
+      "mekanism:raw_osmium": 10728,
+      "minecraft:diamond": 740,
+      "mekanism:pellet_polonium": 12
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 70072,
+      "mekanism:dirty_gold_slurry": 15669,
+      "mekanism:dirty_osmium_slurry": 7653
+    }
+  }
+}

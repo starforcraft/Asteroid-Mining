@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1370_hella_1935_qg",
+  "name": "1370 Hella (1935 QG)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 9.9963,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 225.0,
+    "eccentricity": 0.1714,
+    "inclination": 4.81,
+    "orbital_speed": 0.1867,
+    "clockwise": true,
+    "angle": 328.452
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 59635,
+      "minecraft:blue_ice": 19956,
+      "minecraft:coal": 14602,
+      "mekanism:pellet_plutonium": 7
+    },
+    "fluids": {
+      "minecraft:water": 114323284
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 49090,
+      "mekanism:oxygen": 34028,
+      "mekanism:heavy_water": 5765
+    }
+  }
+}

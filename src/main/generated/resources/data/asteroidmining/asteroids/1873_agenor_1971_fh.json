@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1873_agenor_1971_fh",
+  "name": "1873 Agenor (1971 FH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 50.799,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 522.0,
+    "eccentricity": 0.0919,
+    "inclination": 21.9,
+    "orbital_speed": 0.1226,
+    "clockwise": true,
+    "angle": 14.976
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 961104,
+      "minecraft:raw_iron": 194103,
+      "minecraft:raw_copper": 64096,
+      "minecraft:quartz": 172660,
+      "minecraft:redstone": 15105,
+      "mekanism:dust_osmium": 7348
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 199628
+    }
+  }
+}

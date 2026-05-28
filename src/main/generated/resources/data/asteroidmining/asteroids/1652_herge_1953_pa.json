@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1652_herge_1953_pa",
+  "name": "1652 Herge (1953 PA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 8.689,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 225.2,
+    "eccentricity": 0.1492,
+    "inclination": 3.2,
+    "orbital_speed": 0.1866,
+    "clockwise": true,
+    "angle": 225.708
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 75427,
+      "minecraft:raw_gold": 4174,
+      "minecraft:redstone": 4354,
+      "mekanism:raw_osmium": 3148,
+      "minecraft:diamond": 89,
+      "mekanism:pellet_polonium": 5
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 28363,
+      "mekanism:dirty_gold_slurry": 4309,
+      "mekanism:dirty_osmium_slurry": 1536
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1910_mikhailov_1972_tz1",
+  "name": "1910 Mikhailov (1972 TZ1)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 37.201,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 304.3,
+    "eccentricity": 0.0534,
+    "inclination": 10.36,
+    "orbital_speed": 0.1605,
+    "clockwise": true,
+    "angle": 62.772
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 345035,
+      "minecraft:clay_ball": 180373,
+      "minecraft:raw_iron": 119178,
+      "minecraft:raw_copper": 8950,
+      "mekanism:dust_sulfur": 47591,
+      "mekanism:fluorite_gem": 3138
+    },
+    "fluids": {
+      "minecraft:water": 317196421
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 188200,
+      "mekanism:oxygen": 106562,
+      "mekanism:sulfur_dioxide": 56380
+    }
+  }
+}

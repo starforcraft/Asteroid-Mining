@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1619_ueta_1953_ta",
+  "name": "1619 Ueta (1953 TA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.965,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.1,
+    "eccentricity": 0.1759,
+    "inclination": 6.21,
+    "orbital_speed": 0.187,
+    "clockwise": true,
+    "angle": 7.944
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 83888,
+      "minecraft:raw_iron": 19323,
+      "minecraft:raw_copper": 14050,
+      "minecraft:quartz": 19635,
+      "minecraft:redstone": 422,
+      "mekanism:dust_osmium": 369
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 17770
+    }
+  }
+}

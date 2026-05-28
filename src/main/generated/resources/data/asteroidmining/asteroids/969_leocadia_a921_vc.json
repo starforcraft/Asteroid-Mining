@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:969_leocadia_a921_vc",
+  "name": "969 Leocadia (A921 VC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 17.321,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 246.3,
+    "eccentricity": 0.2052,
+    "inclination": 2.29,
+    "orbital_speed": 0.1784,
+    "clockwise": true,
+    "angle": 267.744
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 71992,
+      "minecraft:clay_ball": 87263,
+      "minecraft:raw_iron": 29669,
+      "minecraft:raw_copper": 18303,
+      "mekanism:dust_sulfur": 12925,
+      "mekanism:yellow_cake_uranium": 653
+    },
+    "fluids": {
+      "minecraft:water": 78273254
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 20228,
+      "mekanism:oxygen": 111979,
+      "mekanism:sulfur_dioxide": 5195
+    }
+  }
+}

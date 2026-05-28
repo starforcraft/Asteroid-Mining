@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:321_florentina_a891_tc",
+  "name": "321 Florentina (A891 TC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 27.974,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 288.4,
+    "eccentricity": 0.0469,
+    "inclination": 2.58,
+    "orbital_speed": 0.1649,
+    "clockwise": true,
+    "angle": 82.56
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 472982,
+      "minecraft:raw_iron": 155336,
+      "minecraft:raw_copper": 30845,
+      "minecraft:quartz": 92227,
+      "minecraft:redstone": 17201,
+      "minecraft:diamond": 487,
+      "mekanism:dust_osmium": 4217
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 60755
+    }
+  }
+}

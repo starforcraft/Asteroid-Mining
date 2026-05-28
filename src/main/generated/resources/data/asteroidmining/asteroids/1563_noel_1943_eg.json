@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1563_noel_1943_eg",
+  "name": "1563 Noel (1943 EG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.234,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.1,
+    "eccentricity": 0.0856,
+    "inclination": 5.98,
+    "orbital_speed": 0.1892,
+    "clockwise": true,
+    "angle": 227.496
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 89728,
+      "minecraft:raw_iron": 20632,
+      "minecraft:raw_copper": 5181,
+      "minecraft:quartz": 10251,
+      "minecraft:redstone": 330
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 16200
+    }
+  }
+}

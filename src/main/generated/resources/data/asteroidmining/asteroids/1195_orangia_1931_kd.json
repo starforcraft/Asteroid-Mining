@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1195_orangia_1931_kd",
+  "name": "1195 Orangia (1931 KD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.258,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 225.8,
+    "eccentricity": 0.2003,
+    "inclination": 7.2,
+    "orbital_speed": 0.1863,
+    "clockwise": true,
+    "angle": 24.552
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 96812,
+      "minecraft:raw_iron": 18393,
+      "minecraft:raw_copper": 3903,
+      "minecraft:quartz": 9555,
+      "minecraft:redstone": 2359,
+      "minecraft:diamond": 51
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 4503
+    }
+  }
+}

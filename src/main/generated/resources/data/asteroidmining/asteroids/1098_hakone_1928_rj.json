@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1098_hakone_1928_rj",
+  "name": "1098 Hakone (1928 RJ)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 26.684,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.8,
+    "eccentricity": 0.1162,
+    "inclination": 13.39,
+    "orbital_speed": 0.1708,
+    "clockwise": true,
+    "angle": 6.276
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 476583,
+      "minecraft:raw_gold": 50994,
+      "minecraft:redstone": 6918,
+      "mekanism:raw_osmium": 9715,
+      "mekanism:pellet_polonium": 32
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 363809,
+      "mekanism:dirty_gold_slurry": 20487,
+      "mekanism:dirty_osmium_slurry": 7827
+    }
+  }
+}

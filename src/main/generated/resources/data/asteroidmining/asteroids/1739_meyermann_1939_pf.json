@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1739_meyermann_1939_pf",
+  "name": "1739 Meyermann (1939 PF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.858,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 226.2,
+    "eccentricity": 0.1232,
+    "inclination": 3.41,
+    "orbital_speed": 0.1862,
+    "clockwise": true,
+    "angle": 308.904
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 108927,
+      "minecraft:raw_iron": 29887,
+      "minecraft:raw_copper": 3274,
+      "minecraft:quartz": 16079,
+      "minecraft:redstone": 1688,
+      "minecraft:diamond": 94,
+      "mekanism:dust_osmium": 152
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 10336
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:54_alexandra_a858_ra",
+  "name": "54 Alexandra (A858 RA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 160.12,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 271.3,
+    "eccentricity": 0.1983,
+    "inclination": 11.83,
+    "orbital_speed": 0.17,
+    "clockwise": true,
+    "angle": 87.924
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1654078,
+      "minecraft:clay_ball": 1263078,
+      "minecraft:raw_iron": 290683,
+      "minecraft:raw_copper": 101100,
+      "mekanism:dust_sulfur": 408320,
+      "mekanism:fluorite_gem": 16918,
+      "mekanism:yellow_cake_uranium": 5096
+    },
+    "fluids": {
+      "minecraft:water": 1395726575
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 631921,
+      "mekanism:oxygen": 400489,
+      "mekanism:sulfur_dioxide": 117435
+    }
+  }
+}

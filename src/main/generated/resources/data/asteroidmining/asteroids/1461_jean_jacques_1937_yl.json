@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1461_jean_jacques_1937_yl",
+  "name": "1461 Jean-Jacques (1937 YL)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 35.145,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.6,
+    "eccentricity": 0.0508,
+    "inclination": 15.32,
+    "orbital_speed": 0.1584,
+    "clockwise": true,
+    "angle": 241.68
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 645700,
+      "minecraft:raw_gold": 44096,
+      "minecraft:redstone": 41761,
+      "mekanism:raw_osmium": 35064
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 214711,
+      "mekanism:dirty_gold_slurry": 30212,
+      "mekanism:dirty_osmium_slurry": 7264
+    }
+  }
+}

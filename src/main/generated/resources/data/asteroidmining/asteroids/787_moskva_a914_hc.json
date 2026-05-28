@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:787_moskva_a914_hc",
+  "name": "787 Moskva (A914 HC)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 27.927,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.0,
+    "eccentricity": 0.1289,
+    "inclination": 14.85,
+    "orbital_speed": 0.1757,
+    "clockwise": true,
+    "angle": 81.288
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 636128,
+      "minecraft:raw_iron": 113080,
+      "minecraft:quartz": 63482,
+      "minecraft:magma_cream": 8889
+    },
+    "fluids": {
+      "minecraft:lava": 15179567
+    },
+    "chemicals": {
+      "mekanism:oxygen": 54640
+    }
+  }
+}

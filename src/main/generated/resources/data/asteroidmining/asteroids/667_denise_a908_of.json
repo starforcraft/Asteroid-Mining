@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:667_denise_a908_of",
+  "name": "667 Denise (A908 OF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 88.63,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.7,
+    "eccentricity": 0.188,
+    "inclination": 25.37,
+    "orbital_speed": 0.1568,
+    "clockwise": true,
+    "angle": 140.328
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 477369,
+      "minecraft:clay_ball": 831215,
+      "minecraft:raw_iron": 126060,
+      "minecraft:raw_copper": 37514,
+      "mekanism:dust_sulfur": 272269,
+      "mekanism:fluorite_gem": 8850
+    },
+    "fluids": {
+      "minecraft:water": 945862210
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 249306,
+      "mekanism:oxygen": 283252,
+      "mekanism:sulfur_dioxide": 165945
+    }
+  }
+}

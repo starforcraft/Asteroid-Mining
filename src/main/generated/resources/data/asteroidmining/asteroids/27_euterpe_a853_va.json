@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:27_euterpe_a853_va",
+  "name": "27 Euterpe (A853 VA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 96.0,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 234.7,
+    "eccentricity": 0.1716,
+    "inclination": 1.58,
+    "orbital_speed": 0.1828,
+    "clockwise": true,
+    "angle": 335.208
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2153565,
+      "minecraft:raw_iron": 1264885,
+      "minecraft:raw_copper": 139845,
+      "minecraft:quartz": 565560,
+      "minecraft:redstone": 84812,
+      "mekanism:dust_osmium": 21707
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 238480
+    }
+  }
+}

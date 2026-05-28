@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:847_agnia_a915_rp",
+  "name": "847 Agnia (A915 RP)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 24.931,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 278.3,
+    "eccentricity": 0.0942,
+    "inclination": 2.48,
+    "orbital_speed": 0.1678,
+    "clockwise": true,
+    "angle": 51.768
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 373425,
+      "minecraft:raw_iron": 216524,
+      "minecraft:raw_copper": 12814,
+      "minecraft:quartz": 29514,
+      "minecraft:redstone": 17330,
+      "mekanism:dust_osmium": 1700
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 62143
+    }
+  }
+}

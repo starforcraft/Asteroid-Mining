@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:244_sita_a884_ta",
+  "name": "244 Sita (A884 TA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.077,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 217.4,
+    "eccentricity": 0.1368,
+    "inclination": 2.85,
+    "orbital_speed": 0.1899,
+    "clockwise": true,
+    "angle": 294.444
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 132324,
+      "minecraft:raw_iron": 24483,
+      "minecraft:raw_copper": 20912,
+      "minecraft:quartz": 12416,
+      "minecraft:redstone": 5196
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 14243
+    }
+  }
+}

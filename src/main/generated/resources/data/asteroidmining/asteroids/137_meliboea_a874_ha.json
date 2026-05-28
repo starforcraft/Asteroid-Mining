@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:137_meliboea_a874_ha",
+  "name": "137 Meliboea (A874 HA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 128.678,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.6,
+    "eccentricity": 0.2107,
+    "inclination": 13.42,
+    "orbital_speed": 0.1584,
+    "clockwise": true,
+    "angle": 341.088
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1397718,
+      "minecraft:clay_ball": 865698,
+      "minecraft:raw_iron": 274012,
+      "minecraft:raw_copper": 153767,
+      "mekanism:dust_sulfur": 164556,
+      "mekanism:yellow_cake_uranium": 10729
+    },
+    "fluids": {
+      "minecraft:water": 1237582653
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 287815,
+      "mekanism:oxygen": 1135065,
+      "mekanism:sulfur_dioxide": 66276
+    }
+  }
+}

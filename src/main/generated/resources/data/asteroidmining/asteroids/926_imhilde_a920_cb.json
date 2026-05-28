@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:926_imhilde_a920_cb",
+  "name": "926 Imhilde (A920 CB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 48.48,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 298.2,
+    "eccentricity": 0.1825,
+    "inclination": 16.32,
+    "orbital_speed": 0.1621,
+    "clockwise": true,
+    "angle": 114.9
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1135845,
+      "minecraft:raw_iron": 276974,
+      "minecraft:raw_copper": 85052,
+      "minecraft:quartz": 198026,
+      "minecraft:redstone": 19173,
+      "mekanism:dust_osmium": 1477
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 231260
+    }
+  }
+}

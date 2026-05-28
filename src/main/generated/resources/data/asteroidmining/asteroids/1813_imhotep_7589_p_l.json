@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1813_imhotep_7589_p_l",
+  "name": "1813 Imhotep (7589 P-L)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 19.099,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.3,
+    "eccentricity": 0.0822,
+    "inclination": 8.1,
+    "orbital_speed": 0.1709,
+    "clockwise": true,
+    "angle": 44.496
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 141355,
+      "minecraft:clay_ball": 78725,
+      "minecraft:raw_iron": 16023,
+      "minecraft:raw_copper": 9805,
+      "mekanism:dust_sulfur": 28940,
+      "mekanism:fluorite_gem": 2083
+    },
+    "fluids": {
+      "minecraft:water": 121224494
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 24089,
+      "mekanism:oxygen": 36218,
+      "mekanism:sulfur_dioxide": 4574
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:393_lampetia_a894_vc",
+  "name": "393 Lampetia (A894 VC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 116.191,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 278.1,
+    "eccentricity": 0.3329,
+    "inclination": 14.83,
+    "orbital_speed": 0.1679,
+    "clockwise": true,
+    "angle": 263.136
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1035434,
+      "minecraft:clay_ball": 1351745,
+      "minecraft:raw_iron": 354352,
+      "minecraft:raw_copper": 147156,
+      "mekanism:dust_sulfur": 126977,
+      "mekanism:fluorite_gem": 9752
+    },
+    "fluids": {
+      "minecraft:water": 1134042279
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 812613,
+      "mekanism:oxygen": 513530,
+      "mekanism:sulfur_dioxide": 102733
+    }
+  }
+}

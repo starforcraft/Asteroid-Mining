@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:438_zeuxo_a898_vg",
+  "name": "438 Zeuxo (A898 VG)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 58.871,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 255.5,
+    "eccentricity": 0.0668,
+    "inclination": 7.36,
+    "orbital_speed": 0.1752,
+    "clockwise": true,
+    "angle": 330.996
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 594751,
+      "minecraft:clay_ball": 359229,
+      "minecraft:raw_iron": 99305,
+      "minecraft:raw_copper": 24527,
+      "mekanism:dust_sulfur": 163337,
+      "mekanism:yellow_cake_uranium": 1378
+    },
+    "fluids": {
+      "minecraft:water": 633162042
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 163382,
+      "mekanism:oxygen": 180801,
+      "mekanism:sulfur_dioxide": 102709
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:905_universitas_a918_ue",
+  "name": "905 Universitas (A918 UE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.07,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 221.6,
+    "eccentricity": 0.1535,
+    "inclination": 5.32,
+    "orbital_speed": 0.1881,
+    "clockwise": true,
+    "angle": 107.232
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 143430,
+      "minecraft:raw_iron": 52844,
+      "minecraft:raw_copper": 18606,
+      "minecraft:quartz": 26723,
+      "minecraft:redstone": 5834,
+      "mekanism:dust_osmium": 1369
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 38654
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1475_yalta_1935_sm",
+  "name": "1475 Yalta (1935 SM)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 3.6741,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 234.9,
+    "eccentricity": 0.1679,
+    "inclination": 4.51,
+    "orbital_speed": 0.1827,
+    "clockwise": true,
+    "angle": 6.792
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 15831,
+      "minecraft:clay_ball": 12010,
+      "minecraft:raw_iron": 3845,
+      "minecraft:raw_copper": 1778,
+      "mekanism:dust_sulfur": 2941,
+      "mekanism:yellow_cake_uranium": 63
+    },
+    "fluids": {
+      "minecraft:water": 7504267
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 5307,
+      "mekanism:oxygen": 4663,
+      "mekanism:sulfur_dioxide": 2861
+    }
+  }
+}

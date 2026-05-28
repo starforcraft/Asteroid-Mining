@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1013_tombecka_a924_bl",
+  "name": "1013 Tombecka (A924 BL)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 34.613,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.4,
+    "eccentricity": 0.2081,
+    "inclination": 11.89,
+    "orbital_speed": 0.1709,
+    "clockwise": true,
+    "angle": 198.096
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 826447,
+      "minecraft:raw_gold": 61612,
+      "minecraft:redstone": 26031,
+      "mekanism:raw_osmium": 18436
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 422833,
+      "mekanism:dirty_gold_slurry": 34407,
+      "mekanism:dirty_osmium_slurry": 14289
+    }
+  }
+}

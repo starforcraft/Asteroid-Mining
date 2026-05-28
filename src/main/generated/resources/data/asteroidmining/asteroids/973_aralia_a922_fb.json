@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:973_aralia_a922_fb",
+  "name": "973 Aralia (A922 FB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 51.609,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 321.2,
+    "eccentricity": 0.1137,
+    "inclination": 15.83,
+    "orbital_speed": 0.1562,
+    "clockwise": true,
+    "angle": 97.776
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1157703,
+      "minecraft:raw_gold": 63568,
+      "minecraft:redstone": 18686,
+      "mekanism:raw_osmium": 16068,
+      "minecraft:diamond": 934,
+      "mekanism:pellet_polonium": 185
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 695858,
+      "mekanism:dirty_gold_slurry": 9471,
+      "mekanism:dirty_osmium_slurry": 28177
+    }
+  }
+}

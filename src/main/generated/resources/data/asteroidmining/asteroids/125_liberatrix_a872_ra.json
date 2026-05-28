@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:125_liberatrix_a872_ra",
+  "name": "125 Liberatrix (A872 RA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 48.418,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 274.3,
+    "eccentricity": 0.0814,
+    "inclination": 4.66,
+    "orbital_speed": 0.1691,
+    "clockwise": true,
+    "angle": 130.992
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1083438,
+      "minecraft:raw_gold": 73390,
+      "minecraft:redstone": 38735,
+      "mekanism:raw_osmium": 21524,
+      "minecraft:diamond": 449
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 545180,
+      "mekanism:dirty_gold_slurry": 32157,
+      "mekanism:dirty_osmium_slurry": 13739
+    }
+  }
+}

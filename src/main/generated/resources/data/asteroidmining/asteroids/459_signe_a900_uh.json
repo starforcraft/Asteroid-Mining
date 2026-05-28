@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:459_signe_a900_uh",
+  "name": "459 Signe (A900 UH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 25.784,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 262.0,
+    "eccentricity": 0.2112,
+    "inclination": 10.3,
+    "orbital_speed": 0.173,
+    "clockwise": true,
+    "angle": 338.664
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 487703,
+      "minecraft:raw_iron": 98847,
+      "minecraft:raw_copper": 21847,
+      "minecraft:quartz": 34724,
+      "minecraft:redstone": 4886,
+      "mekanism:dust_osmium": 1378
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 29421
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:954_li_a921_pc",
+  "name": "954 Li (A921 PC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 58.771,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.9,
+    "eccentricity": 0.1737,
+    "inclination": 1.17,
+    "orbital_speed": 0.1583,
+    "clockwise": true,
+    "angle": 5.124
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 336334,
+      "minecraft:clay_ball": 382325,
+      "minecraft:raw_iron": 96620,
+      "minecraft:raw_copper": 53457,
+      "mekanism:dust_sulfur": 79404,
+      "mekanism:yellow_cake_uranium": 5489
+    },
+    "fluids": {
+      "minecraft:water": 789219305
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 391785,
+      "mekanism:oxygen": 478998,
+      "mekanism:sulfur_dioxide": 135066
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1352_wawel_1935_ce",
+  "name": "1352 Wawel (1935 CE)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 19.979,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 277.8,
+    "eccentricity": 0.0632,
+    "inclination": 3.76,
+    "orbital_speed": 0.168,
+    "clockwise": true,
+    "angle": 13.308
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 251962,
+      "minecraft:raw_gold": 18266,
+      "minecraft:redstone": 17195,
+      "mekanism:raw_osmium": 15183
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 96272,
+      "mekanism:dirty_gold_slurry": 7885,
+      "mekanism:dirty_osmium_slurry": 9519
+    }
+  }
+}

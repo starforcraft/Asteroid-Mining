@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:937_bethgea_a920_rd",
+  "name": "937 Bethgea (A920 RD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.383,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.1,
+    "eccentricity": 0.2183,
+    "inclination": 3.7,
+    "orbital_speed": 0.1875,
+    "clockwise": true,
+    "angle": 187.488
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 104052,
+      "minecraft:raw_iron": 54752,
+      "minecraft:raw_copper": 17290,
+      "minecraft:quartz": 14158,
+      "minecraft:redstone": 2020,
+      "minecraft:diamond": 53
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 20390
+    }
+  }
+}

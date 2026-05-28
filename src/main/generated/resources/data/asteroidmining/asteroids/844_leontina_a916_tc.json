@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:844_leontina_a916_tc",
+  "name": "844 Leontina (A916 TC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 42.154,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 320.2,
+    "eccentricity": 0.0692,
+    "inclination": 8.78,
+    "orbital_speed": 0.1565,
+    "clockwise": true,
+    "angle": 359.244
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 654707,
+      "minecraft:raw_gold": 66737,
+      "minecraft:redstone": 43504,
+      "mekanism:raw_osmium": 21987,
+      "mekanism:pellet_polonium": 103
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 263403,
+      "mekanism:dirty_gold_slurry": 4637,
+      "mekanism:dirty_osmium_slurry": 6447
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1867_deiphobus_1971_ea",
+  "name": "1867 Deiphobus (1971 EA)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 118.22,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 513.5,
+    "eccentricity": 0.0447,
+    "inclination": 26.9,
+    "orbital_speed": 0.1236,
+    "clockwise": true,
+    "angle": 269.928
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 919072,
+      "minecraft:blackstone": 991622,
+      "mekanism:dust_sulfur": 263318,
+      "mekanism:yellow_cake_uranium": 909
+    },
+    "fluids": {
+      "minecraft:water": 743625263
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 650827,
+      "mekanism:ethene": 369799,
+      "mekanism:sulfur_dioxide": 245090
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1550_tito_1937_wd",
+  "name": "1550 Tito (1937 WD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.391,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.4,
+    "eccentricity": 0.3137,
+    "inclination": 8.88,
+    "orbital_speed": 0.1755,
+    "clockwise": true,
+    "angle": 239.892
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 174187,
+      "minecraft:raw_iron": 47577,
+      "minecraft:raw_copper": 15907,
+      "minecraft:quartz": 17313,
+      "minecraft:redstone": 947
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 31136
+    }
+  }
+}

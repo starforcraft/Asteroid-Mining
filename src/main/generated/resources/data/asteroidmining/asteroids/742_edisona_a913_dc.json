@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:742_edisona_a913_dc",
+  "name": "742 Edisona (A913 DC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 47.087,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.4,
+    "eccentricity": 0.1143,
+    "inclination": 11.2,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 13.428
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1244717,
+      "minecraft:raw_iron": 429049,
+      "minecraft:raw_copper": 91198,
+      "minecraft:quartz": 114757,
+      "minecraft:redstone": 22154
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 114881
+    }
+  }
+}

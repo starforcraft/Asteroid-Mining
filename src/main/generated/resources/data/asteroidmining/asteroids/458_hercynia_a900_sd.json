@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:458_hercynia_a900_sd",
+  "name": "458 Hercynia (A900 SD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 36.698,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 299.3,
+    "eccentricity": 0.2438,
+    "inclination": 12.66,
+    "orbital_speed": 0.1618,
+    "clockwise": true,
+    "angle": 201.156
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1033950,
+      "minecraft:raw_iron": 311558,
+      "minecraft:raw_copper": 66298,
+      "minecraft:quartz": 172061,
+      "minecraft:redstone": 9916,
+      "mekanism:dust_osmium": 4344
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 51525
+    }
+  }
+}

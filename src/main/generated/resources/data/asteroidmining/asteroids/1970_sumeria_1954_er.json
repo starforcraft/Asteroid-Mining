@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1970_sumeria_1954_er",
+  "name": "1970 Sumeria (1954 ER)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 19.352,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 277.8,
+    "eccentricity": 0.1619,
+    "inclination": 7.07,
+    "orbital_speed": 0.168,
+    "clockwise": true,
+    "angle": 33.252
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 125020,
+      "minecraft:clay_ball": 124035,
+      "minecraft:raw_iron": 16434,
+      "minecraft:raw_copper": 18994,
+      "mekanism:dust_sulfur": 29087,
+      "mekanism:yellow_cake_uranium": 738
+    },
+    "fluids": {
+      "minecraft:water": 144787594
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 55195,
+      "mekanism:oxygen": 87846,
+      "mekanism:sulfur_dioxide": 7187
+    }
+  }
+}

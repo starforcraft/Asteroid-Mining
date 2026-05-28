@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1674_groeneveld_1938_ds",
+  "name": "1674 Groeneveld (1938 DS)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 32.386,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.4,
+    "eccentricity": 0.1274,
+    "inclination": 2.66,
+    "orbital_speed": 0.1567,
+    "clockwise": true,
+    "angle": 10.884
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 177567,
+      "minecraft:blackstone": 309051,
+      "mekanism:dust_sulfur": 37519
+    },
+    "fluids": {
+      "minecraft:water": 188685172
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 91239,
+      "mekanism:ethene": 72182,
+      "mekanism:sulfur_dioxide": 36811
+    }
+  }
+}

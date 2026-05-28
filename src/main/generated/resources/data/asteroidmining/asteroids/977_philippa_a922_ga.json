@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:977_philippa_a922_ga",
+  "name": "977 Philippa (A922 GA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 65.471,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.9,
+    "eccentricity": 0.021,
+    "inclination": 15.18,
+    "orbital_speed": 0.1585,
+    "clockwise": true,
+    "angle": 287.808
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 623711,
+      "minecraft:clay_ball": 327454,
+      "minecraft:raw_iron": 238626,
+      "minecraft:raw_copper": 92900,
+      "mekanism:dust_sulfur": 150861,
+      "mekanism:yellow_cake_uranium": 5721
+    },
+    "fluids": {
+      "minecraft:water": 1119337508
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 276931,
+      "mekanism:oxygen": 540773,
+      "mekanism:sulfur_dioxide": 23402
+    }
+  }
+}

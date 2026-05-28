@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1710_gothard_1941_uf",
+  "name": "1710 Gothard (1941 UF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.838,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 232.2,
+    "eccentricity": 0.2682,
+    "inclination": 8.46,
+    "orbital_speed": 0.1837,
+    "clockwise": true,
+    "angle": 281.172
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 120688,
+      "minecraft:raw_iron": 56311,
+      "minecraft:raw_copper": 10440,
+      "minecraft:quartz": 16008,
+      "minecraft:redstone": 3279
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 25465
+    }
+  }
+}

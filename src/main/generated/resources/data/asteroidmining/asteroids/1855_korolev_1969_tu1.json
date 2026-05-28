@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1855_korolev_1969_tu1",
+  "name": "1855 Korolev (1969 TU1)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 6.789,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.8,
+    "eccentricity": 0.0834,
+    "inclination": 3.08,
+    "orbital_speed": 0.1867,
+    "clockwise": true,
+    "angle": 59.832
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 27439,
+      "minecraft:clay_ball": 25120,
+      "minecraft:raw_iron": 6715,
+      "minecraft:raw_copper": 3281,
+      "mekanism:dust_sulfur": 7443,
+      "mekanism:fluorite_gem": 462
+    },
+    "fluids": {
+      "minecraft:water": 22121281
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 16003,
+      "mekanism:oxygen": 16993,
+      "mekanism:sulfur_dioxide": 4825
+    }
+  }
+}

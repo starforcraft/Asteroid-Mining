@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:878_mildred_a916_rc",
+  "name": "878 Mildred (A916 RC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 2.529,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.1,
+    "eccentricity": 0.226,
+    "inclination": 2.07,
+    "orbital_speed": 0.1822,
+    "clockwise": true,
+    "angle": 354.516
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 24326,
+      "minecraft:raw_iron": 5582,
+      "minecraft:raw_copper": 760,
+      "minecraft:quartz": 3565,
+      "minecraft:redstone": 663,
+      "minecraft:diamond": 23
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 3530
+    }
+  }
+}

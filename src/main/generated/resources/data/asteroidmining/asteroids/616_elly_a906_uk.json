@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:616_elly_a906_uk",
+  "name": "616 Elly (A906 UK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 21.17,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 255.4,
+    "eccentricity": 0.0611,
+    "inclination": 14.96,
+    "orbital_speed": 0.1752,
+    "clockwise": true,
+    "angle": 327.42
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 317427,
+      "minecraft:raw_iron": 101077,
+      "minecraft:raw_copper": 33008,
+      "minecraft:quartz": 51492,
+      "minecraft:redstone": 11765
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 70776
+    }
+  }
+}

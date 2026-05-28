@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1872_helenos_1971_fg",
+  "name": "1872 Helenos (1971 FG)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 34.046,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 532.0,
+    "eccentricity": 0.0486,
+    "inclination": 14.65,
+    "orbital_speed": 0.1214,
+    "clockwise": true,
+    "angle": 237.468
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 230564,
+      "minecraft:clay_ball": 92080,
+      "minecraft:raw_iron": 61623,
+      "minecraft:raw_copper": 14396,
+      "mekanism:dust_sulfur": 89527,
+      "mekanism:fluorite_gem": 2244
+    },
+    "fluids": {
+      "minecraft:water": 276579451
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 141079,
+      "mekanism:oxygen": 91925,
+      "mekanism:sulfur_dioxide": 27554
+    }
+  }
+}

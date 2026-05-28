@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1920_sarmiento_1971_vo",
+  "name": "1920 Sarmiento (1971 VO)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 2.854,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 193.0,
+    "eccentricity": 0.1056,
+    "inclination": 22.8,
+    "orbital_speed": 0.2015,
+    "clockwise": true,
+    "angle": 357.852
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 16652,
+      "minecraft:raw_gold": 1380,
+      "minecraft:redstone": 446,
+      "mekanism:raw_osmium": 342,
+      "mekanism:pellet_polonium": 1
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 8887,
+      "mekanism:dirty_gold_slurry": 1093,
+      "mekanism:dirty_osmium_slurry": 552
+    }
+  }
+}

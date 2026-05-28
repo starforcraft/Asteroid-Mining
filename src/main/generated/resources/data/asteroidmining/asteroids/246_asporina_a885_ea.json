@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:246_asporina_a885_ea",
+  "name": "246 Asporina (A885 EA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 50.891,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 269.7,
+    "eccentricity": 0.107,
+    "inclination": 15.62,
+    "orbital_speed": 0.1705,
+    "clockwise": true,
+    "angle": 209.46
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1338203,
+      "minecraft:raw_iron": 292949,
+      "minecraft:raw_copper": 38745,
+      "minecraft:quartz": 66266,
+      "minecraft:redstone": 8089,
+      "mekanism:dust_osmium": 8336
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 177956
+    }
+  }
+}

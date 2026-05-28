@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:297_caecilia_a890_ra",
+  "name": "297 Caecilia (A890 RA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 39.48,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.9,
+    "eccentricity": 0.1384,
+    "inclination": 7.55,
+    "orbital_speed": 0.1573,
+    "clockwise": true,
+    "angle": 22.368
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 195742,
+      "minecraft:clay_ball": 123098,
+      "minecraft:raw_iron": 48209,
+      "minecraft:raw_copper": 33112,
+      "mekanism:dust_sulfur": 92440,
+      "mekanism:yellow_cake_uranium": 777
+    },
+    "fluids": {
+      "minecraft:water": 372289009
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 157891,
+      "mekanism:oxygen": 150976,
+      "mekanism:sulfur_dioxide": 11261
+    }
+  }
+}

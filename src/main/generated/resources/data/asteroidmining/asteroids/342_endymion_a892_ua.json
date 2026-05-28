@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:342_endymion_a892_ua",
+  "name": "342 Endymion (A892 UA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 64.266,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 256.8,
+    "eccentricity": 0.1299,
+    "inclination": 7.35,
+    "orbital_speed": 0.1747,
+    "clockwise": true,
+    "angle": 90.228
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 540589,
+      "minecraft:clay_ball": 516908,
+      "minecraft:raw_iron": 62992,
+      "minecraft:raw_copper": 75169,
+      "mekanism:dust_sulfur": 139100
+    },
+    "fluids": {
+      "minecraft:water": 279282912
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 256572,
+      "mekanism:oxygen": 193793,
+      "mekanism:sulfur_dioxide": 85654
+    }
+  }
+}

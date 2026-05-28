@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1530_rantaseppa_1938_sg",
+  "name": "1530 Rantaseppa (1938 SG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 5.044,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.9,
+    "eccentricity": 0.1984,
+    "inclination": 4.42,
+    "orbital_speed": 0.1867,
+    "clockwise": true,
+    "angle": 9.732
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 52325,
+      "minecraft:raw_iron": 18877,
+      "minecraft:raw_copper": 1622,
+      "minecraft:quartz": 9372,
+      "minecraft:redstone": 1712,
+      "minecraft:diamond": 54,
+      "mekanism:dust_osmium": 282
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 7404
+    }
+  }
+}

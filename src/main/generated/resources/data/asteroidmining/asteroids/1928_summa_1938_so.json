@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1928_summa_1938_so",
+  "name": "1928 Summa (1938 SO)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 9.333,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 247.8,
+    "eccentricity": 0.2033,
+    "inclination": 4.58,
+    "orbital_speed": 0.1779,
+    "clockwise": true,
+    "angle": 17.916
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 27333,
+      "minecraft:clay_ball": 20309,
+      "minecraft:raw_iron": 8488,
+      "minecraft:raw_copper": 4069,
+      "mekanism:dust_sulfur": 3569,
+      "mekanism:fluorite_gem": 393
+    },
+    "fluids": {
+      "minecraft:water": 25566485
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 20879,
+      "mekanism:oxygen": 12269,
+      "mekanism:sulfur_dioxide": 8037
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:106_dione_a868_ta",
+  "name": "106 Dione (A868 TA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 207.869,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.2,
+    "eccentricity": 0.1589,
+    "inclination": 4.58,
+    "orbital_speed": 0.157,
+    "clockwise": true,
+    "angle": 38.34
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1130605,
+      "minecraft:clay_ball": 1183101,
+      "minecraft:raw_iron": 331143,
+      "minecraft:raw_copper": 119067,
+      "mekanism:dust_sulfur": 371383,
+      "mekanism:fluorite_gem": 14196
+    },
+    "fluids": {
+      "minecraft:water": 2788144254
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 774396,
+      "mekanism:oxygen": 739046,
+      "mekanism:sulfur_dioxide": 220509
+    }
+  }
+}

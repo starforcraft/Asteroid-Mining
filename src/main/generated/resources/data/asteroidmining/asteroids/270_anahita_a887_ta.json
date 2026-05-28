@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:270_anahita_a887_ta",
+  "name": "270 Anahita (A887 TA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 51.4,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.8,
+    "eccentricity": 0.1508,
+    "inclination": 2.37,
+    "orbital_speed": 0.1889,
+    "clockwise": true,
+    "angle": 269.652
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 950012,
+      "minecraft:raw_iron": 434514,
+      "minecraft:raw_copper": 119220,
+      "minecraft:quartz": 181958,
+      "minecraft:redstone": 42205,
+      "minecraft:diamond": 1672,
+      "mekanism:dust_osmium": 6042
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 246068
+    }
+  }
+}

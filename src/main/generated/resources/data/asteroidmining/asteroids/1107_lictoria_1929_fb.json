@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1107_lictoria_1929_fb",
+  "name": "1107 Lictoria (1929 FB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 79.079,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.8,
+    "eccentricity": 0.1188,
+    "inclination": 7.07,
+    "orbital_speed": 0.1568,
+    "clockwise": true,
+    "angle": 163.848
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1655854,
+      "minecraft:raw_gold": 108666,
+      "minecraft:redstone": 51558,
+      "mekanism:raw_osmium": 33442,
+      "minecraft:diamond": 3536,
+      "mekanism:pellet_polonium": 153
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 658295,
+      "mekanism:dirty_gold_slurry": 69424,
+      "mekanism:dirty_osmium_slurry": 44414
+    }
+  }
+}

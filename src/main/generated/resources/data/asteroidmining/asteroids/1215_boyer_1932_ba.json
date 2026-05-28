@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1215_boyer_1932_ba",
+  "name": "1215 Boyer (1932 BA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 13.041,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 257.9,
+    "eccentricity": 0.1313,
+    "inclination": 15.91,
+    "orbital_speed": 0.1744,
+    "clockwise": true,
+    "angle": 254.712
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 148357,
+      "minecraft:raw_iron": 84226,
+      "minecraft:raw_copper": 20860,
+      "minecraft:quartz": 18630,
+      "minecraft:redstone": 1070,
+      "mekanism:dust_osmium": 284
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 16157
+    }
+  }
+}

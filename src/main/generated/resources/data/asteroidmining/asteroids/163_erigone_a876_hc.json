@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:163_erigone_a876_hc",
+  "name": "163 Erigone (A876 HC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 81.579,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.7,
+    "eccentricity": 0.192,
+    "inclination": 4.82,
+    "orbital_speed": 0.182,
+    "clockwise": true,
+    "angle": 316.296
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 925086,
+      "minecraft:clay_ball": 748250,
+      "minecraft:raw_iron": 266133,
+      "minecraft:raw_copper": 94996,
+      "mekanism:dust_sulfur": 90161,
+      "mekanism:fluorite_gem": 17313
+    },
+    "fluids": {
+      "minecraft:water": 1351100526
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 167167,
+      "mekanism:oxygen": 753024,
+      "mekanism:sulfur_dioxide": 46902
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:30_urania_a854_oa",
+  "name": "30 Urania (A854 OA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 92.787,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.6,
+    "eccentricity": 0.1267,
+    "inclination": 2.09,
+    "orbital_speed": 0.182,
+    "clockwise": true,
+    "angle": 27.732
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2118139,
+      "minecraft:raw_iron": 1110487,
+      "minecraft:raw_copper": 308350,
+      "minecraft:quartz": 376634,
+      "minecraft:redstone": 55010,
+      "mekanism:dust_osmium": 18744
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 498923
+    }
+  }
+}

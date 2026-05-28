@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:946_poesia_a921_cd",
+  "name": "946 Poesia (A921 CD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 36.21,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.8,
+    "eccentricity": 0.1428,
+    "inclination": 1.43,
+    "orbital_speed": 0.1586,
+    "clockwise": true,
+    "angle": 345.06
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 151206,
+      "minecraft:clay_ball": 225723,
+      "minecraft:raw_iron": 125598,
+      "minecraft:raw_copper": 9753,
+      "mekanism:dust_sulfur": 69378,
+      "mekanism:fluorite_gem": 1480,
+      "mekanism:yellow_cake_uranium": 1379
+    },
+    "fluids": {
+      "minecraft:water": 392843720
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 62026,
+      "mekanism:oxygen": 129192,
+      "mekanism:sulfur_dioxide": 28895
+    }
+  }
+}

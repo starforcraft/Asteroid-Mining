@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:830_petropolitana_a917_yd",
+  "name": "830 Petropolitana (A917 YD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 41.328,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 321.0,
+    "eccentricity": 0.0663,
+    "inclination": 3.8,
+    "orbital_speed": 0.1563,
+    "clockwise": true,
+    "angle": 234.132
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 708188,
+      "minecraft:raw_iron": 261283,
+      "minecraft:raw_copper": 54731,
+      "minecraft:quartz": 93234,
+      "minecraft:redstone": 37984
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 95733
+    }
+  }
+}

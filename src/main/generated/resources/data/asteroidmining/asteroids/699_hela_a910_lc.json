@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:699_hela_a910_lc",
+  "name": "699 Hela (A910 LC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 1.1449,
+  "game_diameter": 2,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 261.5,
+    "eccentricity": 0.4097,
+    "inclination": 15.29,
+    "orbital_speed": 0.1731,
+    "clockwise": true,
+    "angle": 220.584
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 7782,
+      "minecraft:raw_iron": 2343,
+      "minecraft:raw_copper": 468,
+      "minecraft:quartz": 436,
+      "minecraft:redstone": 242,
+      "mekanism:dust_osmium": 35
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 1315
+    }
+  }
+}

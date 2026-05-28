@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:519_sylvania_a903_uj",
+  "name": "519 Sylvania (A903 UJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 40.078,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.4,
+    "eccentricity": 0.1838,
+    "inclination": 11.0,
+    "orbital_speed": 0.1675,
+    "clockwise": true,
+    "angle": 309.144
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 990640,
+      "minecraft:raw_iron": 256436,
+      "minecraft:raw_copper": 75520,
+      "minecraft:quartz": 89811,
+      "minecraft:redstone": 31149,
+      "minecraft:diamond": 709,
+      "mekanism:dust_osmium": 7209
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 84298
+    }
+  }
+}

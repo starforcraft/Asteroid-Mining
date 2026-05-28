@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1960_guisan_1973_ua",
+  "name": "1960 Guisan (1973 UA)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 27.004,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 252.6,
+    "eccentricity": 0.1221,
+    "inclination": 8.48,
+    "orbital_speed": 0.1762,
+    "clockwise": true,
+    "angle": 98.172
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 379407,
+      "minecraft:raw_iron": 89879,
+      "minecraft:quartz": 79625,
+      "minecraft:magma_cream": 6845
+    },
+    "fluids": {
+      "minecraft:lava": 24957371
+    },
+    "chemicals": {
+      "mekanism:oxygen": 49641
+    }
+  }
+}

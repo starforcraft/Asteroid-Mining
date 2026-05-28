@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1010_marlene_a923_vh",
+  "name": "1010 Marlene (A923 VH)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 46.876,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 292.9,
+    "eccentricity": 0.1068,
+    "inclination": 3.91,
+    "orbital_speed": 0.1636,
+    "clockwise": true,
+    "angle": 145.572
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 958869,
+      "minecraft:raw_gold": 21779,
+      "minecraft:redstone": 57752,
+      "mekanism:raw_osmium": 9024,
+      "minecraft:diamond": 1226
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 256062,
+      "mekanism:dirty_gold_slurry": 8318,
+      "mekanism:dirty_osmium_slurry": 32892
+    }
+  }
+}

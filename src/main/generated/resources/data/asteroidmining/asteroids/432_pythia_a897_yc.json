@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:432_pythia_a897_yc",
+  "name": "432 Pythia (A897 YC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 46.9,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.1,
+    "eccentricity": 0.1447,
+    "inclination": 12.12,
+    "orbital_speed": 0.1818,
+    "clockwise": true,
+    "angle": 225.948
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1619965,
+      "minecraft:raw_iron": 440587,
+      "minecraft:raw_copper": 93491,
+      "minecraft:quartz": 149304,
+      "minecraft:redstone": 16040,
+      "mekanism:dust_osmium": 6032
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 201311
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:394_arduina_a894_wb",
+  "name": "394 Arduina (A894 WB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 29.97,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 276.1,
+    "eccentricity": 0.228,
+    "inclination": 6.22,
+    "orbital_speed": 0.1685,
+    "clockwise": true,
+    "angle": 40.644
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 601716,
+      "minecraft:raw_iron": 93224,
+      "minecraft:raw_copper": 54219,
+      "minecraft:quartz": 53343,
+      "minecraft:redstone": 18705,
+      "mekanism:dust_osmium": 521
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 138368
+    }
+  }
+}

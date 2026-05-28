@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1214_richilde_1932_aa",
+  "name": "1214 Richilde (1932 AA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 36.668,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 271.4,
+    "eccentricity": 0.1176,
+    "inclination": 9.85,
+    "orbital_speed": 0.17,
+    "clockwise": true,
+    "angle": 117.204
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 764402,
+      "minecraft:raw_gold": 59584,
+      "minecraft:redstone": 33144,
+      "mekanism:raw_osmium": 10663,
+      "mekanism:pellet_polonium": 109
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 335568,
+      "mekanism:dirty_gold_slurry": 19230,
+      "mekanism:dirty_osmium_slurry": 16860
+    }
+  }
+}

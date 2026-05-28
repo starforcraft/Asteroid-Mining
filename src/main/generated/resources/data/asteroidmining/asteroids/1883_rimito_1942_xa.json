@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1883_rimito_1942_xa",
+  "name": "1883 Rimito (1942 XA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 5.662,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 241.5,
+    "eccentricity": 0.2617,
+    "inclination": 25.46,
+    "orbital_speed": 0.1802,
+    "clockwise": true,
+    "angle": 310.056
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 69499,
+      "minecraft:raw_iron": 12925,
+      "minecraft:raw_copper": 3366,
+      "minecraft:quartz": 4388,
+      "minecraft:redstone": 1917,
+      "mekanism:dust_osmium": 213
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 3675
+    }
+  }
+}

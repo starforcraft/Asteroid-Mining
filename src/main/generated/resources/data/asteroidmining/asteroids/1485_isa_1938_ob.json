@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1485_isa_1938_ob",
+  "name": "1485 Isa (1938 OB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 17.336,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.2,
+    "eccentricity": 0.119,
+    "inclination": 8.93,
+    "orbital_speed": 0.1611,
+    "clockwise": true,
+    "angle": 301.872
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 261265,
+      "minecraft:raw_iron": 67034,
+      "minecraft:raw_copper": 6482,
+      "minecraft:quartz": 49317,
+      "minecraft:redstone": 7148
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 44437
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:460_scania_a900_uf",
+  "name": "460 Scania (A900 UF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 19.689,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 271.8,
+    "eccentricity": 0.1037,
+    "inclination": 4.64,
+    "orbital_speed": 0.1698,
+    "clockwise": true,
+    "angle": 116.172
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 279615,
+      "minecraft:raw_iron": 111242,
+      "minecraft:raw_copper": 21629,
+      "minecraft:quartz": 48597,
+      "minecraft:redstone": 3961
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 51597
+    }
+  }
+}

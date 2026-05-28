@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:729_watsonia_a912_ce",
+  "name": "729 Watsonia (A912 CE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 50.025,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 276.1,
+    "eccentricity": 0.0958,
+    "inclination": 18.05,
+    "orbital_speed": 0.1685,
+    "clockwise": true,
+    "angle": 25.824
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1156360,
+      "minecraft:raw_iron": 442409,
+      "minecraft:raw_copper": 70057,
+      "minecraft:quartz": 173924,
+      "minecraft:redstone": 31986,
+      "minecraft:diamond": 186
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 167876
+    }
+  }
+}

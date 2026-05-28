@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:464_megaira_a901_ab",
+  "name": "464 Megaira (A901 AB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 77.056,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 280.3,
+    "eccentricity": 0.2039,
+    "inclination": 10.16,
+    "orbital_speed": 0.1672,
+    "clockwise": true,
+    "angle": 306.204
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 861693,
+      "minecraft:clay_ball": 359926,
+      "minecraft:raw_iron": 174789,
+      "minecraft:raw_copper": 31716,
+      "mekanism:dust_sulfur": 185797,
+      "mekanism:fluorite_gem": 13507
+    },
+    "fluids": {
+      "minecraft:water": 1191451400
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 496800,
+      "mekanism:oxygen": 203785,
+      "mekanism:sulfur_dioxide": 35919
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1164_kobolda_1930_fb",
+  "name": "1164 Kobolda (1930 FB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.651,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 230.7,
+    "eccentricity": 0.195,
+    "inclination": 25.17,
+    "orbital_speed": 0.1843,
+    "clockwise": true,
+    "angle": 81.804
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 77346,
+      "minecraft:raw_iron": 32610,
+      "minecraft:raw_copper": 8629,
+      "minecraft:quartz": 13564,
+      "minecraft:redstone": 3241,
+      "mekanism:dust_osmium": 240
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 14621
+    }
+  }
+}

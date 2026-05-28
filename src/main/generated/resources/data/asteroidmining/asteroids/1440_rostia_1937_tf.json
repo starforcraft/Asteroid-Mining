@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1440_rostia_1937_tf",
+  "name": "1440 Rostia (1937 TF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 15.299,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.2,
+    "eccentricity": 0.1859,
+    "inclination": 2.27,
+    "orbital_speed": 0.1575,
+    "clockwise": true,
+    "angle": 234.012
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 69735,
+      "minecraft:clay_ball": 67378,
+      "minecraft:raw_iron": 19988,
+      "minecraft:raw_copper": 3936,
+      "mekanism:dust_sulfur": 14299,
+      "mekanism:fluorite_gem": 663
+    },
+    "fluids": {
+      "minecraft:water": 108095182
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 75730,
+      "mekanism:oxygen": 84286,
+      "mekanism:sulfur_dioxide": 9317
+    }
+  }
+}

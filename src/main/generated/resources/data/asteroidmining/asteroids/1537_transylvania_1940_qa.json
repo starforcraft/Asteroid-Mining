@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1537_transylvania_1940_qa",
+  "name": "1537 Transylvania (1940 QA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 20.288,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 306.0,
+    "eccentricity": 0.2933,
+    "inclination": 3.86,
+    "orbital_speed": 0.1601,
+    "clockwise": true,
+    "angle": 252.288
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 121923,
+      "minecraft:clay_ball": 78774,
+      "minecraft:raw_iron": 20700,
+      "minecraft:raw_copper": 10147,
+      "mekanism:dust_sulfur": 22537,
+      "mekanism:yellow_cake_uranium": 847
+    },
+    "fluids": {
+      "minecraft:water": 157034021
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 83474,
+      "mekanism:oxygen": 67713,
+      "mekanism:sulfur_dioxide": 7652
+    }
+  }
+}

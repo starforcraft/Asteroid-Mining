@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:757_portlandia_a908_tg",
+  "name": "757 Portlandia (A908 TG)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 32.894,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.3,
+    "eccentricity": 0.1082,
+    "inclination": 8.17,
+    "orbital_speed": 0.1818,
+    "clockwise": true,
+    "angle": 276.048
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 605105,
+      "minecraft:raw_gold": 11984,
+      "minecraft:redstone": 22004,
+      "mekanism:raw_osmium": 5982,
+      "mekanism:pellet_polonium": 51
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 176792,
+      "mekanism:dirty_gold_slurry": 32041,
+      "mekanism:dirty_osmium_slurry": 16640
+    }
+  }
+}

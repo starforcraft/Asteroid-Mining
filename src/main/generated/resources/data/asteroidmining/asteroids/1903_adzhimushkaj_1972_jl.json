@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1903_adzhimushkaj_1972_jl",
+  "name": "1903 Adzhimushkaj (1972 JL)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 27.642,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 300.1,
+    "eccentricity": 0.0491,
+    "inclination": 10.99,
+    "orbital_speed": 0.1616,
+    "clockwise": true,
+    "angle": 180.216
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 363670,
+      "minecraft:raw_iron": 200423,
+      "minecraft:raw_copper": 14354,
+      "minecraft:quartz": 39801,
+      "minecraft:redstone": 12092,
+      "minecraft:diamond": 701
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 90667
+    }
+  }
+}

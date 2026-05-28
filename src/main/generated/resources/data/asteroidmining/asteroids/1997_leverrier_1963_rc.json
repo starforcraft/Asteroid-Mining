@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1997_leverrier_1963_rc",
+  "name": "1997 Leverrier (1963 RC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.81,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 221.0,
+    "eccentricity": 0.206,
+    "inclination": 6.06,
+    "orbital_speed": 0.1883,
+    "clockwise": true,
+    "angle": 145.968
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 102419,
+      "minecraft:raw_iron": 21530,
+      "minecraft:raw_copper": 1761,
+      "minecraft:quartz": 18404,
+      "minecraft:redstone": 3198,
+      "minecraft:diamond": 10
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 8335
+    }
+  }
+}

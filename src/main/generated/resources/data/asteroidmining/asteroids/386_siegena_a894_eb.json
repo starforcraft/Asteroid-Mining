@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:386_siegena_a894_eb",
+  "name": "386 Siegena (A894 EB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 165.01,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 289.7,
+    "eccentricity": 0.1693,
+    "inclination": 20.22,
+    "orbital_speed": 0.1645,
+    "clockwise": true,
+    "angle": 20.58
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1150404,
+      "minecraft:clay_ball": 663544,
+      "minecraft:raw_iron": 409800,
+      "minecraft:raw_copper": 41568,
+      "mekanism:dust_sulfur": 244421,
+      "mekanism:fluorite_gem": 12994
+    },
+    "fluids": {
+      "minecraft:water": 1356387991
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 743680,
+      "mekanism:oxygen": 814689,
+      "mekanism:sulfur_dioxide": 283498
+    }
+  }
+}

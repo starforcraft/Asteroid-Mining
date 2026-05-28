@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:409_aspasia_a895_xc",
+  "name": "409 Aspasia (A895 XC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 171.012,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 257.5,
+    "eccentricity": 0.0733,
+    "inclination": 11.29,
+    "orbital_speed": 0.1745,
+    "clockwise": true,
+    "angle": 303.264
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1409434,
+      "minecraft:clay_ball": 921651,
+      "minecraft:raw_iron": 362459,
+      "minecraft:raw_copper": 110871,
+      "mekanism:dust_sulfur": 327281
+    },
+    "fluids": {
+      "minecraft:water": 1917693952
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 586117,
+      "mekanism:oxygen": 1062710,
+      "mekanism:sulfur_dioxide": 337649
+    }
+  }
+}

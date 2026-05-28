@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:749_malzovia_a913_gd",
+  "name": "749 Malzovia (A913 GD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.065,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.3,
+    "eccentricity": 0.1741,
+    "inclination": 5.39,
+    "orbital_speed": 0.187,
+    "clockwise": true,
+    "angle": 255.984
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 124060,
+      "minecraft:raw_iron": 47373,
+      "minecraft:raw_copper": 16119,
+      "minecraft:quartz": 21027,
+      "minecraft:redstone": 3646
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 28313
+    }
+  }
+}

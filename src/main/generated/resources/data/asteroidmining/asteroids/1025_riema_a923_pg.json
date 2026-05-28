@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1025_riema_a923_pg",
+  "name": "1025 Riema (A923 PG)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 4.605,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 197.9,
+    "eccentricity": 0.0393,
+    "inclination": 26.87,
+    "orbital_speed": 0.199,
+    "clockwise": true,
+    "angle": 48.192
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 64260,
+      "minecraft:raw_gold": 4159,
+      "minecraft:redstone": 1077,
+      "mekanism:raw_osmium": 1484,
+      "mekanism:pellet_polonium": 2
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 19482,
+      "mekanism:dirty_gold_slurry": 1843,
+      "mekanism:dirty_osmium_slurry": 736
+    }
+  }
+}

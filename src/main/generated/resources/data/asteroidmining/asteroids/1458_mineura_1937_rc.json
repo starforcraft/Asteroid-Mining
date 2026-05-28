@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1458_mineura_1937_rc",
+  "name": "1458 Mineura (1937 RC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 17.19,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 262.5,
+    "eccentricity": 0.1826,
+    "inclination": 12.54,
+    "orbital_speed": 0.1728,
+    "clockwise": true,
+    "angle": 189.156
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 401813,
+      "minecraft:raw_iron": 54949,
+      "minecraft:raw_copper": 10005,
+      "minecraft:quartz": 52087,
+      "minecraft:redstone": 11414
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 37563
+    }
+  }
+}

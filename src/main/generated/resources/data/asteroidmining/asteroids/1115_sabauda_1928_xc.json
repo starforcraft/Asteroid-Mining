@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1115_sabauda_1928_xc",
+  "name": "1115 Sabauda (1928 XC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 75.907,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 309.7,
+    "eccentricity": 0.1749,
+    "inclination": 15.29,
+    "orbital_speed": 0.1591,
+    "clockwise": true,
+    "angle": 183.912
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1686502,
+      "minecraft:raw_iron": 830814,
+      "minecraft:raw_copper": 58152,
+      "minecraft:quartz": 461671,
+      "minecraft:redstone": 61765,
+      "minecraft:diamond": 1150
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 469736
+    }
+  }
+}

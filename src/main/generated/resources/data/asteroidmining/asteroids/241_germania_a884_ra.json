@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:241_germania_a884_ra",
+  "name": "241 Germania (A884 RA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 168.9,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 304.6,
+    "eccentricity": 0.1063,
+    "inclination": 5.52,
+    "orbital_speed": 0.1604,
+    "clockwise": true,
+    "angle": 241.92
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 711558,
+      "minecraft:clay_ball": 1056740,
+      "minecraft:raw_iron": 354364,
+      "minecraft:raw_copper": 169092,
+      "mekanism:dust_sulfur": 468789,
+      "mekanism:fluorite_gem": 11563,
+      "mekanism:yellow_cake_uranium": 14668
+    },
+    "fluids": {
+      "minecraft:water": 942983593
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 889062,
+      "mekanism:oxygen": 1004592,
+      "mekanism:sulfur_dioxide": 83171
+    }
+  }
+}

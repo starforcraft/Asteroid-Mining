@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:907_rhoda_a918_va",
+  "name": "907 Rhoda (A918 VA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 82.66,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.8,
+    "eccentricity": 0.1644,
+    "inclination": 19.53,
+    "orbital_speed": 0.1674,
+    "clockwise": true,
+    "angle": 22.248
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 955107,
+      "minecraft:clay_ball": 408877,
+      "minecraft:raw_iron": 259588,
+      "minecraft:raw_copper": 40947,
+      "mekanism:dust_sulfur": 109543,
+      "mekanism:fluorite_gem": 13515,
+      "mekanism:yellow_cake_uranium": 10415
+    },
+    "fluids": {
+      "minecraft:water": 1115167061
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 355199,
+      "mekanism:oxygen": 497637,
+      "mekanism:sulfur_dioxide": 100776
+    }
+  }
+}

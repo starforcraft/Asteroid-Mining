@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:652_jubilatrix_a907_vs",
+  "name": "652 Jubilatrix (A907 VS)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 15.595,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 255.5,
+    "eccentricity": 0.1258,
+    "inclination": 15.73,
+    "orbital_speed": 0.1752,
+    "clockwise": true,
+    "angle": 237.708
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 79166,
+      "minecraft:clay_ball": 92340,
+      "minecraft:raw_iron": 19046,
+      "minecraft:raw_copper": 5083,
+      "mekanism:dust_sulfur": 10149,
+      "mekanism:fluorite_gem": 1287,
+      "mekanism:yellow_cake_uranium": 1090
+    },
+    "fluids": {
+      "minecraft:water": 179703357
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 23845,
+      "mekanism:oxygen": 38229,
+      "mekanism:sulfur_dioxide": 16393
+    }
+  }
+}

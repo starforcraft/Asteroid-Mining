@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:2000_herschel_1960_oa",
+  "name": "2000 Herschel (1960 OA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 14.768,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 238.0,
+    "eccentricity": 0.298,
+    "inclination": 22.82,
+    "orbital_speed": 0.1815,
+    "clockwise": true,
+    "angle": 198.492
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 252055,
+      "minecraft:raw_iron": 77660,
+      "minecraft:raw_copper": 9816,
+      "minecraft:quartz": 35566,
+      "minecraft:redstone": 6050
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 15177
+    }
+  }
+}

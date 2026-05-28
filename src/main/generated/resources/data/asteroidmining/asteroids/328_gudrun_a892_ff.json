@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:328_gudrun_a892_ff",
+  "name": "328 Gudrun (A892 FF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 145.68,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 310.9,
+    "eccentricity": 0.1078,
+    "inclination": 16.13,
+    "orbital_speed": 0.1588,
+    "clockwise": true,
+    "angle": 325.116
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2936246,
+      "minecraft:raw_iron": 1525388,
+      "minecraft:raw_copper": 338622,
+      "minecraft:quartz": 509761,
+      "minecraft:redstone": 87960,
+      "mekanism:dust_osmium": 23110
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 750775
+    }
+  }
+}

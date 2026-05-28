@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1543_bourgeois_1941_sj",
+  "name": "1543 Bourgeois (1941 SJ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 11.985,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 263.0,
+    "eccentricity": 0.3247,
+    "inclination": 11.03,
+    "orbital_speed": 0.1727,
+    "clockwise": true,
+    "angle": 357.336
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 41269,
+      "minecraft:clay_ball": 33991,
+      "minecraft:raw_iron": 12773,
+      "minecraft:raw_copper": 4939,
+      "mekanism:dust_sulfur": 19431,
+      "mekanism:fluorite_gem": 1213
+    },
+    "fluids": {
+      "minecraft:water": 71757102
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 37386,
+      "mekanism:oxygen": 52861,
+      "mekanism:sulfur_dioxide": 11344
+    }
+  }
+}

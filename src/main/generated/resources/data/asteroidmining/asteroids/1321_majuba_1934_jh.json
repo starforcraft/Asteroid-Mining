@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1321_majuba_1934_jh",
+  "name": "1321 Majuba (1934 JH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 37.137,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 294.1,
+    "eccentricity": 0.1692,
+    "inclination": 9.51,
+    "orbital_speed": 0.1633,
+    "clockwise": true,
+    "angle": 70.56
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 724358,
+      "minecraft:raw_iron": 304131,
+      "minecraft:raw_copper": 79751,
+      "minecraft:quartz": 37973,
+      "minecraft:redstone": 27133
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 111461
+    }
+  }
+}

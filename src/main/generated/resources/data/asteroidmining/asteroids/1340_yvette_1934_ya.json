@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1340_yvette_1934_ya",
+  "name": "1340 Yvette (1934 YA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 29.451,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.8,
+    "eccentricity": 0.1193,
+    "inclination": 0.41,
+    "orbital_speed": 0.1566,
+    "clockwise": true,
+    "angle": 163.212
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 621539,
+      "minecraft:raw_gold": 36487,
+      "minecraft:redstone": 15207,
+      "mekanism:raw_osmium": 15705,
+      "mekanism:pellet_polonium": 15
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 135898,
+      "mekanism:dirty_gold_slurry": 9872,
+      "mekanism:dirty_osmium_slurry": 14084
+    }
+  }
+}

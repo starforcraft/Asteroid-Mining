@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:598_octavia_a906_gc",
+  "name": "598 Octavia (A906 GC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 78.237,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 275.9,
+    "eccentricity": 0.2509,
+    "inclination": 12.23,
+    "orbital_speed": 0.1686,
+    "clockwise": true,
+    "angle": 12.276
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 541610,
+      "minecraft:clay_ball": 674406,
+      "minecraft:raw_iron": 104835,
+      "minecraft:raw_copper": 87234,
+      "mekanism:dust_sulfur": 97644,
+      "mekanism:fluorite_gem": 6374,
+      "mekanism:yellow_cake_uranium": 5622
+    },
+    "fluids": {
+      "minecraft:water": 420911466
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 301749,
+      "mekanism:oxygen": 204715,
+      "mekanism:sulfur_dioxide": 175518
+    }
+  }
+}

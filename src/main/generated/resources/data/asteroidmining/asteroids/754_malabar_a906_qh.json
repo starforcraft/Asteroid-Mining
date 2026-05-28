@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:754_malabar_a906_qh",
+  "name": "754 Malabar (A906 QH)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 94.522,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 298.6,
+    "eccentricity": 0.0517,
+    "inclination": 24.55,
+    "orbital_speed": 0.162,
+    "clockwise": true,
+    "angle": 223.524
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2566446,
+      "minecraft:raw_gold": 90986,
+      "minecraft:redstone": 75403,
+      "mekanism:raw_osmium": 116493,
+      "minecraft:diamond": 1261,
+      "mekanism:pellet_polonium": 206
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 765850,
+      "mekanism:dirty_gold_slurry": 49136,
+      "mekanism:dirty_osmium_slurry": 14671
+    }
+  }
+}

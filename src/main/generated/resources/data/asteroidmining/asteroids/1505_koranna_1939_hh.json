@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1505_koranna_1939_hh",
+  "name": "1505 Koranna (1939 HH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 22.277,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 265.9,
+    "eccentricity": 0.1336,
+    "inclination": 14.51,
+    "orbital_speed": 0.1717,
+    "clockwise": true,
+    "angle": 172.032
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 476218,
+      "minecraft:raw_iron": 118562,
+      "minecraft:raw_copper": 13917,
+      "minecraft:quartz": 69272,
+      "minecraft:redstone": 2940,
+      "minecraft:diamond": 495,
+      "mekanism:dust_osmium": 1426
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 38590
+    }
+  }
+}

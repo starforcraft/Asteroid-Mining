@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1106_cydonia_1929_cw",
+  "name": "1106 Cydonia (1929 CW)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.14,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 259.7,
+    "eccentricity": 0.1239,
+    "inclination": 13.05,
+    "orbital_speed": 0.1737,
+    "clockwise": true,
+    "angle": 26.34
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 154074,
+      "minecraft:raw_iron": 40753,
+      "minecraft:raw_copper": 15162,
+      "minecraft:quartz": 30836,
+      "minecraft:redstone": 5343
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 40812
+    }
+  }
+}

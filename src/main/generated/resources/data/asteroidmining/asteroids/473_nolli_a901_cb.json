@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:473_nolli_a901_cb",
+  "name": "473 Nolli (A901 CB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.394,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 266.1,
+    "eccentricity": 0.1086,
+    "inclination": 12.94,
+    "orbital_speed": 0.1716,
+    "clockwise": true,
+    "angle": 103.776
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 180541,
+      "minecraft:raw_iron": 46092,
+      "minecraft:raw_copper": 9059,
+      "minecraft:quartz": 35293,
+      "minecraft:redstone": 2431,
+      "minecraft:diamond": 194
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 17234
+    }
+  }
+}

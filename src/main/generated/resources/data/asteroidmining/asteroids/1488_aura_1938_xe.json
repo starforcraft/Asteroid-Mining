@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1488_aura_1938_xe",
+  "name": "1488 Aura (1938 XE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 24.665,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 304.2,
+    "eccentricity": 0.1137,
+    "inclination": 10.55,
+    "orbital_speed": 0.1605,
+    "clockwise": true,
+    "angle": 354.396
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 479041,
+      "minecraft:raw_iron": 175556,
+      "minecraft:raw_copper": 34624,
+      "minecraft:quartz": 27254,
+      "minecraft:redstone": 7078
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 61722
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:1511_dalera_1939_fb",
+  "name": "1511 Dalera (1939 FB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 13.515,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 235.8,
+    "eccentricity": 0.1083,
+    "inclination": 4.07,
+    "orbital_speed": 0.1823,
+    "clockwise": true,
+    "angle": 277.08
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 48634,
+      "minecraft:clay_ball": 36271,
+      "minecraft:raw_iron": 22383,
+      "minecraft:raw_copper": 3867,
+      "mekanism:dust_sulfur": 6863,
+      "mekanism:fluorite_gem": 1356,
+      "mekanism:yellow_cake_uranium": 711
+    },
+    "fluids": {
+      "minecraft:water": 90877816
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 24965,
+      "mekanism:oxygen": 81119,
+      "mekanism:sulfur_dioxide": 15101
+    }
+  }
+}

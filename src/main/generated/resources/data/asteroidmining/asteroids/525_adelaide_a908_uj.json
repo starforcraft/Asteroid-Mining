@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:525_adelaide_a908_uj",
+  "name": "525 Adelaide (A908 UJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.326,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.5,
+    "eccentricity": 0.1019,
+    "inclination": 6.0,
+    "orbital_speed": 0.1869,
+    "clockwise": true,
+    "angle": 54.192
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 101989,
+      "minecraft:raw_iron": 32338,
+      "minecraft:raw_copper": 9623,
+      "minecraft:quartz": 7296,
+      "minecraft:redstone": 4228
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 14140
+    }
+  }
+}

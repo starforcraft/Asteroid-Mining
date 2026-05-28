@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:117_lomia_a871_rb",
+  "name": "117 Lomia (A871 RB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 208.974,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 299.2,
+    "eccentricity": 0.0229,
+    "inclination": 14.92,
+    "orbital_speed": 0.1619,
+    "clockwise": true,
+    "angle": 110.928
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 3642320,
+      "minecraft:raw_gold": 37920,
+      "minecraft:redstone": 42878,
+      "mekanism:raw_osmium": 86995
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 2174594,
+      "mekanism:dirty_gold_slurry": 42561,
+      "mekanism:dirty_osmium_slurry": 88194
+    }
+  }
+}

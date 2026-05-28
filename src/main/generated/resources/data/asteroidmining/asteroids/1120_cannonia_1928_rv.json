@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1120_cannonia_1928_rv",
+  "name": "1120 Cannonia (1928 RV)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 10.184,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 221.6,
+    "eccentricity": 0.1558,
+    "inclination": 4.05,
+    "orbital_speed": 0.1881,
+    "clockwise": true,
+    "angle": 151.452
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 37378,
+      "minecraft:clay_ball": 39621,
+      "minecraft:raw_iron": 11005,
+      "minecraft:raw_copper": 3888,
+      "mekanism:dust_sulfur": 13149,
+      "mekanism:yellow_cake_uranium": 123
+    },
+    "fluids": {
+      "minecraft:water": 70608913
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 10786,
+      "mekanism:oxygen": 28334,
+      "mekanism:sulfur_dioxide": 6825
+    }
+  }
+}

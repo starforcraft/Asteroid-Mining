@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:648_pippa_a907_rn",
+  "name": "648 Pippa (A907 RN)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 68.27,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.6,
+    "eccentricity": 0.2031,
+    "inclination": 9.88,
+    "orbital_speed": 0.1566,
+    "clockwise": true,
+    "angle": 47.676
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1175481,
+      "minecraft:raw_gold": 109543,
+      "minecraft:redstone": 73449,
+      "mekanism:raw_osmium": 84438,
+      "minecraft:diamond": 893
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 643089,
+      "mekanism:dirty_gold_slurry": 55006,
+      "mekanism:dirty_osmium_slurry": 10987
+    }
+  }
+}

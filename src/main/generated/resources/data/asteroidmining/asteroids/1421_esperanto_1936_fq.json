@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1421_esperanto_1936_fq",
+  "name": "1421 Esperanto (1936 FQ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 43.31,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 308.9,
+    "eccentricity": 0.0845,
+    "inclination": 9.8,
+    "orbital_speed": 0.1593,
+    "clockwise": true,
+    "angle": 141.36
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 819099,
+      "minecraft:raw_iron": 334081,
+      "minecraft:raw_copper": 117224,
+      "minecraft:quartz": 74772,
+      "minecraft:redstone": 6038
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 131662
+    }
+  }
+}

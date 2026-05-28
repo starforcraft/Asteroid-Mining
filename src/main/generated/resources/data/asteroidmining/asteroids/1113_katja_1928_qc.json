@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1113_katja_1928_qc",
+  "name": "1113 Katja (1928 QC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 44.792,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.7,
+    "eccentricity": 0.1343,
+    "inclination": 13.25,
+    "orbital_speed": 0.1586,
+    "clockwise": true,
+    "angle": 268.896
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 261011,
+      "minecraft:clay_ball": 322728,
+      "minecraft:raw_iron": 151963,
+      "minecraft:raw_copper": 29529,
+      "mekanism:dust_sulfur": 55973,
+      "mekanism:yellow_cake_uranium": 3765
+    },
+    "fluids": {
+      "minecraft:water": 675701339
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 301162,
+      "mekanism:oxygen": 109201,
+      "mekanism:sulfur_dioxide": 69377
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:966_muschi_a921_vd",
+  "name": "966 Muschi (A921 VD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 25.509,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 272.2,
+    "eccentricity": 0.1284,
+    "inclination": 14.4,
+    "orbital_speed": 0.1697,
+    "clockwise": true,
+    "angle": 215.22
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 352655,
+      "minecraft:raw_iron": 236497,
+      "minecraft:raw_copper": 21512,
+      "minecraft:quartz": 23657,
+      "minecraft:redstone": 5650,
+      "minecraft:diamond": 590
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 79196
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1721_wells_1953_td3",
+  "name": "1721 Wells (1953 TD3)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 43.576,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 314.6,
+    "eccentricity": 0.0504,
+    "inclination": 16.12,
+    "orbital_speed": 0.1579,
+    "clockwise": true,
+    "angle": 353.76
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 812534,
+      "minecraft:raw_iron": 451042,
+      "minecraft:raw_copper": 41451,
+      "minecraft:quartz": 74431,
+      "minecraft:redstone": 16724,
+      "minecraft:diamond": 1573,
+      "mekanism:dust_osmium": 4022
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 97099
+    }
+  }
+}

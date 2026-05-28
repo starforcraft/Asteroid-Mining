@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:521_brixia_a904_ae",
+  "name": "521 Brixia (A904 AE)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 107.227,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 274.3,
+    "eccentricity": 0.2784,
+    "inclination": 10.58,
+    "orbital_speed": 0.1691,
+    "clockwise": true,
+    "angle": 224.16
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 960108,
+      "minecraft:clay_ball": 578033,
+      "minecraft:raw_iron": 431182,
+      "minecraft:raw_copper": 108516,
+      "mekanism:dust_sulfur": 247544,
+      "mekanism:yellow_cake_uranium": 1706
+    },
+    "fluids": {
+      "minecraft:water": 653369752
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 816259,
+      "mekanism:oxygen": 608437,
+      "mekanism:sulfur_dioxide": 250739
+    }
+  }
+}

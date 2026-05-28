@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1570_brunonia_1948_tx",
+  "name": "1570 Brunonia (1948 TX)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.118,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 284.3,
+    "eccentricity": 0.0568,
+    "inclination": 1.67,
+    "orbital_speed": 0.1661,
+    "clockwise": true,
+    "angle": 110.052
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 133095,
+      "minecraft:raw_iron": 35158,
+      "minecraft:raw_copper": 22488,
+      "minecraft:quartz": 21626,
+      "minecraft:redstone": 1365,
+      "mekanism:dust_osmium": 610
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 22728
+    }
+  }
+}

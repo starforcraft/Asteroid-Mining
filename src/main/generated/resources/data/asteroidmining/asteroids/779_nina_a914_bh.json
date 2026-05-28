@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:779_nina_a914_bh",
+  "name": "779 Nina (A914 BH)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 80.572,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 266.5,
+    "eccentricity": 0.2263,
+    "inclination": 14.57,
+    "orbital_speed": 0.1715,
+    "clockwise": true,
+    "angle": 61.224
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2346139,
+      "minecraft:raw_gold": 41058,
+      "minecraft:redstone": 93764,
+      "mekanism:raw_osmium": 38920,
+      "minecraft:diamond": 1237,
+      "mekanism:pellet_polonium": 277
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1598195,
+      "mekanism:dirty_gold_slurry": 61838,
+      "mekanism:dirty_osmium_slurry": 53344
+    }
+  }
+}

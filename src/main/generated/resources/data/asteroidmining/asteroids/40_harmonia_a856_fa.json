@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:40_harmonia_a856_fa",
+  "name": "40 Harmonia (A856 FA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 111.251,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 226.8,
+    "eccentricity": 0.0463,
+    "inclination": 4.26,
+    "orbital_speed": 0.1859,
+    "clockwise": true,
+    "angle": 322.812
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2709338,
+      "minecraft:raw_iron": 1063567,
+      "minecraft:raw_copper": 253121,
+      "minecraft:quartz": 318002,
+      "minecraft:redstone": 63674,
+      "minecraft:diamond": 2806
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 673137
+    }
+  }
+}

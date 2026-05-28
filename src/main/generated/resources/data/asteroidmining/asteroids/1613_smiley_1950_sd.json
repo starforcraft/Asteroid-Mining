@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1613_smiley_1950_sd",
+  "name": "1613 Smiley (1950 SD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 18.224,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 273.7,
+    "eccentricity": 0.2598,
+    "inclination": 7.97,
+    "orbital_speed": 0.1692,
+    "clockwise": true,
+    "angle": 262.896
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 74722,
+      "minecraft:clay_ball": 83930,
+      "minecraft:raw_iron": 45555,
+      "minecraft:raw_copper": 5454,
+      "mekanism:dust_sulfur": 26939,
+      "mekanism:yellow_cake_uranium": 580
+    },
+    "fluids": {
+      "minecraft:water": 172041332
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 25667,
+      "mekanism:oxygen": 110922,
+      "mekanism:sulfur_dioxide": 13727
+    }
+  }
+}

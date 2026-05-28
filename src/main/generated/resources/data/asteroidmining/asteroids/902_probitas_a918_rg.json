@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:902_probitas_a918_rg",
+  "name": "902 Probitas (A918 RG)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 8.552,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 244.7,
+    "eccentricity": 0.179,
+    "inclination": 6.35,
+    "orbital_speed": 0.179,
+    "clockwise": true,
+    "angle": 54.708
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 124909,
+      "minecraft:blue_ice": 19414,
+      "minecraft:coal": 17476
+    },
+    "fluids": {
+      "minecraft:water": 120019318
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 44736,
+      "mekanism:oxygen": 54550,
+      "mekanism:heavy_water": 4224
+    }
+  }
+}

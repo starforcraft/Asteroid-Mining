@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:433_eros_a898_pa",
+  "name": "433 Eros (A898 PA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 16.84,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 145.8,
+    "eccentricity": 0.2228,
+    "inclination": 10.83,
+    "orbital_speed": 0.2319,
+    "clockwise": true,
+    "angle": 3.456
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 210224,
+      "minecraft:raw_iron": 64416,
+      "minecraft:raw_copper": 11768,
+      "minecraft:quartz": 13307,
+      "minecraft:redstone": 4001,
+      "minecraft:diamond": 83
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 32727
+    }
+  }
+}

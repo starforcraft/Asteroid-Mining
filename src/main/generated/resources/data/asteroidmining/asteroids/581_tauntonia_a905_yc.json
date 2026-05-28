@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:581_tauntonia_a905_yc",
+  "name": "581 Tauntonia (A905 YC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 61.481,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 321.0,
+    "eccentricity": 0.0355,
+    "inclination": 21.9,
+    "orbital_speed": 0.1563,
+    "clockwise": true,
+    "angle": 194.64
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1607286,
+      "minecraft:raw_gold": 18435,
+      "minecraft:redstone": 53782,
+      "mekanism:raw_osmium": 71039,
+      "mekanism:pellet_polonium": 80
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 460710,
+      "mekanism:dirty_gold_slurry": 58445,
+      "mekanism:dirty_osmium_slurry": 13384
+    }
+  }
+}

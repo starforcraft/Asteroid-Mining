@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:164_eva_a876_na",
+  "name": "164 Eva (A876 NA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 100.254,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 263.3,
+    "eccentricity": 0.3463,
+    "inclination": 24.47,
+    "orbital_speed": 0.1726,
+    "clockwise": true,
+    "angle": 93.804
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 809194,
+      "minecraft:clay_ball": 877776,
+      "minecraft:raw_iron": 110803,
+      "minecraft:raw_copper": 142194,
+      "mekanism:dust_sulfur": 89132,
+      "mekanism:fluorite_gem": 19212
+    },
+    "fluids": {
+      "minecraft:water": 782549029
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 747192,
+      "mekanism:oxygen": 969720,
+      "mekanism:sulfur_dioxide": 141375
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:437_rhodia_a898_oa",
+  "name": "437 Rhodia (A898 OA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 13.373,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 238.5,
+    "eccentricity": 0.25,
+    "inclination": 7.35,
+    "orbital_speed": 0.1813,
+    "clockwise": true,
+    "angle": 193.488
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 141317,
+      "minecraft:raw_iron": 32503,
+      "minecraft:raw_copper": 15185,
+      "minecraft:quartz": 16231,
+      "minecraft:redstone": 1781
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 22573
+    }
+  }
+}

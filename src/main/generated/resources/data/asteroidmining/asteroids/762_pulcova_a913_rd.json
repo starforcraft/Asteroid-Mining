@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:762_pulcova_a913_rd",
+  "name": "762 Pulcova (A913 RD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 147.343,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 315.2,
+    "eccentricity": 0.1078,
+    "inclination": 13.1,
+    "orbital_speed": 0.1577,
+    "clockwise": true,
+    "angle": 243.588
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1577596,
+      "minecraft:clay_ball": 1021630,
+      "minecraft:raw_iron": 235223,
+      "minecraft:raw_copper": 145167,
+      "mekanism:dust_sulfur": 462243,
+      "mekanism:yellow_cake_uranium": 6701
+    },
+    "fluids": {
+      "minecraft:water": 785043509
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 925803,
+      "mekanism:oxygen": 462743,
+      "mekanism:sulfur_dioxide": 350357
+    }
+  }
+}

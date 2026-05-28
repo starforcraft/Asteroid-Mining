@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:599_luisa_a906_hf",
+  "name": "599 Luisa (A906 HF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 70.249,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 277.1,
+    "eccentricity": 0.2928,
+    "inclination": 16.72,
+    "orbital_speed": 0.1682,
+    "clockwise": true,
+    "angle": 149.784
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2053280,
+      "minecraft:raw_iron": 632956,
+      "minecraft:raw_copper": 177133,
+      "minecraft:quartz": 178202,
+      "minecraft:redstone": 64834
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 513610
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:543_charlotte_a904_rg",
+  "name": "543 Charlotte (A904 RG)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 45.613,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 306.2,
+    "eccentricity": 0.1508,
+    "inclination": 8.46,
+    "orbital_speed": 0.16,
+    "clockwise": true,
+    "angle": 9.336
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1201711,
+      "minecraft:raw_gold": 78600,
+      "minecraft:redstone": 66851,
+      "mekanism:raw_osmium": 24860,
+      "minecraft:diamond": 176
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 220530,
+      "mekanism:dirty_gold_slurry": 45760,
+      "mekanism:dirty_osmium_slurry": 8823
+    }
+  }
+}

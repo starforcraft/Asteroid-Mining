@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:820_adriana_a916_fj",
+  "name": "820 Adriana (A916 FJ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 58.65,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.4,
+    "eccentricity": 0.0535,
+    "inclination": 5.95,
+    "orbital_speed": 0.1582,
+    "clockwise": true,
+    "angle": 299.052
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 330512,
+      "minecraft:clay_ball": 347147,
+      "minecraft:raw_iron": 62325,
+      "minecraft:raw_copper": 65084,
+      "mekanism:dust_sulfur": 58705,
+      "mekanism:yellow_cake_uranium": 5773
+    },
+    "fluids": {
+      "minecraft:water": 538093419
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 345859,
+      "mekanism:oxygen": 181283,
+      "mekanism:sulfur_dioxide": 85756
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1992_galvarino_1968_od",
+  "name": "1992 Galvarino (1968 OD)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 9.597,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 299.3,
+    "eccentricity": 0.0472,
+    "inclination": 10.57,
+    "orbital_speed": 0.1618,
+    "clockwise": true,
+    "angle": 178.428
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 37905,
+      "minecraft:blackstone": 88351,
+      "mekanism:dust_sulfur": 10685
+    },
+    "fluids": {
+      "minecraft:water": 28399473
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 32967,
+      "mekanism:ethene": 12770,
+      "mekanism:sulfur_dioxide": 6759
+    }
+  }
+}

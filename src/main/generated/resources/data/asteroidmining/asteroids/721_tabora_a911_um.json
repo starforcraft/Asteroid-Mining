@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:721_tabora_a911_um",
+  "name": "721 Tabora (A911 UM)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 86.309,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 354.7,
+    "eccentricity": 0.1179,
+    "inclination": 8.32,
+    "orbital_speed": 0.1487,
+    "clockwise": true,
+    "angle": 5.76
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1207343,
+      "minecraft:blackstone": 928404,
+      "mekanism:dust_sulfur": 379775,
+      "mekanism:yellow_cake_uranium": 3659
+    },
+    "fluids": {
+      "minecraft:water": 277335983
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 322613,
+      "mekanism:ethene": 254862,
+      "mekanism:sulfur_dioxide": 265279
+    }
+  }
+}

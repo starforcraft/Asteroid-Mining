@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:7_iris_a847_pa",
+  "name": "7 Iris (A847 PA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 199.83,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 238.7,
+    "eccentricity": 0.2302,
+    "inclination": 5.52,
+    "orbital_speed": 0.1812,
+    "clockwise": true,
+    "angle": 105.048
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2805738,
+      "minecraft:raw_iron": 1266050,
+      "minecraft:raw_copper": 376689,
+      "minecraft:quartz": 566050,
+      "minecraft:redstone": 94140,
+      "mekanism:dust_osmium": 8297
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 521394
+    }
+  }
+}

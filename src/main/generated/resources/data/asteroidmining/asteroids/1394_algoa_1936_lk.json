@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1394_algoa_1936_lk",
+  "name": "1394 Algoa (1936 LK)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 11.9999,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 244.0,
+    "eccentricity": 0.0753,
+    "inclination": 2.68,
+    "orbital_speed": 0.1793,
+    "clockwise": true,
+    "angle": 28.644
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 114282,
+      "minecraft:blackstone": 120135,
+      "mekanism:dust_sulfur": 9268
+    },
+    "fluids": {
+      "minecraft:water": 68641804
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 57027,
+      "mekanism:ethene": 21332,
+      "mekanism:sulfur_dioxide": 16238
+    }
+  }
+}

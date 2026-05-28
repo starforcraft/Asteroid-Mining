@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:639_latona_a907_oa",
+  "name": "639 Latona (A907 OA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 78.509,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.3,
+    "eccentricity": 0.1107,
+    "inclination": 8.57,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 250.104
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2831195,
+      "minecraft:raw_iron": 895203,
+      "minecraft:raw_copper": 151501,
+      "minecraft:quartz": 462784,
+      "minecraft:redstone": 35960,
+      "mekanism:dust_osmium": 3908
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 256756
+    }
+  }
+}

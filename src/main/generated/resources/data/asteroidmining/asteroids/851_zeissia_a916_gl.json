@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:851_zeissia_a916_gl",
+  "name": "851 Zeissia (A916 GL)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.642,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.8,
+    "eccentricity": 0.09,
+    "inclination": 2.39,
+    "orbital_speed": 0.1876,
+    "clockwise": true,
+    "angle": 241.8
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 193110,
+      "minecraft:raw_iron": 64638,
+      "minecraft:raw_copper": 11636,
+      "minecraft:quartz": 30109,
+      "minecraft:redstone": 1899
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 21563
+    }
+  }
+}

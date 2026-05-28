@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:910_anneliese_a919_ec",
+  "name": "910 Anneliese (A919 EC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 48.59,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 292.4,
+    "eccentricity": 0.1565,
+    "inclination": 9.21,
+    "orbital_speed": 0.1637,
+    "clockwise": true,
+    "angle": 74.772
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 258077,
+      "minecraft:clay_ball": 308060,
+      "minecraft:raw_iron": 54031,
+      "minecraft:raw_copper": 51804,
+      "mekanism:dust_sulfur": 41782,
+      "mekanism:yellow_cake_uranium": 4364
+    },
+    "fluids": {
+      "minecraft:water": 654208042
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 300607,
+      "mekanism:oxygen": 273419,
+      "mekanism:sulfur_dioxide": 112790
+    }
+  }
+}

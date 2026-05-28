@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1890_konoshenkova_1968_cd",
+  "name": "1890 Konoshenkova (1968 CD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 25.68,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 321.2,
+    "eccentricity": 0.1372,
+    "inclination": 9.89,
+    "orbital_speed": 0.1562,
+    "clockwise": true,
+    "angle": 192.612
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 168860,
+      "minecraft:clay_ball": 110237,
+      "minecraft:raw_iron": 73457,
+      "minecraft:raw_copper": 24951,
+      "mekanism:dust_sulfur": 42440,
+      "mekanism:fluorite_gem": 1340
+    },
+    "fluids": {
+      "minecraft:water": 304306880
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 30689,
+      "mekanism:oxygen": 49882,
+      "mekanism:sulfur_dioxide": 42660
+    }
+  }
+}

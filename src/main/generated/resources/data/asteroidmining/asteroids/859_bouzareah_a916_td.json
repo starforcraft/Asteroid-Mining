@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:859_bouzareah_a916_td",
+  "name": "859 Bouzareah (A916 TD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 65.417,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 322.5,
+    "eccentricity": 0.1103,
+    "inclination": 13.5,
+    "orbital_speed": 0.1559,
+    "clockwise": true,
+    "angle": 261.864
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2279740,
+      "minecraft:raw_iron": 460339,
+      "minecraft:raw_copper": 143756,
+      "minecraft:quartz": 135845,
+      "minecraft:redstone": 42616
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 314564
+    }
+  }
+}

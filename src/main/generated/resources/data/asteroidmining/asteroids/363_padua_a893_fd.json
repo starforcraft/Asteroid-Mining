@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:363_padua_a893_fd",
+  "name": "363 Padua (A893 FD)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 97.0,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 274.6,
+    "eccentricity": 0.073,
+    "inclination": 5.95,
+    "orbital_speed": 0.169,
+    "clockwise": true,
+    "angle": 97.896
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2571148,
+      "minecraft:raw_gold": 96305,
+      "minecraft:redstone": 50718,
+      "mekanism:raw_osmium": 46452
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1646621,
+      "mekanism:dirty_gold_slurry": 50018,
+      "mekanism:dirty_osmium_slurry": 44984
+    }
+  }
+}

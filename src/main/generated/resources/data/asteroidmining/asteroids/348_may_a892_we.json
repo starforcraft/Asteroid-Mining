@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:348_may_a892_we",
+  "name": "348 May (A892 WE)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 82.82,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 296.7,
+    "eccentricity": 0.0723,
+    "inclination": 9.76,
+    "orbital_speed": 0.1626,
+    "clockwise": true,
+    "angle": 195.276
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1717702,
+      "minecraft:raw_gold": 127953,
+      "minecraft:redstone": 100936,
+      "mekanism:raw_osmium": 91119,
+      "minecraft:diamond": 2289
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 577416,
+      "mekanism:dirty_gold_slurry": 32951,
+      "mekanism:dirty_osmium_slurry": 27859
+    }
+  }
+}

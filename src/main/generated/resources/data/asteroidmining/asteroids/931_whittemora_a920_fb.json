@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:931_whittemora_a920_fb",
+  "name": "931 Whittemora (A920 FB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 45.298,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.6,
+    "eccentricity": 0.234,
+    "inclination": 11.49,
+    "orbital_speed": 0.1574,
+    "clockwise": true,
+    "angle": 82.44
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 685401,
+      "minecraft:raw_gold": 39422,
+      "minecraft:redstone": 55383,
+      "mekanism:raw_osmium": 37198,
+      "mekanism:pellet_polonium": 136
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 471645,
+      "mekanism:dirty_gold_slurry": 15333,
+      "mekanism:dirty_osmium_slurry": 6854
+    }
+  }
+}

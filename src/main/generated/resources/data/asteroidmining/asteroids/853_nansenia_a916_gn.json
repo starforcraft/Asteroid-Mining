@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:853_nansenia_a916_gn",
+  "name": "853 Nansenia (A916 GN)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 27.593,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 231.2,
+    "eccentricity": 0.1065,
+    "inclination": 9.21,
+    "orbital_speed": 0.1841,
+    "clockwise": true,
+    "angle": 156.816
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 387023,
+      "minecraft:raw_gold": 23557,
+      "minecraft:redstone": 18192,
+      "mekanism:raw_osmium": 27139,
+      "mekanism:pellet_polonium": 22
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 263644,
+      "mekanism:dirty_gold_slurry": 24917,
+      "mekanism:dirty_osmium_slurry": 7232
+    }
+  }
+}

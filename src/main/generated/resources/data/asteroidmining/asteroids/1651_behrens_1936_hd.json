@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1651_behrens_1936_hd",
+  "name": "1651 Behrens (1936 HD)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 8.963,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 218.0,
+    "eccentricity": 0.0662,
+    "inclination": 5.08,
+    "orbital_speed": 0.1896,
+    "clockwise": true,
+    "angle": 88.2
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 88079,
+      "minecraft:blue_ice": 29236,
+      "minecraft:coal": 4072,
+      "mekanism:pellet_plutonium": 4
+    },
+    "fluids": {
+      "minecraft:water": 109008748
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 56705,
+      "mekanism:oxygen": 85589,
+      "mekanism:heavy_water": 4011
+    }
+  }
+}

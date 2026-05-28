@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:1076_viola_1926_te",
+  "name": "1076 Viola (1926 TE)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 22.298,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 247.3,
+    "eccentricity": 0.1464,
+    "inclination": 3.32,
+    "orbital_speed": 0.1781,
+    "clockwise": true,
+    "angle": 221.1
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 68584,
+      "minecraft:clay_ball": 61101,
+      "minecraft:raw_iron": 18835,
+      "minecraft:raw_copper": 9881,
+      "mekanism:dust_sulfur": 8820
+    },
+    "fluids": {
+      "minecraft:water": 257947186
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 20116,
+      "mekanism:oxygen": 104399,
+      "mekanism:sulfur_dioxide": 13121
+    }
+  }
+}

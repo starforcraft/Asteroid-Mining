@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:645_agrippina_a907_rp",
+  "name": "645 Agrippina (A907 RP)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 28.916,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 321.6,
+    "eccentricity": 0.139,
+    "inclination": 7.07,
+    "orbital_speed": 0.1561,
+    "clockwise": true,
+    "angle": 355.152
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 638399,
+      "minecraft:raw_iron": 277512,
+      "minecraft:raw_copper": 38051,
+      "minecraft:quartz": 113053,
+      "minecraft:redstone": 22024,
+      "mekanism:dust_osmium": 1920
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 110251
+    }
+  }
+}

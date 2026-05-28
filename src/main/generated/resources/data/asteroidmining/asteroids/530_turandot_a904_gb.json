@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:530_turandot_a904_gb",
+  "name": "530 Turandot (A904 GB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 84.85,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.2,
+    "eccentricity": 0.2168,
+    "inclination": 8.56,
+    "orbital_speed": 0.1567,
+    "clockwise": true,
+    "angle": 21.732
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 709297,
+      "minecraft:clay_ball": 512556,
+      "minecraft:raw_iron": 282912,
+      "minecraft:raw_copper": 133286,
+      "mekanism:dust_sulfur": 174038,
+      "mekanism:fluorite_gem": 6476
+    },
+    "fluids": {
+      "minecraft:water": 706144458
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 202969,
+      "mekanism:oxygen": 812526,
+      "mekanism:sulfur_dioxide": 162352
+    }
+  }
+}

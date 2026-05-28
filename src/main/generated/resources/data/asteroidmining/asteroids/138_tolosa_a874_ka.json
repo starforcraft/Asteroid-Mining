@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:138_tolosa_a874_ka",
+  "name": "138 Tolosa (A874 KA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 52.905,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 245.1,
+    "eccentricity": 0.1619,
+    "inclination": 3.2,
+    "orbital_speed": 0.1788,
+    "clockwise": true,
+    "angle": 118.596
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1430493,
+      "minecraft:raw_iron": 252994,
+      "minecraft:raw_copper": 148067,
+      "minecraft:quartz": 213235,
+      "minecraft:redstone": 16539,
+      "minecraft:diamond": 2175,
+      "mekanism:dust_osmium": 5859
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 162082
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:515_athalia_a903_sh",
+  "name": "515 Athalia (A903 SH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 41.19,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.8,
+    "eccentricity": 0.1772,
+    "inclination": 2.04,
+    "orbital_speed": 0.1586,
+    "clockwise": true,
+    "angle": 119.112
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 966295,
+      "minecraft:raw_iron": 357777,
+      "minecraft:raw_copper": 66938,
+      "minecraft:quartz": 65960,
+      "minecraft:redstone": 31025,
+      "mekanism:dust_osmium": 6470
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 103684
+    }
+  }
+}

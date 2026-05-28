@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:596_scheila_a906_dl",
+  "name": "596 Scheila (A906 DL)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 159.726,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 293.6,
+    "eccentricity": 0.1595,
+    "inclination": 14.63,
+    "orbital_speed": 0.1634,
+    "clockwise": true,
+    "angle": 97.26
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1032649,
+      "minecraft:blackstone": 2339031,
+      "mekanism:dust_sulfur": 422810
+    },
+    "fluids": {
+      "minecraft:water": 675284809
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 517497,
+      "mekanism:ethene": 140681,
+      "mekanism:sulfur_dioxide": 324830
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1819_laputa_1948_pc",
+  "name": "1819 Laputa (1948 PC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 54.165,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.5,
+    "eccentricity": 0.2285,
+    "inclination": 23.9,
+    "orbital_speed": 0.1581,
+    "clockwise": true,
+    "angle": 149.544
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1500733,
+      "minecraft:raw_iron": 228412,
+      "minecraft:raw_copper": 68294,
+      "minecraft:quartz": 126894,
+      "minecraft:redstone": 15060,
+      "minecraft:diamond": 223
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 106393
+    }
+  }
+}

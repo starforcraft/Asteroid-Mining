@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1826_miller_1955_rc1",
+  "name": "1826 Miller (1955 RC1)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 23.099,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 299.6,
+    "eccentricity": 0.0818,
+    "inclination": 9.24,
+    "orbital_speed": 0.1618,
+    "clockwise": true,
+    "angle": 32.1
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 199201,
+      "minecraft:blue_ice": 72057,
+      "minecraft:coal": 13421,
+      "mekanism:pellet_plutonium": 30
+    },
+    "fluids": {
+      "minecraft:water": 549925861
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 205006,
+      "mekanism:oxygen": 225407,
+      "mekanism:heavy_water": 10060
+    }
+  }
+}

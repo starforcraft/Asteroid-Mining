@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1549_mikko_1937_ga",
+  "name": "1549 Mikko (1937 GA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 10.376,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.1,
+    "eccentricity": 0.0834,
+    "inclination": 5.55,
+    "orbital_speed": 0.1875,
+    "clockwise": true,
+    "angle": 102.384
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 106328,
+      "minecraft:raw_iron": 59741,
+      "minecraft:raw_copper": 7177,
+      "minecraft:quartz": 27262,
+      "minecraft:redstone": 3140,
+      "mekanism:dust_osmium": 733
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 26788
+    }
+  }
+}

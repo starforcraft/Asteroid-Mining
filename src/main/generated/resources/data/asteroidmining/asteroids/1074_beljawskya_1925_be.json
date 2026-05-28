@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1074_beljawskya_1925_be",
+  "name": "1074 Beljawskya (1925 BE)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 49.189,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 315.1,
+    "eccentricity": 0.1821,
+    "inclination": 0.8,
+    "orbital_speed": 0.1577,
+    "clockwise": true,
+    "angle": 306.084
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 1271536,
+      "minecraft:raw_iron": 131638,
+      "minecraft:quartz": 96120,
+      "minecraft:magma_cream": 19582,
+      "mekanism:dust_osmium": 3964
+    },
+    "fluids": {
+      "minecraft:lava": 52094057
+    },
+    "chemicals": {
+      "mekanism:oxygen": 135819
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1900_katyusha_1971_yb",
+  "name": "1900 Katyusha (1971 YB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 8.82,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 220.9,
+    "eccentricity": 0.1346,
+    "inclination": 6.55,
+    "orbital_speed": 0.1884,
+    "clockwise": true,
+    "angle": 127.692
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 49939,
+      "minecraft:clay_ball": 29451,
+      "minecraft:raw_iron": 11780,
+      "minecraft:raw_copper": 5701,
+      "mekanism:dust_sulfur": 2473,
+      "mekanism:yellow_cake_uranium": 206
+    },
+    "fluids": {
+      "minecraft:water": 28902643
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 25956,
+      "mekanism:oxygen": 21129,
+      "mekanism:sulfur_dioxide": 5425
+    }
+  }
+}

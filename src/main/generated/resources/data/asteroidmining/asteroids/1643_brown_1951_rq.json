@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1643_brown_1951_rq",
+  "name": "1643 Brown (1951 RQ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 9.505,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 248.9,
+    "eccentricity": 0.2018,
+    "inclination": 3.51,
+    "orbital_speed": 0.1775,
+    "clockwise": true,
+    "angle": 68.136
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 49808,
+      "minecraft:clay_ball": 39901,
+      "minecraft:raw_iron": 20174,
+      "minecraft:raw_copper": 1571,
+      "mekanism:dust_sulfur": 3442,
+      "mekanism:yellow_cake_uranium": 354
+    },
+    "fluids": {
+      "minecraft:water": 30792966
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 18466,
+      "mekanism:oxygen": 19125,
+      "mekanism:sulfur_dioxide": 6783
+    }
+  }
+}

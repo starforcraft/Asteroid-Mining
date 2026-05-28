@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:443_photographica_a899_da",
+  "name": "443 Photographica (A899 DA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 25.504,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 221.6,
+    "eccentricity": 0.0399,
+    "inclination": 4.23,
+    "orbital_speed": 0.1881,
+    "clockwise": true,
+    "angle": 298.536
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 473633,
+      "minecraft:raw_iron": 94970,
+      "minecraft:raw_copper": 52028,
+      "minecraft:quartz": 39475,
+      "minecraft:redstone": 8079,
+      "minecraft:diamond": 734
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 91712
+    }
+  }
+}

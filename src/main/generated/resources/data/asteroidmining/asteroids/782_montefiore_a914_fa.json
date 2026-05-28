@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:782_montefiore_a914_fa",
+  "name": "782 Montefiore (A914 FA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 14.158,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 218.0,
+    "eccentricity": 0.0394,
+    "inclination": 5.26,
+    "orbital_speed": 0.1896,
+    "clockwise": true,
+    "angle": 113.748
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 216784,
+      "minecraft:raw_iron": 79794,
+      "minecraft:raw_copper": 19885,
+      "minecraft:quartz": 14175,
+      "minecraft:redstone": 4097
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 32061
+    }
+  }
+}

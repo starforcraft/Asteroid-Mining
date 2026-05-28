@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:660_crescentia_a908_an",
+  "name": "660 Crescentia (A908 AN)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 42.302,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 253.3,
+    "eccentricity": 0.1088,
+    "inclination": 15.2,
+    "orbital_speed": 0.1759,
+    "clockwise": true,
+    "angle": 257.772
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1124866,
+      "minecraft:raw_iron": 373503,
+      "minecraft:raw_copper": 21622,
+      "minecraft:quartz": 134260,
+      "minecraft:redstone": 6291,
+      "mekanism:dust_osmium": 3883
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 114495
+    }
+  }
+}

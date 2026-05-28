@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:418_alemannia_a896_rd",
+  "name": "418 Alemannia (A896 RD)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 40.33,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 259.3,
+    "eccentricity": 0.1183,
+    "inclination": 6.82,
+    "orbital_speed": 0.1739,
+    "clockwise": true,
+    "angle": 100.836
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 944589,
+      "minecraft:raw_gold": 44707,
+      "minecraft:redstone": 34037,
+      "mekanism:raw_osmium": 39014
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 265107,
+      "mekanism:dirty_gold_slurry": 3494,
+      "mekanism:dirty_osmium_slurry": 7881
+    }
+  }
+}

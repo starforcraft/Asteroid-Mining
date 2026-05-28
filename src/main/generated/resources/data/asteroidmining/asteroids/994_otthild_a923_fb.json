@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:994_otthild_a923_fb",
+  "name": "994 Otthild (A923 FB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 20.786,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 252.9,
+    "eccentricity": 0.1152,
+    "inclination": 15.42,
+    "orbital_speed": 0.1761,
+    "clockwise": true,
+    "angle": 105.444
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 413409,
+      "minecraft:raw_iron": 120922,
+      "minecraft:raw_copper": 13039,
+      "minecraft:quartz": 51820,
+      "minecraft:redstone": 8654,
+      "minecraft:diamond": 542,
+      "mekanism:dust_osmium": 1975
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 41262
+    }
+  }
+}

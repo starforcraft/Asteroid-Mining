@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:53_kalypso_a858_ga",
+  "name": "53 Kalypso (A858 GA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 97.262,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 261.9,
+    "eccentricity": 0.203,
+    "inclination": 5.18,
+    "orbital_speed": 0.173,
+    "clockwise": true,
+    "angle": 310.416
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2898440,
+      "minecraft:raw_gold": 119797,
+      "minecraft:redstone": 102017,
+      "mekanism:raw_osmium": 130528
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 587392,
+      "mekanism:dirty_gold_slurry": 36942,
+      "mekanism:dirty_osmium_slurry": 52153
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1043_beate_1925_hb",
+  "name": "1043 Beate (1925 HB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 31.986,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 309.2,
+    "eccentricity": 0.0373,
+    "inclination": 8.92,
+    "orbital_speed": 0.1592,
+    "clockwise": true,
+    "angle": 3.336
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 446071,
+      "minecraft:raw_iron": 133453,
+      "minecraft:raw_copper": 83608,
+      "minecraft:quartz": 61253,
+      "minecraft:redstone": 26986,
+      "mekanism:dust_osmium": 3628
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 156554
+    }
+  }
+}

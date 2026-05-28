@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:984_gretia_a922_qd",
+  "name": "984 Gretia (A922 QD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 32.449,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 280.5,
+    "eccentricity": 0.1948,
+    "inclination": 9.09,
+    "orbital_speed": 0.1672,
+    "clockwise": true,
+    "angle": 170.364
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 648128,
+      "minecraft:raw_iron": 150016,
+      "minecraft:raw_copper": 64610,
+      "minecraft:quartz": 33171,
+      "minecraft:redstone": 5724
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 147286
+    }
+  }
+}

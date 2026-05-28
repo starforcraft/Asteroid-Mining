@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1682_karel_1949_ph",
+  "name": "1682 Karel (1949 PH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.267,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.8,
+    "eccentricity": 0.1922,
+    "inclination": 4.03,
+    "orbital_speed": 0.1872,
+    "clockwise": true,
+    "angle": 30.948
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 84361,
+      "minecraft:raw_iron": 15233,
+      "minecraft:raw_copper": 5123,
+      "minecraft:quartz": 11114,
+      "minecraft:redstone": 696,
+      "mekanism:dust_osmium": 302
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 17853
+    }
+  }
+}

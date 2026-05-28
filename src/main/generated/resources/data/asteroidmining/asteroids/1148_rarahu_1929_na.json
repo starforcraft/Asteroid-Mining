@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1148_rarahu_1929_na",
+  "name": "1148 Rarahu (1929 NA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 27.512,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.1,
+    "eccentricity": 0.1081,
+    "inclination": 10.83,
+    "orbital_speed": 0.1611,
+    "clockwise": true,
+    "angle": 41.676
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 393046,
+      "minecraft:raw_iron": 161529,
+      "minecraft:raw_copper": 37432,
+      "minecraft:quartz": 101651,
+      "minecraft:redstone": 21316,
+      "minecraft:diamond": 298
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 112598
+    }
+  }
+}

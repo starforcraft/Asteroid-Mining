@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1061_paeonia_1925_tb",
+  "name": "1061 Paeonia (1925 TB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 23.092,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.3,
+    "eccentricity": 0.218,
+    "inclination": 2.5,
+    "orbital_speed": 0.1584,
+    "clockwise": true,
+    "angle": 318.48
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 146059,
+      "minecraft:clay_ball": 60542,
+      "minecraft:raw_iron": 61824,
+      "minecraft:raw_copper": 21762,
+      "mekanism:dust_sulfur": 24013,
+      "mekanism:yellow_cake_uranium": 1661
+    },
+    "fluids": {
+      "minecraft:water": 208924588
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 34346,
+      "mekanism:oxygen": 128644,
+      "mekanism:sulfur_dioxide": 10008
+    }
+  }
+}

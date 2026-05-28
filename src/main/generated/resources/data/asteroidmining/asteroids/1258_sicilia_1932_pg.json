@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1258_sicilia_1932_pg",
+  "name": "1258 Sicilia (1932 PG)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 45.669,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.8,
+    "eccentricity": 0.0486,
+    "inclination": 7.72,
+    "orbital_speed": 0.1568,
+    "clockwise": true,
+    "angle": 47.556
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 919571,
+      "minecraft:blue_ice": 176949,
+      "minecraft:coal": 22757,
+      "mekanism:pellet_plutonium": 13
+    },
+    "fluids": {
+      "minecraft:water": 1084421572
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 340140,
+      "mekanism:oxygen": 492011,
+      "mekanism:heavy_water": 19690
+    }
+  }
+}

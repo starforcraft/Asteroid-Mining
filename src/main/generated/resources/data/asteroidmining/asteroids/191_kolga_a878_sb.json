@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:191_kolga_a878_sb",
+  "name": "191 Kolga (A878 SB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 94.536,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 289.7,
+    "eccentricity": 0.087,
+    "inclination": 11.52,
+    "orbital_speed": 0.1645,
+    "clockwise": true,
+    "angle": 206.52
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 3268354,
+      "minecraft:raw_gold": 58404,
+      "minecraft:redstone": 116382,
+      "mekanism:raw_osmium": 58560,
+      "mekanism:pellet_polonium": 341
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1159706,
+      "mekanism:dirty_gold_slurry": 49566,
+      "mekanism:dirty_osmium_slurry": 62621
+    }
+  }
+}

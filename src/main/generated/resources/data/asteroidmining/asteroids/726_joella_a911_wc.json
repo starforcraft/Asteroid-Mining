@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:726_joella_a911_wc",
+  "name": "726 Joella (A911 WC)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 44.02,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 256.6,
+    "eccentricity": 0.2847,
+    "inclination": 15.44,
+    "orbital_speed": 0.1748,
+    "clockwise": true,
+    "angle": 333.3
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 856065,
+      "minecraft:raw_iron": 149945,
+      "minecraft:quartz": 88695,
+      "minecraft:magma_cream": 26026
+    },
+    "fluids": {
+      "minecraft:lava": 50296926
+    },
+    "chemicals": {
+      "mekanism:oxygen": 160496
+    }
+  }
+}

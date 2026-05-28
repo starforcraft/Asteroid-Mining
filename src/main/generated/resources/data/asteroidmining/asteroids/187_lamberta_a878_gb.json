@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:187_lamberta_a878_gb",
+  "name": "187 Lamberta (A878 GB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 147.294,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 273.1,
+    "eccentricity": 0.2389,
+    "inclination": 10.57,
+    "orbital_speed": 0.1694,
+    "clockwise": true,
+    "angle": 16.488
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1022455,
+      "minecraft:clay_ball": 828371,
+      "minecraft:raw_iron": 515353,
+      "minecraft:raw_copper": 76860,
+      "mekanism:dust_sulfur": 348533,
+      "mekanism:fluorite_gem": 3957,
+      "mekanism:yellow_cake_uranium": 14344
+    },
+    "fluids": {
+      "minecraft:water": 1872428774
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 327805,
+      "mekanism:oxygen": 1020249,
+      "mekanism:sulfur_dioxide": 394473
+    }
+  }
+}

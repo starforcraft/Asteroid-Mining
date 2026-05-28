@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1516_henry_1938_bg",
+  "name": "1516 Henry (1938 BG)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 26.442,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 262.2,
+    "eccentricity": 0.1857,
+    "inclination": 8.75,
+    "orbital_speed": 0.1729,
+    "clockwise": true,
+    "angle": 244.62
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 519638,
+      "minecraft:raw_iron": 108899,
+      "minecraft:quartz": 117326,
+      "minecraft:magma_cream": 7429,
+      "mekanism:dust_osmium": 1317
+    },
+    "fluids": {
+      "minecraft:lava": 30905309
+    },
+    "chemicals": {
+      "mekanism:oxygen": 50001
+    }
+  }
+}

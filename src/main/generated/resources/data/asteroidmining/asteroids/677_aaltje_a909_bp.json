@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:677_aaltje_a909_bp",
+  "name": "677 Aaltje (A909 BP)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 32.403,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 295.9,
+    "eccentricity": 0.0467,
+    "inclination": 8.49,
+    "orbital_speed": 0.1628,
+    "clockwise": true,
+    "angle": 75.408
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 695622,
+      "minecraft:raw_iron": 215844,
+      "minecraft:raw_copper": 79920,
+      "minecraft:quartz": 28582,
+      "minecraft:redstone": 5523,
+      "minecraft:diamond": 468
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 122216
+    }
+  }
+}

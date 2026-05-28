@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:455_bruchsalia_a900_kc",
+  "name": "455 Bruchsalia (A900 KC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 88.792,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 265.6,
+    "eccentricity": 0.2944,
+    "inclination": 12.02,
+    "orbital_speed": 0.1718,
+    "clockwise": true,
+    "angle": 148.632
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 644059,
+      "minecraft:clay_ball": 755927,
+      "minecraft:raw_iron": 257869,
+      "minecraft:raw_copper": 70921,
+      "mekanism:dust_sulfur": 184879
+    },
+    "fluids": {
+      "minecraft:water": 1678942658
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 456042,
+      "mekanism:oxygen": 670796,
+      "mekanism:sulfur_dioxide": 209363
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:37_fides_a855_tb",
+  "name": "37 Fides (A855 TB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 108.35,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 264.3,
+    "eccentricity": 0.1747,
+    "inclination": 3.07,
+    "orbital_speed": 0.1722,
+    "clockwise": true,
+    "angle": 270.288
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 3059385,
+      "minecraft:raw_iron": 640391,
+      "minecraft:raw_copper": 282900,
+      "minecraft:quartz": 427452,
+      "minecraft:redstone": 92406
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 788397
+    }
+  }
+}

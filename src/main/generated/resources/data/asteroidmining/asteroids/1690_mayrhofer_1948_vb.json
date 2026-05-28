@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1690_mayrhofer_1948_vb",
+  "name": "1690 Mayrhofer (1948 VB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 33.81,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 304.0,
+    "eccentricity": 0.0953,
+    "inclination": 13.05,
+    "orbital_speed": 0.1606,
+    "clockwise": true,
+    "angle": 51.012
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 130783,
+      "minecraft:clay_ball": 204567,
+      "minecraft:raw_iron": 76131,
+      "minecraft:raw_copper": 25494,
+      "mekanism:dust_sulfur": 66985,
+      "mekanism:yellow_cake_uranium": 2699
+    },
+    "fluids": {
+      "minecraft:water": 280898847
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 96758,
+      "mekanism:oxygen": 77589,
+      "mekanism:sulfur_dioxide": 18004
+    }
+  }
+}

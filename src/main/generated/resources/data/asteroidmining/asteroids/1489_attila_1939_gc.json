@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1489_attila_1939_gc",
+  "name": "1489 Attila (1939 GC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 26.789,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.6,
+    "eccentricity": 0.1535,
+    "inclination": 2.47,
+    "orbital_speed": 0.1569,
+    "clockwise": true,
+    "angle": 131.904
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 392328,
+      "minecraft:raw_iron": 177922,
+      "minecraft:raw_copper": 33128,
+      "minecraft:quartz": 29220,
+      "minecraft:redstone": 13948,
+      "minecraft:diamond": 658,
+      "mekanism:dust_osmium": 963
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 103005
+    }
+  }
+}

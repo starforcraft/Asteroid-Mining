@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1632_siebohme_1941_df",
+  "name": "1632 Siebohme (1941 DF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 29.351,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 265.5,
+    "eccentricity": 0.1361,
+    "inclination": 5.72,
+    "orbital_speed": 0.1718,
+    "clockwise": true,
+    "angle": 355.548
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 773051,
+      "minecraft:raw_iron": 220417,
+      "minecraft:raw_copper": 54105,
+      "minecraft:quartz": 31149,
+      "minecraft:redstone": 24897,
+      "mekanism:dust_osmium": 3385
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 54677
+    }
+  }
+}

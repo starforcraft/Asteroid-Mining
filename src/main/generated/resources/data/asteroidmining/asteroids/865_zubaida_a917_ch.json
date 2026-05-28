@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:865_zubaida_a917_ch",
+  "name": "865 Zubaida (A917 CH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 17.77,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 241.7,
+    "eccentricity": 0.1958,
+    "inclination": 13.35,
+    "orbital_speed": 0.1801,
+    "clockwise": true,
+    "angle": 6.912
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 321447,
+      "minecraft:raw_iron": 139443,
+      "minecraft:raw_copper": 17708,
+      "minecraft:quartz": 59254,
+      "minecraft:redstone": 10059
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 65891
+    }
+  }
+}

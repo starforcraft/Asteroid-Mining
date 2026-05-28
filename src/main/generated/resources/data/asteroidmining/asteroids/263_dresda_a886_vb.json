@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:263_dresda_a886_vb",
+  "name": "263 Dresda (A886 VB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 23.952,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 288.5,
+    "eccentricity": 0.0807,
+    "inclination": 1.32,
+    "orbital_speed": 0.1648,
+    "clockwise": true,
+    "angle": 27.096
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 512263,
+      "minecraft:raw_iron": 148210,
+      "minecraft:raw_copper": 23745,
+      "minecraft:quartz": 46779,
+      "minecraft:redstone": 9189,
+      "minecraft:diamond": 90,
+      "mekanism:dust_osmium": 636
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 72261
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:423_diotima_a896_xa",
+  "name": "423 Diotima (A896 XA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 175.859,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 306.7,
+    "eccentricity": 0.0339,
+    "inclination": 11.24,
+    "orbital_speed": 0.1599,
+    "clockwise": true,
+    "angle": 68.376
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1301978,
+      "minecraft:clay_ball": 1286554,
+      "minecraft:raw_iron": 386119,
+      "minecraft:raw_copper": 171722,
+      "mekanism:dust_sulfur": 126519,
+      "mekanism:yellow_cake_uranium": 1802
+    },
+    "fluids": {
+      "minecraft:water": 1360421289
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 268870,
+      "mekanism:oxygen": 891144,
+      "mekanism:sulfur_dioxide": 268699
+    }
+  }
+}

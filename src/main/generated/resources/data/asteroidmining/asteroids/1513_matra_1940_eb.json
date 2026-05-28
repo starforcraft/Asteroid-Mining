@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1513_matra_1940_eb",
+  "name": "1513 Matra (1940 EB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.603,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.3,
+    "eccentricity": 0.0982,
+    "inclination": 3.98,
+    "orbital_speed": 0.1891,
+    "clockwise": true,
+    "angle": 192.096
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 93075,
+      "minecraft:raw_iron": 22664,
+      "minecraft:raw_copper": 5234,
+      "minecraft:quartz": 7636,
+      "minecraft:redstone": 3031
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 13550
+    }
+  }
+}

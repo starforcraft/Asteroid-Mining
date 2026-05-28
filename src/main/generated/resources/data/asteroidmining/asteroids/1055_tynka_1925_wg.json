@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1055_tynka_1925_wg",
+  "name": "1055 Tynka (1925 WG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 13.479,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.8,
+    "eccentricity": 0.2085,
+    "inclination": 5.28,
+    "orbital_speed": 0.1889,
+    "clockwise": true,
+    "angle": 213.432
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 181286,
+      "minecraft:raw_iron": 71220,
+      "minecraft:raw_copper": 20645,
+      "minecraft:quartz": 10235,
+      "minecraft:redstone": 5978
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 46496
+    }
+  }
+}

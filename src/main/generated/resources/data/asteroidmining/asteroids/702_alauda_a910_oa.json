@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:702_alauda_a910_oa",
+  "name": "702 Alauda (A910 OA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 190.98,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.2,
+    "eccentricity": 0.0155,
+    "inclination": 20.6,
+    "orbital_speed": 0.1567,
+    "clockwise": true,
+    "angle": 273.108
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1663095,
+      "minecraft:clay_ball": 926007,
+      "minecraft:raw_iron": 453130,
+      "minecraft:raw_copper": 150468,
+      "mekanism:dust_sulfur": 125468,
+      "mekanism:yellow_cake_uranium": 4149
+    },
+    "fluids": {
+      "minecraft:water": 2336903081
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 311311,
+      "mekanism:oxygen": 748492,
+      "mekanism:sulfur_dioxide": 296353
+    }
+  }
+}

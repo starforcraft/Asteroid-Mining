@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1500_jyvaskyla_1938_uh",
+  "name": "1500 Jyvaskyla (1938 UH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.095,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.2,
+    "eccentricity": 0.1896,
+    "inclination": 7.43,
+    "orbital_speed": 0.187,
+    "clockwise": true,
+    "angle": 204.492
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 131323,
+      "minecraft:raw_iron": 43872,
+      "minecraft:raw_copper": 8770,
+      "minecraft:quartz": 5131,
+      "minecraft:redstone": 3470,
+      "mekanism:dust_osmium": 723
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 11029
+    }
+  }
+}

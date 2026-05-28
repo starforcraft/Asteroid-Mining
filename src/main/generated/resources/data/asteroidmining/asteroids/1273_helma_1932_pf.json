@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1273_helma_1932_pf",
+  "name": "1273 Helma (1932 PF)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 6.278,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 239.4,
+    "eccentricity": 0.161,
+    "inclination": 5.4,
+    "orbital_speed": 0.181,
+    "clockwise": true,
+    "angle": 310.176
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 50506,
+      "minecraft:raw_gold": 3785,
+      "minecraft:redstone": 2809,
+      "mekanism:raw_osmium": 2228,
+      "mekanism:pellet_polonium": 7
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 28240,
+      "mekanism:dirty_gold_slurry": 2846,
+      "mekanism:dirty_osmium_slurry": 2472
+    }
+  }
+}

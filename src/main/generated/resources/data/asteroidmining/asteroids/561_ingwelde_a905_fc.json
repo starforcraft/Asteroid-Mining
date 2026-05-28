@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:561_ingwelde_a905_fc",
+  "name": "561 Ingwelde (A905 FC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 31.562,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.1,
+    "eccentricity": 0.1232,
+    "inclination": 1.55,
+    "orbital_speed": 0.1572,
+    "clockwise": true,
+    "angle": 324.48
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 607789,
+      "minecraft:raw_gold": 7272,
+      "minecraft:redstone": 26455,
+      "mekanism:raw_osmium": 30042
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 348066,
+      "mekanism:dirty_gold_slurry": 26062,
+      "mekanism:dirty_osmium_slurry": 23686
+    }
+  }
+}

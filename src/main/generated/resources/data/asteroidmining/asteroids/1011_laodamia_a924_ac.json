@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1011_laodamia_a924_ac",
+  "name": "1011 Laodamia (A924 AC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.6721,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 239.5,
+    "eccentricity": 0.3487,
+    "inclination": 5.49,
+    "orbital_speed": 0.1809,
+    "clockwise": true,
+    "angle": 283.08
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 102514,
+      "minecraft:raw_iron": 35318,
+      "minecraft:raw_copper": 3258,
+      "minecraft:quartz": 19810,
+      "minecraft:redstone": 1329,
+      "mekanism:dust_osmium": 210
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 20514
+    }
+  }
+}

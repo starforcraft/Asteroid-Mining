@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:290_bruna_a890_fa",
+  "name": "290 Bruna (A890 FA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.822,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 233.7,
+    "eccentricity": 0.2584,
+    "inclination": 22.34,
+    "orbital_speed": 0.1832,
+    "clockwise": true,
+    "angle": 139.812
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 122556,
+      "minecraft:raw_iron": 18266,
+      "minecraft:raw_copper": 5545,
+      "minecraft:quartz": 25232,
+      "minecraft:redstone": 855,
+      "mekanism:dust_osmium": 252
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 33610
+    }
+  }
+}

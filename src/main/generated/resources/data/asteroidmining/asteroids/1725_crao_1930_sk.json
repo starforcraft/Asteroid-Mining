@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1725_crao_1930_sk",
+  "name": "1725 CrAO (1930 SK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 16.089,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 290.7,
+    "eccentricity": 0.0889,
+    "inclination": 3.17,
+    "orbital_speed": 0.1642,
+    "clockwise": true,
+    "angle": 183.792
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 333048,
+      "minecraft:raw_iron": 110002,
+      "minecraft:raw_copper": 5886,
+      "minecraft:quartz": 48218,
+      "minecraft:redstone": 1091,
+      "minecraft:diamond": 236
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 24584
+    }
+  }
+}

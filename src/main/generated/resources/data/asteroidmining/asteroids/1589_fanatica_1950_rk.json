@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1589_fanatica_1950_rk",
+  "name": "1589 Fanatica (1950 RK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 10.698,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 241.7,
+    "eccentricity": 0.0923,
+    "inclination": 5.26,
+    "orbital_speed": 0.1801,
+    "clockwise": true,
+    "angle": 202.704
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 161234,
+      "minecraft:raw_iron": 55006,
+      "minecraft:raw_copper": 12477,
+      "minecraft:quartz": 24174,
+      "minecraft:redstone": 1870,
+      "minecraft:diamond": 178
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 30063
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1840_hus_1971_uy",
+  "name": "1840 Hus (1971 UY)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 12.446,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 291.7,
+    "eccentricity": 0.0148,
+    "inclination": 2.4,
+    "orbital_speed": 0.1639,
+    "clockwise": true,
+    "angle": 157.212
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 184877,
+      "minecraft:raw_gold": 9912,
+      "minecraft:redstone": 9752,
+      "mekanism:raw_osmium": 1426,
+      "minecraft:diamond": 183,
+      "mekanism:pellet_polonium": 12
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 82603,
+      "mekanism:dirty_gold_slurry": 3559,
+      "mekanism:dirty_osmium_slurry": 3572
+    }
+  }
+}

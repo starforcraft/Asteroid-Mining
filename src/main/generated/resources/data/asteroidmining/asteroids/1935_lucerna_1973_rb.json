@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1935_lucerna_1973_rb",
+  "name": "1935 Lucerna (1973 RB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.387,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 262.7,
+    "eccentricity": 0.228,
+    "inclination": 9.55,
+    "orbital_speed": 0.1728,
+    "clockwise": true,
+    "angle": 260.472
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 65453,
+      "minecraft:raw_iron": 22650,
+      "minecraft:raw_copper": 6462,
+      "minecraft:quartz": 6409,
+      "minecraft:redstone": 1874,
+      "minecraft:diamond": 84
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 11156
+    }
+  }
+}

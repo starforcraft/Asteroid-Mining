@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:854_frostia_a916_go",
+  "name": "854 Frostia (A916 GO)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 7.839,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.8,
+    "eccentricity": 0.1756,
+    "inclination": 6.09,
+    "orbital_speed": 0.182,
+    "clockwise": true,
+    "angle": 294.324
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 64463,
+      "minecraft:blue_ice": 14326,
+      "minecraft:coal": 6581,
+      "mekanism:pellet_plutonium": 7
+    },
+    "fluids": {
+      "minecraft:water": 166417448
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 46252,
+      "mekanism:oxygen": 47989,
+      "mekanism:heavy_water": 3067
+    }
+  }
+}

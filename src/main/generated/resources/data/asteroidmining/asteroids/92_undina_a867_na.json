@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:92_undina_a867_na",
+  "name": "92 Undina (A867 NA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 126.42,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.5,
+    "eccentricity": 0.1049,
+    "inclination": 9.92,
+    "orbital_speed": 0.1569,
+    "clockwise": true,
+    "angle": 273.228
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 3821677,
+      "minecraft:raw_gold": 138223,
+      "minecraft:redstone": 141493,
+      "mekanism:raw_osmium": 117604
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 2103683,
+      "mekanism:dirty_gold_slurry": 120919,
+      "mekanism:dirty_osmium_slurry": 20705
+    }
+  }
+}

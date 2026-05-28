@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1007_pawlowia_a923_td",
+  "name": "1007 Pawlowia (A923 TD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 18.264,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 270.8,
+    "eccentricity": 0.1088,
+    "inclination": 2.54,
+    "orbital_speed": 0.1702,
+    "clockwise": true,
+    "angle": 93.048
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 276464,
+      "minecraft:raw_iron": 75786,
+      "minecraft:raw_copper": 37880,
+      "minecraft:quartz": 31850,
+      "minecraft:redstone": 3219,
+      "minecraft:diamond": 430,
+      "mekanism:dust_osmium": 1885
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 27741
+    }
+  }
+}

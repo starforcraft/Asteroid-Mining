@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:550_senta_a904_wb",
+  "name": "550 Senta (A904 WB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 37.434,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 259.0,
+    "eccentricity": 0.222,
+    "inclination": 10.11,
+    "orbital_speed": 0.174,
+    "clockwise": true,
+    "angle": 251.892
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 540129,
+      "minecraft:raw_iron": 115189,
+      "minecraft:raw_copper": 45776,
+      "minecraft:quartz": 114526,
+      "minecraft:redstone": 33059,
+      "minecraft:diamond": 1263
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 195234
+    }
+  }
+}

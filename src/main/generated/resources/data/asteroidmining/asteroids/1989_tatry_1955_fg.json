@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1989_tatry_1955_fg",
+  "name": "1989 Tatry (1955 FG)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 9.603,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 235.1,
+    "eccentricity": 0.0757,
+    "inclination": 7.77,
+    "orbital_speed": 0.1826,
+    "clockwise": true,
+    "angle": 125.904
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 39405,
+      "minecraft:clay_ball": 29210,
+      "minecraft:raw_iron": 15808,
+      "minecraft:raw_copper": 1642,
+      "mekanism:dust_sulfur": 3486,
+      "mekanism:fluorite_gem": 714
+    },
+    "fluids": {
+      "minecraft:water": 79067400
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 27422,
+      "mekanism:oxygen": 42054,
+      "mekanism:sulfur_dioxide": 1799
+    }
+  }
+}

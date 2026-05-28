@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:609_fulvia_a906_sl",
+  "name": "609 Fulvia (A906 SL)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 54.17,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 308.6,
+    "eccentricity": 0.0383,
+    "inclination": 4.19,
+    "orbital_speed": 0.1594,
+    "clockwise": true,
+    "angle": 84.864
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 212053,
+      "minecraft:clay_ball": 296663,
+      "minecraft:raw_iron": 93461,
+      "minecraft:raw_copper": 23211,
+      "mekanism:dust_sulfur": 34590,
+      "mekanism:fluorite_gem": 9187,
+      "mekanism:yellow_cake_uranium": 1754
+    },
+    "fluids": {
+      "minecraft:water": 819787028
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 284265,
+      "mekanism:oxygen": 136029,
+      "mekanism:sulfur_dioxide": 107768
+    }
+  }
+}

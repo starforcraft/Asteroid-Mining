@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1762_russell_1953_tz",
+  "name": "1762 Russell (1953 TZ)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 17.033,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 287.7,
+    "eccentricity": 0.0737,
+    "inclination": 2.28,
+    "orbital_speed": 0.1651,
+    "clockwise": true,
+    "angle": 231.588
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 300862,
+      "minecraft:raw_gold": 16756,
+      "minecraft:redstone": 8079,
+      "mekanism:raw_osmium": 11103,
+      "mekanism:pellet_polonium": 43
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 169370,
+      "mekanism:dirty_gold_slurry": 9237,
+      "mekanism:dirty_osmium_slurry": 7766
+    }
+  }
+}

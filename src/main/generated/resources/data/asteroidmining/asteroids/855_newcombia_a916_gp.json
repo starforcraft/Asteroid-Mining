@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:855_newcombia_a916_gp",
+  "name": "855 Newcombia (A916 GP)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.392,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.1,
+    "eccentricity": 0.1808,
+    "inclination": 10.88,
+    "orbital_speed": 0.1822,
+    "clockwise": true,
+    "angle": 71.832
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 205444,
+      "minecraft:raw_iron": 41939,
+      "minecraft:raw_copper": 21609,
+      "minecraft:quartz": 26225,
+      "minecraft:redstone": 1583
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 12973
+    }
+  }
+}

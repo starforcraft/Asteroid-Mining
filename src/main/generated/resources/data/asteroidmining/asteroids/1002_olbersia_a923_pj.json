@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1002_olbersia_a923_pj",
+  "name": "1002 Olbersia (A923 PJ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 22.938,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 278.8,
+    "eccentricity": 0.1533,
+    "inclination": 10.77,
+    "orbital_speed": 0.1677,
+    "clockwise": true,
+    "angle": 125.508
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 185547,
+      "minecraft:clay_ball": 114498,
+      "minecraft:raw_iron": 37149,
+      "minecraft:raw_copper": 19507,
+      "mekanism:dust_sulfur": 18323,
+      "mekanism:fluorite_gem": 1064
+    },
+    "fluids": {
+      "minecraft:water": 176882766
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 28541,
+      "mekanism:oxygen": 85892,
+      "mekanism:sulfur_dioxide": 5366
+    }
+  }
+}

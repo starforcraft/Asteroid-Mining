@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:890_waltraut_a918_eo",
+  "name": "890 Waltraut (A918 EO)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 28.376,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.2,
+    "eccentricity": 0.0594,
+    "inclination": 10.88,
+    "orbital_speed": 0.1611,
+    "clockwise": true,
+    "angle": 204.612
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 183448,
+      "minecraft:clay_ball": 206214,
+      "minecraft:raw_iron": 81841,
+      "minecraft:raw_copper": 11198,
+      "mekanism:dust_sulfur": 36025,
+      "mekanism:fluorite_gem": 3308
+    },
+    "fluids": {
+      "minecraft:water": 180884782
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 85757,
+      "mekanism:oxygen": 137344,
+      "mekanism:sulfur_dioxide": 32083
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:194_prokne_a879_fa",
+  "name": "194 Prokne (A879 FA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 161.667,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 261.8,
+    "eccentricity": 0.2372,
+    "inclination": 18.51,
+    "orbital_speed": 0.1731,
+    "clockwise": true,
+    "angle": 259.044
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1024730,
+      "minecraft:clay_ball": 1215473,
+      "minecraft:raw_iron": 552163,
+      "minecraft:raw_copper": 158729,
+      "mekanism:dust_sulfur": 429661,
+      "mekanism:yellow_cake_uranium": 1967
+    },
+    "fluids": {
+      "minecraft:water": 1325047889
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 977006,
+      "mekanism:oxygen": 993378,
+      "mekanism:sulfur_dioxide": 285572
+    }
+  }
+}

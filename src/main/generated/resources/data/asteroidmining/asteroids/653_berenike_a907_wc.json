@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:653_berenike_a907_wc",
+  "name": "653 Berenike (A907 WC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 49.793,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.4,
+    "eccentricity": 0.0451,
+    "inclination": 11.29,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 15.216
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 879014,
+      "minecraft:raw_iron": 552490,
+      "minecraft:raw_copper": 105349,
+      "minecraft:quartz": 167289,
+      "minecraft:redstone": 15840,
+      "minecraft:diamond": 132
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 218505
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1430_somalia_1937_nk",
+  "name": "1430 Somalia (1937 NK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.352,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 255.9,
+    "eccentricity": 0.1996,
+    "inclination": 3.29,
+    "orbital_speed": 0.175,
+    "clockwise": true,
+    "angle": 298.932
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 100323,
+      "minecraft:raw_iron": 35358,
+      "minecraft:raw_copper": 8025,
+      "minecraft:quartz": 14602,
+      "minecraft:redstone": 3464,
+      "minecraft:diamond": 53
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 21205
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:426_hippo_a897_ra",
+  "name": "426 Hippo (A897 RA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 137.562,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 288.7,
+    "eccentricity": 0.1066,
+    "inclination": 19.5,
+    "orbital_speed": 0.1648,
+    "clockwise": true,
+    "angle": 120.9
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 633168,
+      "minecraft:clay_ball": 991709,
+      "minecraft:raw_iron": 563469,
+      "minecraft:raw_copper": 70180,
+      "mekanism:dust_sulfur": 236531,
+      "mekanism:fluorite_gem": 4482
+    },
+    "fluids": {
+      "minecraft:water": 1638358382
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 398459,
+      "mekanism:oxygen": 451963,
+      "mekanism:sulfur_dioxide": 44479
+    }
+  }
+}

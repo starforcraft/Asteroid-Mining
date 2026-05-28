@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1014_semphyra_a924_bm",
+  "name": "1014 Semphyra (A924 BM)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 17.487,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.9,
+    "eccentricity": 0.2045,
+    "inclination": 2.27,
+    "orbital_speed": 0.1674,
+    "clockwise": true,
+    "angle": 335.604
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 295851,
+      "minecraft:raw_gold": 18363,
+      "minecraft:redstone": 2446,
+      "mekanism:raw_osmium": 6505,
+      "minecraft:diamond": 217,
+      "mekanism:pellet_polonium": 24
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 65227,
+      "mekanism:dirty_gold_slurry": 8525,
+      "mekanism:dirty_osmium_slurry": 5789
+    }
+  }
+}

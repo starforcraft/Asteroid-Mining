@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1600_vyssotsky_1947_uc",
+  "name": "1600 Vyssotsky (1947 UC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.413,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 184.9,
+    "eccentricity": 0.0375,
+    "inclination": 21.17,
+    "orbital_speed": 0.2059,
+    "clockwise": true,
+    "angle": 275.292
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 84317,
+      "minecraft:raw_iron": 31619,
+      "minecraft:raw_copper": 6263,
+      "minecraft:quartz": 5386,
+      "minecraft:redstone": 463,
+      "minecraft:diamond": 32
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 7494
+    }
+  }
+}

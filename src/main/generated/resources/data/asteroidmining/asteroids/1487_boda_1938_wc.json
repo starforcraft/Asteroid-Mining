@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1487_boda_1938_wc",
+  "name": "1487 Boda (1938 WC)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 25.671,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.6,
+    "eccentricity": 0.1244,
+    "inclination": 2.47,
+    "orbital_speed": 0.1581,
+    "clockwise": true,
+    "angle": 216.888
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 704995,
+      "minecraft:blue_ice": 65775,
+      "minecraft:coal": 17657
+    },
+    "fluids": {
+      "minecraft:water": 492883546
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 294519,
+      "mekanism:oxygen": 293937,
+      "mekanism:heavy_water": 17906
+    }
+  }
+}

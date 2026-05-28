@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1961_dufour_1973_wa",
+  "name": "1961 Dufour (1973 WA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 50.31,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.1,
+    "eccentricity": 0.1265,
+    "inclination": 6.65,
+    "orbital_speed": 0.1567,
+    "clockwise": true,
+    "angle": 235.68
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1080283,
+      "minecraft:raw_iron": 175750,
+      "minecraft:raw_copper": 146977,
+      "minecraft:quartz": 248802,
+      "minecraft:redstone": 42911,
+      "mekanism:dust_osmium": 8816
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 315234
+    }
+  }
+}

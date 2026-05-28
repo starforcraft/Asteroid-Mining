@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1217_maximiliana_1932_ec",
+  "name": "1217 Maximiliana (1932 EC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 7.7596,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 235.3,
+    "eccentricity": 0.1529,
+    "inclination": 5.16,
+    "orbital_speed": 0.1825,
+    "clockwise": true,
+    "angle": 169.728
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 35506,
+      "minecraft:clay_ball": 21312,
+      "minecraft:raw_iron": 4265,
+      "minecraft:raw_copper": 4967,
+      "mekanism:dust_sulfur": 6792,
+      "mekanism:yellow_cake_uranium": 135
+    },
+    "fluids": {
+      "minecraft:water": 20882933
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 8780,
+      "mekanism:oxygen": 14412,
+      "mekanism:sulfur_dioxide": 9334
+    }
+  }
+}

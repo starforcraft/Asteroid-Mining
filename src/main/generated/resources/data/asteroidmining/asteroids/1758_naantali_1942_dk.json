@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1758_naantali_1942_dk",
+  "name": "1758 Naantali (1942 DK)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 2.4099,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 300.6,
+    "eccentricity": 0.0329,
+    "inclination": 10.83,
+    "orbital_speed": 0.1615,
+    "clockwise": true,
+    "angle": 41.556
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 5575,
+      "minecraft:clay_ball": 6659,
+      "minecraft:raw_iron": 2510,
+      "minecraft:raw_copper": 333,
+      "mekanism:dust_sulfur": 2559,
+      "mekanism:yellow_cake_uranium": 10
+    },
+    "fluids": {
+      "minecraft:water": 9000875
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 2482,
+      "mekanism:oxygen": 1907,
+      "mekanism:sulfur_dioxide": 326
+    }
+  }
+}

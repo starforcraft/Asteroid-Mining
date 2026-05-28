@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1575_winifred_1950_hh",
+  "name": "1575 Winifred (1950 HH)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 9.488,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.4,
+    "eccentricity": 0.1797,
+    "inclination": 24.83,
+    "orbital_speed": 0.1817,
+    "clockwise": true,
+    "angle": 77.592
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 57337,
+      "minecraft:clay_ball": 29111,
+      "minecraft:raw_iron": 6044,
+      "minecraft:raw_copper": 4214,
+      "mekanism:dust_sulfur": 3612,
+      "mekanism:yellow_cake_uranium": 428
+    },
+    "fluids": {
+      "minecraft:water": 32485803
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 32123,
+      "mekanism:oxygen": 24980,
+      "mekanism:sulfur_dioxide": 6257
+    }
+  }
+}

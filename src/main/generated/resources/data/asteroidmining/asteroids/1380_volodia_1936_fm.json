@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1380_volodia_1936_fm",
+  "name": "1380 Volodia (1936 FM)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 21.188,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 314.5,
+    "eccentricity": 0.1107,
+    "inclination": 10.41,
+    "orbital_speed": 0.1579,
+    "clockwise": true,
+    "angle": 263.532
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 458791,
+      "minecraft:raw_iron": 66569,
+      "minecraft:raw_copper": 7475,
+      "minecraft:quartz": 55052,
+      "minecraft:redstone": 4312,
+      "mekanism:dust_osmium": 344
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 79746
+    }
+  }
+}

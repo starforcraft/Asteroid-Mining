@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:135_hertha_a874_da",
+  "name": "135 Hertha (A874 DA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 79.24,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 242.7,
+    "eccentricity": 0.2084,
+    "inclination": 2.3,
+    "orbital_speed": 0.1797,
+    "clockwise": true,
+    "angle": 66.072
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2911672,
+      "minecraft:raw_gold": 214614,
+      "minecraft:redstone": 104519,
+      "mekanism:raw_osmium": 14591,
+      "minecraft:diamond": 2969,
+      "mekanism:pellet_polonium": 75
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1233768,
+      "mekanism:dirty_gold_slurry": 47114,
+      "mekanism:dirty_osmium_slurry": 56959
+    }
+  }
+}

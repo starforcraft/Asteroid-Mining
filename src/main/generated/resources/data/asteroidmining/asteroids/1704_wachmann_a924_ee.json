@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1704_wachmann_a924_ee",
+  "name": "1704 Wachmann (A924 EE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.618,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.2,
+    "eccentricity": 0.0879,
+    "inclination": 0.97,
+    "orbital_speed": 0.1878,
+    "clockwise": true,
+    "angle": 176.124
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 91812,
+      "minecraft:raw_iron": 11627,
+      "minecraft:raw_copper": 7761,
+      "minecraft:quartz": 4572,
+      "minecraft:redstone": 1292,
+      "minecraft:diamond": 75
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 4656
+    }
+  }
+}

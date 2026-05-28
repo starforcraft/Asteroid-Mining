@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:452_hamiltonia_a899_xb",
+  "name": "452 Hamiltonia (A899 XB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.563,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 284.7,
+    "eccentricity": 0.0109,
+    "inclination": 3.23,
+    "orbital_speed": 0.1659,
+    "clockwise": true,
+    "angle": 96.108
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 123871,
+      "minecraft:raw_iron": 43912,
+      "minecraft:raw_copper": 8858,
+      "minecraft:quartz": 23453,
+      "minecraft:redstone": 6606,
+      "mekanism:dust_osmium": 1287
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 12931
+    }
+  }
+}

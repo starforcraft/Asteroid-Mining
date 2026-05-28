@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1534_nasi_1939_bk",
+  "name": "1534 Nasi (1939 BK)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 22.12,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 273.1,
+    "eccentricity": 0.2505,
+    "inclination": 9.79,
+    "orbital_speed": 0.1694,
+    "clockwise": true,
+    "angle": 199.764
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 110582,
+      "minecraft:clay_ball": 94503,
+      "minecraft:raw_iron": 64037,
+      "minecraft:raw_copper": 10919,
+      "mekanism:dust_sulfur": 39535,
+      "mekanism:fluorite_gem": 2751
+    },
+    "fluids": {
+      "minecraft:water": 233199338
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 40261,
+      "mekanism:oxygen": 83396,
+      "mekanism:sulfur_dioxide": 40757
+    }
+  }
+}

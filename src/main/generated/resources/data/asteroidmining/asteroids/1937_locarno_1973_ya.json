@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1937_locarno_1973_ya",
+  "name": "1937 Locarno (1973 YA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.705,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.9,
+    "eccentricity": 0.1561,
+    "inclination": 12.45,
+    "orbital_speed": 0.1815,
+    "clockwise": true,
+    "angle": 175.488
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 133185,
+      "minecraft:raw_iron": 66123,
+      "minecraft:raw_copper": 13629,
+      "minecraft:quartz": 7552,
+      "minecraft:redstone": 2638,
+      "mekanism:dust_osmium": 431
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 46276
+    }
+  }
+}

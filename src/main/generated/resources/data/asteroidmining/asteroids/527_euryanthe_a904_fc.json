@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:527_euryanthe_a904_fc",
+  "name": "527 Euryanthe (A904 FC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 52.627,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 272.5,
+    "eccentricity": 0.1519,
+    "inclination": 9.66,
+    "orbital_speed": 0.1696,
+    "clockwise": true,
+    "angle": 329.208
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 242101,
+      "minecraft:clay_ball": 317570,
+      "minecraft:raw_iron": 165199,
+      "minecraft:raw_copper": 50111,
+      "mekanism:dust_sulfur": 28975,
+      "mekanism:yellow_cake_uranium": 2257
+    },
+    "fluids": {
+      "minecraft:water": 426683914
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 202008,
+      "mekanism:oxygen": 340009,
+      "mekanism:sulfur_dioxide": 32738
+    }
+  }
+}

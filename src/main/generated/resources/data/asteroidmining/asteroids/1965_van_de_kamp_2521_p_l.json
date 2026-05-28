@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1965_van_de_kamp_2521_p_l",
+  "name": "1965 van de Kamp (2521 P-L)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 13.606,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 256.9,
+    "eccentricity": 0.1044,
+    "inclination": 2.22,
+    "orbital_speed": 0.1747,
+    "clockwise": true,
+    "angle": 65.712
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 213282,
+      "minecraft:raw_iron": 89163,
+      "minecraft:raw_copper": 14921,
+      "minecraft:quartz": 9445,
+      "minecraft:redstone": 2419
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 32031
+    }
+  }
+}

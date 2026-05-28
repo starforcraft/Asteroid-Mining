@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:601_nerthus_a906_mc",
+  "name": "601 Nerthus (A906 MC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 75.535,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.6,
+    "eccentricity": 0.107,
+    "inclination": 16.15,
+    "orbital_speed": 0.1581,
+    "clockwise": true,
+    "angle": 64.8
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2220107,
+      "minecraft:raw_gold": 172149,
+      "minecraft:redstone": 88930,
+      "mekanism:raw_osmium": 30850,
+      "minecraft:diamond": 1299,
+      "mekanism:pellet_polonium": 180
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1045889,
+      "mekanism:dirty_gold_slurry": 83193,
+      "mekanism:dirty_osmium_slurry": 40772
+    }
+  }
+}

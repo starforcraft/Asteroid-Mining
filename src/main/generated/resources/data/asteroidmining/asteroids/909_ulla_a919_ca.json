@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:909_ulla_a919_ca",
+  "name": "909 Ulla (A919 CA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 116.44,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 354.4,
+    "eccentricity": 0.0943,
+    "inclination": 18.81,
+    "orbital_speed": 0.1487,
+    "clockwise": true,
+    "angle": 297.264
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 3475104,
+      "minecraft:raw_gold": 133452,
+      "minecraft:redstone": 89820,
+      "mekanism:raw_osmium": 172307,
+      "minecraft:diamond": 6964
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1561069,
+      "mekanism:dirty_gold_slurry": 57152,
+      "mekanism:dirty_osmium_slurry": 62747
+    }
+  }
+}

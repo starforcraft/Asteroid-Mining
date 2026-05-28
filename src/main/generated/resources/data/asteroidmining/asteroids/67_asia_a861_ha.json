@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:67_asia_a861_ha",
+  "name": "67 Asia (A861 HA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 56.309,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 242.2,
+    "eccentricity": 0.1857,
+    "inclination": 6.02,
+    "orbital_speed": 0.1799,
+    "clockwise": true,
+    "angle": 75.528
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1502847,
+      "minecraft:raw_iron": 509103,
+      "minecraft:raw_copper": 123983,
+      "minecraft:quartz": 297114,
+      "minecraft:redstone": 27203
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 216429
+    }
+  }
+}

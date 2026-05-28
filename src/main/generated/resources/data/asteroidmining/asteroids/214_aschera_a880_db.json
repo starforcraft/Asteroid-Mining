@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:214_aschera_a880_db",
+  "name": "214 Aschera (A880 DB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 24.957,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 261.1,
+    "eccentricity": 0.0311,
+    "inclination": 3.44,
+    "orbital_speed": 0.1733,
+    "clockwise": true,
+    "angle": 129.204
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 313769,
+      "minecraft:raw_gold": 46303,
+      "minecraft:redstone": 28390,
+      "mekanism:raw_osmium": 15466,
+      "minecraft:diamond": 377
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 100214,
+      "mekanism:dirty_gold_slurry": 9611,
+      "mekanism:dirty_osmium_slurry": 11936
+    }
+  }
+}

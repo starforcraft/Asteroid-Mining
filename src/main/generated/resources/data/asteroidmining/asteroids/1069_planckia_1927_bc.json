@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1069_planckia_1927_bc",
+  "name": "1069 Planckia (1927 BC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 35.657,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.6,
+    "eccentricity": 0.1097,
+    "inclination": 13.56,
+    "orbital_speed": 0.1584,
+    "clockwise": true,
+    "angle": 338.544
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1069599,
+      "minecraft:raw_iron": 280848,
+      "minecraft:raw_copper": 68770,
+      "minecraft:quartz": 110861,
+      "minecraft:redstone": 16086
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 54191
+    }
+  }
+}

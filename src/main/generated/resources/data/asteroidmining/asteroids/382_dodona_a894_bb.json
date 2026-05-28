@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:382_dodona_a894_bb",
+  "name": "382 Dodona (A894 BB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 65.209,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.5,
+    "eccentricity": 0.165,
+    "inclination": 7.4,
+    "orbital_speed": 0.1581,
+    "clockwise": true,
+    "angle": 190.548
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1144866,
+      "minecraft:raw_gold": 186407,
+      "minecraft:redstone": 15208,
+      "mekanism:raw_osmium": 64781
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 788989,
+      "mekanism:dirty_gold_slurry": 27914,
+      "mekanism:dirty_osmium_slurry": 32495
+    }
+  }
+}

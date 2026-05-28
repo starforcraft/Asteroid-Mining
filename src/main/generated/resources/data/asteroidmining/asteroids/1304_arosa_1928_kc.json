@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1304_arosa_1928_kc",
+  "name": "1304 Arosa (1928 KC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 43.613,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.3,
+    "eccentricity": 0.1229,
+    "inclination": 18.98,
+    "orbital_speed": 0.1567,
+    "clockwise": true,
+    "angle": 252.924
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1069445,
+      "minecraft:raw_gold": 68292,
+      "minecraft:redstone": 60950,
+      "mekanism:raw_osmium": 34639,
+      "minecraft:diamond": 834,
+      "mekanism:pellet_polonium": 101
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 408061,
+      "mekanism:dirty_gold_slurry": 41621,
+      "mekanism:dirty_osmium_slurry": 26271
+    }
+  }
+}

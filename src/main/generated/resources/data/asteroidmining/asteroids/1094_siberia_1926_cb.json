@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1094_siberia_1926_cb",
+  "name": "1094 Siberia (1926 CB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 17.869,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.6,
+    "eccentricity": 0.1308,
+    "inclination": 14.02,
+    "orbital_speed": 0.1755,
+    "clockwise": true,
+    "angle": 176.244
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 253703,
+      "minecraft:raw_gold": 27811,
+      "minecraft:redstone": 3699,
+      "mekanism:raw_osmium": 10028,
+      "minecraft:diamond": 292
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 168504,
+      "mekanism:dirty_gold_slurry": 1423,
+      "mekanism:dirty_osmium_slurry": 3770
+    }
+  }
+}

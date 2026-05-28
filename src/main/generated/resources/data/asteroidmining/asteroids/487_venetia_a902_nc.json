@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:487_venetia_a902_nc",
+  "name": "487 Venetia (A902 NC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 59.046,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 266.9,
+    "eccentricity": 0.0862,
+    "inclination": 10.25,
+    "orbital_speed": 0.1714,
+    "clockwise": true,
+    "angle": 228.888
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1585629,
+      "minecraft:raw_iron": 440550,
+      "minecraft:raw_copper": 89061,
+      "minecraft:quartz": 184855,
+      "minecraft:redstone": 38236,
+      "mekanism:dust_osmium": 2940
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 155757
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1697_koskenniemi_1940_rm",
+  "name": "1697 Koskenniemi (1940 RM)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.245,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.5,
+    "eccentricity": 0.1173,
+    "inclination": 5.66,
+    "orbital_speed": 0.1817,
+    "clockwise": true,
+    "angle": 293.568
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 123013,
+      "minecraft:raw_iron": 27166,
+      "minecraft:raw_copper": 4111,
+      "minecraft:quartz": 32247,
+      "minecraft:redstone": 927
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 18224
+    }
+  }
+}

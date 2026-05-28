@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1689_floris_jan_1930_so",
+  "name": "1689 Floris-Jan (1930 SO)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 13.743,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 245.0,
+    "eccentricity": 0.2061,
+    "inclination": 6.38,
+    "orbital_speed": 0.1789,
+    "clockwise": true,
+    "angle": 273.504
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 86292,
+      "minecraft:clay_ball": 33899,
+      "minecraft:raw_iron": 11139,
+      "minecraft:raw_copper": 12874,
+      "mekanism:dust_sulfur": 22085,
+      "mekanism:fluorite_gem": 438
+    },
+    "fluids": {
+      "minecraft:water": 103545285
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 30492,
+      "mekanism:oxygen": 51160,
+      "mekanism:sulfur_dioxide": 10093
+    }
+  }
+}

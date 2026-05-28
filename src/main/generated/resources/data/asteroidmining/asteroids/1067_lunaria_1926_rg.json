@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1067_lunaria_1926_rg",
+  "name": "1067 Lunaria (1926 RG)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 20.011,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 286.8,
+    "eccentricity": 0.1937,
+    "inclination": 10.56,
+    "orbital_speed": 0.1653,
+    "clockwise": true,
+    "angle": 63.528
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 274580,
+      "minecraft:raw_gold": 3205,
+      "minecraft:redstone": 17570,
+      "mekanism:raw_osmium": 15224
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 225259,
+      "mekanism:dirty_gold_slurry": 9967,
+      "mekanism:dirty_osmium_slurry": 8727
+    }
+  }
+}

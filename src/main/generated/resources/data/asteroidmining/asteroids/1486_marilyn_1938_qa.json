@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1486_marilyn_1938_qa",
+  "name": "1486 Marilyn (1938 QA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 6.414,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.8,
+    "eccentricity": 0.1251,
+    "inclination": 0.07,
+    "orbital_speed": 0.1889,
+    "clockwise": true,
+    "angle": 79.38
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 65476,
+      "minecraft:raw_gold": 5780,
+      "minecraft:redstone": 1426,
+      "mekanism:raw_osmium": 1196
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 21065,
+      "mekanism:dirty_gold_slurry": 1445,
+      "mekanism:dirty_osmium_slurry": 1543
+    }
+  }
+}

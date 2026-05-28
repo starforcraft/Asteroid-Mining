@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:339_dorothea_a892_sc",
+  "name": "339 Dorothea (A892 SC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 44.329,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 300.9,
+    "eccentricity": 0.1022,
+    "inclination": 9.96,
+    "orbital_speed": 0.1614,
+    "clockwise": true,
+    "angle": 37.704
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 646478,
+      "minecraft:raw_iron": 455440,
+      "minecraft:raw_copper": 90456,
+      "minecraft:quartz": 175847,
+      "minecraft:redstone": 12762,
+      "minecraft:diamond": 525
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 115093
+    }
+  }
+}

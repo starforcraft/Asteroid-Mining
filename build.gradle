@@ -123,6 +123,11 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
 sourceSets.main.resources.srcDir generateModMetadata
 neoForge.ideSyncTask generateModMetadata
 
+tasks.register("generateAsteroids", Exec) {
+    workingDir rootProject.projectDir
+    commandLine "python", "tools/generate_asteroids.py"
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }

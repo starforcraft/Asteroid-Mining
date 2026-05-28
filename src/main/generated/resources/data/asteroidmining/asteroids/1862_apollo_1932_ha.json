@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1862_apollo_1932_ha",
+  "name": "1862 Apollo (1932 HA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 1.5,
+  "game_diameter": 2,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 147.1,
+    "eccentricity": 0.5599,
+    "inclination": 6.35,
+    "orbital_speed": 0.2309,
+    "clockwise": true,
+    "angle": 302.388
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 8683,
+      "minecraft:raw_iron": 2797,
+      "minecraft:raw_copper": 916,
+      "minecraft:quartz": 1951,
+      "minecraft:redstone": 221,
+      "mekanism:dust_osmium": 21
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 2375
+    }
+  }
+}

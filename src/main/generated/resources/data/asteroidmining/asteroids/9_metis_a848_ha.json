@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:9_metis_a848_ha",
+  "name": "9 Metis (A848 HA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 190.0,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 238.7,
+    "eccentricity": 0.1226,
+    "inclination": 5.58,
+    "orbital_speed": 0.1812,
+    "clockwise": true,
+    "angle": 20.064
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 3104383,
+      "minecraft:raw_iron": 1412937,
+      "minecraft:raw_copper": 233766,
+      "minecraft:quartz": 509215,
+      "minecraft:redstone": 43248,
+      "minecraft:diamond": 3108,
+      "mekanism:dust_osmium": 13723
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 723071
+    }
+  }
+}

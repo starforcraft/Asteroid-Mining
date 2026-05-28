@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:642_clara_a907_rj",
+  "name": "642 Clara (A907 RJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 33.36,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.7,
+    "eccentricity": 0.1288,
+    "inclination": 8.17,
+    "orbital_speed": 0.1568,
+    "clockwise": true,
+    "angle": 302.628
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 844066,
+      "minecraft:raw_iron": 156916,
+      "minecraft:raw_copper": 89760,
+      "minecraft:quartz": 78886,
+      "minecraft:redstone": 4408
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 97085
+    }
+  }
+}

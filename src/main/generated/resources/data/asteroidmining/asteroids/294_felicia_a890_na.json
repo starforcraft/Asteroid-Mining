@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:294_felicia_a890_na",
+  "name": "294 Felicia (A890 NA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 51.865,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 315.7,
+    "eccentricity": 0.2326,
+    "inclination": 6.27,
+    "orbital_speed": 0.1576,
+    "clockwise": true,
+    "angle": 329.844
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 324074,
+      "minecraft:clay_ball": 322999,
+      "minecraft:raw_iron": 173842,
+      "minecraft:raw_copper": 55018,
+      "mekanism:dust_sulfur": 54131,
+      "mekanism:yellow_cake_uranium": 1067
+    },
+    "fluids": {
+      "minecraft:water": 568422850
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 89002,
+      "mekanism:oxygen": 151947,
+      "mekanism:sulfur_dioxide": 45598
+    }
+  }
+}

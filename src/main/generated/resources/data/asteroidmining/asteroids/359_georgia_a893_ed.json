@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:359_georgia_a893_ed",
+  "name": "359 Georgia (A893 ED)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 43.89,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 272.9,
+    "eccentricity": 0.1559,
+    "inclination": 6.77,
+    "orbital_speed": 0.1695,
+    "clockwise": true,
+    "angle": 267.864
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 285120,
+      "minecraft:clay_ball": 318101,
+      "minecraft:raw_iron": 126021,
+      "minecraft:raw_copper": 49005,
+      "mekanism:dust_sulfur": 66191,
+      "mekanism:fluorite_gem": 3159
+    },
+    "fluids": {
+      "minecraft:water": 426768511
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 176669,
+      "mekanism:oxygen": 382201,
+      "mekanism:sulfur_dioxide": 31408
+    }
+  }
+}

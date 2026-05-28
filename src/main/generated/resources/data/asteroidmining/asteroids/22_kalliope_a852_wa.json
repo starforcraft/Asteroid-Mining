@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:22_kalliope_a852_wa",
+  "name": "22 Kalliope (A852 WA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 167.536,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 290.9,
+    "eccentricity": 0.0989,
+    "inclination": 13.7,
+    "orbital_speed": 0.1642,
+    "clockwise": true,
+    "angle": 7.668
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 5345649,
+      "minecraft:raw_gold": 114608,
+      "minecraft:redstone": 105530,
+      "mekanism:raw_osmium": 41488
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1228947,
+      "mekanism:dirty_gold_slurry": 18565,
+      "mekanism:dirty_osmium_slurry": 101579
+    }
+  }
+}

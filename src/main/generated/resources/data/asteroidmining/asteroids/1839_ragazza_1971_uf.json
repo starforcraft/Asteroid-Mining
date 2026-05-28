@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1839_ragazza_1971_uf",
+  "name": "1839 Ragazza (1971 UF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.75,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 280.0,
+    "eccentricity": 0.1678,
+    "inclination": 10.17,
+    "orbital_speed": 0.1673,
+    "clockwise": true,
+    "angle": 19.704
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 96172,
+      "minecraft:raw_iron": 42092,
+      "minecraft:raw_copper": 3401,
+      "minecraft:quartz": 8344,
+      "minecraft:redstone": 3263
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 13416
+    }
+  }
+}

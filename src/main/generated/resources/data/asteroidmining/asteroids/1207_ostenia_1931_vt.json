@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1207_ostenia_1931_vt",
+  "name": "1207 Ostenia (1931 VT)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 21.925,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.0,
+    "eccentricity": 0.0887,
+    "inclination": 10.34,
+    "orbital_speed": 0.1611,
+    "clockwise": true,
+    "angle": 234.648
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 332943,
+      "minecraft:raw_iron": 117719,
+      "minecraft:raw_copper": 20791,
+      "minecraft:quartz": 35661,
+      "minecraft:redstone": 1700,
+      "minecraft:diamond": 484,
+      "mekanism:dust_osmium": 1995
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 71180
+    }
+  }
+}

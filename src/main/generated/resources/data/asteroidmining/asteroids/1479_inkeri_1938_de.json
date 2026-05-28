@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1479_inkeri_1938_de",
+  "name": "1479 Inkeri (1938 DE)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 15.206,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 267.4,
+    "eccentricity": 0.1949,
+    "inclination": 7.29,
+    "orbital_speed": 0.1712,
+    "clockwise": true,
+    "angle": 196.824
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 229520,
+      "minecraft:raw_gold": 16954,
+      "minecraft:redstone": 2591,
+      "mekanism:raw_osmium": 2269,
+      "minecraft:diamond": 390
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 163515,
+      "mekanism:dirty_gold_slurry": 1357,
+      "mekanism:dirty_osmium_slurry": 8830
+    }
+  }
+}

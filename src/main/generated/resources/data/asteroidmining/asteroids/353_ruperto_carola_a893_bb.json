@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:353_ruperto_carola_a893_bb",
+  "name": "353 Ruperto-Carola (A893 BB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 14.025,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 273.6,
+    "eccentricity": 0.3274,
+    "inclination": 5.71,
+    "orbital_speed": 0.1693,
+    "clockwise": true,
+    "angle": 162.816
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 228471,
+      "minecraft:raw_iron": 67244,
+      "minecraft:raw_copper": 14074,
+      "minecraft:quartz": 31964,
+      "minecraft:redstone": 6904
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 31255
+    }
+  }
+}

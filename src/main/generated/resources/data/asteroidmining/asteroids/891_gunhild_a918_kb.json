@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:891_gunhild_a918_kb",
+  "name": "891 Gunhild (A918 KB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 55.747,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 286.1,
+    "eccentricity": 0.0259,
+    "inclination": 13.55,
+    "orbital_speed": 0.1655,
+    "clockwise": true,
+    "angle": 342.12
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1092407,
+      "minecraft:raw_iron": 336730,
+      "minecraft:raw_copper": 35064,
+      "minecraft:quartz": 93329,
+      "minecraft:redstone": 40153,
+      "minecraft:diamond": 1085
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 217566
+    }
+  }
+}

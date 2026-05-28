@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:425_cornelia_a896_yc",
+  "name": "425 Cornelia (A896 YC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 67.925,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 288.6,
+    "eccentricity": 0.0572,
+    "inclination": 4.05,
+    "orbital_speed": 0.1648,
+    "clockwise": true,
+    "angle": 343.392
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 576142,
+      "minecraft:clay_ball": 607099,
+      "minecraft:raw_iron": 237837,
+      "minecraft:raw_copper": 54757,
+      "mekanism:dust_sulfur": 99351,
+      "mekanism:yellow_cake_uranium": 6432
+    },
+    "fluids": {
+      "minecraft:water": 731657042
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 260111,
+      "mekanism:oxygen": 255471,
+      "mekanism:sulfur_dioxide": 172499
+    }
+  }
+}

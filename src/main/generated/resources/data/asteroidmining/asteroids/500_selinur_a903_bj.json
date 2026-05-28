@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:500_selinur_a903_bj",
+  "name": "500 Selinur (A903 BJ)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 40.828,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 261.3,
+    "eccentricity": 0.1454,
+    "inclination": 9.79,
+    "orbital_speed": 0.1732,
+    "clockwise": true,
+    "angle": 216.492
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 899752,
+      "minecraft:raw_iron": 167255,
+      "minecraft:quartz": 110162,
+      "minecraft:magma_cream": 12812
+    },
+    "fluids": {
+      "minecraft:lava": 90725201
+    },
+    "chemicals": {
+      "mekanism:oxygen": 206424
+    }
+  }
+}

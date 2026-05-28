@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1649_fabre_1951_de",
+  "name": "1649 Fabre (1951 DE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 14.579,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.1,
+    "eccentricity": 0.045,
+    "inclination": 10.81,
+    "orbital_speed": 0.1611,
+    "clockwise": true,
+    "angle": 173.184
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 190759,
+      "minecraft:raw_iron": 104467,
+      "minecraft:raw_copper": 16379,
+      "minecraft:quartz": 36354,
+      "minecraft:redstone": 7587,
+      "mekanism:dust_osmium": 627
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 48783
+    }
+  }
+}

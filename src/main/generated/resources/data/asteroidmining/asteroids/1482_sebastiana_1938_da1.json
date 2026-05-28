@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1482_sebastiana_1938_da1",
+  "name": "1482 Sebastiana (1938 DA1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 17.186,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 287.1,
+    "eccentricity": 0.0394,
+    "inclination": 2.97,
+    "orbital_speed": 0.1652,
+    "clockwise": true,
+    "angle": 249.348
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 321917,
+      "minecraft:raw_iron": 102086,
+      "minecraft:raw_copper": 6635,
+      "minecraft:quartz": 34049,
+      "minecraft:redstone": 2177,
+      "mekanism:dust_osmium": 733
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 44665
+    }
+  }
+}

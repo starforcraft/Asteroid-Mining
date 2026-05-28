@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:445_edna_a899_tc",
+  "name": "445 Edna (A899 TC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 87.812,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.8,
+    "eccentricity": 0.1985,
+    "inclination": 21.32,
+    "orbital_speed": 0.1566,
+    "clockwise": true,
+    "angle": 213.552
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1095005,
+      "minecraft:clay_ball": 522933,
+      "minecraft:raw_iron": 300548,
+      "minecraft:raw_copper": 112881,
+      "mekanism:dust_sulfur": 260729,
+      "mekanism:yellow_cake_uranium": 2884
+    },
+    "fluids": {
+      "minecraft:water": 970290607
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 158268,
+      "mekanism:oxygen": 570207,
+      "mekanism:sulfur_dioxide": 164785
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:637_chrysothemis_a907_en",
+  "name": "637 Chrysothemis (A907 EN)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 24.194,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.7,
+    "eccentricity": 0.1182,
+    "inclination": 0.24,
+    "orbital_speed": 0.1571,
+    "clockwise": true,
+    "angle": 335.088
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 124154,
+      "minecraft:clay_ball": 107474,
+      "minecraft:raw_iron": 31754,
+      "minecraft:raw_copper": 19157,
+      "mekanism:dust_sulfur": 27547,
+      "mekanism:yellow_cake_uranium": 490
+    },
+    "fluids": {
+      "minecraft:water": 268600867
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 31123,
+      "mekanism:oxygen": 114901,
+      "mekanism:sulfur_dioxide": 40432
+    }
+  }
+}

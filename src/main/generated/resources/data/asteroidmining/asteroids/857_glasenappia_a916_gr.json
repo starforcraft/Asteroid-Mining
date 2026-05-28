@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:857_glasenappia_a916_gr",
+  "name": "857 Glasenappia (A916 GR)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 14.497,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.0,
+    "eccentricity": 0.0888,
+    "inclination": 5.3,
+    "orbital_speed": 0.1892,
+    "clockwise": true,
+    "angle": 346.848
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 206655,
+      "minecraft:raw_gold": 5401,
+      "minecraft:redstone": 6141,
+      "mekanism:raw_osmium": 6033
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 75014,
+      "mekanism:dirty_gold_slurry": 6743,
+      "mekanism:dirty_osmium_slurry": 6325
+    }
+  }
+}

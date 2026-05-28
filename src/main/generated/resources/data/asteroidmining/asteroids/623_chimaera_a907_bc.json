@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:623_chimaera_a907_bc",
+  "name": "623 Chimaera (A907 BC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 44.09,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 246.1,
+    "eccentricity": 0.1116,
+    "inclination": 14.13,
+    "orbital_speed": 0.1785,
+    "clockwise": true,
+    "angle": 209.976
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1242127,
+      "minecraft:raw_gold": 48870,
+      "minecraft:redstone": 52901,
+      "mekanism:raw_osmium": 24639,
+      "mekanism:pellet_polonium": 111
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 342935,
+      "mekanism:dirty_gold_slurry": 20794,
+      "mekanism:dirty_osmium_slurry": 4776
+    }
+  }
+}

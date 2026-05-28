@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1185_nikko_1927_wc",
+  "name": "1185 Nikko (1927 WC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.347,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.7,
+    "eccentricity": 0.1056,
+    "inclination": 5.7,
+    "orbital_speed": 0.1872,
+    "clockwise": true,
+    "angle": 89.472
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 98002,
+      "minecraft:raw_iron": 38053,
+      "minecraft:raw_copper": 3845,
+      "minecraft:quartz": 16232,
+      "minecraft:redstone": 1233,
+      "minecraft:diamond": 67
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 19879
+    }
+  }
+}

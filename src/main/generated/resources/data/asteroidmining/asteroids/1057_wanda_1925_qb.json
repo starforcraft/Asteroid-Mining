@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1057_wanda_1925_qb",
+  "name": "1057 Wanda (1925 QB)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 44.657,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 289.2,
+    "eccentricity": 0.2489,
+    "inclination": 3.54,
+    "orbital_speed": 0.1646,
+    "clockwise": true,
+    "angle": 128.448
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 618931,
+      "minecraft:blue_ice": 104402,
+      "minecraft:coal": 136834,
+      "mekanism:pellet_plutonium": 59
+    },
+    "fluids": {
+      "minecraft:water": 1520074638
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 570235,
+      "mekanism:oxygen": 505608,
+      "mekanism:heavy_water": 19376
+    }
+  }
+}

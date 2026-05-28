@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:583_klotilde_a905_yd",
+  "name": "583 Klotilde (A905 YD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 78.236,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.7,
+    "eccentricity": 0.1594,
+    "inclination": 8.24,
+    "orbital_speed": 0.1571,
+    "clockwise": true,
+    "angle": 109.656
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 536668,
+      "minecraft:clay_ball": 300797,
+      "minecraft:raw_iron": 153122,
+      "minecraft:raw_copper": 88244,
+      "mekanism:dust_sulfur": 121459,
+      "mekanism:fluorite_gem": 2309
+    },
+    "fluids": {
+      "minecraft:water": 936033085
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 134737,
+      "mekanism:oxygen": 555088,
+      "mekanism:sulfur_dioxide": 155075
+    }
+  }
+}

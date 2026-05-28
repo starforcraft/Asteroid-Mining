@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:465_alekto_a901_ac",
+  "name": "465 Alekto (A901 AC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 73.34,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.2,
+    "eccentricity": 0.1975,
+    "inclination": 4.66,
+    "orbital_speed": 0.1587,
+    "clockwise": true,
+    "angle": 83.712
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 510581,
+      "minecraft:clay_ball": 600376,
+      "minecraft:raw_iron": 82087,
+      "minecraft:raw_copper": 72666,
+      "mekanism:dust_sulfur": 67367,
+      "mekanism:yellow_cake_uranium": 3376
+    },
+    "fluids": {
+      "minecraft:water": 1377166183
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 355424,
+      "mekanism:oxygen": 209828,
+      "mekanism:sulfur_dioxide": 22056
+    }
+  }
+}

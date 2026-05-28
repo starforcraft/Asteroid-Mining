@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:917_lyka_a915_rr",
+  "name": "917 Lyka (A915 RR)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 34.878,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 238.1,
+    "eccentricity": 0.2002,
+    "inclination": 5.12,
+    "orbital_speed": 0.1815,
+    "clockwise": true,
+    "angle": 317.328
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 799382,
+      "minecraft:raw_iron": 170298,
+      "minecraft:quartz": 89201,
+      "minecraft:magma_cream": 6487,
+      "mekanism:dust_osmium": 1633
+    },
+    "fluids": {
+      "minecraft:lava": 90054079
+    },
+    "chemicals": {
+      "mekanism:oxygen": 68075
+    }
+  }
+}

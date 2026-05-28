@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1944_gunter_1925_ra",
+  "name": "1944 Gunter (1925 RA)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 4.905,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.0,
+    "eccentricity": 0.2367,
+    "inclination": 5.49,
+    "orbital_speed": 0.1871,
+    "clockwise": true,
+    "angle": 58.044
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 48051,
+      "minecraft:raw_iron": 14413,
+      "minecraft:quartz": 12605,
+      "minecraft:magma_cream": 446,
+      "mekanism:dust_osmium": 38
+    },
+    "fluids": {
+      "minecraft:lava": 3243540
+    },
+    "chemicals": {
+      "mekanism:oxygen": 9814
+    }
+  }
+}

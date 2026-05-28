@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:967_helionape_a921_ve",
+  "name": "967 Helionape (A921 VE)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 10.216,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.5,
+    "eccentricity": 0.1691,
+    "inclination": 5.41,
+    "orbital_speed": 0.1877,
+    "clockwise": true,
+    "angle": 352.728
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 41458,
+      "minecraft:clay_ball": 29534,
+      "minecraft:raw_iron": 16318,
+      "minecraft:raw_copper": 6690,
+      "mekanism:dust_sulfur": 2812,
+      "mekanism:yellow_cake_uranium": 234
+    },
+    "fluids": {
+      "minecraft:water": 72683356
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 17758,
+      "mekanism:oxygen": 12965,
+      "mekanism:sulfur_dioxide": 6634
+    }
+  }
+}

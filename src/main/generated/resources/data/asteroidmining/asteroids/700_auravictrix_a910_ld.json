@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:700_auravictrix_a910_ld",
+  "name": "700 Auravictrix (A910 LD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 16.421,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.0,
+    "eccentricity": 0.1038,
+    "inclination": 6.79,
+    "orbital_speed": 0.1875,
+    "clockwise": true,
+    "angle": 358.092
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 331087,
+      "minecraft:raw_iron": 56103,
+      "minecraft:raw_copper": 17739,
+      "minecraft:quartz": 47503,
+      "minecraft:redstone": 3307,
+      "mekanism:dust_osmium": 1371
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 61280
+    }
+  }
+}

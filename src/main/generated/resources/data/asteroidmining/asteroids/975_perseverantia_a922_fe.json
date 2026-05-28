@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:975_perseverantia_a922_fe",
+  "name": "975 Perseverantia (A922 FE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 22.169,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 283.4,
+    "eccentricity": 0.0351,
+    "inclination": 2.55,
+    "orbital_speed": 0.1663,
+    "clockwise": true,
+    "angle": 12.792
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 457079,
+      "minecraft:raw_iron": 101931,
+      "minecraft:raw_copper": 37247,
+      "minecraft:quartz": 40720,
+      "minecraft:redstone": 6951
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 89553
+    }
+  }
+}

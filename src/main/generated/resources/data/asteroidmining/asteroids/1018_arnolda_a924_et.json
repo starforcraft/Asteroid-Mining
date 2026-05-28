@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1018_arnolda_a924_et",
+  "name": "1018 Arnolda (A924 ET)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 16.557,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.0,
+    "eccentricity": 0.2454,
+    "inclination": 7.63,
+    "orbital_speed": 0.1757,
+    "clockwise": true,
+    "angle": 165.636
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 320119,
+      "minecraft:raw_iron": 60148,
+      "minecraft:raw_copper": 6401,
+      "minecraft:quartz": 26066,
+      "minecraft:redstone": 11566
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 39016
+    }
+  }
+}

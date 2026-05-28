@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:780_armenia_a914_bj",
+  "name": "780 Armenia (A914 BJ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 126.263,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.4,
+    "eccentricity": 0.0958,
+    "inclination": 19.08,
+    "orbital_speed": 0.1587,
+    "clockwise": true,
+    "angle": 198.732
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1582518,
+      "minecraft:clay_ball": 1075801,
+      "minecraft:raw_iron": 203199,
+      "minecraft:raw_copper": 117831,
+      "mekanism:dust_sulfur": 153793,
+      "mekanism:fluorite_gem": 22833,
+      "mekanism:yellow_cake_uranium": 8653
+    },
+    "fluids": {
+      "minecraft:water": 1792229328
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 547355,
+      "mekanism:oxygen": 1249268,
+      "mekanism:sulfur_dioxide": 153616
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1665_gaby_1930_dq",
+  "name": "1665 Gaby (1930 DQ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 10.746,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 241.5,
+    "eccentricity": 0.2057,
+    "inclination": 10.83,
+    "orbital_speed": 0.1802,
+    "clockwise": true,
+    "angle": 213.312
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 139561,
+      "minecraft:raw_iron": 49208,
+      "minecraft:raw_copper": 15569,
+      "minecraft:quartz": 10895,
+      "minecraft:redstone": 3575
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 14552
+    }
+  }
+}

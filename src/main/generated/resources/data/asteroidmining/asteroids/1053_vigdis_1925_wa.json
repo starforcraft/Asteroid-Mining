@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1053_vigdis_1925_wa",
+  "name": "1053 Vigdis (1925 WA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.11,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 261.6,
+    "eccentricity": 0.0951,
+    "inclination": 8.34,
+    "orbital_speed": 0.1731,
+    "clockwise": true,
+    "angle": 298.416
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 114170,
+      "minecraft:raw_iron": 46285,
+      "minecraft:raw_copper": 10899,
+      "minecraft:quartz": 6606,
+      "minecraft:redstone": 5059
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 10168
+    }
+  }
+}

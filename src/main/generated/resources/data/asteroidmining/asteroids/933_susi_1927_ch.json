@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:933_susi_1927_ch",
+  "name": "933 Susi (1927 CH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 21.82,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.8,
+    "eccentricity": 0.1655,
+    "inclination": 5.54,
+    "orbital_speed": 0.182,
+    "clockwise": true,
+    "angle": 357.456
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 315633,
+      "minecraft:raw_iron": 71657,
+      "minecraft:raw_copper": 16653,
+      "minecraft:quartz": 71367,
+      "minecraft:redstone": 9772
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 83502
+    }
+  }
+}

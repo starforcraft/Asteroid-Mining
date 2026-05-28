@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:924_toni_a919_uf",
+  "name": "924 Toni (A919 UF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 85.49,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 293.9,
+    "eccentricity": 0.153,
+    "inclination": 8.99,
+    "orbital_speed": 0.1633,
+    "clockwise": true,
+    "angle": 199.884
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 482901,
+      "minecraft:clay_ball": 777543,
+      "minecraft:raw_iron": 405171,
+      "minecraft:raw_copper": 47929,
+      "mekanism:dust_sulfur": 76015
+    },
+    "fluids": {
+      "minecraft:water": 1008758043
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 542640,
+      "mekanism:oxygen": 721078,
+      "mekanism:sulfur_dioxide": 167270
+    }
+  }
+}

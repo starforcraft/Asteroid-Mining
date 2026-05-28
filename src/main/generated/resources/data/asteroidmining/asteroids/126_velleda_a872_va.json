@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:126_velleda_a872_va",
+  "name": "126 Velleda (A872 VA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 44.82,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 244.0,
+    "eccentricity": 0.1056,
+    "inclination": 2.92,
+    "orbital_speed": 0.1793,
+    "clockwise": true,
+    "angle": 268.5
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1089024,
+      "minecraft:raw_iron": 255149,
+      "minecraft:raw_copper": 72221,
+      "minecraft:quartz": 217962,
+      "minecraft:redstone": 30561,
+      "minecraft:diamond": 172
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 99126
+    }
+  }
+}

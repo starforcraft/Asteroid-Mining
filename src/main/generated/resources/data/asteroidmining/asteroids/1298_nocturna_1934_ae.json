@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1298_nocturna_1934_ae",
+  "name": "1298 Nocturna (1934 AE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 37.802,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.1,
+    "eccentricity": 0.144,
+    "inclination": 5.5,
+    "orbital_speed": 0.1582,
+    "clockwise": true,
+    "angle": 147.876
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 880955,
+      "minecraft:raw_iron": 273099,
+      "minecraft:raw_copper": 39251,
+      "minecraft:quartz": 50802,
+      "minecraft:redstone": 13869,
+      "minecraft:diamond": 335
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 121727
+    }
+  }
+}

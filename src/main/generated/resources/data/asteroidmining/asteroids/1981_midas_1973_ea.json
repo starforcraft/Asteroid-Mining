@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1981_midas_1973_ea",
+  "name": "1981 Midas (1973 EA)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 3.4,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 177.6,
+    "eccentricity": 0.6505,
+    "inclination": 39.82,
+    "orbital_speed": 0.2101,
+    "clockwise": true,
+    "angle": 105.84
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 37992,
+      "minecraft:raw_iron": 7217,
+      "minecraft:quartz": 3315,
+      "minecraft:magma_cream": 335,
+      "mekanism:dust_osmium": 139
+    },
+    "fluids": {
+      "minecraft:lava": 3637435
+    },
+    "chemicals": {
+      "mekanism:oxygen": 6705
+    }
+  }
+}

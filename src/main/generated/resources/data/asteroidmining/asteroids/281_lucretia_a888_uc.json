@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:281_lucretia_a888_uc",
+  "name": "281 Lucretia (A888 UC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.036,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 218.7,
+    "eccentricity": 0.1323,
+    "inclination": 5.3,
+    "orbital_speed": 0.1893,
+    "clockwise": true,
+    "angle": 342.24
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 162283,
+      "minecraft:raw_iron": 47992,
+      "minecraft:raw_copper": 9895,
+      "minecraft:quartz": 23352,
+      "minecraft:redstone": 787,
+      "minecraft:diamond": 98,
+      "mekanism:dust_osmium": 1151
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 19969
+    }
+  }
+}

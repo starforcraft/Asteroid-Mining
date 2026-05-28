@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1662_hoffmann_a923_rb",
+  "name": "1662 Hoffmann (A923 RB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.409,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 274.1,
+    "eccentricity": 0.1737,
+    "inclination": 4.23,
+    "orbital_speed": 0.1691,
+    "clockwise": true,
+    "angle": 160.788
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 247878,
+      "minecraft:raw_iron": 48369,
+      "minecraft:raw_copper": 5892,
+      "minecraft:quartz": 17991,
+      "minecraft:redstone": 4743
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 33349
+    }
+  }
+}

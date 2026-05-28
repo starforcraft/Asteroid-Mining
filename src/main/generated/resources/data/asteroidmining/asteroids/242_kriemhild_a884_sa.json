@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:242_kriemhild_a884_sa",
+  "name": "242 Kriemhild (A884 SA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 40.802,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 286.2,
+    "eccentricity": 0.1229,
+    "inclination": 11.35,
+    "orbital_speed": 0.1655,
+    "clockwise": true,
+    "angle": 19.428
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1113217,
+      "minecraft:raw_gold": 47440,
+      "minecraft:redstone": 39773,
+      "mekanism:raw_osmium": 29429,
+      "mekanism:pellet_polonium": 51
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 540980,
+      "mekanism:dirty_gold_slurry": 13636,
+      "mekanism:dirty_osmium_slurry": 36362
+    }
+  }
+}

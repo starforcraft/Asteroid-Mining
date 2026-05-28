@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1596_itzigsohn_1951_ev",
+  "name": "1596 Itzigsohn (1951 EV)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 45.534,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 289.1,
+    "eccentricity": 0.1288,
+    "inclination": 13.29,
+    "orbital_speed": 0.1647,
+    "clockwise": true,
+    "angle": 85.26
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1274155,
+      "minecraft:raw_iron": 259901,
+      "minecraft:raw_copper": 26013,
+      "minecraft:quartz": 48401,
+      "minecraft:redstone": 32447
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 196683
+    }
+  }
+}

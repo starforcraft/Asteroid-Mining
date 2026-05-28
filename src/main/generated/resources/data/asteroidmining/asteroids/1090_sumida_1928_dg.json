@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1090_sumida_1928_dg",
+  "name": "1090 Sumida (1928 DG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.977,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 235.9,
+    "eccentricity": 0.2212,
+    "inclination": 21.54,
+    "orbital_speed": 0.1823,
+    "clockwise": true,
+    "angle": 346.212
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 242932,
+      "minecraft:raw_iron": 68444,
+      "minecraft:raw_copper": 22800,
+      "minecraft:quartz": 33906,
+      "minecraft:redstone": 4109,
+      "mekanism:dust_osmium": 404
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 37314
+    }
+  }
+}

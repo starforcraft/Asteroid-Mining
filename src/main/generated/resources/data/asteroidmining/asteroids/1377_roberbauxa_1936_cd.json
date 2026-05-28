@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1377_roberbauxa_1936_cd",
+  "name": "1377 Roberbauxa (1936 CD)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 6.217,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 226.0,
+    "eccentricity": 0.0936,
+    "inclination": 6.03,
+    "orbital_speed": 0.1863,
+    "clockwise": true,
+    "angle": 211.008
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 90812,
+      "minecraft:raw_gold": 3885,
+      "minecraft:redstone": 2551,
+      "mekanism:raw_osmium": 1083
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 31098,
+      "mekanism:dirty_gold_slurry": 862,
+      "mekanism:dirty_osmium_slurry": 1134
+    }
+  }
+}

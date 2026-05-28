@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1347_patria_1931_vw",
+  "name": "1347 Patria (1931 VW)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 32.4,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 257.2,
+    "eccentricity": 0.0664,
+    "inclination": 11.87,
+    "orbital_speed": 0.1746,
+    "clockwise": true,
+    "angle": 45.768
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 833785,
+      "minecraft:raw_gold": 48447,
+      "minecraft:redstone": 26674,
+      "mekanism:raw_osmium": 18699
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 237662,
+      "mekanism:dirty_gold_slurry": 13971,
+      "mekanism:dirty_osmium_slurry": 11623
+    }
+  }
+}

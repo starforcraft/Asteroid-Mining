@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1609_brenda_1951_nl",
+  "name": "1609 Brenda (1951 NL)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 29.64,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 258.4,
+    "eccentricity": 0.2486,
+    "inclination": 18.63,
+    "orbital_speed": 0.1742,
+    "clockwise": true,
+    "angle": 72.864
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 524453,
+      "minecraft:raw_iron": 153623,
+      "minecraft:raw_copper": 31450,
+      "minecraft:quartz": 83436,
+      "minecraft:redstone": 3551
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 99128
+    }
+  }
+}

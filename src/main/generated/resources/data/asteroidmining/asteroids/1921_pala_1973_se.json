@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1921_pala_1973_se",
+  "name": "1921 Pala (1973 SE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 10.7653,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 331.0,
+    "eccentricity": 0.3838,
+    "inclination": 19.07,
+    "orbital_speed": 0.1539,
+    "clockwise": true,
+    "angle": 135.36
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 201422,
+      "minecraft:raw_iron": 25652,
+      "minecraft:raw_copper": 7999,
+      "minecraft:quartz": 25653,
+      "minecraft:redstone": 3775,
+      "mekanism:dust_osmium": 1123
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 15547
+    }
+  }
+}

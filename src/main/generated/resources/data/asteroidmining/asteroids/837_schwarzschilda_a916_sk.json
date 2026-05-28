@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:837_schwarzschilda_a916_sk",
+  "name": "837 Schwarzschilda (A916 SK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 5.968,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 229.9,
+    "eccentricity": 0.0411,
+    "inclination": 6.74,
+    "orbital_speed": 0.1847,
+    "clockwise": true,
+    "angle": 116.688
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 65362,
+      "minecraft:raw_iron": 18853,
+      "minecraft:raw_copper": 1734,
+      "minecraft:quartz": 4781,
+      "minecraft:redstone": 2450,
+      "mekanism:dust_osmium": 382
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 7766
+    }
+  }
+}

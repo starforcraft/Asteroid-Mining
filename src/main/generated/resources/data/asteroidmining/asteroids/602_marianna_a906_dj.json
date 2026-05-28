@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:602_marianna_a906_dj",
+  "name": "602 Marianna (A906 DJ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 110.444,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 308.0,
+    "eccentricity": 0.2519,
+    "inclination": 15.12,
+    "orbital_speed": 0.1595,
+    "clockwise": true,
+    "angle": 202.308
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1518143,
+      "minecraft:clay_ball": 791550,
+      "minecraft:raw_iron": 604226,
+      "minecraft:raw_copper": 185899,
+      "mekanism:dust_sulfur": 245857,
+      "mekanism:fluorite_gem": 29433,
+      "mekanism:yellow_cake_uranium": 4699
+    },
+    "fluids": {
+      "minecraft:water": 1832670631
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 768467,
+      "mekanism:oxygen": 923965,
+      "mekanism:sulfur_dioxide": 172423
+    }
+  }
+}

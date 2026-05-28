@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:252_clementina_a885_tb",
+  "name": "252 Clementina (A885 TB)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 65.344,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.0,
+    "eccentricity": 0.0657,
+    "inclination": 10.04,
+    "orbital_speed": 0.1575,
+    "clockwise": true,
+    "angle": 314.508
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 1629989,
+      "minecraft:raw_iron": 180625,
+      "minecraft:quartz": 322268,
+      "minecraft:magma_cream": 10644
+    },
+    "fluids": {
+      "minecraft:lava": 181097014
+    },
+    "chemicals": {
+      "mekanism:oxygen": 285977
+    }
+  }
+}

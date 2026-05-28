@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:796_sarita_a914_uf",
+  "name": "796 Sarita (A914 UF)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 43.58,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 263.6,
+    "eccentricity": 0.3193,
+    "inclination": 19.05,
+    "orbital_speed": 0.1725,
+    "clockwise": true,
+    "angle": 238.86
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1170874,
+      "minecraft:raw_gold": 73681,
+      "minecraft:redstone": 27803,
+      "mekanism:raw_osmium": 24675
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 314513,
+      "mekanism:dirty_gold_slurry": 47534,
+      "mekanism:dirty_osmium_slurry": 19382
+    }
+  }
+}

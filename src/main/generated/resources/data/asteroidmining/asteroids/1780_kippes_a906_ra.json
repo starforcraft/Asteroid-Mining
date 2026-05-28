@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1780_kippes_a906_ra",
+  "name": "1780 Kippes (A906 RA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 28.164,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.5,
+    "eccentricity": 0.0576,
+    "inclination": 8.99,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 186.732
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 716470,
+      "minecraft:raw_iron": 227506,
+      "minecraft:raw_copper": 23019,
+      "minecraft:quartz": 85530,
+      "minecraft:redstone": 16522,
+      "mekanism:dust_osmium": 1924
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 35792
+    }
+  }
+}

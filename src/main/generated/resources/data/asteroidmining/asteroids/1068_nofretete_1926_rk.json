@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1068_nofretete_1926_rk",
+  "name": "1068 Nofretete (1926 RK)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 21.346,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 290.7,
+    "eccentricity": 0.0975,
+    "inclination": 5.49,
+    "orbital_speed": 0.1642,
+    "clockwise": true,
+    "angle": 201.036
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 384897,
+      "minecraft:raw_iron": 105675,
+      "minecraft:quartz": 71679,
+      "minecraft:magma_cream": 7146,
+      "mekanism:dust_osmium": 339
+    },
+    "fluids": {
+      "minecraft:lava": 33695226
+    },
+    "chemicals": {
+      "mekanism:oxygen": 40162
+    }
+  }
+}

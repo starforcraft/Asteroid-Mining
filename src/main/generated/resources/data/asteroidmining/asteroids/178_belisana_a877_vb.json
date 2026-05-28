@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:178_belisana_a877_vb",
+  "name": "178 Belisana (A877 VB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 35.81,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 246.0,
+    "eccentricity": 0.0424,
+    "inclination": 1.89,
+    "orbital_speed": 0.1785,
+    "clockwise": true,
+    "angle": 218.916
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 843105,
+      "minecraft:raw_iron": 180671,
+      "minecraft:raw_copper": 64635,
+      "minecraft:quartz": 118396,
+      "minecraft:redstone": 23667
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 142735
+    }
+  }
+}

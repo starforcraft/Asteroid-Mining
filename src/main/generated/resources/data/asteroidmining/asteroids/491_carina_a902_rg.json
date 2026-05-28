@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:491_carina_a902_rg",
+  "name": "491 Carina (A902 RG)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 91.176,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.2,
+    "eccentricity": 0.0831,
+    "inclination": 18.87,
+    "orbital_speed": 0.1567,
+    "clockwise": true,
+    "angle": 58.92
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 805845,
+      "minecraft:clay_ball": 724977,
+      "minecraft:raw_iron": 194245,
+      "minecraft:raw_copper": 38396,
+      "mekanism:dust_sulfur": 95696
+    },
+    "fluids": {
+      "minecraft:water": 795547711
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 366511,
+      "mekanism:oxygen": 591684,
+      "mekanism:sulfur_dioxide": 231775
+    }
+  }
+}

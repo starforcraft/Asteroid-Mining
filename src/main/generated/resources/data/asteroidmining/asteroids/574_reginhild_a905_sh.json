@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:574_reginhild_a905_sh",
+  "name": "574 Reginhild (A905 SH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.456,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 225.2,
+    "eccentricity": 0.239,
+    "inclination": 5.68,
+    "orbital_speed": 0.1866,
+    "clockwise": true,
+    "angle": 312.084
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 98418,
+      "minecraft:raw_iron": 26434,
+      "minecraft:raw_copper": 12884,
+      "minecraft:quartz": 13021,
+      "minecraft:redstone": 3025,
+      "minecraft:diamond": 91
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 24719
+    }
+  }
+}

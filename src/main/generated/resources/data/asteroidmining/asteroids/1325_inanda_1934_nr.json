@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1325_inanda_1934_nr",
+  "name": "1325 Inanda (1934 NR)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 10.89,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.0,
+    "eccentricity": 0.2552,
+    "inclination": 7.41,
+    "orbital_speed": 0.1757,
+    "clockwise": true,
+    "angle": 260.592
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 151379,
+      "minecraft:raw_iron": 33387,
+      "minecraft:quartz": 32427,
+      "minecraft:magma_cream": 979
+    },
+    "fluids": {
+      "minecraft:lava": 11248892
+    },
+    "chemicals": {
+      "mekanism:oxygen": 34288
+    }
+  }
+}

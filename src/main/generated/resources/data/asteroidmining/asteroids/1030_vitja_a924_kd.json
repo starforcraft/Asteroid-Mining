@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1030_vitja_a924_kd",
+  "name": "1030 Vitja (A924 KD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 59.717,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.9,
+    "eccentricity": 0.1232,
+    "inclination": 14.78,
+    "orbital_speed": 0.1585,
+    "clockwise": true,
+    "angle": 15.732
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1287468,
+      "minecraft:raw_iron": 495278,
+      "minecraft:raw_copper": 66143,
+      "minecraft:quartz": 329179,
+      "minecraft:redstone": 52287,
+      "minecraft:diamond": 689
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 289145
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:306_unitas_a891_ea",
+  "name": "306 Unitas (A891 EA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 47.2,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 235.7,
+    "eccentricity": 0.1521,
+    "inclination": 7.28,
+    "orbital_speed": 0.1824,
+    "clockwise": true,
+    "angle": 179.94
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1238849,
+      "minecraft:raw_iron": 219303,
+      "minecraft:raw_copper": 108660,
+      "minecraft:quartz": 48352,
+      "minecraft:redstone": 11797,
+      "mekanism:dust_osmium": 5437
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 72755
+    }
+  }
+}

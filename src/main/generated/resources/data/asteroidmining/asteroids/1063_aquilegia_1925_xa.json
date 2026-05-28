@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1063_aquilegia_1925_xa",
+  "name": "1063 Aquilegia (1925 XA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 11.288,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 231.4,
+    "eccentricity": 0.0389,
+    "inclination": 5.98,
+    "orbital_speed": 0.1841,
+    "clockwise": true,
+    "angle": 233.496
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 146783,
+      "minecraft:raw_gold": 4582,
+      "minecraft:redstone": 7910,
+      "mekanism:raw_osmium": 6896
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 34518,
+      "mekanism:dirty_gold_slurry": 3506,
+      "mekanism:dirty_osmium_slurry": 5410
+    }
+  }
+}

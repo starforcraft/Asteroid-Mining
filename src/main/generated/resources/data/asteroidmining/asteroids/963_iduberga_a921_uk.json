@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:963_iduberga_a921_uk",
+  "name": "963 Iduberga (A921 UK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.008,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.8,
+    "eccentricity": 0.1373,
+    "inclination": 7.98,
+    "orbital_speed": 0.1867,
+    "clockwise": true,
+    "angle": 162.696
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 128037,
+      "minecraft:raw_iron": 56559,
+      "minecraft:raw_copper": 12713,
+      "minecraft:quartz": 14667,
+      "minecraft:redstone": 1247
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 24164
+    }
+  }
+}

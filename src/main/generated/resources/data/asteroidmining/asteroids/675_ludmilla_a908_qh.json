@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:675_ludmilla_a908_qh",
+  "name": "675 Ludmilla (A908 QH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 76.0,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 276.7,
+    "eccentricity": 0.205,
+    "inclination": 9.81,
+    "orbital_speed": 0.1683,
+    "clockwise": true,
+    "angle": 160.392
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1664020,
+      "minecraft:raw_iron": 789626,
+      "minecraft:raw_copper": 35879,
+      "minecraft:quartz": 132025,
+      "minecraft:redstone": 63698
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 567023
+    }
+  }
+}

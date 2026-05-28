@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1099_figneria_1928_rq",
+  "name": "1099 Figneria (1928 RQ)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 23.309,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.9,
+    "eccentricity": 0.2798,
+    "inclination": 11.83,
+    "orbital_speed": 0.157,
+    "clockwise": true,
+    "angle": 143.784
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 415801,
+      "minecraft:raw_gold": 35164,
+      "minecraft:redstone": 20838,
+      "mekanism:raw_osmium": 4167,
+      "mekanism:pellet_polonium": 25
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 226545,
+      "mekanism:dirty_gold_slurry": 12204,
+      "mekanism:dirty_osmium_slurry": 14478
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:152_atala_a875_vb",
+  "name": "152 Atala (A875 VB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 58.964,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.6,
+    "eccentricity": 0.0827,
+    "inclination": 12.12,
+    "orbital_speed": 0.1581,
+    "clockwise": true,
+    "angle": 243.708
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1365133,
+      "minecraft:raw_gold": 134654,
+      "minecraft:redstone": 62698,
+      "mekanism:raw_osmium": 48588,
+      "minecraft:diamond": 794
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 924243,
+      "mekanism:dirty_gold_slurry": 54640,
+      "mekanism:dirty_osmium_slurry": 20910
+    }
+  }
+}

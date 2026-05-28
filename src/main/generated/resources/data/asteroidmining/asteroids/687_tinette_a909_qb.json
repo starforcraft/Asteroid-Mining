@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:687_tinette_a909_qb",
+  "name": "687 Tinette (A909 QB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 21.533,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 272.4,
+    "eccentricity": 0.2713,
+    "inclination": 14.87,
+    "orbital_speed": 0.1697,
+    "clockwise": true,
+    "angle": 10.488
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 308481,
+      "minecraft:raw_gold": 30134,
+      "minecraft:redstone": 18778,
+      "mekanism:raw_osmium": 5455,
+      "minecraft:diamond": 124
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 117545,
+      "mekanism:dirty_gold_slurry": 11172,
+      "mekanism:dirty_osmium_slurry": 13487
+    }
+  }
+}

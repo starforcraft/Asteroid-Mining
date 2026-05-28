@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:8_flora_a847_ua",
+  "name": "8 Flora (A847 UA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 147.491,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 220.1,
+    "eccentricity": 0.1563,
+    "inclination": 5.89,
+    "orbital_speed": 0.1887,
+    "clockwise": true,
+    "angle": 242.556
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 5467590,
+      "minecraft:raw_iron": 1521357,
+      "minecraft:raw_copper": 268883,
+      "minecraft:quartz": 669544,
+      "minecraft:redstone": 30202,
+      "mekanism:dust_osmium": 14799
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 233341
+    }
+  }
+}

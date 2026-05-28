@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1853_mcelroy_1957_xe",
+  "name": "1853 McElroy (1957 XE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 23.807,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 306.5,
+    "eccentricity": 0.0456,
+    "inclination": 15.78,
+    "orbital_speed": 0.1599,
+    "clockwise": true,
+    "angle": 144.816
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 411150,
+      "minecraft:raw_iron": 123933,
+      "minecraft:raw_copper": 42085,
+      "minecraft:quartz": 69030,
+      "minecraft:redstone": 14500,
+      "minecraft:diamond": 154
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 70950
+    }
+  }
+}

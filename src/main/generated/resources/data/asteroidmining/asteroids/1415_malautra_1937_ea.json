@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1415_malautra_1937_ea",
+  "name": "1415 Malautra (1937 EA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.375,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.4,
+    "eccentricity": 0.0874,
+    "inclination": 3.42,
+    "orbital_speed": 0.1878,
+    "clockwise": true,
+    "angle": 36.312
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 119365,
+      "minecraft:raw_iron": 21193,
+      "minecraft:raw_copper": 8023,
+      "minecraft:quartz": 8897,
+      "minecraft:redstone": 2491
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 8445
+    }
+  }
+}

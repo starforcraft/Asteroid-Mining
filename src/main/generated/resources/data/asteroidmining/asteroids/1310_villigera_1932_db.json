@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1310_villigera_1932_db",
+  "name": "1310 Villigera (1932 DB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.1711,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 239.2,
+    "eccentricity": 0.3573,
+    "inclination": 21.05,
+    "orbital_speed": 0.181,
+    "clockwise": true,
+    "angle": 357.972
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 117915,
+      "minecraft:raw_iron": 21609,
+      "minecraft:raw_copper": 12521,
+      "minecraft:quartz": 20469,
+      "minecraft:redstone": 4744
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 15896
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:705_erminia_a910_te",
+  "name": "705 Erminia (A910 TE)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 132.261,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 292.2,
+    "eccentricity": 0.0519,
+    "inclination": 25.02,
+    "orbital_speed": 0.1638,
+    "clockwise": true,
+    "angle": 325.632
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 3139363,
+      "minecraft:raw_gold": 288245,
+      "minecraft:redstone": 75176,
+      "mekanism:raw_osmium": 74358
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 991522,
+      "mekanism:dirty_gold_slurry": 19980,
+      "mekanism:dirty_osmium_slurry": 51495
+    }
+  }
+}

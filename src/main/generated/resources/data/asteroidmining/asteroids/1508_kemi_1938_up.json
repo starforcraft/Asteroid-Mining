@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1508_kemi_1938_up",
+  "name": "1508 Kemi (1938 UP)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 10.5906,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 276.7,
+    "eccentricity": 0.4193,
+    "inclination": 28.73,
+    "orbital_speed": 0.1683,
+    "clockwise": true,
+    "angle": 224.556
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 38624,
+      "minecraft:clay_ball": 21696,
+      "minecraft:raw_iron": 22862,
+      "minecraft:raw_copper": 6693,
+      "mekanism:dust_sulfur": 5224,
+      "mekanism:fluorite_gem": 800
+    },
+    "fluids": {
+      "minecraft:water": 26943095
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 9778,
+      "mekanism:oxygen": 33351,
+      "mekanism:sulfur_dioxide": 12018
+    }
+  }
+}

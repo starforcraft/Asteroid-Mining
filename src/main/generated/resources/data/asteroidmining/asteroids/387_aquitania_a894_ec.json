@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:387_aquitania_a894_ec",
+  "name": "387 Aquitania (A894 EC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 100.51,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 273.7,
+    "eccentricity": 0.2384,
+    "inclination": 18.15,
+    "orbital_speed": 0.1692,
+    "clockwise": true,
+    "angle": 158.088
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2805612,
+      "minecraft:raw_iron": 1126056,
+      "minecraft:raw_copper": 147818,
+      "minecraft:quartz": 192705,
+      "minecraft:redstone": 30891
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 596052
+    }
+  }
+}

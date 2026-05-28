@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1886_lowell_1949_mp",
+  "name": "1886 Lowell (1949 MP)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 7.2408,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 262.6,
+    "eccentricity": 0.1583,
+    "inclination": 14.89,
+    "orbital_speed": 0.1728,
+    "clockwise": true,
+    "angle": 2.58
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 53050,
+      "minecraft:blue_ice": 11957,
+      "minecraft:coal": 14064
+    },
+    "fluids": {
+      "minecraft:water": 110077164
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 24222,
+      "mekanism:oxygen": 48514,
+      "mekanism:heavy_water": 4906
+    }
+  }
+}

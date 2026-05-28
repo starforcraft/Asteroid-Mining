@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1784_benguella_1935_mg",
+  "name": "1784 Benguella (1935 MG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 10.48,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 240.4,
+    "eccentricity": 0.1331,
+    "inclination": 1.47,
+    "orbital_speed": 0.1806,
+    "clockwise": true,
+    "angle": 16.764
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 151129,
+      "minecraft:raw_iron": 30023,
+      "minecraft:raw_copper": 7209,
+      "minecraft:quartz": 20669,
+      "minecraft:redstone": 2062
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 18955
+    }
+  }
+}

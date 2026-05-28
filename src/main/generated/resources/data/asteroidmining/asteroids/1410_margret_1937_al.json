@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1410_margret_1937_al",
+  "name": "1410 Margret (1937 AL)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 21.083,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.1,
+    "eccentricity": 0.1086,
+    "inclination": 10.35,
+    "orbital_speed": 0.1611,
+    "clockwise": true,
+    "angle": 68.772
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 131176,
+      "minecraft:clay_ball": 82911,
+      "minecraft:raw_iron": 28359,
+      "minecraft:raw_copper": 9681,
+      "mekanism:dust_sulfur": 9469,
+      "mekanism:yellow_cake_uranium": 338
+    },
+    "fluids": {
+      "minecraft:water": 200685623
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 36190,
+      "mekanism:oxygen": 96810,
+      "mekanism:sulfur_dioxide": 13942
+    }
+  }
+}

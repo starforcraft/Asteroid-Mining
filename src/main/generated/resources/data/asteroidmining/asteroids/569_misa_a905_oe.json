@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:569_misa_a905_oe",
+  "name": "569 Misa (A905 OE)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 72.95,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 265.9,
+    "eccentricity": 0.1788,
+    "inclination": 1.29,
+    "orbital_speed": 0.1717,
+    "clockwise": true,
+    "angle": 344.544
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 523188,
+      "minecraft:clay_ball": 517591,
+      "minecraft:raw_iron": 116535,
+      "minecraft:raw_copper": 85910,
+      "mekanism:dust_sulfur": 253304,
+      "mekanism:yellow_cake_uranium": 6984
+    },
+    "fluids": {
+      "minecraft:water": 540249137
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 448373,
+      "mekanism:oxygen": 442248,
+      "mekanism:sulfur_dioxide": 24408
+    }
+  }
+}

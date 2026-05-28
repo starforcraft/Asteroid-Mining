@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1192_prisma_1931_fe",
+  "name": "1192 Prisma (1931 FE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.377,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.5,
+    "eccentricity": 0.2592,
+    "inclination": 23.91,
+    "orbital_speed": 0.1821,
+    "clockwise": true,
+    "angle": 332.028
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 99450,
+      "minecraft:raw_iron": 15947,
+      "minecraft:raw_copper": 7267,
+      "minecraft:quartz": 6201,
+      "minecraft:redstone": 1617
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 17046
+    }
+  }
+}

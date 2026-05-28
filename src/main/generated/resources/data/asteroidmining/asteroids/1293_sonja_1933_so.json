@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1293_sonja_1933_so",
+  "name": "1293 Sonja (1933 SO)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.8,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.7,
+    "eccentricity": 0.2754,
+    "inclination": 5.36,
+    "orbital_speed": 0.1876,
+    "clockwise": true,
+    "angle": 180.336
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 122492,
+      "minecraft:raw_iron": 41337,
+      "minecraft:raw_copper": 6787,
+      "minecraft:quartz": 13862,
+      "minecraft:redstone": 3870,
+      "mekanism:dust_osmium": 317
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 7177
+    }
+  }
+}

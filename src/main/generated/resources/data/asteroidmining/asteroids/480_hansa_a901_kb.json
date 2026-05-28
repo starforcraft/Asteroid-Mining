@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:480_hansa_a901_kb",
+  "name": "480 Hansa (A901 KB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 56.22,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 264.4,
+    "eccentricity": 0.0443,
+    "inclination": 21.33,
+    "orbital_speed": 0.1722,
+    "clockwise": true,
+    "angle": 346.332
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1891546,
+      "minecraft:raw_iron": 430849,
+      "minecraft:raw_copper": 85090,
+      "minecraft:quartz": 86751,
+      "minecraft:redstone": 39816
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 254122
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:385_ilmatar_a894_ea",
+  "name": "385 Ilmatar (A894 EA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 85.837,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 284.8,
+    "eccentricity": 0.1269,
+    "inclination": 13.58,
+    "orbital_speed": 0.1659,
+    "clockwise": true,
+    "angle": 243.072
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2353788,
+      "minecraft:raw_iron": 923394,
+      "minecraft:raw_copper": 256961,
+      "minecraft:quartz": 243990,
+      "minecraft:redstone": 22993
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 489914
+    }
+  }
+}

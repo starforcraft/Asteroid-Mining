@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:805_hormuthia_a915_hd",
+  "name": "805 Hormuthia (A915 HD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 73.095,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.7,
+    "eccentricity": 0.1855,
+    "inclination": 15.72,
+    "orbital_speed": 0.1566,
+    "clockwise": true,
+    "angle": 36.432
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 376730,
+      "minecraft:clay_ball": 232400,
+      "minecraft:raw_iron": 209650,
+      "minecraft:raw_copper": 89309,
+      "mekanism:dust_sulfur": 131499,
+      "mekanism:yellow_cake_uranium": 7346
+    },
+    "fluids": {
+      "minecraft:water": 916236426
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 327761,
+      "mekanism:oxygen": 705769,
+      "mekanism:sulfur_dioxide": 58832
+    }
+  }
+}

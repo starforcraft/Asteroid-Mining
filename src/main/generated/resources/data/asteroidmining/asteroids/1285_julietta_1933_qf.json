@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1285_julietta_1933_qf",
+  "name": "1285 Julietta (1933 QF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 42.43,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 299.4,
+    "eccentricity": 0.0483,
+    "inclination": 5.69,
+    "orbital_speed": 0.1618,
+    "clockwise": true,
+    "angle": 160.272
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 376973,
+      "minecraft:clay_ball": 137885,
+      "minecraft:raw_iron": 47268,
+      "minecraft:raw_copper": 27550,
+      "mekanism:dust_sulfur": 30356,
+      "mekanism:fluorite_gem": 3929
+    },
+    "fluids": {
+      "minecraft:water": 531341965
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 93843,
+      "mekanism:oxygen": 83952,
+      "mekanism:sulfur_dioxide": 76519
+    }
+  }
+}

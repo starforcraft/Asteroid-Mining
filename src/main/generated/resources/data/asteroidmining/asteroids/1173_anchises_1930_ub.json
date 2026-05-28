@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1173_anchises_1930_ub",
+  "name": "1173 Anchises (1930 UB)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 99.549,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 527.0,
+    "eccentricity": 0.1376,
+    "inclination": 6.93,
+    "orbital_speed": 0.122,
+    "clockwise": true,
+    "angle": 239.376
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 906379,
+      "minecraft:blackstone": 1514236,
+      "mekanism:dust_sulfur": 498994,
+      "mekanism:yellow_cake_uranium": 3417
+    },
+    "fluids": {
+      "minecraft:water": 745136721
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 930899,
+      "mekanism:ethene": 261984,
+      "mekanism:sulfur_dioxide": 96466
+    }
+  }
+}

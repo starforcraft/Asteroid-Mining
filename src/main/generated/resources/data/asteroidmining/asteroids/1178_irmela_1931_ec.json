@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1178_irmela_1931_ec",
+  "name": "1178 Irmela (1931 EC)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 19.663,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 267.7,
+    "eccentricity": 0.1864,
+    "inclination": 6.97,
+    "orbital_speed": 0.1711,
+    "clockwise": true,
+    "angle": 206.916
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 292724,
+      "minecraft:blue_ice": 44936,
+      "minecraft:coal": 12370
+    },
+    "fluids": {
+      "minecraft:water": 213609950
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 96165,
+      "mekanism:oxygen": 159645,
+      "mekanism:heavy_water": 3899
+    }
+  }
+}

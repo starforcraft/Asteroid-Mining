@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:707_steina_a910_ya",
+  "name": "707 Steina (A910 YA)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 9.003,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 218.0,
+    "eccentricity": 0.108,
+    "inclination": 4.27,
+    "orbital_speed": 0.1896,
+    "clockwise": true,
+    "angle": 240.648
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 161451,
+      "minecraft:raw_iron": 33332,
+      "minecraft:quartz": 22160,
+      "minecraft:magma_cream": 1530
+    },
+    "fluids": {
+      "minecraft:lava": 11252088
+    },
+    "chemicals": {
+      "mekanism:oxygen": 22307
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "C": {
+    "analogue": "carbonaceous_chondrite",
+    "items": {
+      "minecraft:coal": [0.08, 0.22],
+      "minecraft:clay_ball": [0.06, 0.18],
+      "minecraft:raw_iron": [0.02, 0.08],
+      "minecraft:raw_copper": [0.005, 0.03],
+      "mekanism:dust_sulfur": [0.01, 0.06]
+    },
+    "fluids": {
+      "minecraft:water": [0.08, 0.35]
+    },
+    "chemicals": {
+      "mekanism:hydrogen": [0.03, 0.14],
+      "mekanism:oxygen": [0.04, 0.18],
+      "mekanism:sulfur_dioxide": [0.005, 0.05]
+    },
+    "traces": {
+      "mekanism:fluorite_gem": [0.0005, 0.004],
+      "mekanism:yellow_cake_uranium": [0.0002, 0.002]
+    }
+  },
+
+  "S": {
+    "analogue": "ordinary_chondrite",
+    "items": {
+      "minecraft:stone": [0.35, 0.65],
+      "minecraft:raw_iron": [0.08, 0.22],
+      "minecraft:raw_copper": [0.01, 0.06],
+      "minecraft:quartz": [0.02, 0.10],
+      "minecraft:redstone": [0.002, 0.02]
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": [0.03, 0.12]
+    },
+    "traces": {
+      "minecraft:diamond": [0.00005, 0.0008],
+      "mekanism:dust_osmium": [0.0005, 0.004]
+    }
+  },
+
+  "M": {
+    "analogue": "iron_nickel_meteorite",
+    "items": {
+      "minecraft:raw_iron": [0.35, 0.70],
+      "minecraft:raw_gold": [0.005, 0.05],
+      "minecraft:redstone": [0.004, 0.03],
+      "mekanism:raw_osmium": [0.003, 0.025]
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": [0.10, 0.35],
+      "mekanism:dirty_gold_slurry": [0.002, 0.025],
+      "mekanism:dirty_osmium_slurry": [0.002, 0.018]
+    },
+    "traces": {
+      "minecraft:diamond": [0.0001, 0.001],
+      "mekanism:pellet_polonium": [0.00001, 0.00008]
+    }
+  },
+
+  "V": {
+    "analogue": "basaltic_achondrite",
+    "items": {
+      "minecraft:basalt": [0.35, 0.65],
+      "minecraft:raw_iron": [0.04, 0.15],
+      "minecraft:quartz": [0.04, 0.14],
+      "minecraft:magma_cream": [0.002, 0.015]
+    },
+    "fluids": {
+      "minecraft:lava": [0.01, 0.06]
+    },
+    "chemicals": {
+      "mekanism:oxygen": [0.04, 0.14]
+    },
+    "traces": {
+      "mekanism:dust_osmium": [0.0003, 0.002]
+    }
+  },
+
+  "D": {
+    "analogue": "organic_rich_outer_belt",
+    "items": {
+      "minecraft:coal": [0.12, 0.30],
+      "minecraft:blackstone": [0.15, 0.40],
+      "mekanism:dust_sulfur": [0.02, 0.08]
+    },
+    "fluids": {
+      "minecraft:water": [0.03, 0.18]
+    },
+    "chemicals": {
+      "mekanism:hydrogen": [0.05, 0.18],
+      "mekanism:ethene": [0.01, 0.06],
+      "mekanism:sulfur_dioxide": [0.01, 0.05]
+    },
+    "traces": {
+      "mekanism:yellow_cake_uranium": [0.0001, 0.001]
+    }
+  },
+
+  "ICY": {
+    "analogue": "cometary_icy_body",
+    "items": {
+      "minecraft:packed_ice": [0.25, 0.65],
+      "minecraft:blue_ice": [0.02, 0.12],
+      "minecraft:coal": [0.01, 0.08]
+    },
+    "fluids": {
+      "minecraft:water": [0.35, 0.80]
+    },
+    "chemicals": {
+      "mekanism:hydrogen": [0.12, 0.35],
+      "mekanism:oxygen": [0.12, 0.35],
+      "mekanism:heavy_water": [0.002, 0.025]
+    },
+    "traces": {
+      "mekanism:pellet_plutonium": [0.000005, 0.00004]
+    }
+  }
+}

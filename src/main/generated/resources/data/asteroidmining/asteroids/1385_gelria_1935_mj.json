@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1385_gelria_1935_mj",
+  "name": "1385 Gelria (1935 MJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 19.526,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 274.1,
+    "eccentricity": 0.1075,
+    "inclination": 6.92,
+    "orbital_speed": 0.1691,
+    "clockwise": true,
+    "angle": 231.072
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 373892,
+      "minecraft:raw_iron": 121563,
+      "minecraft:raw_copper": 9218,
+      "minecraft:quartz": 23087,
+      "minecraft:redstone": 2092,
+      "minecraft:diamond": 308
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 45684
+    }
+  }
+}

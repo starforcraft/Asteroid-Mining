@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:384_burdigala_a894_ca",
+  "name": "384 Burdigala (A894 CA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 34.435,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 265.3,
+    "eccentricity": 0.1454,
+    "inclination": 5.59,
+    "orbital_speed": 0.1719,
+    "clockwise": true,
+    "angle": 105.564
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 898043,
+      "minecraft:raw_iron": 147247,
+      "minecraft:raw_copper": 15891,
+      "minecraft:quartz": 80608,
+      "minecraft:redstone": 6126
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 128419
+    }
+  }
+}

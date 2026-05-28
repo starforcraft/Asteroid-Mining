@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:434_hungaria_a898_rb",
+  "name": "434 Hungaria (A898 RB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 8.934,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 194.4,
+    "eccentricity": 0.0739,
+    "inclination": 22.51,
+    "orbital_speed": 0.2008,
+    "clockwise": true,
+    "angle": 140.964
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 163525,
+      "minecraft:raw_gold": 2814,
+      "minecraft:redstone": 2411,
+      "mekanism:raw_osmium": 2814,
+      "mekanism:pellet_polonium": 13
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 77967,
+      "mekanism:dirty_gold_slurry": 5027,
+      "mekanism:dirty_osmium_slurry": 4090
+    }
+  }
+}

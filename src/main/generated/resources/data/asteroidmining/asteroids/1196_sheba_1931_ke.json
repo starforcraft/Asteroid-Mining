@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1196_sheba_1931_ke",
+  "name": "1196 Sheba (1931 KE)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 25.274,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 265.2,
+    "eccentricity": 0.1804,
+    "inclination": 17.68,
+    "orbital_speed": 0.1719,
+    "clockwise": true,
+    "angle": 162.06
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 525487,
+      "minecraft:raw_gold": 17604,
+      "minecraft:redstone": 4549,
+      "mekanism:raw_osmium": 15483,
+      "mekanism:pellet_polonium": 65
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 272281,
+      "mekanism:dirty_gold_slurry": 13341,
+      "mekanism:dirty_osmium_slurry": 9645
+    }
+  }
+}

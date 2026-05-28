@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:604_tekmessa_a906_dh",
+  "name": "604 Tekmessa (A906 DH)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 64.536,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 315.6,
+    "eccentricity": 0.1919,
+    "inclination": 4.42,
+    "orbital_speed": 0.1576,
+    "clockwise": true,
+    "angle": 117.324
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1355670,
+      "minecraft:raw_gold": 34655,
+      "minecraft:redstone": 38235,
+      "mekanism:raw_osmium": 28507,
+      "mekanism:pellet_polonium": 145
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 699979,
+      "mekanism:dirty_gold_slurry": 70160,
+      "mekanism:dirty_osmium_slurry": 26196
+    }
+  }
+}

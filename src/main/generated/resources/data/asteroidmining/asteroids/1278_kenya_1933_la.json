@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1278_kenya_1933_la",
+  "name": "1278 Kenya (1933 LA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 19.361,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 240.4,
+    "eccentricity": 0.264,
+    "inclination": 10.86,
+    "orbital_speed": 0.1806,
+    "clockwise": true,
+    "angle": 277.716
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 304601,
+      "minecraft:raw_iron": 152328,
+      "minecraft:raw_copper": 26967,
+      "minecraft:quartz": 19370,
+      "minecraft:redstone": 9848,
+      "minecraft:diamond": 124
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 62679
+    }
+  }
+}

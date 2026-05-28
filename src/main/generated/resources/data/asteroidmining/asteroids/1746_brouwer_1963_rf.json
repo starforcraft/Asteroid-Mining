@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1746_brouwer_1963_rf",
+  "name": "1746 Brouwer (1963 RF)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 62.524,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 395.3,
+    "eccentricity": 0.2084,
+    "inclination": 8.36,
+    "orbital_speed": 0.1408,
+    "clockwise": true,
+    "angle": 191.46
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 977500,
+      "minecraft:blackstone": 915123,
+      "mekanism:dust_sulfur": 134860,
+      "mekanism:yellow_cake_uranium": 351
+    },
+    "fluids": {
+      "minecraft:water": 199093736
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 325307,
+      "mekanism:ethene": 68011,
+      "mekanism:sulfur_dioxide": 73536
+    }
+  }
+}

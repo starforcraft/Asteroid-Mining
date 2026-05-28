@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:374_burgundia_a893_sa",
+  "name": "374 Burgundia (A893 SA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 44.67,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 277.9,
+    "eccentricity": 0.0802,
+    "inclination": 8.99,
+    "orbital_speed": 0.168,
+    "clockwise": true,
+    "angle": 170.484
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1225124,
+      "minecraft:raw_iron": 267273,
+      "minecraft:raw_copper": 101989,
+      "minecraft:quartz": 81871,
+      "minecraft:redstone": 35593,
+      "mekanism:dust_osmium": 4166
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 203530
+    }
+  }
+}

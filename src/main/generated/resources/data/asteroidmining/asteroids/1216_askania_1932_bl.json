@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1216_askania_1932_bl",
+  "name": "1216 Askania (1932 BL)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 10.533,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.2,
+    "eccentricity": 0.1797,
+    "inclination": 7.61,
+    "orbital_speed": 0.1874,
+    "clockwise": true,
+    "angle": 32.22
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 94285,
+      "minecraft:raw_iron": 65184,
+      "minecraft:raw_copper": 11907,
+      "minecraft:quartz": 17128,
+      "minecraft:redstone": 880,
+      "minecraft:diamond": 230
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 12217
+    }
+  }
+}

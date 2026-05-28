@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1248_jugurtha_1932_ro",
+  "name": "1248 Jugurtha (1932 RO)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 28.468,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 272.2,
+    "eccentricity": 0.0136,
+    "inclination": 9.14,
+    "orbital_speed": 0.1697,
+    "clockwise": true,
+    "angle": 112.476
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 683879,
+      "minecraft:raw_iron": 105091,
+      "minecraft:raw_copper": 67069,
+      "minecraft:quartz": 66976,
+      "minecraft:redstone": 12068,
+      "minecraft:diamond": 455,
+      "mekanism:dust_osmium": 2763
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 40309
+    }
+  }
+}

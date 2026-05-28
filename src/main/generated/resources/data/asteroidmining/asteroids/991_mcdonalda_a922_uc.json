@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:991_mcdonalda_a922_uc",
+  "name": "991 McDonalda (A922 UC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 38.556,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.6,
+    "eccentricity": 0.1625,
+    "inclination": 2.07,
+    "orbital_speed": 0.1581,
+    "clockwise": true,
+    "angle": 52.92
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 259728,
+      "minecraft:clay_ball": 258456,
+      "minecraft:raw_iron": 45665,
+      "minecraft:raw_copper": 47397,
+      "mekanism:dust_sulfur": 87972,
+      "mekanism:yellow_cake_uranium": 1369
+    },
+    "fluids": {
+      "minecraft:water": 333567322
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 99213,
+      "mekanism:oxygen": 229515,
+      "mekanism:sulfur_dioxide": 76800
+    }
+  }
+}

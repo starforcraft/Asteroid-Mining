@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1255_schilowa_1932_nc",
+  "name": "1255 Schilowa (1932 NC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 33.669,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 314.3,
+    "eccentricity": 0.1738,
+    "inclination": 8.56,
+    "orbital_speed": 0.1579,
+    "clockwise": true,
+    "angle": 355.032
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1029817,
+      "minecraft:raw_gold": 13543,
+      "minecraft:redstone": 7749,
+      "mekanism:raw_osmium": 15218,
+      "mekanism:pellet_polonium": 88
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 283276,
+      "mekanism:dirty_gold_slurry": 34563,
+      "mekanism:dirty_osmium_slurry": 18238
+    }
+  }
+}

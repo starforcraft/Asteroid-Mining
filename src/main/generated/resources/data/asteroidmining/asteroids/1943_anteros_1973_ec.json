@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1943_anteros_1973_ec",
+  "name": "1943 Anteros (1973 EC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 2.3,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 143.1,
+    "eccentricity": 0.2559,
+    "inclination": 8.71,
+    "orbital_speed": 0.2341,
+    "clockwise": true,
+    "angle": 280.536
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 19477,
+      "minecraft:raw_iron": 6726,
+      "minecraft:raw_copper": 1532,
+      "minecraft:quartz": 1520,
+      "minecraft:redstone": 466,
+      "minecraft:diamond": 26,
+      "mekanism:dust_osmium": 135
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 1977
+    }
+  }
+}

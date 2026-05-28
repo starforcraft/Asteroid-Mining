@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1397_umtata_1936_pg",
+  "name": "1397 Umtata (1936 PG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 20.798,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.3,
+    "eccentricity": 0.2537,
+    "inclination": 3.51,
+    "orbital_speed": 0.1709,
+    "clockwise": true,
+    "angle": 81.168
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 397803,
+      "minecraft:raw_iron": 109200,
+      "minecraft:raw_copper": 47055,
+      "minecraft:quartz": 64201,
+      "minecraft:redstone": 13009
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 34772
+    }
+  }
+}

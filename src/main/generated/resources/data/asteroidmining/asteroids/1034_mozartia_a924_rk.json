@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1034_mozartia_a924_rk",
+  "name": "1034 Mozartia (A924 RK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.919,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 229.3,
+    "eccentricity": 0.2628,
+    "inclination": 3.97,
+    "orbital_speed": 0.1849,
+    "clockwise": true,
+    "angle": 205.764
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 63924,
+      "minecraft:raw_iron": 24219,
+      "minecraft:raw_copper": 10009,
+      "minecraft:quartz": 4763,
+      "minecraft:redstone": 1528
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 5502
+    }
+  }
+}

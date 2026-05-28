@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:987_wallia_a922_ub",
+  "name": "987 Wallia (A922 UB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 52.651,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.5,
+    "eccentricity": 0.238,
+    "inclination": 8.91,
+    "orbital_speed": 0.1581,
+    "clockwise": true,
+    "angle": 222.888
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 471584,
+      "minecraft:clay_ball": 243420,
+      "minecraft:raw_iron": 55926,
+      "minecraft:raw_copper": 53443,
+      "mekanism:dust_sulfur": 83761,
+      "mekanism:yellow_cake_uranium": 1418
+    },
+    "fluids": {
+      "minecraft:water": 293218681
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 131597,
+      "mekanism:oxygen": 149407,
+      "mekanism:sulfur_dioxide": 64386
+    }
+  }
+}

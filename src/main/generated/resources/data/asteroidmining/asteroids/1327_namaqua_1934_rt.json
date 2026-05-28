@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1327_namaqua_1934_rt",
+  "name": "1327 Namaqua (1934 RT)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 22.318,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 277.9,
+    "eccentricity": 0.1628,
+    "inclination": 5.82,
+    "orbital_speed": 0.168,
+    "clockwise": true,
+    "angle": 175.608
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 300118,
+      "minecraft:raw_gold": 32398,
+      "minecraft:redstone": 10434,
+      "mekanism:raw_osmium": 17420,
+      "minecraft:diamond": 739
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 201187,
+      "mekanism:dirty_gold_slurry": 10802,
+      "mekanism:dirty_osmium_slurry": 12658
+    }
+  }
+}

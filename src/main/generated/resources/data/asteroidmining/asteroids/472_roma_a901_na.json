@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:472_roma_a901_na",
+  "name": "472 Roma (A901 NA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 50.278,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.3,
+    "eccentricity": 0.0955,
+    "inclination": 15.82,
+    "orbital_speed": 0.1756,
+    "clockwise": true,
+    "angle": 326.268
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1162904,
+      "minecraft:raw_iron": 371017,
+      "minecraft:raw_copper": 97590,
+      "minecraft:quartz": 127411,
+      "minecraft:redstone": 15333,
+      "mekanism:dust_osmium": 1534
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 103762
+    }
+  }
+}

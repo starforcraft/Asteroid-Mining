@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:801_helwerthia_a915_fh",
+  "name": "801 Helwerthia (A915 FH)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 32.404,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 260.5,
+    "eccentricity": 0.0768,
+    "inclination": 14.14,
+    "orbital_speed": 0.1735,
+    "clockwise": true,
+    "angle": 206.4
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 519486,
+      "minecraft:raw_gold": 30488,
+      "minecraft:redstone": 29567,
+      "mekanism:raw_osmium": 20812
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 314946,
+      "mekanism:dirty_gold_slurry": 5282,
+      "mekanism:dirty_osmium_slurry": 4232
+    }
+  }
+}

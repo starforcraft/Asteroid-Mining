@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:485_genua_a902_jc",
+  "name": "485 Genua (A902 JC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 63.88,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 275.1,
+    "eccentricity": 0.1894,
+    "inclination": 13.87,
+    "orbital_speed": 0.1688,
+    "clockwise": true,
+    "angle": 313.872
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1727165,
+      "minecraft:raw_iron": 297427,
+      "minecraft:raw_copper": 80410,
+      "minecraft:quartz": 303898,
+      "minecraft:redstone": 40665,
+      "minecraft:diamond": 2184,
+      "mekanism:dust_osmium": 5533
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 116230
+    }
+  }
+}

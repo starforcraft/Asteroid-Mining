@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:29_amphitrite_a854_eb",
+  "name": "29 Amphitrite (A854 EB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 189.559,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 255.4,
+    "eccentricity": 0.0734,
+    "inclination": 6.08,
+    "orbital_speed": 0.1752,
+    "clockwise": true,
+    "angle": 250.224
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 3008015,
+      "minecraft:raw_iron": 649491,
+      "minecraft:raw_copper": 327295,
+      "minecraft:quartz": 437080,
+      "minecraft:redstone": 109927
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 711435
+    }
+  }
+}

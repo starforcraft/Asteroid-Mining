@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1631_kopff_1936_uc",
+  "name": "1631 Kopff (1936 UC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.636,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.5,
+    "eccentricity": 0.214,
+    "inclination": 7.49,
+    "orbital_speed": 0.1873,
+    "clockwise": true,
+    "angle": 218.04
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 101870,
+      "minecraft:raw_iron": 20185,
+      "minecraft:raw_copper": 9306,
+      "minecraft:quartz": 11957,
+      "minecraft:redstone": 2396
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 16281
+    }
+  }
+}

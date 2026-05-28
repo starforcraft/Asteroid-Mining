@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1424_sundmania_1937_aj",
+  "name": "1424 Sundmania (1937 AJ)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 64.691,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.0,
+    "eccentricity": 0.0556,
+    "inclination": 9.16,
+    "orbital_speed": 0.1568,
+    "clockwise": true,
+    "angle": 193.884
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1296377,
+      "minecraft:raw_gold": 101530,
+      "minecraft:redstone": 99793,
+      "mekanism:raw_osmium": 29509
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 424138,
+      "mekanism:dirty_gold_slurry": 60036,
+      "mekanism:dirty_osmium_slurry": 14735
+    }
+  }
+}

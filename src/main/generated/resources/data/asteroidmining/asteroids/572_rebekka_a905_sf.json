@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:572_rebekka_a905_sf",
+  "name": "572 Rebekka (A905 SF)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 28.903,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 240.1,
+    "eccentricity": 0.1573,
+    "inclination": 10.58,
+    "orbital_speed": 0.1807,
+    "clockwise": true,
+    "angle": 37.068
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 452793,
+      "minecraft:raw_gold": 22896,
+      "minecraft:redstone": 7587,
+      "mekanism:raw_osmium": 12371,
+      "minecraft:diamond": 622
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 165825,
+      "mekanism:dirty_gold_slurry": 29433,
+      "mekanism:dirty_osmium_slurry": 7162
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1660_wood_1953_ga",
+  "name": "1660 Wood (1953 GA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.342,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 239.5,
+    "eccentricity": 0.3008,
+    "inclination": 20.6,
+    "orbital_speed": 0.1809,
+    "clockwise": true,
+    "angle": 245.772
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 152643,
+      "minecraft:raw_iron": 60349,
+      "minecraft:raw_copper": 13552,
+      "minecraft:quartz": 9067,
+      "minecraft:redstone": 5333,
+      "minecraft:diamond": 177
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 19638
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:827_wolfiana_a916_qg",
+  "name": "827 Wolfiana (A916 QG)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 8.488,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 227.5,
+    "eccentricity": 0.1564,
+    "inclination": 3.42,
+    "orbital_speed": 0.1856,
+    "clockwise": true,
+    "angle": 181.608
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 29088,
+      "minecraft:clay_ball": 33519,
+      "minecraft:raw_iron": 16264,
+      "minecraft:raw_copper": 6410,
+      "mekanism:dust_sulfur": 4162,
+      "mekanism:fluorite_gem": 340
+    },
+    "fluids": {
+      "minecraft:water": 68224987
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 11805,
+      "mekanism:oxygen": 22428,
+      "mekanism:sulfur_dioxide": 7487
+    }
+  }
+}

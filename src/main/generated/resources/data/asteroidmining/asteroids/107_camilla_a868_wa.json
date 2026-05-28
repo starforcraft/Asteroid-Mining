@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:107_camilla_a868_wa",
+  "name": "107 Camilla (A868 WA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 210.37,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 349.3,
+    "eccentricity": 0.0665,
+    "inclination": 10.0,
+    "orbital_speed": 0.1498,
+    "clockwise": true,
+    "angle": 175.848
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 972259,
+      "minecraft:clay_ball": 892286,
+      "minecraft:raw_iron": 425629,
+      "minecraft:raw_copper": 48271,
+      "mekanism:dust_sulfur": 125702,
+      "mekanism:yellow_cake_uranium": 10746
+    },
+    "fluids": {
+      "minecraft:water": 1277359012
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 417573,
+      "mekanism:oxygen": 806992,
+      "mekanism:sulfur_dioxide": 43845
+    }
+  }
+}

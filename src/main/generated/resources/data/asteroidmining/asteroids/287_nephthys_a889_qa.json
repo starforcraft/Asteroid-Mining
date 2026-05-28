@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:287_nephthys_a889_qa",
+  "name": "287 Nephthys (A889 QA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 59.615,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 235.3,
+    "eccentricity": 0.0237,
+    "inclination": 10.03,
+    "orbital_speed": 0.1825,
+    "clockwise": true,
+    "angle": 87.288
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1244023,
+      "minecraft:raw_iron": 455319,
+      "minecraft:raw_copper": 63527,
+      "minecraft:quartz": 205585,
+      "minecraft:redstone": 26079,
+      "minecraft:diamond": 487,
+      "mekanism:dust_osmium": 1846
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 304066
+    }
+  }
+}

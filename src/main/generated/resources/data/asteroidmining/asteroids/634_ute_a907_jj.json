@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:634_ute_a907_jj",
+  "name": "634 Ute (A907 JJ)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 74.017,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 304.9,
+    "eccentricity": 0.1805,
+    "inclination": 12.29,
+    "orbital_speed": 0.1604,
+    "clockwise": true,
+    "angle": 282.564
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2074447,
+      "minecraft:raw_gold": 171152,
+      "minecraft:redstone": 94337,
+      "mekanism:raw_osmium": 14229
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1245644,
+      "mekanism:dirty_gold_slurry": 12598,
+      "mekanism:dirty_osmium_slurry": 24943
+    }
+  }
+}

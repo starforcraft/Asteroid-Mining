@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1808_bellerophon_2517_p_l",
+  "name": "1808 Bellerophon (2517 P-L)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 15.21,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 274.6,
+    "eccentricity": 0.1812,
+    "inclination": 2.02,
+    "orbital_speed": 0.169,
+    "clockwise": true,
+    "angle": 76.956
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 194266,
+      "minecraft:raw_iron": 69635,
+      "minecraft:raw_copper": 27310,
+      "minecraft:quartz": 22867,
+      "minecraft:redstone": 2456,
+      "minecraft:diamond": 171,
+      "mekanism:dust_osmium": 1469
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 56868
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:759_vinifera_a913_qc",
+  "name": "759 Vinifera (A913 QC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 52.926,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 261.7,
+    "eccentricity": 0.207,
+    "inclination": 19.93,
+    "orbital_speed": 0.1731,
+    "clockwise": true,
+    "angle": 191.064
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 782811,
+      "minecraft:raw_gold": 149380,
+      "minecraft:redstone": 17685,
+      "mekanism:raw_osmium": 42926
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 408374,
+      "mekanism:dirty_gold_slurry": 13204,
+      "mekanism:dirty_osmium_slurry": 37573
+    }
+  }
+}

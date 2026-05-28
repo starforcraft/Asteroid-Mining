@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:483_seppina_a902_ej",
+  "name": "483 Seppina (A902 EJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 66.858,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 342.4,
+    "eccentricity": 0.0501,
+    "inclination": 18.76,
+    "orbital_speed": 0.1513,
+    "clockwise": true,
+    "angle": 38.856
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1496968,
+      "minecraft:raw_iron": 527673,
+      "minecraft:raw_copper": 174452,
+      "minecraft:quartz": 244193,
+      "minecraft:redstone": 53686
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 400611
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1276_ucclia_1933_ba",
+  "name": "1276 Ucclia (1933 BA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 36.499,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.9,
+    "eccentricity": 0.0911,
+    "inclination": 23.28,
+    "orbital_speed": 0.157,
+    "clockwise": true,
+    "angle": 2.7
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 336963,
+      "minecraft:clay_ball": 157523,
+      "minecraft:raw_iron": 75342,
+      "minecraft:raw_copper": 41199,
+      "mekanism:dust_sulfur": 69675,
+      "mekanism:fluorite_gem": 3424
+    },
+    "fluids": {
+      "minecraft:water": 480018325
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 81408,
+      "mekanism:oxygen": 84797,
+      "mekanism:sulfur_dioxide": 17831
+    }
+  }
+}

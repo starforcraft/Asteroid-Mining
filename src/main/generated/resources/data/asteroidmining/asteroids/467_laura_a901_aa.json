@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:467_laura_a901_aa",
+  "name": "467 Laura (A901 AA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 39.471,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 294.5,
+    "eccentricity": 0.1067,
+    "inclination": 6.45,
+    "orbital_speed": 0.1632,
+    "clockwise": true,
+    "angle": 358.728
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1045967,
+      "minecraft:raw_iron": 341511,
+      "minecraft:raw_copper": 42197,
+      "minecraft:quartz": 52989,
+      "minecraft:redstone": 20734
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 170963
+    }
+  }
+}

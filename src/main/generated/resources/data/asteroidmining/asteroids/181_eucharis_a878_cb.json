@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:181_eucharis_a878_cb",
+  "name": "181 Eucharis (A878 CB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 115.383,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.4,
+    "eccentricity": 0.2084,
+    "inclination": 18.9,
+    "orbital_speed": 0.1584,
+    "clockwise": true,
+    "angle": 271.44
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 3936598,
+      "minecraft:raw_iron": 1106434,
+      "minecraft:raw_copper": 184681,
+      "minecraft:quartz": 587565,
+      "minecraft:redstone": 131765,
+      "mekanism:dust_osmium": 18798
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 464911
+    }
+  }
+}

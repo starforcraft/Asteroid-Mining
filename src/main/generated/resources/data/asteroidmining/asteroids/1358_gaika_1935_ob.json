@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1358_gaika_1935_ob",
+  "name": "1358 Gaika (1935 OB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 22.183,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 247.7,
+    "eccentricity": 0.1652,
+    "inclination": 2.17,
+    "orbital_speed": 0.1779,
+    "clockwise": true,
+    "angle": 118.356
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 312390,
+      "minecraft:raw_iron": 152817,
+      "minecraft:raw_copper": 41234,
+      "minecraft:quartz": 45172,
+      "minecraft:redstone": 4505
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 39148
+    }
+  }
+}

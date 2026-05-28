@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:212_medea_a880_ca",
+  "name": "212 Medea (A880 CA)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 136.12,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.7,
+    "eccentricity": 0.1029,
+    "inclination": 4.28,
+    "orbital_speed": 0.1586,
+    "clockwise": true,
+    "angle": 214.188
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1695175,
+      "minecraft:blackstone": 2443402,
+      "mekanism:dust_sulfur": 161206
+    },
+    "fluids": {
+      "minecraft:water": 677878861
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 1092051,
+      "mekanism:ethene": 294913,
+      "mekanism:sulfur_dioxide": 315451
+    }
+  }
+}

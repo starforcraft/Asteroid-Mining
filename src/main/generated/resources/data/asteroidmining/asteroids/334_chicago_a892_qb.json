@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:334_chicago_a892_qb",
+  "name": "334 Chicago (A892 QB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 198.77,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 394.7,
+    "eccentricity": 0.025,
+    "inclination": 4.69,
+    "orbital_speed": 0.1409,
+    "clockwise": true,
+    "angle": 70.164
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1358687,
+      "minecraft:clay_ball": 1007976,
+      "minecraft:raw_iron": 472346,
+      "minecraft:raw_copper": 37438,
+      "mekanism:dust_sulfur": 435071,
+      "mekanism:fluorite_gem": 23933
+    },
+    "fluids": {
+      "minecraft:water": 2233413373
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 914887,
+      "mekanism:oxygen": 677955,
+      "mekanism:sulfur_dioxide": 107541
+    }
+  }
+}

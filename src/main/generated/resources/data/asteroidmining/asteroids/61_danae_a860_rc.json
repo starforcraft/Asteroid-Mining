@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:61_danae_a860_rc",
+  "name": "61 Danae (A860 RC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 85.937,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 298.5,
+    "eccentricity": 0.1638,
+    "inclination": 18.21,
+    "orbital_speed": 0.1621,
+    "clockwise": true,
+    "angle": 330.48
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2584453,
+      "minecraft:raw_iron": 784224,
+      "minecraft:raw_copper": 186139,
+      "minecraft:quartz": 208895,
+      "minecraft:redstone": 44457
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 422752
+    }
+  }
+}

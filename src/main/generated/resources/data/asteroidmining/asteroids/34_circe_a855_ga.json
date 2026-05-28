@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:34_circe_a855_ga",
+  "name": "34 Circe (A855 GA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 132.992,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.8,
+    "eccentricity": 0.1068,
+    "inclination": 5.5,
+    "orbital_speed": 0.1708,
+    "clockwise": true,
+    "angle": 217.764
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 705628,
+      "minecraft:clay_ball": 1203097,
+      "minecraft:raw_iron": 604832,
+      "minecraft:raw_copper": 153590,
+      "mekanism:dust_sulfur": 121641,
+      "mekanism:fluorite_gem": 7400,
+      "mekanism:yellow_cake_uranium": 12611
+    },
+    "fluids": {
+      "minecraft:water": 692798173
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 690568,
+      "mekanism:oxygen": 803877,
+      "mekanism:sulfur_dioxide": 172221
+    }
+  }
+}

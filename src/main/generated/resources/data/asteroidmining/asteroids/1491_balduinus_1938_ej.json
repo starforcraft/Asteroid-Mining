@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1491_balduinus_1938_ej",
+  "name": "1491 Balduinus (1938 EJ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 21.941,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 324.1,
+    "eccentricity": 0.1277,
+    "inclination": 3.64,
+    "orbital_speed": 0.1555,
+    "clockwise": true,
+    "angle": 46.92
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 168004,
+      "minecraft:clay_ball": 72031,
+      "minecraft:raw_iron": 53007,
+      "minecraft:raw_copper": 12490,
+      "mekanism:dust_sulfur": 17959,
+      "mekanism:yellow_cake_uranium": 620
+    },
+    "fluids": {
+      "minecraft:water": 105868418
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 59218,
+      "mekanism:oxygen": 58822,
+      "mekanism:sulfur_dioxide": 9067
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1270_datura_1930_ye",
+  "name": "1270 Datura (1930 YE)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 8.203,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.4,
+    "eccentricity": 0.2084,
+    "inclination": 5.99,
+    "orbital_speed": 0.1873,
+    "clockwise": true,
+    "angle": 257.652
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 39677,
+      "minecraft:clay_ball": 31311,
+      "minecraft:raw_iron": 12299,
+      "minecraft:raw_copper": 3690,
+      "mekanism:dust_sulfur": 7303,
+      "mekanism:yellow_cake_uranium": 119
+    },
+    "fluids": {
+      "minecraft:water": 41513854
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 13802,
+      "mekanism:oxygen": 12702,
+      "mekanism:sulfur_dioxide": 10167
+    }
+  }
+}

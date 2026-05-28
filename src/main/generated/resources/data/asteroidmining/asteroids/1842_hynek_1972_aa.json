@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1842_hynek_1972_aa",
+  "name": "1842 Hynek (1972 AA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.996,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 226.6,
+    "eccentricity": 0.1807,
+    "inclination": 5.36,
+    "orbital_speed": 0.186,
+    "clockwise": true,
+    "angle": 72.228
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 117116,
+      "minecraft:raw_iron": 18044,
+      "minecraft:raw_copper": 7817,
+      "minecraft:quartz": 3509,
+      "minecraft:redstone": 2178
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 6649
+    }
+  }
+}

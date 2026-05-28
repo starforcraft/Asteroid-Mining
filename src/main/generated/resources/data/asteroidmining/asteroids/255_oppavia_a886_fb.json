@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:255_oppavia_a886_fb",
+  "name": "255 Oppavia (A886 FB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 56.939,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 274.7,
+    "eccentricity": 0.079,
+    "inclination": 9.46,
+    "orbital_speed": 0.1689,
+    "clockwise": true,
+    "angle": 7.032
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1259833,
+      "minecraft:raw_gold": 51940,
+      "minecraft:redstone": 74780,
+      "mekanism:raw_osmium": 32715
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 466426,
+      "mekanism:dirty_gold_slurry": 51526,
+      "mekanism:dirty_osmium_slurry": 17489
+    }
+  }
+}

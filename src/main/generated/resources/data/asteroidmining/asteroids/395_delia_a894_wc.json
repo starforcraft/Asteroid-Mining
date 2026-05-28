@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:395_delia_a894_wc",
+  "name": "395 Delia (A894 WC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 44.189,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 278.8,
+    "eccentricity": 0.0834,
+    "inclination": 3.35,
+    "orbital_speed": 0.1677,
+    "clockwise": true,
+    "angle": 178.152
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 387293,
+      "minecraft:clay_ball": 186400,
+      "minecraft:raw_iron": 122779,
+      "minecraft:raw_copper": 25803,
+      "mekanism:dust_sulfur": 97356,
+      "mekanism:yellow_cake_uranium": 1370
+    },
+    "fluids": {
+      "minecraft:water": 514608981
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 141853,
+      "mekanism:oxygen": 311985,
+      "mekanism:sulfur_dioxide": 60497
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:980_anacostia_a921_wg",
+  "name": "980 Anacostia (A921 WG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 74.679,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 274.1,
+    "eccentricity": 0.2016,
+    "inclination": 15.9,
+    "orbital_speed": 0.1691,
+    "clockwise": true,
+    "angle": 340.332
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1678292,
+      "minecraft:raw_iron": 694626,
+      "minecraft:raw_copper": 163926,
+      "minecraft:quartz": 146282,
+      "minecraft:redstone": 27390
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 349594
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1915_quetzalcoatl_1953_ea",
+  "name": "1915 Quetzalcoatl (1953 EA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 0.5,
+  "game_diameter": 2,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.5,
+    "eccentricity": 0.5702,
+    "inclination": 20.4,
+    "orbital_speed": 0.1755,
+    "clockwise": true,
+    "angle": 30.312
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2180,
+      "minecraft:raw_iron": 1021,
+      "minecraft:raw_copper": 136,
+      "minecraft:quartz": 267,
+      "minecraft:redstone": 90,
+      "minecraft:diamond": 2
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 262
+    }
+  }
+}

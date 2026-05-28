@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:311_claudia_a891_la",
+  "name": "311 Claudia (A891 LA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 26.3,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 289.7,
+    "eccentricity": 0.0064,
+    "inclination": 3.22,
+    "orbital_speed": 0.1645,
+    "clockwise": true,
+    "angle": 147.48
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 563582,
+      "minecraft:raw_iron": 196517,
+      "minecraft:raw_copper": 32813,
+      "minecraft:quartz": 44357,
+      "minecraft:redstone": 10357
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 71563
+    }
+  }
+}

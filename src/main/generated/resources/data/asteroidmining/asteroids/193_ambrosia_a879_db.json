@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:193_ambrosia_a879_db",
+  "name": "193 Ambrosia (A879 DB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 26.302,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 259.9,
+    "eccentricity": 0.2984,
+    "inclination": 12.0,
+    "orbital_speed": 0.1737,
+    "clockwise": true,
+    "angle": 121.536
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 336165,
+      "minecraft:raw_iron": 136074,
+      "minecraft:raw_copper": 13171,
+      "minecraft:quartz": 45460,
+      "minecraft:redstone": 9009
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 99733
+    }
+  }
+}

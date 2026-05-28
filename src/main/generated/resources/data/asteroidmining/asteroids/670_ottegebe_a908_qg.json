@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:670_ottegebe_a908_qg",
+  "name": "670 Ottegebe (A908 QG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 35.886,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 280.5,
+    "eccentricity": 0.1916,
+    "inclination": 7.54,
+    "orbital_speed": 0.1672,
+    "clockwise": true,
+    "angle": 192.852
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 857946,
+      "minecraft:raw_iron": 119131,
+      "minecraft:raw_copper": 25175,
+      "minecraft:quartz": 52930,
+      "minecraft:redstone": 4779
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 148193
+    }
+  }
+}

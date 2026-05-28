@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:442_eichsfeldia_a899_ca",
+  "name": "442 Eichsfeldia (A899 CA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 62.171,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 234.6,
+    "eccentricity": 0.0707,
+    "inclination": 6.07,
+    "orbital_speed": 0.1828,
+    "clockwise": true,
+    "angle": 161.028
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 477301,
+      "minecraft:clay_ball": 577036,
+      "minecraft:raw_iron": 218181,
+      "minecraft:raw_copper": 15355,
+      "mekanism:dust_sulfur": 37904,
+      "mekanism:fluorite_gem": 4986
+    },
+    "fluids": {
+      "minecraft:water": 1017536386
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 295610,
+      "mekanism:oxygen": 430188,
+      "mekanism:sulfur_dioxide": 64456
+    }
+  }
+}

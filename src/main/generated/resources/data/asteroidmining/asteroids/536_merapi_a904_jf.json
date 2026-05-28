@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:536_merapi_a904_jf",
+  "name": "536 Merapi (A904 JF)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 147.066,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 350.7,
+    "eccentricity": 0.0901,
+    "inclination": 19.39,
+    "orbital_speed": 0.1495,
+    "clockwise": true,
+    "angle": 126.78
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 4460123,
+      "minecraft:raw_gold": 238940,
+      "minecraft:redstone": 90745,
+      "mekanism:raw_osmium": 40725,
+      "mekanism:pellet_polonium": 76
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 747433,
+      "mekanism:dirty_gold_slurry": 34122,
+      "mekanism:dirty_osmium_slurry": 50322
+    }
+  }
+}

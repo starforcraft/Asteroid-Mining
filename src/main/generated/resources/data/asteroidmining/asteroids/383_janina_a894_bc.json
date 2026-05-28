@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:383_janina_a894_bc",
+  "name": "383 Janina (A894 BC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 43.482,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.7,
+    "eccentricity": 0.1686,
+    "inclination": 2.66,
+    "orbital_speed": 0.1581,
+    "clockwise": true,
+    "angle": 328.056
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 294802,
+      "minecraft:clay_ball": 289120,
+      "minecraft:raw_iron": 37598,
+      "minecraft:raw_copper": 10029,
+      "mekanism:dust_sulfur": 63595,
+      "mekanism:yellow_cake_uranium": 2423
+    },
+    "fluids": {
+      "minecraft:water": 224416534
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 236210,
+      "mekanism:oxygen": 89507,
+      "mekanism:sulfur_dioxide": 15458
+    }
+  }
+}

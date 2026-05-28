@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1871_astyanax_1971_ff",
+  "name": "1871 Astyanax (1971 FF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 27.828,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 521.8,
+    "eccentricity": 0.0331,
+    "inclination": 8.61,
+    "orbital_speed": 0.1226,
+    "clockwise": true,
+    "angle": 99.96
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 161117,
+      "minecraft:clay_ball": 170017,
+      "minecraft:raw_iron": 39989,
+      "minecraft:raw_copper": 8881,
+      "mekanism:dust_sulfur": 44760,
+      "mekanism:yellow_cake_uranium": 974
+    },
+    "fluids": {
+      "minecraft:water": 141489478
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 53331,
+      "mekanism:oxygen": 79202,
+      "mekanism:sulfur_dioxide": 32628
+    }
+  }
+}

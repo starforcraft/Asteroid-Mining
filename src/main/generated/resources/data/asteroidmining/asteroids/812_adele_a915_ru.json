@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:812_adele_a915_ru",
+  "name": "812 Adele (A915 RU)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 12.356,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 265.9,
+    "eccentricity": 0.1665,
+    "inclination": 13.3,
+    "orbital_speed": 0.1717,
+    "clockwise": true,
+    "angle": 278.988
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 205622,
+      "minecraft:raw_gold": 15776,
+      "minecraft:redstone": 10072,
+      "mekanism:raw_osmium": 2521
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 58683,
+      "mekanism:dirty_gold_slurry": 1159,
+      "mekanism:dirty_osmium_slurry": 3809
+    }
+  }
+}

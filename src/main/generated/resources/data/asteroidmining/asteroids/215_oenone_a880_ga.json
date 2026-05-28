@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:215_oenone_a880_ga",
+  "name": "215 Oenone (A880 GA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 35.21,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 276.8,
+    "eccentricity": 0.0338,
+    "inclination": 1.68,
+    "orbital_speed": 0.1683,
+    "clockwise": true,
+    "angle": 266.712
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 978223,
+      "minecraft:raw_iron": 279837,
+      "minecraft:raw_copper": 61946,
+      "minecraft:quartz": 128574,
+      "minecraft:redstone": 16654,
+      "minecraft:diamond": 969,
+      "mekanism:dust_osmium": 1575
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 119883
+    }
+  }
+}

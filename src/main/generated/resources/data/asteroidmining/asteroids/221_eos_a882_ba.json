@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:221_eos_a882_ba",
+  "name": "221 Eos (A882 BA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 95.469,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.3,
+    "eccentricity": 0.1011,
+    "inclination": 10.89,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 11.76
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2335460,
+      "minecraft:raw_iron": 461950,
+      "minecraft:raw_copper": 78898,
+      "minecraft:quartz": 393979,
+      "minecraft:redstone": 82426,
+      "minecraft:diamond": 1066
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 463424
+    }
+  }
+}

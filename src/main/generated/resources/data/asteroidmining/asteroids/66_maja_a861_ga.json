@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:66_maja_a861_ga",
+  "name": "66 Maja (A861 GA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 71.82,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 264.7,
+    "eccentricity": 0.1721,
+    "inclination": 3.04,
+    "orbital_speed": 0.1721,
+    "clockwise": true,
+    "angle": 298.02
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 590377,
+      "minecraft:clay_ball": 760179,
+      "minecraft:raw_iron": 197886,
+      "minecraft:raw_copper": 81293,
+      "mekanism:dust_sulfur": 70347,
+      "mekanism:fluorite_gem": 3961
+    },
+    "fluids": {
+      "minecraft:water": 1029960704
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 275706,
+      "mekanism:oxygen": 232130,
+      "mekanism:sulfur_dioxide": 38186
+    }
+  }
+}

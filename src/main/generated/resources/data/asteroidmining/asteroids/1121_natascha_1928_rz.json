@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1121_natascha_1928_rz",
+  "name": "1121 Natascha (1928 RZ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.859,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.8,
+    "eccentricity": 0.1567,
+    "inclination": 6.16,
+    "orbital_speed": 0.1754,
+    "clockwise": true,
+    "angle": 288.96
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 246171,
+      "minecraft:raw_iron": 56410,
+      "minecraft:raw_copper": 8828,
+      "minecraft:quartz": 30676,
+      "minecraft:redstone": 5392,
+      "minecraft:diamond": 234,
+      "mekanism:dust_osmium": 1091
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 44116
+    }
+  }
+}

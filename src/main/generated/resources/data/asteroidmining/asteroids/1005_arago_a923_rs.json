@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1005_arago_a923_rs",
+  "name": "1005 Arago (A923 RS)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 61.132,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.4,
+    "eccentricity": 0.12,
+    "inclination": 19.06,
+    "orbital_speed": 0.1574,
+    "clockwise": true,
+    "angle": 178.032
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1810630,
+      "minecraft:raw_iron": 473579,
+      "minecraft:raw_copper": 159429,
+      "minecraft:quartz": 151219,
+      "minecraft:redstone": 10754,
+      "mekanism:dust_osmium": 8264
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 200698
+    }
+  }
+}

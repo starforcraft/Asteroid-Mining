@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1268_libya_1930_hj",
+  "name": "1268 Libya (1930 HJ)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 96.71,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 398.5,
+    "eccentricity": 0.1039,
+    "inclination": 4.42,
+    "orbital_speed": 0.1403,
+    "clockwise": true,
+    "angle": 342.636
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1260950,
+      "minecraft:blackstone": 975223,
+      "mekanism:dust_sulfur": 358891,
+      "mekanism:yellow_cake_uranium": 2583
+    },
+    "fluids": {
+      "minecraft:water": 936991860
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 808878,
+      "mekanism:ethene": 159778,
+      "mekanism:sulfur_dioxide": 75629
+    }
+  }
+}

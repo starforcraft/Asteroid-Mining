@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:600_musa_a906_la",
+  "name": "600 Musa (A906 LA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 25.115,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 266.2,
+    "eccentricity": 0.0536,
+    "inclination": 10.21,
+    "orbital_speed": 0.1716,
+    "clockwise": true,
+    "angle": 287.292
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 348515,
+      "minecraft:raw_iron": 226193,
+      "minecraft:raw_copper": 13985,
+      "minecraft:quartz": 82872,
+      "minecraft:redstone": 3462
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 57961
+    }
+  }
+}

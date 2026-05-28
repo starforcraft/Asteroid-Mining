@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1630_milet_1952_da",
+  "name": "1630 Milet (1952 DA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 19.168,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 303.3,
+    "eccentricity": 0.1663,
+    "inclination": 4.53,
+    "orbital_speed": 0.1608,
+    "clockwise": true,
+    "angle": 80.532
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 290288,
+      "minecraft:raw_gold": 20894,
+      "minecraft:redstone": 21300,
+      "mekanism:raw_osmium": 8256
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 70626,
+      "mekanism:dirty_gold_slurry": 6263,
+      "mekanism:dirty_osmium_slurry": 3497
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1893_jakoba_1971_ud",
+  "name": "1893 Jakoba (1971 UD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 12.585,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 270.9,
+    "eccentricity": 0.053,
+    "inclination": 10.03,
+    "orbital_speed": 0.1701,
+    "clockwise": true,
+    "angle": 245.136
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 49987,
+      "minecraft:clay_ball": 37057,
+      "minecraft:raw_iron": 31936,
+      "minecraft:raw_copper": 7203,
+      "mekanism:dust_sulfur": 4934,
+      "mekanism:fluorite_gem": 1624
+    },
+    "fluids": {
+      "minecraft:water": 88090309
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 40128,
+      "mekanism:oxygen": 51717,
+      "mekanism:sulfur_dioxide": 3705
+    }
+  }
+}

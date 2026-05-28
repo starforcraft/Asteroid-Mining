@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1077_campanula_1926_tk",
+  "name": "1077 Campanula (1926 TK)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 9.709,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 239.3,
+    "eccentricity": 0.1972,
+    "inclination": 5.39,
+    "orbital_speed": 0.181,
+    "clockwise": true,
+    "angle": 358.608
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 60462,
+      "minecraft:blackstone": 45991,
+      "mekanism:dust_sulfur": 9979,
+      "mekanism:yellow_cake_uranium": 211
+    },
+    "fluids": {
+      "minecraft:water": 8753486
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 40815,
+      "mekanism:ethene": 8088,
+      "mekanism:sulfur_dioxide": 6614
+    }
+  }
+}

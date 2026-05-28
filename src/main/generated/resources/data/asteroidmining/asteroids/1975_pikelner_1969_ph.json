@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1975_pikelner_1969_ph",
+  "name": "1975 Pikelner (1969 PH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 14.737,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 280.3,
+    "eccentricity": 0.1161,
+    "inclination": 6.31,
+    "orbital_speed": 0.1672,
+    "clockwise": true,
+    "angle": 0.792
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 154039,
+      "minecraft:raw_iron": 97774,
+      "minecraft:raw_copper": 21491,
+      "minecraft:quartz": 30689,
+      "minecraft:redstone": 8247,
+      "mekanism:dust_osmium": 1469
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 31389
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:87_sylvia_a866_ka",
+  "name": "87 Sylvia (A866 KA)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 253.051,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 348.5,
+    "eccentricity": 0.0943,
+    "inclination": 10.87,
+    "orbital_speed": 0.15,
+    "clockwise": true,
+    "angle": 305.688
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1719408,
+      "minecraft:blackstone": 2496156,
+      "mekanism:dust_sulfur": 674411
+    },
+    "fluids": {
+      "minecraft:water": 569884722
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 570020,
+      "mekanism:ethene": 451897,
+      "mekanism:sulfur_dioxide": 269839
+    }
+  }
+}

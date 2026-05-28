@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1389_onnie_1935_ss1",
+  "name": "1389 Onnie (1935 SS1)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 13.772,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 286.6,
+    "eccentricity": 0.0111,
+    "inclination": 2.05,
+    "orbital_speed": 0.1654,
+    "clockwise": true,
+    "angle": 61.104
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 263101,
+      "minecraft:raw_gold": 11060,
+      "minecraft:redstone": 7704,
+      "mekanism:raw_osmium": 8731,
+      "mekanism:pellet_polonium": 6
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 82409,
+      "mekanism:dirty_gold_slurry": 2614,
+      "mekanism:dirty_osmium_slurry": 4878
+    }
+  }
+}

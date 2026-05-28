@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:250_bettina_a885_ra",
+  "name": "250 Bettina (A885 RA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 120.995,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 314.1,
+    "eccentricity": 0.137,
+    "inclination": 12.82,
+    "orbital_speed": 0.158,
+    "clockwise": true,
+    "angle": 39.492
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2909709,
+      "minecraft:raw_gold": 359812,
+      "minecraft:redstone": 172405,
+      "mekanism:raw_osmium": 120508,
+      "mekanism:pellet_polonium": 443
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1620250,
+      "mekanism:dirty_gold_slurry": 133424,
+      "mekanism:dirty_osmium_slurry": 147898
+    }
+  }
+}

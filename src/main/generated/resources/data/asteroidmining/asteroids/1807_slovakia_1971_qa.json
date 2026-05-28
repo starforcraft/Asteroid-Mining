@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1807_slovakia_1971_qa",
+  "name": "1807 Slovakia (1971 QA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.135,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.7,
+    "eccentricity": 0.1784,
+    "inclination": 3.49,
+    "orbital_speed": 0.1876,
+    "clockwise": true,
+    "angle": 299.448
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 133933,
+      "minecraft:raw_iron": 23792,
+      "minecraft:raw_copper": 7960,
+      "minecraft:quartz": 6629,
+      "minecraft:redstone": 3875,
+      "mekanism:dust_osmium": 633
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 24647
+    }
+  }
+}

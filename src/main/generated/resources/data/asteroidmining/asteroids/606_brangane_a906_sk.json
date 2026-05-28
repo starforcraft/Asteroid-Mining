@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:606_brangane_a906_sk",
+  "name": "606 Brangane (A906 SK)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 35.758,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 258.7,
+    "eccentricity": 0.2207,
+    "inclination": 8.6,
+    "orbital_speed": 0.1741,
+    "clockwise": true,
+    "angle": 32.34
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 370680,
+      "minecraft:blackstone": 399417,
+      "mekanism:dust_sulfur": 80988,
+      "mekanism:yellow_cake_uranium": 1068
+    },
+    "fluids": {
+      "minecraft:water": 130478745
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 217768,
+      "mekanism:ethene": 48260,
+      "mekanism:sulfur_dioxide": 21520
+    }
+  }
+}

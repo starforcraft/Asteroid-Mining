@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1668_hanna_1933_ok",
+  "name": "1668 Hanna (1933 OK)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 24.813,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 280.5,
+    "eccentricity": 0.2161,
+    "inclination": 4.74,
+    "orbital_speed": 0.1672,
+    "clockwise": true,
+    "angle": 265.836
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 337863,
+      "minecraft:raw_iron": 58485,
+      "minecraft:quartz": 136902,
+      "minecraft:magma_cream": 15178
+    },
+    "fluids": {
+      "minecraft:lava": 17037448
+    },
+    "chemicals": {
+      "mekanism:oxygen": 36138
+    }
+  }
+}

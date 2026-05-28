@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:628_christine_a907_ek",
+  "name": "628 Christine (A907 EK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 48.239,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 258.1,
+    "eccentricity": 0.0426,
+    "inclination": 11.52,
+    "orbital_speed": 0.1743,
+    "clockwise": true,
+    "angle": 177.516
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1251521,
+      "minecraft:raw_iron": 483553,
+      "minecraft:raw_copper": 28663,
+      "minecraft:quartz": 210834,
+      "minecraft:redstone": 6307,
+      "minecraft:diamond": 1221,
+      "mekanism:dust_osmium": 2906
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 70044
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:708_raphaela_a911_cb",
+  "name": "708 Raphaela (A911 CB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 21.43,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 267.0,
+    "eccentricity": 0.0859,
+    "inclination": 3.48,
+    "orbital_speed": 0.1714,
+    "clockwise": true,
+    "angle": 18.156
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 340212,
+      "minecraft:raw_iron": 65600,
+      "minecraft:raw_copper": 24616,
+      "minecraft:quartz": 31519,
+      "minecraft:redstone": 8349,
+      "mekanism:dust_osmium": 1478
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 74188
+    }
+  }
+}

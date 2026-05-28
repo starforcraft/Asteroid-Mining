@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1573_vaisala_1949_ua",
+  "name": "1573 Vaisala (1949 UA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 9.083,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.1,
+    "eccentricity": 0.231,
+    "inclination": 24.55,
+    "orbital_speed": 0.1818,
+    "clockwise": true,
+    "angle": 162.576
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 101465,
+      "minecraft:raw_gold": 7471,
+      "minecraft:redstone": 3285,
+      "mekanism:raw_osmium": 2644,
+      "minecraft:diamond": 80
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 76783,
+      "mekanism:dirty_gold_slurry": 2728,
+      "mekanism:dirty_osmium_slurry": 1330
+    }
+  }
+}

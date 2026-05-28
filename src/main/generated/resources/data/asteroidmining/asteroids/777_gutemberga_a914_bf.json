@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:777_gutemberga_a914_bf",
+  "name": "777 Gutemberga (A914 BF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 71.749,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 321.7,
+    "eccentricity": 0.1171,
+    "inclination": 12.91,
+    "orbital_speed": 0.1561,
+    "clockwise": true,
+    "angle": 146.208
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1773969,
+      "minecraft:raw_iron": 581691,
+      "minecraft:raw_copper": 86884,
+      "minecraft:quartz": 219832,
+      "minecraft:redstone": 44519
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 462193
+    }
+  }
+}

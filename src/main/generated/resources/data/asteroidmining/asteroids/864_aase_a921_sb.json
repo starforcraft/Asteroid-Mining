@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:864_aase_a921_sb",
+  "name": "864 Aase (A921 SB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.249,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 220.8,
+    "eccentricity": 0.1905,
+    "inclination": 5.45,
+    "orbital_speed": 0.1884,
+    "clockwise": true,
+    "angle": 229.404
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 97888,
+      "minecraft:raw_iron": 19946,
+      "minecraft:raw_copper": 5679,
+      "minecraft:quartz": 17977,
+      "minecraft:redstone": 795
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 20049
+    }
+  }
+}

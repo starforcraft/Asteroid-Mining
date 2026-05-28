@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:183_istria_a878_cd",
+  "name": "183 Istria (A878 CD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 32.927,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.5,
+    "eccentricity": 0.3482,
+    "inclination": 26.39,
+    "orbital_speed": 0.1675,
+    "clockwise": true,
+    "angle": 186.456
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 618793,
+      "minecraft:raw_iron": 200099,
+      "minecraft:raw_copper": 58764,
+      "minecraft:quartz": 54486,
+      "minecraft:redstone": 11155
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 154542
+    }
+  }
+}

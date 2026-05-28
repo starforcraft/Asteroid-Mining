@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:972_cohnia_a922_bd",
+  "name": "972 Cohnia (A922 BD)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 77.827,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 305.7,
+    "eccentricity": 0.2349,
+    "inclination": 8.37,
+    "orbital_speed": 0.1601,
+    "clockwise": true,
+    "angle": 320.268
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2961447,
+      "minecraft:raw_gold": 60656,
+      "minecraft:redstone": 49826,
+      "mekanism:raw_osmium": 42356
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 991717,
+      "mekanism:dirty_gold_slurry": 42151,
+      "mekanism:dirty_osmium_slurry": 29086
+    }
+  }
+}

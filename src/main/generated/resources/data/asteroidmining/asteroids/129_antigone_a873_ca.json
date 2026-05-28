@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:129_antigone_a873_ca",
+  "name": "129 Antigone (A873 CA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 113.0,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 286.8,
+    "eccentricity": 0.2131,
+    "inclination": 12.27,
+    "orbital_speed": 0.1653,
+    "clockwise": true,
+    "angle": 321.024
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 3604561,
+      "minecraft:raw_gold": 191090,
+      "minecraft:redstone": 239644,
+      "mekanism:raw_osmium": 138921,
+      "mekanism:pellet_polonium": 119
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1463892,
+      "mekanism:dirty_gold_slurry": 99294,
+      "mekanism:dirty_osmium_slurry": 70880
+    }
+  }
+}

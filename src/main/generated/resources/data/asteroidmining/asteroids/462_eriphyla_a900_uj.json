@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:462_eriphyla_a900_uj",
+  "name": "462 Eriphyla (A900 UJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 34.274,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 287.4,
+    "eccentricity": 0.0869,
+    "inclination": 3.19,
+    "orbital_speed": 0.1652,
+    "clockwise": true,
+    "angle": 31.188
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 851673,
+      "minecraft:raw_iron": 184887,
+      "minecraft:raw_copper": 53203,
+      "minecraft:quartz": 85674,
+      "minecraft:redstone": 23455
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 124240
+    }
+  }
+}

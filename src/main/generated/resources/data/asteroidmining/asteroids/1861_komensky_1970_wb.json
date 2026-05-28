@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1861_komensky_1970_wb",
+  "name": "1861 Komensky (1970 WB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 14.815,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.7,
+    "eccentricity": 0.0698,
+    "inclination": 10.47,
+    "orbital_speed": 0.1612,
+    "clockwise": true,
+    "angle": 164.88
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 189387,
+      "minecraft:raw_iron": 32088,
+      "minecraft:raw_copper": 27024,
+      "minecraft:quartz": 22202,
+      "minecraft:redstone": 2345,
+      "minecraft:diamond": 208
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 19909
+    }
+  }
+}

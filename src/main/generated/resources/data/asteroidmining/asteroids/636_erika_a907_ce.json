@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:636_erika_a907_ce",
+  "name": "636 Erika (A907 CE)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 73.147,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 291.4,
+    "eccentricity": 0.1715,
+    "inclination": 7.91,
+    "orbital_speed": 0.164,
+    "clockwise": true,
+    "angle": 197.58
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1976544,
+      "minecraft:raw_gold": 136436,
+      "minecraft:redstone": 87262,
+      "mekanism:raw_osmium": 27201,
+      "mekanism:pellet_polonium": 267
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 781575,
+      "mekanism:dirty_gold_slurry": 51564,
+      "mekanism:dirty_osmium_slurry": 31759
+    }
+  }
+}

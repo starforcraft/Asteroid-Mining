@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1924_horus_4023_p_l",
+  "name": "1924 Horus (4023 P-L)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 12.986,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 233.9,
+    "eccentricity": 0.1325,
+    "inclination": 2.73,
+    "orbital_speed": 0.1831,
+    "clockwise": true,
+    "angle": 187.884
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 64216,
+      "minecraft:clay_ball": 64313,
+      "minecraft:raw_iron": 12214,
+      "minecraft:raw_copper": 8727,
+      "mekanism:dust_sulfur": 11459,
+      "mekanism:fluorite_gem": 929
+    },
+    "fluids": {
+      "minecraft:water": 76110294
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 40425,
+      "mekanism:oxygen": 54195,
+      "mekanism:sulfur_dioxide": 7802
+    }
+  }
+}

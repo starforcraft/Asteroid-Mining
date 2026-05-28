@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1008_la_paz_a923_ud",
+  "name": "1008 La Paz (A923 UD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 41.061,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 309.5,
+    "eccentricity": 0.0724,
+    "inclination": 8.93,
+    "orbital_speed": 0.1592,
+    "clockwise": true,
+    "angle": 230.556
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 733473,
+      "minecraft:raw_iron": 181235,
+      "minecraft:raw_copper": 26742,
+      "minecraft:quartz": 57072,
+      "minecraft:redstone": 28456,
+      "mekanism:dust_osmium": 7112
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 84844
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1406_komppa_1936_rf",
+  "name": "1406 Komppa (1936 RF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 24.243,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 269.6,
+    "eccentricity": 0.0974,
+    "inclination": 12.43,
+    "orbital_speed": 0.1705,
+    "clockwise": true,
+    "angle": 238.74
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 488630,
+      "minecraft:raw_iron": 132326,
+      "minecraft:raw_copper": 45876,
+      "minecraft:quartz": 47311,
+      "minecraft:redstone": 8783,
+      "minecraft:diamond": 437,
+      "mekanism:dust_osmium": 1441
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 72036
+    }
+  }
+}

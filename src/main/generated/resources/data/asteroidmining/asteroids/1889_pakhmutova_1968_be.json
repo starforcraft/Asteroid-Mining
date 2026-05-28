@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1889_pakhmutova_1968_be",
+  "name": "1889 Pakhmutova (1968 BE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 35.243,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 308.6,
+    "eccentricity": 0.1166,
+    "inclination": 13.18,
+    "orbital_speed": 0.1594,
+    "clockwise": true,
+    "angle": 55.104
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 605591,
+      "minecraft:raw_iron": 254500,
+      "minecraft:raw_copper": 67278,
+      "minecraft:quartz": 31911,
+      "minecraft:redstone": 9920,
+      "mekanism:dust_osmium": 733
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 177525
+    }
+  }
+}

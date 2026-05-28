@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:659_nestor_a908_fe",
+  "name": "659 Nestor (A908 FE)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 112.32,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 517.0,
+    "eccentricity": 0.1157,
+    "inclination": 4.52,
+    "orbital_speed": 0.1231,
+    "clockwise": true,
+    "angle": 120.264
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2600705,
+      "minecraft:raw_gold": 227277,
+      "minecraft:redstone": 46167,
+      "mekanism:raw_osmium": 100657
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1786063,
+      "mekanism:dirty_gold_slurry": 136248,
+      "mekanism:dirty_osmium_slurry": 72456
+    }
+  }
+}

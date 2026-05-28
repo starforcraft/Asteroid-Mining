@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1496_turku_1938_sa1",
+  "name": "1496 Turku (1938 SA1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.758,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 220.5,
+    "eccentricity": 0.1629,
+    "inclination": 2.5,
+    "orbital_speed": 0.1886,
+    "clockwise": true,
+    "angle": 14.46
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 74479,
+      "minecraft:raw_iron": 37687,
+      "minecraft:raw_copper": 6313,
+      "minecraft:quartz": 18639,
+      "minecraft:redstone": 2216,
+      "minecraft:diamond": 147
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 11935
+    }
+  }
+}

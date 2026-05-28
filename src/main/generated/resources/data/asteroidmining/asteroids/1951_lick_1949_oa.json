@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1951_lick_1949_oa",
+  "name": "1951 Lick (1949 OA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 5.57,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 139.1,
+    "eccentricity": 0.0615,
+    "inclination": 39.09,
+    "orbital_speed": 0.2374,
+    "clockwise": true,
+    "angle": 300.6
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 39554,
+      "minecraft:raw_iron": 19817,
+      "minecraft:raw_copper": 5720,
+      "minecraft:quartz": 5203,
+      "minecraft:redstone": 431,
+      "minecraft:diamond": 47
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 11319
+    }
+  }
+}

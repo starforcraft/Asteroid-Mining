@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:985_rosina_a922_tc",
+  "name": "985 Rosina (A922 TC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 10.5679,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 229.9,
+    "eccentricity": 0.2777,
+    "inclination": 4.06,
+    "orbital_speed": 0.1847,
+    "clockwise": true,
+    "angle": 307.872
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 152249,
+      "minecraft:raw_iron": 70259,
+      "minecraft:raw_copper": 16341,
+      "minecraft:quartz": 12759,
+      "minecraft:redstone": 2364,
+      "mekanism:dust_osmium": 253
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 30248
+    }
+  }
+}

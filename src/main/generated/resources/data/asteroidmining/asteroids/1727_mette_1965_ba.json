@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1727_mette_1965_ba",
+  "name": "1727 Mette (1965 BA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.3781,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 185.4,
+    "eccentricity": 0.1018,
+    "inclination": 22.9,
+    "orbital_speed": 0.2056,
+    "clockwise": true,
+    "angle": 98.808
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 86294,
+      "minecraft:raw_iron": 34923,
+      "minecraft:raw_copper": 2879,
+      "minecraft:quartz": 14043,
+      "minecraft:redstone": 1136,
+      "minecraft:diamond": 57
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 8722
+    }
+  }
+}

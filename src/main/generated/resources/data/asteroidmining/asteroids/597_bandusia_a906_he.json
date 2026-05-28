@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:597_bandusia_a906_he",
+  "name": "597 Bandusia (A906 HE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 36.06,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 267.2,
+    "eccentricity": 0.1434,
+    "inclination": 12.8,
+    "orbital_speed": 0.1713,
+    "clockwise": true,
+    "angle": 234.768
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 668332,
+      "minecraft:raw_iron": 211834,
+      "minecraft:raw_copper": 78324,
+      "minecraft:quartz": 55721,
+      "minecraft:redstone": 12881
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 133253
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:841_arabella_a916_ta",
+  "name": "841 Arabella (A916 TA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 7.501,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 225.6,
+    "eccentricity": 0.07,
+    "inclination": 3.79,
+    "orbital_speed": 0.1864,
+    "clockwise": true,
+    "angle": 306.72
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 73527,
+      "minecraft:raw_gold": 7079,
+      "minecraft:redstone": 3852,
+      "mekanism:raw_osmium": 1945,
+      "mekanism:pellet_polonium": 13
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 20220,
+      "mekanism:dirty_gold_slurry": 771,
+      "mekanism:dirty_osmium_slurry": 1226
+    }
+  }
+}

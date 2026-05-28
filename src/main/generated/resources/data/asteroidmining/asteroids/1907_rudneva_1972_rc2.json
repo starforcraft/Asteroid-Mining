@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1907_rudneva_1972_rc2",
+  "name": "1907 Rudneva (1972 RC2)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 10.977,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.5,
+    "eccentricity": 0.0444,
+    "inclination": 3.22,
+    "orbital_speed": 0.1755,
+    "clockwise": true,
+    "angle": 10.248
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 174153,
+      "minecraft:raw_iron": 59026,
+      "minecraft:raw_copper": 6824,
+      "minecraft:quartz": 17078,
+      "minecraft:redstone": 724
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 22876
+    }
+  }
+}

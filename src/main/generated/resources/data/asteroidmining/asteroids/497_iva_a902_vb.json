@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:497_iva_a902_vb",
+  "name": "497 Iva (A902 VB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 40.932,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 285.1,
+    "eccentricity": 0.3006,
+    "inclination": 4.82,
+    "orbital_speed": 0.1658,
+    "clockwise": true,
+    "angle": 163.968
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 837726,
+      "minecraft:raw_gold": 69561,
+      "minecraft:redstone": 23815,
+      "mekanism:raw_osmium": 36240,
+      "mekanism:pellet_polonium": 35
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 345482,
+      "mekanism:dirty_gold_slurry": 34965,
+      "mekanism:dirty_osmium_slurry": 11152
+    }
+  }
+}

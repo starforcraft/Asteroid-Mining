@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1782_schneller_1931_tl1",
+  "name": "1782 Schneller (1931 TL1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 21.872,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.6,
+    "eccentricity": 0.1518,
+    "inclination": 1.55,
+    "orbital_speed": 0.1586,
+    "clockwise": true,
+    "angle": 101.748
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 378633,
+      "minecraft:raw_iron": 150011,
+      "minecraft:raw_copper": 25924,
+      "minecraft:quartz": 56722,
+      "minecraft:redstone": 13923
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 27118
+    }
+  }
+}

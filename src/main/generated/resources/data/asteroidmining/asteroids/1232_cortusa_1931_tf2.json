@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1232_cortusa_1931_tf2",
+  "name": "1232 Cortusa (1931 TF2)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 36.367,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.4,
+    "eccentricity": 0.1421,
+    "inclination": 10.38,
+    "orbital_speed": 0.1572,
+    "clockwise": true,
+    "angle": 72.348
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 873255,
+      "minecraft:raw_iron": 342138,
+      "minecraft:raw_copper": 67302,
+      "minecraft:quartz": 53696,
+      "minecraft:redstone": 25475,
+      "mekanism:dust_osmium": 3410
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 85658
+    }
+  }
+}

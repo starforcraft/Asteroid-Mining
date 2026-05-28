@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1075_helina_1926_sc",
+  "name": "1075 Helina (1926 SC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 26.198,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.4,
+    "eccentricity": 0.1087,
+    "inclination": 11.53,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 83.592
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 429723,
+      "minecraft:raw_iron": 173281,
+      "minecraft:raw_copper": 27515,
+      "minecraft:quartz": 63237,
+      "minecraft:redstone": 16137,
+      "minecraft:diamond": 269,
+      "mekanism:dust_osmium": 2518
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 38753
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:195_eurykleia_a879_ha",
+  "name": "195 Eurykleia (A879 HA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 93.109,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 287.8,
+    "eccentricity": 0.0388,
+    "inclination": 6.96,
+    "orbital_speed": 0.165,
+    "clockwise": true,
+    "angle": 36.552
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 976982,
+      "minecraft:clay_ball": 335063,
+      "minecraft:raw_iron": 307859,
+      "minecraft:raw_copper": 84338,
+      "mekanism:dust_sulfur": 240555,
+      "mekanism:fluorite_gem": 3794,
+      "mekanism:yellow_cake_uranium": 9379
+    },
+    "fluids": {
+      "minecraft:water": 2033070823
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 443143,
+      "mekanism:oxygen": 714103,
+      "mekanism:sulfur_dioxide": 197212
+    }
+  }
+}

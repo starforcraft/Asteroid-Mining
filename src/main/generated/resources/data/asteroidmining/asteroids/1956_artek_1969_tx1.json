@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1956_artek_1969_tx1",
+  "name": "1956 Artek (1969 TX1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 19.921,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 320.0,
+    "eccentricity": 0.1099,
+    "inclination": 1.5,
+    "orbital_speed": 0.1565,
+    "clockwise": true,
+    "angle": 268.14
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 267359,
+      "minecraft:raw_iron": 59918,
+      "minecraft:raw_copper": 37739,
+      "minecraft:quartz": 53089,
+      "minecraft:redstone": 14013,
+      "mekanism:dust_osmium": 1771
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 27581
+    }
+  }
+}

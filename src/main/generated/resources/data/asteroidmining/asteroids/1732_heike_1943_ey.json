@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1732_heike_1943_ey",
+  "name": "1732 Heike (1943 EY)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 22.378,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.6,
+    "eccentricity": 0.1142,
+    "inclination": 10.79,
+    "orbital_speed": 0.1612,
+    "clockwise": true,
+    "angle": 66.348
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 312847,
+      "minecraft:raw_iron": 116893,
+      "minecraft:raw_copper": 15567,
+      "minecraft:quartz": 65041,
+      "minecraft:redstone": 9086
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 88834
+    }
+  }
+}

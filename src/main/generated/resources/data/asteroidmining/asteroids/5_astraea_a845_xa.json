@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:5_astraea_a845_xa",
+  "name": "5 Astraea (A845 XA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 106.699,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 257.7,
+    "eccentricity": 0.1875,
+    "inclination": 5.36,
+    "orbital_speed": 0.1744,
+    "clockwise": true,
+    "angle": 190.032
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2863770,
+      "minecraft:raw_iron": 1397420,
+      "minecraft:raw_copper": 360181,
+      "minecraft:quartz": 358366,
+      "minecraft:redstone": 56786
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 295938
+    }
+  }
+}

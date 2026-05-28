@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1804_chebotarev_1967_gg",
+  "name": "1804 Chebotarev (1967 GG)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 9.145,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 241.1,
+    "eccentricity": 0.0214,
+    "inclination": 3.63,
+    "orbital_speed": 0.1803,
+    "clockwise": true,
+    "angle": 246.924
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 139695,
+      "minecraft:raw_gold": 2178,
+      "minecraft:redstone": 3763,
+      "mekanism:raw_osmium": 2614,
+      "minecraft:diamond": 126
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 26957,
+      "mekanism:dirty_gold_slurry": 3059,
+      "mekanism:dirty_osmium_slurry": 731
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:886_washingtonia_a917_wa",
+  "name": "886 Washingtonia (A917 WA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 86.793,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.9,
+    "eccentricity": 0.2729,
+    "inclination": 16.85,
+    "orbital_speed": 0.1573,
+    "clockwise": true,
+    "angle": 14.58
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 870428,
+      "minecraft:clay_ball": 629594,
+      "minecraft:raw_iron": 318409,
+      "minecraft:raw_copper": 58866,
+      "mekanism:dust_sulfur": 241875,
+      "mekanism:fluorite_gem": 8413
+    },
+    "fluids": {
+      "minecraft:water": 1297466496
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 757315,
+      "mekanism:oxygen": 687004,
+      "mekanism:sulfur_dioxide": 169564
+    }
+  }
+}

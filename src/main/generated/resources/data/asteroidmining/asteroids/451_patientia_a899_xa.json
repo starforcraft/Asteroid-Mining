@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:451_patientia_a899_xa",
+  "name": "451 Patientia (A899 XA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 253.9,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 306.4,
+    "eccentricity": 0.0696,
+    "inclination": 15.21,
+    "orbital_speed": 0.16,
+    "clockwise": true,
+    "angle": 318.6
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1172487,
+      "minecraft:clay_ball": 517616,
+      "minecraft:raw_iron": 445971,
+      "minecraft:raw_copper": 89997,
+      "mekanism:dust_sulfur": 212281,
+      "mekanism:yellow_cake_uranium": 5271
+    },
+    "fluids": {
+      "minecraft:water": 2457971782
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 659139,
+      "mekanism:oxygen": 1418713,
+      "mekanism:sulfur_dioxide": 212555
+    }
+  }
+}

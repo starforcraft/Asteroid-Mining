@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1026_ingrid_a923_ph",
+  "name": "1026 Ingrid (A923 PH)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 7.353,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 225.4,
+    "eccentricity": 0.1811,
+    "inclination": 5.4,
+    "orbital_speed": 0.1865,
+    "clockwise": true,
+    "angle": 185.7
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 80288,
+      "minecraft:raw_gold": 3676,
+      "minecraft:redstone": 809,
+      "mekanism:raw_osmium": 4137,
+      "minecraft:diamond": 74,
+      "mekanism:pellet_polonium": 6
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 20624,
+      "mekanism:dirty_gold_slurry": 3533,
+      "mekanism:dirty_osmium_slurry": 1622
+    }
+  }
+}

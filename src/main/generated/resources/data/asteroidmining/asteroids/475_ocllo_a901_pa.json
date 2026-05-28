@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:475_ocllo_a901_pa",
+  "name": "475 Ocllo (A901 PA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 17.83,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 259.3,
+    "eccentricity": 0.379,
+    "inclination": 18.95,
+    "orbital_speed": 0.1739,
+    "clockwise": true,
+    "angle": 18.792
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 386435,
+      "minecraft:raw_gold": 13508,
+      "minecraft:redstone": 6046,
+      "mekanism:raw_osmium": 6446
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 52366,
+      "mekanism:dirty_gold_slurry": 5066,
+      "mekanism:dirty_osmium_slurry": 3896
+    }
+  }
+}

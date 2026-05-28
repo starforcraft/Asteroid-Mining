@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1427_ruvuma_1937_kb",
+  "name": "1427 Ruvuma (1937 KB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 35.406,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 275.2,
+    "eccentricity": 0.2101,
+    "inclination": 9.34,
+    "orbital_speed": 0.1688,
+    "clockwise": true,
+    "angle": 246.408
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 205679,
+      "minecraft:clay_ball": 123577,
+      "minecraft:raw_iron": 55946,
+      "minecraft:raw_copper": 28147,
+      "mekanism:dust_sulfur": 20168,
+      "mekanism:yellow_cake_uranium": 1246
+    },
+    "fluids": {
+      "minecraft:water": 167270264
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 133643,
+      "mekanism:oxygen": 69932,
+      "mekanism:sulfur_dioxide": 22356
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:494_virtus_a902_tf",
+  "name": "494 Virtus (A902 TF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 100.786,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 298.6,
+    "eccentricity": 0.0642,
+    "inclination": 7.08,
+    "orbital_speed": 0.162,
+    "clockwise": true,
+    "angle": 111.444
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 954195,
+      "minecraft:clay_ball": 792532,
+      "minecraft:raw_iron": 142463,
+      "minecraft:raw_copper": 195027,
+      "mekanism:dust_sulfur": 233150
+    },
+    "fluids": {
+      "minecraft:water": 2009349106
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 228572,
+      "mekanism:oxygen": 771794,
+      "mekanism:sulfur_dioxide": 174750
+    }
+  }
+}

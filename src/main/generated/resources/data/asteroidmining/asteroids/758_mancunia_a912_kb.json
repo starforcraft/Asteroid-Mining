@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:758_mancunia_a912_kb",
+  "name": "758 Mancunia (A912 KB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 88.985,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.1,
+    "eccentricity": 0.1482,
+    "inclination": 5.61,
+    "orbital_speed": 0.1567,
+    "clockwise": true,
+    "angle": 53.556
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2607146,
+      "minecraft:raw_gold": 217580,
+      "minecraft:redstone": 32119,
+      "mekanism:raw_osmium": 100490,
+      "minecraft:diamond": 3249
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1127775,
+      "mekanism:dirty_gold_slurry": 11644,
+      "mekanism:dirty_osmium_slurry": 100836
+    }
+  }
+}

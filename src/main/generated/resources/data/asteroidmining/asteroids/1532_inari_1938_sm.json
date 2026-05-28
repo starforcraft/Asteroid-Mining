@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1532_inari_1938_sm",
+  "name": "1532 Inari (1938 SM)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 24.439,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 300.6,
+    "eccentricity": 0.0471,
+    "inclination": 8.78,
+    "orbital_speed": 0.1615,
+    "clockwise": true,
+    "angle": 284.748
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 315710,
+      "minecraft:raw_iron": 164309,
+      "minecraft:raw_copper": 42795,
+      "minecraft:quartz": 18474,
+      "minecraft:redstone": 3057
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 62339
+    }
+  }
+}

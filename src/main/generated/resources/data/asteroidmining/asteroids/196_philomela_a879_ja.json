@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:196_philomela_a879_ja",
+  "name": "196 Philomela (A879 JA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 144.626,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.5,
+    "eccentricity": 0.0136,
+    "inclination": 7.26,
+    "orbital_speed": 0.1586,
+    "clockwise": true,
+    "angle": 174.06
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 3770736,
+      "minecraft:raw_iron": 520745,
+      "minecraft:raw_copper": 294465,
+      "minecraft:quartz": 262572,
+      "minecraft:redstone": 15905,
+      "minecraft:diamond": 5643,
+      "mekanism:dust_osmium": 12496
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 707217
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:268_adorea_a887_la",
+  "name": "268 Adorea (A887 LA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 144.585,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 309.1,
+    "eccentricity": 0.1372,
+    "inclination": 2.44,
+    "orbital_speed": 0.1593,
+    "clockwise": true,
+    "angle": 354.636
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1505392,
+      "minecraft:clay_ball": 468889,
+      "minecraft:raw_iron": 261782,
+      "minecraft:raw_copper": 147575,
+      "mekanism:dust_sulfur": 458330,
+      "mekanism:fluorite_gem": 29861
+    },
+    "fluids": {
+      "minecraft:water": 2746539692
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 648508,
+      "mekanism:oxygen": 860432,
+      "mekanism:sulfur_dioxide": 220022
+    }
+  }
+}

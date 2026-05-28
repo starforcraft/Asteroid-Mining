@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:477_italia_a901_qc",
+  "name": "477 Italia (A901 QC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 22.988,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 241.5,
+    "eccentricity": 0.1872,
+    "inclination": 5.29,
+    "orbital_speed": 0.1802,
+    "clockwise": true,
+    "angle": 293.808
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 388964,
+      "minecraft:raw_iron": 165873,
+      "minecraft:raw_copper": 26775,
+      "minecraft:quartz": 49445,
+      "minecraft:redstone": 8072,
+      "mekanism:dust_osmium": 927
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 81957
+    }
+  }
+}

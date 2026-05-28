@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1156_kira_1928_da",
+  "name": "1156 Kira (1928 DA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.831,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.7,
+    "eccentricity": 0.0466,
+    "inclination": 1.4,
+    "orbital_speed": 0.1872,
+    "clockwise": true,
+    "angle": 61.74
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 83297,
+      "minecraft:raw_iron": 23143,
+      "minecraft:raw_copper": 3265,
+      "minecraft:quartz": 3320,
+      "minecraft:redstone": 2357,
+      "minecraft:diamond": 13,
+      "mekanism:dust_osmium": 467
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 15466
+    }
+  }
+}

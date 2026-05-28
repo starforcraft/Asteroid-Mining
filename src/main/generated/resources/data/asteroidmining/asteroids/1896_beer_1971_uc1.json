@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1896_beer_1971_uc1",
+  "name": "1896 Beer (1971 UC1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 5.377,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.8,
+    "eccentricity": 0.2206,
+    "inclination": 2.22,
+    "orbital_speed": 0.182,
+    "clockwise": true,
+    "angle": 297.66
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 44785,
+      "minecraft:raw_iron": 17687,
+      "minecraft:raw_copper": 3213,
+      "minecraft:quartz": 7261,
+      "minecraft:redstone": 1918
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 10739
+    }
+  }
+}

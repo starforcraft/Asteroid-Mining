@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:588_achilles_a906_dn",
+  "name": "588 Achilles (A906 DN)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 130.099,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 521.5,
+    "eccentricity": 0.1483,
+    "inclination": 10.32,
+    "orbital_speed": 0.1226,
+    "clockwise": true,
+    "angle": 77.196
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1324006,
+      "minecraft:blackstone": 1792157,
+      "mekanism:dust_sulfur": 336103
+    },
+    "fluids": {
+      "minecraft:water": 554674531
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 613054,
+      "mekanism:ethene": 263668,
+      "mekanism:sulfur_dioxide": 265727
+    }
+  }
+}

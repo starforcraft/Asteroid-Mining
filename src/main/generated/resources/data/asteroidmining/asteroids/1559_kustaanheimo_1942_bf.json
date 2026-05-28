@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1559_kustaanheimo_1942_bf",
+  "name": "1559 Kustaanheimo (1942 BF)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 10.725,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 238.9,
+    "eccentricity": 0.1358,
+    "inclination": 3.19,
+    "orbital_speed": 0.1812,
+    "clockwise": true,
+    "angle": 37.464
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 97562,
+      "minecraft:raw_gold": 2387,
+      "minecraft:redstone": 3492,
+      "mekanism:raw_osmium": 6104,
+      "minecraft:diamond": 131
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 102155,
+      "mekanism:dirty_gold_slurry": 1686,
+      "mekanism:dirty_osmium_slurry": 3757
+    }
+  }
+}

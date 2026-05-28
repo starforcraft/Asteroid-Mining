@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1779_parana_1950_lz",
+  "name": "1779 Parana (1950 LZ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 4.085,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 217.6,
+    "eccentricity": 0.1607,
+    "inclination": 0.9,
+    "orbital_speed": 0.1898,
+    "clockwise": true,
+    "angle": 49.224
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 7648,
+      "minecraft:clay_ball": 10812,
+      "minecraft:raw_iron": 3924,
+      "minecraft:raw_copper": 2427,
+      "mekanism:dust_sulfur": 905,
+      "mekanism:fluorite_gem": 150
+    },
+    "fluids": {
+      "minecraft:water": 18322816
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 2975,
+      "mekanism:oxygen": 5534,
+      "mekanism:sulfur_dioxide": 2486
+    }
+  }
+}

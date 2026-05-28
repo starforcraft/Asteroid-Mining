@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:439_ohio_a898_ta",
+  "name": "439 Ohio (A898 TA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 70.421,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.2,
+    "eccentricity": 0.0673,
+    "inclination": 19.13,
+    "orbital_speed": 0.1582,
+    "clockwise": true,
+    "angle": 108.504
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1864229,
+      "minecraft:raw_gold": 136995,
+      "minecraft:redstone": 64124,
+      "mekanism:raw_osmium": 74505,
+      "minecraft:diamond": 2494
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 730356,
+      "mekanism:dirty_gold_slurry": 75240,
+      "mekanism:dirty_osmium_slurry": 38977
+    }
+  }
+}

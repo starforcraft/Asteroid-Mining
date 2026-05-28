@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:256_walpurga_a886_ga",
+  "name": "256 Walpurga (A886 GA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 66.634,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 300.3,
+    "eccentricity": 0.0631,
+    "inclination": 13.3,
+    "orbital_speed": 0.1616,
+    "clockwise": true,
+    "angle": 144.54
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1564720,
+      "minecraft:raw_iron": 579151,
+      "minecraft:raw_copper": 190587,
+      "minecraft:quartz": 294424,
+      "minecraft:redstone": 36165,
+      "mekanism:dust_osmium": 14391
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 195889
+    }
+  }
+}

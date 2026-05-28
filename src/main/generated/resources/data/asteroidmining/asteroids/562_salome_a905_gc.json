@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:562_salome_a905_gc",
+  "name": "562 Salome (A905 GC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 32.651,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.6,
+    "eccentricity": 0.1036,
+    "inclination": 11.12,
+    "orbital_speed": 0.1612,
+    "clockwise": true,
+    "angle": 101.988
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 749062,
+      "minecraft:raw_iron": 271758,
+      "minecraft:raw_copper": 59004,
+      "minecraft:quartz": 76482,
+      "minecraft:redstone": 7837,
+      "mekanism:dust_osmium": 2566
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 92070
+    }
+  }
+}

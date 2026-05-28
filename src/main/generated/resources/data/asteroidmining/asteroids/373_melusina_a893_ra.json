@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:373_melusina_a893_ra",
+  "name": "373 Melusina (A893 RA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 98.695,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.0,
+    "eccentricity": 0.1372,
+    "inclination": 15.38,
+    "orbital_speed": 0.1585,
+    "clockwise": true,
+    "angle": 32.976
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 960116,
+      "minecraft:clay_ball": 381647,
+      "minecraft:raw_iron": 171323,
+      "minecraft:raw_copper": 114274,
+      "mekanism:dust_sulfur": 175097
+    },
+    "fluids": {
+      "minecraft:water": 1227644712
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 446779,
+      "mekanism:oxygen": 544876,
+      "mekanism:sulfur_dioxide": 65839
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:151_abundantia_a875_va",
+  "name": "151 Abundantia (A875 VA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 39.037,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 259.1,
+    "eccentricity": 0.0361,
+    "inclination": 6.43,
+    "orbital_speed": 0.1739,
+    "clockwise": true,
+    "angle": 106.2
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 750199,
+      "minecraft:raw_iron": 347102,
+      "minecraft:raw_copper": 40090,
+      "minecraft:quartz": 103976,
+      "minecraft:redstone": 22440
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 183754
+    }
+  }
+}

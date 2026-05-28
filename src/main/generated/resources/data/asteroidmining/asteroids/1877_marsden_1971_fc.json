@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1877_marsden_1971_fc",
+  "name": "1877 Marsden (1971 FC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 35.642,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 394.8,
+    "eccentricity": 0.2046,
+    "inclination": 17.53,
+    "orbital_speed": 0.1409,
+    "clockwise": true,
+    "angle": 205.008
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 703983,
+      "minecraft:raw_iron": 219717,
+      "minecraft:raw_copper": 61879,
+      "minecraft:quartz": 119675,
+      "minecraft:redstone": 16161,
+      "mekanism:dust_osmium": 1992
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 91462
+    }
+  }
+}

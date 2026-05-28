@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1103_sequoia_1928_vb",
+  "name": "1103 Sequoia (1928 VB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 6.692,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 193.4,
+    "eccentricity": 0.0944,
+    "inclination": 17.9,
+    "orbital_speed": 0.2013,
+    "clockwise": true,
+    "angle": 333.816
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 90539,
+      "minecraft:raw_gold": 3324,
+      "minecraft:redstone": 1261,
+      "mekanism:raw_osmium": 3517
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 49383,
+      "mekanism:dirty_gold_slurry": 2586,
+      "mekanism:dirty_osmium_slurry": 1498
+    }
+  }
+}

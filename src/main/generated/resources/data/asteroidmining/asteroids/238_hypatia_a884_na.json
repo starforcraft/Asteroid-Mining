@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:238_hypatia_a884_na",
+  "name": "238 Hypatia (A884 NA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 155.659,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 290.5,
+    "eccentricity": 0.0918,
+    "inclination": 12.41,
+    "orbital_speed": 0.1643,
+    "clockwise": true,
+    "angle": 189.396
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1726714,
+      "minecraft:clay_ball": 1241538,
+      "minecraft:raw_iron": 531468,
+      "minecraft:raw_copper": 73005,
+      "mekanism:dust_sulfur": 283326,
+      "mekanism:fluorite_gem": 16442,
+      "mekanism:yellow_cake_uranium": 2066
+    },
+    "fluids": {
+      "minecraft:water": 805847342
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 342573,
+      "mekanism:oxygen": 444534,
+      "mekanism:sulfur_dioxide": 324458
+    }
+  }
+}

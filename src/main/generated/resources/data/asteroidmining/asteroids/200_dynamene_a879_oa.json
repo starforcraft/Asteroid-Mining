@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:200_dynamene_a879_oa",
+  "name": "200 Dynamene (A879 OA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 128.301,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 273.8,
+    "eccentricity": 0.1336,
+    "inclination": 6.9,
+    "orbital_speed": 0.1692,
+    "clockwise": true,
+    "angle": 4.092
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1364216,
+      "minecraft:clay_ball": 1160804,
+      "minecraft:raw_iron": 651220,
+      "minecraft:raw_copper": 193395,
+      "mekanism:dust_sulfur": 299894,
+      "mekanism:fluorite_gem": 28340
+    },
+    "fluids": {
+      "minecraft:water": 2320958725
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 879652,
+      "mekanism:oxygen": 753476,
+      "mekanism:sulfur_dioxide": 126036
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1163_saga_1930_ba",
+  "name": "1163 Saga (1930 BA)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 32.429,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 321.8,
+    "eccentricity": 0.0413,
+    "inclination": 9.02,
+    "orbital_speed": 0.1561,
+    "clockwise": true,
+    "angle": 304.296
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 443640,
+      "minecraft:raw_iron": 55635,
+      "minecraft:quartz": 99731,
+      "minecraft:magma_cream": 6701,
+      "mekanism:dust_osmium": 1205
+    },
+    "fluids": {
+      "minecraft:lava": 44195649
+    },
+    "chemicals": {
+      "mekanism:oxygen": 73265
+    }
+  }
+}

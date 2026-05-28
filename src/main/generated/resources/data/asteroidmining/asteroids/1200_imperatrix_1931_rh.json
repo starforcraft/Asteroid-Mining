@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1200_imperatrix_1931_rh",
+  "name": "1200 Imperatrix (1931 RH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 42.006,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 305.8,
+    "eccentricity": 0.1128,
+    "inclination": 4.61,
+    "orbital_speed": 0.1601,
+    "clockwise": true,
+    "angle": 352.092
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 864538,
+      "minecraft:raw_iron": 199597,
+      "minecraft:raw_copper": 34320,
+      "minecraft:quartz": 138795,
+      "minecraft:redstone": 13697
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 66362
+    }
+  }
+}

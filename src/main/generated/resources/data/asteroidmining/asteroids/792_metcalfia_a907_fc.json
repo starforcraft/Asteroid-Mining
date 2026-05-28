@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:792_metcalfia_a907_fc",
+  "name": "792 Metcalfia (A907 FC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 61.804,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 262.2,
+    "eccentricity": 0.1307,
+    "inclination": 8.63,
+    "orbital_speed": 0.1729,
+    "clockwise": true,
+    "angle": 48.828
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1510446,
+      "minecraft:raw_gold": 107194,
+      "minecraft:redstone": 77508,
+      "mekanism:raw_osmium": 19848,
+      "minecraft:diamond": 2148
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1092232,
+      "mekanism:dirty_gold_slurry": 65803,
+      "mekanism:dirty_osmium_slurry": 19330
+    }
+  }
+}

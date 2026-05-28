@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1249_rutherfordia_1932_vb",
+  "name": "1249 Rutherfordia (1932 VB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 13.063,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.4,
+    "eccentricity": 0.0767,
+    "inclination": 4.87,
+    "orbital_speed": 0.1878,
+    "clockwise": true,
+    "angle": 249.984
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 180646,
+      "minecraft:raw_iron": 88645,
+      "minecraft:raw_copper": 19201,
+      "minecraft:quartz": 21692,
+      "minecraft:redstone": 4493
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 26353
+    }
+  }
+}

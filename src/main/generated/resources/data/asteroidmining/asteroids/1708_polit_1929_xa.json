@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:1708_polit_1929_xa",
+  "name": "1708 Polit (1929 XA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 28.706,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 291.1,
+    "eccentricity": 0.308,
+    "inclination": 6.04,
+    "orbital_speed": 0.1641,
+    "clockwise": true,
+    "angle": 6.156
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 219433,
+      "minecraft:clay_ball": 200405,
+      "minecraft:raw_iron": 30792,
+      "minecraft:raw_copper": 16065,
+      "mekanism:dust_sulfur": 49412,
+      "mekanism:fluorite_gem": 4194,
+      "mekanism:yellow_cake_uranium": 1037
+    },
+    "fluids": {
+      "minecraft:water": 330084076
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 113547,
+      "mekanism:oxygen": 62191,
+      "mekanism:sulfur_dioxide": 34748
+    }
+  }
+}

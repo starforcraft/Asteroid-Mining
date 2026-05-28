@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:80_sappho_a864_ja",
+  "name": "80 Sappho (A864 JA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 68.563,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 229.6,
+    "eccentricity": 0.1997,
+    "inclination": 8.68,
+    "orbital_speed": 0.1848,
+    "clockwise": true,
+    "angle": 63.132
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1536327,
+      "minecraft:raw_iron": 662102,
+      "minecraft:raw_copper": 76817,
+      "minecraft:quartz": 228141,
+      "minecraft:redstone": 15764
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 197487
+    }
+  }
+}

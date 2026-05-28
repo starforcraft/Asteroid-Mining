@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:571_dulcinea_a905_ra",
+  "name": "571 Dulcinea (A905 RA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.696,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 241.0,
+    "eccentricity": 0.2429,
+    "inclination": 5.23,
+    "orbital_speed": 0.1804,
+    "clockwise": true,
+    "angle": 259.56
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 119768,
+      "minecraft:raw_iron": 41910,
+      "minecraft:raw_copper": 10069,
+      "minecraft:quartz": 20041,
+      "minecraft:redstone": 4025
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 36265
+    }
+  }
+}

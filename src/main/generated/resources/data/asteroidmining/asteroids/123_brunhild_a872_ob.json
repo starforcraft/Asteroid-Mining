@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:123_brunhild_a872_ob",
+  "name": "123 Brunhild (A872 OB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 45.209,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 269.5,
+    "eccentricity": 0.1201,
+    "inclination": 6.41,
+    "orbital_speed": 0.1706,
+    "clockwise": true,
+    "angle": 215.976
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 828918,
+      "minecraft:raw_iron": 331655,
+      "minecraft:raw_copper": 81597,
+      "minecraft:quartz": 119456,
+      "minecraft:redstone": 8098,
+      "minecraft:diamond": 1092,
+      "mekanism:dust_osmium": 5516
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 140231
+    }
+  }
+}

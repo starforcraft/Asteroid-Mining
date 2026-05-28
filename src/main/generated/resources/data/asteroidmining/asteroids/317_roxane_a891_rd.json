@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:317_roxane_a891_rd",
+  "name": "317 Roxane (A891 RD)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 18.648,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 228.7,
+    "eccentricity": 0.0859,
+    "inclination": 1.77,
+    "orbital_speed": 0.1852,
+    "clockwise": true,
+    "angle": 252.528
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 315745,
+      "minecraft:raw_gold": 11171,
+      "minecraft:redstone": 9598,
+      "mekanism:raw_osmium": 6263,
+      "minecraft:diamond": 70
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 96221,
+      "mekanism:dirty_gold_slurry": 13675,
+      "mekanism:dirty_osmium_slurry": 9566
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:610_valeska_a906_sn",
+  "name": "610 Valeska (A906 SN)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 19.153,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 309.4,
+    "eccentricity": 0.2517,
+    "inclination": 12.6,
+    "orbital_speed": 0.1592,
+    "clockwise": true,
+    "angle": 222.372
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 386176,
+      "minecraft:raw_iron": 122135,
+      "minecraft:raw_copper": 13639,
+      "minecraft:quartz": 55395,
+      "minecraft:redstone": 12534,
+      "minecraft:diamond": 75
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 63016
+    }
+  }
+}

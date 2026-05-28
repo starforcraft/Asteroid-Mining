@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1316_kasan_1933_wc",
+  "name": "1316 Kasan (1933 WC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 4.3031,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 241.2,
+    "eccentricity": 0.3157,
+    "inclination": 23.96,
+    "orbital_speed": 0.1803,
+    "clockwise": true,
+    "angle": 103.02
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 37250,
+      "minecraft:raw_iron": 11311,
+      "minecraft:raw_copper": 3998,
+      "minecraft:quartz": 7596,
+      "minecraft:redstone": 1358,
+      "minecraft:diamond": 24
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 8748
+    }
+  }
+}

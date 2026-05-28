@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:332_siri_a892_fh",
+  "name": "332 Siri (A892 FH)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 40.37,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 277.2,
+    "eccentricity": 0.0915,
+    "inclination": 2.84,
+    "orbital_speed": 0.1682,
+    "clockwise": true,
+    "angle": 155.148
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1202046,
+      "minecraft:raw_gold": 27851,
+      "minecraft:redstone": 27135,
+      "mekanism:raw_osmium": 22485,
+      "minecraft:diamond": 961,
+      "mekanism:pellet_polonium": 45
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 334116,
+      "mekanism:dirty_gold_slurry": 42100,
+      "mekanism:dirty_osmium_slurry": 14658
+    }
+  }
+}

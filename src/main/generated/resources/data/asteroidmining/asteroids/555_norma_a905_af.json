@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:555_norma_a905_af",
+  "name": "555 Norma (A905 AF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 31.04,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.0,
+    "eccentricity": 0.1555,
+    "inclination": 2.67,
+    "orbital_speed": 0.157,
+    "clockwise": true,
+    "angle": 219.432
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 194896,
+      "minecraft:clay_ball": 106528,
+      "minecraft:raw_iron": 71746,
+      "minecraft:raw_copper": 16347,
+      "mekanism:dust_sulfur": 33837,
+      "mekanism:fluorite_gem": 2365
+    },
+    "fluids": {
+      "minecraft:water": 114438134
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 200796,
+      "mekanism:oxygen": 187674,
+      "mekanism:sulfur_dioxide": 32192
+    }
+  }
+}

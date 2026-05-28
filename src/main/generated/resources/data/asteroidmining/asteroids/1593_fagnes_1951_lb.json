@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1593_fagnes_1951_lb",
+  "name": "1593 Fagnes (1951 LB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.095,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.6,
+    "eccentricity": 0.2807,
+    "inclination": 9.98,
+    "orbital_speed": 0.1877,
+    "clockwise": true,
+    "angle": 32.736
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 82122,
+      "minecraft:raw_iron": 18313,
+      "minecraft:raw_copper": 1873,
+      "minecraft:quartz": 5437,
+      "minecraft:redstone": 1959,
+      "minecraft:diamond": 42,
+      "mekanism:dust_osmium": 247
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 10103
+    }
+  }
+}

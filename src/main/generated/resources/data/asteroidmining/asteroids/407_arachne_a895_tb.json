@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:407_arachne_a895_tb",
+  "name": "407 Arachne (A895 TB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 95.07,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 262.5,
+    "eccentricity": 0.0703,
+    "inclination": 7.52,
+    "orbital_speed": 0.1728,
+    "clockwise": true,
+    "angle": 28.248
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1063751,
+      "minecraft:clay_ball": 554781,
+      "minecraft:raw_iron": 190650,
+      "minecraft:raw_copper": 180745,
+      "mekanism:dust_sulfur": 205918
+    },
+    "fluids": {
+      "minecraft:water": 909293421
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 251902,
+      "mekanism:oxygen": 536493,
+      "mekanism:sulfur_dioxide": 93215
+    }
+  }
+}

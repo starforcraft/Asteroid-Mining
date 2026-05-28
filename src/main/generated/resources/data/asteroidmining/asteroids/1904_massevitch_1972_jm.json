@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1904_massevitch_1972_jm",
+  "name": "1904 Massevitch (1972 JM)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 13.503,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 274.3,
+    "eccentricity": 0.0754,
+    "inclination": 12.84,
+    "orbital_speed": 0.1691,
+    "clockwise": true,
+    "angle": 317.724
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 241368,
+      "minecraft:raw_iron": 59320,
+      "minecraft:raw_copper": 25589,
+      "minecraft:quartz": 23606,
+      "minecraft:redstone": 2107
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 50224
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1429_pemba_1937_nh",
+  "name": "1429 Pemba (1937 NH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.874,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 255.4,
+    "eccentricity": 0.3342,
+    "inclination": 7.75,
+    "orbital_speed": 0.1752,
+    "clockwise": true,
+    "angle": 161.424
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 165277,
+      "minecraft:raw_iron": 19168,
+      "minecraft:raw_copper": 4522,
+      "minecraft:quartz": 22058,
+      "minecraft:redstone": 1027
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 18781
+    }
+  }
+}

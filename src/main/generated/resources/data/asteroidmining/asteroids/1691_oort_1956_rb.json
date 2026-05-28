@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1691_oort_1956_rb",
+  "name": "1691 Oort (1956 RB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 33.644,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.4,
+    "eccentricity": 0.1784,
+    "inclination": 1.09,
+    "orbital_speed": 0.1574,
+    "clockwise": true,
+    "angle": 188.52
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 288322,
+      "minecraft:clay_ball": 226903,
+      "minecraft:raw_iron": 31887,
+      "minecraft:raw_copper": 20104,
+      "mekanism:dust_sulfur": 37549,
+      "mekanism:fluorite_gem": 1265
+    },
+    "fluids": {
+      "minecraft:water": 204489265
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 43594,
+      "mekanism:oxygen": 197545,
+      "mekanism:sulfur_dioxide": 24779
+    }
+  }
+}

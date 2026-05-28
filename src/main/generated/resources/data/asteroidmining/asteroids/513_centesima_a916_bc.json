@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:513_centesima_a916_bc",
+  "name": "513 Centesima (A916 BC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 48.805,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.5,
+    "eccentricity": 0.087,
+    "inclination": 9.73,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 204.096
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1063013,
+      "minecraft:raw_iron": 368196,
+      "minecraft:raw_copper": 117675,
+      "minecraft:quartz": 172506,
+      "minecraft:redstone": 14669,
+      "minecraft:diamond": 673,
+      "mekanism:dust_osmium": 5127
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 143690
+    }
+  }
+}

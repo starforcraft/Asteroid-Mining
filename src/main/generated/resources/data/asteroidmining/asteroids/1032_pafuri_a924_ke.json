@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1032_pafuri_a924_ke",
+  "name": "1032 Pafuri (A924 KE)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 65.658,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.9,
+    "eccentricity": 0.1408,
+    "inclination": 9.48,
+    "orbital_speed": 0.1583,
+    "clockwise": true,
+    "angle": 290.748
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1353226,
+      "minecraft:raw_gold": 165566,
+      "minecraft:redstone": 18776,
+      "mekanism:raw_osmium": 14137,
+      "minecraft:diamond": 1252
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 490792,
+      "mekanism:dirty_gold_slurry": 75862,
+      "mekanism:dirty_osmium_slurry": 51528
+    }
+  }
+}

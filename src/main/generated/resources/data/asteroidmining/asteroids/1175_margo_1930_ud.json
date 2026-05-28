@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1175_margo_1930_ud",
+  "name": "1175 Margo (1930 UD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 24.266,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 321.1,
+    "eccentricity": 0.071,
+    "inclination": 16.35,
+    "orbital_speed": 0.1563,
+    "clockwise": true,
+    "angle": 154.392
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 617915,
+      "minecraft:raw_iron": 86461,
+      "minecraft:raw_copper": 23180,
+      "minecraft:quartz": 62690,
+      "minecraft:redstone": 4968,
+      "minecraft:diamond": 571,
+      "mekanism:dust_osmium": 2698
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 72000
+    }
+  }
+}

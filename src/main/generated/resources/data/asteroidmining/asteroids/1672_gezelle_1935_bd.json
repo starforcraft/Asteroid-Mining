@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1672_gezelle_1935_bd",
+  "name": "1672 Gezelle (1935 BD)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 26.205,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.8,
+    "eccentricity": 0.2789,
+    "inclination": 1.07,
+    "orbital_speed": 0.1573,
+    "clockwise": true,
+    "angle": 95.868
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 434058,
+      "minecraft:raw_gold": 26744,
+      "minecraft:redstone": 12081,
+      "mekanism:raw_osmium": 6861
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 222889,
+      "mekanism:dirty_gold_slurry": 3097,
+      "mekanism:dirty_osmium_slurry": 13152
+    }
+  }
+}

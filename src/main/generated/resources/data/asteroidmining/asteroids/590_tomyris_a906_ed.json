@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:590_tomyris_a906_ed",
+  "name": "590 Tomyris (A906 ED)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 30.577,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 299.9,
+    "eccentricity": 0.0784,
+    "inclination": 11.18,
+    "orbital_speed": 0.1617,
+    "clockwise": true,
+    "angle": 352.212
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 730523,
+      "minecraft:raw_iron": 131881,
+      "minecraft:raw_copper": 47955,
+      "minecraft:quartz": 48628,
+      "minecraft:redstone": 18544,
+      "mekanism:dust_osmium": 4695
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 127334
+    }
+  }
+}

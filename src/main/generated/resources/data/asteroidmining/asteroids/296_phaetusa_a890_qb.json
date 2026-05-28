@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:296_phaetusa_a890_qb",
+  "name": "296 Phaetusa (A890 QB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.196,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.8,
+    "eccentricity": 0.1604,
+    "inclination": 1.75,
+    "orbital_speed": 0.1876,
+    "clockwise": true,
+    "angle": 244.86
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 70068,
+      "minecraft:raw_iron": 16160,
+      "minecraft:raw_copper": 6070,
+      "minecraft:quartz": 17471,
+      "minecraft:redstone": 797,
+      "mekanism:dust_osmium": 492
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 16385
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:240_vanadis_a884_qb",
+  "name": "240 Vanadis (A884 QB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 87.928,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 266.3,
+    "eccentricity": 0.2089,
+    "inclination": 2.11,
+    "orbital_speed": 0.1716,
+    "clockwise": true,
+    "angle": 104.412
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 929279,
+      "minecraft:clay_ball": 333905,
+      "minecraft:raw_iron": 189958,
+      "minecraft:raw_copper": 60611,
+      "mekanism:dust_sulfur": 118014
+    },
+    "fluids": {
+      "minecraft:water": 1369745783
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 426183,
+      "mekanism:oxygen": 726788,
+      "mekanism:sulfur_dioxide": 200260
+    }
+  }
+}

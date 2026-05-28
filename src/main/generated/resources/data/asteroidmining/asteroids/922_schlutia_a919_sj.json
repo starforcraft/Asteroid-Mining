@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:922_schlutia_a919_sj",
+  "name": "922 Schlutia (A919 SJ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 19.228,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.9,
+    "eccentricity": 0.1925,
+    "inclination": 7.3,
+    "orbital_speed": 0.1708,
+    "clockwise": true,
+    "angle": 284.868
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 105329,
+      "minecraft:clay_ball": 93606,
+      "minecraft:raw_iron": 15537,
+      "minecraft:raw_copper": 6586,
+      "mekanism:dust_sulfur": 29004,
+      "mekanism:yellow_cake_uranium": 943
+    },
+    "fluids": {
+      "minecraft:water": 136157866
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 52400,
+      "mekanism:oxygen": 44742,
+      "mekanism:sulfur_dioxide": 28391
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:618_elfriede_a906_um",
+  "name": "618 Elfriede (A906 UM)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 131.292,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.1,
+    "eccentricity": 0.0684,
+    "inclination": 17.06,
+    "orbital_speed": 0.1567,
+    "clockwise": true,
+    "angle": 242.436
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1701031,
+      "minecraft:clay_ball": 1199814,
+      "minecraft:raw_iron": 149781,
+      "minecraft:raw_copper": 242713,
+      "mekanism:dust_sulfur": 164429,
+      "mekanism:fluorite_gem": 20595
+    },
+    "fluids": {
+      "minecraft:water": 2212027569
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 681585,
+      "mekanism:oxygen": 1048068,
+      "mekanism:sulfur_dioxide": 180338
+    }
+  }
+}

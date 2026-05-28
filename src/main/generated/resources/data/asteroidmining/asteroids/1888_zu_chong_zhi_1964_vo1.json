@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1888_zu_chong_zhi_1964_vo1",
+  "name": "1888 Zu Chong-Zhi (1964 VO1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.633,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 254.6,
+    "eccentricity": 0.1698,
+    "inclination": 5.85,
+    "orbital_speed": 0.1755,
+    "clockwise": true,
+    "angle": 277.596
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 192292,
+      "minecraft:raw_iron": 37127,
+      "minecraft:raw_copper": 10565,
+      "minecraft:quartz": 23349,
+      "minecraft:redstone": 842
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 23017
+    }
+  }
+}

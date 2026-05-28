@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:711_marmulla_a911_ea",
+  "name": "711 Marmulla (A911 EA)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 9.026,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.7,
+    "eccentricity": 0.1962,
+    "inclination": 6.09,
+    "orbital_speed": 0.1872,
+    "clockwise": true,
+    "angle": 70.68
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 128298,
+      "minecraft:raw_iron": 29417,
+      "minecraft:quartz": 11475,
+      "minecraft:magma_cream": 795,
+      "mekanism:dust_osmium": 443
+    },
+    "fluids": {
+      "minecraft:lava": 12037504
+    },
+    "chemicals": {
+      "mekanism:oxygen": 10815
+    }
+  }
+}

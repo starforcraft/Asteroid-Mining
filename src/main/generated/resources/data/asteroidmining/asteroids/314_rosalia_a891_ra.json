@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:314_rosalia_a891_ra",
+  "name": "314 Rosalia (A891 RA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 60.689,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 315.9,
+    "eccentricity": 0.1707,
+    "inclination": 12.51,
+    "orbital_speed": 0.1575,
+    "clockwise": true,
+    "angle": 200.004
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1895124,
+      "minecraft:raw_gold": 137701,
+      "minecraft:redstone": 22938,
+      "mekanism:raw_osmium": 50355,
+      "mekanism:pellet_polonium": 191
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 625912,
+      "mekanism:dirty_gold_slurry": 12623,
+      "mekanism:dirty_osmium_slurry": 21276
+    }
+  }
+}

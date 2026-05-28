@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:63_ausonia_a861_ca",
+  "name": "63 Ausonia (A861 CA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 116.044,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 239.5,
+    "eccentricity": 0.1282,
+    "inclination": 5.77,
+    "orbital_speed": 0.1809,
+    "clockwise": true,
+    "angle": 245.496
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 4713751,
+      "minecraft:raw_iron": 1016934,
+      "minecraft:raw_copper": 106081,
+      "minecraft:quartz": 259184,
+      "minecraft:redstone": 48275
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 681386
+    }
+  }
+}

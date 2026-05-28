@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:558_carmen_a905_ck",
+  "name": "558 Carmen (A905 CK)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 54.811,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 290.9,
+    "eccentricity": 0.0383,
+    "inclination": 8.37,
+    "orbital_speed": 0.1642,
+    "clockwise": true,
+    "angle": 271.956
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2054484,
+      "minecraft:raw_gold": 17117,
+      "minecraft:redstone": 28632,
+      "mekanism:raw_osmium": 67546,
+      "minecraft:diamond": 556
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 332206,
+      "mekanism:dirty_gold_slurry": 5648,
+      "mekanism:dirty_osmium_slurry": 15383
+    }
+  }
+}

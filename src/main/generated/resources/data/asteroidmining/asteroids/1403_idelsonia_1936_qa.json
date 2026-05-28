@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:1403_idelsonia_1936_qa",
+  "name": "1403 Idelsonia (1936 QA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 26.531,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 271.8,
+    "eccentricity": 0.2939,
+    "inclination": 10.18,
+    "orbital_speed": 0.1698,
+    "clockwise": true,
+    "angle": 186.216
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 191051,
+      "minecraft:clay_ball": 66501,
+      "minecraft:raw_iron": 65091,
+      "minecraft:raw_copper": 32457,
+      "mekanism:dust_sulfur": 36287,
+      "mekanism:fluorite_gem": 3136,
+      "mekanism:yellow_cake_uranium": 1567
+    },
+    "fluids": {
+      "minecraft:water": 351865988
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 34916,
+      "mekanism:oxygen": 84083,
+      "mekanism:sulfur_dioxide": 39027
+    }
+  }
+}

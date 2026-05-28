@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1620_geographos_1951_ra",
+  "name": "1620 Geographos (1951 RA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 2.56,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 124.6,
+    "eccentricity": 0.3355,
+    "inclination": 13.34,
+    "orbital_speed": 0.2508,
+    "clockwise": true,
+    "angle": 145.452
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 22070,
+      "minecraft:raw_iron": 5373,
+      "minecraft:raw_copper": 915,
+      "minecraft:quartz": 4363,
+      "minecraft:redstone": 933,
+      "minecraft:diamond": 14,
+      "mekanism:dust_osmium": 48
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 2236
+    }
+  }
+}

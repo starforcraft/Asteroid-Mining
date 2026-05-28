@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:245_vera_a885_ca",
+  "name": "245 Vera (A885 CA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 75.949,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 309.5,
+    "eccentricity": 0.1976,
+    "inclination": 5.18,
+    "orbital_speed": 0.1592,
+    "clockwise": true,
+    "angle": 71.952
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1877816,
+      "minecraft:raw_iron": 610340,
+      "minecraft:raw_copper": 161928,
+      "minecraft:quartz": 366649,
+      "minecraft:redstone": 46610
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 431370
+    }
+  }
+}

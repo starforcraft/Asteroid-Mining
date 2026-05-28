@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:302_clarissa_a890_va",
+  "name": "302 Clarissa (A890 VA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 38.53,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 240.6,
+    "eccentricity": 0.111,
+    "inclination": 3.41,
+    "orbital_speed": 0.1805,
+    "clockwise": true,
+    "angle": 349.908
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 346905,
+      "minecraft:clay_ball": 226455,
+      "minecraft:raw_iron": 112547,
+      "minecraft:raw_copper": 18079,
+      "mekanism:dust_sulfur": 50942,
+      "mekanism:fluorite_gem": 1364,
+      "mekanism:yellow_cake_uranium": 1775
+    },
+    "fluids": {
+      "minecraft:water": 531106053
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 255547,
+      "mekanism:oxygen": 232756,
+      "mekanism:sulfur_dioxide": 20024
+    }
+  }
+}

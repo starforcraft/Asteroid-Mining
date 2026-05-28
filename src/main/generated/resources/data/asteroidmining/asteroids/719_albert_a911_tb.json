@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:719_albert_a911_tb",
+  "name": "719 Albert (A911 TB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.1874,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 263.7,
+    "eccentricity": 0.5466,
+    "inclination": 11.57,
+    "orbital_speed": 0.1724,
+    "clockwise": true,
+    "angle": 90.744
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 108382,
+      "minecraft:raw_iron": 35813,
+      "minecraft:raw_copper": 8946,
+      "minecraft:quartz": 8493,
+      "minecraft:redstone": 3857,
+      "mekanism:dust_osmium": 564
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 11919
+    }
+  }
+}

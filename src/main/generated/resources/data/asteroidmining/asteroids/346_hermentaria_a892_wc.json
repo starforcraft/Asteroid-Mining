@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:346_hermentaria_a892_wc",
+  "name": "346 Hermentaria (A892 WC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 86.447,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.5,
+    "eccentricity": 0.1027,
+    "inclination": 8.76,
+    "orbital_speed": 0.1675,
+    "clockwise": true,
+    "angle": 280.26
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 3083862,
+      "minecraft:raw_iron": 545598,
+      "minecraft:raw_copper": 101960,
+      "minecraft:quartz": 513760,
+      "minecraft:redstone": 29477,
+      "mekanism:dust_osmium": 8746
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 357902
+    }
+  }
+}

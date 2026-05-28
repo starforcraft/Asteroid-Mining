@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:611_valeria_a906_sm",
+  "name": "611 Valeria (A906 SM)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 57.468,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 297.9,
+    "eccentricity": 0.1248,
+    "inclination": 13.44,
+    "orbital_speed": 0.1622,
+    "clockwise": true,
+    "angle": 359.88
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1146496,
+      "minecraft:raw_iron": 394717,
+      "minecraft:raw_copper": 32133,
+      "minecraft:quartz": 160107,
+      "minecraft:redstone": 7064,
+      "mekanism:dust_osmium": 10614
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 309987
+    }
+  }
+}

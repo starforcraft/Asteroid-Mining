@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:48_doris_a857_sa",
+  "name": "48 Doris (A857 SA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 216.473,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.3,
+    "eccentricity": 0.0663,
+    "inclination": 6.56,
+    "orbital_speed": 0.1587,
+    "clockwise": true,
+    "angle": 342.876
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 562590,
+      "minecraft:clay_ball": 751934,
+      "minecraft:raw_iron": 337887,
+      "minecraft:raw_copper": 98069,
+      "mekanism:dust_sulfur": 438622,
+      "mekanism:fluorite_gem": 13963,
+      "mekanism:yellow_cake_uranium": 9410
+    },
+    "fluids": {
+      "minecraft:water": 2724387232
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 327721,
+      "mekanism:oxygen": 885931,
+      "mekanism:sulfur_dioxide": 129263
+    }
+  }
+}

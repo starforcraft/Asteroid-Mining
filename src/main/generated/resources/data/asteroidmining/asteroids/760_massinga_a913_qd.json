@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:760_massinga_a913_qd",
+  "name": "760 Massinga (A913 QD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 71.29,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 314.7,
+    "eccentricity": 0.2345,
+    "inclination": 12.54,
+    "orbital_speed": 0.1578,
+    "clockwise": true,
+    "angle": 328.572
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1225178,
+      "minecraft:raw_iron": 463171,
+      "minecraft:raw_copper": 149109,
+      "minecraft:quartz": 317391,
+      "minecraft:redstone": 48502,
+      "minecraft:diamond": 775
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 138265
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1288_santa_1933_qm",
+  "name": "1288 Santa (1933 QM)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 31.378,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 288.6,
+    "eccentricity": 0.064,
+    "inclination": 7.56,
+    "orbital_speed": 0.1648,
+    "clockwise": true,
+    "angle": 212.796
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 526686,
+      "minecraft:raw_iron": 243666,
+      "minecraft:raw_copper": 30848,
+      "minecraft:quartz": 116885,
+      "minecraft:redstone": 13018
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 98760
+    }
+  }
+}

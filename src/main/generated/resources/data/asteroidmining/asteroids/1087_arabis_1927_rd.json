@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1087_arabis_1927_rd",
+  "name": "1087 Arabis (1927 RD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 37.498,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.7,
+    "eccentricity": 0.0887,
+    "inclination": 10.06,
+    "orbital_speed": 0.1612,
+    "clockwise": true,
+    "angle": 293.688
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1035394,
+      "minecraft:raw_iron": 302666,
+      "minecraft:raw_copper": 59935,
+      "minecraft:quartz": 111838,
+      "minecraft:redstone": 22314
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 144363
+    }
+  }
+}

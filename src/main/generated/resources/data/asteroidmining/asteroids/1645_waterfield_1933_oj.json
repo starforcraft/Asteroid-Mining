@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1645_waterfield_1933_oj",
+  "name": "1645 Waterfield (1933 OJ)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 28.146,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 306.1,
+    "eccentricity": 0.1104,
+    "inclination": 1.03,
+    "orbital_speed": 0.16,
+    "clockwise": true,
+    "angle": 343.152
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 370037,
+      "minecraft:raw_gold": 39056,
+      "minecraft:redstone": 10538,
+      "mekanism:raw_osmium": 21568,
+      "minecraft:diamond": 959,
+      "mekanism:pellet_polonium": 22
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 226894,
+      "mekanism:dirty_gold_slurry": 12536,
+      "mekanism:dirty_osmium_slurry": 8011
+    }
+  }
+}

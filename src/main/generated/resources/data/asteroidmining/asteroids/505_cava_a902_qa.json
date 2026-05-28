@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:505_cava_a902_qa",
+  "name": "505 Cava (A902 QA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 115.0,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.7,
+    "eccentricity": 0.2426,
+    "inclination": 9.82,
+    "orbital_speed": 0.1708,
+    "clockwise": true,
+    "angle": 184.032
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1481773,
+      "minecraft:clay_ball": 531245,
+      "minecraft:raw_iron": 368207,
+      "minecraft:raw_copper": 106178,
+      "mekanism:dust_sulfur": 184027,
+      "mekanism:yellow_cake_uranium": 9992
+    },
+    "fluids": {
+      "minecraft:water": 2402293765
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 409375,
+      "mekanism:oxygen": 1088944,
+      "mekanism:sulfur_dioxide": 372473
+    }
+  }
+}

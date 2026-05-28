@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:938_chlosinde_a920_rc",
+  "name": "938 Chlosinde (A920 RC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 33.466,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 315.1,
+    "eccentricity": 0.1941,
+    "inclination": 2.67,
+    "orbital_speed": 0.1577,
+    "clockwise": true,
+    "angle": 324.996
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 92166,
+      "minecraft:clay_ball": 214253,
+      "minecraft:raw_iron": 119088,
+      "minecraft:raw_copper": 16137,
+      "mekanism:dust_sulfur": 20006,
+      "mekanism:fluorite_gem": 2987
+    },
+    "fluids": {
+      "minecraft:water": 440138472
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 140209,
+      "mekanism:oxygen": 222362,
+      "mekanism:sulfur_dioxide": 40014
+    }
+  }
+}

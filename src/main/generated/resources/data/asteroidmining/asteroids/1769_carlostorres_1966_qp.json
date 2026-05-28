@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1769_carlostorres_1966_qp",
+  "name": "1769 Carlostorres (1966 QP)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 5.583,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 217.9,
+    "eccentricity": 0.1422,
+    "inclination": 1.59,
+    "orbital_speed": 0.1897,
+    "clockwise": true,
+    "angle": 114.144
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 79838,
+      "minecraft:raw_iron": 26598,
+      "minecraft:raw_copper": 6609,
+      "minecraft:quartz": 7385,
+      "minecraft:redstone": 831
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 8767
+    }
+  }
+}

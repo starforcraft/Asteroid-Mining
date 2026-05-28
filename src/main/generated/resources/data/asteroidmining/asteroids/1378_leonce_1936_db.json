@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1378_leonce_1936_db",
+  "name": "1378 Leonce (1936 DB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 21.228,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.4,
+    "eccentricity": 0.1511,
+    "inclination": 3.59,
+    "orbital_speed": 0.1817,
+    "clockwise": true,
+    "angle": 348.516
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 274100,
+      "minecraft:raw_iron": 89462,
+      "minecraft:raw_copper": 49366,
+      "minecraft:quartz": 32715,
+      "minecraft:redstone": 2943,
+      "minecraft:diamond": 286
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 25582
+    }
+  }
+}

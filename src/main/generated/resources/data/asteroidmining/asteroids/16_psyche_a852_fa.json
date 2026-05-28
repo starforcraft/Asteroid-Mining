@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:16_psyche_a852_fa",
+  "name": "16 Psyche (A852 FA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 222.0,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 292.3,
+    "eccentricity": 0.1343,
+    "inclination": 3.1,
+    "orbital_speed": 0.1638,
+    "clockwise": true,
+    "angle": 262.62
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 5398215,
+      "minecraft:raw_gold": 164818,
+      "minecraft:redstone": 93720,
+      "mekanism:raw_osmium": 34055,
+      "mekanism:pellet_polonium": 310
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1923672,
+      "mekanism:dirty_gold_slurry": 109661,
+      "mekanism:dirty_osmium_slurry": 132278
+    }
+  }
+}

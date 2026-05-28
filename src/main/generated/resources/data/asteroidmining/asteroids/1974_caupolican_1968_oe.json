@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1974_caupolican_1968_oe",
+  "name": "1974 Caupolican (1968 OE)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 11.588,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.4,
+    "eccentricity": 0.0961,
+    "inclination": 10.22,
+    "orbital_speed": 0.1574,
+    "clockwise": true,
+    "angle": 223.284
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 43154,
+      "minecraft:clay_ball": 61416,
+      "minecraft:raw_iron": 10621,
+      "minecraft:raw_copper": 7327,
+      "mekanism:dust_sulfur": 18935,
+      "mekanism:fluorite_gem": 1102
+    },
+    "fluids": {
+      "minecraft:water": 81303143
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 42589,
+      "mekanism:oxygen": 11277,
+      "mekanism:sulfur_dioxide": 12564
+    }
+  }
+}

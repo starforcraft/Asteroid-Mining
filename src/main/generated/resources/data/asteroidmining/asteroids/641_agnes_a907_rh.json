@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:641_agnes_a907_rh",
+  "name": "641 Agnes (A907 RH)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 9.446,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.0,
+    "eccentricity": 0.1283,
+    "inclination": 1.71,
+    "orbital_speed": 0.1879,
+    "clockwise": true,
+    "angle": 165.12
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 24342,
+      "minecraft:clay_ball": 36298,
+      "minecraft:raw_iron": 11656,
+      "minecraft:raw_copper": 5406,
+      "mekanism:dust_sulfur": 13986,
+      "mekanism:fluorite_gem": 706
+    },
+    "fluids": {
+      "minecraft:water": 77108892
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 29189,
+      "mekanism:oxygen": 21176,
+      "mekanism:sulfur_dioxide": 8080
+    }
+  }
+}

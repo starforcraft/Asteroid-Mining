@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:424_gratia_a896_yd",
+  "name": "424 Gratia (A896 YD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 102.565,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 277.3,
+    "eccentricity": 0.1099,
+    "inclination": 8.22,
+    "orbital_speed": 0.1681,
+    "clockwise": true,
+    "angle": 205.884
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2273036,
+      "minecraft:raw_iron": 986350,
+      "minecraft:raw_copper": 373391,
+      "minecraft:quartz": 334659,
+      "minecraft:redstone": 112908,
+      "minecraft:diamond": 533
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 693515
+    }
+  }
+}

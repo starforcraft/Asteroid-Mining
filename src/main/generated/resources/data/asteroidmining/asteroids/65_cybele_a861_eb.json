@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:65_cybele_a861_eb",
+  "name": "65 Cybele (A861 EB)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 237.26,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 340.8,
+    "eccentricity": 0.1277,
+    "inclination": 3.56,
+    "orbital_speed": 0.1517,
+    "clockwise": true,
+    "angle": 160.512
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 2521453,
+      "minecraft:blackstone": 1786957,
+      "mekanism:dust_sulfur": 444968
+    },
+    "fluids": {
+      "minecraft:water": 270715122
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 533100,
+      "mekanism:ethene": 191396,
+      "mekanism:sulfur_dioxide": 392953
+    }
+  }
+}

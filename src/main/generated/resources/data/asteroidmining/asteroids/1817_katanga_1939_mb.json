@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1817_katanga_1939_mb",
+  "name": "1817 Katanga (1939 MB)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 15.9,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.3,
+    "eccentricity": 0.1899,
+    "inclination": 25.71,
+    "orbital_speed": 0.1818,
+    "clockwise": true,
+    "angle": 234.528
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 297715,
+      "minecraft:blue_ice": 31819,
+      "minecraft:coal": 7474
+    },
+    "fluids": {
+      "minecraft:water": 215775128
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 61825,
+      "mekanism:oxygen": 82556,
+      "mekanism:heavy_water": 2203
+    }
+  }
+}

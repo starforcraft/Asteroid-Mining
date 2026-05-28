@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1233_kobresia_1931_tg2",
+  "name": "1233 Kobresia (1931 TG2)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 33.323,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 255.5,
+    "eccentricity": 0.0559,
+    "inclination": 5.6,
+    "orbital_speed": 0.1752,
+    "clockwise": true,
+    "angle": 209.856
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 525123,
+      "minecraft:raw_iron": 202696,
+      "minecraft:quartz": 95255,
+      "minecraft:magma_cream": 16296
+    },
+    "fluids": {
+      "minecraft:lava": 67991832
+    },
+    "chemicals": {
+      "mekanism:oxygen": 115476
+    }
+  }
+}

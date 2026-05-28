@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1648_shajna_1935_rf",
+  "name": "1648 Shajna (1935 RF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.45,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.5,
+    "eccentricity": 0.2076,
+    "inclination": 4.57,
+    "orbital_speed": 0.1873,
+    "clockwise": true,
+    "angle": 35.676
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 127209,
+      "minecraft:raw_iron": 24950,
+      "minecraft:raw_copper": 6462,
+      "minecraft:quartz": 14399,
+      "minecraft:redstone": 1871
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 10020
+    }
+  }
+}

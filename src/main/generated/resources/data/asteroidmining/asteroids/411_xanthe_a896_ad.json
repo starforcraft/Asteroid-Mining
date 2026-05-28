@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:411_xanthe_a896_ad",
+  "name": "411 Xanthe (A896 AD)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 76.53,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 293.4,
+    "eccentricity": 0.114,
+    "inclination": 15.35,
+    "orbital_speed": 0.1635,
+    "clockwise": true,
+    "angle": 218.28
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1709131,
+      "minecraft:raw_gold": 77136,
+      "minecraft:redstone": 45916,
+      "mekanism:raw_osmium": 56900
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1277194,
+      "mekanism:dirty_gold_slurry": 116364,
+      "mekanism:dirty_osmium_slurry": 72712
+    }
+  }
+}

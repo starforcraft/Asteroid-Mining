@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:870_manto_a917_jc",
+  "name": "870 Manto (A917 JC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 13.683,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 232.2,
+    "eccentricity": 0.2658,
+    "inclination": 6.2,
+    "orbital_speed": 0.1837,
+    "clockwise": true,
+    "angle": 334.452
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 167685,
+      "minecraft:raw_iron": 41596,
+      "minecraft:raw_copper": 9672,
+      "minecraft:quartz": 25983,
+      "minecraft:redstone": 7509
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 18880
+    }
+  }
+}

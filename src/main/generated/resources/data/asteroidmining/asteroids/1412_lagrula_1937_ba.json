@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:1412_lagrula_1937_ba",
+  "name": "1412 Lagrula (1937 BA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 7.806,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 221.5,
+    "eccentricity": 0.1125,
+    "inclination": 4.71,
+    "orbital_speed": 0.1881,
+    "clockwise": true,
+    "angle": 343.788
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 28046,
+      "minecraft:clay_ball": 26905,
+      "minecraft:raw_iron": 11027,
+      "minecraft:raw_copper": 1787,
+      "mekanism:dust_sulfur": 8101
+    },
+    "fluids": {
+      "minecraft:water": 25681224
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 5997,
+      "mekanism:oxygen": 29842,
+      "mekanism:sulfur_dioxide": 7896
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:672_astarte_a908_sh",
+  "name": "672 Astarte (A908 SH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 35.584,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 255.5,
+    "eccentricity": 0.1365,
+    "inclination": 11.11,
+    "orbital_speed": 0.1752,
+    "clockwise": true,
+    "angle": 107.868
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1081884,
+      "minecraft:raw_iron": 218900,
+      "minecraft:raw_copper": 92611,
+      "minecraft:quartz": 122282,
+      "minecraft:redstone": 16782
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 162363
+    }
+  }
+}

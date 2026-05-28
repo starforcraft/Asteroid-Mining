@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:631_philippina_a907_fd",
+  "name": "631 Philippina (A907 FD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 50.491,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.2,
+    "eccentricity": 0.085,
+    "inclination": 18.9,
+    "orbital_speed": 0.1676,
+    "clockwise": true,
+    "angle": 230.04
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1359786,
+      "minecraft:raw_iron": 322657,
+      "minecraft:raw_copper": 43116,
+      "minecraft:quartz": 53784,
+      "minecraft:redstone": 38537
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 225174
+    }
+  }
+}

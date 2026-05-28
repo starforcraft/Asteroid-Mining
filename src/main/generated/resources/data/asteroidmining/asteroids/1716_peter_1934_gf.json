@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1716_peter_1934_gf",
+  "name": "1716 Peter (1934 GF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 26.656,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 273.3,
+    "eccentricity": 0.093,
+    "inclination": 5.74,
+    "orbital_speed": 0.1694,
+    "clockwise": true,
+    "angle": 26.22
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 147750,
+      "minecraft:clay_ball": 71240,
+      "minecraft:raw_iron": 77567,
+      "minecraft:raw_copper": 27474,
+      "mekanism:dust_sulfur": 48216,
+      "mekanism:fluorite_gem": 2324
+    },
+    "fluids": {
+      "minecraft:water": 132992595
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 83142,
+      "mekanism:oxygen": 162028,
+      "mekanism:sulfur_dioxide": 40175
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1174_marmara_1930_uc",
+  "name": "1174 Marmara (1930 UC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 18.142,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.4,
+    "eccentricity": 0.11,
+    "inclination": 10.06,
+    "orbital_speed": 0.161,
+    "clockwise": true,
+    "angle": 16.884
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 237522,
+      "minecraft:raw_iron": 70827,
+      "minecraft:raw_copper": 32721,
+      "minecraft:quartz": 22814,
+      "minecraft:redstone": 5210,
+      "minecraft:diamond": 149
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 46939
+    }
+  }
+}

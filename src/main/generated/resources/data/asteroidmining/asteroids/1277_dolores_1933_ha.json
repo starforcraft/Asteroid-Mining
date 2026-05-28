@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1277_dolores_1933_ha",
+  "name": "1277 Dolores (1933 HA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 32.587,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 269.6,
+    "eccentricity": 0.2408,
+    "inclination": 6.98,
+    "orbital_speed": 0.1705,
+    "clockwise": true,
+    "angle": 140.208
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 182704,
+      "minecraft:clay_ball": 183225,
+      "minecraft:raw_iron": 79016,
+      "minecraft:raw_copper": 23625,
+      "mekanism:dust_sulfur": 65255,
+      "mekanism:fluorite_gem": 3639
+    },
+    "fluids": {
+      "minecraft:water": 145518744
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 131478,
+      "mekanism:oxygen": 205831,
+      "mekanism:sulfur_dioxide": 42914
+    }
+  }
+}

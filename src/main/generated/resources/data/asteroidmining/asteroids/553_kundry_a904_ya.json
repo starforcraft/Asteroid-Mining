@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:553_kundry_a904_ya",
+  "name": "553 Kundry (A904 YA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.01,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.0,
+    "eccentricity": 0.11,
+    "inclination": 5.39,
+    "orbital_speed": 0.1875,
+    "clockwise": true,
+    "angle": 304.416
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 141985,
+      "minecraft:raw_iron": 50089,
+      "minecraft:raw_copper": 2491,
+      "minecraft:quartz": 16672,
+      "minecraft:redstone": 3702
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 23158
+    }
+  }
+}

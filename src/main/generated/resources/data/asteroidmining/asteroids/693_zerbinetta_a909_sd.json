@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:693_zerbinetta_a909_sd",
+  "name": "693 Zerbinetta (A909 SD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 82.114,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 294.3,
+    "eccentricity": 0.0297,
+    "inclination": 14.19,
+    "orbital_speed": 0.1632,
+    "clockwise": true,
+    "angle": 115.536
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2182994,
+      "minecraft:raw_iron": 432951,
+      "minecraft:raw_copper": 106829,
+      "minecraft:quartz": 285121,
+      "minecraft:redstone": 21999,
+      "minecraft:diamond": 3282,
+      "mekanism:dust_osmium": 7027
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 351617
+    }
+  }
+}

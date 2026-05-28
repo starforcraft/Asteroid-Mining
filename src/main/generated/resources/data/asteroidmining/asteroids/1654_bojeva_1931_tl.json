@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1654_bojeva_1931_tl",
+  "name": "1654 Bojeva (1931 TL)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 25.115,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.7,
+    "eccentricity": 0.0858,
+    "inclination": 10.42,
+    "orbital_speed": 0.1612,
+    "clockwise": true,
+    "angle": 140.724
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 188491,
+      "minecraft:clay_ball": 129550,
+      "minecraft:raw_iron": 30134,
+      "minecraft:raw_copper": 8571,
+      "mekanism:dust_sulfur": 24113,
+      "mekanism:yellow_cake_uranium": 665
+    },
+    "fluids": {
+      "minecraft:water": 180656027
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 67880,
+      "mekanism:oxygen": 109017,
+      "mekanism:sulfur_dioxide": 32234
+    }
+  }
+}

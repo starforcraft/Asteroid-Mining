@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:1092_lilium_a924_ae",
+  "name": "1092 Lilium (A924 AE)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 40.276,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 290.0,
+    "eccentricity": 0.0841,
+    "inclination": 5.39,
+    "orbital_speed": 0.1644,
+    "clockwise": true,
+    "angle": 261.228
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 308241,
+      "minecraft:clay_ball": 207017,
+      "minecraft:raw_iron": 92192,
+      "minecraft:raw_copper": 61179,
+      "mekanism:dust_sulfur": 51029,
+      "mekanism:fluorite_gem": 1979,
+      "mekanism:yellow_cake_uranium": 2288
+    },
+    "fluids": {
+      "minecraft:water": 484044534
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 196562,
+      "mekanism:oxygen": 132088,
+      "mekanism:sulfur_dioxide": 75322
+    }
+  }
+}

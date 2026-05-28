@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1720_niels_1935_cq",
+  "name": "1720 Niels (1935 CQ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.394,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 218.8,
+    "eccentricity": 0.1042,
+    "inclination": 0.73,
+    "orbital_speed": 0.1893,
+    "clockwise": true,
+    "angle": 216.252
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 69634,
+      "minecraft:raw_iron": 20183,
+      "minecraft:raw_copper": 3432,
+      "minecraft:quartz": 11884,
+      "minecraft:redstone": 2578,
+      "mekanism:dust_osmium": 91
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 12059
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1428_mombasa_1937_no",
+  "name": "1428 Mombasa (1937 NO)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 52.464,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 280.9,
+    "eccentricity": 0.1415,
+    "inclination": 17.3,
+    "orbital_speed": 0.1671,
+    "clockwise": true,
+    "angle": 23.916
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1334318,
+      "minecraft:raw_gold": 55718,
+      "minecraft:redstone": 62433,
+      "mekanism:raw_osmium": 23288,
+      "mekanism:pellet_polonium": 146
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 606193,
+      "mekanism:dirty_gold_slurry": 35904,
+      "mekanism:dirty_osmium_slurry": 29065
+    }
+  }
+}

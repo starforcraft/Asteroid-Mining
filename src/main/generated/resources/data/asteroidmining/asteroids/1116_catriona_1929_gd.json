@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1116_catriona_1929_gd",
+  "name": "1116 Catriona (1929 GD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 38.741,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 292.8,
+    "eccentricity": 0.2241,
+    "inclination": 16.55,
+    "orbital_speed": 0.1636,
+    "clockwise": true,
+    "angle": 321.42
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 751184,
+      "minecraft:raw_iron": 386529,
+      "minecraft:raw_copper": 101757,
+      "minecraft:quartz": 53333,
+      "minecraft:redstone": 13286
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 111372
+    }
+  }
+}

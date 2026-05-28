@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1733_silke_1938_dl1",
+  "name": "1733 Silke (1938 DL1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.715,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.3,
+    "eccentricity": 0.0839,
+    "inclination": 4.43,
+    "orbital_speed": 0.1891,
+    "clockwise": true,
+    "angle": 203.856
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 89964,
+      "minecraft:raw_iron": 20554,
+      "minecraft:raw_copper": 3767,
+      "minecraft:quartz": 13229,
+      "minecraft:redstone": 897,
+      "mekanism:dust_osmium": 467
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 7323
+    }
+  }
+}

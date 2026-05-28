@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1722_goffin_1938_eg",
+  "name": "1722 Goffin (1938 EG)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 10.29,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 251.3,
+    "eccentricity": 0.0508,
+    "inclination": 5.47,
+    "orbital_speed": 0.1766,
+    "clockwise": true,
+    "angle": 131.268
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 181357,
+      "minecraft:raw_gold": 8833,
+      "minecraft:redstone": 4692,
+      "mekanism:raw_osmium": 5898
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 80107,
+      "mekanism:dirty_gold_slurry": 7337,
+      "mekanism:dirty_osmium_slurry": 1063
+    }
+  }
+}

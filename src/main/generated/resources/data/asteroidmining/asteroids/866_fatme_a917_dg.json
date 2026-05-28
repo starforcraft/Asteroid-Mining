@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:866_fatme_a917_dg",
+  "name": "866 Fatme (A917 DG)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 78.061,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.3,
+    "eccentricity": 0.0518,
+    "inclination": 8.66,
+    "orbital_speed": 0.1584,
+    "clockwise": true,
+    "angle": 144.42
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1566333,
+      "minecraft:raw_gold": 105609,
+      "minecraft:redstone": 72601,
+      "mekanism:raw_osmium": 35629,
+      "mekanism:pellet_polonium": 237
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1040351,
+      "mekanism:dirty_gold_slurry": 23956,
+      "mekanism:dirty_osmium_slurry": 33968
+    }
+  }
+}

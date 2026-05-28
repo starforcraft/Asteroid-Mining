@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1831_nicholson_1968_hc",
+  "name": "1831 Nicholson (1968 HC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.083,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.9,
+    "eccentricity": 0.1289,
+    "inclination": 5.64,
+    "orbital_speed": 0.1871,
+    "clockwise": true,
+    "angle": 359.64
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 99598,
+      "minecraft:raw_iron": 28053,
+      "minecraft:raw_copper": 6733,
+      "minecraft:quartz": 5278,
+      "minecraft:redstone": 2240,
+      "mekanism:dust_osmium": 275
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 6981
+    }
+  }
+}

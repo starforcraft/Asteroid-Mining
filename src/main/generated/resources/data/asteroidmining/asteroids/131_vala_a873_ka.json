@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:131_vala_a873_ka",
+  "name": "131 Vala (A873 KA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 31.337,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 243.2,
+    "eccentricity": 0.0694,
+    "inclination": 4.96,
+    "orbital_speed": 0.1795,
+    "clockwise": true,
+    "angle": 236.04
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 855439,
+      "minecraft:raw_iron": 164969,
+      "minecraft:raw_copper": 52758,
+      "minecraft:quartz": 62044,
+      "minecraft:redstone": 18910,
+      "minecraft:diamond": 515
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 104119
+    }
+  }
+}

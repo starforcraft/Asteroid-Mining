@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1714_sy_1951_oa",
+  "name": "1714 Sy (1951 OA)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 13.998,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 256.7,
+    "eccentricity": 0.1556,
+    "inclination": 7.97,
+    "orbital_speed": 0.1748,
+    "clockwise": true,
+    "angle": 111.204
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 144477,
+      "minecraft:raw_iron": 65763,
+      "minecraft:quartz": 22078,
+      "minecraft:magma_cream": 2511
+    },
+    "fluids": {
+      "minecraft:lava": 7570379
+    },
+    "chemicals": {
+      "mekanism:oxygen": 29540
+    }
+  }
+}

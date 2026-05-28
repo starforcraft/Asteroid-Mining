@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1895_larink_1971_uz",
+  "name": "1895 Larink (1971 UZ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 19.989,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.9,
+    "eccentricity": 0.1388,
+    "inclination": 1.81,
+    "orbital_speed": 0.1565,
+    "clockwise": true,
+    "angle": 160.152
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 371363,
+      "minecraft:raw_iron": 109476,
+      "minecraft:raw_copper": 11414,
+      "minecraft:quartz": 28062,
+      "minecraft:redstone": 2726,
+      "minecraft:diamond": 259
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 50658
+    }
+  }
+}

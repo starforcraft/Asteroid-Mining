@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:676_melitta_a909_bo",
+  "name": "676 Melitta (A909 BO)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 78.369,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 306.7,
+    "eccentricity": 0.1226,
+    "inclination": 12.85,
+    "orbital_speed": 0.1599,
+    "clockwise": true,
+    "angle": 297.9
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1723690,
+      "minecraft:raw_gold": 84218,
+      "minecraft:redstone": 82285,
+      "mekanism:raw_osmium": 24861
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1280555,
+      "mekanism:dirty_gold_slurry": 66378,
+      "mekanism:dirty_osmium_slurry": 33441
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1540_kevola_1938_wk",
+  "name": "1540 Kevola (1938 WK)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 43.875,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 285.0,
+    "eccentricity": 0.0851,
+    "inclination": 11.96,
+    "orbital_speed": 0.1659,
+    "clockwise": true,
+    "angle": 304.812
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1576596,
+      "minecraft:raw_gold": 101743,
+      "minecraft:redstone": 45606,
+      "mekanism:raw_osmium": 5887
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 402860,
+      "mekanism:dirty_gold_slurry": 12968,
+      "mekanism:dirty_osmium_slurry": 14228
+    }
+  }
+}

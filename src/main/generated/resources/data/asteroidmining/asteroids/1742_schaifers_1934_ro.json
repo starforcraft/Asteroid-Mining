@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1742_schaifers_1934_ro",
+  "name": "1742 Schaifers (1934 RO)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 16.707,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 288.7,
+    "eccentricity": 0.0978,
+    "inclination": 2.5,
+    "orbital_speed": 0.1648,
+    "clockwise": true,
+    "angle": 1.428
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 283170,
+      "minecraft:raw_iron": 85449,
+      "minecraft:raw_copper": 29760,
+      "minecraft:quartz": 23560,
+      "minecraft:redstone": 3687,
+      "minecraft:diamond": 493
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 30751
+    }
+  }
+}

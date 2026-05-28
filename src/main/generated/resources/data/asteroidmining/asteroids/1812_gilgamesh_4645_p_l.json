@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1812_gilgamesh_4645_p_l",
+  "name": "1812 Gilgamesh (4645 P-L)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 15.317,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 300.6,
+    "eccentricity": 0.0811,
+    "inclination": 10.26,
+    "orbital_speed": 0.1615,
+    "clockwise": true,
+    "angle": 266.988
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 290422,
+      "minecraft:raw_gold": 14810,
+      "minecraft:redstone": 11779,
+      "mekanism:raw_osmium": 9842,
+      "mekanism:pellet_polonium": 18
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 99351,
+      "mekanism:dirty_gold_slurry": 10403,
+      "mekanism:dirty_osmium_slurry": 4615
+    }
+  }
+}

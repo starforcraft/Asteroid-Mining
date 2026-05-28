@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1418_fayeta_a903_sj",
+  "name": "1418 Fayeta (A903 SJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.701,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.2,
+    "eccentricity": 0.2036,
+    "inclination": 7.2,
+    "orbital_speed": 0.187,
+    "clockwise": true,
+    "angle": 88.836
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 150613,
+      "minecraft:raw_iron": 64097,
+      "minecraft:raw_copper": 13688,
+      "minecraft:quartz": 11110,
+      "minecraft:redstone": 5231,
+      "mekanism:dust_osmium": 1490
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 9954
+    }
+  }
+}

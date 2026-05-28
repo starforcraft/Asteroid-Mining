@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:955_alstede_a921_pd",
+  "name": "955 Alstede (A921 PD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 17.33,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 259.5,
+    "eccentricity": 0.2888,
+    "inclination": 10.69,
+    "orbital_speed": 0.1738,
+    "clockwise": true,
+    "angle": 142.632
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 49504,
+      "minecraft:clay_ball": 33619,
+      "minecraft:raw_iron": 32039,
+      "minecraft:raw_copper": 8760,
+      "mekanism:dust_sulfur": 12283,
+      "mekanism:yellow_cake_uranium": 603
+    },
+    "fluids": {
+      "minecraft:water": 136261869
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 67554,
+      "mekanism:oxygen": 30826,
+      "mekanism:sulfur_dioxide": 7094
+    }
+  }
+}

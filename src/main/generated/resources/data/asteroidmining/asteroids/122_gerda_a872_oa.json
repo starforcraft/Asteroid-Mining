@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:122_gerda_a872_oa",
+  "name": "122 Gerda (A872 OA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 70.676,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 322.6,
+    "eccentricity": 0.0228,
+    "inclination": 1.64,
+    "orbital_speed": 0.1559,
+    "clockwise": true,
+    "angle": 78.468
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1438161,
+      "minecraft:raw_iron": 844580,
+      "minecraft:raw_copper": 168759,
+      "minecraft:quartz": 133053,
+      "minecraft:redstone": 55932,
+      "mekanism:dust_osmium": 11901
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 233184
+    }
+  }
+}

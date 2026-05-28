@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1342_brabantia_1935_cv",
+  "name": "1342 Brabantia (1935 CV)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 12.065,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 228.9,
+    "eccentricity": 0.2021,
+    "inclination": 20.92,
+    "orbital_speed": 0.1851,
+    "clockwise": true,
+    "angle": 78.228
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 172337,
+      "minecraft:raw_gold": 8254,
+      "minecraft:redstone": 7515,
+      "mekanism:raw_osmium": 896,
+      "minecraft:diamond": 336
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 31679,
+      "mekanism:dirty_gold_slurry": 5954,
+      "mekanism:dirty_osmium_slurry": 4491
+    }
+  }
+}

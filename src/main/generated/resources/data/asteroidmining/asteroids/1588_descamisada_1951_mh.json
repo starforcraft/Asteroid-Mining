@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1588_descamisada_1951_mh",
+  "name": "1588 Descamisada (1951 MH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 17.541,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 303.0,
+    "eccentricity": 0.0699,
+    "inclination": 11.26,
+    "orbital_speed": 0.1609,
+    "clockwise": true,
+    "angle": 65.196
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 264749,
+      "minecraft:raw_iron": 77076,
+      "minecraft:raw_copper": 20357,
+      "minecraft:quartz": 36167,
+      "minecraft:redstone": 5657,
+      "mekanism:dust_osmium": 2269
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 15255
+    }
+  }
+}

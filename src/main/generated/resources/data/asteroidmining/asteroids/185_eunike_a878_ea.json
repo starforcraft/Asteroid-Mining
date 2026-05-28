@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:185_eunike_a878_ea",
+  "name": "185 Eunike (A878 EA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 160.464,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 273.8,
+    "eccentricity": 0.1269,
+    "inclination": 23.25,
+    "orbital_speed": 0.1692,
+    "clockwise": true,
+    "angle": 101.472
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 792123,
+      "minecraft:clay_ball": 1171847,
+      "minecraft:raw_iron": 529136,
+      "minecraft:raw_copper": 87427,
+      "mekanism:dust_sulfur": 414216,
+      "mekanism:yellow_cake_uranium": 1673
+    },
+    "fluids": {
+      "minecraft:water": 1112277236
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 1123250,
+      "mekanism:oxygen": 1369787,
+      "mekanism:sulfur_dioxide": 138446
+    }
+  }
+}

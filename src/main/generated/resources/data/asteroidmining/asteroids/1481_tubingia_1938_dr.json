@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1481_tubingia_1938_dr",
+  "name": "1481 Tubingia (1938 DR)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 33.77,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.9,
+    "eccentricity": 0.0411,
+    "inclination": 3.51,
+    "orbital_speed": 0.1611,
+    "clockwise": true,
+    "angle": 111.84
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 891548,
+      "minecraft:raw_iron": 219618,
+      "minecraft:raw_copper": 15022,
+      "minecraft:quartz": 102321,
+      "minecraft:redstone": 25088,
+      "mekanism:dust_osmium": 1682
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 133142
+    }
+  }
+}

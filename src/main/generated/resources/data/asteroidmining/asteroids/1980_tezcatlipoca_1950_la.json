@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1980_tezcatlipoca_1950_la",
+  "name": "1980 Tezcatlipoca (1950 LA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 4.3,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 170.9,
+    "eccentricity": 0.3647,
+    "inclination": 26.87,
+    "orbital_speed": 0.2142,
+    "clockwise": true,
+    "angle": 328.332
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 41767,
+      "minecraft:raw_iron": 10010,
+      "minecraft:raw_copper": 1789,
+      "minecraft:quartz": 2681,
+      "minecraft:redstone": 1514,
+      "minecraft:diamond": 54,
+      "mekanism:dust_osmium": 196
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 2792
+    }
+  }
+}

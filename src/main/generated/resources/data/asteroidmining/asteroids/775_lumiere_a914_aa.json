@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:775_lumiere_a914_aa",
+  "name": "775 Lumiere (A914 AA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 31.958,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.4,
+    "eccentricity": 0.0664,
+    "inclination": 9.26,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 231.192
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 555197,
+      "minecraft:raw_iron": 109054,
+      "minecraft:raw_copper": 19475,
+      "minecraft:quartz": 71334,
+      "minecraft:redstone": 19068,
+      "mekanism:dust_osmium": 589
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 79334
+    }
+  }
+}

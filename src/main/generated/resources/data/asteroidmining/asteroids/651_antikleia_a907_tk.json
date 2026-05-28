@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:651_antikleia_a907_tk",
+  "name": "651 Antikleia (A907 TK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 31.895,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.2,
+    "eccentricity": 0.1005,
+    "inclination": 10.76,
+    "orbital_speed": 0.1611,
+    "clockwise": true,
+    "angle": 100.2
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 664970,
+      "minecraft:raw_iron": 170626,
+      "minecraft:raw_copper": 16823,
+      "minecraft:quartz": 97343,
+      "minecraft:redstone": 18307,
+      "minecraft:diamond": 831
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 91990
+    }
+  }
+}

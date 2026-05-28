@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:879_ricarda_a917_ob",
+  "name": "879 Ricarda (A917 OB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 18.312,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 253.2,
+    "eccentricity": 0.1547,
+    "inclination": 13.68,
+    "orbital_speed": 0.176,
+    "clockwise": true,
+    "angle": 132.024
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 284551,
+      "minecraft:raw_gold": 24789,
+      "minecraft:redstone": 14609,
+      "mekanism:raw_osmium": 12627,
+      "minecraft:diamond": 126,
+      "mekanism:pellet_polonium": 8
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 184060,
+      "mekanism:dirty_gold_slurry": 1798,
+      "mekanism:dirty_osmium_slurry": 7203
+    }
+  }
+}

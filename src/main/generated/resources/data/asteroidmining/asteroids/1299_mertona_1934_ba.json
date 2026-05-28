@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1299_mertona_1934_ba",
+  "name": "1299 Mertona (1934 BA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 14.14,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 280.5,
+    "eccentricity": 0.1853,
+    "inclination": 7.88,
+    "orbital_speed": 0.1672,
+    "clockwise": true,
+    "angle": 285.384
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 268897,
+      "minecraft:raw_iron": 98843,
+      "minecraft:raw_copper": 8497,
+      "minecraft:quartz": 28091,
+      "minecraft:redstone": 5240
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 47666
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:324_bamberga_a892_da",
+  "name": "324 Bamberga (A892 DA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 220.691,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.2,
+    "eccentricity": 0.3404,
+    "inclination": 11.1,
+    "orbital_speed": 0.171,
+    "clockwise": true,
+    "angle": 135.084
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1136241,
+      "minecraft:clay_ball": 1341694,
+      "minecraft:raw_iron": 245326,
+      "minecraft:raw_copper": 112146,
+      "mekanism:dust_sulfur": 306531
+    },
+    "fluids": {
+      "minecraft:water": 854476185
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 1093760,
+      "mekanism:oxygen": 476314,
+      "mekanism:sulfur_dioxide": 275003
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1433_geramtina_1937_uc",
+  "name": "1433 Geramtina (1937 UC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.687,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.8,
+    "eccentricity": 0.1675,
+    "inclination": 8.25,
+    "orbital_speed": 0.1674,
+    "clockwise": true,
+    "angle": 351.456
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 175416,
+      "minecraft:raw_iron": 77281,
+      "minecraft:raw_copper": 23880,
+      "minecraft:quartz": 17328,
+      "minecraft:redstone": 5929
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 33872
+    }
+  }
+}

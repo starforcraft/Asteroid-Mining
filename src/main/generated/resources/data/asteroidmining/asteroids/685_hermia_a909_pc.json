@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:685_hermia_a909_pc",
+  "name": "685 Hermia (A909 PC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 10.95,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.5,
+    "eccentricity": 0.1972,
+    "inclination": 3.65,
+    "orbital_speed": 0.1873,
+    "clockwise": true,
+    "angle": 95.472
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 174259,
+      "minecraft:raw_iron": 35007,
+      "minecraft:raw_copper": 5908,
+      "minecraft:quartz": 27133,
+      "minecraft:redstone": 5291,
+      "minecraft:diamond": 217
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 33236
+    }
+  }
+}

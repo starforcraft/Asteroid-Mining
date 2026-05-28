@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1019_strackea_a924_es",
+  "name": "1019 Strackea (A924 ES)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.169,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 191.2,
+    "eccentricity": 0.0714,
+    "inclination": 26.98,
+    "orbital_speed": 0.2025,
+    "clockwise": true,
+    "angle": 303.144
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 125823,
+      "minecraft:raw_iron": 21121,
+      "minecraft:raw_copper": 10607,
+      "minecraft:quartz": 13028,
+      "minecraft:redstone": 1049,
+      "minecraft:diamond": 63
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 12830
+    }
+  }
+}

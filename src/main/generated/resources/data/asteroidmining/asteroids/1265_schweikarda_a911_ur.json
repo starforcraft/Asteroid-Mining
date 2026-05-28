@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1265_schweikarda_a911_ur",
+  "name": "1265 Schweikarda (A911 UR)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 19.335,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.7,
+    "eccentricity": 0.0691,
+    "inclination": 9.5,
+    "orbital_speed": 0.1609,
+    "clockwise": true,
+    "angle": 290.112
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 359216,
+      "minecraft:raw_iron": 104887,
+      "minecraft:raw_copper": 30455,
+      "minecraft:quartz": 15068,
+      "minecraft:redstone": 7440,
+      "mekanism:dust_osmium": 2753
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 72236
+    }
+  }
+}

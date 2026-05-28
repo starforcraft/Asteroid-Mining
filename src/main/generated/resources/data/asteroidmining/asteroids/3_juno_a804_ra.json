@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:3_juno_a804_ra",
+  "name": "3 Juno (A804 RA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 246.596,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 267.1,
+    "eccentricity": 0.2558,
+    "inclination": 12.99,
+    "orbital_speed": 0.1713,
+    "clockwise": true,
+    "angle": 275.016
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2521078,
+      "minecraft:raw_iron": 763973,
+      "minecraft:raw_copper": 210634,
+      "minecraft:quartz": 215667,
+      "minecraft:redstone": 50920,
+      "mekanism:dust_osmium": 19551
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 381439
+    }
+  }
+}

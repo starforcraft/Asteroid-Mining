@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1781_van_biesbroeck_a906_ub",
+  "name": "1781 Van Biesbroeck (A906 UB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.5,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 239.6,
+    "eccentricity": 0.1073,
+    "inclination": 6.94,
+    "orbital_speed": 0.1809,
+    "clockwise": true,
+    "angle": 324.24
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 123103,
+      "minecraft:raw_iron": 38550,
+      "minecraft:raw_copper": 7694,
+      "minecraft:quartz": 23041,
+      "minecraft:redstone": 2647,
+      "minecraft:diamond": 93,
+      "mekanism:dust_osmium": 250
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 18839
+    }
+  }
+}

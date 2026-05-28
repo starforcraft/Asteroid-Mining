@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1280_baillauda_1933_qb",
+  "name": "1280 Baillauda (1933 QB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 50.83,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 341.4,
+    "eccentricity": 0.0426,
+    "inclination": 6.43,
+    "orbital_speed": 0.1515,
+    "clockwise": true,
+    "angle": 192.732
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1734422,
+      "minecraft:raw_gold": 34867,
+      "minecraft:redstone": 52898,
+      "mekanism:raw_osmium": 12058,
+      "minecraft:diamond": 811,
+      "mekanism:pellet_polonium": 84
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 554238,
+      "mekanism:dirty_gold_slurry": 8511,
+      "mekanism:dirty_osmium_slurry": 31798
+    }
+  }
+}

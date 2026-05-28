@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1155_aenna_1928_bd",
+  "name": "1155 Aenna (1928 BD)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 9.284,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 246.3,
+    "eccentricity": 0.1664,
+    "inclination": 6.59,
+    "orbital_speed": 0.1784,
+    "clockwise": true,
+    "angle": 284.232
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 129359,
+      "minecraft:raw_gold": 3033,
+      "minecraft:redstone": 3636,
+      "mekanism:raw_osmium": 3566
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 62009,
+      "mekanism:dirty_gold_slurry": 2165,
+      "mekanism:dirty_osmium_slurry": 3576
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:1595_tanga_1930_me",
+  "name": "1595 Tanga (1930 ME)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 26.572,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 264.5,
+    "eccentricity": 0.1107,
+    "inclination": 4.16,
+    "orbital_speed": 0.1722,
+    "clockwise": true,
+    "angle": 307.752
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 161557,
+      "minecraft:clay_ball": 108777,
+      "minecraft:raw_iron": 60487,
+      "minecraft:raw_copper": 9703,
+      "mekanism:dust_sulfur": 53190,
+      "mekanism:fluorite_gem": 2595,
+      "mekanism:yellow_cake_uranium": 2049
+    },
+    "fluids": {
+      "minecraft:water": 268729627
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 111650,
+      "mekanism:oxygen": 131334,
+      "mekanism:sulfur_dioxide": 28958
+    }
+  }
+}

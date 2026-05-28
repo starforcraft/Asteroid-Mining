@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1966_tristan_2552_p_l",
+  "name": "1966 Tristan (2552 P-L)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 8.41,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 244.7,
+    "eccentricity": 0.0917,
+    "inclination": 2.48,
+    "orbital_speed": 0.179,
+    "clockwise": true,
+    "angle": 203.22
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 50562,
+      "minecraft:clay_ball": 31459,
+      "minecraft:raw_iron": 12553,
+      "minecraft:raw_copper": 3906,
+      "mekanism:dust_sulfur": 7005,
+      "mekanism:yellow_cake_uranium": 227
+    },
+    "fluids": {
+      "minecraft:water": 63354437
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 9351,
+      "mekanism:oxygen": 13725,
+      "mekanism:sulfur_dioxide": 1006
+    }
+  }
+}

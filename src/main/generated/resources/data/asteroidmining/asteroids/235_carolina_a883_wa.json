@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:235_carolina_a883_wa",
+  "name": "235 Carolina (A883 WA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 57.517,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 288.2,
+    "eccentricity": 0.0601,
+    "inclination": 9.03,
+    "orbital_speed": 0.1649,
+    "clockwise": true,
+    "angle": 136.872
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2023822,
+      "minecraft:raw_iron": 532643,
+      "minecraft:raw_copper": 168630,
+      "minecraft:quartz": 257520,
+      "minecraft:redstone": 5086
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 114513
+    }
+  }
+}

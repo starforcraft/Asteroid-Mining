@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1623_vivian_1948_pl",
+  "name": "1623 Vivian (1948 PL)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 27.851,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 314.3,
+    "eccentricity": 0.1546,
+    "inclination": 2.5,
+    "orbital_speed": 0.1579,
+    "clockwise": true,
+    "angle": 197.976
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 508758,
+      "minecraft:raw_iron": 149574,
+      "minecraft:raw_copper": 24436,
+      "minecraft:quartz": 66196,
+      "minecraft:redstone": 12716
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 127194
+    }
+  }
+}

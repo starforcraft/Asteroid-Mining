@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1128_astrid_1929_eb",
+  "name": "1128 Astrid (1929 EB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 41.851,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.0,
+    "eccentricity": 0.0433,
+    "inclination": 1.01,
+    "orbital_speed": 0.1676,
+    "clockwise": true,
+    "angle": 171.516
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 259215,
+      "minecraft:clay_ball": 142199,
+      "minecraft:raw_iron": 40436,
+      "minecraft:raw_copper": 24672,
+      "mekanism:dust_sulfur": 102555,
+      "mekanism:yellow_cake_uranium": 2103
+    },
+    "fluids": {
+      "minecraft:water": 699671827
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 56408,
+      "mekanism:oxygen": 163024,
+      "mekanism:sulfur_dioxide": 77481
+    }
+  }
+}

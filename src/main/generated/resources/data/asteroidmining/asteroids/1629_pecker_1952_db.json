@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1629_pecker_1952_db",
+  "name": "1629 Pecker (1952 DB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.536,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.8,
+    "eccentricity": 0.1539,
+    "inclination": 9.71,
+    "orbital_speed": 0.1872,
+    "clockwise": true,
+    "angle": 303.024
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 105379,
+      "minecraft:raw_iron": 32538,
+      "minecraft:raw_copper": 9368,
+      "minecraft:quartz": 20698,
+      "minecraft:redstone": 3214,
+      "mekanism:dust_osmium": 100
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 19272
+    }
+  }
+}

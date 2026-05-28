@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:906_repsolda_a918_uf",
+  "name": "906 Repsolda (A918 UF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 65.752,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 289.5,
+    "eccentricity": 0.0847,
+    "inclination": 11.78,
+    "orbital_speed": 0.1646,
+    "clockwise": true,
+    "angle": 244.74
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 424350,
+      "minecraft:clay_ball": 504660,
+      "minecraft:raw_iron": 148368,
+      "minecraft:raw_copper": 37110,
+      "mekanism:dust_sulfur": 80498,
+      "mekanism:fluorite_gem": 11909
+    },
+    "fluids": {
+      "minecraft:water": 810618912
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 168651,
+      "mekanism:oxygen": 316899,
+      "mekanism:sulfur_dioxide": 105018
+    }
+  }
+}

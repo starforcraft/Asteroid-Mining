@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1795_woltjer_4010_p_l",
+  "name": "1795 Woltjer (4010 P-L)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 23.894,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 278.6,
+    "eccentricity": 0.1904,
+    "inclination": 7.53,
+    "orbital_speed": 0.1678,
+    "clockwise": true,
+    "angle": 89.352
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 167180,
+      "minecraft:clay_ball": 113629,
+      "minecraft:raw_iron": 59000,
+      "minecraft:raw_copper": 21268,
+      "mekanism:dust_sulfur": 43438,
+      "mekanism:fluorite_gem": 1557
+    },
+    "fluids": {
+      "minecraft:water": 149325649
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 111281,
+      "mekanism:oxygen": 102008,
+      "mekanism:sulfur_dioxide": 30222
+    }
+  }
+}

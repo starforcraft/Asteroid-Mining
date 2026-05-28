@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:276_adelheid_a888_ha",
+  "name": "276 Adelheid (A888 HA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 114.723,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.7,
+    "eccentricity": 0.0613,
+    "inclination": 21.66,
+    "orbital_speed": 0.1586,
+    "clockwise": true,
+    "angle": 14.7
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 4591145,
+      "minecraft:raw_gold": 207349,
+      "minecraft:redstone": 74100,
+      "mekanism:raw_osmium": 110572
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 2220266,
+      "mekanism:dirty_gold_slurry": 84054,
+      "mekanism:dirty_osmium_slurry": 128090
+    }
+  }
+}

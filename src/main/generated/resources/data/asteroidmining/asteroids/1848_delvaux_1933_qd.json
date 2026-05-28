@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1848_delvaux_1933_qd",
+  "name": "1848 Delvaux (1933 QD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 17.03,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 287.1,
+    "eccentricity": 0.046,
+    "inclination": 1.44,
+    "orbital_speed": 0.1652,
+    "clockwise": true,
+    "angle": 177.276
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 285549,
+      "minecraft:raw_iron": 89564,
+      "minecraft:raw_copper": 25477,
+      "minecraft:quartz": 33786,
+      "minecraft:redstone": 5292,
+      "minecraft:diamond": 372,
+      "mekanism:dust_osmium": 1711
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 35995
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1241_dysona_1932_eb1",
+  "name": "1241 Dysona (1932 EB1)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 79.19,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.8,
+    "eccentricity": 0.0996,
+    "inclination": 23.52,
+    "orbital_speed": 0.1568,
+    "clockwise": true,
+    "angle": 229.92
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 528910,
+      "minecraft:blackstone": 1190539,
+      "mekanism:dust_sulfur": 188261
+    },
+    "fluids": {
+      "minecraft:water": 557139359
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 560372,
+      "mekanism:ethene": 261137,
+      "mekanism:sulfur_dioxide": 165291
+    }
+  }
+}

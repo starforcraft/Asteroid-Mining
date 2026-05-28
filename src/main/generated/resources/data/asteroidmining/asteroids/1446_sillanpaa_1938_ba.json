@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1446_sillanpaa_1938_ba",
+  "name": "1446 Sillanpaa (1938 BA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 8.167,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.6,
+    "eccentricity": 0.1005,
+    "inclination": 5.25,
+    "orbital_speed": 0.1868,
+    "clockwise": true,
+    "angle": 339.06
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 29285,
+      "minecraft:clay_ball": 31171,
+      "minecraft:raw_iron": 17567,
+      "minecraft:raw_copper": 3603,
+      "mekanism:dust_sulfur": 7604,
+      "mekanism:yellow_cake_uranium": 110
+    },
+    "fluids": {
+      "minecraft:water": 33239063
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 19888,
+      "mekanism:oxygen": 10299,
+      "mekanism:sulfur_dioxide": 6673
+    }
+  }
+}

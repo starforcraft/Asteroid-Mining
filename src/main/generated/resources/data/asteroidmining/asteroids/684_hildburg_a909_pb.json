@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:684_hildburg_a909_pb",
+  "name": "684 Hildburg (A909 PB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 19.04,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 243.2,
+    "eccentricity": 0.0353,
+    "inclination": 5.52,
+    "orbital_speed": 0.1795,
+    "clockwise": true,
+    "angle": 317.964
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 424554,
+      "minecraft:raw_gold": 10561,
+      "minecraft:redstone": 9586,
+      "mekanism:raw_osmium": 17999,
+      "minecraft:diamond": 200,
+      "mekanism:pellet_polonium": 46
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 197596,
+      "mekanism:dirty_gold_slurry": 9157,
+      "mekanism:dirty_osmium_slurry": 3452
+    }
+  }
+}

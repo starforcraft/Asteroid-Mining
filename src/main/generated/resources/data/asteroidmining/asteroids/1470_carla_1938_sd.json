@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1470_carla_1938_sd",
+  "name": "1470 Carla (1938 SD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 36.97,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 315.5,
+    "eccentricity": 0.074,
+    "inclination": 3.2,
+    "orbital_speed": 0.1576,
+    "clockwise": true,
+    "angle": 39.252
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 281307,
+      "minecraft:clay_ball": 219836,
+      "minecraft:raw_iron": 48511,
+      "minecraft:raw_copper": 25121,
+      "mekanism:dust_sulfur": 77851,
+      "mekanism:yellow_cake_uranium": 799
+    },
+    "fluids": {
+      "minecraft:water": 304993770
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 171038,
+      "mekanism:oxygen": 265681,
+      "mekanism:sulfur_dioxide": 31456
+    }
+  }
+}

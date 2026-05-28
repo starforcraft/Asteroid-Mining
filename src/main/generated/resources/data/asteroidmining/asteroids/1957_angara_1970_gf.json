@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1957_angara_1970_gf",
+  "name": "1957 Angara (1970 GF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 17.907,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.2,
+    "eccentricity": 0.0543,
+    "inclination": 11.17,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 45.648
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 340615,
+      "minecraft:raw_iron": 77770,
+      "minecraft:raw_copper": 28810,
+      "minecraft:quartz": 25430,
+      "minecraft:redstone": 4123
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 49464
+    }
+  }
+}

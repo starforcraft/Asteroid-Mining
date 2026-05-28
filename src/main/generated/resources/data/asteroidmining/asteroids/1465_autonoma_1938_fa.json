@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1465_autonoma_1938_fa",
+  "name": "1465 Autonoma (1938 FA)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 18.111,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.6,
+    "eccentricity": 0.178,
+    "inclination": 9.92,
+    "orbital_speed": 0.161,
+    "clockwise": true,
+    "angle": 71.712
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 152645,
+      "minecraft:blackstone": 168048,
+      "mekanism:dust_sulfur": 15203
+    },
+    "fluids": {
+      "minecraft:water": 66744743
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 29712,
+      "mekanism:ethene": 14584,
+      "mekanism:sulfur_dioxide": 8367
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:68_leto_a861_hb",
+  "name": "68 Leto (A861 HB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 122.509,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 278.3,
+    "eccentricity": 0.1843,
+    "inclination": 7.96,
+    "orbital_speed": 0.1678,
+    "clockwise": true,
+    "angle": 213.036
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2883777,
+      "minecraft:raw_iron": 785166,
+      "minecraft:raw_copper": 203308,
+      "minecraft:quartz": 156401,
+      "minecraft:redstone": 80586,
+      "minecraft:diamond": 2053,
+      "mekanism:dust_osmium": 23614
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 554350
+    }
+  }
+}

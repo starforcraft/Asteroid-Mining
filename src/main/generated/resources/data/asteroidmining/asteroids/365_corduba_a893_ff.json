@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:365_corduba_a893_ff",
+  "name": "365 Corduba (A893 FF)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 86.773,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 280.4,
+    "eccentricity": 0.1554,
+    "inclination": 12.8,
+    "orbital_speed": 0.1672,
+    "clockwise": true,
+    "angle": 12.912
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1587854,
+      "minecraft:raw_gold": 119676,
+      "minecraft:redstone": 80645,
+      "mekanism:raw_osmium": 44572,
+      "minecraft:diamond": 1187,
+      "mekanism:pellet_polonium": 297
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1735471,
+      "mekanism:dirty_gold_slurry": 27149,
+      "mekanism:dirty_osmium_slurry": 36163
+    }
+  }
+}

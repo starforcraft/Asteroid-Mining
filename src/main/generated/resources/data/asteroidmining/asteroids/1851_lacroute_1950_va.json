@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1851_lacroute_1950_va",
+  "name": "1851 Lacroute (1950 VA)",
+  "taxonomy": "ICY",
+  "analogue": "cometary_icy_body",
+  "diameter_km": 17.024,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 310.8,
+    "eccentricity": 0.1892,
+    "inclination": 1.66,
+    "orbital_speed": 0.1588,
+    "clockwise": true,
+    "angle": 229.8
+  },
+  "composition": {
+    "items": {
+      "minecraft:packed_ice": 151378,
+      "minecraft:blue_ice": 57381,
+      "minecraft:coal": 49021,
+      "mekanism:pellet_plutonium": 5
+    },
+    "fluids": {
+      "minecraft:water": 204157800
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 140042,
+      "mekanism:oxygen": 196991,
+      "mekanism:heavy_water": 13925
+    }
+  }
+}

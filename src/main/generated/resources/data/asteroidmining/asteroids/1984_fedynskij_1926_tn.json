@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1984_fedynskij_1926_tn",
+  "name": "1984 Fedynskij (1926 TN)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 36.413,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.2,
+    "eccentricity": 0.0861,
+    "inclination": 4.79,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 158.364
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 843160,
+      "minecraft:raw_iron": 208948,
+      "minecraft:raw_copper": 33369,
+      "minecraft:quartz": 91837,
+      "minecraft:redstone": 18175,
+      "minecraft:diamond": 678,
+      "mekanism:dust_osmium": 862
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 89406
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:257_silesia_a886_gb",
+  "name": "257 Silesia (A886 GB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 72.66,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.9,
+    "eccentricity": 0.1124,
+    "inclination": 3.61,
+    "orbital_speed": 0.1585,
+    "clockwise": true,
+    "angle": 282.048
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1919244,
+      "minecraft:raw_iron": 671067,
+      "minecraft:raw_copper": 155498,
+      "minecraft:quartz": 184585,
+      "minecraft:redstone": 58674
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 269257
+    }
+  }
+}

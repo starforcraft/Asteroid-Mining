@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1748_mauderli_1966_ra",
+  "name": "1748 Mauderli (1966 RA)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 44.908,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 395.4,
+    "eccentricity": 0.2149,
+    "inclination": 3.3,
+    "orbital_speed": 0.1408,
+    "clockwise": true,
+    "angle": 106.476
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 443671,
+      "minecraft:blackstone": 346274,
+      "mekanism:dust_sulfur": 69723,
+      "mekanism:yellow_cake_uranium": 429
+    },
+    "fluids": {
+      "minecraft:water": 150456734
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 149902,
+      "mekanism:ethene": 89204,
+      "mekanism:sulfur_dioxide": 44813
+    }
+  }
+}

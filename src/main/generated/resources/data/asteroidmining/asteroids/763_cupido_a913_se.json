@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:763_cupido_a913_se",
+  "name": "763 Cupido (A913 SE)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 7.005,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.0,
+    "eccentricity": 0.1664,
+    "inclination": 4.08,
+    "orbital_speed": 0.1871,
+    "clockwise": true,
+    "angle": 21.096
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 31625,
+      "minecraft:clay_ball": 21769,
+      "minecraft:raw_iron": 6094,
+      "minecraft:raw_copper": 3220,
+      "mekanism:dust_sulfur": 7360,
+      "mekanism:yellow_cake_uranium": 47
+    },
+    "fluids": {
+      "minecraft:water": 47226530
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 7494,
+      "mekanism:oxygen": 26380,
+      "mekanism:sulfur_dioxide": 4641
+    }
+  }
+}

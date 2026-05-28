@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:209_dido_a879_uc",
+  "name": "209 Dido (A879 UC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 179.008,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 315.0,
+    "eccentricity": 0.0533,
+    "inclination": 7.17,
+    "orbital_speed": 0.1578,
+    "clockwise": true,
+    "angle": 161.664
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1547092,
+      "minecraft:clay_ball": 1167371,
+      "minecraft:raw_iron": 471231,
+      "minecraft:raw_copper": 129177,
+      "mekanism:dust_sulfur": 109293,
+      "mekanism:yellow_cake_uranium": 14784
+    },
+    "fluids": {
+      "minecraft:water": 2130721219
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 385362,
+      "mekanism:oxygen": 994234,
+      "mekanism:sulfur_dioxide": 103840
+    }
+  }
+}

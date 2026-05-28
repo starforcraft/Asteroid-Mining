@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:11_parthenope_a850_ja",
+  "name": "11 Parthenope (A850 JA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 142.887,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 245.3,
+    "eccentricity": 0.1005,
+    "inclination": 4.64,
+    "orbital_speed": 0.1788,
+    "clockwise": true,
+    "angle": 295.08
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 3241377,
+      "minecraft:raw_iron": 696703,
+      "minecraft:raw_copper": 159398,
+      "minecraft:quartz": 842312,
+      "minecraft:redstone": 60754,
+      "mekanism:dust_osmium": 4243
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 869766
+    }
+  }
+}

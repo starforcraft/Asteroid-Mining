@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1856_ruzena_1969_tw1",
+  "name": "1856 Ruzena (1969 TW1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.62,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.7,
+    "eccentricity": 0.0803,
+    "inclination": 4.74,
+    "orbital_speed": 0.1872,
+    "clockwise": true,
+    "angle": 197.34
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 92997,
+      "minecraft:raw_iron": 22808,
+      "minecraft:raw_copper": 7086,
+      "minecraft:quartz": 9935,
+      "minecraft:redstone": 2402,
+      "minecraft:diamond": 50
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 6550
+    }
+  }
+}

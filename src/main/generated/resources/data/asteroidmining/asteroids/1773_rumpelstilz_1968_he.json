@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1773_rumpelstilz_1968_he",
+  "name": "1773 Rumpelstilz (1968 HE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.08,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 243.6,
+    "eccentricity": 0.1286,
+    "inclination": 5.4,
+    "orbital_speed": 0.1794,
+    "clockwise": true,
+    "angle": 304.176
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 78475,
+      "minecraft:raw_iron": 36879,
+      "minecraft:raw_copper": 6002,
+      "minecraft:quartz": 13283,
+      "minecraft:redstone": 894
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 12253
+    }
+  }
+}

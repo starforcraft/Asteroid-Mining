@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:768_struveana_a913_tc",
+  "name": "768 Struveana (A913 TC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 32.597,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.7,
+    "eccentricity": 0.2149,
+    "inclination": 16.27,
+    "orbital_speed": 0.1581,
+    "clockwise": true,
+    "angle": 348.636
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 896605,
+      "minecraft:raw_gold": 29513,
+      "minecraft:redstone": 31695,
+      "mekanism:raw_osmium": 13891,
+      "mekanism:pellet_polonium": 114
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 397161,
+      "mekanism:dirty_gold_slurry": 27945,
+      "mekanism:dirty_osmium_slurry": 5965
+    }
+  }
+}

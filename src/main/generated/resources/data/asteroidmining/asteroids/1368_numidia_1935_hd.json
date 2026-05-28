@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1368_numidia_1935_hd",
+  "name": "1368 Numidia (1935 HD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 19.591,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 252.5,
+    "eccentricity": 0.0608,
+    "inclination": 14.81,
+    "orbital_speed": 0.1762,
+    "clockwise": true,
+    "angle": 53.436
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 282540,
+      "minecraft:raw_iron": 145395,
+      "minecraft:raw_copper": 30819,
+      "minecraft:quartz": 35472,
+      "minecraft:redstone": 11338
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 74327
+    }
+  }
+}

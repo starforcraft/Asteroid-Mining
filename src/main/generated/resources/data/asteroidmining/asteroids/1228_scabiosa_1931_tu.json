@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1228_scabiosa_1931_tu",
+  "name": "1228 Scabiosa (1931 TU)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 14.685,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 276.9,
+    "eccentricity": 0.0383,
+    "inclination": 3.28,
+    "orbital_speed": 0.1683,
+    "clockwise": true,
+    "angle": 242.316
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 193450,
+      "minecraft:raw_iron": 70203,
+      "minecraft:raw_copper": 13222,
+      "minecraft:quartz": 30850,
+      "minecraft:redstone": 5467
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 19294
+    }
+  }
+}

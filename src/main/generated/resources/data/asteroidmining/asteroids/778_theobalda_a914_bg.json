@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:778_theobalda_a914_bg",
+  "name": "778 Theobalda (A914 BG)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 55.317,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.8,
+    "eccentricity": 0.2569,
+    "inclination": 13.72,
+    "orbital_speed": 0.1571,
+    "clockwise": true,
+    "angle": 283.716
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 427472,
+      "minecraft:clay_ball": 396666,
+      "minecraft:raw_iron": 174356,
+      "minecraft:raw_copper": 19523,
+      "mekanism:dust_sulfur": 170992,
+      "mekanism:yellow_cake_uranium": 3562
+    },
+    "fluids": {
+      "minecraft:water": 253319789
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 305299,
+      "mekanism:oxygen": 311002,
+      "mekanism:sulfur_dioxide": 138887
+    }
+  }
+}

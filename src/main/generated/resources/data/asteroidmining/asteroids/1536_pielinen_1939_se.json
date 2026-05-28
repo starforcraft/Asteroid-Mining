@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1536_pielinen_1939_se",
+  "name": "1536 Pielinen (1939 SE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.975,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 220.4,
+    "eccentricity": 0.1956,
+    "inclination": 1.54,
+    "orbital_speed": 0.1886,
+    "clockwise": true,
+    "angle": 114.78
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 121063,
+      "minecraft:raw_iron": 29253,
+      "minecraft:raw_copper": 11013,
+      "minecraft:quartz": 14588,
+      "minecraft:redstone": 1929,
+      "minecraft:diamond": 108
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 20683
+    }
+  }
+}

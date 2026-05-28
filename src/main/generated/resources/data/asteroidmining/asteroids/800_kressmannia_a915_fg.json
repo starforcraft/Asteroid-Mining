@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:800_kressmannia_a915_fg",
+  "name": "800 Kressmannia (A915 FG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 15.429,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.2,
+    "eccentricity": 0.2025,
+    "inclination": 4.26,
+    "orbital_speed": 0.1891,
+    "clockwise": true,
+    "angle": 68.892
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 283954,
+      "minecraft:raw_iron": 54543,
+      "minecraft:raw_copper": 20019,
+      "minecraft:quartz": 21682,
+      "minecraft:redstone": 6915
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 53526
+    }
+  }
+}

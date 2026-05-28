@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1571_cesco_1950_fj",
+  "name": "1571 Cesco (1950 FJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 18.464,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 314.0,
+    "eccentricity": 0.1154,
+    "inclination": 14.6,
+    "orbital_speed": 0.158,
+    "clockwise": true,
+    "angle": 247.56
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 256196,
+      "minecraft:raw_iron": 101533,
+      "minecraft:raw_copper": 17600,
+      "minecraft:quartz": 48476,
+      "minecraft:redstone": 3870,
+      "minecraft:diamond": 287,
+      "mekanism:dust_osmium": 1263
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 43033
+    }
+  }
+}

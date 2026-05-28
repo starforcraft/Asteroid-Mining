@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:1456_saldanha_1937_ng",
+  "name": "1456 Saldanha (1937 NG)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 37.815,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 320.8,
+    "eccentricity": 0.2241,
+    "inclination": 10.45,
+    "orbital_speed": 0.1563,
+    "clockwise": true,
+    "angle": 274.14
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 174097,
+      "minecraft:clay_ball": 326591,
+      "minecraft:raw_iron": 127301,
+      "minecraft:raw_copper": 38902,
+      "mekanism:dust_sulfur": 86605
+    },
+    "fluids": {
+      "minecraft:water": 225684027
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 170457,
+      "mekanism:oxygen": 136305,
+      "mekanism:sulfur_dioxide": 50488
+    }
+  }
+}

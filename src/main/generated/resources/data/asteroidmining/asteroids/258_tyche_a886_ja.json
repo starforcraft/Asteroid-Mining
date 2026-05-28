@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:258_tyche_a886_ja",
+  "name": "258 Tyche (A886 JA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 64.78,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 261.4,
+    "eccentricity": 0.2049,
+    "inclination": 14.33,
+    "orbital_speed": 0.1732,
+    "clockwise": true,
+    "angle": 59.556
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1559507,
+      "minecraft:raw_iron": 564065,
+      "minecraft:raw_copper": 123980,
+      "minecraft:quartz": 304685,
+      "minecraft:redstone": 54182,
+      "minecraft:diamond": 1546
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 338799
+    }
+  }
+}

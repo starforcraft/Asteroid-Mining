@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1506_xosa_1939_jc",
+  "name": "1506 Xosa (1939 JC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 13.963,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 257.1,
+    "eccentricity": 0.2617,
+    "inclination": 12.57,
+    "orbital_speed": 0.1746,
+    "clockwise": true,
+    "angle": 309.54
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 235024,
+      "minecraft:raw_gold": 13899,
+      "minecraft:redstone": 4924,
+      "mekanism:raw_osmium": 6411,
+      "mekanism:pellet_polonium": 9
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 138625,
+      "mekanism:dirty_gold_slurry": 8576,
+      "mekanism:dirty_osmium_slurry": 2749
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1656_suomi_1942_ec",
+  "name": "1656 Suomi (1942 EC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.86,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 187.8,
+    "eccentricity": 0.1233,
+    "inclination": 25.07,
+    "orbital_speed": 0.2043,
+    "clockwise": true,
+    "angle": 55.74
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 110148,
+      "minecraft:raw_iron": 31147,
+      "minecraft:raw_copper": 6463,
+      "minecraft:quartz": 15739,
+      "minecraft:redstone": 826,
+      "minecraft:diamond": 56
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 11334
+    }
+  }
+}

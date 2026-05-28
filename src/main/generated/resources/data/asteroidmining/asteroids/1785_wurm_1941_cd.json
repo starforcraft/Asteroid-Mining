@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1785_wurm_1941_cd",
+  "name": "1785 Wurm (1941 CD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 4.7343,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.6,
+    "eccentricity": 0.0682,
+    "inclination": 3.78,
+    "orbital_speed": 0.1873,
+    "clockwise": true,
+    "angle": 154.272
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 47494,
+      "minecraft:raw_iron": 12425,
+      "minecraft:raw_copper": 1186,
+      "minecraft:quartz": 3443,
+      "minecraft:redstone": 770
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 4381
+    }
+  }
+}

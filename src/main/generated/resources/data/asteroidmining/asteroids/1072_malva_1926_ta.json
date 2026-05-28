@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1072_malva_1926_ta",
+  "name": "1072 Malva (1926 TA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 53.675,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.1,
+    "eccentricity": 0.2371,
+    "inclination": 8.02,
+    "orbital_speed": 0.1572,
+    "clockwise": true,
+    "angle": 31.068
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1052132,
+      "minecraft:raw_iron": 543601,
+      "minecraft:raw_copper": 79978,
+      "minecraft:quartz": 237706,
+      "minecraft:redstone": 20381
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 177123
+    }
+  }
+}

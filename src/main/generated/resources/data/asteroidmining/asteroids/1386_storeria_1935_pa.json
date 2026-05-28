@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1386_storeria_1935_pa",
+  "name": "1386 Storeria (1935 PA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 10.614,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.4,
+    "eccentricity": 0.2873,
+    "inclination": 11.82,
+    "orbital_speed": 0.1821,
+    "clockwise": true,
+    "angle": 8.58
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 49702,
+      "minecraft:clay_ball": 37783,
+      "minecraft:raw_iron": 24196,
+      "minecraft:raw_copper": 7804,
+      "mekanism:dust_sulfur": 6870,
+      "mekanism:fluorite_gem": 1343
+    },
+    "fluids": {
+      "minecraft:water": 32738959
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 25294,
+      "mekanism:oxygen": 31306,
+      "mekanism:sulfur_dioxide": 5745
+    }
+  }
+}

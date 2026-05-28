@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1847_stobbe_a916_ca",
+  "name": "1847 Stobbe (A916 CA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 17.427,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 261.1,
+    "eccentricity": 0.019,
+    "inclination": 11.15,
+    "orbital_speed": 0.1733,
+    "clockwise": true,
+    "angle": 39.768
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 215283,
+      "minecraft:raw_gold": 4727,
+      "minecraft:redstone": 14421,
+      "mekanism:raw_osmium": 14748,
+      "mekanism:pellet_polonium": 22
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 84496,
+      "mekanism:dirty_gold_slurry": 12777,
+      "mekanism:dirty_osmium_slurry": 2284
+    }
+  }
+}

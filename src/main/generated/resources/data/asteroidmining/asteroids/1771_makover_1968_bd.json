@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1771_makover_1968_bd",
+  "name": "1771 Makover (1968 BD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 46.886,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.0,
+    "eccentricity": 0.1687,
+    "inclination": 11.22,
+    "orbital_speed": 0.1583,
+    "clockwise": true,
+    "angle": 29.16
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1231210,
+      "minecraft:raw_iron": 233685,
+      "minecraft:raw_copper": 85514,
+      "minecraft:quartz": 221165,
+      "minecraft:redstone": 29402,
+      "minecraft:diamond": 1415
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 124520
+    }
+  }
+}

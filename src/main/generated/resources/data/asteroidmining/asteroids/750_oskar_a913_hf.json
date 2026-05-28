@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:750_oskar_a913_hf",
+  "name": "750 Oskar (A913 HF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 22.526,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 244.4,
+    "eccentricity": 0.1291,
+    "inclination": 3.95,
+    "orbital_speed": 0.1791,
+    "clockwise": true,
+    "angle": 33.492
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 120652,
+      "minecraft:clay_ball": 89770,
+      "minecraft:raw_iron": 18952,
+      "minecraft:raw_copper": 11633,
+      "mekanism:dust_sulfur": 43082,
+      "mekanism:fluorite_gem": 2981
+    },
+    "fluids": {
+      "minecraft:water": 254261540
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 89064,
+      "mekanism:oxygen": 126561,
+      "mekanism:sulfur_dioxide": 14012
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:253_mathilde_a885_va",
+  "name": "253 Mathilde (A885 VA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 52.8,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 264.7,
+    "eccentricity": 0.2644,
+    "inclination": 6.74,
+    "orbital_speed": 0.1721,
+    "clockwise": true,
+    "angle": 92.016
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 321291,
+      "minecraft:clay_ball": 321087,
+      "minecraft:raw_iron": 205208,
+      "minecraft:raw_copper": 15867,
+      "mekanism:dust_sulfur": 93057,
+      "mekanism:yellow_cake_uranium": 3082
+    },
+    "fluids": {
+      "minecraft:water": 431459839
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 291470,
+      "mekanism:oxygen": 261308,
+      "mekanism:sulfur_dioxide": 30755
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:501_urhixidur_a903_bk",
+  "name": "501 Urhixidur (A903 BK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 74.457,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.3,
+    "eccentricity": 0.1419,
+    "inclination": 20.83,
+    "orbital_speed": 0.1574,
+    "clockwise": true,
+    "angle": 354.0
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2345496,
+      "minecraft:raw_iron": 608605,
+      "minecraft:raw_copper": 218972,
+      "minecraft:quartz": 170399,
+      "minecraft:redstone": 19174
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 491523
+    }
+  }
+}

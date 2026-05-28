@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:58_concordia_a860_fa",
+  "name": "58 Concordia (A860 FA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 106.517,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 270.0,
+    "eccentricity": 0.0457,
+    "inclination": 5.07,
+    "orbital_speed": 0.1704,
+    "clockwise": true,
+    "angle": 277.956
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1542360,
+      "minecraft:clay_ball": 962477,
+      "minecraft:raw_iron": 146692,
+      "minecraft:raw_copper": 199955,
+      "mekanism:dust_sulfur": 316705,
+      "mekanism:yellow_cake_uranium": 11647
+    },
+    "fluids": {
+      "minecraft:water": 747932509
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 698194,
+      "mekanism:oxygen": 599889,
+      "mekanism:sulfur_dioxide": 222072
+    }
+  }
+}

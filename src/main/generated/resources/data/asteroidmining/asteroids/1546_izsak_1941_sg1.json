@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1546_izsak_1941_sg1",
+  "name": "1546 Izsak (1941 SG1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 26.438,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.2,
+    "eccentricity": 0.128,
+    "inclination": 16.12,
+    "orbital_speed": 0.1572,
+    "clockwise": true,
+    "angle": 49.86
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 397472,
+      "minecraft:raw_iron": 108725,
+      "minecraft:raw_copper": 42326,
+      "minecraft:quartz": 35342,
+      "minecraft:redstone": 8003,
+      "minecraft:diamond": 99
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 52154
+    }
+  }
+}

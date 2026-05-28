@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:239_adrastea_a884_qa",
+  "name": "239 Adrastea (A884 QA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 37.609,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 296.6,
+    "eccentricity": 0.2356,
+    "inclination": 6.18,
+    "orbital_speed": 0.1626,
+    "clockwise": true,
+    "angle": 326.904
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 754153,
+      "minecraft:raw_iron": 256291,
+      "minecraft:raw_copper": 18648,
+      "minecraft:quartz": 112183,
+      "minecraft:redstone": 27371
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 65546
+    }
+  }
+}

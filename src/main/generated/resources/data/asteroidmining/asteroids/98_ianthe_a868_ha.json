@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:98_ianthe_a868_ha",
+  "name": "98 Ianthe (A868 HA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 132.788,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.7,
+    "eccentricity": 0.1879,
+    "inclination": 15.58,
+    "orbital_speed": 0.1708,
+    "clockwise": true,
+    "angle": 18.276
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1054290,
+      "minecraft:clay_ball": 614874,
+      "minecraft:raw_iron": 269123,
+      "minecraft:raw_copper": 58191,
+      "mekanism:dust_sulfur": 255528,
+      "mekanism:yellow_cake_uranium": 9588
+    },
+    "fluids": {
+      "minecraft:water": 2111255640
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 455613,
+      "mekanism:oxygen": 664256,
+      "mekanism:sulfur_dioxide": 378186
+    }
+  }
+}

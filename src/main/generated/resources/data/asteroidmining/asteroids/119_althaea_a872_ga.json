@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:119_althaea_a872_ga",
+  "name": "119 Althaea (A872 GA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 57.3,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 258.1,
+    "eccentricity": 0.0819,
+    "inclination": 5.79,
+    "orbital_speed": 0.1743,
+    "clockwise": true,
+    "angle": 25.944
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1155226,
+      "minecraft:raw_iron": 421682,
+      "minecraft:raw_copper": 47155,
+      "minecraft:quartz": 96907,
+      "minecraft:redstone": 47558
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 280351
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:629_bernardina_a907_el",
+  "name": "629 Bernardina (A907 EL)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 35.087,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.2,
+    "eccentricity": 0.1607,
+    "inclination": 9.24,
+    "orbital_speed": 0.1582,
+    "clockwise": true,
+    "angle": 315.024
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 659805,
+      "minecraft:raw_gold": 50894,
+      "minecraft:redstone": 33504,
+      "mekanism:raw_osmium": 29896,
+      "minecraft:diamond": 299,
+      "mekanism:pellet_polonium": 51
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 387586,
+      "mekanism:dirty_gold_slurry": 26135,
+      "mekanism:dirty_osmium_slurry": 26807
+    }
+  }
+}

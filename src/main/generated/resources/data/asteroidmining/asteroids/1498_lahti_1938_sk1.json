@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1498_lahti_1938_sk1",
+  "name": "1498 Lahti (1938 SK1)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 31.605,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 310.5,
+    "eccentricity": 0.2347,
+    "inclination": 12.66,
+    "orbital_speed": 0.1589,
+    "clockwise": true,
+    "angle": 289.476
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 758851,
+      "minecraft:raw_gold": 49166,
+      "minecraft:redstone": 34222,
+      "mekanism:raw_osmium": 23098,
+      "minecraft:diamond": 1027
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 247667,
+      "mekanism:dirty_gold_slurry": 28833,
+      "mekanism:dirty_osmium_slurry": 19388
+    }
+  }
+}

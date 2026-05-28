@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1146_biarmia_1929_jf",
+  "name": "1146 Biarmia (1929 JF)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 32.925,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 304.6,
+    "eccentricity": 0.2548,
+    "inclination": 17.06,
+    "orbital_speed": 0.1604,
+    "clockwise": true,
+    "angle": 126.66
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 531973,
+      "minecraft:raw_gold": 12000,
+      "minecraft:redstone": 18150,
+      "mekanism:raw_osmium": 9312,
+      "minecraft:diamond": 1056,
+      "mekanism:pellet_polonium": 78
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 337085,
+      "mekanism:dirty_gold_slurry": 36367,
+      "mekanism:dirty_osmium_slurry": 15758
+    }
+  }
+}

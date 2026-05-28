@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1480_aunus_1938_dk",
+  "name": "1480 Aunus (1938 DK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.385,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 220.3,
+    "eccentricity": 0.1094,
+    "inclination": 4.86,
+    "orbital_speed": 0.1886,
+    "clockwise": true,
+    "angle": 334.332
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 58396,
+      "minecraft:raw_iron": 10540,
+      "minecraft:raw_copper": 7495,
+      "minecraft:quartz": 8918,
+      "minecraft:redstone": 2183,
+      "minecraft:diamond": 61
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 14480
+    }
+  }
+}

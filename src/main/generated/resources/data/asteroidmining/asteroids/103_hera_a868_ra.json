@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:103_hera_a868_ra",
+  "name": "103 Hera (A868 RA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 83.908,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 270.3,
+    "eccentricity": 0.081,
+    "inclination": 5.43,
+    "orbital_speed": 0.1703,
+    "clockwise": true,
+    "angle": 345.816
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1887915,
+      "minecraft:raw_iron": 821482,
+      "minecraft:raw_copper": 71470,
+      "minecraft:quartz": 126185,
+      "minecraft:redstone": 50834
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 214603
+    }
+  }
+}

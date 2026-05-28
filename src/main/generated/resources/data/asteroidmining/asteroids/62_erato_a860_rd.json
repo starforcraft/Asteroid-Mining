@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:62_erato_a860_rd",
+  "name": "62 Erato (A860 RD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 106.921,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.0,
+    "eccentricity": 0.168,
+    "inclination": 2.24,
+    "orbital_speed": 0.1583,
+    "clockwise": true,
+    "angle": 107.988
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 919080,
+      "minecraft:clay_ball": 439111,
+      "minecraft:raw_iron": 245119,
+      "minecraft:raw_copper": 133633,
+      "mekanism:dust_sulfur": 343276,
+      "mekanism:yellow_cake_uranium": 13597
+    },
+    "fluids": {
+      "minecraft:water": 2213360948
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 545612,
+      "mekanism:oxygen": 530801,
+      "mekanism:sulfur_dioxide": 244984
+    }
+  }
+}

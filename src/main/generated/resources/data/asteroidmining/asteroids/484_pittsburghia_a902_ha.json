@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:484_pittsburghia_a902_ha",
+  "name": "484 Pittsburghia (A902 HA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 30.06,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 266.7,
+    "eccentricity": 0.0568,
+    "inclination": 12.51,
+    "orbital_speed": 0.1715,
+    "clockwise": true,
+    "angle": 176.364
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 642491,
+      "minecraft:raw_iron": 165787,
+      "minecraft:raw_copper": 50678,
+      "minecraft:quartz": 67012,
+      "minecraft:redstone": 15933,
+      "minecraft:diamond": 629,
+      "mekanism:dust_osmium": 807
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 79068
+    }
+  }
+}

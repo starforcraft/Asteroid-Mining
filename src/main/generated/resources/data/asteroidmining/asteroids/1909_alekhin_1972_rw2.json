@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:1909_alekhin_1972_rw2",
+  "name": "1909 Alekhin (1972 RW2)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 18.681,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 242.1,
+    "eccentricity": 0.2276,
+    "inclination": 1.8,
+    "orbital_speed": 0.18,
+    "clockwise": true,
+    "angle": 285.264
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 130172,
+      "minecraft:clay_ball": 47614,
+      "minecraft:raw_iron": 34445,
+      "minecraft:raw_copper": 14063,
+      "mekanism:dust_sulfur": 31837,
+      "mekanism:fluorite_gem": 1028,
+      "mekanism:yellow_cake_uranium": 151
+    },
+    "fluids": {
+      "minecraft:water": 154486291
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 52921,
+      "mekanism:oxygen": 89597,
+      "mekanism:sulfur_dioxide": 7604
+    }
+  }
+}

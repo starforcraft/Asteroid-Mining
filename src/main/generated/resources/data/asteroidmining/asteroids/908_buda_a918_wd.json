@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:908_buda_a918_wd",
+  "name": "908 Buda (A918 WD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 30.749,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 247.4,
+    "eccentricity": 0.1465,
+    "inclination": 13.42,
+    "orbital_speed": 0.178,
+    "clockwise": true,
+    "angle": 159.756
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 606800,
+      "minecraft:raw_iron": 119306,
+      "minecraft:raw_copper": 55035,
+      "minecraft:quartz": 65878,
+      "minecraft:redstone": 10764,
+      "minecraft:diamond": 722
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 55276
+    }
+  }
+}

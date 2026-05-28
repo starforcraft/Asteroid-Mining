@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1933_tinchen_1972_ac",
+  "name": "1933 Tinchen (1972 AC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 4.508,
+  "game_diameter": 3,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 235.4,
+    "eccentricity": 0.123,
+    "inclination": 6.89,
+    "orbital_speed": 0.1825,
+    "clockwise": true,
+    "angle": 345.456
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 40515,
+      "minecraft:raw_iron": 17309,
+      "minecraft:raw_copper": 2775,
+      "minecraft:quartz": 8020,
+      "minecraft:redstone": 1974,
+      "minecraft:diamond": 62,
+      "mekanism:dust_osmium": 194
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 4094
+    }
+  }
+}

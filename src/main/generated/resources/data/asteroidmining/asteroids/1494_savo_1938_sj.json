@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1494_savo_1938_sj",
+  "name": "1494 Savo (1938 SJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.804,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.0,
+    "eccentricity": 0.1308,
+    "inclination": 2.46,
+    "orbital_speed": 0.1892,
+    "clockwise": true,
+    "angle": 99.444
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 89943,
+      "minecraft:raw_iron": 26669,
+      "minecraft:raw_copper": 9353,
+      "minecraft:quartz": 17032,
+      "minecraft:redstone": 1631
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 13843
+    }
+  }
+}

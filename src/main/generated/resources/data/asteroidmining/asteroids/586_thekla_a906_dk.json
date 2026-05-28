@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:586_thekla_a906_dk",
+  "name": "586 Thekla (A906 DK)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 95.203,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 304.0,
+    "eccentricity": 0.0655,
+    "inclination": 1.63,
+    "orbital_speed": 0.1606,
+    "clockwise": true,
+    "angle": 162.18
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1005935,
+      "minecraft:clay_ball": 504101,
+      "minecraft:raw_iron": 264040,
+      "minecraft:raw_copper": 89285,
+      "mekanism:dust_sulfur": 154906,
+      "mekanism:yellow_cake_uranium": 4438
+    },
+    "fluids": {
+      "minecraft:water": 1442048389
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 505342,
+      "mekanism:oxygen": 495294,
+      "mekanism:sulfur_dioxide": 224670
+    }
+  }
+}

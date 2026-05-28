@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:180_garumna_a878_ba",
+  "name": "180 Garumna (A878 BA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 23.44,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 272.2,
+    "eccentricity": 0.1686,
+    "inclination": 0.87,
+    "orbital_speed": 0.1697,
+    "clockwise": true,
+    "angle": 133.932
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 302229,
+      "minecraft:raw_iron": 79572,
+      "minecraft:raw_copper": 18177,
+      "minecraft:quartz": 34085,
+      "minecraft:redstone": 11350,
+      "minecraft:diamond": 368,
+      "mekanism:dust_osmium": 1773
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 82133
+    }
+  }
+}

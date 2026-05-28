@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1056_azalea_a924_ce",
+  "name": "1056 Azalea (A924 CE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.869,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 223.0,
+    "eccentricity": 0.178,
+    "inclination": 5.43,
+    "orbital_speed": 0.1875,
+    "clockwise": true,
+    "angle": 350.94
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 104961,
+      "minecraft:raw_iron": 56063,
+      "minecraft:raw_copper": 16014,
+      "minecraft:quartz": 29166,
+      "minecraft:redstone": 3097,
+      "minecraft:diamond": 142
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 10910
+    }
+  }
+}

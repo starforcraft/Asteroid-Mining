@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1234_elyna_1931_uf",
+  "name": "1234 Elyna (1931 UF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 22.876,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.3,
+    "eccentricity": 0.0869,
+    "inclination": 8.53,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 347.364
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 554906,
+      "minecraft:raw_iron": 103637,
+      "minecraft:raw_copper": 36222,
+      "minecraft:quartz": 47358,
+      "minecraft:redstone": 10593
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 48452
+    }
+  }
+}

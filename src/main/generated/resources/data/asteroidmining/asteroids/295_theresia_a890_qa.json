@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:295_theresia_a890_qa",
+  "name": "295 Theresia (A890 QA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 28.34,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.8,
+    "eccentricity": 0.1674,
+    "inclination": 2.7,
+    "orbital_speed": 0.1674,
+    "clockwise": true,
+    "angle": 107.352
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 529565,
+      "minecraft:raw_iron": 97669,
+      "minecraft:raw_copper": 38778,
+      "minecraft:quartz": 86931,
+      "minecraft:redstone": 6797
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 71748
+    }
+  }
+}

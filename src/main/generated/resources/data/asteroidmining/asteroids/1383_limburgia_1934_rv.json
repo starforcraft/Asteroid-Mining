@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1383_limburgia_1934_rv",
+  "name": "1383 Limburgia (1934 RV)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 23.399,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 308.3,
+    "eccentricity": 0.1866,
+    "inclination": 0.05,
+    "orbital_speed": 0.1595,
+    "clockwise": true,
+    "angle": 316.056
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 374950,
+      "minecraft:raw_iron": 119492,
+      "minecraft:raw_copper": 16894,
+      "minecraft:quartz": 20079,
+      "minecraft:redstone": 13535,
+      "mekanism:dust_osmium": 2352
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 43361
+    }
+  }
+}

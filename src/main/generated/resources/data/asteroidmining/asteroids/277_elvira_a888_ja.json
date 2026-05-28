@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:277_elvira_a888_ja",
+  "name": "277 Elvira (A888 JA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 30.422,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 288.5,
+    "eccentricity": 0.0916,
+    "inclination": 1.17,
+    "orbital_speed": 0.1648,
+    "clockwise": true,
+    "angle": 152.208
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 752141,
+      "minecraft:raw_iron": 150959,
+      "minecraft:raw_copper": 46036,
+      "minecraft:quartz": 48904,
+      "minecraft:redstone": 13329,
+      "minecraft:diamond": 765
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 100398
+    }
+  }
+}

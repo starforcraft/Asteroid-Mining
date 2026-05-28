@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1954_kukarkin_1952_ph",
+  "name": "1954 Kukarkin (1952 PH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 13.659,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 293.2,
+    "eccentricity": 0.3146,
+    "inclination": 14.81,
+    "orbital_speed": 0.1635,
+    "clockwise": true,
+    "angle": 353.124
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 151188,
+      "minecraft:raw_iron": 90405,
+      "minecraft:raw_copper": 11728,
+      "minecraft:quartz": 14149,
+      "minecraft:redstone": 5673,
+      "minecraft:diamond": 152,
+      "mekanism:dust_osmium": 325
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 41334
+    }
+  }
+}

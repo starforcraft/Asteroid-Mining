@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:488_kreusa_a902_mc",
+  "name": "488 Kreusa (A902 MC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 168.117,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.7,
+    "eccentricity": 0.1584,
+    "inclination": 11.48,
+    "orbital_speed": 0.1573,
+    "clockwise": true,
+    "angle": 6.396
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 623151,
+      "minecraft:clay_ball": 762253,
+      "minecraft:raw_iron": 183947,
+      "minecraft:raw_copper": 93212,
+      "mekanism:dust_sulfur": 444567,
+      "mekanism:yellow_cake_uranium": 3374
+    },
+    "fluids": {
+      "minecraft:water": 1884039708
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 750574,
+      "mekanism:oxygen": 396051,
+      "mekanism:sulfur_dioxide": 181492
+    }
+  }
+}

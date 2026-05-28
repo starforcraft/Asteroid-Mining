@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:630_euphemia_a907_em",
+  "name": "630 Euphemia (A907 EM)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 15.542,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 262.5,
+    "eccentricity": 0.1123,
+    "inclination": 13.87,
+    "orbital_speed": 0.1728,
+    "clockwise": true,
+    "angle": 92.532
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 210603,
+      "minecraft:raw_iron": 99979,
+      "minecraft:raw_copper": 9791,
+      "minecraft:quartz": 24302,
+      "minecraft:redstone": 5683,
+      "mekanism:dust_osmium": 1560
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 55004
+    }
+  }
+}

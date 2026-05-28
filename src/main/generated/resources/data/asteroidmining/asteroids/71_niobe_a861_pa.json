@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:71_niobe_a861_pa",
+  "name": "71 Niobe (A861 PA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 83.42,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 275.5,
+    "eccentricity": 0.177,
+    "inclination": 23.24,
+    "orbital_speed": 0.1687,
+    "clockwise": true,
+    "angle": 265.56
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1959660,
+      "minecraft:raw_iron": 391023,
+      "minecraft:raw_copper": 84932,
+      "minecraft:quartz": 402979,
+      "minecraft:redstone": 71084,
+      "minecraft:diamond": 3259
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 425807
+    }
+  }
+}

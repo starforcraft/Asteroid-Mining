@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:1244_deira_1932_ke",
+  "name": "1244 Deira (1932 KE)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 31.799,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 234.4,
+    "eccentricity": 0.097,
+    "inclination": 8.7,
+    "orbital_speed": 0.1829,
+    "clockwise": true,
+    "angle": 282.444
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 167703,
+      "minecraft:clay_ball": 165312,
+      "minecraft:raw_iron": 78973,
+      "minecraft:raw_copper": 9561,
+      "mekanism:dust_sulfur": 61665
+    },
+    "fluids": {
+      "minecraft:water": 374966553
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 178252,
+      "mekanism:oxygen": 221722,
+      "mekanism:sulfur_dioxide": 36154
+    }
+  }
+}

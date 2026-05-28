@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:284_amalia_a889_ka",
+  "name": "284 Amalia (A889 KA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 52.95,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.0,
+    "eccentricity": 0.2221,
+    "inclination": 8.04,
+    "orbital_speed": 0.1823,
+    "clockwise": true,
+    "angle": 34.764
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 246695,
+      "minecraft:clay_ball": 259937,
+      "minecraft:raw_iron": 169812,
+      "minecraft:raw_copper": 30554,
+      "mekanism:dust_sulfur": 58884,
+      "mekanism:fluorite_gem": 4047,
+      "mekanism:yellow_cake_uranium": 4883
+    },
+    "fluids": {
+      "minecraft:water": 431405627
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 147416,
+      "mekanism:oxygen": 400765,
+      "mekanism:sulfur_dioxide": 98370
+    }
+  }
+}

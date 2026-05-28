@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:254_augusta_a886_fa",
+  "name": "254 Augusta (A886 FA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.467,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.5,
+    "eccentricity": 0.1216,
+    "inclination": 4.51,
+    "orbital_speed": 0.189,
+    "clockwise": true,
+    "angle": 229.524
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 263348,
+      "minecraft:raw_iron": 29907,
+      "minecraft:raw_copper": 19146,
+      "minecraft:quartz": 27632,
+      "minecraft:redstone": 1130,
+      "minecraft:diamond": 228
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 28283
+    }
+  }
+}

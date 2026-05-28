@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1168_brandia_1930_qa",
+  "name": "1168 Brandia (1930 QA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 10.11,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 255.3,
+    "eccentricity": 0.2184,
+    "inclination": 12.72,
+    "orbital_speed": 0.1752,
+    "clockwise": true,
+    "angle": 271.836
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 51294,
+      "minecraft:clay_ball": 25834,
+      "minecraft:raw_iron": 11894,
+      "minecraft:raw_copper": 2575,
+      "mekanism:dust_sulfur": 6362,
+      "mekanism:fluorite_gem": 621
+    },
+    "fluids": {
+      "minecraft:water": 99559584
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 9571,
+      "mekanism:oxygen": 18566,
+      "mekanism:sulfur_dioxide": 9613
+    }
+  }
+}

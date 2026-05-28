@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1317_silvretta_1935_rc",
+  "name": "1317 Silvretta (1935 RC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 17.919,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 320.5,
+    "eccentricity": 0.2351,
+    "inclination": 20.4,
+    "orbital_speed": 0.1564,
+    "clockwise": true,
+    "angle": 240.528
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 68974,
+      "minecraft:clay_ball": 53457,
+      "minecraft:raw_iron": 35295,
+      "minecraft:raw_copper": 10000,
+      "mekanism:dust_sulfur": 22501,
+      "mekanism:fluorite_gem": 415
+    },
+    "fluids": {
+      "minecraft:water": 98719972
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 40081,
+      "mekanism:oxygen": 27571,
+      "mekanism:sulfur_dioxide": 22597
+    }
+  }
+}

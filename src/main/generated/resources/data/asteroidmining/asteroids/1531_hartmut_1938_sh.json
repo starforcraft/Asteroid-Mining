@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1531_hartmut_1938_sh",
+  "name": "1531 Hartmut (1938 SH)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 10.481,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 262.6,
+    "eccentricity": 0.1541,
+    "inclination": 12.42,
+    "orbital_speed": 0.1728,
+    "clockwise": true,
+    "angle": 147.24
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 228761,
+      "minecraft:raw_gold": 2330,
+      "minecraft:redstone": 5676,
+      "mekanism:raw_osmium": 4980
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 61429,
+      "mekanism:dirty_gold_slurry": 3678,
+      "mekanism:dirty_osmium_slurry": 1934
+    }
+  }
+}

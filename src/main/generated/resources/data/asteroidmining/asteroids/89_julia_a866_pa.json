@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:89_julia_a866_pa",
+  "name": "89 Julia (A866 PA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 145.483,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 255.1,
+    "eccentricity": 0.1838,
+    "inclination": 16.12,
+    "orbital_speed": 0.1753,
+    "clockwise": true,
+    "angle": 220.704
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 4193642,
+      "minecraft:raw_iron": 1037298,
+      "minecraft:raw_copper": 443690,
+      "minecraft:quartz": 277437,
+      "minecraft:redstone": 124492
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 859824
+    }
+  }
+}

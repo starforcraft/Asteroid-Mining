@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:64_angelina_a861_ea",
+  "name": "64 Angelina (A861 EA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 58.292,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 268.1,
+    "eccentricity": 0.1265,
+    "inclination": 1.31,
+    "orbital_speed": 0.171,
+    "clockwise": true,
+    "angle": 23.004
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1979422,
+      "minecraft:raw_gold": 81566,
+      "minecraft:redstone": 40626,
+      "mekanism:raw_osmium": 24179,
+      "mekanism:pellet_polonium": 169
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 360152,
+      "mekanism:dirty_gold_slurry": 83485,
+      "mekanism:dirty_osmium_slurry": 6750
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1443_ruppina_1937_yg",
+  "name": "1443 Ruppina (1937 YG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 16.467,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 293.8,
+    "eccentricity": 0.0637,
+    "inclination": 1.94,
+    "orbital_speed": 0.1634,
+    "clockwise": true,
+    "angle": 286.536
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 371035,
+      "minecraft:raw_iron": 77183,
+      "minecraft:raw_copper": 21716,
+      "minecraft:quartz": 36558,
+      "minecraft:redstone": 6712,
+      "mekanism:dust_osmium": 455
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 52001
+    }
+  }
+}

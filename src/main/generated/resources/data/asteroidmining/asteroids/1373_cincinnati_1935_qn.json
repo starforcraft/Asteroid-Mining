@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1373_cincinnati_1935_qn",
+  "name": "1373 Cincinnati (1935 QN)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 19.448,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 341.7,
+    "eccentricity": 0.3152,
+    "inclination": 38.95,
+    "orbital_speed": 0.1515,
+    "clockwise": true,
+    "angle": 20.976
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 391080,
+      "minecraft:raw_gold": 6553,
+      "minecraft:redstone": 15784,
+      "mekanism:raw_osmium": 13021
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 107602,
+      "mekanism:dirty_gold_slurry": 4024,
+      "mekanism:dirty_osmium_slurry": 10544
+    }
+  }
+}

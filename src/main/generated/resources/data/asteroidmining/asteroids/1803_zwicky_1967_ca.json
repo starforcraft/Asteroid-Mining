@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1803_zwicky_1967_ca",
+  "name": "1803 Zwicky (1967 CA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.934,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 234.9,
+    "eccentricity": 0.2494,
+    "inclination": 21.53,
+    "orbital_speed": 0.1827,
+    "clockwise": true,
+    "angle": 109.416
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 103032,
+      "minecraft:raw_iron": 52296,
+      "minecraft:raw_copper": 8022,
+      "minecraft:quartz": 10211,
+      "minecraft:redstone": 870
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 25412
+    }
+  }
+}

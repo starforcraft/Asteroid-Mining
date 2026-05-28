@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1777_gehrels_4007_p_l",
+  "name": "1777 Gehrels (4007 P-L)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 11.86,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 262.8,
+    "eccentricity": 0.0198,
+    "inclination": 3.15,
+    "orbital_speed": 0.1727,
+    "clockwise": true,
+    "angle": 134.208
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 231076,
+      "minecraft:raw_iron": 51875,
+      "minecraft:raw_copper": 11923,
+      "minecraft:quartz": 8425,
+      "minecraft:redstone": 5702,
+      "minecraft:diamond": 285
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 19291
+    }
+  }
+}

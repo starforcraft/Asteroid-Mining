@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:769_tatjana_a913_td",
+  "name": "769 Tatjana (A913 TD)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 96.72,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 316.9,
+    "eccentricity": 0.1865,
+    "inclination": 7.37,
+    "orbital_speed": 0.1573,
+    "clockwise": true,
+    "angle": 126.144
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2615688,
+      "minecraft:raw_gold": 176044,
+      "minecraft:redstone": 175877,
+      "mekanism:raw_osmium": 101555
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1171028,
+      "mekanism:dirty_gold_slurry": 86441,
+      "mekanism:dirty_osmium_slurry": 67368
+    }
+  }
+}

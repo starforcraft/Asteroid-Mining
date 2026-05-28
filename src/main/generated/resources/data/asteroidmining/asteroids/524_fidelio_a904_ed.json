@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:524_fidelio_a904_ed",
+  "name": "524 Fidelio (A904 ED)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 65.527,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 263.6,
+    "eccentricity": 0.1265,
+    "inclination": 8.22,
+    "orbital_speed": 0.1725,
+    "clockwise": true,
+    "angle": 276.684
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2441716,
+      "minecraft:raw_gold": 142706,
+      "minecraft:redstone": 90557,
+      "mekanism:raw_osmium": 42538
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 653088,
+      "mekanism:dirty_gold_slurry": 31628,
+      "mekanism:dirty_osmium_slurry": 33476
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:352_gisela_a893_ab",
+  "name": "352 Gisela (A893 AB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 26.744,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.4,
+    "eccentricity": 0.1493,
+    "inclination": 3.38,
+    "orbital_speed": 0.189,
+    "clockwise": true,
+    "angle": 25.308
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 469147,
+      "minecraft:raw_iron": 222723,
+      "minecraft:raw_copper": 34098,
+      "minecraft:quartz": 31257,
+      "minecraft:redstone": 4031,
+      "minecraft:diamond": 130,
+      "mekanism:dust_osmium": 1132
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 43668
+    }
+  }
+}

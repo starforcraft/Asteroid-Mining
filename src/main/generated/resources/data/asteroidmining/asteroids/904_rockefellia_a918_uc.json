@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:904_rockefellia_a918_uc",
+  "name": "904 Rockefellia (A918 UC)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 49.146,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 299.5,
+    "eccentricity": 0.0851,
+    "inclination": 15.18,
+    "orbital_speed": 0.1618,
+    "clockwise": true,
+    "angle": 329.724
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 222907,
+      "minecraft:clay_ball": 290383,
+      "minecraft:raw_iron": 55397,
+      "minecraft:raw_copper": 70517,
+      "mekanism:dust_sulfur": 96540,
+      "mekanism:fluorite_gem": 4530
+    },
+    "fluids": {
+      "minecraft:water": 581646714
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 276912,
+      "mekanism:oxygen": 238033,
+      "mekanism:sulfur_dioxide": 124298
+    }
+  }
+}

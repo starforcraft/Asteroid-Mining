@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:356_liguria_a893_be",
+  "name": "356 Liguria (A893 BE)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 145.503,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 275.5,
+    "eccentricity": 0.2421,
+    "inclination": 8.21,
+    "orbital_speed": 0.1687,
+    "clockwise": true,
+    "angle": 215.34
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1134219,
+      "minecraft:clay_ball": 574186,
+      "minecraft:raw_iron": 242577,
+      "minecraft:raw_copper": 160408,
+      "mekanism:dust_sulfur": 383861,
+      "mekanism:fluorite_gem": 21906
+    },
+    "fluids": {
+      "minecraft:water": 1497876709
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 376407,
+      "mekanism:oxygen": 1280583,
+      "mekanism:sulfur_dioxide": 365191
+    }
+  }
+}

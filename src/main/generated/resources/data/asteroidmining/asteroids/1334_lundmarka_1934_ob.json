@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1334_lundmarka_1934_ob",
+  "name": "1334 Lundmarka (1934 OB)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 27.621,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 291.5,
+    "eccentricity": 0.0919,
+    "inclination": 11.46,
+    "orbital_speed": 0.164,
+    "clockwise": true,
+    "angle": 58.164
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 485777,
+      "minecraft:raw_gold": 48464,
+      "minecraft:redstone": 12466,
+      "mekanism:raw_osmium": 20796,
+      "minecraft:diamond": 705
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 134649,
+      "mekanism:dirty_gold_slurry": 11200,
+      "mekanism:dirty_osmium_slurry": 7257
+    }
+  }
+}

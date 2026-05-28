@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:218_bianca_a880_ra",
+  "name": "218 Bianca (A880 RA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 60.62,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 266.9,
+    "eccentricity": 0.1153,
+    "inclination": 15.19,
+    "orbital_speed": 0.1714,
+    "clockwise": true,
+    "angle": 319.236
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1742892,
+      "minecraft:raw_iron": 204217,
+      "minecraft:raw_copper": 139893,
+      "minecraft:quartz": 223956,
+      "minecraft:redstone": 53115,
+      "minecraft:diamond": 1021
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 126661
+    }
+  }
+}

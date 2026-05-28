@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1565_lemaitre_1948_wa",
+  "name": "1565 Lemaitre (1948 WA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.949,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 239.3,
+    "eccentricity": 0.3479,
+    "inclination": 21.5,
+    "orbital_speed": 0.181,
+    "clockwise": true,
+    "angle": 142.512
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 96668,
+      "minecraft:raw_iron": 28799,
+      "minecraft:raw_copper": 10880,
+      "minecraft:quartz": 15810,
+      "minecraft:redstone": 2603
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 7900
+    }
+  }
+}

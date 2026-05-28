@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1884_skip_1943_eb1",
+  "name": "1884 Skip (1943 EB1)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 8.416,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 242.5,
+    "eccentricity": 0.2625,
+    "inclination": 21.85,
+    "orbital_speed": 0.1798,
+    "clockwise": true,
+    "angle": 87.564
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 41714,
+      "minecraft:clay_ball": 36130,
+      "minecraft:raw_iron": 17726,
+      "minecraft:raw_copper": 1829,
+      "mekanism:dust_sulfur": 4203,
+      "mekanism:fluorite_gem": 637
+    },
+    "fluids": {
+      "minecraft:water": 29624822
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 9377,
+      "mekanism:oxygen": 22606,
+      "mekanism:sulfur_dioxide": 5504
+    }
+  }
+}

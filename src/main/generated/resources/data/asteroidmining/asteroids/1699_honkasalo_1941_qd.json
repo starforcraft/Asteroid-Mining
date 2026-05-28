@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1699_honkasalo_1941_qd",
+  "name": "1699 Honkasalo (1941 QD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.345,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 221.1,
+    "eccentricity": 0.1664,
+    "inclination": 1.97,
+    "orbital_speed": 0.1883,
+    "clockwise": true,
+    "angle": 208.584
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 89787,
+      "minecraft:raw_iron": 34791,
+      "minecraft:raw_copper": 3619,
+      "minecraft:quartz": 13843,
+      "minecraft:redstone": 768,
+      "mekanism:dust_osmium": 240
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 16742
+    }
+  }
+}

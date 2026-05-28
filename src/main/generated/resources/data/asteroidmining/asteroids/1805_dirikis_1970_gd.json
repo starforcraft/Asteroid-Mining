@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1805_dirikis_1970_gd",
+  "name": "1805 Dirikis (1970 GD)",
+  "taxonomy": "V",
+  "analogue": "basaltic_achondrite",
+  "diameter_km": 28.098,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 314.1,
+    "eccentricity": 0.1081,
+    "inclination": 2.52,
+    "orbital_speed": 0.158,
+    "clockwise": true,
+    "angle": 24.432
+  },
+  "composition": {
+    "items": {
+      "minecraft:basalt": 628722,
+      "minecraft:raw_iron": 115973,
+      "minecraft:quartz": 46789,
+      "minecraft:magma_cream": 10097
+    },
+    "fluids": {
+      "minecraft:lava": 32740032
+    },
+    "chemicals": {
+      "mekanism:oxygen": 110895
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:230_athamantis_a882_ra",
+  "name": "230 Athamantis (A882 RA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 111.332,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 238.2,
+    "eccentricity": 0.0611,
+    "inclination": 9.45,
+    "orbital_speed": 0.1814,
+    "clockwise": true,
+    "angle": 169.332
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 4091008,
+      "minecraft:raw_iron": 854649,
+      "minecraft:raw_copper": 271532,
+      "minecraft:quartz": 575873,
+      "minecraft:redstone": 130114,
+      "mekanism:dust_osmium": 21512
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 227610
+    }
+  }
+}

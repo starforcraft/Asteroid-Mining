@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:6_hebe_a847_na",
+  "name": "6 Hebe (A847 NA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 185.18,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 242.5,
+    "eccentricity": 0.2022,
+    "inclination": 14.74,
+    "orbital_speed": 0.1798,
+    "clockwise": true,
+    "angle": 327.54
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 4249046,
+      "minecraft:raw_iron": 859506,
+      "minecraft:raw_copper": 73643,
+      "minecraft:quartz": 254771,
+      "minecraft:redstone": 64060,
+      "minecraft:diamond": 3604,
+      "mekanism:dust_osmium": 9293
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 254744
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:584_semiramis_a906_ac",
+  "name": "584 Semiramis (A906 AC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 54.01,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.4,
+    "eccentricity": 0.233,
+    "inclination": 10.72,
+    "orbital_speed": 0.1817,
+    "clockwise": true,
+    "angle": 247.164
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1367156,
+      "minecraft:raw_iron": 489242,
+      "minecraft:raw_copper": 34122,
+      "minecraft:quartz": 270822,
+      "minecraft:redstone": 46756
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 271283
+    }
+  }
+}

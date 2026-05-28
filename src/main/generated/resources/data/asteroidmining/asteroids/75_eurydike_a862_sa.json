@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:75_eurydike_a862_sa",
+  "name": "75 Eurydike (A862 SA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 62.377,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 267.3,
+    "eccentricity": 0.3053,
+    "inclination": 4.99,
+    "orbital_speed": 0.1713,
+    "clockwise": true,
+    "angle": 95.592
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1376588,
+      "minecraft:raw_gold": 23268,
+      "minecraft:redstone": 16828,
+      "mekanism:raw_osmium": 9929,
+      "minecraft:diamond": 629
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 733641,
+      "mekanism:dirty_gold_slurry": 21686,
+      "mekanism:dirty_osmium_slurry": 17627
+    }
+  }
+}

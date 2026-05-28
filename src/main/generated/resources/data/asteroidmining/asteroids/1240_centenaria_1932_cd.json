@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:1240_centenaria_1932_cd",
+  "name": "1240 Centenaria (1932 CD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 63.035,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 286.6,
+    "eccentricity": 0.1754,
+    "inclination": 10.16,
+    "orbital_speed": 0.1654,
+    "clockwise": true,
+    "angle": 92.412
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 388406,
+      "minecraft:clay_ball": 278679,
+      "minecraft:raw_iron": 87288,
+      "minecraft:raw_copper": 93601,
+      "mekanism:dust_sulfur": 169255
+    },
+    "fluids": {
+      "minecraft:water": 461494860
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 280489,
+      "mekanism:oxygen": 217710,
+      "mekanism:sulfur_dioxide": 28474
+    }
+  }
+}

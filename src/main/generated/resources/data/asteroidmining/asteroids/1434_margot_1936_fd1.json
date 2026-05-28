@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1434_margot_1936_fd1",
+  "name": "1434 Margot (1936 FD1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 27.178,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.6,
+    "eccentricity": 0.0693,
+    "inclination": 10.83,
+    "orbital_speed": 0.1612,
+    "clockwise": true,
+    "angle": 128.964
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 515303,
+      "minecraft:raw_iron": 137935,
+      "minecraft:raw_copper": 48596,
+      "minecraft:quartz": 55546,
+      "minecraft:redstone": 6863,
+      "mekanism:dust_osmium": 3216
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 38196
+    }
+  }
+}

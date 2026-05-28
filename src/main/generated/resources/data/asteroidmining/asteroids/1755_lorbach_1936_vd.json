@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1755_lorbach_1936_vd",
+  "name": "1755 Lorbach (1936 VD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 24.878,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 309.3,
+    "eccentricity": 0.041,
+    "inclination": 10.69,
+    "orbital_speed": 0.1592,
+    "clockwise": true,
+    "angle": 349.032
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 523006,
+      "minecraft:raw_iron": 158934,
+      "minecraft:raw_copper": 40419,
+      "minecraft:quartz": 61142,
+      "minecraft:redstone": 3854
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 34376
+    }
+  }
+}

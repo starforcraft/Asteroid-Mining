@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1104_syringa_1928_xa",
+  "name": "1104 Syringa (1928 XA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 23.244,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 263.2,
+    "eccentricity": 0.3425,
+    "inclination": 6.44,
+    "orbital_speed": 0.1726,
+    "clockwise": true,
+    "angle": 111.324
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 445869,
+      "minecraft:raw_gold": 20132,
+      "minecraft:redstone": 5511,
+      "mekanism:raw_osmium": 17102
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 205811,
+      "mekanism:dirty_gold_slurry": 2189,
+      "mekanism:dirty_osmium_slurry": 12605
+    }
+  }
+}

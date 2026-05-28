@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:463_lola_a900_uk",
+  "name": "463 Lola (A900 UK)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 20.908,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 239.8,
+    "eccentricity": 0.2195,
+    "inclination": 13.54,
+    "orbital_speed": 0.1808,
+    "clockwise": true,
+    "angle": 168.696
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 290983,
+      "minecraft:raw_gold": 27861,
+      "minecraft:redstone": 10201,
+      "mekanism:raw_osmium": 11185
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 150786,
+      "mekanism:dirty_gold_slurry": 8381,
+      "mekanism:dirty_osmium_slurry": 1876
+    }
+  }
+}

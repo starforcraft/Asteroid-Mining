@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1977_shura_1970_qy",
+  "name": "1977 Shura (1970 QY)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 17.211,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 278.1,
+    "eccentricity": 0.0739,
+    "inclination": 7.77,
+    "orbital_speed": 0.1679,
+    "clockwise": true,
+    "angle": 275.808
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 332899,
+      "minecraft:raw_iron": 40596,
+      "minecraft:raw_copper": 26411,
+      "minecraft:quartz": 30156,
+      "minecraft:redstone": 2120
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 54357
+    }
+  }
+}

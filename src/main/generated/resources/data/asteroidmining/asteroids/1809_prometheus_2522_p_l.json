@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1809_prometheus_2522_p_l",
+  "name": "1809 Prometheus (2522 P-L)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 14.212,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 292.7,
+    "eccentricity": 0.099,
+    "inclination": 3.26,
+    "orbital_speed": 0.1637,
+    "clockwise": true,
+    "angle": 214.464
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 41552,
+      "minecraft:clay_ball": 35817,
+      "minecraft:raw_iron": 37510,
+      "minecraft:raw_copper": 6513,
+      "mekanism:dust_sulfur": 8561,
+      "mekanism:fluorite_gem": 1507
+    },
+    "fluids": {
+      "minecraft:water": 142889816
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 41407,
+      "mekanism:oxygen": 38239,
+      "mekanism:sulfur_dioxide": 10267
+    }
+  }
+}

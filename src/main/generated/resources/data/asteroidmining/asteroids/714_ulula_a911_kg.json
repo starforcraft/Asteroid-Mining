@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:714_ulula_a911_kg",
+  "name": "714 Ulula (A911 KG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 41.343,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 253.5,
+    "eccentricity": 0.0558,
+    "inclination": 14.27,
+    "orbital_speed": 0.1759,
+    "clockwise": true,
+    "angle": 123.204
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1134038,
+      "minecraft:raw_iron": 367264,
+      "minecraft:raw_copper": 66292,
+      "minecraft:quartz": 134148,
+      "minecraft:redstone": 6433,
+      "minecraft:diamond": 687,
+      "mekanism:dust_osmium": 4663
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 208230
+    }
+  }
+}

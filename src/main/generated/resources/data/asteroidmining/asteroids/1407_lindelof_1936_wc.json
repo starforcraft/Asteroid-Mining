@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1407_lindelof_1936_wc",
+  "name": "1407 Lindelof (1936 WC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 20.31,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 276.1,
+    "eccentricity": 0.284,
+    "inclination": 5.83,
+    "orbital_speed": 0.1685,
+    "clockwise": true,
+    "angle": 16.248
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 455375,
+      "minecraft:raw_gold": 29897,
+      "minecraft:redstone": 5018,
+      "mekanism:raw_osmium": 6830
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 209697,
+      "mekanism:dirty_gold_slurry": 8820,
+      "mekanism:dirty_osmium_slurry": 12027
+    }
+  }
+}

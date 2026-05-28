@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1464_armisticia_1939_vo",
+  "name": "1464 Armisticia (1939 VO)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 23.313,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 300.5,
+    "eccentricity": 0.0453,
+    "inclination": 11.54,
+    "orbital_speed": 0.1615,
+    "clockwise": true,
+    "angle": 294.204
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 513975,
+      "minecraft:raw_gold": 33458,
+      "minecraft:redstone": 10787,
+      "mekanism:raw_osmium": 21444,
+      "mekanism:pellet_polonium": 59
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 117105,
+      "mekanism:dirty_gold_slurry": 2022,
+      "mekanism:dirty_osmium_slurry": 2202
+    }
+  }
+}

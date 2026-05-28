@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:1392_pierre_1936_fo",
+  "name": "1392 Pierre (1936 FO)",
+  "taxonomy": "D",
+  "analogue": "organic_rich_outer_belt",
+  "diameter_km": 26.44,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 260.8,
+    "eccentricity": 0.2024,
+    "inclination": 12.26,
+    "orbital_speed": 0.1734,
+    "clockwise": true,
+    "angle": 113.628
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 152105,
+      "minecraft:blackstone": 277234,
+      "mekanism:dust_sulfur": 27385,
+      "mekanism:yellow_cake_uranium": 1035
+    },
+    "fluids": {
+      "minecraft:water": 98306192
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 81383,
+      "mekanism:ethene": 53352,
+      "mekanism:sulfur_dioxide": 15904
+    }
+  }
+}

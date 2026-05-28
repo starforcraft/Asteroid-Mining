@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:901_brunsia_a918_qa",
+  "name": "901 Brunsia (A918 QA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 13.21,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.5,
+    "eccentricity": 0.2207,
+    "inclination": 3.45,
+    "orbital_speed": 0.1877,
+    "clockwise": true,
+    "angle": 277.2
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 170359,
+      "minecraft:raw_iron": 29683,
+      "minecraft:raw_copper": 4981,
+      "minecraft:quartz": 11107,
+      "minecraft:redstone": 4900
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 30203
+    }
+  }
+}

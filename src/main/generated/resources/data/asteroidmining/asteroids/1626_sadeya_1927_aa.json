@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:1626_sadeya_1927_aa",
+  "name": "1626 Sadeya (1927 AA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 15.14,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.3,
+    "eccentricity": 0.2737,
+    "inclination": 25.32,
+    "orbital_speed": 0.1821,
+    "clockwise": true,
+    "angle": 250.5
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 219901,
+      "minecraft:raw_iron": 50231,
+      "minecraft:raw_copper": 25666,
+      "minecraft:quartz": 29043,
+      "minecraft:redstone": 3867,
+      "minecraft:diamond": 111,
+      "mekanism:dust_osmium": 658
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 57599
+    }
+  }
+}

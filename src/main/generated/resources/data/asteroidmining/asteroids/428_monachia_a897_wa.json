@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:428_monachia_a897_wa",
+  "name": "428 Monachia (A897 WA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 20.184,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 230.8,
+    "eccentricity": 0.1782,
+    "inclination": 6.19,
+    "orbital_speed": 0.1843,
+    "clockwise": true,
+    "angle": 35.916
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 378668,
+      "minecraft:raw_iron": 74512,
+      "minecraft:raw_copper": 38204,
+      "minecraft:quartz": 36013,
+      "minecraft:redstone": 1889,
+      "minecraft:diamond": 430,
+      "mekanism:dust_osmium": 1850
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 60116
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1627_ivar_1929_sh",
+  "name": "1627 Ivar (1929 SH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.12,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 186.3,
+    "eccentricity": 0.3973,
+    "inclination": 8.46,
+    "orbital_speed": 0.2051,
+    "clockwise": true,
+    "angle": 28.008
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 149296,
+      "minecraft:raw_iron": 41254,
+      "minecraft:raw_copper": 13713,
+      "minecraft:quartz": 18308,
+      "minecraft:redstone": 1465
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 17588
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1235_schorria_1931_uj",
+  "name": "1235 Schorria (1931 UJ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 9.2762,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 191.0,
+    "eccentricity": 0.1545,
+    "inclination": 25.0,
+    "orbital_speed": 0.2026,
+    "clockwise": true,
+    "angle": 124.872
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 25188,
+      "minecraft:clay_ball": 29081,
+      "minecraft:raw_iron": 10095,
+      "minecraft:raw_copper": 3089,
+      "mekanism:dust_sulfur": 10754,
+      "mekanism:yellow_cake_uranium": 314
+    },
+    "fluids": {
+      "minecraft:water": 22310524
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 33231,
+      "mekanism:oxygen": 35606,
+      "mekanism:sulfur_dioxide": 8515
+    }
+  }
+}

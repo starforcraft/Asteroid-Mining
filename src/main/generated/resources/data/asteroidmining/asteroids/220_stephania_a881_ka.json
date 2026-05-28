@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:220_stephania_a881_ka",
+  "name": "220 Stephania (A881 KA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 31.738,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 234.9,
+    "eccentricity": 0.2572,
+    "inclination": 7.6,
+    "orbital_speed": 0.1827,
+    "clockwise": true,
+    "angle": 234.252
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 599321,
+      "minecraft:raw_gold": 35142,
+      "minecraft:redstone": 15761,
+      "mekanism:raw_osmium": 5282,
+      "minecraft:diamond": 516,
+      "mekanism:pellet_polonium": 78
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 249537,
+      "mekanism:dirty_gold_slurry": 23195,
+      "mekanism:dirty_osmium_slurry": 16117
+    }
+  }
+}

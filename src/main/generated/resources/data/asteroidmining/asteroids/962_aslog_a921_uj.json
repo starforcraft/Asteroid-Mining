@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:962_aslog_a921_uj",
+  "name": "962 Aslog (A921 UJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 1.5592,
+  "game_diameter": 2,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 290.5,
+    "eccentricity": 0.0964,
+    "inclination": 2.61,
+    "orbital_speed": 0.1643,
+    "clockwise": true,
+    "angle": 25.188
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 9982,
+      "minecraft:raw_iron": 4176,
+      "minecraft:raw_copper": 862,
+      "minecraft:quartz": 2111,
+      "minecraft:redstone": 384,
+      "mekanism:dust_osmium": 60
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 716
+    }
+  }
+}

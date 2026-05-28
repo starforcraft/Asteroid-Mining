@@ -1,0 +1,34 @@
+{
+  "id": "asteroidmining:105_artemis_a868_sa",
+  "name": "105 Artemis (A868 SA)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 94.864,
+  "game_diameter": 8,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.2,
+    "eccentricity": 0.179,
+    "inclination": 21.46,
+    "orbital_speed": 0.1818,
+    "clockwise": true,
+    "angle": 260.832
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 1080694,
+      "minecraft:clay_ball": 596967,
+      "minecraft:raw_iron": 283280,
+      "minecraft:raw_copper": 168735,
+      "mekanism:dust_sulfur": 176563
+    },
+    "fluids": {
+      "minecraft:water": 1488329731
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 517952,
+      "mekanism:oxygen": 1008838,
+      "mekanism:sulfur_dioxide": 157095
+    }
+  }
+}

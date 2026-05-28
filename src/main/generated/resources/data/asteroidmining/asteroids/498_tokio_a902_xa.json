@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:498_tokio_a902_xa",
+  "name": "498 Tokio (A902 XA)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 81.83,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 265.0,
+    "eccentricity": 0.224,
+    "inclination": 9.5,
+    "orbital_speed": 0.172,
+    "clockwise": true,
+    "angle": 301.476
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 2993897,
+      "minecraft:raw_gold": 156413,
+      "minecraft:redstone": 64116,
+      "mekanism:raw_osmium": 89474,
+      "minecraft:diamond": 915
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 1459160,
+      "mekanism:dirty_gold_slurry": 102808,
+      "mekanism:dirty_osmium_slurry": 41475
+    }
+  }
+}

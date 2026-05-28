@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:397_vienna_a894_ya",
+  "name": "397 Vienna (A894 YA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 49.032,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 263.5,
+    "eccentricity": 0.2473,
+    "inclination": 12.87,
+    "orbital_speed": 0.1725,
+    "clockwise": true,
+    "angle": 93.168
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 818633,
+      "minecraft:raw_iron": 393545,
+      "minecraft:raw_copper": 81409,
+      "minecraft:quartz": 119274,
+      "minecraft:redstone": 38818,
+      "minecraft:diamond": 1026,
+      "mekanism:dust_osmium": 5880
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 158862
+    }
+  }
+}

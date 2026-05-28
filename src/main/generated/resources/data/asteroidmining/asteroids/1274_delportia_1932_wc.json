@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1274_delportia_1932_wc",
+  "name": "1274 Delportia (1932 WC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.611,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 222.9,
+    "eccentricity": 0.1141,
+    "inclination": 4.39,
+    "orbital_speed": 0.1875,
+    "clockwise": true,
+    "angle": 87.684
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 92984,
+      "minecraft:raw_iron": 39380,
+      "minecraft:raw_copper": 10170,
+      "minecraft:quartz": 12435,
+      "minecraft:redstone": 832,
+      "mekanism:dust_osmium": 1030
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 14709
+    }
+  }
+}

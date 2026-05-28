@@ -1,0 +1,36 @@
+{
+  "id": "asteroidmining:1445_konkolya_1938_af",
+  "name": "1445 Konkolya (1938 AF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 20.332,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 312.1,
+    "eccentricity": 0.1854,
+    "inclination": 2.28,
+    "orbital_speed": 0.1585,
+    "clockwise": true,
+    "angle": 201.552
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 57366,
+      "minecraft:clay_ball": 62858,
+      "minecraft:raw_iron": 41794,
+      "minecraft:raw_copper": 19567,
+      "mekanism:dust_sulfur": 8650,
+      "mekanism:fluorite_gem": 2870,
+      "mekanism:yellow_cake_uranium": 876
+    },
+    "fluids": {
+      "minecraft:water": 66435284
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 25087,
+      "mekanism:oxygen": 66685,
+      "mekanism:sulfur_dioxide": 28060
+    }
+  }
+}

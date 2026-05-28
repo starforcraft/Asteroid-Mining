@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1466_mundleria_1938_ka",
+  "name": "1466 Mundleria (1938 KA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 22.131,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.7,
+    "eccentricity": 0.1557,
+    "inclination": 13.14,
+    "orbital_speed": 0.1816,
+    "clockwise": true,
+    "angle": 209.22
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 326568,
+      "minecraft:raw_iron": 121226,
+      "minecraft:raw_copper": 31003,
+      "minecraft:quartz": 55169,
+      "minecraft:redstone": 10011,
+      "minecraft:diamond": 121
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 98506
+    }
+  }
+}

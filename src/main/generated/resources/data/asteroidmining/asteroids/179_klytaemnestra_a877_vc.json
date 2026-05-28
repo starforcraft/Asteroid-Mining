@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:179_klytaemnestra_a877_vc",
+  "name": "179 Klytaemnestra (A877 VC)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 69.946,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 297.3,
+    "eccentricity": 0.1093,
+    "inclination": 7.82,
+    "orbital_speed": 0.1624,
+    "clockwise": true,
+    "angle": 356.424
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2013328,
+      "minecraft:raw_iron": 335239,
+      "minecraft:raw_copper": 168300,
+      "minecraft:quartz": 84720,
+      "minecraft:redstone": 24847,
+      "minecraft:diamond": 2646,
+      "mekanism:dust_osmium": 14252
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 246031
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1272_gefion_1931_tz1",
+  "name": "1272 Gefion (1931 TZ1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.965,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 278.8,
+    "eccentricity": 0.1508,
+    "inclination": 8.42,
+    "orbital_speed": 0.1677,
+    "clockwise": true,
+    "angle": 172.668
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 61965,
+      "minecraft:raw_iron": 12205,
+      "minecraft:raw_copper": 8823,
+      "minecraft:quartz": 11541,
+      "minecraft:redstone": 2255
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 15430
+    }
+  }
+}

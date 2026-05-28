@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1602_indiana_1950_gf",
+  "name": "1602 Indiana (1950 GF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 7.97,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.4,
+    "eccentricity": 0.104,
+    "inclination": 4.16,
+    "orbital_speed": 0.1869,
+    "clockwise": true,
+    "angle": 190.308
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 86013,
+      "minecraft:raw_iron": 28508,
+      "minecraft:raw_copper": 4532,
+      "minecraft:quartz": 20986,
+      "minecraft:redstone": 985
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 7907
+    }
+  }
+}

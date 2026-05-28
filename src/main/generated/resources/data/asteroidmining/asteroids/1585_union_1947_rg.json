@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1585_union_1947_rg",
+  "name": "1585 Union (1947 RG)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 55.271,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 293.0,
+    "eccentricity": 0.3084,
+    "inclination": 26.17,
+    "orbital_speed": 0.1636,
+    "clockwise": true,
+    "angle": 12.672
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 363835,
+      "minecraft:clay_ball": 259495,
+      "minecraft:raw_iron": 217414,
+      "minecraft:raw_copper": 19669,
+      "mekanism:dust_sulfur": 33153,
+      "mekanism:fluorite_gem": 1768
+    },
+    "fluids": {
+      "minecraft:water": 343115237
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 186551,
+      "mekanism:oxygen": 138069,
+      "mekanism:sulfur_dioxide": 101653
+    }
+  }
+}

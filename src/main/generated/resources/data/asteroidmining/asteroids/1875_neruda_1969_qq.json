@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1875_neruda_1969_qq",
+  "name": "1875 Neruda (1969 QQ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 19.424,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 313.6,
+    "eccentricity": 0.1626,
+    "inclination": 13.38,
+    "orbital_speed": 0.1581,
+    "clockwise": true,
+    "angle": 289.992
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 324295,
+      "minecraft:raw_iron": 124427,
+      "minecraft:raw_copper": 12932,
+      "minecraft:quartz": 30880,
+      "minecraft:redstone": 10240
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 68915
+    }
+  }
+}

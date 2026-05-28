@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1932_jansky_1971_ub1",
+  "name": "1932 Jansky (1971 UB1)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 5.414,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.2,
+    "eccentricity": 0.1573,
+    "inclination": 1.9,
+    "orbital_speed": 0.1818,
+    "clockwise": true,
+    "angle": 207.948
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 73857,
+      "minecraft:raw_iron": 21158,
+      "minecraft:raw_copper": 4512,
+      "minecraft:quartz": 4576,
+      "minecraft:redstone": 963
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 10232
+    }
+  }
+}

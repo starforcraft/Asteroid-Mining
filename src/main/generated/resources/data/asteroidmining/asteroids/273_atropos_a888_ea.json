@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:273_atropos_a888_ea",
+  "name": "273 Atropos (A888 EA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 29.768,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 239.5,
+    "eccentricity": 0.1615,
+    "inclination": 20.44,
+    "orbital_speed": 0.1809,
+    "clockwise": true,
+    "angle": 322.176
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 555871,
+      "minecraft:raw_iron": 113446,
+      "minecraft:raw_copper": 15778,
+      "minecraft:quartz": 125778,
+      "minecraft:redstone": 18935
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 142329
+    }
+  }
+}

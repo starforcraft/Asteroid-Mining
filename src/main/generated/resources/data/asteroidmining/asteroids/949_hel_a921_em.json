@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:949_hel_a921_em",
+  "name": "949 Hel (A921 EM)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 63.494,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 299.6,
+    "eccentricity": 0.2003,
+    "inclination": 10.64,
+    "orbital_speed": 0.1618,
+    "clockwise": true,
+    "angle": 37.584
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1413555,
+      "minecraft:raw_iron": 632440,
+      "minecraft:raw_copper": 163976,
+      "minecraft:quartz": 65715,
+      "minecraft:redstone": 55710
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 125381
+    }
+  }
+}

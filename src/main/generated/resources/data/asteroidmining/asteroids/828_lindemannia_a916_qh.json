@@ -1,0 +1,33 @@
+{
+  "id": "asteroidmining:828_lindemannia_a916_qh",
+  "name": "828 Lindemannia (A916 QH)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 47.891,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.0,
+    "eccentricity": 0.0265,
+    "inclination": 1.12,
+    "orbital_speed": 0.1568,
+    "clockwise": true,
+    "angle": 319.116
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1466397,
+      "minecraft:raw_gold": 86995,
+      "minecraft:redstone": 48072,
+      "mekanism:raw_osmium": 38165,
+      "minecraft:diamond": 734,
+      "mekanism:pellet_polonium": 74
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 713252,
+      "mekanism:dirty_gold_slurry": 12346,
+      "mekanism:dirty_osmium_slurry": 8227
+    }
+  }
+}

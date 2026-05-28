@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:15_eunomia_a851_oa",
+  "name": "15 Eunomia (A851 OA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 231.689,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 264.2,
+    "eccentricity": 0.1878,
+    "inclination": 11.76,
+    "orbital_speed": 0.1723,
+    "clockwise": true,
+    "angle": 125.112
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 4296090,
+      "minecraft:raw_iron": 595842,
+      "minecraft:raw_copper": 207440,
+      "minecraft:quartz": 275069,
+      "minecraft:redstone": 114526,
+      "mekanism:dust_osmium": 23643
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 748490
+    }
+  }
+}

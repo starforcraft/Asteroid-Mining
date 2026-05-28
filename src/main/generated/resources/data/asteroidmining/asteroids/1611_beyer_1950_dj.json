@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1611_beyer_1950_dj",
+  "name": "1611 Beyer (1950 DJ)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 24.444,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 317.7,
+    "eccentricity": 0.1595,
+    "inclination": 4.28,
+    "orbital_speed": 0.1571,
+    "clockwise": true,
+    "angle": 347.88
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 589513,
+      "minecraft:raw_iron": 136150,
+      "minecraft:raw_copper": 31468,
+      "minecraft:quartz": 86774,
+      "minecraft:redstone": 7115,
+      "mekanism:dust_osmium": 1760
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 54478
+    }
+  }
+}

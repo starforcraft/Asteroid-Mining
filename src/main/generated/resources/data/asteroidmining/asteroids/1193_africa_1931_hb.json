@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1193_africa_1931_hb",
+  "name": "1193 Africa (1931 HB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 12.22,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 264.6,
+    "eccentricity": 0.1236,
+    "inclination": 14.14,
+    "orbital_speed": 0.1721,
+    "clockwise": true,
+    "angle": 109.536
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 123953,
+      "minecraft:raw_iron": 61024,
+      "minecraft:raw_copper": 8952,
+      "minecraft:quartz": 30000,
+      "minecraft:redstone": 1989
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 24360
+    }
+  }
+}

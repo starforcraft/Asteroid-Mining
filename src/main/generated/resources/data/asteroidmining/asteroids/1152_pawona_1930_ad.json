@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1152_pawona_1930_ad",
+  "name": "1152 Pawona (1930 AD)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 17.13,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 242.7,
+    "eccentricity": 0.0406,
+    "inclination": 5.07,
+    "orbital_speed": 0.1797,
+    "clockwise": true,
+    "angle": 231.708
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 318567,
+      "minecraft:raw_iron": 133442,
+      "minecraft:raw_copper": 19123,
+      "minecraft:quartz": 24008,
+      "minecraft:redstone": 1714,
+      "minecraft:diamond": 367
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 59330
+    }
+  }
+}

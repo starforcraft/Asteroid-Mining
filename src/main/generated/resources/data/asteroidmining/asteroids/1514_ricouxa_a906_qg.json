@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1514_ricouxa_a906_qg",
+  "name": "1514 Ricouxa (A906 QG)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 7.784,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.0,
+    "eccentricity": 0.2004,
+    "inclination": 4.54,
+    "orbital_speed": 0.1871,
+    "clockwise": true,
+    "angle": 329.604
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 28810,
+      "minecraft:clay_ball": 13465,
+      "minecraft:raw_iron": 5294,
+      "minecraft:raw_copper": 6145,
+      "mekanism:dust_sulfur": 7209,
+      "mekanism:yellow_cake_uranium": 406
+    },
+    "fluids": {
+      "minecraft:water": 32863231
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 23991,
+      "mekanism:oxygen": 29544,
+      "mekanism:sulfur_dioxide": 1656
+    }
+  }
+}

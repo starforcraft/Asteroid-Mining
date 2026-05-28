@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1990_pilcher_1956_ee",
+  "name": "1990 Pilcher (1956 EE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 6.754,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 217.4,
+    "eccentricity": 0.0518,
+    "inclination": 3.13,
+    "orbital_speed": 0.1899,
+    "clockwise": true,
+    "angle": 263.412
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 69670,
+      "minecraft:raw_iron": 22774,
+      "minecraft:raw_copper": 3871,
+      "minecraft:quartz": 5591,
+      "minecraft:redstone": 1129
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 5876
+    }
+  }
+}

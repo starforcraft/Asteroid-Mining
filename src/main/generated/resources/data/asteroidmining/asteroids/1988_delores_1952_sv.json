@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1988_delores_1952_sv",
+  "name": "1988 Delores (1952 SV)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 5.761,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 215.4,
+    "eccentricity": 0.1021,
+    "inclination": 4.25,
+    "orbital_speed": 0.1908,
+    "clockwise": true,
+    "angle": 348.396
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 16771,
+      "minecraft:clay_ball": 21313,
+      "minecraft:raw_iron": 3382,
+      "minecraft:raw_copper": 2517,
+      "mekanism:dust_sulfur": 7892,
+      "mekanism:yellow_cake_uranium": 120
+    },
+    "fluids": {
+      "minecraft:water": 31337263
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 9256,
+      "mekanism:oxygen": 7281,
+      "mekanism:sulfur_dioxide": 4122
+    }
+  }
+}

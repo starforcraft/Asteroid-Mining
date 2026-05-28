@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:992_swasey_a922_vd",
+  "name": "992 Swasey (A922 VD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 27.585,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.5,
+    "eccentricity": 0.0905,
+    "inclination": 10.89,
+    "orbital_speed": 0.161,
+    "clockwise": true,
+    "angle": 190.428
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 205394,
+      "minecraft:clay_ball": 118743,
+      "minecraft:raw_iron": 57240,
+      "minecraft:raw_copper": 13390,
+      "mekanism:dust_sulfur": 61516,
+      "mekanism:fluorite_gem": 3805
+    },
+    "fluids": {
+      "minecraft:water": 83987005
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 54681,
+      "mekanism:oxygen": 130939,
+      "mekanism:sulfur_dioxide": 5393
+    }
+  }
+}

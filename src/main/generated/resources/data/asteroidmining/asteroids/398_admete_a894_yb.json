@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:398_admete_a894_yb",
+  "name": "398 Admete (A894 YB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 49.771,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 273.6,
+    "eccentricity": 0.2245,
+    "inclination": 9.56,
+    "orbital_speed": 0.1693,
+    "clockwise": true,
+    "angle": 230.676
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 535499,
+      "minecraft:clay_ball": 344875,
+      "minecraft:raw_iron": 131308,
+      "minecraft:raw_copper": 52666,
+      "mekanism:dust_sulfur": 56468,
+      "mekanism:fluorite_gem": 10615
+    },
+    "fluids": {
+      "minecraft:water": 362822656
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 273054,
+      "mekanism:oxygen": 157287,
+      "mekanism:sulfur_dioxide": 44350
+    }
+  }
+}

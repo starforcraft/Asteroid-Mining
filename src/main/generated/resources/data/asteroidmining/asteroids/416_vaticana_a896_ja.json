@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:416_vaticana_a896_ja",
+  "name": "416 Vaticana (A896 JA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 85.47,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 279.2,
+    "eccentricity": 0.2197,
+    "inclination": 12.83,
+    "orbital_speed": 0.1676,
+    "clockwise": true,
+    "angle": 185.82
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 2345487,
+      "minecraft:raw_iron": 418446,
+      "minecraft:raw_copper": 307452,
+      "minecraft:quartz": 245397,
+      "minecraft:redstone": 75669
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 243359
+    }
+  }
+}

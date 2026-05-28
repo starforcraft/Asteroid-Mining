@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:113_amalthea_a871_ea",
+  "name": "113 Amalthea (A871 EA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 50.137,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 237.6,
+    "eccentricity": 0.0862,
+    "inclination": 5.04,
+    "orbital_speed": 0.1816,
+    "clockwise": true,
+    "angle": 280.896
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1021133,
+      "minecraft:raw_iron": 469593,
+      "minecraft:raw_copper": 124311,
+      "minecraft:quartz": 181905,
+      "minecraft:redstone": 17330
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 254194
+    }
+  }
+}

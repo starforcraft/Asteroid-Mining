@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:338_budrosa_a892_sf",
+  "name": "338 Budrosa (A892 SF)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 50.506,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 291.3,
+    "eccentricity": 0.0176,
+    "inclination": 6.04,
+    "orbital_speed": 0.1641,
+    "clockwise": true,
+    "angle": 260.196
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1080861,
+      "minecraft:raw_gold": 16670,
+      "minecraft:redstone": 51770,
+      "mekanism:raw_osmium": 7930,
+      "minecraft:diamond": 1371
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 440472,
+      "mekanism:dirty_gold_slurry": 9134,
+      "mekanism:dirty_osmium_slurry": 18134
+    }
+  }
+}

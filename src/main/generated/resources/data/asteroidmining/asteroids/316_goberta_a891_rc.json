@@ -1,0 +1,32 @@
+{
+  "id": "asteroidmining:316_goberta_a891_rc",
+  "name": "316 Goberta (A891 RC)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 56.067,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 318.5,
+    "eccentricity": 0.1276,
+    "inclination": 2.35,
+    "orbital_speed": 0.1569,
+    "clockwise": true,
+    "angle": 115.02
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 1349265,
+      "minecraft:raw_gold": 63892,
+      "minecraft:redstone": 70590,
+      "mekanism:raw_osmium": 78988,
+      "minecraft:diamond": 336
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 984172,
+      "mekanism:dirty_gold_slurry": 11557,
+      "mekanism:dirty_osmium_slurry": 18072
+    }
+  }
+}

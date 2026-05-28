@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1866_sisyphus_1972_xa",
+  "name": "1866 Sisyphus (1972 XA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 8.48,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 189.3,
+    "eccentricity": 0.5381,
+    "inclination": 41.21,
+    "orbital_speed": 0.2035,
+    "clockwise": true,
+    "angle": 132.42
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 84304,
+      "minecraft:raw_iron": 43215,
+      "minecraft:raw_copper": 13346,
+      "minecraft:quartz": 7314,
+      "minecraft:redstone": 1458
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 20178
+    }
+  }
+}

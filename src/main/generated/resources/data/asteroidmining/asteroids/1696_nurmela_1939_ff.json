@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1696_nurmela_1939_ff",
+  "name": "1696 Nurmela (1939 FF)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 9.232,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 226.1,
+    "eccentricity": 0.0987,
+    "inclination": 6.04,
+    "orbital_speed": 0.1862,
+    "clockwise": true,
+    "angle": 156.06
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 125149,
+      "minecraft:raw_iron": 48883,
+      "minecraft:raw_copper": 3204,
+      "minecraft:quartz": 20757,
+      "minecraft:redstone": 1657,
+      "mekanism:dust_osmium": 998
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 13857
+    }
+  }
+}

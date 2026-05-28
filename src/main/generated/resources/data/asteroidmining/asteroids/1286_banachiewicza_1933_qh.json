@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1286_banachiewicza_1933_qh",
+  "name": "1286 Banachiewicza (1933 QH)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 21.474,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 302.0,
+    "eccentricity": 0.095,
+    "inclination": 9.75,
+    "orbital_speed": 0.1611,
+    "clockwise": true,
+    "angle": 297.78
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 399532,
+      "minecraft:raw_iron": 122177,
+      "minecraft:raw_copper": 11223,
+      "minecraft:quartz": 40349,
+      "minecraft:redstone": 12468,
+      "mekanism:dust_osmium": 2784
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 26452
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1978_patrice_1971_ld",
+  "name": "1978 Patrice (1971 LD)",
+  "taxonomy": "M",
+  "analogue": "iron_nickel_meteorite",
+  "diameter_km": 6.732,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 219.4,
+    "eccentricity": 0.2148,
+    "inclination": 4.34,
+    "orbital_speed": 0.189,
+    "clockwise": true,
+    "angle": 53.316
+  },
+  "composition": {
+    "items": {
+      "minecraft:raw_iron": 82337,
+      "minecraft:raw_gold": 4751,
+      "minecraft:redstone": 4706,
+      "mekanism:raw_osmium": 3435
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:dirty_iron_slurry": 26252,
+      "mekanism:dirty_gold_slurry": 2657,
+      "mekanism:dirty_osmium_slurry": 2061
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1435_garlena_1936_we",
+  "name": "1435 Garlena (1936 WE)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 14.54,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 264.8,
+    "eccentricity": 0.2465,
+    "inclination": 4.05,
+    "orbital_speed": 0.1721,
+    "clockwise": true,
+    "angle": 266.472
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 140631,
+      "minecraft:raw_iron": 80203,
+      "minecraft:raw_copper": 5057,
+      "minecraft:quartz": 18591,
+      "minecraft:redstone": 9445
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 26749
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:154_bertha_a875_vd",
+  "name": "154 Bertha (A875 VD)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 192.611,
+  "game_diameter": 9,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 319.3,
+    "eccentricity": 0.077,
+    "inclination": 21.02,
+    "orbital_speed": 0.1567,
+    "clockwise": true,
+    "angle": 158.724
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 735487,
+      "minecraft:clay_ball": 577337,
+      "minecraft:raw_iron": 291539,
+      "minecraft:raw_copper": 183705,
+      "mekanism:dust_sulfur": 88769,
+      "mekanism:yellow_cake_uranium": 9506
+    },
+    "fluids": {
+      "minecraft:water": 1465410702
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 1052860,
+      "mekanism:oxygen": 1123186,
+      "mekanism:sulfur_dioxide": 235356
+    }
+  }
+}

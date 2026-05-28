@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:725_amanda_a911_uq",
+  "name": "725 Amanda (A911 UQ)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 23.687,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 257.3,
+    "eccentricity": 0.2214,
+    "inclination": 3.79,
+    "orbital_speed": 0.1746,
+    "clockwise": true,
+    "angle": 195.792
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 138191,
+      "minecraft:clay_ball": 163198,
+      "minecraft:raw_iron": 19620,
+      "minecraft:raw_copper": 20467,
+      "mekanism:dust_sulfur": 23494,
+      "mekanism:yellow_cake_uranium": 820
+    },
+    "fluids": {
+      "minecraft:water": 282249288
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 47873,
+      "mekanism:oxygen": 73053,
+      "mekanism:sulfur_dioxide": 3609
+    }
+  }
+}

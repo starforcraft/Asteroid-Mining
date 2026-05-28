@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1999_hirayama_1973_dr",
+  "name": "1999 Hirayama (1973 DR)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 38.277,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 311.2,
+    "eccentricity": 0.1189,
+    "inclination": 12.54,
+    "orbital_speed": 0.1587,
+    "clockwise": true,
+    "angle": 60.984
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 758983,
+      "minecraft:raw_iron": 227533,
+      "minecraft:raw_copper": 24381,
+      "minecraft:quartz": 61711,
+      "minecraft:redstone": 6782,
+      "mekanism:dust_osmium": 1341
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 52164
+    }
+  }
+}

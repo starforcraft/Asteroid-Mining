@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:1538_detre_1940_rf",
+  "name": "1538 Detre (1940 RF)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 6.143,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 236.2,
+    "eccentricity": 0.2191,
+    "inclination": 9.45,
+    "orbital_speed": 0.1822,
+    "clockwise": true,
+    "angle": 29.796
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 21306,
+      "minecraft:clay_ball": 9364,
+      "minecraft:raw_iron": 7867,
+      "minecraft:raw_copper": 1291,
+      "mekanism:dust_sulfur": 1495,
+      "mekanism:fluorite_gem": 485
+    },
+    "fluids": {
+      "minecraft:water": 49690750
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 17054,
+      "mekanism:oxygen": 16509,
+      "mekanism:sulfur_dioxide": 6447
+    }
+  }
+}

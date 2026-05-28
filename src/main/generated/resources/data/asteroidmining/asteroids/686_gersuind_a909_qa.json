@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:686_gersuind_a909_qa",
+  "name": "686 Gersuind (A909 QA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 55.258,
+  "game_diameter": 7,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 259.0,
+    "eccentricity": 0.2677,
+    "inclination": 15.69,
+    "orbital_speed": 0.174,
+    "clockwise": true,
+    "angle": 232.98
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1631895,
+      "minecraft:raw_iron": 464250,
+      "minecraft:raw_copper": 75615,
+      "minecraft:quartz": 120862,
+      "minecraft:redstone": 18699
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 88089
+    }
+  }
+}

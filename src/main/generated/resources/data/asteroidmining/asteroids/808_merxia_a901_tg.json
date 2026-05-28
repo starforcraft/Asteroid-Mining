@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:808_merxia_a901_tg",
+  "name": "808 Merxia (A901 TG)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 30.923,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 274.5,
+    "eccentricity": 0.1303,
+    "inclination": 4.72,
+    "orbital_speed": 0.169,
+    "clockwise": true,
+    "angle": 88.956
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 599970,
+      "minecraft:raw_iron": 137543,
+      "minecraft:raw_copper": 53652,
+      "minecraft:quartz": 57779,
+      "minecraft:redstone": 6193
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 103805
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1968_mehltretter_1932_bk",
+  "name": "1968 Mehltretter (1932 BK)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 13.154,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 273.9,
+    "eccentricity": 0.1112,
+    "inclination": 4.59,
+    "orbital_speed": 0.1692,
+    "clockwise": true,
+    "angle": 118.236
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 163392,
+      "minecraft:raw_iron": 34452,
+      "minecraft:raw_copper": 17657,
+      "minecraft:quartz": 18829,
+      "minecraft:redstone": 4626,
+      "mekanism:dust_osmium": 1461
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 43103
+    }
+  }
+}

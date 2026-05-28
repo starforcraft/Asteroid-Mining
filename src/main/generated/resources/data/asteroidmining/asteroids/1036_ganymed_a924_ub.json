@@ -1,0 +1,31 @@
+{
+  "id": "asteroidmining:1036_ganymed_a924_ub",
+  "name": "1036 Ganymed (A924 UB)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 37.675,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 266.5,
+    "eccentricity": 0.5332,
+    "inclination": 26.68,
+    "orbital_speed": 0.1715,
+    "clockwise": true,
+    "angle": 120.78
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 1115330,
+      "minecraft:raw_iron": 121579,
+      "minecraft:raw_copper": 17614,
+      "minecraft:quartz": 76291,
+      "minecraft:redstone": 25845,
+      "minecraft:diamond": 570
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 130042
+    }
+  }
+}

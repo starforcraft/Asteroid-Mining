@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1336_zeelandia_1934_rw",
+  "name": "1336 Zeelandia (1934 RW)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 21.441,
+  "game_diameter": 5,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 285.1,
+    "eccentricity": 0.0632,
+    "inclination": 3.2,
+    "orbital_speed": 0.1658,
+    "clockwise": true,
+    "angle": 333.18
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 330030,
+      "minecraft:raw_iron": 78236,
+      "minecraft:raw_copper": 43260,
+      "minecraft:quartz": 46161,
+      "minecraft:redstone": 12401
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 57400
+    }
+  }
+}

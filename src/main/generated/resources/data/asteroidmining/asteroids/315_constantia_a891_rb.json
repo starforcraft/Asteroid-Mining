@@ -1,0 +1,35 @@
+{
+  "id": "asteroidmining:315_constantia_a891_rb",
+  "name": "315 Constantia (A891 RB)",
+  "taxonomy": "C",
+  "analogue": "carbonaceous_chondrite",
+  "diameter_km": 6.534,
+  "game_diameter": 4,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 224.1,
+    "eccentricity": 0.1681,
+    "inclination": 2.43,
+    "orbital_speed": 0.187,
+    "clockwise": true,
+    "angle": 337.512
+  },
+  "composition": {
+    "items": {
+      "minecraft:coal": 28671,
+      "minecraft:clay_ball": 10168,
+      "minecraft:raw_iron": 11725,
+      "minecraft:raw_copper": 2406,
+      "mekanism:dust_sulfur": 4797,
+      "mekanism:yellow_cake_uranium": 46
+    },
+    "fluids": {
+      "minecraft:water": 43181497
+    },
+    "chemicals": {
+      "mekanism:hydrogen": 8425,
+      "mekanism:oxygen": 27357,
+      "mekanism:sulfur_dioxide": 3473
+    }
+  }
+}

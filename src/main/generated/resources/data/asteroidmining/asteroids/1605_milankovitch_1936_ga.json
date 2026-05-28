@@ -1,0 +1,30 @@
+{
+  "id": "asteroidmining:1605_milankovitch_1936_ga",
+  "name": "1605 Milankovitch (1936 GA)",
+  "taxonomy": "S",
+  "analogue": "ordinary_chondrite",
+  "diameter_km": 29.598,
+  "game_diameter": 6,
+  "orbit": {
+    "central_body": "Sun",
+    "semi_major_axis": 301.5,
+    "eccentricity": 0.0712,
+    "inclination": 10.58,
+    "orbital_speed": 0.1613,
+    "clockwise": true,
+    "angle": 242.832
+  },
+  "composition": {
+    "items": {
+      "minecraft:stone": 682817,
+      "minecraft:raw_iron": 221436,
+      "minecraft:raw_copper": 24552,
+      "minecraft:quartz": 100010,
+      "minecraft:redstone": 19001
+    },
+    "fluids": {},
+    "chemicals": {
+      "mekanism:oxygen": 118801
+    }
+  }
+}
