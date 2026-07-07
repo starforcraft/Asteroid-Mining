@@ -29,83 +29,84 @@ public final class PayloadRegister {
     @SubscribeEvent
     public static void registerPayloads(final RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar registrar = event.registrar(AsteroidMining.MOD_ID).versioned("1.0");
+
         registrar.playToClient(
-            OpenAsteroidEditScreenPayload.TYPE,
-            OpenAsteroidEditScreenPayload.STREAM_CODEC,
-            OpenAsteroidEditScreenPayload::handle
+                OpenAsteroidEditScreenPayload.TYPE,
+                OpenAsteroidEditScreenPayload.STREAM_CODEC,
+                OpenAsteroidEditScreenPayload::handle
         );
         registrar.playToClient(
-            UpdateClientConfigurationDataPayload.TYPE,
-            UpdateClientConfigurationDataPayload.STREAM_CODEC,
-            UpdateClientConfigurationDataPayload::handle
+                UpdateClientConfigurationDataPayload.TYPE,
+                UpdateClientConfigurationDataPayload.STREAM_CODEC,
+                UpdateClientConfigurationDataPayload::handle
         );
         registrar.playToClient(
-            SendLaunchPreviewDataPayload.TYPE,
-            SendLaunchPreviewDataPayload.STREAM_CODEC,
-            SendLaunchPreviewDataPayload::handle
+                SendLaunchPreviewDataPayload.TYPE,
+                SendLaunchPreviewDataPayload.STREAM_CODEC,
+                SendLaunchPreviewDataPayload::handle
         );
         registrar.playToClient(
-            HidePreviewBlocksPayload.TYPE,
-            HidePreviewBlocksPayload.STREAM_CODEC,
-            HidePreviewBlocksPayload::handle
+                HidePreviewBlocksPayload.TYPE,
+                HidePreviewBlocksPayload.STREAM_CODEC,
+                HidePreviewBlocksPayload::handle
         );
         registrar.playToClient(
-            SetCursorPayload.TYPE,
-            SetCursorPayload.STREAM_CODEC,
-            SetCursorPayload::handle
+                SetCursorPayload.TYPE,
+                SetCursorPayload.STREAM_CODEC,
+                SetCursorPayload::handle
         );
 
         registrar.playToServer(
-            LaunchRocketPayload.TYPE,
-            LaunchRocketPayload.STREAM_CODEC,
-            LaunchRocketPayload::handle
+                LaunchRocketPayload.TYPE,
+                LaunchRocketPayload.STREAM_CODEC,
+                LaunchRocketPayload::handle
         );
         registrar.playToServer(
-            SetConfigurationStackPayload.TYPE,
-            SetConfigurationStackPayload.STREAM_CODEC,
-            SetConfigurationStackPayload::handle
+                SetConfigurationStackPayload.TYPE,
+                SetConfigurationStackPayload.STREAM_CODEC,
+                SetConfigurationStackPayload::handle
         );
         registrar.playToServer(
-            TryExtractRocketStoragePayload.TYPE,
-            TryExtractRocketStoragePayload.STREAM_CODEC,
-            TryExtractRocketStoragePayload::handle
+                TryExtractRocketStoragePayload.TYPE,
+                TryExtractRocketStoragePayload.STREAM_CODEC,
+                TryExtractRocketStoragePayload::handle
         );
         registrar.playToServer(
-            OpenSaveRocketControllerPayload.TYPE,
-            OpenSaveRocketControllerPayload.STREAM_CODEC,
-            OpenSaveRocketControllerPayload::handle
+                OpenSaveRocketControllerPayload.TYPE,
+                OpenSaveRocketControllerPayload.STREAM_CODEC,
+                OpenSaveRocketControllerPayload::handle
         );
         registrar.playToServer(
-            OpenSelectConfigurationScreenPayload.TYPE,
-            OpenSelectConfigurationScreenPayload.STREAM_CODEC,
-            OpenSelectConfigurationScreenPayload::handle
+                OpenSelectConfigurationScreenPayload.TYPE,
+                OpenSelectConfigurationScreenPayload.STREAM_CODEC,
+                OpenSelectConfigurationScreenPayload::handle
         );
         registrar.playToServer(
-            SetSelectConfigurationPayload.TYPE,
-            SetSelectConfigurationPayload.STREAM_CODEC,
-            SetSelectConfigurationPayload::handle
+                SetSelectConfigurationPayload.TYPE,
+                SetSelectConfigurationPayload.STREAM_CODEC,
+                SetSelectConfigurationPayload::handle
         );
         registrar.playToServer(
-            SelectAsteroidPayload.TYPE,
-            SelectAsteroidPayload.STREAM_CODEC,
-            SelectAsteroidPayload::handle
+                SelectAsteroidPayload.TYPE,
+                SelectAsteroidPayload.STREAM_CODEC,
+                SelectAsteroidPayload::handle
         );
         registrar.playToServer(
-            OpenTabModulePayload.TYPE,
-            OpenTabModulePayload.STREAM_CODEC,
-            OpenTabModulePayload::handle
+                OpenTabModulePayload.TYPE,
+                OpenTabModulePayload.STREAM_CODEC,
+                OpenTabModulePayload::handle
         );
         registrar.playToServer(
-            SetSideConfigPayload.TYPE,
-            SetSideConfigPayload.STREAM_CODEC,
-            SetSideConfigPayload::handle
+                SetSideConfigPayload.TYPE,
+                SetSideConfigPayload.STREAM_CODEC,
+                SetSideConfigPayload::handle
         );
 
         registrar.playBidirectional(
-            AsteroidDataPayload.TYPE,
-            AsteroidDataPayload.STREAM_CODEC,
-            AsteroidDataPayload::handle,
-            AsteroidDataPayload::handle
+                AsteroidDataPayload.TYPE,
+                AsteroidDataPayload.STREAM_CODEC,
+                AsteroidDataPayload::handle,
+                AsteroidDataPayload::handle
         );
     }
 }

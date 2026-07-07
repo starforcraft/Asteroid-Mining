@@ -2,14 +2,13 @@
   "id": "asteroidmining:s_2022_j_2",
   "name": "S/2022 J 2",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 9.9,
-  "semiMinorAxis": 9.738299,
-  "orbitalSpeed": 0.029,
-  "isClockwise": false,
-  "startingAngleDegrees": 98.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 9.9,
+    "semiMinorAxis": 9.738299,
+    "orbitalSpeed": 0.029,
+    "isClockwise": false,
+    "startingAngleDegrees": 98.0,
+    "rotateAroundItself": true
+  }
 }

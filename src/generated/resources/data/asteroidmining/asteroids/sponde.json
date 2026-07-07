@@ -2,14 +2,13 @@
   "id": "asteroidmining:sponde",
   "name": "Sponde",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 11.3,
-  "semiMinorAxis": 10.705818,
-  "orbitalSpeed": 0.019,
-  "isClockwise": false,
-  "startingAngleDegrees": 210.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 11.3,
+    "semiMinorAxis": 10.705818,
+    "orbitalSpeed": 0.019,
+    "isClockwise": false,
+    "startingAngleDegrees": 210.0,
+    "rotateAroundItself": true
+  }
 }

@@ -18,7 +18,6 @@ import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
 import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 
 @EventBusSubscriber
@@ -54,15 +53,16 @@ public final class CommonEvents {
     @SubscribeEvent
     public static void onDataSync(final OnDatapackSyncEvent event) {
         if (event.getPlayer() == null) { //TODO: is this really required?
-            PacketDistributor.sendToAllPlayers(new AsteroidDataPayload(AsteroidReloadListener.INSTANCE.getData()));
+            AsteroidDataPayload.sendToAllPlayers(AsteroidReloadListener.INSTANCE.getData());
         } else {
-            PacketDistributor.sendToPlayer(event.getPlayer(), new AsteroidDataPayload(AsteroidReloadListener.INSTANCE.getData()));
+            AsteroidDataPayload.sendToPlayer(event.getPlayer(), AsteroidReloadListener.INSTANCE.getData());
         }
     }
 
     @SubscribeEvent
     public static void onCommonEvent(final FMLCommonSetupEvent event) {
-        AsteroidReloadListener.loadAsteroidsFromConfig();
+        // TODO: implement in the future
+//        AsteroidReloadListener.loadAsteroidsFromConfig();
     }
 
     @SubscribeEvent

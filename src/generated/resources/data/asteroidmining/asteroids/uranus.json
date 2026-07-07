@@ -3,12 +3,12 @@
   "name": "Uranus",
   "texture": "asteroidmining:space/uranus",
   "diameter": 10,
-  "composition": [],
-  "centralBodyName": "Sun",
-  "semiMajorAxis": 1919.3,
-  "semiMinorAxis": 1916.8994,
-  "orbitalSpeed": 0.068,
-  "isClockwise": true,
-  "startingAngleDegrees": 110.0,
-  "isOrbitVisible": true
+  "orbit": {
+    "centralBodyName": "Sun",
+    "semiMajorAxis": 1919.3,
+    "semiMinorAxis": 1916.8994,
+    "orbitalSpeed": 0.068,
+    "startingAngleDegrees": 110.0,
+    "isOrbitVisible": true
+  }
 }

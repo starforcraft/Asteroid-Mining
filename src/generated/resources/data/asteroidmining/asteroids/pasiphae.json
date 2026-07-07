@@ -2,14 +2,13 @@
   "id": "asteroidmining:pasiphae",
   "name": "Pasiphae",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 11.2,
-  "semiMinorAxis": 10.215358,
-  "orbitalSpeed": 0.04,
-  "isClockwise": false,
-  "startingAngleDegrees": 40.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 11.2,
+    "semiMinorAxis": 10.215358,
+    "orbitalSpeed": 0.04,
+    "isClockwise": false,
+    "startingAngleDegrees": 40.0,
+    "rotateAroundItself": true
+  }
 }

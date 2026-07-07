@@ -2,14 +2,12 @@
   "id": "asteroidmining:pandia",
   "name": "Pandia",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 6.8,
-  "semiMinorAxis": 6.688933,
-  "orbitalSpeed": 0.02,
-  "isClockwise": true,
-  "startingAngleDegrees": 260.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 6.8,
+    "semiMinorAxis": 6.688933,
+    "orbitalSpeed": 0.02,
+    "startingAngleDegrees": 260.0,
+    "rotateAroundItself": true
+  }
 }

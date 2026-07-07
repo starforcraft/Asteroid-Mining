@@ -2,14 +2,13 @@
   "id": "asteroidmining:eupheme",
   "name": "Eupheme",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 9.1,
-  "semiMinorAxis": 8.834034,
-  "orbitalSpeed": 0.03,
-  "isClockwise": false,
-  "startingAngleDegrees": 221.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 9.1,
+    "semiMinorAxis": 8.834034,
+    "orbitalSpeed": 0.03,
+    "isClockwise": false,
+    "startingAngleDegrees": 221.0,
+    "rotateAroundItself": true
+  }
 }

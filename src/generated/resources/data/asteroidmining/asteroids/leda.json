@@ -2,14 +2,12 @@
   "id": "asteroidmining:leda",
   "name": "Leda",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 6.5,
-  "semiMinorAxis": 6.4162607,
-  "orbitalSpeed": 0.05,
-  "isClockwise": true,
-  "startingAngleDegrees": 25.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 6.5,
+    "semiMinorAxis": 6.4162607,
+    "orbitalSpeed": 0.05,
+    "startingAngleDegrees": 25.0,
+    "rotateAroundItself": true
+  }
 }

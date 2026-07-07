@@ -2,14 +2,12 @@
   "id": "asteroidmining:carpo",
   "name": "Carpo",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 8.2,
-  "semiMinorAxis": 7.4416976,
-  "orbitalSpeed": 0.019,
-  "isClockwise": true,
-  "startingAngleDegrees": 325.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 8.2,
+    "semiMinorAxis": 7.4416976,
+    "orbitalSpeed": 0.019,
+    "startingAngleDegrees": 325.0,
+    "rotateAroundItself": true
+  }
 }

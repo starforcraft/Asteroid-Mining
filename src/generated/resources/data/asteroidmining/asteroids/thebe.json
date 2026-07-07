@@ -2,14 +2,12 @@
   "id": "asteroidmining:thebe",
   "name": "Thebe",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 0.5,
-  "semiMinorAxis": 0.499975,
-  "orbitalSpeed": 0.0239,
-  "isClockwise": true,
-  "startingAngleDegrees": 115.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 0.5,
+    "semiMinorAxis": 0.499975,
+    "orbitalSpeed": 0.0239,
+    "startingAngleDegrees": 115.0,
+    "rotateAroundItself": true
+  }
 }

@@ -2,14 +2,13 @@
   "id": "asteroidmining:s_2017_j_8",
   "name": "S/2017 J 8",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 10.2,
-  "semiMinorAxis": 9.849208,
-  "orbitalSpeed": 0.015,
-  "isClockwise": false,
-  "startingAngleDegrees": 255.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 10.2,
+    "semiMinorAxis": 9.849208,
+    "orbitalSpeed": 0.015,
+    "isClockwise": false,
+    "startingAngleDegrees": 255.0,
+    "rotateAroundItself": true
+  }
 }

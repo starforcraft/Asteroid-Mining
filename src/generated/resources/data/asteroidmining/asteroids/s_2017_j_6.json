@@ -2,14 +2,13 @@
   "id": "asteroidmining:s_2017_j_6",
   "name": "S/2017 J 6",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 11.0,
-  "semiMinorAxis": 10.34468,
-  "orbitalSpeed": 0.02,
-  "isClockwise": false,
-  "startingAngleDegrees": 240.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 11.0,
+    "semiMinorAxis": 10.34468,
+    "orbitalSpeed": 0.02,
+    "isClockwise": false,
+    "startingAngleDegrees": 240.0,
+    "rotateAroundItself": true
+  }
 }

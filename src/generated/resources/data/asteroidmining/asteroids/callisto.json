@@ -3,12 +3,11 @@
   "name": "Callisto",
   "texture": "asteroidmining:space/callisto",
   "diameter": 2,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 2.5,
-  "semiMinorAxis": 2.5,
-  "orbitalSpeed": 0.082,
-  "isClockwise": true,
-  "startingAngleDegrees": 140.0,
-  "isOrbitVisible": false
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 2.5,
+    "semiMinorAxis": 2.5,
+    "orbitalSpeed": 0.082,
+    "startingAngleDegrees": 140.0
+  }
 }

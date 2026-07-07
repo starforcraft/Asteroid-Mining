@@ -2,14 +2,13 @@
   "id": "asteroidmining:isonoe",
   "name": "Isonoe",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 10.5,
-  "semiMinorAxis": 10.166581,
-  "orbitalSpeed": 0.012,
-  "isClockwise": false,
-  "startingAngleDegrees": 45.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 10.5,
+    "semiMinorAxis": 10.166581,
+    "orbitalSpeed": 0.012,
+    "isClockwise": false,
+    "startingAngleDegrees": 45.0,
+    "rotateAroundItself": true
+  }
 }

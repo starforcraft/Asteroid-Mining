@@ -19,12 +19,13 @@
       "type": "item"
     }
   ],
-  "centralBodyName": "Sun",
-  "semiMajorAxis": 100.0,
-  "semiMinorAxis": 86.60254,
-  "orbitalSpeed": 2.3,
-  "isClockwise": false,
-  "startingAngleDegrees": 5.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Sun",
+    "semiMajorAxis": 100.0,
+    "semiMinorAxis": 86.60254,
+    "orbitalSpeed": 2.3,
+    "isClockwise": false,
+    "startingAngleDegrees": 5.0,
+    "rotateAroundItself": true
+  }
 }

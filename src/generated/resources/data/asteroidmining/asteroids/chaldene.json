@@ -2,14 +2,13 @@
   "id": "asteroidmining:chaldene",
   "name": "Chaldene",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 10.4,
-  "semiMinorAxis": 10.013747,
-  "orbitalSpeed": 0.022,
-  "isClockwise": false,
-  "startingAngleDegrees": 140.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 10.4,
+    "semiMinorAxis": 10.013747,
+    "orbitalSpeed": 0.022,
+    "isClockwise": false,
+    "startingAngleDegrees": 140.0,
+    "rotateAroundItself": true
+  }
 }

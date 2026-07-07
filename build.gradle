@@ -104,7 +104,6 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             minecraft_version_range: minecraft_version_range,
             neo_version            : neo_version,
             neo_version_range      : neo_version_range,
-            loader_version_range   : loader_version_range,
             guideme_version        : guideme_version,
             jei_version            : jei_version,
             mod_id                 : mod_id,

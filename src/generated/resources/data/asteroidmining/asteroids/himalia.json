@@ -2,14 +2,12 @@
   "id": "asteroidmining:himalia",
   "name": "Himalia",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 6.8,
-  "semiMinorAxis": 6.7123957,
-  "orbitalSpeed": 0.033,
-  "isClockwise": true,
-  "startingAngleDegrees": 15.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 6.8,
+    "semiMinorAxis": 6.7123957,
+    "orbitalSpeed": 0.033,
+    "startingAngleDegrees": 15.0,
+    "rotateAroundItself": true
+  }
 }

@@ -2,14 +2,13 @@
   "id": "asteroidmining:sinope",
   "name": "Sinope",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 11.8,
-  "semiMinorAxis": 11.425301,
-  "orbitalSpeed": 0.023,
-  "isClockwise": false,
-  "startingAngleDegrees": 140.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 11.8,
+    "semiMinorAxis": 11.425301,
+    "orbitalSpeed": 0.023,
+    "isClockwise": false,
+    "startingAngleDegrees": 140.0,
+    "rotateAroundItself": true
+  }
 }

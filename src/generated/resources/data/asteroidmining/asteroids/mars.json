@@ -3,12 +3,12 @@
   "name": "Mars",
   "texture": "asteroidmining:space/mars",
   "diameter": 4,
-  "composition": [],
-  "centralBodyName": "Sun",
-  "semiMajorAxis": 152.3,
-  "semiMinorAxis": 151.53659,
-  "orbitalSpeed": 0.241,
-  "isClockwise": true,
-  "startingAngleDegrees": 20.0,
-  "isOrbitVisible": true
+  "orbit": {
+    "centralBodyName": "Sun",
+    "semiMajorAxis": 152.3,
+    "semiMinorAxis": 151.53659,
+    "orbitalSpeed": 0.241,
+    "startingAngleDegrees": 20.0,
+    "isOrbitVisible": true
+  }
 }

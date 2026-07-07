@@ -2,13 +2,10 @@
   "id": "asteroidmining:luna",
   "name": "Luna",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Earth",
-  "semiMajorAxis": 1.3,
-  "semiMinorAxis": 1.2983739,
-  "orbitalSpeed": 0.01,
-  "isClockwise": true,
-  "startingAngleDegrees": 0.0,
-  "isOrbitVisible": false
+  "orbit": {
+    "centralBodyName": "Earth",
+    "semiMajorAxis": 1.3,
+    "semiMinorAxis": 1.2983739,
+    "orbitalSpeed": 0.01
+  }
 }

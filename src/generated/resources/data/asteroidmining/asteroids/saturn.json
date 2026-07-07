@@ -3,12 +3,12 @@
   "name": "Saturn",
   "texture": "asteroidmining:space/saturn",
   "diameter": 24,
-  "composition": [],
-  "centralBodyName": "Sun",
-  "semiMajorAxis": 958.2,
-  "semiMinorAxis": 957.0015,
-  "orbitalSpeed": 0.097,
-  "isClockwise": true,
-  "startingAngleDegrees": 10.0,
-  "isOrbitVisible": true
+  "orbit": {
+    "centralBodyName": "Sun",
+    "semiMajorAxis": 958.2,
+    "semiMinorAxis": 957.0015,
+    "orbitalSpeed": 0.097,
+    "startingAngleDegrees": 10.0,
+    "isOrbitVisible": true
+  }
 }

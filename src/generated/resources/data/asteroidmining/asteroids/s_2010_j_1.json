@@ -2,14 +2,13 @@
   "id": "asteroidmining:s_2010_j_1",
   "name": "S/2010 J 1",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 11.0,
-  "semiMinorAxis": 10.650704,
-  "orbitalSpeed": 0.018,
-  "isClockwise": false,
-  "startingAngleDegrees": 326.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 11.0,
+    "semiMinorAxis": 10.650704,
+    "orbitalSpeed": 0.018,
+    "isClockwise": false,
+    "startingAngleDegrees": 326.0,
+    "rotateAroundItself": true
+  }
 }

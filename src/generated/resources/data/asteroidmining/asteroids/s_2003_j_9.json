@@ -2,14 +2,13 @@
   "id": "asteroidmining:s_2003_j_9",
   "name": "S/2003 J 9",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 11.0,
-  "semiMinorAxis": 10.621695,
-  "orbitalSpeed": 0.019,
-  "isClockwise": false,
-  "startingAngleDegrees": 286.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 11.0,
+    "semiMinorAxis": 10.621695,
+    "orbitalSpeed": 0.019,
+    "isClockwise": false,
+    "startingAngleDegrees": 286.0,
+    "rotateAroundItself": true
+  }
 }

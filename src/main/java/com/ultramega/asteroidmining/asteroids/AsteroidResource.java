@@ -17,6 +17,7 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.Item;
@@ -48,6 +49,10 @@ public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, Ast
             resource.encode(buf);
         }
     };
+
+    StreamCodec<RegistryFriendlyByteBuf, List<AsteroidResource>> LIST_STREAM_CODEC = AsteroidResource.STREAM_CODEC.apply(
+        ByteBufCodecs.list(256)
+    );
 
     EntryType type();
 

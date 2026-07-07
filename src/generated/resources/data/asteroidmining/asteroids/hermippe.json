@@ -2,14 +2,13 @@
   "id": "asteroidmining:hermippe",
   "name": "Hermippe",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 9.5,
-  "semiMinorAxis": 9.267249,
-  "orbitalSpeed": 0.016,
-  "isClockwise": false,
-  "startingAngleDegrees": 310.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 9.5,
+    "semiMinorAxis": 9.267249,
+    "orbitalSpeed": 0.016,
+    "isClockwise": false,
+    "startingAngleDegrees": 310.0,
+    "rotateAroundItself": true
+  }
 }

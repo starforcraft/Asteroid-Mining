@@ -2,14 +2,13 @@
   "id": "asteroidmining:euporie",
   "name": "Euporie",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 8.8,
-  "semiMinorAxis": 8.700437,
-  "orbitalSpeed": 0.018,
-  "isClockwise": false,
-  "startingAngleDegrees": 99.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 8.8,
+    "semiMinorAxis": 8.700437,
+    "orbitalSpeed": 0.018,
+    "isClockwise": false,
+    "startingAngleDegrees": 99.0,
+    "rotateAroundItself": true
+  }
 }

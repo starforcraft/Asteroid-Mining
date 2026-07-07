@@ -2,14 +2,13 @@
   "id": "asteroidmining:s_2011_j_2",
   "name": "S/2011 J 2",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 10.3,
-  "semiMinorAxis": 9.609408,
-  "orbitalSpeed": 0.011,
-  "isClockwise": false,
-  "startingAngleDegrees": 214.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 10.3,
+    "semiMinorAxis": 9.609408,
+    "orbitalSpeed": 0.011,
+    "isClockwise": false,
+    "startingAngleDegrees": 214.0,
+    "rotateAroundItself": true
+  }
 }

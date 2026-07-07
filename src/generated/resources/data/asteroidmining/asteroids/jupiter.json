@@ -3,12 +3,12 @@
   "name": "Jupiter",
   "texture": "asteroidmining:space/jupiter",
   "diameter": 28,
-  "composition": [],
-  "centralBodyName": "Sun",
-  "semiMajorAxis": 520.3,
-  "semiMinorAxis": 519.64923,
-  "orbitalSpeed": 0.131,
-  "isClockwise": true,
-  "startingAngleDegrees": 60.0,
-  "isOrbitVisible": true
+  "orbit": {
+    "centralBodyName": "Sun",
+    "semiMajorAxis": 520.3,
+    "semiMinorAxis": 519.64923,
+    "orbitalSpeed": 0.131,
+    "startingAngleDegrees": 60.0,
+    "isOrbitVisible": true
+  }
 }

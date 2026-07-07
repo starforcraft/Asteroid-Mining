@@ -2,13 +2,5 @@
   "id": "asteroidmining:sun",
   "name": "Sun",
   "texture": "asteroidmining:space/sun",
-  "diameter": 28,
-  "composition": [],
-  "centralBodyName": "",
-  "semiMajorAxis": 0.0,
-  "semiMinorAxis": 0.0,
-  "orbitalSpeed": 0.0,
-  "isClockwise": false,
-  "startingAngleDegrees": 0.0,
-  "isOrbitVisible": false
+  "diameter": 28
 }

@@ -2,14 +2,13 @@
   "id": "asteroidmining:taygete",
   "name": "Taygete",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 10.7,
-  "semiMinorAxis": 10.36023,
-  "orbitalSpeed": 0.031,
-  "isClockwise": false,
-  "startingAngleDegrees": 145.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 10.7,
+    "semiMinorAxis": 10.36023,
+    "orbitalSpeed": 0.031,
+    "isClockwise": false,
+    "startingAngleDegrees": 145.0,
+    "rotateAroundItself": true
+  }
 }

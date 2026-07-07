@@ -2,14 +2,13 @@
   "id": "asteroidmining:s_2018_j_3",
   "name": "S/2018 J 3",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 11.2,
-  "semiMinorAxis": 10.784036,
-  "orbitalSpeed": 0.025,
-  "isClockwise": false,
-  "startingAngleDegrees": 357.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 11.2,
+    "semiMinorAxis": 10.784036,
+    "orbitalSpeed": 0.025,
+    "isClockwise": false,
+    "startingAngleDegrees": 357.0,
+    "rotateAroundItself": true
+  }
 }

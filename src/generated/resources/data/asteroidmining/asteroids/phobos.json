@@ -2,13 +2,11 @@
   "id": "asteroidmining:phobos",
   "name": "Phobos",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Mars",
-  "semiMajorAxis": 1.2,
-  "semiMinorAxis": 1.1997601,
-  "orbitalSpeed": 0.021,
-  "isClockwise": true,
-  "startingAngleDegrees": 15.0,
-  "isOrbitVisible": false
+  "orbit": {
+    "centralBodyName": "Mars",
+    "semiMajorAxis": 1.2,
+    "semiMinorAxis": 1.1997601,
+    "orbitalSpeed": 0.021,
+    "startingAngleDegrees": 15.0
+  }
 }

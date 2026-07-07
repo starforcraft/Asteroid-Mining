@@ -2,14 +2,13 @@
   "id": "asteroidmining:philophrosyne",
   "name": "Philophrosyne",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 10.0,
-  "semiMinorAxis": 9.731906,
-  "orbitalSpeed": 0.03,
-  "isClockwise": false,
-  "startingAngleDegrees": 156.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 10.0,
+    "semiMinorAxis": 9.731906,
+    "orbitalSpeed": 0.03,
+    "isClockwise": false,
+    "startingAngleDegrees": 156.0,
+    "rotateAroundItself": true
+  }
 }

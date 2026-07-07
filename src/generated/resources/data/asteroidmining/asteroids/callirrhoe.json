@@ -2,14 +2,13 @@
   "id": "asteroidmining:callirrhoe",
   "name": "Callirrhoe",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 11.6,
-  "semiMinorAxis": 11.065695,
-  "orbitalSpeed": 0.021,
-  "isClockwise": false,
-  "startingAngleDegrees": 75.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 11.6,
+    "semiMinorAxis": 11.065695,
+    "orbitalSpeed": 0.021,
+    "isClockwise": false,
+    "startingAngleDegrees": 75.0,
+    "rotateAroundItself": true
+  }
 }

@@ -2,14 +2,13 @@
   "id": "asteroidmining:eukelade",
   "name": "Eukelade",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 10.6,
-  "semiMinorAxis": 10.176001,
-  "orbitalSpeed": 0.014,
-  "isClockwise": false,
-  "startingAngleDegrees": 84.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 10.6,
+    "semiMinorAxis": 10.176001,
+    "orbitalSpeed": 0.014,
+    "isClockwise": false,
+    "startingAngleDegrees": 84.0,
+    "rotateAroundItself": true
+  }
 }

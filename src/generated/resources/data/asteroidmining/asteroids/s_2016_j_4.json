@@ -2,14 +2,13 @@
   "id": "asteroidmining:s_2016_j_4",
   "name": "S/2016 J 4",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 10.7,
-  "semiMinorAxis": 10.240185,
-  "orbitalSpeed": 0.019,
-  "isClockwise": false,
-  "startingAngleDegrees": 341.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 10.7,
+    "semiMinorAxis": 10.240185,
+    "orbitalSpeed": 0.019,
+    "isClockwise": false,
+    "startingAngleDegrees": 341.0,
+    "rotateAroundItself": true
+  }
 }

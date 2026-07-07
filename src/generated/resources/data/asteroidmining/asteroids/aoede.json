@@ -2,14 +2,13 @@
   "id": "asteroidmining:aoede",
   "name": "Aoede",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 11.5,
-  "semiMinorAxis": 10.326975,
-  "orbitalSpeed": 0.016,
-  "isClockwise": false,
-  "startingAngleDegrees": 47.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 11.5,
+    "semiMinorAxis": 10.326975,
+    "orbitalSpeed": 0.016,
+    "isClockwise": false,
+    "startingAngleDegrees": 47.0,
+    "rotateAroundItself": true
+  }
 }

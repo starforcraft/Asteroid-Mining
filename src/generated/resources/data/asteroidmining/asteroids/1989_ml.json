@@ -2,7 +2,6 @@
   "id": "asteroidmining:1989_ml",
   "name": "1989 ML",
   "texture": "asteroidmining:space/asteroid_1",
-  "diameter": 1,
   "composition": [
     {
       "resource": {
@@ -26,12 +25,11 @@
       "type": "fluid"
     }
   ],
-  "centralBodyName": "Mercury",
-  "semiMajorAxis": 10.0,
-  "semiMinorAxis": 8.6602545,
-  "orbitalSpeed": 2.3,
-  "isClockwise": true,
-  "startingAngleDegrees": 0.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Mercury",
+    "semiMajorAxis": 10.0,
+    "semiMinorAxis": 8.6602545,
+    "orbitalSpeed": 2.3,
+    "rotateAroundItself": true
+  }
 }

@@ -2,14 +2,13 @@
   "id": "asteroidmining:orthosie",
   "name": "Orthosie",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 9.2,
-  "semiMinorAxis": 8.77624,
-  "orbitalSpeed": 0.019,
-  "isClockwise": false,
-  "startingAngleDegrees": 105.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 9.2,
+    "semiMinorAxis": 8.77624,
+    "orbitalSpeed": 0.019,
+    "isClockwise": false,
+    "startingAngleDegrees": 105.0,
+    "rotateAroundItself": true
+  }
 }

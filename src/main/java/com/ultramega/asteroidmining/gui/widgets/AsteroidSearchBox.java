@@ -1,22 +1,16 @@
 package com.ultramega.asteroidmining.gui.widgets;
 
-import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
 import com.ultramega.asteroidmining.events.AsteroidReloadListener;
 import com.ultramega.asteroidmining.utils.ClientUtils;
 import com.ultramega.asteroidmining.utils.TextColors;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 import java.util.function.Consumer;
-
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import org.lwjgl.glfw.GLFW;
 
@@ -29,8 +23,6 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
     private final int defaultWidth;
     private final boolean resizeable;
     private final Consumer<String> selectedAsteroid;
-    private final Map<Identifier, AsteroidConfig> asteroids;
-
     private final List<String> currentSuggestions = new ArrayList<>();
 
     private int suggestionsWidth = 0;
@@ -53,26 +45,19 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
         this.defaultWidth = width;
         this.resizeable = resizeable;
         this.selectedAsteroid = selectedAsteroid;
-        this.asteroids = AsteroidReloadListener.INSTANCE.getData();
     }
 
     @Override
     public void onValueChange(final String newText) {
         super.onValueChange(newText);
 
-        // currentSuggestions can be null because of PlaceholderEditBox#setValue
+        // currentSuggestions can be null because of PlaceholderEditBox#setValue during construction
         if (this.currentSuggestions != null) {
             this.offset = 0;
             this.selectedIndex = -1;
             this.currentSuggestions.clear();
-
-            for (final AsteroidConfig asteroid : this.asteroids.values()) {
-                if (asteroid.getName().toLowerCase(Locale.ROOT).contains(newText.toLowerCase(Locale.ROOT))) {
-                    this.currentSuggestions.add(asteroid.getName());
-                }
-            }
+            this.currentSuggestions.addAll(AsteroidReloadListener.INSTANCE.findAsteroidNames(newText, MAX_SUGGESTIONS));
         }
-
         this.updateSize(newText);
     }
 
@@ -85,11 +70,9 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
 
         boolean isHovering = false;
         this.suggestionsWidth = 0;
-
         for (int i = this.offset; i < Math.min(this.offset + this.shownSuggestions(), this.currentSuggestions.size()); i++) {
             final String suggestion = this.currentSuggestions.get(i);
             final int index = i - this.offset;
-
             final int minY = this.getY() + this.getHeight() + this.getHeight() * index;
             final boolean hovered = index == this.selectedIndex;
 
@@ -120,7 +103,6 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
 
         final int textWidth = Math.max(this.font.width(text), this.suggestionsWidth);
         final int newWidth = Math.clamp(textWidth + PADDING, this.defaultWidth, MAX_WIDTH);
-
         if (newWidth != this.getWidth()) {
             this.setWidth(newWidth);
         }
@@ -152,7 +134,6 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
             this.selectedIndex = -1;
             this.lastSelectedIndex = -1;
         }
-
         return clicked;
     }
 
@@ -162,7 +143,6 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
             this.offset = (int) Mth.clamp((double) this.offset - scrollY, 0.0, Math.max(this.currentSuggestions.size() - MAX_SUGGESTIONS, 0));
             return true;
         }
-
         return super.mouseScrolled(mouseX, mouseY, scrollX, scrollY);
     }
 
@@ -184,7 +164,6 @@ public class AsteroidSearchBox extends PlaceholderEditBox {
             this.offsetSuggestions(this.lastSelectedIndex + 1);
             return true;
         }
-
         return super.keyPressed(event);
     }
 

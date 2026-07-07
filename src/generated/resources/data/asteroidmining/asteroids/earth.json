@@ -3,12 +3,11 @@
   "name": "Earth",
   "texture": "asteroidmining:space/earth",
   "diameter": 6,
-  "composition": [],
-  "centralBodyName": "Sun",
-  "semiMajorAxis": 100.0,
-  "semiMinorAxis": 99.979996,
-  "orbitalSpeed": 0.298,
-  "isClockwise": true,
-  "startingAngleDegrees": 0.0,
-  "isOrbitVisible": true
+  "orbit": {
+    "centralBodyName": "Sun",
+    "semiMajorAxis": 100.0,
+    "semiMinorAxis": 99.979996,
+    "orbitalSpeed": 0.298,
+    "isOrbitVisible": true
+  }
 }

@@ -2,14 +2,12 @@
   "id": "asteroidmining:metis",
   "name": "Metis",
   "texture": "asteroidmining:space/generic_moon_2",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 0.2,
-  "semiMinorAxis": 0.2,
-  "orbitalSpeed": 0.0315,
-  "isClockwise": true,
-  "startingAngleDegrees": 92.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 0.2,
+    "semiMinorAxis": 0.2,
+    "orbitalSpeed": 0.0315,
+    "startingAngleDegrees": 92.0,
+    "rotateAroundItself": true
+  }
 }

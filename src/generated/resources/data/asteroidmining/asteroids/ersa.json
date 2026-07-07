@@ -2,14 +2,12 @@
   "id": "asteroidmining:ersa",
   "name": "Ersa",
   "texture": "asteroidmining:space/generic_moon_1",
-  "diameter": 1,
-  "composition": [],
-  "centralBodyName": "Jupiter",
-  "semiMajorAxis": 6.6,
-  "semiMinorAxis": 6.5523076,
-  "orbitalSpeed": 0.015,
-  "isClockwise": true,
-  "startingAngleDegrees": 354.0,
-  "isOrbitVisible": false,
-  "rotateAroundItself": true
+  "orbit": {
+    "centralBodyName": "Jupiter",
+    "semiMajorAxis": 6.6,
+    "semiMinorAxis": 6.5523076,
+    "orbitalSpeed": 0.015,
+    "startingAngleDegrees": 354.0,
+    "rotateAroundItself": true
+  }
 }
