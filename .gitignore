@@ -16,3 +16,4 @@ out/
 logs/
 .cache/
 run/
+tools/sbdb_asteroid_sample_cache.json
