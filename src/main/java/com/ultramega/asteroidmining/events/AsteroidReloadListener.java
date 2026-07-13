@@ -1,18 +1,8 @@
 package com.ultramega.asteroidmining.events;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonWriter;
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
+
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.BitSet;
@@ -22,13 +12,18 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.ExtraCodecs;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.common.conditions.ICondition;
@@ -76,11 +71,11 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
             try {
                 final JsonElement jsonValue = entry.getValue();
                 if (!this.shouldLoad(jsonValue, registryOps)) {
-                    AsteroidMining.LOGGER.debug("Skipping disabled asteroid data {}", id);
                     continue;
                 }
 
-                for (final AsteroidConfig asteroid : AsteroidConfig.fromJsonElements(jsonValue)) {
+                final JsonElement filteredJson = this.filterConditionalComposition(jsonValue, registryOps);
+                for (final AsteroidConfig asteroid : AsteroidConfig.fromJsonElements(filteredJson)) {
                     data.put(asteroid.getId(), asteroid);
                 }
             } catch (Exception e) {
@@ -102,17 +97,69 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
             return true;
         }
 
-        final var conditions = ICondition.LIST_CODEC.decode(registryOps, object.getAsJsonArray("neoforge:conditions"));
-        if (conditions.result().isEmpty()) {
-            return false;
-        }
-
-        for (final ICondition condition : conditions.result().get().getFirst()) {
+        final List<ICondition> conditions = ICondition.LIST_CODEC.parse(registryOps, object.get("neoforge:conditions")).getOrThrow();
+        for (final ICondition condition : conditions) {
             if (!condition.test(this.context)) {
                 return false;
             }
         }
         return true;
+    }
+
+    private JsonElement filterConditionalComposition(final JsonElement source, final RegistryOps<JsonElement> registryOps) {
+        final JsonElement result = source.deepCopy();
+
+        if (result.isJsonArray()) {
+            this.filterAsteroidArray(result.getAsJsonArray(), registryOps);
+            return result;
+        }
+
+        if (!result.isJsonObject()) {
+            return result;
+        }
+
+        final JsonObject root = result.getAsJsonObject();
+
+        if (root.has("asteroids") && root.get("asteroids").isJsonArray()) {
+            this.filterAsteroidArray(root.getAsJsonArray("asteroids"), registryOps);
+        } else {
+            this.filterAsteroidComposition(root, registryOps);
+        }
+
+        return result;
+    }
+
+    private void filterAsteroidArray(final JsonArray asteroids, final RegistryOps<JsonElement> registryOps) {
+        for (final JsonElement element : asteroids) {
+            if (element.isJsonObject()) {
+                this.filterAsteroidComposition(element.getAsJsonObject(), registryOps);
+            }
+        }
+    }
+
+    private void filterAsteroidComposition(final JsonObject asteroid, final RegistryOps<JsonElement> registryOps) {
+        if (!asteroid.has("composition") || !asteroid.get("composition").isJsonArray()) {
+            return;
+        }
+
+        final JsonArray original = asteroid.getAsJsonArray("composition");
+        final JsonArray filtered = new JsonArray();
+
+        for (final JsonElement element : original) {
+            if (!this.shouldLoad(element, registryOps)) {
+                continue;
+            }
+
+            final JsonElement cleanElement = element.deepCopy();
+            if (cleanElement.isJsonObject()) {
+                cleanElement.getAsJsonObject()
+                    .remove("neoforge:conditions");
+            }
+
+            filtered.add(cleanElement);
+        }
+
+        asteroid.add("composition", filtered);
     }
 
     public void setData(final Map<Identifier, AsteroidConfig> data) {

@@ -11,9 +11,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -325,19 +327,34 @@ public final class AsteroidConfig {
     }
 
     public static List<AsteroidConfig> fromJsonElements(final JsonElement json) {
-        if (json == null || json.isJsonNull()) {
+        if (json.isJsonNull()) {
             return List.of();
         }
+
+        final JsonArray elements;
         if (json.isJsonArray()) {
-            return AsteroidConfig.LIST_CODEC.parse(JsonOps.INSTANCE, json).getOrThrow();
+            elements = json.getAsJsonArray();
+        } else if (json.isJsonObject()
+            && json.getAsJsonObject().has("asteroids")
+            && json.getAsJsonObject().get("asteroids").isJsonArray()) {
+            elements = json.getAsJsonObject().getAsJsonArray("asteroids");
+        } else {
+            return List.of(fromJson(json));
         }
-        if (json.isJsonObject()) {
-            final JsonObject object = json.getAsJsonObject();
-            if (object.has("asteroids") && object.get("asteroids").isJsonArray()) {
-                return AsteroidConfig.LIST_CODEC.parse(JsonOps.INSTANCE, object.get("asteroids")).getOrThrow();
-            }
+
+        final List<AsteroidConfig> result = new ArrayList<>(elements.size());
+
+        for (int index = 0; index < elements.size(); index++) {
+            final JsonElement element = elements.get(index);
+            final DataResult<AsteroidConfig> decoded = AsteroidConfig.CODEC.parse(JsonOps.INSTANCE, element);
+
+            final int finalIndex = index;
+            decoded.resultOrPartial(message -> AsteroidMining.LOGGER.error(
+                "Invalid asteroid at chunk index {}: {}", finalIndex, message)
+            ).ifPresent(result::add);
         }
-        return List.of(AsteroidConfig.fromJson(json));
+
+        return result;
     }
 
     public static void resolveCentralBodies(final Map<Identifier, AsteroidConfig> asteroidData) {

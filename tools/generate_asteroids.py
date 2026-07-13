@@ -621,12 +621,28 @@ def looks_like_chemical_resource(resource_id: str) -> bool:
     )
 
 
-def composition_entry(resource_id: str, amount: int, resource_type: str) -> dict[str, Any]:
-    return {
+def composition_entry(
+        resource_id: str,
+        amount: int,
+        resource_type: str,
+) -> dict[str, Any]:
+    entry: dict[str, Any] = {
         "resource": {"id": resource_id},
         "amount": amount,
         "type": resource_type,
     }
+
+    namespace = resource_id.partition(":")[0]
+
+    if namespace not in {"minecraft", MOD_ID}:
+        entry["neoforge:conditions"] = [
+            {
+                "type": "neoforge:mod_loaded",
+                "modid": namespace,
+            }
+        ]
+
+    return entry
 
 
 def generate_composition(
@@ -649,7 +665,7 @@ def generate_composition(
             mass * FLUID_BUCKET,
             bounds,
             minimum=FLUID_BUCKET,
-            )
+        )
 
     for resource_id, bounds in sorted(profile.get("chemicals", {}).items()):
         chemicals[resource_id] = amount_from_weight(rng, mass, bounds)
@@ -672,11 +688,10 @@ def generate_composition(
         for resource_id, amount in sorted(fluids.items())
     )
 
-    # TODO: add chemicals when the datapack codec has a supported type value.
-    # composition.extend(
-    #     composition_entry(resource_id, amount, "chemical")
-    #     for resource_id, amount in sorted(chemicals.items())
-    # )
+    composition.extend(
+        composition_entry(resource_id, amount, "chemical")
+        for resource_id, amount in sorted(chemicals.items())
+    )
     return composition
 
 
