@@ -699,7 +699,7 @@ public class RocketControllerBlockEntity extends AbstractModuleBlockEntity imple
     }
 
     public Optional<AsteroidConfig> getAsteroidConfig(final Identifier asteroidId) {
-        return AsteroidReloadListener.INSTANCE.getData().values()
+        return AsteroidReloadListener.SERVER_INSTANCE.getData().values()
             .stream()
             .filter(config -> config.getId().equals(asteroidId))
             .findFirst();

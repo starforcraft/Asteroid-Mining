@@ -27,6 +27,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.RegisterFluidModelsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -39,6 +40,13 @@ import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsE
 @EventBusSubscriber(value = Dist.CLIENT)
 public final class ClientEvents {
     private ClientEvents() {
+    }
+
+    @SubscribeEvent
+    public static void onLogout(final ClientPlayerNetworkEvent.LoggingOut event) {
+        // LoggingOut can also fire while replacing the initial connection. Only the
+        // client snapshot is disposable here; the integrated server is still running.
+        AsteroidReloadListener.INSTANCE.clearData();
     }
 
     @SubscribeEvent

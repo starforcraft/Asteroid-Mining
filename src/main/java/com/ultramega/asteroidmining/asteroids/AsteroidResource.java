@@ -19,6 +19,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
@@ -53,6 +54,13 @@ public sealed interface AsteroidResource permits AsteroidResource.ItemEntry, Ast
     StreamCodec<RegistryFriendlyByteBuf, List<AsteroidResource>> LIST_STREAM_CODEC = AsteroidResource.STREAM_CODEC.apply(
         ByteBufCodecs.list(256)
     );
+
+    default Identifier resourceId() {
+        return switch (this) {
+            case ItemEntry item -> BuiltInRegistries.ITEM.getKey(item.resource().create().getItem());
+            case FluidEntry fluid -> BuiltInRegistries.FLUID.getKey(fluid.resource().fluid().value());
+        };
+    }
 
     EntryType type();
 

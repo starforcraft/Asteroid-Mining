@@ -11,14 +11,15 @@ import com.ultramega.asteroidmining.gui.widgets.ImagesButton;
 import com.ultramega.asteroidmining.utils.ClientUtils;
 import com.ultramega.asteroidmining.utils.CommonUtils;
 import com.ultramega.asteroidmining.utils.TextColors;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.GameNarrator;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -45,17 +46,7 @@ import org.joml.Matrix3x2fStack;
 import org.jspecify.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
-import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED;
-
-/**
- * Displays the asteroid data set without iterating over every asteroid every frame.
- *
- * <p>The render index narrows the data set to orbit-radius ranges intersecting a padded
- * camera region. If that range is still too large, candidates are sampled uniformly and
- * deterministically. The final visible set is reduced with a screen-space grid only when
- * it exceeds the sprite budget. Consequently, zoomed-in views still render every relevant
- * asteroid while overview views have a hard and predictable CPU/GPU cost.</p>
- */
+/** Displays all resolvable asteroids intersecting the view, without count-based sampling. */
 public class SolarSystemViewScreen extends Screen {
     private static final Identifier SELECTED = AsteroidMining.makeId("selected");
     private static final Identifier SEARCH = AsteroidMining.makeId("search");
@@ -67,13 +58,9 @@ public class SolarSystemViewScreen extends Screen {
     private static final double MIN_MAX_X = 5000.0D;
     private static final double MIN_MAX_Y = 3000.0D;
 
-    /** Maximum number of asteroid sprites submitted in one frame. */
-    private static final int MAX_RENDERED_ASTEROIDS = 2048 * 2;
-    /** Maximum number of moving objects whose positions are evaluated in one frame. */
-    private static final int MAX_RENDER_CANDIDATES = 12_000;
-    private static final int MAX_RENDERED_ORBITS = 32;
-    private static final int MAX_ROOT_CANDIDATES = 2048;
-    private static final int MAX_POSITION_STATES = MAX_RENDER_CANDIDATES * 6;
+    // Fade subpixel sprites smoothly instead of popping an entire belt at one zoom level.
+    private static final float MIN_SPRITE_DIAMETER = 0.25F;
+    private static final float FULL_SPRITE_DIAMETER = 1.5F;
 
     private static final long CACHE_MAX_AGE_TICKS = 20L;
     private static final float CACHE_ZOOM_RATIO = 1.35F;
@@ -89,21 +76,17 @@ public class SolarSystemViewScreen extends Screen {
     private final Consumer<@Nullable Identifier> selectAsteroid;
     private final ObservatoryScreen parent;
 
-    private final List<RenderEntry> renderCache = new ArrayList<>(MAX_RENDER_CANDIDATES);
-    private final List<RenderEntry> renderEntryPool = new ArrayList<>(MAX_RENDER_CANDIDATES);
-    private final List<RenderEntry> visibleEntries = new ArrayList<>(MAX_RENDER_CANDIDATES);
-    private final List<RenderEntry> frameRenderEntries = new ArrayList<>(MAX_RENDERED_ASTEROIDS);
+    private final List<RenderEntry> renderCache = new ArrayList<>();
+    private final List<RenderEntry> renderEntryPool = new ArrayList<>();
+    private final List<RenderEntry> frameRenderEntries = new ArrayList<>();
     private final List<GroupSlice> groupSlices = new ArrayList<>();
     private final List<GroupSlice> groupSlicePool = new ArrayList<>();
     private final IdentityHashMap<AsteroidConfig, PositionState> positionStates = new IdentityHashMap<>();
     private final IdentityHashMap<AsteroidConfig, Boolean> renderCandidateSet = new IdentityHashMap<>();
 
-    @Nullable
-    private RenderEntry[] lodCells;
     private long positionFrame;
     private double renderTimeTicks;
     private long elapsedTicks;
-    private long simulationEpochTick;
 
     private int detailWidth;
     private int detailHeight;
@@ -115,7 +98,6 @@ public class SolarSystemViewScreen extends Screen {
     private float zoom = 1.0F;
     private boolean followAsteroid;
     private boolean zoomOntoAsteroid;
-    private boolean updateSelectedAsteroid = true;
 
     @Nullable
     private AsteroidConfig selectedAsteroid;
@@ -170,29 +152,31 @@ public class SolarSystemViewScreen extends Screen {
         this.centerX = this.width / 2;
         this.centerY = this.height / 2;
 
+        final String previousQuery = this.searchBox == null ? "" : this.searchBox.getValue();
+        final boolean searchVisible = this.searchBox != null && this.searchBox.isVisible();
         this.addRenderableWidget(new ImagesButton(3, 5, 16, 16, SEARCH, button -> {
             this.searchBox.setVisible(!this.searchBox.isVisible());
-            this.updateSelectedAsteroid = false;
+            this.searchBox.setFocused(this.searchBox.isVisible());
+            this.cancelMouseRelease = true;
         }));
 
         this.searchBox = new AsteroidSearchBox(
             this.font,
             23,
             5,
-            64,
+            Math.min(210, Math.max(80, this.width - 26)),
             16,
             128,
-            true,
-            Component.translatable("gui.asteroidmining.asteroid.search"),
-            name -> {
-                this.selectedAsteroid = AsteroidReloadListener.INSTANCE.findAsteroidByName(name);
+            Component.translatable("gui.asteroidmining.asteroid.search_ores"),
+            asteroid -> {
+                this.selectedAsteroid = asteroid;
                 this.followAsteroid = this.selectedAsteroid != null;
                 this.zoomOntoAsteroid = this.selectedAsteroid != null;
-                this.updateSelectedAsteroid = false;
                 this.invalidateRenderCache();
             }
         );
-        this.searchBox.setVisible(false);
+        this.searchBox.setValue(previousQuery);
+        this.searchBox.setVisible(searchVisible);
         this.addRenderableWidget(this.searchBox);
 
         this.selectButton = Button.builder(
@@ -231,10 +215,21 @@ public class SolarSystemViewScreen extends Screen {
         this.renderSelectedAsteroidDetails(graphics, mouseX, mouseY);
 
         for (final Renderable renderable : this.renderables) {
-            renderable.extractRenderState(graphics, mouseX, mouseY, partialTicks);
+            if (renderable != this.searchBox) {
+                renderable.extractRenderState(graphics, mouseX, mouseY, partialTicks);
+            }
         }
+        this.searchBox.extractRenderState(graphics, mouseX, mouseY, partialTicks);
 
-        this.extractTooltip(graphics, mouseX, mouseY);
+        if (!this.searchBox.isInBounds(mouseX, mouseY)) {
+            this.extractTooltip(graphics, mouseX, mouseY);
+        }
+        graphics.text(this.font, Component.translatable("gui.asteroidmining.asteroid.navigation"), 5, this.height - 12, 0xFFB6C7D9);
+        final int syncProgress = AsteroidReloadListener.INSTANCE.getSyncProgress();
+        if (syncProgress >= 0) {
+            graphics.text(this.font, Component.translatable("gui.asteroidmining.asteroid.syncing", syncProgress),
+                5, this.height - 24, 0xFFB6C7D9);
+        }
     }
 
     private void beginRenderFrame(final float partialTicks) {
@@ -244,7 +239,7 @@ public class SolarSystemViewScreen extends Screen {
         if (index != this.observedRenderIndex) {
             this.observedRenderIndex = index;
             this.positionStates.clear();
-            this.simulationEpochTick = this.elapsedTicks;
+            this.searchBox.refreshSuggestions();
             this.invalidateRenderCache();
 
             if (this.selectedAsteroid != null) {
@@ -256,12 +251,9 @@ public class SolarSystemViewScreen extends Screen {
             }
         }
 
-        this.renderTimeTicks = (this.elapsedTicks - this.simulationEpochTick) + partialTicks;
-
-        if (this.positionStates.size() > MAX_POSITION_STATES) {
-            this.positionStates.clear();
-            this.positionFrame++;
-        }
+        // One world clock keeps planets and newly visible asteroids in phase across reopen/reload.
+        this.renderTimeTicks = (double) (this.minecraft.level == null
+            ? this.elapsedTicks : this.minecraft.level.getGameTime()) + partialTicks;
 
         this.updateFollowCamera();
     }
@@ -416,7 +408,7 @@ public class SolarSystemViewScreen extends Screen {
         }
 
         this.collectVisibleEntries();
-        this.applyScreenSpaceLod();
+        this.sortFrameEntries();
         this.renderOrbits(graphics);
         this.renderAsteroidSprites(graphics, mouseX, mouseY);
     }
@@ -452,6 +444,8 @@ public class SolarSystemViewScreen extends Screen {
     private void rebuildRenderCache(final AsteroidReloadListener.RenderIndex index) {
         this.recycleRenderCache();
         this.recycleGroupSlices();
+        // Release positions from old camera regions without imposing an asteroid count limit.
+        this.positionStates.clear();
 
         final double cachePaddingPixels = Math.max(
             MIN_CACHE_PADDING_PIXELS,
@@ -489,22 +483,7 @@ public class SolarSystemViewScreen extends Screen {
         @Nullable final Identifier selectedId,
         final WorldView queryView
     ) {
-        final int remainingBudget = MAX_RENDER_CANDIDATES - this.renderCache.size();
-        final int sampleCount = Math.min(roots.size(), Math.min(MAX_ROOT_CANDIDATES, remainingBudget));
-        if (sampleCount <= 0) {
-            return;
-        }
-
-        final double stride = roots.size() / (double) sampleCount;
-        int previousIndex = -1;
-        for (int sample = 0; sample < sampleCount; sample++) {
-            final int index = Math.min(roots.size() - 1, (int) Math.floor((sample + 0.5D) * stride));
-            if (index == previousIndex) {
-                continue;
-            }
-            previousIndex = index;
-
-            final AsteroidConfig asteroid = roots.get(index);
+        for (final AsteroidConfig asteroid : roots) {
             if (selectedId != null && selectedId.equals(asteroid.getId())) {
                 continue;
             }
@@ -525,7 +504,8 @@ public class SolarSystemViewScreen extends Screen {
             final PositionState center = this.getPosition(group.getCentralBody());
             final double minDistance = distanceFromPointToRect(center.x, center.y, queryView);
             final double maxDistance = maxDistanceFromPointToRect(center.x, center.y, queryView);
-            final double padding = ORBIT_QUERY_WORLD_PADDING + (VIEW_PADDING_PIXELS / this.zoom);
+            final double padding = ORBIT_QUERY_WORLD_PADDING + this.getCacheMotionPadding(group.getCentralBody())
+                + group.getMaxSpriteRadius() + (VIEW_PADDING_PIXELS / this.zoom);
 
             if (group.getMaxOrbitRadius() < minDistance - padding
                 || group.getMinOrbitRadius() > maxDistance + padding) {
@@ -533,7 +513,7 @@ public class SolarSystemViewScreen extends Screen {
             }
 
             final int start = group.lowerBound(Math.max(0.0D, minDistance - padding));
-            final int end = group.upperBound(maxDistance + padding);
+            final int end = group.upperBound(group.outerRadiusForDistance(maxDistance + padding));
             if (end <= start) {
                 continue;
             }
@@ -552,66 +532,29 @@ public class SolarSystemViewScreen extends Screen {
         }
     }
 
-    private void addGroupCandidates(@Nullable final Identifier selectedId) {
-        int remainingBudget = MAX_RENDER_CANDIDATES - this.renderCache.size();
-        long remainingCount = 0L;
-        for (final GroupSlice slice : this.groupSlices) {
-            remainingCount += slice.end - slice.start;
-        }
-
-        int remainingGroups = this.groupSlices.size();
-        for (final GroupSlice slice : this.groupSlices) {
-            if (remainingBudget <= 0 || remainingCount <= 0L) {
-                break;
+    private double getCacheMotionPadding(final AsteroidConfig asteroid) {
+        double padding = 0.0D;
+        for (AsteroidConfig body = asteroid; body != null; body = body.getCentralBody()) {
+            final double major = body.getSemiMajorAxis();
+            if (major > 0.0D) {
+                final double periapsis = body.getOrbitMajorRadius() - body.getOrbitFocusOffset();
+                final double maxSpeed = Math.abs(body.getOrbitalSpeed()) * body.getOrbitMajorRadius()
+                    / major * Math.sqrt((body.getOrbitMajorRadius() + body.getOrbitFocusOffset())
+                        / Math.max(1.0E-6D, periapsis));
+                padding += maxSpeed * (CACHE_MAX_AGE_TICKS + 1.0D) / 20.0D;
             }
-
-            final int count = slice.end - slice.start;
-            int sampleCount;
-            if (remainingGroups == 1) {
-                sampleCount = Math.min(count, remainingBudget);
-            } else {
-                sampleCount = (int) Math.round(remainingBudget * (count / (double) remainingCount));
-                sampleCount = Mth.clamp(sampleCount, 1, Math.min(count, remainingBudget));
-            }
-
-            this.addUniformlySampledCandidates(slice, sampleCount, selectedId);
-            remainingBudget = MAX_RENDER_CANDIDATES - this.renderCache.size();
-            remainingCount -= count;
-            remainingGroups--;
         }
+        return padding;
     }
 
-    private void addUniformlySampledCandidates(
-        final GroupSlice slice,
-        final int sampleCount,
-        @Nullable final Identifier selectedId
-    ) {
-        final int count = slice.end - slice.start;
-        if (sampleCount <= 0 || count <= 0) {
-            return;
-        }
-
-        final double stride = count / (double) sampleCount;
-        final long groupHash = stableHash(slice.group.getCentralBody().getId());
-        final double phase = unsignedUnit(mix64(groupHash));
-        int previousIndex = -1;
-
-        for (int sample = 0; sample < sampleCount && this.renderCache.size() < MAX_RENDER_CANDIDATES; sample++) {
-            int relativeIndex = (int) Math.floor((sample + phase) * stride);
-            relativeIndex = Mth.clamp(relativeIndex, 0, count - 1);
-            final int index = slice.start + relativeIndex;
-            if (index == previousIndex) {
-                continue;
+    private void addGroupCandidates(@Nullable final Identifier selectedId) {
+        for (final GroupSlice slice : this.groupSlices) {
+            for (int index = slice.start; index < slice.end; index++) {
+                final AsteroidConfig asteroid = slice.group.getAsteroid(index);
+                if (selectedId == null || !selectedId.equals(asteroid.getId())) {
+                    this.addRenderCandidate(asteroid, false, stableHash(asteroid.getId()));
+                }
             }
-            previousIndex = index;
-
-            final AsteroidReloadListener.OrbitEntry orbitEntry = slice.group.getEntries().get(index);
-            final AsteroidConfig asteroid = orbitEntry.getAsteroid();
-            if (selectedId != null && selectedId.equals(asteroid.getId())) {
-                continue;
-            }
-
-            this.addRenderCandidate(asteroid, false, orbitEntry.getStableHash());
         }
     }
 
@@ -620,7 +563,9 @@ public class SolarSystemViewScreen extends Screen {
         final boolean selected,
         final long stableHash
     ) {
-        if (this.renderCache.size() >= MAX_RENDER_CANDIDATES
+        // Account for zoom changes allowed before the next cache rebuild. A candidate
+        // that can reach visible size during that interval must remain in the cache.
+        if ((!selected && asteroid.getDiameter() * this.zoom * CACHE_ZOOM_RATIO < MIN_SPRITE_DIAMETER)
             || this.renderCandidateSet.put(asteroid, Boolean.TRUE) != null) {
             return;
         }
@@ -633,12 +578,21 @@ public class SolarSystemViewScreen extends Screen {
     }
 
     private void collectVisibleEntries() {
-        this.visibleEntries.clear();
-
+        this.frameRenderEntries.clear();
         for (final RenderEntry entry : this.renderCache) {
+            entry.size = entry.asteroid.getDiameter() * this.zoom;
+            final float visibility = Mth.clamp((entry.size - MIN_SPRITE_DIAMETER)
+                / (FULL_SPRITE_DIAMETER - MIN_SPRITE_DIAMETER), 0.0F, 1.0F);
+            entry.opacity = entry.selected ? 1.0F : visibility * visibility * (3.0F - 2.0F * visibility);
+            if (entry.opacity <= 0.0F) {
+                continue;
+            }
+            if (entry.selected) {
+                entry.size = Math.max(2.0F, entry.size);
+            }
             this.updateRenderEntry(entry);
-            if (entry.selected || this.isSpriteInView(entry.topLeftX, entry.topLeftY, entry.size)) {
-                this.visibleEntries.add(entry);
+            if (this.isSpriteInView(entry.topLeftX, entry.topLeftY, entry.size)) {
+                this.frameRenderEntries.add(entry);
             }
         }
     }
@@ -647,67 +601,8 @@ public class SolarSystemViewScreen extends Screen {
         final PositionState position = this.getPosition(entry.asteroid);
         entry.worldX = position.x;
         entry.worldY = position.y;
-        entry.size = Math.max(1, Math.round(entry.asteroid.getDiameter() * this.zoom));
         entry.topLeftX = this.getTopLeftXFromCentered(entry.worldX, entry.size);
         entry.topLeftY = this.getTopLeftYFromCentered(entry.worldY, entry.size);
-    }
-
-    private void applyScreenSpaceLod() {
-        this.frameRenderEntries.clear();
-        if (this.visibleEntries.size() <= MAX_RENDERED_ASTEROIDS) {
-            this.frameRenderEntries.addAll(this.visibleEntries);
-            this.sortFrameEntries();
-            return;
-        }
-
-        final int regularBudget = Math.max(1, MAX_RENDERED_ASTEROIDS - 1);
-        int cellSize = Math.max(1, (int) Math.ceil(Math.sqrt(
-            Math.max(1.0D, (this.width * (double) this.height) / regularBudget)
-        )));
-        int columns = divideRoundUp(this.width, cellSize);
-        int rows = divideRoundUp(this.height, cellSize);
-        while ((long) columns * rows > regularBudget) {
-            cellSize++;
-            columns = divideRoundUp(this.width, cellSize);
-            rows = divideRoundUp(this.height, cellSize);
-        }
-
-        final int cellCount = Math.max(1, columns * rows);
-        if (this.lodCells == null || this.lodCells.length < cellCount) {
-            this.lodCells = new RenderEntry[cellCount];
-        } else {
-            Arrays.fill(this.lodCells, 0, cellCount, null);
-        }
-
-        RenderEntry selectedEntry = null;
-        for (final RenderEntry entry : this.visibleEntries) {
-            if (entry.selected) {
-                selectedEntry = entry;
-                continue;
-            }
-
-            final int centerScreenX = Mth.clamp(Mth.floor(entry.topLeftX + entry.size * 0.5F), 0, Math.max(0, this.width - 1));
-            final int centerScreenY = Mth.clamp(Mth.floor(entry.topLeftY + entry.size * 0.5F), 0, Math.max(0, this.height - 1));
-            final int column = Math.min(columns - 1, centerScreenX / cellSize);
-            final int row = Math.min(rows - 1, centerScreenY / cellSize);
-            final int cellIndex = row * columns + column;
-            final RenderEntry current = this.lodCells[cellIndex];
-
-            if (current == null || isHigherLodPriority(entry, current)) {
-                this.lodCells[cellIndex] = entry;
-            }
-        }
-
-        for (int i = 0; i < cellCount; i++) {
-            if (this.lodCells[i] != null) {
-                this.frameRenderEntries.add(this.lodCells[i]);
-            }
-        }
-        if (selectedEntry != null) {
-            this.frameRenderEntries.add(selectedEntry);
-        }
-
-        this.sortFrameEntries();
     }
 
     private void sortFrameEntries() {
@@ -715,7 +610,7 @@ public class SolarSystemViewScreen extends Screen {
             if (left.selected != right.selected) {
                 return left.selected ? 1 : -1;
             }
-            final int sizeCompare = Integer.compare(left.size, right.size);
+            final int sizeCompare = Float.compare(left.size, right.size);
             return sizeCompare != 0
                 ? sizeCompare
                 : Long.compareUnsigned(left.stableHash, right.stableHash);
@@ -723,31 +618,19 @@ public class SolarSystemViewScreen extends Screen {
     }
 
     private void renderOrbits(final GuiGraphicsExtractor graphics) {
-        int remainingOrbitBudget = this.currentOrbitBudget();
-
-        for (final RenderEntry entry : this.frameRenderEntries) {
-            final AsteroidConfig asteroid = entry.asteroid;
-            if (entry.selected) {
-                this.drawOrbitIfVisible(graphics, asteroid, true);
-                continue;
-            }
-            if (remainingOrbitBudget <= 0 || !asteroid.isOrbitVisible()) {
-                continue;
-            }
-            if (this.drawOrbitIfVisible(graphics, asteroid, false)) {
-                remainingOrbitBudget--;
+        // The index includes every orbit-visible planet/moon as a landmark. Draw these
+        // independently of sprite size and position: an off-screen planet can still
+        // have an orbit crossing the viewport. No zoom or orbit-count budget applies.
+        if (this.observedRenderIndex != null) {
+            for (final AsteroidConfig asteroid : this.observedRenderIndex.getRootAsteroids()) {
+                if (asteroid.isOrbitVisible() && asteroid != this.selectedAsteroid) {
+                    this.drawOrbitIfVisible(graphics, asteroid, false);
+                }
             }
         }
-    }
-
-    private int currentOrbitBudget() {
-        if (this.selectedAsteroid == null && this.zoom < 0.2F) {
-            return 0;
+        if (this.selectedAsteroid != null) {
+            this.drawOrbitIfVisible(graphics, this.selectedAsteroid, true);
         }
-        if (this.zoom < 0.75F) {
-            return 8;
-        }
-        return MAX_RENDERED_ORBITS;
     }
 
     private boolean drawOrbitIfVisible(
@@ -761,10 +644,10 @@ public class SolarSystemViewScreen extends Screen {
         }
 
         final PositionState center = this.getPosition(centralBody);
-        final double centralBodyRadius = centralBody.getRadius();
-        final double radiusX = asteroid.getSemiMajorAxis() + centralBodyRadius;
-        final double radiusY = asteroid.getSemiMinorAxis() + centralBodyRadius;
-        final float screenCenterX = this.getScreenX(center.x);
+        final double radiusX = asteroid.getOrbitMajorRadius();
+        final double radiusY = asteroid.getOrbitMinorRadius();
+        final double orbitCenterX = center.x - asteroid.getOrbitFocusOffset();
+        final float screenCenterX = this.getScreenX(orbitCenterX);
         final float screenCenterY = this.getScreenY(center.y);
         final double screenRadiusX = radiusX * this.zoom;
         final double screenRadiusY = radiusY * this.zoom;
@@ -777,7 +660,7 @@ public class SolarSystemViewScreen extends Screen {
             return false;
         }
 
-        this.drawOrbit(graphics, center.x, center.y, radiusX, radiusY, selected);
+        this.drawOrbit(graphics, orbitCenterX, center.y, radiusX, radiusY, selected);
         return true;
     }
 
@@ -842,10 +725,7 @@ public class SolarSystemViewScreen extends Screen {
          * Do not reuse or modify this array after submitting the render state:
          * GUI vertex extraction occurs after this method returns.
          */
-        final AsteroidBatchRenderState.Quad[] quads =
-            new AsteroidBatchRenderState.Quad[
-                this.frameRenderEntries.size() + 1
-                ];
+        final float[] quads = new float[(this.frameRenderEntries.size() + 1) * AsteroidBatchRenderState.STRIDE];
 
         int quadCount = 0;
 
@@ -885,13 +765,13 @@ public class SolarSystemViewScreen extends Screen {
             }
 
             final float rotationRadians =
-                asteroid.isRotateAroundItself()
+                asteroid.isRotateAroundItself() && entry.size > 2
                     ? (float) Math.toRadians(
                     this.getRotationDegrees(asteroid)
                 )
                     : 0.0F;
 
-            quads[quadCount++] = new AsteroidBatchRenderState.Quad(
+            AsteroidBatchRenderState.writeQuad(quads, quadCount++,
                 entry.topLeftX,
                 entry.topLeftY,
                 entry.size,
@@ -900,14 +780,14 @@ public class SolarSystemViewScreen extends Screen {
                 sprite.v0(),
                 sprite.u1(),
                 sprite.v1(),
-                0xFFFFFFFF
+                entry.opacity
             );
 
             if (entry.selected) {
                 final CachedGuiSprite selectedSprite =
                     this.resolveGuiSprite(guiAtlas, SELECTED);
 
-                quads[quadCount++] = new AsteroidBatchRenderState.Quad(
+                AsteroidBatchRenderState.writeQuad(quads, quadCount++,
                     entry.topLeftX,
                     entry.topLeftY,
                     entry.size,
@@ -916,18 +796,12 @@ public class SolarSystemViewScreen extends Screen {
                     selectedSprite.v0(),
                     selectedSprite.u1(),
                     selectedSprite.v1(),
-                    0xFFFFFFFF
+                    1.0F
                 );
             }
 
-            if (ClientUtils.isMouseOver(
-                entry.topLeftX,
-                entry.topLeftY,
-                entry.size,
-                entry.size,
-                mouseX,
-                mouseY
-            )) {
+            if (entry.opacity >= 0.25F && mouseX >= entry.topLeftX && mouseX < entry.topLeftX + entry.size
+                && mouseY >= entry.topLeftY && mouseY < entry.topLeftY + entry.size) {
                 final double centerX =
                     entry.topLeftX + entry.size * 0.5D;
                 final double centerY =
@@ -1023,21 +897,18 @@ public class SolarSystemViewScreen extends Screen {
         final AsteroidConfig centralBody = asteroid.getCentralBody();
         final double centerX;
         final double centerY;
-        final double centralBodyRadius;
         if (centralBody == null) {
             centerX = 0.0D;
             centerY = 0.0D;
-            centralBodyRadius = 0.0D;
         } else {
             final PositionState center = this.getPosition(centralBody);
             centerX = center.x;
             centerY = center.y;
-            centralBodyRadius = centralBody.getRadius();
         }
 
-        final double angleRadians = Math.toRadians(this.getAngleDegrees(asteroid, state));
-        state.x = centerX + (asteroid.getSemiMajorAxis() + centralBodyRadius) * Math.cos(angleRadians);
-        state.y = centerY + (asteroid.getSemiMinorAxis() + centralBodyRadius) * Math.sin(angleRadians);
+        final double angleRadians = asteroid.getEccentricAnomaly(this.getAngleDegrees(asteroid, state));
+        state.x = centerX + asteroid.getOrbitMajorRadius() * Math.cos(angleRadians) - asteroid.getOrbitFocusOffset();
+        state.y = centerY + asteroid.getOrbitMinorRadius() * Math.sin(angleRadians);
         state.frame = this.positionFrame;
         state.resolvingFrame = Long.MIN_VALUE;
         return state;
@@ -1075,9 +946,7 @@ public class SolarSystemViewScreen extends Screen {
         for (final RenderEntry entry : this.renderCache) {
             entry.asteroid = null;
             entry.selected = false;
-            if (this.renderEntryPool.size() < MAX_RENDER_CANDIDATES) {
-                this.renderEntryPool.add(entry);
-            }
+            this.renderEntryPool.add(entry);
         }
         this.renderCache.clear();
         this.renderCandidateSet.clear();
@@ -1148,7 +1017,7 @@ public class SolarSystemViewScreen extends Screen {
         return dx * dx + dy * dy;
     }
 
-    private boolean isSpriteInView(final float topLeftX, final float topLeftY, final int size) {
+    private boolean isSpriteInView(final float topLeftX, final float topLeftY, final float size) {
         return topLeftX + size >= -VIEW_PADDING_PIXELS
             && topLeftX <= this.width + VIEW_PADDING_PIXELS
             && topLeftY + size >= -VIEW_PADDING_PIXELS
@@ -1211,6 +1080,7 @@ public class SolarSystemViewScreen extends Screen {
     @Override
     public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
         if (this.searchBox.mouseClicked(event, doubleClick)) {
+            this.cancelMouseRelease = true;
             return true;
         }
         return super.mouseClicked(event, doubleClick);
@@ -1220,7 +1090,8 @@ public class SolarSystemViewScreen extends Screen {
     public boolean mouseReleased(final MouseButtonEvent event) {
         if (this.cancelMouseRelease) {
             this.cancelMouseRelease = false;
-            return false;
+            this.isDragging = false;
+            return true;
         }
         if (this.isMouseOnDetailPanel(event.x(), event.y()) || this.clickedOrbitDetailsButton) {
             this.clickedOrbitDetailsButton = false;
@@ -1230,14 +1101,11 @@ public class SolarSystemViewScreen extends Screen {
 
         if (event.button() == GLFW.GLFW_MOUSE_BUTTON_LEFT && !this.isDragging) {
             if (!this.searchBox.isMouseOver(event.x(), event.y())) {
-                if (this.updateSelectedAsteroid) {
-                    this.selectedAsteroid = this.hoveredAsteroid;
-                    this.invalidateRenderCache();
-                }
+                this.selectedAsteroid = this.hoveredAsteroid;
+                this.invalidateRenderCache();
                 this.followAsteroid = this.selectedAsteroid != null;
                 this.zoomOntoAsteroid = this.selectedAsteroid != null;
             }
-            this.updateSelectedAsteroid = true;
         }
 
         this.isDragging = false;
@@ -1250,8 +1118,9 @@ public class SolarSystemViewScreen extends Screen {
         final double dragX,
         final double dragY
     ) {
-        if (this.isMouseOnDetailPanel(event.x(), event.y())) {
-            return false;
+        if (this.cancelMouseRelease || this.searchBox.isInBounds(event.x(), event.y())
+            || this.isMouseOnDetailPanel(event.x(), event.y())) {
+            return super.mouseDragged(event, dragX, dragY);
         }
         if (event.button() != GLFW.GLFW_MOUSE_BUTTON_LEFT) {
             return super.mouseDragged(event, dragX, dragY);
@@ -1279,7 +1148,7 @@ public class SolarSystemViewScreen extends Screen {
         if (this.searchBox.mouseScrolled(mouseX, mouseY, scrollX, scrollY)) {
             return true;
         }
-        if (scrollY == 0.0D) {
+        if (this.isMouseOnDetailPanel(mouseX, mouseY) || scrollY == 0.0D) {
             return false;
         }
 
@@ -1306,6 +1175,20 @@ public class SolarSystemViewScreen extends Screen {
 
     @Override
     public boolean keyPressed(final KeyEvent event) {
+        if (!this.searchBox.isFocused() && event.hasControlDown() && event.key() == GLFW.GLFW_KEY_F) {
+            this.searchBox.setVisible(true);
+            this.searchBox.setFocused(true);
+            return true;
+        }
+        if (!this.searchBox.isFocused() && event.key() == GLFW.GLFW_KEY_HOME) {
+            this.dragX = 0.0D;
+            this.dragY = 0.0D;
+            this.zoom = 1.0F;
+            this.followAsteroid = false;
+            this.zoomOntoAsteroid = false;
+            this.invalidateRenderCache();
+            return true;
+        }
         if (!this.searchBox.isFocused() && event.key() == GLFW.GLFW_KEY_ESCAPE) {
             this.onClose();
             return true;
@@ -1318,15 +1201,21 @@ public class SolarSystemViewScreen extends Screen {
 
     @Override
     public boolean charTyped(final CharacterEvent event) {
-        if (this.searchBox.charTyped(event)) {
+        if (this.searchBox.isVisible() && this.searchBox.isFocused() && this.searchBox.charTyped(event)) {
             return true;
         }
         return super.charTyped(event);
     }
 
     private void clampCamera() {
-        this.dragX = Mth.clamp(this.dragX, -MIN_MAX_X, MIN_MAX_X);
-        this.dragY = Mth.clamp(this.dragY, -MIN_MAX_Y, MIN_MAX_Y);
+        double extent = Math.max(MIN_MAX_X, MIN_MAX_Y);
+        if (this.observedRenderIndex != null) {
+            for (final AsteroidReloadListener.OrbitGroup group : this.observedRenderIndex.getOrbitGroups()) {
+                extent += group.getMaxOrbitRadius() + group.getMaxSpriteRadius();
+            }
+        }
+        this.dragX = Mth.clamp(this.dragX, -extent, extent);
+        this.dragY = Mth.clamp(this.dragY, -extent, extent);
     }
 
     private boolean isMouseOnDetailPanel(final double mouseX, final double mouseY) {
@@ -1341,11 +1230,11 @@ public class SolarSystemViewScreen extends Screen {
             );
     }
 
-    public float getTopLeftXFromCentered(final double x, final int size) {
+    public float getTopLeftXFromCentered(final double x, final float size) {
         return this.getScreenX(x) - size * 0.5F;
     }
 
-    public float getTopLeftYFromCentered(final double y, final int size) {
+    public float getTopLeftYFromCentered(final double y, final float size) {
         return this.getScreenY(y) - size * 0.5F;
     }
 
@@ -1368,17 +1257,6 @@ public class SolarSystemViewScreen extends Screen {
         return false;
     }
 
-    private static boolean isHigherLodPriority(final RenderEntry candidate, final RenderEntry current) {
-        if (candidate.size != current.size) {
-            return candidate.size > current.size;
-        }
-        return Long.compareUnsigned(candidate.stableHash, current.stableHash) < 0;
-    }
-
-    private static int divideRoundUp(final int value, final int divisor) {
-        return Math.max(1, (value + divisor - 1) / divisor);
-    }
-
     private static float[] createUnitOrbit(final int segments) {
         final float[] points = new float[(segments + 1) * 2];
         for (int i = 0; i <= segments; i++) {
@@ -1398,18 +1276,6 @@ public class SolarSystemViewScreen extends Screen {
         return Integer.toUnsignedLong(id.toString().hashCode());
     }
 
-    private static long mix64(long value) {
-        value ^= value >>> 30;
-        value *= 0xBF58476D1CE4E5B9L;
-        value ^= value >>> 27;
-        value *= 0x94D049BB133111EBL;
-        return value ^ (value >>> 31);
-    }
-
-    private static double unsignedUnit(final long value) {
-        return (value >>> 11) * 0x1.0p-53;
-    }
-
     private static final class RenderEntry {
         private AsteroidConfig asteroid;
         private boolean selected;
@@ -1418,7 +1284,8 @@ public class SolarSystemViewScreen extends Screen {
         private double worldY;
         private float topLeftX;
         private float topLeftY;
-        private int size;
+        private float size;
+        private float opacity;
     }
 
     private record CachedGuiSprite(

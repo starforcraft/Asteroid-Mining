@@ -101,6 +101,7 @@
   },
 
   "ICY": {
+    "textures": ["asteroidmining:space/ice_asteroid_1"],
     "analogue": "cometary_icy_body",
     "items": {
       "minecraft:packed_ice": [0.25, 0.65],

@@ -1,7 +1,6 @@
 package com.ultramega.asteroidmining.asteroids;
 
 import com.ultramega.asteroidmining.AsteroidMining;
-import com.ultramega.asteroidmining.events.AsteroidReloadListener;
 
 import java.awt.geom.Point2D;
 import java.text.Normalizer;
@@ -10,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Pattern;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -27,6 +29,9 @@ import net.minecraft.world.level.material.Fluid;
 import org.jspecify.annotations.Nullable;
 
 public final class AsteroidConfig {
+    private static final Pattern MARKS = Pattern.compile("\\p{M}");
+    private static final Pattern UNSAFE_PATH = Pattern.compile("[^a-z0-9._-]");
+    private static final Pattern WHITESPACE = Pattern.compile("\\s+");
     public static final StreamCodec<RegistryFriendlyByteBuf, AsteroidConfig> STREAM_CODEC = StreamCodec.composite(
         Identifier.STREAM_CODEC, config -> config.id,
         ByteBufCodecs.stringUtf8(512), config -> config.name,
@@ -56,11 +61,10 @@ public final class AsteroidConfig {
     private String name;
     private final Identifier texture;
     private final int diameter;
-    private List<AsteroidResource> composition = new ArrayList<>();
+    private List<AsteroidResource> composition;
 
     @Nullable
     private AsteroidConfig centralBody;
-    private boolean centralBodyResolved;
     private OrbitData orbitData;
     private float currentAngleDegrees;
     private float rotation;
@@ -81,7 +85,7 @@ public final class AsteroidConfig {
         this.id = id == null ? AsteroidMining.makeId(this.getFileName1()) : id;
         this.texture = texture;
         this.diameter = Math.max(1, diameter);
-        this.composition = new ArrayList<>(composition == null ? List.of() : composition);
+        this.composition = composition == null ? List.of() : List.copyOf(composition);
 
         final OrbitData safeOrbitData = orbitData == null ? OrbitData.DEFAULT : orbitData;
 
@@ -96,13 +100,20 @@ public final class AsteroidConfig {
     }
 
     public AsteroidConfig item(final Item item, final long amount) {
-        this.composition.add(new AsteroidResource.ItemEntry(item, amount));
+        this.addResource(new AsteroidResource.ItemEntry(item, amount));
         return this;
     }
 
     public AsteroidConfig fluid(final Fluid fluid, final long amount) {
-        this.composition.add(new AsteroidResource.FluidEntry(fluid, amount));
+        this.addResource(new AsteroidResource.FluidEntry(fluid, amount));
         return this;
+    }
+
+    private void addResource(final AsteroidResource resource) {
+        // Builders are used by data generation; runtime reads share the immutable list.
+        final List<AsteroidResource> updated = new ArrayList<>(this.composition);
+        updated.add(resource);
+        this.composition = List.copyOf(updated);
     }
 
     public AsteroidConfig orbit(final String centralBodyName,
@@ -124,7 +135,6 @@ public final class AsteroidConfig {
         );
         this.currentAngleDegrees = startingAngleDegrees;
         this.centralBody = null;
-        this.centralBodyResolved = false;
         return this;
     }
 
@@ -168,7 +178,7 @@ public final class AsteroidConfig {
     }
 
     public List<AsteroidResource> getComposition() {
-        return List.copyOf(this.composition);
+        return this.composition;
     }
 
     public float getSemiMajorAxis() {
@@ -177,6 +187,57 @@ public final class AsteroidConfig {
 
     public float getSemiMinorAxis() {
         return this.orbitData.semiMinorAxis();
+    }
+
+    /** Orbit axes are center-to-center distances, independent of the Sun's sprite size.
+     * Satellite orbits retain clearance for the deliberately oversized planet sprites.
+     */
+    public double getOrbitMajorRadius() {
+        final double major = Math.max(this.getSemiMajorAxis(), this.getSemiMinorAxis());
+        final AsteroidConfig center = this.getCentralBody();
+        if (major <= 0.0D || center == null || center.getCentralBody() == null) {
+            return major;
+        }
+        return major + center.getRadius() / Math.max(0.001D, 1.0D - this.getOrbitEccentricity());
+    }
+
+    public double getOrbitMinorRadius() {
+        final double eccentricity = this.getOrbitEccentricity();
+        return this.getOrbitMajorRadius() * Math.sqrt(1.0D - eccentricity * eccentricity);
+    }
+
+    private double getOrbitEccentricity() {
+        final double major = Math.max(this.getSemiMajorAxis(), this.getSemiMinorAxis());
+        final double minor = Math.max(0.0D, Math.min(this.getSemiMajorAxis(), this.getSemiMinorAxis()));
+        return major <= 0.0D ? 0.0D : Math.sqrt(Math.max(0.0D, 1.0D - minor * minor / (major * major)));
+    }
+
+    public double getOrbitFocusOffset() {
+        return this.getOrbitMajorRadius() * this.getOrbitEccentricity();
+    }
+
+    /** Starting angles are mean anomalies in this schematic, not dated ephemerides. */
+    public double getEccentricAnomaly(final double meanAngleDegrees) {
+        final double mean = Math.toRadians(((meanAngleDegrees % 360.0D) + 360.0D) % 360.0D);
+        final double eccentricity = this.getOrbitEccentricity();
+        double low = 0.0D;
+        double high = 2.0D * Math.PI;
+        double anomaly = mean;
+        // Safeguarded Newton iteration also converges for near-parabolic catalog entries.
+        for (int i = 0; i < 32; i++) {
+            final double error = anomaly - eccentricity * Math.sin(anomaly) - mean;
+            if (Math.abs(error) < 1.0E-10D) {
+                break;
+            }
+            if (error > 0.0D) {
+                high = anomaly;
+            } else {
+                low = anomaly;
+            }
+            final double next = anomaly - error / (1.0D - eccentricity * Math.cos(anomaly));
+            anomaly = Double.isFinite(next) && next > low && next < high ? next : (low + high) * 0.5D;
+        }
+        return anomaly;
     }
 
     public float getOrbitalSpeed() {
@@ -230,14 +291,12 @@ public final class AsteroidConfig {
 
     public void setResolvedCentralBody(@Nullable final AsteroidConfig centralBody) {
         this.centralBody = centralBody;
-        this.centralBodyResolved = true;
     }
 
     @Nullable
     public AsteroidConfig getCentralBody() {
-        if (!this.centralBodyResolved && !this.orbitData.centralBodyName().isBlank()) {
-            resolveCentralBodies(AsteroidReloadListener.INSTANCE.getData());
-        }
+        // Resolved against the owning catalog when it is published. A global fallback
+        // could link server asteroids to a client's unrelated or cleared snapshot.
         return this.centralBody;
     }
 
@@ -271,22 +330,19 @@ public final class AsteroidConfig {
         final AsteroidConfig centralBody = this.getCentralBody();
         final double centerX;
         final double centerY;
-        final double centralBodyRadius;
 
         if (centralBody == null) {
             centerX = 0.0D;
             centerY = 0.0D;
-            centralBodyRadius = 0.0D;
         } else {
             centralBody.writePosition(target);
             centerX = target.x;
             centerY = target.y;
-            centralBodyRadius = centralBody.getRadius();
         }
 
-        final double angleRadians = Math.toRadians(this.currentAngleDegrees);
-        target.x = centerX + (this.orbitData.semiMajorAxis() + centralBodyRadius) * Math.cos(angleRadians);
-        target.y = centerY + (this.orbitData.semiMinorAxis() + centralBodyRadius) * Math.sin(angleRadians);
+        final double angleRadians = this.getEccentricAnomaly(this.currentAngleDegrees);
+        target.x = centerX + this.getOrbitMajorRadius() * Math.cos(angleRadians) - this.getOrbitFocusOffset();
+        target.y = centerY + this.getOrbitMinorRadius() * Math.sin(angleRadians);
     }
 
     public double getPositionX() {
@@ -358,34 +414,59 @@ public final class AsteroidConfig {
     }
 
     public static void resolveCentralBodies(final Map<Identifier, AsteroidConfig> asteroidData) {
-        final Map<String, AsteroidConfig> byLookupKey = new HashMap<>();
+        // Usually only a few names (Sun, Earth, etc.) are referenced. Do not allocate a
+        // three-key lookup map for every asteroid in the catalog.
+        final Map<String, String> normalizedNames = new HashMap<>();
+        final Map<String, AsteroidConfig> requested = new HashMap<>();
         for (final AsteroidConfig asteroid : asteroidData.values()) {
-            byLookupKey.put(normalizeLookupKey(asteroid.getName()), asteroid);
-            byLookupKey.put(normalizeLookupKey(asteroid.getId().getPath()), asteroid);
-            byLookupKey.put(normalizeLookupKey(asteroid.getId().toString()), asteroid);
-        }
-
-        for (final AsteroidConfig asteroid : asteroidData.values()) {
-            if (asteroid.orbitData.centralBodyName().isBlank()) {
-                asteroid.centralBody = null;
-                asteroid.centralBodyResolved = true;
-                continue;
+            final String name = asteroid.getCentralBodyName();
+            if (!name.isBlank()) {
+                final String key = normalizedNames.computeIfAbsent(name, AsteroidConfig::normalizeLookupKey);
+                requested.put(key, null);
             }
-            asteroid.centralBody = byLookupKey.get(normalizeLookupKey(asteroid.orbitData.centralBodyName()));
-            asteroid.centralBodyResolved = true;
+        }
+        if (!requested.isEmpty()) {
+            for (final AsteroidConfig asteroid : asteroidData.values()) {
+                matchCentralBody(requested, asteroid.getName(), asteroid);
+                matchCentralBody(requested, asteroid.getId().getPath(), asteroid);
+                matchCentralBody(requested, asteroid.getId().toString(), asteroid);
+            }
+        }
+        for (final AsteroidConfig asteroid : asteroidData.values()) {
+            asteroid.centralBody = requested.get(normalizedNames.get(asteroid.getCentralBodyName()));
+        }
+        // Only central bodies can participate in a cycle; no per-asteroid visited map is needed.
+        final Set<AsteroidConfig> checked = new HashSet<>();
+        for (final AsteroidConfig body : requested.values()) {
+            final Set<AsteroidConfig> path = new HashSet<>();
+            AsteroidConfig current = body;
+            while (current != null && !checked.contains(current)) {
+                if (!path.add(current)) {
+                    AsteroidMining.LOGGER.warn("Ignoring cyclic orbit for {}", current.getId());
+                    current.centralBody = null;
+                    break;
+                }
+                current = current.centralBody;
+            }
+            checked.addAll(path);
+        }
+    }
+
+    private static void matchCentralBody(final Map<String, AsteroidConfig> requested, final String name,
+                                         final AsteroidConfig asteroid) {
+        final String key = normalizeLookupKey(name);
+        if (requested.containsKey(key)) {
+            requested.put(key, asteroid);
         }
     }
 
     private static String toSafePath(final String value) {
-        final String normalized = Normalizer.normalize(value == null ? "asteroid" : value, Normalizer.Form.NFKD)
-                .replaceAll("\\p{M}", "");
-        final String safe = normalized.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9._-]", "_");
+        final String normalized = MARKS.matcher(Normalizer.normalize(value == null ? "asteroid" : value, Normalizer.Form.NFKD)).replaceAll("");
+        final String safe = UNSAFE_PATH.matcher(normalized.toLowerCase(Locale.ROOT)).replaceAll("_");
         return safe.isBlank() ? "asteroid" : safe;
     }
 
     private static String normalizeLookupKey(final String value) {
-        return toSafePath(value).replace('_', ' ')
-                .replaceAll("\\s+", " ")
-                .trim();
+        return WHITESPACE.matcher(toSafePath(value).replace('_', ' ')).replaceAll(" ").trim();
     }
 }

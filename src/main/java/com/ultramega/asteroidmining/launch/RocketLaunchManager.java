@@ -350,7 +350,7 @@ public class RocketLaunchManager extends SavedData {
         final NetworkConfiguration configuration = configurationData.get(launch.configurationId);
 
         if (configuration != null) {
-            final Optional<AsteroidConfig> asteroid = AsteroidReloadListener.INSTANCE.getData().values()
+            final Optional<AsteroidConfig> asteroid = AsteroidReloadListener.SERVER_INSTANCE.getData().values()
                 .stream()
                 .filter(config -> config.getId().equals(launch.destinationAsteroid))
                 .findFirst();

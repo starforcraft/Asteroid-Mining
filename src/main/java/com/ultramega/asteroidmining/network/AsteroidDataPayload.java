@@ -6,7 +6,11 @@ import com.ultramega.asteroidmining.events.AsteroidReloadListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Map;
+import java.util.LinkedHashMap;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -28,42 +32,70 @@ public record AsteroidDataPayload(int syncId, int chunkIndex, int chunkCount, Li
         AsteroidDataPayload::new
     );
 
-    private static final int MAX_ASTEROIDS_PER_PACKET = 512;
+    private static final int MAX_ASTEROIDS_PER_PACKET = 128;
     private static final AtomicInteger NEXT_SYNC_ID = new AtomicInteger();
+    // Accessed only on the server thread. Repeated reloads replace each player's pending sync.
+    private static final Map<UUID, PendingSync> PENDING = new LinkedHashMap<>();
 
     public static void handle(final AsteroidDataPayload data, final IPayloadContext context) {
         context.enqueueWork(() ->
             AsteroidReloadListener.INSTANCE.acceptAsteroidDataChunk(data.syncId(), data.chunkIndex(), data.chunkCount(), data.asteroids()));
     }
 
-    public static void sendToAllPlayers(final Map<Identifier, AsteroidConfig> data) {
-        final int syncId = NEXT_SYNC_ID.incrementAndGet();
-        for (final AsteroidDataPayload payload : AsteroidDataPayload.createChunks(syncId, data)) {
-            PacketDistributor.sendToAllPlayers(payload);
-        }
-    }
-
     public static void sendToPlayer(final ServerPlayer player, final Map<Identifier, AsteroidConfig> data) {
         final int syncId = NEXT_SYNC_ID.incrementAndGet();
-        for (final AsteroidDataPayload payload : AsteroidDataPayload.createChunks(syncId, data)) {
-            PacketDistributor.sendToPlayer(player, payload);
+        PENDING.put(player.getUUID(), new PendingSync(player, createChunks(syncId, data).iterator()));
+    }
+
+    public static void tick() {
+        final Iterator<PendingSync> pending = PENDING.values().iterator();
+        while (pending.hasNext()) {
+            final PendingSync sync = pending.next();
+            // Spread encoding and transport over ticks instead of queueing the whole catalog at login.
+            for (int packet = 0; packet < 2 && sync.chunks.hasNext(); packet++) {
+                PacketDistributor.sendToPlayer(sync.player, sync.chunks.next());
+            }
+            if (!sync.chunks.hasNext()) {
+                pending.remove();
+            }
         }
     }
 
-    public static List<AsteroidDataPayload> createChunks(final int syncId, final Map<Identifier, AsteroidConfig> data) {
-        final List<AsteroidConfig> values = List.copyOf(data.values());
-        if (values.isEmpty()) {
-            return List.of(new AsteroidDataPayload(syncId, 0, 1, List.of()));
-        }
+    public static void cancel(final UUID playerId) {
+        PENDING.remove(playerId);
+    }
 
-        final int chunkCount = (values.size() + MAX_ASTEROIDS_PER_PACKET - 1) / MAX_ASTEROIDS_PER_PACKET;
-        final List<AsteroidDataPayload> chunks = new ArrayList<>(chunkCount);
-        for (int chunkIndex = 0; chunkIndex < chunkCount; chunkIndex++) {
-            final int fromIndex = chunkIndex * MAX_ASTEROIDS_PER_PACKET;
-            final int toIndex = Math.min(values.size(), fromIndex + MAX_ASTEROIDS_PER_PACKET);
-            chunks.add(new AsteroidDataPayload(syncId, chunkIndex, chunkCount, List.copyOf(values.subList(fromIndex, toIndex))));
-        }
-        return chunks;
+    public static void clearPending() {
+        PENDING.clear();
+    }
+
+    private record PendingSync(ServerPlayer player, Iterator<AsteroidDataPayload> chunks) {
+    }
+
+    public static Iterable<AsteroidDataPayload> createChunks(final int syncId, final Map<Identifier, AsteroidConfig> data) {
+        // The published data map is immutable. Materialize only the packet currently being sent.
+        final int chunkCount = Math.max(1, (data.size() + MAX_ASTEROIDS_PER_PACKET - 1) / MAX_ASTEROIDS_PER_PACKET);
+        return () -> new Iterator<>() {
+            private final Iterator<AsteroidConfig> values = data.values().iterator();
+            private int chunkIndex;
+
+            @Override
+            public boolean hasNext() {
+                return this.chunkIndex < chunkCount;
+            }
+
+            @Override
+            public AsteroidDataPayload next() {
+                if (!this.hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                final List<AsteroidConfig> chunk = new ArrayList<>(MAX_ASTEROIDS_PER_PACKET);
+                while (chunk.size() < MAX_ASTEROIDS_PER_PACKET && this.values.hasNext()) {
+                    chunk.add(this.values.next());
+                }
+                return new AsteroidDataPayload(syncId, this.chunkIndex++, chunkCount, chunk);
+            }
+        };
     }
 
     @Override

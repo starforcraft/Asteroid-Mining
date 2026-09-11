@@ -85,7 +85,6 @@
         <module name="RedundantImport"/>
         <module name="UnusedImports"/>
         <module name="NoCodeInFile"/>
-        <module name="UncommentedMain"/>
         <module name="RedundantModifier"/>
         <module name="ConstantName"/>
         <module name="MethodCount"/>

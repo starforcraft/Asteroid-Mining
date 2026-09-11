@@ -2,20 +2,17 @@ package com.ultramega.asteroidmining.events;
 
 import com.ultramega.asteroidmining.AsteroidMining;
 import com.ultramega.asteroidmining.asteroids.AsteroidConfig;
+import com.ultramega.asteroidmining.asteroids.AsteroidJsonReader;
+import com.ultramega.asteroidmining.asteroids.AsteroidSearchIndex;
 
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.resources.FileToIdConverter;
@@ -23,68 +20,68 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
-import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.profiling.ProfilerFiller;
-import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import org.jspecify.annotations.Nullable;
 
-import static com.ultramega.asteroidmining.AsteroidMining.MOD_ID;
-
-// TODO: https://docs.neoforged.net/primer/docs/1.21.4/#simplejsonresourcereloadlistener
-//  change from JsonElement to AsteroidConfig
-public final class AsteroidReloadListener extends SimpleJsonResourceReloadListener<JsonElement> {
+public final class AsteroidReloadListener extends SimpleJsonResourceReloadListener<AsteroidConfig> {
+    // Integrated servers share a JVM with the client, but must never share catalog lifecycle.
+    public static final AsteroidReloadListener SERVER_INSTANCE = new AsteroidReloadListener();
     public static final AsteroidReloadListener INSTANCE = new AsteroidReloadListener();
 
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
-    private static final Path CONFIG_DIR = FMLPaths.CONFIGDIR.get().resolve(MOD_ID);
+    private static final FileToIdConverter FILES = FileToIdConverter.json("asteroids");
 
     public ICondition.IContext context;
 
-    private volatile Map<Identifier, AsteroidConfig> asteroidData = Map.of();
-    private volatile List<AsteroidConfig> asteroidList = List.of();
-    private volatile RenderIndex renderIndex = RenderIndex.EMPTY;
-    private volatile List<SearchEntry> searchIndex = List.of();
-    private volatile Map<String, AsteroidConfig> asteroidsByExactName = Map.of();
+    // One publication prevents readers from observing indices from a different reload.
+    private volatile Snapshot snapshot = new Snapshot(Map.of());
 
     private final Map<Identifier, AsteroidConfig> asteroidDataConfig = new HashMap<>();
 
-    private final Map<Identifier, AsteroidConfig> pendingNetworkAsteroidData = new LinkedHashMap<>();
+    private Map<Identifier, AsteroidConfig> pendingNetworkAsteroidData = new LinkedHashMap<>();
     private final BitSet receivedNetworkChunks = new BitSet();
     private int activeNetworkSyncId = Integer.MIN_VALUE;
     private int expectedNetworkChunks;
     private int receivedNetworkChunkCount;
 
     public AsteroidReloadListener() {
-        super(ExtraCodecs.JSON, FileToIdConverter.json("asteroids"));
+        super(AsteroidConfig.CODEC, FileToIdConverter.json("asteroids"));
     }
 
     @Override
-    protected void apply(final Map<Identifier, JsonElement> dataMap, final ResourceManager resourceManager, final ProfilerFiller profiler) {
-        profiler.push("AsteroidReloadListener");
-
+    protected Map<Identifier, AsteroidConfig> prepare(final ResourceManager resourceManager, final ProfilerFiller profiler) {
         final RegistryOps<JsonElement> registryOps = this.makeConditionalOps();
-        final Map<Identifier, AsteroidConfig> data = new HashMap<>(Math.max(16, (int) (dataMap.size() / 0.75F) + 1));
-
-        for (final Map.Entry<Identifier, JsonElement> entry : dataMap.entrySet()) {
-            final Identifier id = entry.getKey();
+        final Map<Identifier, AsteroidConfig> data = new LinkedHashMap<>();
+        // Stable file order also makes duplicate-ID overrides and search result order deterministic.
+        final var resources = new ArrayList<>(FILES.listMatchingResources(resourceManager).entrySet());
+        resources.sort(Map.Entry.comparingByKey());
+        for (final var entry : resources) {
+            final Map<Identifier, AsteroidConfig> fileData = new LinkedHashMap<>();
             try {
-                final JsonElement jsonValue = entry.getValue();
-                if (!this.shouldLoad(jsonValue, registryOps)) {
-                    continue;
-                }
-
-                final JsonElement filteredJson = this.filterConditionalComposition(jsonValue, registryOps);
-                for (final AsteroidConfig asteroid : AsteroidConfig.fromJsonElements(filteredJson)) {
-                    data.put(asteroid.getId(), asteroid);
-                }
+                AsteroidJsonReader.read(entry.getValue()::openAsReader,
+                    json -> this.shouldLoad(json, registryOps), json -> {
+                        try {
+                            if (json.isJsonObject()) {
+                                this.filterAsteroidComposition(json.getAsJsonObject(), registryOps);
+                            }
+                            final AsteroidConfig asteroid = AsteroidConfig.fromJson(json);
+                            fileData.put(asteroid.getId(), asteroid);
+                        } catch (RuntimeException e) {
+                            AsteroidMining.LOGGER.error("Invalid asteroid in {}", entry.getKey(), e);
+                        }
+                    });
+                data.putAll(fileData);
             } catch (Exception e) {
-                AsteroidMining.LOGGER.error("Skipping loading asteroid {} as its JSON was invalid", id, e);
+                AsteroidMining.LOGGER.error("Skipping invalid asteroid file {}", entry.getKey(), e);
             }
         }
+        return data;
+    }
 
-        this.setData(data);
-        profiler.pop();
+    @Override
+    protected void apply(final Map<Identifier, AsteroidConfig> data, final ResourceManager resourceManager, final ProfilerFiller profiler) {
+        data.putAll(this.asteroidDataConfig);
+        this.publishData(data);
     }
 
     private boolean shouldLoad(final JsonElement jsonValue, final RegistryOps<JsonElement> registryOps) {
@@ -106,60 +103,21 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
         return true;
     }
 
-    private JsonElement filterConditionalComposition(final JsonElement source, final RegistryOps<JsonElement> registryOps) {
-        final JsonElement result = source.deepCopy();
-
-        if (result.isJsonArray()) {
-            this.filterAsteroidArray(result.getAsJsonArray(), registryOps);
-            return result;
-        }
-
-        if (!result.isJsonObject()) {
-            return result;
-        }
-
-        final JsonObject root = result.getAsJsonObject();
-
-        if (root.has("asteroids") && root.get("asteroids").isJsonArray()) {
-            this.filterAsteroidArray(root.getAsJsonArray("asteroids"), registryOps);
-        } else {
-            this.filterAsteroidComposition(root, registryOps);
-        }
-
-        return result;
-    }
-
-    private void filterAsteroidArray(final JsonArray asteroids, final RegistryOps<JsonElement> registryOps) {
-        for (final JsonElement element : asteroids) {
-            if (element.isJsonObject()) {
-                this.filterAsteroidComposition(element.getAsJsonObject(), registryOps);
-            }
-        }
-    }
-
     private void filterAsteroidComposition(final JsonObject asteroid, final RegistryOps<JsonElement> registryOps) {
         if (!asteroid.has("composition") || !asteroid.get("composition").isJsonArray()) {
             return;
         }
 
-        final JsonArray original = asteroid.getAsJsonArray("composition");
-        final JsonArray filtered = new JsonArray();
-
-        for (final JsonElement element : original) {
+        // This tree belongs to just one streamed asteroid, so filtering can happen in place.
+        final var entries = asteroid.getAsJsonArray("composition").iterator();
+        while (entries.hasNext()) {
+            final JsonElement element = entries.next();
             if (!this.shouldLoad(element, registryOps)) {
-                continue;
+                entries.remove();
+            } else if (element.isJsonObject()) {
+                element.getAsJsonObject().remove("neoforge:conditions");
             }
-
-            final JsonElement cleanElement = element.deepCopy();
-            if (cleanElement.isJsonObject()) {
-                cleanElement.getAsJsonObject()
-                    .remove("neoforge:conditions");
-            }
-
-            filtered.add(cleanElement);
         }
-
-        asteroid.add("composition", filtered);
     }
 
     public void setData(final Map<Identifier, AsteroidConfig> data) {
@@ -170,67 +128,36 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
         this.publishData(mutableData);
     }
 
-    private void publishData(final Map<Identifier, AsteroidConfig> mutableData) {
-        AsteroidConfig.resolveCentralBodies(mutableData);
-
-        final Map<Identifier, AsteroidConfig> dataSnapshot = Collections.unmodifiableMap(new LinkedHashMap<>(mutableData));
-        final List<AsteroidConfig> listSnapshot = List.copyOf(dataSnapshot.values());
-        final RenderIndex indexSnapshot = RenderIndex.create(listSnapshot);
-        final List<SearchEntry> searchIndexSnapshot = new ArrayList<>(listSnapshot.size());
-        final Map<String, AsteroidConfig> exactNameSnapshot = new HashMap<>(Math.max(16, (int) (listSnapshot.size() / 0.75F) + 1));
-        for (final AsteroidConfig asteroid : listSnapshot) {
-            searchIndexSnapshot.add(new SearchEntry(asteroid.getName(), asteroid.getName().toLowerCase(Locale.ROOT)));
-            exactNameSnapshot.putIfAbsent(asteroid.getName(), asteroid);
-        }
-
-        this.asteroidData = dataSnapshot;
-        this.asteroidList = listSnapshot;
-        this.renderIndex = indexSnapshot;
-        this.searchIndex = List.copyOf(searchIndexSnapshot);
-        this.asteroidsByExactName = Collections.unmodifiableMap(exactNameSnapshot);
-
-        AsteroidMining.LOGGER.info("Loaded {} asteroid configs in {} orbit groups", listSnapshot.size(), indexSnapshot.getOrbitGroups().size());
+    private void publishData(final Map<Identifier, AsteroidConfig> ownedData) {
+        AsteroidConfig.resolveCentralBodies(ownedData);
+        this.snapshot = new Snapshot(ownedData);
+        AsteroidMining.LOGGER.info("Loaded {} asteroid configs", ownedData.size());
     }
 
     public Map<Identifier, AsteroidConfig> getData() {
-        return this.asteroidData;
+        return this.snapshot.data;
     }
 
     public List<AsteroidConfig> getAsteroids() {
-        return this.asteroidList;
+        return this.snapshot.asteroids;
     }
 
     public RenderIndex getRenderIndex() {
-        return this.renderIndex;
+        return this.snapshot.renderIndex();
     }
 
-    public AsteroidConfig findAsteroidByName(final String name) {
-        return this.asteroidsByExactName.get(name);
-    }
-
-    public List<String> findAsteroidNames(@Nullable final String query, final int maxResults) {
+    public List<AsteroidConfig> findAsteroids(@Nullable final String query, final int maxResults) {
         if (query == null || query.isBlank() || maxResults <= 0) {
             return List.of();
         }
-
-        final String normalizedQuery = query.toLowerCase(Locale.ROOT);
-        final List<String> results = new ArrayList<>(Math.min(10, maxResults));
-        for (final SearchEntry entry : this.searchIndex) {
-            if (entry.normalizedName.contains(normalizedQuery)) {
-                results.add(entry.name);
-                if (results.size() >= maxResults) {
-                    break;
-                }
-            }
-        }
-        return results;
+        return this.snapshot.searchIndex().find(query, maxResults);
     }
 
     public synchronized void acceptAsteroidDataChunk(final int syncId,
                                                      final int chunkIndex,
                                                      final int chunkCount,
                                                      final List<AsteroidConfig> asteroids) {
-        if (chunkCount <= 0 || chunkIndex >= chunkCount) {
+        if (chunkCount <= 0 || chunkCount > 1_000_000 || chunkIndex < 0 || chunkIndex >= chunkCount) {
             AsteroidMining.LOGGER.warn("Ignoring invalid asteroid sync chunk {}/{} for sync {}", chunkIndex, chunkCount, syncId);
             return;
         }
@@ -261,62 +188,56 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
         this.receivedNetworkChunkCount++;
 
         if (this.receivedNetworkChunkCount >= this.expectedNetworkChunks) {
-            final Map<Identifier, AsteroidConfig> syncedData = new LinkedHashMap<>(this.pendingNetworkAsteroidData);
-            this.pendingNetworkAsteroidData.clear();
+            final Map<Identifier, AsteroidConfig> completed = this.pendingNetworkAsteroidData;
+            this.pendingNetworkAsteroidData = new LinkedHashMap<>();
+            completed.putAll(this.asteroidDataConfig);
+            this.publishData(completed);
             this.receivedNetworkChunks.clear();
             this.expectedNetworkChunks = 0;
             this.receivedNetworkChunkCount = 0;
-            this.setData(syncedData);
         }
     }
 
-//    public void updateData(final AsteroidConfig data) {
-//        this.asteroidDataConfig.put(data.getId(), data);
-//        final Map<Identifier, AsteroidConfig> mutableData = new LinkedHashMap<>(this.asteroidData);
-//        mutableData.put(data.getId(), data);
-//        this.publishData(mutableData);
-//        AsteroidReloadListener.saveAsteroidInConfig(data.toJson(), data.getFileName2());
-//    }
+    public synchronized int getSyncProgress() {
+        return this.expectedNetworkChunks == 0 ? -1
+            : (int) (100L * this.receivedNetworkChunkCount / this.expectedNetworkChunks);
+    }
 
-//    public static void saveAsteroidInConfig(final JsonElement json, final String fileName) {
-//        final Path path = CONFIG_DIR.resolve(fileName + ".json");
-//        try {
-//            Files.createDirectories(path.getParent());
-//            final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-//            try (JsonWriter jsonwriter = new JsonWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8))) {
-//                jsonwriter.setSerializeNulls(false);
-//                jsonwriter.setIndent(" ");
-//                GsonHelper.writeValue(jsonwriter, json, null);
-//            }
-//            Files.write(path, outputStream.toByteArray());
-//        } catch (IOException e) {
-//            AsteroidMining.LOGGER.error("Failed to save asteroid config to {}", path, e);
-//        }
-//    }
-//
-//    public static void loadAsteroidsFromConfig() {
-//        final List<AsteroidConfig> asteroids = new ArrayList<>();
-//        try {
-//            Files.createDirectories(CONFIG_DIR);
-//            try (DirectoryStream<Path> stream = Files.newDirectoryStream(CONFIG_DIR, "*.json")) {
-//                for (final Path path : stream) {
-//                    final JsonElement json = GSON.fromJson(Files.newBufferedReader(path), JsonElement.class);
-//                    asteroids.addAll(AsteroidConfig.fromJsonElements(json));
-//                }
-//            } catch (Exception e) {
-//                AsteroidMining.LOGGER.error("Failed to parse asteroid JSON", e);
-//            }
-//        } catch (IOException e) {
-//            AsteroidMining.LOGGER.error(e.getMessage());
-//        }
-//
-//        for (final AsteroidConfig asteroid : asteroids) {
-//            AsteroidReloadListener.INSTANCE.asteroidDataConfig.put(asteroid.getId(), asteroid);
-//        }
-//        AsteroidConfig.resolveCentralBodies(AsteroidReloadListener.INSTANCE.asteroidDataConfig);
-//    }
+    public synchronized void clearData() {
+        this.pendingNetworkAsteroidData.clear();
+        this.receivedNetworkChunks.clear();
+        this.activeNetworkSyncId = Integer.MIN_VALUE;
+        this.expectedNetworkChunks = 0;
+        this.receivedNetworkChunkCount = 0;
+        this.snapshot = new Snapshot(Map.of());
+    }
 
-    private record SearchEntry(String name, String normalizedName) {
+    private static final class Snapshot {
+        private final Map<Identifier, AsteroidConfig> data;
+        private final List<AsteroidConfig> asteroids;
+        @Nullable
+        private RenderIndex renderIndex;
+        @Nullable
+        private AsteroidSearchIndex searchIndex;
+
+        private Snapshot(final Map<Identifier, AsteroidConfig> ownedData) {
+            this.data = Collections.unmodifiableMap(ownedData);
+            this.asteroids = List.copyOf(ownedData.values());
+        }
+
+        private synchronized RenderIndex renderIndex() {
+            if (this.renderIndex == null) {
+                this.renderIndex = RenderIndex.create(this.asteroids);
+            }
+            return this.renderIndex;
+        }
+
+        private synchronized AsteroidSearchIndex searchIndex() {
+            if (this.searchIndex == null) {
+                this.searchIndex = new AsteroidSearchIndex(this.asteroids);
+            }
+            return this.searchIndex;
+        }
     }
 
     /**
@@ -343,7 +264,7 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
             }
 
             final List<AsteroidConfig> roots = new ArrayList<>();
-            final Map<AsteroidConfig, List<OrbitEntry>> grouped = new HashMap<>();
+            final Map<AsteroidConfig, List<AsteroidConfig>> grouped = new HashMap<>();
 
             for (final AsteroidConfig asteroid : asteroids) {
                 final AsteroidConfig centralBody = asteroid.getCentralBody();
@@ -352,9 +273,10 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
                     continue;
                 }
 
-                final double orbitRadius = Math.max(0.0D, asteroid.getSemiMajorAxis() + centralBody.getRadius());
-                grouped.computeIfAbsent(centralBody, ignored -> new ArrayList<>())
-                        .add(new OrbitEntry(asteroid, orbitRadius, stableHash(asteroid.getId())));
+                if (asteroid.isOrbitVisible()) {
+                    roots.add(asteroid);
+                }
+                grouped.computeIfAbsent(centralBody, ignored -> new ArrayList<>()).add(asteroid);
             }
 
             roots.sort((left, right) -> {
@@ -363,13 +285,13 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
             });
 
             final List<OrbitGroup> groups = new ArrayList<>(grouped.size());
-            for (final Map.Entry<AsteroidConfig, List<OrbitEntry>> entry : grouped.entrySet()) {
-                final List<OrbitEntry> entries = entry.getValue();
+            for (final Map.Entry<AsteroidConfig, List<AsteroidConfig>> entry : grouped.entrySet()) {
+                final List<AsteroidConfig> entries = entry.getValue();
                 entries.sort((left, right) -> {
-                    final int radiusCompare = Double.compare(left.getOrbitRadius(), right.getOrbitRadius());
-                    return radiusCompare != 0 ? radiusCompare : Long.compareUnsigned(left.getStableHash(), right.getStableHash());
+                    final int radiusCompare = Double.compare(OrbitGroup.outerRadius(left), OrbitGroup.outerRadius(right));
+                    return radiusCompare != 0 ? radiusCompare : Long.compareUnsigned(stableHash(left.getId()), stableHash(right.getId()));
                 });
-                groups.add(new OrbitGroup(entry.getKey(), List.copyOf(entries)));
+                groups.add(new OrbitGroup(entry.getKey(), entries));
             }
 
             groups.sort((left, right) -> left.getCentralBody().getName().compareToIgnoreCase(right.getCentralBody().getName()));
@@ -391,23 +313,45 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
 
     public static final class OrbitGroup {
         private final AsteroidConfig centralBody;
-        private final List<OrbitEntry> entries;
+        private final AsteroidConfig[] asteroids;
+        private final double[] radii;
         private final double minOrbitRadius;
         private final double maxOrbitRadius;
+        private final double minimumAxisRatio;
+        private final double maxSpriteRadius;
 
-        private OrbitGroup(final AsteroidConfig centralBody, final List<OrbitEntry> entries) {
+        private OrbitGroup(final AsteroidConfig centralBody, final List<AsteroidConfig> entries) {
             this.centralBody = centralBody;
-            this.entries = entries;
-            this.minOrbitRadius = entries.isEmpty() ? 0.0D : entries.getFirst().getOrbitRadius();
-            this.maxOrbitRadius = entries.isEmpty() ? 0.0D : entries.getLast().getOrbitRadius();
+            this.asteroids = entries.toArray(AsteroidConfig[]::new);
+            this.radii = new double[entries.size()];
+            double minRadius = Double.POSITIVE_INFINITY;
+            double ratio = 1.0D;
+            double spriteRadius = 0.0D;
+            for (int i = 0; i < entries.size(); i++) {
+                final AsteroidConfig asteroid = entries.get(i);
+                final double outer = outerRadius(asteroid);
+                final double inner = Math.max(0.0D, asteroid.getOrbitMajorRadius() - asteroid.getOrbitFocusOffset());
+                this.radii[i] = outer;
+                minRadius = Math.min(minRadius, inner);
+                ratio = Math.min(ratio, outer > 0.0D ? inner / outer : 0.0D);
+                spriteRadius = Math.max(spriteRadius, asteroid.getDiameter() * 0.5D);
+            }
+            this.minOrbitRadius = entries.isEmpty() ? 0.0D : minRadius;
+            this.maxOrbitRadius = entries.isEmpty() ? 0.0D : this.radii[this.radii.length - 1];
+            this.minimumAxisRatio = ratio;
+            this.maxSpriteRadius = spriteRadius;
+        }
+
+        private static double outerRadius(final AsteroidConfig asteroid) {
+            return Math.max(0.0D, asteroid.getOrbitMajorRadius() + asteroid.getOrbitFocusOffset());
         }
 
         public AsteroidConfig getCentralBody() {
             return this.centralBody;
         }
 
-        public List<OrbitEntry> getEntries() {
-            return this.entries;
+        public AsteroidConfig getAsteroid(final int index) {
+            return this.asteroids[index];
         }
 
         public double getMinOrbitRadius() {
@@ -418,12 +362,21 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
             return this.maxOrbitRadius;
         }
 
+        public double getMaxSpriteRadius() {
+            return this.maxSpriteRadius;
+        }
+
+        /** Conservative upper bound using periapsis/apoapsis for focus-centered ellipses. */
+        public double outerRadiusForDistance(final double distance) {
+            return this.minimumAxisRatio > 0.0D ? distance / this.minimumAxisRatio : Double.POSITIVE_INFINITY;
+        }
+
         public int lowerBound(final double radius) {
             int low = 0;
-            int high = this.entries.size();
+            int high = this.radii.length;
             while (low < high) {
                 final int middle = (low + high) >>> 1;
-                if (this.entries.get(middle).getOrbitRadius() < radius) {
+                if (this.radii[middle] < radius) {
                     low = middle + 1;
                 } else {
                     high = middle;
@@ -434,40 +387,16 @@ public final class AsteroidReloadListener extends SimpleJsonResourceReloadListen
 
         public int upperBound(final double radius) {
             int low = 0;
-            int high = this.entries.size();
+            int high = this.radii.length;
             while (low < high) {
                 final int middle = (low + high) >>> 1;
-                if (this.entries.get(middle).getOrbitRadius() <= radius) {
+                if (this.radii[middle] <= radius) {
                     low = middle + 1;
                 } else {
                     high = middle;
                 }
             }
             return low;
-        }
-    }
-
-    public static final class OrbitEntry {
-        private final AsteroidConfig asteroid;
-        private final double orbitRadius;
-        private final long stableHash;
-
-        private OrbitEntry(final AsteroidConfig asteroid, final double orbitRadius, final long stableHash) {
-            this.asteroid = asteroid;
-            this.orbitRadius = orbitRadius;
-            this.stableHash = stableHash;
-        }
-
-        public AsteroidConfig getAsteroid() {
-            return this.asteroid;
-        }
-
-        public double getOrbitRadius() {
-            return this.orbitRadius;
-        }
-
-        public long getStableHash() {
-            return this.stableHash;
         }
     }
 }

@@ -17,6 +17,8 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
 import net.neoforged.neoforge.event.OnDatapackSyncEvent;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.neoforged.neoforge.event.server.ServerStoppedEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 
@@ -41,22 +43,30 @@ public final class CommonEvents {
 
     @SubscribeEvent
     public static void onPlayerLoggedOut(final PlayerEvent.PlayerLoggedOutEvent event) {
+        AsteroidDataPayload.cancel(event.getEntity().getUUID());
         CameraHandler.clearScreenShakes();
     }
 
     @SubscribeEvent
     public static void onServerStarting(final AddServerReloadListenersEvent event) {
-        AsteroidReloadListener.INSTANCE.context = event.getConditionContext();
-        event.addListener(AsteroidMining.makeId("asteroids"), AsteroidReloadListener.INSTANCE);
+        AsteroidReloadListener.SERVER_INSTANCE.context = event.getConditionContext();
+        event.addListener(AsteroidMining.makeId("asteroids"), AsteroidReloadListener.SERVER_INSTANCE);
     }
 
     @SubscribeEvent
     public static void onDataSync(final OnDatapackSyncEvent event) {
-        if (event.getPlayer() == null) { //TODO: is this really required?
-            AsteroidDataPayload.sendToAllPlayers(AsteroidReloadListener.INSTANCE.getData());
-        } else {
-            AsteroidDataPayload.sendToPlayer(event.getPlayer(), AsteroidReloadListener.INSTANCE.getData());
-        }
+        event.getRelevantPlayers().forEach(player -> AsteroidDataPayload.sendToPlayer(player, AsteroidReloadListener.SERVER_INSTANCE.getData()));
+    }
+
+    @SubscribeEvent
+    public static void onServerTick(final ServerTickEvent.Post event) {
+        AsteroidDataPayload.tick();
+    }
+
+    @SubscribeEvent
+    public static void onServerStopped(final ServerStoppedEvent event) {
+        AsteroidDataPayload.clearPending();
+        AsteroidReloadListener.SERVER_INSTANCE.clearData();
     }
 
     @SubscribeEvent

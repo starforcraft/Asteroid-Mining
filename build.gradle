@@ -81,8 +81,8 @@ neoForge {
 sourceSets.main.resources {
     srcDir('src/generated/resources')
 
-    exclude("**/*.bbmodel") // BlockBench project files
-    exclude("src/generated/**/.cache")
+    exclude("**/*.bbmodel")
+    exclude("**/.cache/**")
 }
 
 configurations {
@@ -122,9 +122,11 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
 sourceSets.main.resources.srcDir generateModMetadata
 neoForge.ideSyncTask generateModMetadata
 
-tasks.register("generateAsteroids", Exec) {
-    workingDir rootProject.projectDir
-    commandLine "python", "tools/generate_asteroids.py"
+tasks.register("generateAsteroids", JavaExec) {
+    group = "data generation"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "com.ultramega.asteroidmining.datagen.GenerateAsteroids"
+    workingDir = rootProject.projectDir
 }
 
 tasks.withType(JavaCompile).configureEach {

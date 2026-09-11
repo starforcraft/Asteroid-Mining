@@ -54,7 +54,7 @@ public class AsteroidProvider implements DataProvider {
             asteroidData.put(id, AsteroidConfig.fromJson(asteroids.get(id).get().getAsJsonObject()));
         });
 
-        AsteroidReloadListener.INSTANCE.setData(asteroidData);
+        AsteroidReloadListener.SERVER_INSTANCE.setData(asteroidData);
 
         asteroids.forEach((loc, supplier) -> output.add(saveStable(cachedOutput, supplier.get(), path.json(loc))));
         return CompletableFuture.allOf(output.toArray(CompletableFuture[]::new));
