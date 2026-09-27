@@ -11,8 +11,11 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.phys.Vec3;
 
 public class MovingSoundInstance extends AbstractTickableSoundInstance {
+    private static final int FADE_IN_TICKS = 10;
+
     private final RocketEngineBlockEntity blockEntity;
     private Vec3 sourcePos;
+    private int age;
 
     public MovingSoundInstance(final SoundEvent soundEvent,
                                final SoundSource source,
@@ -22,8 +25,10 @@ public class MovingSoundInstance extends AbstractTickableSoundInstance {
                                final Vec3 sourcePos,
                                final long seed) {
         super(soundEvent, source, RandomSource.create(seed));
-        this.volume = volume;
+        this.volume = volume / FADE_IN_TICKS * blockEntity.getSoundVolume();
         this.pitch = pitch;
+        this.looping = true;
+        this.delay = 0;
         this.blockEntity = blockEntity;
         this.sourcePos = sourcePos;
 
@@ -34,6 +39,7 @@ public class MovingSoundInstance extends AbstractTickableSoundInstance {
 
     @Override
     public void tick() {
+        this.age = Math.min(this.age + 1, FADE_IN_TICKS);
         this.x = (float) this.sourcePos.x();
         this.y = (float) this.sourcePos.y();
         this.z = (float) this.sourcePos.z();
@@ -41,7 +47,8 @@ public class MovingSoundInstance extends AbstractTickableSoundInstance {
         if (Minecraft.getInstance().player != null) { //TODO: update calculation to make y less 'important'
             final double distance = Minecraft.getInstance().player.position().distanceTo(this.sourcePos);
             final double maxDistance = 64.0;
-            this.volume = distance > maxDistance ? 0.0f : 4.0f * (float) ((maxDistance - distance) / maxDistance);
+            final float fadeIn = (float) this.age / FADE_IN_TICKS;
+            this.volume = distance > maxDistance ? 0.0f : 4.0f * (float) ((maxDistance - distance) / maxDistance) * fadeIn * this.blockEntity.getSoundVolume();
         }
 
         if (this.blockEntity.isRemoved() || !this.blockEntity.getBlockState().getValue(RocketEngineBlock.RUNNING)) {

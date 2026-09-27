@@ -65,6 +65,9 @@ public final class RocketEngineBlockEntityClient {
         if (shakeUUID != null) {
             CameraHandler.removeScreenShake(shakeUUID);
         }
-        SOUNDS.remove(blockEntity);
+        final MovingSoundInstance sound = SOUNDS.remove(blockEntity);
+        if (sound != null) {
+            Minecraft.getInstance().getSoundManager().stop(sound);
+        }
     }
 }

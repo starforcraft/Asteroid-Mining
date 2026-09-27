@@ -54,6 +54,8 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         SynchedEntityData.defineId(BlockStructureEntity.class, EntityDataSerializers.FLOAT);
     public static final EntityDataAccessor<Float> TARGET_X_ROT =
         SynchedEntityData.defineId(BlockStructureEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> ENGINE_SOUND_VOLUME =
+        SynchedEntityData.defineId(BlockStructureEntity.class, EntityDataSerializers.FLOAT);
 
     private static final String TAG_BLOCK_LIST = "BlockList";
     private static final String TAG_IS_ROCKET = "IsRocket";
@@ -111,6 +113,10 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
             final BlockEntity blockEntity = this.blockEntityCache.get(blockInfo.pos());
             if (blockEntity == null) {
                 continue;
+            }
+
+            if (blockEntity instanceof RocketEngineBlockEntity rocketEngine) {
+                rocketEngine.setSoundVolume(this.getEntityData().get(ENGINE_SOUND_VOLUME));
             }
 
             final BlockEntityTicker<BlockEntity> ticker = blockInfo.state().getTicker(this.level(), (BlockEntityType<BlockEntity>) blockEntity.getType());
@@ -253,6 +259,7 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
         builder.define(PIVOT_POINT, BlockPos.ZERO);
         builder.define(TARGET_X_ROT, 0F);
         builder.define(TARGET_Y_ROT, 0F);
+        builder.define(ENGINE_SOUND_VOLUME, 1.0F);
     }
 
     @Override
@@ -389,6 +396,10 @@ public class BlockStructureEntity extends Entity implements IEntityWithComplexSp
 
     public boolean isRocket() {
         return this.getEntityData().get(IS_ROCKET);
+    }
+
+    public void setEngineSoundVolume(final float volume) {
+        this.getEntityData().set(ENGINE_SOUND_VOLUME, Mth.clamp(volume, 0.0F, 1.0F));
     }
 
     public void setPivotPoint(final BlockPos pivotPoint) {

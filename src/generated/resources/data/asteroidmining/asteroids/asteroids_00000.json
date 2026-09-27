@@ -1623,7 +1623,7 @@
     {
       "id": "asteroidmining:37739_1996_vc15",
       "name": "37739 (1996 VC15)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -2213,7 +2213,7 @@
     {
       "id": "asteroidmining:37196_2000_wr76",
       "name": "37196 (2000 WR76)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -3355,7 +3355,7 @@
     {
       "id": "asteroidmining:2020_pz76",
       "name": "(2020 PZ76)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -5473,7 +5473,7 @@
     {
       "id": "asteroidmining:38101_1999_je15",
       "name": "38101 (1999 JE15)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -5571,7 +5571,7 @@
     {
       "id": "asteroidmining:2021_uk24",
       "name": "(2021 UK24)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -5931,7 +5931,7 @@
     {
       "id": "asteroidmining:37251_2000_wx184",
       "name": "37251 (2000 WX184)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -7183,7 +7183,7 @@
     {
       "id": "asteroidmining:2015_op109",
       "name": "(2015 OP109)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -7359,7 +7359,7 @@
     {
       "id": "asteroidmining:2025_uq2",
       "name": "(2025 UQ2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -7581,7 +7581,7 @@
     {
       "id": "asteroidmining:2020_uc64",
       "name": "(2020 UC64)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -8867,7 +8867,7 @@
     {
       "id": "asteroidmining:2025_oe13",
       "name": "(2025 OE13)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -9161,7 +9161,7 @@
     {
       "id": "asteroidmining:2025_sx90",
       "name": "(2025 SX90)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -9477,7 +9477,7 @@
     {
       "id": "asteroidmining:2025_sn1",
       "name": "(2025 SN1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -9575,7 +9575,7 @@
     {
       "id": "asteroidmining:2016_ch328",
       "name": "(2016 CH328)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -9850,7 +9850,7 @@
     {
       "id": "asteroidmining:2020_rx133",
       "name": "(2020 RX133)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -10360,7 +10360,7 @@
     {
       "id": "asteroidmining:2015_lv47",
       "name": "(2015 LV47)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -11712,7 +11712,7 @@
     {
       "id": "asteroidmining:2025_qv9",
       "name": "(2025 QV9)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -12071,7 +12071,7 @@
     {
       "id": "asteroidmining:38114_1999_jo34",
       "name": "38114 (1999 JO34)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -13002,7 +13002,7 @@
     {
       "id": "asteroidmining:2025_yk",
       "name": "(2025 YK)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -13664,7 +13664,7 @@
     {
       "id": "asteroidmining:2025_qq7",
       "name": "(2025 QQ7)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -13873,7 +13873,7 @@
     {
       "id": "asteroidmining:37843_1998_da6",
       "name": "37843 (1998 DA6)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -14037,7 +14037,7 @@
     {
       "id": "asteroidmining:38561_1999_va133",
       "name": "38561 (1999 VA133)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -14824,7 +14824,7 @@
     {
       "id": "asteroidmining:2019_ss282",
       "name": "(2019 SS282)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -15020,7 +15020,7 @@
     {
       "id": "asteroidmining:38686_2000_qe10",
       "name": "38686 (2000 QE10)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -15131,7 +15131,7 @@
     {
       "id": "asteroidmining:2021_rt162",
       "name": "(2021 RT162)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -16076,7 +16076,7 @@
     {
       "id": "asteroidmining:2025_tj1",
       "name": "(2025 TJ1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -16390,7 +16390,7 @@
     {
       "id": "asteroidmining:2016_uq153",
       "name": "(2016 UQ153)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -19087,7 +19087,7 @@
     {
       "id": "asteroidmining:2014_hk98",
       "name": "(2014 HK98)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -19717,7 +19717,7 @@
     {
       "id": "asteroidmining:2014_qq578",
       "name": "(2014 QQ578)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -20018,7 +20018,7 @@
     {
       "id": "asteroidmining:2016_tw110",
       "name": "(2016 TW110)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -20689,7 +20689,7 @@
     {
       "id": "asteroidmining:2019_tg109",
       "name": "(2019 TG109)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -20925,7 +20925,7 @@
     {
       "id": "asteroidmining:2025_vw25",
       "name": "(2025 VW25)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -21411,7 +21411,7 @@
     {
       "id": "asteroidmining:37114_2000_uo104",
       "name": "37114 (2000 UO104)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -21700,7 +21700,7 @@
     {
       "id": "asteroidmining:2015_hp233",
       "name": "(2015 HP233)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -22027,7 +22027,7 @@
     {
       "id": "asteroidmining:2016_pc143",
       "name": "(2016 PC143)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -22282,7 +22282,7 @@
     {
       "id": "asteroidmining:2025_wl5",
       "name": "(2025 WL5)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -22956,7 +22956,7 @@
     {
       "id": "asteroidmining:38655_2000_ox38",
       "name": "38655 (2000 OX38)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -23047,7 +23047,7 @@
     {
       "id": "asteroidmining:2025_op9",
       "name": "(2025 OP9)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -23951,7 +23951,7 @@
     {
       "id": "asteroidmining:2024_cr29",
       "name": "(2024 CR29)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -24672,7 +24672,7 @@
     {
       "id": "asteroidmining:2026_ad5",
       "name": "(2026 AD5)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -26276,7 +26276,7 @@
     {
       "id": "asteroidmining:2025_qr4",
       "name": "(2025 QR4)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -27902,7 +27902,7 @@
     {
       "id": "asteroidmining:37027_2000_uo6",
       "name": "37027 (2000 UO6)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -29488,7 +29488,7 @@
     {
       "id": "asteroidmining:38514_1999_tf238",
       "name": "38514 (1999 TF238)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 2,
       "composition": [
         {
@@ -29697,7 +29697,7 @@
     {
       "id": "asteroidmining:2025_wd4",
       "name": "(2025 WD4)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -30117,7 +30117,7 @@
     {
       "id": "asteroidmining:2025_wa20",
       "name": "(2025 WA20)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -30543,7 +30543,7 @@
     {
       "id": "asteroidmining:38087_1999_jn",
       "name": "38087 (1999 JN)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -30752,7 +30752,7 @@
     {
       "id": "asteroidmining:2017_sv404",
       "name": "(2017 SV404)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -32407,7 +32407,7 @@
     {
       "id": "asteroidmining:2016_no100",
       "name": "(2016 NO100)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -33260,7 +33260,7 @@
     {
       "id": "asteroidmining:2021_vh58",
       "name": "(2021 VH58)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -34382,7 +34382,7 @@
     {
       "id": "asteroidmining:2026_ae1",
       "name": "(2026 AE1)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -35188,7 +35188,7 @@
     {
       "id": "asteroidmining:36948_2000_so259",
       "name": "36948 (2000 SO259)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -36480,7 +36480,7 @@
     {
       "id": "asteroidmining:2022_ck18",
       "name": "(2022 CK18)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -38363,7 +38363,7 @@
     {
       "id": "asteroidmining:2014_hs249",
       "name": "(2014 HS249)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -39071,7 +39071,7 @@
     {
       "id": "asteroidmining:2015_bw622",
       "name": "(2015 BW622)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -39175,7 +39175,7 @@
     {
       "id": "asteroidmining:2025_uz119",
       "name": "(2025 UZ119)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -39621,7 +39621,7 @@
     {
       "id": "asteroidmining:38438_1999_rc249",
       "name": "38438 (1999 RC249)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -39817,7 +39817,7 @@
     {
       "id": "asteroidmining:38429_1999_rx231",
       "name": "38429 (1999 RX231)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -40204,7 +40204,7 @@
     {
       "id": "asteroidmining:2025_ty2",
       "name": "(2025 TY2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -40629,7 +40629,7 @@
     {
       "id": "asteroidmining:2016_fd111",
       "name": "(2016 FD111)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -41075,7 +41075,7 @@
     {
       "id": "asteroidmining:2016_qg98",
       "name": "(2016 QG98)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -41653,7 +41653,7 @@
     {
       "id": "asteroidmining:2017_ck37",
       "name": "(2017 CK37)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -42702,7 +42702,7 @@
     {
       "id": "asteroidmining:2022_gm13",
       "name": "(2022 GM13)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -43567,7 +43567,7 @@
     {
       "id": "asteroidmining:2022_an24",
       "name": "(2022 AN24)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -43829,7 +43829,7 @@
     {
       "id": "asteroidmining:2015_rn285",
       "name": "(2015 RN285)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -45282,7 +45282,7 @@
     {
       "id": "asteroidmining:2025_pz1",
       "name": "(2025 PZ1)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -45386,7 +45386,7 @@
     {
       "id": "asteroidmining:2015_te392",
       "name": "(2015 TE392)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -47174,7 +47174,7 @@
     {
       "id": "asteroidmining:2021_tt121",
       "name": "(2021 TT121)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -48092,7 +48092,7 @@
     {
       "id": "asteroidmining:2014_ev85",
       "name": "(2014 EV85)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -48432,7 +48432,7 @@
     {
       "id": "asteroidmining:2015_qk20",
       "name": "(2015 QK20)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -49253,7 +49253,7 @@
     {
       "id": "asteroidmining:37321_2001_qx69",
       "name": "37321 (2001 QX69)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -50059,7 +50059,7 @@
     {
       "id": "asteroidmining:2014_jw138",
       "name": "(2014 JW138)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -50550,7 +50550,7 @@
     {
       "id": "asteroidmining:37571_1989_ue1",
       "name": "37571 (1989 UE1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -50654,7 +50654,7 @@
     {
       "id": "asteroidmining:2015_tz391",
       "name": "(2015 TZ391)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -50988,7 +50988,7 @@
     {
       "id": "asteroidmining:2020_ow104",
       "name": "(2020 OW104)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -52621,7 +52621,7 @@
     {
       "id": "asteroidmining:2025_sb29",
       "name": "(2025 SB29)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -52725,7 +52725,7 @@
     {
       "id": "asteroidmining:2020_ro127",
       "name": "(2020 RO127)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -53184,7 +53184,7 @@
     {
       "id": "asteroidmining:2021_vx61",
       "name": "(2021 VX61)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -53886,7 +53886,7 @@
     {
       "id": "asteroidmining:2016_pu140",
       "name": "(2016 PU140)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -54279,7 +54279,7 @@
     {
       "id": "asteroidmining:2025_tm2",
       "name": "(2025 TM2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -55190,7 +55190,7 @@
     {
       "id": "asteroidmining:2025_rz",
       "name": "(2025 RZ)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -55379,7 +55379,7 @@
     {
       "id": "asteroidmining:2014_ap77",
       "name": "(2014 AP77)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -55909,7 +55909,7 @@
     {
       "id": "asteroidmining:2025_ys9",
       "name": "(2025 YS9)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -56250,7 +56250,7 @@
     {
       "id": "asteroidmining:2025_qd8",
       "name": "(2025 QD8)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -56558,7 +56558,7 @@
     {
       "id": "asteroidmining:2021_pr151",
       "name": "(2021 PR151)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -58047,7 +58047,7 @@
     {
       "id": "asteroidmining:2011_yp61",
       "name": "(2011 YP61)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -58413,7 +58413,7 @@
     {
       "id": "asteroidmining:2015_rv284",
       "name": "(2015 RV284)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -58669,7 +58669,7 @@
     {
       "id": "asteroidmining:2017_bb145",
       "name": "(2017 BB145)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -60691,7 +60691,7 @@
     {
       "id": "asteroidmining:2021_sn58",
       "name": "(2021 SN58)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -60978,7 +60978,7 @@
     {
       "id": "asteroidmining:2025_qk7",
       "name": "(2025 QK7)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -62849,7 +62849,7 @@
     {
       "id": "asteroidmining:2025_ve5",
       "name": "(2025 VE5)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -64491,7 +64491,7 @@
     {
       "id": "asteroidmining:2016_ts104",
       "name": "(2016 TS104)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -65436,7 +65436,7 @@
     {
       "id": "asteroidmining:38515_1999_tp245",
       "name": "38515 (1999 TP245)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 2,
       "composition": [
         {
@@ -66210,7 +66210,7 @@
     {
       "id": "asteroidmining:2025_yg",
       "name": "(2025 YG)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -66904,7 +66904,7 @@
     {
       "id": "asteroidmining:2015_kw275",
       "name": "(2015 KW275)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -67533,7 +67533,7 @@
     {
       "id": "asteroidmining:37218_kimyoonyoung_2000_we137",
       "name": "37218 Kimyoonyoung (2000 WE137)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -67624,7 +67624,7 @@
     {
       "id": "asteroidmining:2020_rn119",
       "name": "(2020 RN119)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -68095,7 +68095,7 @@
     {
       "id": "asteroidmining:2021_lz55",
       "name": "(2021 LZ55)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -68186,7 +68186,7 @@
     {
       "id": "asteroidmining:2014_hg248",
       "name": "(2014 HG248)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -68751,7 +68751,7 @@
     {
       "id": "asteroidmining:2016_qk98",
       "name": "(2016 QK98)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -69374,7 +69374,7 @@
     {
       "id": "asteroidmining:2015_xe426",
       "name": "(2015 XE426)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -70056,7 +70056,7 @@
     {
       "id": "asteroidmining:37082_2000_uh60",
       "name": "37082 (2000 UH60)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -70567,7 +70567,7 @@
     {
       "id": "asteroidmining:37390_2001_wl49",
       "name": "37390 (2001 WL49)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 2,
       "composition": [
         {
@@ -71984,7 +71984,7 @@
     {
       "id": "asteroidmining:2010_ah145",
       "name": "(2010 AH145)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -74076,7 +74076,7 @@
     {
       "id": "asteroidmining:38646_2000_ox4",
       "name": "38646 (2000 OX4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -74253,7 +74253,7 @@
     {
       "id": "asteroidmining:2025_qn12",
       "name": "(2025 QN12)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -74344,7 +74344,7 @@
     {
       "id": "asteroidmining:2025_vg5",
       "name": "(2025 VG5)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -76167,7 +76167,7 @@
     {
       "id": "asteroidmining:2017_bj78",
       "name": "(2017 BJ78)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -76258,7 +76258,7 @@
     {
       "id": "asteroidmining:2025_ur2",
       "name": "(2025 UR2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -76362,7 +76362,7 @@
     {
       "id": "asteroidmining:38256_1999_rh12",
       "name": "38256 (1999 RH12)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -76905,7 +76905,7 @@
     {
       "id": "asteroidmining:2016_tv193",
       "name": "(2016 TV193)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -77547,7 +77547,7 @@
     {
       "id": "asteroidmining:38251_1999_ry",
       "name": "38251 (1999 RY)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -77638,7 +77638,7 @@
     {
       "id": "asteroidmining:2016_lx51",
       "name": "(2016 LX51)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -78653,7 +78653,7 @@
     {
       "id": "asteroidmining:38612_2000_aa79",
       "name": "38612 (2000 AA79)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -80857,7 +80857,7 @@
     {
       "id": "asteroidmining:2020_hy140",
       "name": "(2020 HY140)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -82385,7 +82385,7 @@
     {
       "id": "asteroidmining:2019_gj136",
       "name": "(2019 GJ136)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -82489,7 +82489,7 @@
     {
       "id": "asteroidmining:38497_1999_tk130",
       "name": "38497 (1999 TK130)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -82770,7 +82770,7 @@
     {
       "id": "asteroidmining:2026_at2",
       "name": "(2026 AT2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -84782,7 +84782,7 @@
     {
       "id": "asteroidmining:2016_vf23",
       "name": "(2016 VF23)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -84971,7 +84971,7 @@
     {
       "id": "asteroidmining:2016_pp141",
       "name": "(2016 PP141)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -85803,7 +85803,7 @@
     {
       "id": "asteroidmining:37515_2008_t-3",
       "name": "37515 (2008 T-3)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -86433,7 +86433,7 @@
     {
       "id": "asteroidmining:2016_ed334",
       "name": "(2016 ED334)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -86524,7 +86524,7 @@
     {
       "id": "asteroidmining:2014_ql571",
       "name": "(2014 QL571)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -86615,7 +86615,7 @@
     {
       "id": "asteroidmining:2020_rw129",
       "name": "(2020 RW129)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -88353,7 +88353,7 @@
     {
       "id": "asteroidmining:2025_qb16",
       "name": "(2025 QB16)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -88608,7 +88608,7 @@
     {
       "id": "asteroidmining:2020_ua56",
       "name": "(2020 UA56)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -88817,7 +88817,7 @@
     {
       "id": "asteroidmining:2015_ke269",
       "name": "(2015 KE269)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -89597,7 +89597,7 @@
     {
       "id": "asteroidmining:2020_pl78",
       "name": "(2020 PL78)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -90121,7 +90121,7 @@
     {
       "id": "asteroidmining:2016_cl59",
       "name": "(2016 CL59)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -91425,7 +91425,7 @@
     {
       "id": "asteroidmining:2014_wv109",
       "name": "(2014 WV109)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -92080,7 +92080,7 @@
     {
       "id": "asteroidmining:2018_pk71",
       "name": "(2018 PK71)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -92171,7 +92171,7 @@
     {
       "id": "asteroidmining:2013_ez141",
       "name": "(2013 EZ141)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -92387,7 +92387,7 @@
     {
       "id": "asteroidmining:2015_te391",
       "name": "(2015 TE391)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -92754,7 +92754,7 @@
     {
       "id": "asteroidmining:2016_sc66",
       "name": "(2016 SC66)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -92858,7 +92858,7 @@
     {
       "id": "asteroidmining:2020_uv54",
       "name": "(2020 UV54)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -93029,7 +93029,7 @@
     {
       "id": "asteroidmining:2017_sg312",
       "name": "(2017 SG312)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -93402,7 +93402,7 @@
     {
       "id": "asteroidmining:2016_pb135",
       "name": "(2016 PB135)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -93493,7 +93493,7 @@
     {
       "id": "asteroidmining:2016_bb107",
       "name": "(2016 BB107)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -94366,7 +94366,7 @@
     {
       "id": "asteroidmining:2015_xy424",
       "name": "(2015 XY424)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -94963,7 +94963,7 @@
     {
       "id": "asteroidmining:2016_ah285",
       "name": "(2016 AH285)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -95231,7 +95231,7 @@
     {
       "id": "asteroidmining:37870_1998_fj23",
       "name": "37870 (1998 FJ23)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -95656,7 +95656,7 @@
     {
       "id": "asteroidmining:2025_ud5",
       "name": "(2025 UD5)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -95865,7 +95865,7 @@
     {
       "id": "asteroidmining:2016_ca400",
       "name": "(2016 CA400)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -97401,7 +97401,7 @@
     {
       "id": "asteroidmining:2025_ye4",
       "name": "(2025 YE4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -98154,7 +98154,7 @@
     {
       "id": "asteroidmining:2020_sk128",
       "name": "(2020 SK128)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -98350,7 +98350,7 @@
     {
       "id": "asteroidmining:2016_ua284",
       "name": "(2016 UA284)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -99057,7 +99057,7 @@
     {
       "id": "asteroidmining:2016_un151",
       "name": "(2016 UN151)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -99680,7 +99680,7 @@
     {
       "id": "asteroidmining:2016_yx14",
       "name": "(2016 YX14)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -102062,7 +102062,7 @@
     {
       "id": "asteroidmining:2015_st52",
       "name": "(2015 ST52)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -102593,7 +102593,7 @@
     {
       "id": "asteroidmining:2022_ac45",
       "name": "(2022 AC45)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -102802,7 +102802,7 @@
     {
       "id": "asteroidmining:37141_povolny_2000_vz38",
       "name": "37141 Povolny (2000 VZ38)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -103700,7 +103700,7 @@
     {
       "id": "asteroidmining:2015_rg363",
       "name": "(2015 RG363)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -104384,7 +104384,7 @@
     {
       "id": "asteroidmining:37285_2000_yj78",
       "name": "37285 (2000 YJ78)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -104593,7 +104593,7 @@
     {
       "id": "asteroidmining:2016_ak282",
       "name": "(2016 AK282)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -105699,7 +105699,7 @@
     {
       "id": "asteroidmining:2015_sh54",
       "name": "(2015 SH54)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -106668,7 +106668,7 @@
     {
       "id": "asteroidmining:2025_py1",
       "name": "(2025 PY1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -107424,7 +107424,7 @@
     {
       "id": "asteroidmining:2009_vq33",
       "name": "(2009 VQ33)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -110285,7 +110285,7 @@
     {
       "id": "asteroidmining:37929_1998_fy122",
       "name": "37929 (1998 FY122)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -110876,7 +110876,7 @@
     {
       "id": "asteroidmining:2025_tb12",
       "name": "(2025 TB12)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -111678,7 +111678,7 @@
     {
       "id": "asteroidmining:2016_pw142",
       "name": "(2016 PW142)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -112519,7 +112519,7 @@
     {
       "id": "asteroidmining:2015_mt153",
       "name": "(2015 MT153)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -112972,7 +112972,7 @@
     {
       "id": "asteroidmining:2025_qj3",
       "name": "(2025 QJ3)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -113076,7 +113076,7 @@
     {
       "id": "asteroidmining:2025_xm3",
       "name": "(2025 XM3)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -114626,7 +114626,7 @@
     {
       "id": "asteroidmining:2025_pu1",
       "name": "(2025 PU1)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -114960,7 +114960,7 @@
     {
       "id": "asteroidmining:2025_wx4",
       "name": "(2025 WX4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -115162,7 +115162,7 @@
     {
       "id": "asteroidmining:2025_sn29",
       "name": "(2025 SN29)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -115542,7 +115542,7 @@
     {
       "id": "asteroidmining:2016_ba107",
       "name": "(2016 BA107)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -115633,7 +115633,7 @@
     {
       "id": "asteroidmining:2022_lz21",
       "name": "(2022 LZ21)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -116165,7 +116165,7 @@
     {
       "id": "asteroidmining:2025_vk1",
       "name": "(2025 VK1)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -117424,7 +117424,7 @@
     {
       "id": "asteroidmining:2025_sp1",
       "name": "(2025 SP1)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -118258,7 +118258,7 @@
     {
       "id": "asteroidmining:2016_us152",
       "name": "(2016 US152)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -118947,7 +118947,7 @@
     {
       "id": "asteroidmining:2025_wf10",
       "name": "(2025 WF10)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -119405,7 +119405,7 @@
     {
       "id": "asteroidmining:2014_hj97",
       "name": "(2014 HJ97)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -119995,7 +119995,7 @@
     {
       "id": "asteroidmining:2014_yv96",
       "name": "(2014 YV96)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -120159,7 +120159,7 @@
     {
       "id": "asteroidmining:2016_pu246",
       "name": "(2016 PU246)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -120250,7 +120250,7 @@
     {
       "id": "asteroidmining:2016_tq112",
       "name": "(2016 TQ112)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -121823,7 +121823,7 @@
     {
       "id": "asteroidmining:2016_rx52",
       "name": "(2016 RX52)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -122210,7 +122210,7 @@
     {
       "id": "asteroidmining:2025_sn15",
       "name": "(2025 SN15)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -122998,7 +122998,7 @@
     {
       "id": "asteroidmining:2025_yy10",
       "name": "(2025 YY10)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -123370,7 +123370,7 @@
     {
       "id": "asteroidmining:2016_ln72",
       "name": "(2016 LN72)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -124393,7 +124393,7 @@
     {
       "id": "asteroidmining:37779_1997_he10",
       "name": "37779 (1997 HE10)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -125949,7 +125949,7 @@
     {
       "id": "asteroidmining:2025_to",
       "name": "(2025 TO)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -126151,7 +126151,7 @@
     {
       "id": "asteroidmining:2024_cv29",
       "name": "(2024 CV29)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -129079,7 +129079,7 @@
     {
       "id": "asteroidmining:2022_gg10",
       "name": "(2022 GG10)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -129445,7 +129445,7 @@
     {
       "id": "asteroidmining:38528_1999_ul4",
       "name": "38528 (1999 UL4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 2,
       "composition": [
         {
@@ -130127,7 +130127,7 @@
     {
       "id": "asteroidmining:2015_kr218",
       "name": "(2015 KR218)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -131254,7 +131254,7 @@
     {
       "id": "asteroidmining:38393_1999_rd191",
       "name": "38393 (1999 RD191)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -131745,7 +131745,7 @@
     {
       "id": "asteroidmining:37825_1998_bm17",
       "name": "37825 (1998 BM17)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -133123,7 +133123,7 @@
     {
       "id": "asteroidmining:2017_xz29",
       "name": "(2017 XZ29)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -133214,7 +133214,7 @@
     {
       "id": "asteroidmining:2017_an26",
       "name": "(2017 AN26)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -134138,7 +134138,7 @@
     {
       "id": "asteroidmining:37358_2001_um10",
       "name": "37358 (2001 UM10)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -134965,7 +134965,7 @@
     {
       "id": "asteroidmining:2025_tx13",
       "name": "(2025 TX13)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -135208,7 +135208,7 @@
     {
       "id": "asteroidmining:37066_2000_uj49",
       "name": "37066 (2000 UJ49)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -135699,7 +135699,7 @@
     {
       "id": "asteroidmining:2025_oz4",
       "name": "(2025 OZ4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -135790,7 +135790,7 @@
     {
       "id": "asteroidmining:2025_rl3",
       "name": "(2025 RL3)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -136025,7 +136025,7 @@
     {
       "id": "asteroidmining:2025_vp14",
       "name": "(2025 VP14)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -136300,7 +136300,7 @@
     {
       "id": "asteroidmining:2025_re8",
       "name": "(2025 RE8)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -136674,7 +136674,7 @@
     {
       "id": "asteroidmining:2025_ov2",
       "name": "(2025 OV2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -136911,7 +136911,7 @@
     {
       "id": "asteroidmining:2016_tf109",
       "name": "(2016 TF109)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -137002,7 +137002,7 @@
     {
       "id": "asteroidmining:2015_wm23",
       "name": "(2015 WM23)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -138287,7 +138287,7 @@
     {
       "id": "asteroidmining:2025_oa4",
       "name": "(2025 OA4)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -138378,7 +138378,7 @@
     {
       "id": "asteroidmining:2025_rb7",
       "name": "(2025 RB7)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -138574,7 +138574,7 @@
     {
       "id": "asteroidmining:2025_pg2",
       "name": "(2025 PG2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -139570,7 +139570,7 @@
     {
       "id": "asteroidmining:2021_vz68",
       "name": "(2021 VZ68)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -140946,7 +140946,7 @@
     {
       "id": "asteroidmining:2020_kc46",
       "name": "(2020 KC46)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -141556,7 +141556,7 @@
     {
       "id": "asteroidmining:37153_2000_vk57",
       "name": "37153 (2000 VK57)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -142915,7 +142915,7 @@
     {
       "id": "asteroidmining:2015_tq456",
       "name": "(2015 TQ456)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -143190,7 +143190,7 @@
     {
       "id": "asteroidmining:37669_haragentaro_1994_th1",
       "name": "37669 Haragentaro (1994 TH1)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 2,
       "composition": [
         {
@@ -143544,7 +143544,7 @@
     {
       "id": "asteroidmining:2010_xd120",
       "name": "(2010 XD120)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -143648,7 +143648,7 @@
     {
       "id": "asteroidmining:2016_wm58",
       "name": "(2016 WM58)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -143983,7 +143983,7 @@
     {
       "id": "asteroidmining:38103_1999_jm19",
       "name": "38103 (1999 JM19)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -145707,7 +145707,7 @@
     {
       "id": "asteroidmining:2015_hh498",
       "name": "(2015 HH498)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -146152,7 +146152,7 @@
     {
       "id": "asteroidmining:2016_yu35",
       "name": "(2016 YU35)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -146361,7 +146361,7 @@
     {
       "id": "asteroidmining:2025_vj5",
       "name": "(2025 VJ5)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -147031,7 +147031,7 @@
     {
       "id": "asteroidmining:37011_2000_tz48",
       "name": "37011 (2000 TZ48)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -148391,7 +148391,7 @@
     {
       "id": "asteroidmining:2025_qm10",
       "name": "(2025 QM10)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -149125,7 +149125,7 @@
     {
       "id": "asteroidmining:2016_nu95",
       "name": "(2016 NU95)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -149216,7 +149216,7 @@
     {
       "id": "asteroidmining:2015_ua92",
       "name": "(2015 UA92)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -150578,7 +150578,7 @@
     {
       "id": "asteroidmining:37223_devillepoix_2000_wd142",
       "name": "37223 Devillepoix (2000 WD142)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -151147,7 +151147,7 @@
     {
       "id": "asteroidmining:37686_1995_or3",
       "name": "37686 (1995 OR3)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -151390,7 +151390,7 @@
     {
       "id": "asteroidmining:2021_pv131",
       "name": "(2021 PV131)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -152833,7 +152833,7 @@
     {
       "id": "asteroidmining:2020_sb92",
       "name": "(2020 SB92)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -153279,7 +153279,7 @@
     {
       "id": "asteroidmining:2016_pu141",
       "name": "(2016 PU141)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -154412,7 +154412,7 @@
     {
       "id": "asteroidmining:2010_cv97",
       "name": "(2010 CV97)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -154516,7 +154516,7 @@
     {
       "id": "asteroidmining:2015_hr252",
       "name": "(2015 HR252)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -154712,7 +154712,7 @@
     {
       "id": "asteroidmining:37652_1994_js1",
       "name": "37652 (1994 JS1)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -155185,7 +155185,7 @@
     {
       "id": "asteroidmining:2017_qn149",
       "name": "(2017 QN149)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -155559,7 +155559,7 @@
     {
       "id": "asteroidmining:2008_th233",
       "name": "(2008 TH233)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -156155,7 +156155,7 @@
     {
       "id": "asteroidmining:2020_rw187",
       "name": "(2020 RW187)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -156968,7 +156968,7 @@
     {
       "id": "asteroidmining:37854_1998_ey11",
       "name": "37854 (1998 EY11)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -157755,7 +157755,7 @@
     {
       "id": "asteroidmining:2022_nd18",
       "name": "(2022 ND18)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -158743,7 +158743,7 @@
     {
       "id": "asteroidmining:2025_qf4",
       "name": "(2025 QF4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -159562,7 +159562,7 @@
     {
       "id": "asteroidmining:2025_sn20",
       "name": "(2025 SN20)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -160165,7 +160165,7 @@
     {
       "id": "asteroidmining:2025_sw21",
       "name": "(2025 SW21)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -160676,7 +160676,7 @@
     {
       "id": "asteroidmining:2016_ey331",
       "name": "(2016 EY331)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -161818,7 +161818,7 @@
     {
       "id": "asteroidmining:2014_hs557",
       "name": "(2014 HS557)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -161995,7 +161995,7 @@
     {
       "id": "asteroidmining:2015_hk202",
       "name": "(2015 HK202)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -162322,7 +162322,7 @@
     {
       "id": "asteroidmining:2021_uq41",
       "name": "(2021 UQ41)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -163621,7 +163621,7 @@
     {
       "id": "asteroidmining:2020_po79",
       "name": "(2020 PO79)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -164505,7 +164505,7 @@
     {
       "id": "asteroidmining:38009_1998_kv50",
       "name": "38009 (1998 KV50)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -164609,7 +164609,7 @@
     {
       "id": "asteroidmining:2021_tl97",
       "name": "(2021 TL97)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -164871,7 +164871,7 @@
     {
       "id": "asteroidmining:2015_hk510",
       "name": "(2015 HK510)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -166176,7 +166176,7 @@
     {
       "id": "asteroidmining:2016_cp326",
       "name": "(2016 CP326)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -166267,7 +166267,7 @@
     {
       "id": "asteroidmining:2015_mn154",
       "name": "(2015 MN154)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -167292,7 +167292,7 @@
     {
       "id": "asteroidmining:2016_rw55",
       "name": "(2016 RW55)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -168998,7 +168998,7 @@
     {
       "id": "asteroidmining:2025_ag20",
       "name": "(2025 AG20)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -169917,7 +169917,7 @@
     {
       "id": "asteroidmining:2025_ow3",
       "name": "(2025 OW3)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -170008,7 +170008,7 @@
     {
       "id": "asteroidmining:38297_1999_re87",
       "name": "38297 (1999 RE87)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -170204,7 +170204,7 @@
     {
       "id": "asteroidmining:37394_2001_xk24",
       "name": "37394 (2001 XK24)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -170924,7 +170924,7 @@
     {
       "id": "asteroidmining:2025_qq33",
       "name": "(2025 QQ33)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -171849,7 +171849,7 @@
     {
       "id": "asteroidmining:2021_ux40",
       "name": "(2021 UX40)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -174053,7 +174053,7 @@
     {
       "id": "asteroidmining:2014_bh2",
       "name": "(2014 BH2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -174262,7 +174262,7 @@
     {
       "id": "asteroidmining:2015_ov109",
       "name": "(2015 OV109)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -176243,7 +176243,7 @@
     {
       "id": "asteroidmining:2016_gu272",
       "name": "(2016 GU272)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -176623,7 +176623,7 @@
     {
       "id": "asteroidmining:2021_tx94",
       "name": "(2021 TX94)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -176714,7 +176714,7 @@
     {
       "id": "asteroidmining:2025_wr11",
       "name": "(2025 WR11)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -177134,7 +177134,7 @@
     {
       "id": "asteroidmining:2025_ue8",
       "name": "(2025 UE8)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -178450,7 +178450,7 @@
     {
       "id": "asteroidmining:2015_ru285",
       "name": "(2015 RU285)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -179258,7 +179258,7 @@
     {
       "id": "asteroidmining:38681_2000_qk6",
       "name": "38681 (2000 QK6)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -179349,7 +179349,7 @@
     {
       "id": "asteroidmining:2016_vm58",
       "name": "(2016 VM58)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -179440,7 +179440,7 @@
     {
       "id": "asteroidmining:2020_pw75",
       "name": "(2020 PW75)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -179938,7 +179938,7 @@
     {
       "id": "asteroidmining:2015_rq124",
       "name": "(2015 RQ124)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -180790,7 +180790,7 @@
     {
       "id": "asteroidmining:2025_qs4",
       "name": "(2025 QS4)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -181359,7 +181359,7 @@
     {
       "id": "asteroidmining:38520_1999_tz255",
       "name": "38520 (1999 TZ255)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -183517,7 +183517,7 @@
     {
       "id": "asteroidmining:2016_py134",
       "name": "(2016 PY134)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -183674,7 +183674,7 @@
     {
       "id": "asteroidmining:2017_ay26",
       "name": "(2017 AY26)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -184639,7 +184639,7 @@
     {
       "id": "asteroidmining:37388_2001_wj36",
       "name": "37388 (2001 WJ36)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -184743,7 +184743,7 @@
     {
       "id": "asteroidmining:2025_yx",
       "name": "(2025 YX)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -184854,7 +184854,7 @@
     {
       "id": "asteroidmining:2016_pt133",
       "name": "(2016 PT133)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -185733,7 +185733,7 @@
     {
       "id": "asteroidmining:2025_rg5",
       "name": "(2025 RG5)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -185837,7 +185837,7 @@
     {
       "id": "asteroidmining:2015_xo425",
       "name": "(2015 XO425)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -186026,7 +186026,7 @@
     {
       "id": "asteroidmining:2008_ua308",
       "name": "(2008 UA308)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -187502,7 +187502,7 @@
     {
       "id": "asteroidmining:2016_gt272",
       "name": "(2016 GT272)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -188511,7 +188511,7 @@
     {
       "id": "asteroidmining:2025_yh10",
       "name": "(2025 YH10)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -188813,7 +188813,7 @@
     {
       "id": "asteroidmining:2025_tv2",
       "name": "(2025 TV2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -189192,7 +189192,7 @@
     {
       "id": "asteroidmining:2025_ww3",
       "name": "(2025 WW3)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -190006,7 +190006,7 @@
     {
       "id": "asteroidmining:2010_no121",
       "name": "(2010 NO121)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -190097,7 +190097,7 @@
     {
       "id": "asteroidmining:2016_uo153",
       "name": "(2016 UO153)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -190791,7 +190791,7 @@
     {
       "id": "asteroidmining:2014_hx101",
       "name": "(2014 HX101)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -191591,7 +191591,7 @@
     {
       "id": "asteroidmining:2022_qj294",
       "name": "(2022 QJ294)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -191800,7 +191800,7 @@
     {
       "id": "asteroidmining:2025_yp1",
       "name": "(2025 YP1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -192056,7 +192056,7 @@
     {
       "id": "asteroidmining:2025_wj10",
       "name": "(2025 WJ10)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -192160,7 +192160,7 @@
     {
       "id": "asteroidmining:2019_qn81",
       "name": "(2019 QN81)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -196678,7 +196678,7 @@
     {
       "id": "asteroidmining:2016_cr328",
       "name": "(2016 CR328)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -197273,7 +197273,7 @@
     {
       "id": "asteroidmining:2025_pp",
       "name": "(2025 PP)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -197555,7 +197555,7 @@
     {
       "id": "asteroidmining:2015_sn32",
       "name": "(2015 SN32)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -199228,7 +199228,7 @@
     {
       "id": "asteroidmining:2025_wh30",
       "name": "(2025 WH30)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -199925,7 +199925,7 @@
     {
       "id": "asteroidmining:2025_sc103",
       "name": "(2025 SC103)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -200214,7 +200214,7 @@
     {
       "id": "asteroidmining:2019_wh47",
       "name": "(2019 WH47)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -203129,7 +203129,7 @@
     {
       "id": "asteroidmining:2016_qu98",
       "name": "(2016 QU98)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -203672,7 +203672,7 @@
     {
       "id": "asteroidmining:2015_rc203",
       "name": "(2015 RC203)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -204064,7 +204064,7 @@
     {
       "id": "asteroidmining:2025_wv2",
       "name": "(2025 WV2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -204358,7 +204358,7 @@
     {
       "id": "asteroidmining:38185_1999_kj",
       "name": "38185 (1999 KJ)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -204739,7 +204739,7 @@
     {
       "id": "asteroidmining:2016_gd312",
       "name": "(2016 GD312)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -204830,7 +204830,7 @@
     {
       "id": "asteroidmining:2025_rq35",
       "name": "(2025 RQ35)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -205007,7 +205007,7 @@
     {
       "id": "asteroidmining:2025_qf23",
       "name": "(2025 QF23)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -206878,7 +206878,7 @@
     {
       "id": "asteroidmining:37212_2000_wo126",
       "name": "37212 (2000 WO126)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -207789,7 +207789,7 @@
     {
       "id": "asteroidmining:2026_av4",
       "name": "(2026 AV4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -207880,7 +207880,7 @@
     {
       "id": "asteroidmining:2016_tj106",
       "name": "(2016 TJ106)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -208137,7 +208137,7 @@
     {
       "id": "asteroidmining:2025_yt4",
       "name": "(2025 YT4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -208432,7 +208432,7 @@
     {
       "id": "asteroidmining:2025_xt3",
       "name": "(2025 XT3)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -208968,7 +208968,7 @@
     {
       "id": "asteroidmining:2026_at1",
       "name": "(2026 AT1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -212937,7 +212937,7 @@
     {
       "id": "asteroidmining:37395_2001_xj30",
       "name": "37395 (2001 XJ30)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -213179,7 +213179,7 @@
     {
       "id": "asteroidmining:2020_rp126",
       "name": "(2020 RP126)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -213908,7 +213908,7 @@
     {
       "id": "asteroidmining:2010_en180",
       "name": "(2010 EN180)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -214951,7 +214951,7 @@
     {
       "id": "asteroidmining:2015_kh215",
       "name": "(2015 KH215)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -215042,7 +215042,7 @@
     {
       "id": "asteroidmining:37061_2000_ul45",
       "name": "37061 (2000 UL45)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -215402,7 +215402,7 @@
     {
       "id": "asteroidmining:2016_en255",
       "name": "(2016 EN255)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -215506,7 +215506,7 @@
     {
       "id": "asteroidmining:2025_yt1",
       "name": "(2025 YT1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -215801,7 +215801,7 @@
     {
       "id": "asteroidmining:2015_hh104",
       "name": "(2015 HH104)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -216667,7 +216667,7 @@
     {
       "id": "asteroidmining:2009_qv83",
       "name": "(2009 QV83)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -216771,7 +216771,7 @@
     {
       "id": "asteroidmining:2014_ht280",
       "name": "(2014 HT280)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -217413,7 +217413,7 @@
     {
       "id": "asteroidmining:2015_rr351",
       "name": "(2015 RR351)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -218902,7 +218902,7 @@
     {
       "id": "asteroidmining:37151_2000_vf55",
       "name": "37151 (2000 VF55)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -220446,7 +220446,7 @@
     {
       "id": "asteroidmining:2025_xb2",
       "name": "(2025 XB2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -220537,7 +220537,7 @@
     {
       "id": "asteroidmining:2025_nk10",
       "name": "(2025 NK10)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -220759,7 +220759,7 @@
     {
       "id": "asteroidmining:944_hidalgo_a920_ub",
       "name": "944 Hidalgo (A920 UB)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 2,
       "composition": [
         {
@@ -221906,7 +221906,7 @@
     {
       "id": "asteroidmining:2016_yp35",
       "name": "(2016 YP35)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -221997,7 +221997,7 @@
     {
       "id": "asteroidmining:2018_vh152",
       "name": "(2018 VH152)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -222271,7 +222271,7 @@
     {
       "id": "asteroidmining:2025_od2",
       "name": "(2025 OD2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -223314,7 +223314,7 @@
     {
       "id": "asteroidmining:2016_cx399",
       "name": "(2016 CX399)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -223852,7 +223852,7 @@
     {
       "id": "asteroidmining:2025_ye1",
       "name": "(2025 YE1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -224279,7 +224279,7 @@
     {
       "id": "asteroidmining:37758_1997_eb36",
       "name": "37758 (1997 EB36)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -224541,7 +224541,7 @@
     {
       "id": "asteroidmining:2025_ql1",
       "name": "(2025 QL1)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -224645,7 +224645,7 @@
     {
       "id": "asteroidmining:37460_6102_p-l",
       "name": "37460 (6102 P-L)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -226724,7 +226724,7 @@
     {
       "id": "asteroidmining:37399_2001_xo61",
       "name": "37399 (2001 XO61)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -226947,7 +226947,7 @@
     {
       "id": "asteroidmining:37894_1998_fe62",
       "name": "37894 (1998 FE62)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -227760,7 +227760,7 @@
     {
       "id": "asteroidmining:2025_sm42",
       "name": "(2025 SM42)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -230044,7 +230044,7 @@
     {
       "id": "asteroidmining:2025_xm1",
       "name": "(2025 XM1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -230142,7 +230142,7 @@
     {
       "id": "asteroidmining:2025_ah20",
       "name": "(2025 AH20)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -230995,7 +230995,7 @@
     {
       "id": "asteroidmining:38309_1999_rp103",
       "name": "38309 (1999 RP103)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -231624,7 +231624,7 @@
     {
       "id": "asteroidmining:2020_pz82",
       "name": "(2020 PZ82)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -231833,7 +231833,7 @@
     {
       "id": "asteroidmining:2009_ur190",
       "name": "(2009 UR190)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -232173,7 +232173,7 @@
     {
       "id": "asteroidmining:2021_tt95",
       "name": "(2021 TT95)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -232277,7 +232277,7 @@
     {
       "id": "asteroidmining:2021_vn70",
       "name": "(2021 VN70)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -232441,7 +232441,7 @@
     {
       "id": "asteroidmining:2016_ta113",
       "name": "(2016 TA113)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -235386,7 +235386,7 @@
     {
       "id": "asteroidmining:2025_qw1",
       "name": "(2025 QW1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -235477,7 +235477,7 @@
     {
       "id": "asteroidmining:2024_cy29",
       "name": "(2024 CY29)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -235666,7 +235666,7 @@
     {
       "id": "asteroidmining:38445_1999_sb12",
       "name": "38445 (1999 SB12)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -236209,7 +236209,7 @@
     {
       "id": "asteroidmining:2009_uy189",
       "name": "(2009 UY189)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -236471,7 +236471,7 @@
     {
       "id": "asteroidmining:2025_pt17",
       "name": "(2025 PT17)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -236977,7 +236977,7 @@
     {
       "id": "asteroidmining:2016_sq66",
       "name": "(2016 SQ66)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -237068,7 +237068,7 @@
     {
       "id": "asteroidmining:2016_pf134",
       "name": "(2016 PF134)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -237244,7 +237244,7 @@
     {
       "id": "asteroidmining:38663_2000_ok49",
       "name": "38663 (2000 OK49)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -238118,7 +238118,7 @@
     {
       "id": "asteroidmining:37022_robertovittori_2000_ut1",
       "name": "37022 Robertovittori (2000 UT1)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -238282,7 +238282,7 @@
     {
       "id": "asteroidmining:2021_tc91",
       "name": "(2021 TC91)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -238484,7 +238484,7 @@
     {
       "id": "asteroidmining:2021_st46",
       "name": "(2021 ST46)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -238832,7 +238832,7 @@
     {
       "id": "asteroidmining:2025_rl2",
       "name": "(2025 RL2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -239894,7 +239894,7 @@
     {
       "id": "asteroidmining:37215_2000_wu131",
       "name": "37215 (2000 WU131)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -240347,7 +240347,7 @@
     {
       "id": "asteroidmining:37090_2000_ub72",
       "name": "37090 (2000 UB72)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -240871,7 +240871,7 @@
     {
       "id": "asteroidmining:2016_sz66",
       "name": "(2016 SZ66)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -241120,7 +241120,7 @@
     {
       "id": "asteroidmining:2021_ry163",
       "name": "(2021 RY163)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -241579,7 +241579,7 @@
     {
       "id": "asteroidmining:2015_gx74",
       "name": "(2015 GX74)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -241677,7 +241677,7 @@
     {
       "id": "asteroidmining:2019_oh40",
       "name": "(2019 OH40)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -241986,7 +241986,7 @@
     {
       "id": "asteroidmining:2014_hx240",
       "name": "(2014 HX240)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -242995,7 +242995,7 @@
     {
       "id": "asteroidmining:2025_or4",
       "name": "(2025 OR4)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -243086,7 +243086,7 @@
     {
       "id": "asteroidmining:2025_uc2",
       "name": "(2025 UC2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -243731,7 +243731,7 @@
     {
       "id": "asteroidmining:37467_6753_p-l",
       "name": "37467 (6753 P-L)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -244125,7 +244125,7 @@
     {
       "id": "asteroidmining:2016_eb254",
       "name": "(2016 EB254)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -245227,7 +245227,7 @@
     {
       "id": "asteroidmining:2020_wv19",
       "name": "(2020 WV19)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -245416,7 +245416,7 @@
     {
       "id": "asteroidmining:2015_do306",
       "name": "(2015 DO306)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -245605,7 +245605,7 @@
     {
       "id": "asteroidmining:2020_xo35",
       "name": "(2020 XO35)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -247559,7 +247559,7 @@
     {
       "id": "asteroidmining:2016_jm64",
       "name": "(2016 JM64)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -248949,7 +248949,7 @@
     {
       "id": "asteroidmining:2016_cn328",
       "name": "(2016 CN328)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -249328,7 +249328,7 @@
     {
       "id": "asteroidmining:2016_lw72",
       "name": "(2016 LW72)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -250479,7 +250479,7 @@
     {
       "id": "asteroidmining:2016_nk99",
       "name": "(2016 NK99)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -250905,7 +250905,7 @@
     {
       "id": "asteroidmining:2025_sb16",
       "name": "(2025 SB16)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -251258,7 +251258,7 @@
     {
       "id": "asteroidmining:2025_qm45",
       "name": "(2025 QM45)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -251611,7 +251611,7 @@
     {
       "id": "asteroidmining:2015_hj248",
       "name": "(2015 HJ248)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -252671,7 +252671,7 @@
     {
       "id": "asteroidmining:2014_eu90",
       "name": "(2014 EU90)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -253070,7 +253070,7 @@
     {
       "id": "asteroidmining:2025_uu6",
       "name": "(2025 UU6)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -253811,7 +253811,7 @@
     {
       "id": "asteroidmining:2021_vw44",
       "name": "(2021 VW44)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -253981,7 +253981,7 @@
     {
       "id": "asteroidmining:2025_wh9",
       "name": "(2025 WH9)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -254085,7 +254085,7 @@
     {
       "id": "asteroidmining:2021_ux27",
       "name": "(2021 UX27)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -255102,7 +255102,7 @@
     {
       "id": "asteroidmining:2025_xt1",
       "name": "(2025 XT1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -256898,7 +256898,7 @@
     {
       "id": "asteroidmining:2016_nl97",
       "name": "(2016 NL97)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -257808,7 +257808,7 @@
     {
       "id": "asteroidmining:2025_we10",
       "name": "(2025 WE10)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -258260,7 +258260,7 @@
     {
       "id": "asteroidmining:37387_2001_wt29",
       "name": "37387 (2001 WT29)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 2,
       "composition": [
         {
@@ -259328,7 +259328,7 @@
     {
       "id": "asteroidmining:2016_gm272",
       "name": "(2016 GM272)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -260717,7 +260717,7 @@
     {
       "id": "asteroidmining:2025_wy3",
       "name": "(2025 WY3)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -261675,7 +261675,7 @@
     {
       "id": "asteroidmining:2025_tg",
       "name": "(2025 TG)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -263059,7 +263059,7 @@
     {
       "id": "asteroidmining:38222_1999_np31",
       "name": "38222 (1999 NP31)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -264601,7 +264601,7 @@
     {
       "id": "asteroidmining:2025_uc115",
       "name": "(2025 UC115)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -265998,7 +265998,7 @@
     {
       "id": "asteroidmining:2025_vz",
       "name": "(2025 VZ)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -266207,7 +266207,7 @@
     {
       "id": "asteroidmining:2025_wo6",
       "name": "(2025 WO6)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -266968,7 +266968,7 @@
     {
       "id": "asteroidmining:2025_uy3",
       "name": "(2025 UY3)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -267787,7 +267787,7 @@
     {
       "id": "asteroidmining:37855_1998_ee12",
       "name": "37855 (1998 EE12)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -268823,7 +268823,7 @@
     {
       "id": "asteroidmining:2016_sl68",
       "name": "(2016 SL68)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -268993,7 +268993,7 @@
     {
       "id": "asteroidmining:2005_yx157",
       "name": "(2005 YX157)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -269614,7 +269614,7 @@
     {
       "id": "asteroidmining:2015_ts390",
       "name": "(2015 TS390)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -270644,7 +270644,7 @@
     {
       "id": "asteroidmining:2017_bx146",
       "name": "(2017 BX146)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -271892,7 +271892,7 @@
     {
       "id": "asteroidmining:2015_ta392",
       "name": "(2015 TA392)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -272186,7 +272186,7 @@
     {
       "id": "asteroidmining:2025_qp",
       "name": "(2025 QP)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -272691,7 +272691,7 @@
     {
       "id": "asteroidmining:2015_wo23",
       "name": "(2015 WO23)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -274646,7 +274646,7 @@
     {
       "id": "asteroidmining:2008_gd178",
       "name": "(2008 GD178)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -275328,7 +275328,7 @@
     {
       "id": "asteroidmining:2016_pw134",
       "name": "(2016 PW134)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -275682,7 +275682,7 @@
     {
       "id": "asteroidmining:2020_sx84",
       "name": "(2020 SX84)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -277307,7 +277307,7 @@
     {
       "id": "asteroidmining:2016_te110",
       "name": "(2016 TE110)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -277629,7 +277629,7 @@
     {
       "id": "asteroidmining:2014_hr574",
       "name": "(2014 HR574)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -277891,7 +277891,7 @@
     {
       "id": "asteroidmining:2016_rx54",
       "name": "(2016 RX54)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -278093,7 +278093,7 @@
     {
       "id": "asteroidmining:2025_vj22",
       "name": "(2025 VJ22)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -278421,7 +278421,7 @@
     {
       "id": "asteroidmining:2025_vq14",
       "name": "(2025 VQ14)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -278957,7 +278957,7 @@
     {
       "id": "asteroidmining:2025_rn27",
       "name": "(2025 RN27)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -279048,7 +279048,7 @@
     {
       "id": "asteroidmining:2020_py81",
       "name": "(2020 PY81)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -279453,7 +279453,7 @@
     {
       "id": "asteroidmining:37343_2001_sg27",
       "name": "37343 (2001 SG27)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -279715,7 +279715,7 @@
     {
       "id": "asteroidmining:2016_ab287",
       "name": "(2016 AB287)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -280483,7 +280483,7 @@
     {
       "id": "asteroidmining:2021_vk32",
       "name": "(2021 VK32)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -280659,7 +280659,7 @@
     {
       "id": "asteroidmining:2015_sl32",
       "name": "(2015 SL32)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -281570,7 +281570,7 @@
     {
       "id": "asteroidmining:2025_qe97",
       "name": "(2025 QE97)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -282513,7 +282513,7 @@
     {
       "id": "asteroidmining:2015_rz283",
       "name": "(2015 RZ283)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -285008,7 +285008,7 @@
     {
       "id": "asteroidmining:2025_xg8",
       "name": "(2025 XG8)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -286143,7 +286143,7 @@
     {
       "id": "asteroidmining:2025_rd30",
       "name": "(2025 RD30)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -286411,7 +286411,7 @@
     {
       "id": "asteroidmining:2018_nn42",
       "name": "(2018 NN42)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -287841,7 +287841,7 @@
     {
       "id": "asteroidmining:2017_el26",
       "name": "(2017 EL26)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -288050,7 +288050,7 @@
     {
       "id": "asteroidmining:38214_1999_na8",
       "name": "38214 (1999 NA8)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -290020,7 +290020,7 @@
     {
       "id": "asteroidmining:2025_ss56",
       "name": "(2025 SS56)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -290400,7 +290400,7 @@
     {
       "id": "asteroidmining:37705_1996_gd20",
       "name": "37705 (1996 GD20)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -290891,7 +290891,7 @@
     {
       "id": "asteroidmining:2015_hd243",
       "name": "(2015 HD243)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -290995,7 +290995,7 @@
     {
       "id": "asteroidmining:2020_wu19",
       "name": "(2020 WU19)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -291480,7 +291480,7 @@
     {
       "id": "asteroidmining:2025_vx11",
       "name": "(2025 VX11)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -291584,7 +291584,7 @@
     {
       "id": "asteroidmining:2025_ob5",
       "name": "(2025 OB5)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -292773,7 +292773,7 @@
     {
       "id": "asteroidmining:2019_wr21",
       "name": "(2019 WR21)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -292949,7 +292949,7 @@
     {
       "id": "asteroidmining:37136_2000_va33",
       "name": "37136 (2000 VA33)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -293939,7 +293939,7 @@
     {
       "id": "asteroidmining:2025_ur6",
       "name": "(2025 UR6)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -294877,7 +294877,7 @@
     {
       "id": "asteroidmining:2025_kh22",
       "name": "(2025 KH22)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -295204,7 +295204,7 @@
     {
       "id": "asteroidmining:2021_rb187",
       "name": "(2021 RB187)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -299600,7 +299600,7 @@
     {
       "id": "asteroidmining:2025_sg22",
       "name": "(2025 SG22)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -299691,7 +299691,7 @@
     {
       "id": "asteroidmining:2016_px141",
       "name": "(2016 PX141)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -300484,7 +300484,7 @@
     {
       "id": "asteroidmining:2016_ra53",
       "name": "(2016 RA53)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -301002,7 +301002,7 @@
     {
       "id": "asteroidmining:37698_1995_yl8",
       "name": "37698 (1995 YL8)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -301710,7 +301710,7 @@
     {
       "id": "asteroidmining:38387_1999_rb184",
       "name": "38387 (1999 RB184)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -303642,7 +303642,7 @@
     {
       "id": "asteroidmining:2023_qy134",
       "name": "(2023 QY134)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -303996,7 +303996,7 @@
     {
       "id": "asteroidmining:2025_wg10",
       "name": "(2025 WG10)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -305159,7 +305159,7 @@
     {
       "id": "asteroidmining:37006_2000_ts37",
       "name": "37006 (2000 TS37)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -305401,7 +305401,7 @@
     {
       "id": "asteroidmining:2025_yq12",
       "name": "(2025 YQ12)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -305492,7 +305492,7 @@
     {
       "id": "asteroidmining:38634_2000_ll18",
       "name": "38634 (2000 LL18)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -306423,7 +306423,7 @@
     {
       "id": "asteroidmining:2016_pr251",
       "name": "(2016 PR251)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -307723,7 +307723,7 @@
     {
       "id": "asteroidmining:2017_do126",
       "name": "(2017 DO126)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -308583,7 +308583,7 @@
     {
       "id": "asteroidmining:2021_uj63",
       "name": "(2021 UJ63)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -308694,7 +308694,7 @@
     {
       "id": "asteroidmining:2015_rj286",
       "name": "(2015 RJ286)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -312029,7 +312029,7 @@
     {
       "id": "asteroidmining:2014_hv536",
       "name": "(2014 HV536)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -312646,7 +312646,7 @@
     {
       "id": "asteroidmining:2025_xw4",
       "name": "(2025 XW4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -313822,7 +313822,7 @@
     {
       "id": "asteroidmining:2017_ct36",
       "name": "(2017 CT36)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -314452,7 +314452,7 @@
     {
       "id": "asteroidmining:2016_ng96",
       "name": "(2016 NG96)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -315779,7 +315779,7 @@
     {
       "id": "asteroidmining:2020_rn120",
       "name": "(2020 RN120)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -316461,7 +316461,7 @@
     {
       "id": "asteroidmining:2025_vs2",
       "name": "(2025 VS2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -317045,7 +317045,7 @@
     {
       "id": "asteroidmining:2017_bq144",
       "name": "(2017 BQ144)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -317136,7 +317136,7 @@
     {
       "id": "asteroidmining:38359_1999_rj154",
       "name": "38359 (1999 RJ154)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -317332,7 +317332,7 @@
     {
       "id": "asteroidmining:2015_rr355",
       "name": "(2015 RR355)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -318170,7 +318170,7 @@
     {
       "id": "asteroidmining:2015_bn634",
       "name": "(2015 BN634)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -318334,7 +318334,7 @@
     {
       "id": "asteroidmining:2016_jp33",
       "name": "(2016 JP33)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -318898,7 +318898,7 @@
     {
       "id": "asteroidmining:2016_al62",
       "name": "(2016 AL62)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -319316,7 +319316,7 @@
     {
       "id": "asteroidmining:2016_pj141",
       "name": "(2016 PJ141)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -320137,7 +320137,7 @@
     {
       "id": "asteroidmining:2020_qv91",
       "name": "(2020 QV91)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -320601,7 +320601,7 @@
     {
       "id": "asteroidmining:2020_rb121",
       "name": "(2020 RB121)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -321282,7 +321282,7 @@
     {
       "id": "asteroidmining:2021_vn18",
       "name": "(2021 VN18)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -322310,7 +322310,7 @@
     {
       "id": "asteroidmining:2018_dm11",
       "name": "(2018 DM11)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -322474,7 +322474,7 @@
     {
       "id": "asteroidmining:2020_rs119",
       "name": "(2020 RS119)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -323038,7 +323038,7 @@
     {
       "id": "asteroidmining:2018_fw49",
       "name": "(2018 FW49)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -323261,7 +323261,7 @@
     {
       "id": "asteroidmining:2025_rz2",
       "name": "(2025 RZ2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -323470,7 +323470,7 @@
     {
       "id": "asteroidmining:2017_ex26",
       "name": "(2017 EX26)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -324316,7 +324316,7 @@
     {
       "id": "asteroidmining:2009_so421",
       "name": "(2009 SO421)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -326386,7 +326386,7 @@
     {
       "id": "asteroidmining:38582_1999_xe37",
       "name": "38582 (1999 XE37)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 2,
       "composition": [
         {
@@ -326490,7 +326490,7 @@
     {
       "id": "asteroidmining:2026_ah5",
       "name": "(2026 AH5)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -327151,7 +327151,7 @@
     {
       "id": "asteroidmining:2010_vb279",
       "name": "(2010 VB279)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -328015,7 +328015,7 @@
     {
       "id": "asteroidmining:38687_2000_qt18",
       "name": "38687 (2000 QT18)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -330349,7 +330349,7 @@
     {
       "id": "asteroidmining:2017_bj145",
       "name": "(2017 BJ145)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -332093,7 +332093,7 @@
     {
       "id": "asteroidmining:2017_do124",
       "name": "(2017 DO124)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -334274,7 +334274,7 @@
     {
       "id": "asteroidmining:2016_gq312",
       "name": "(2016 GQ312)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -334372,7 +334372,7 @@
     {
       "id": "asteroidmining:37278_2000_ye7",
       "name": "37278 (2000 YE7)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -336877,7 +336877,7 @@
     {
       "id": "asteroidmining:2015_tb390",
       "name": "(2015 TB390)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -337184,7 +337184,7 @@
     {
       "id": "asteroidmining:2022_ah13",
       "name": "(2022 AH13)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -338438,7 +338438,7 @@
     {
       "id": "asteroidmining:2025_sn12",
       "name": "(2025 SN12)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -339158,7 +339158,7 @@
     {
       "id": "asteroidmining:37502_2257_t-2",
       "name": "37502 (2257 T-2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -339354,7 +339354,7 @@
     {
       "id": "asteroidmining:2026_aq",
       "name": "(2026 AQ)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -339452,7 +339452,7 @@
     {
       "id": "asteroidmining:2025_vw19",
       "name": "(2025 VW19)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -340553,7 +340553,7 @@
     {
       "id": "asteroidmining:2015_xx48",
       "name": "(2015 XX48)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -340644,7 +340644,7 @@
     {
       "id": "asteroidmining:2016_sl67",
       "name": "(2016 SL67)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -341254,7 +341254,7 @@
     {
       "id": "asteroidmining:2019_du4",
       "name": "(2019 DU4)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -341640,7 +341640,7 @@
     {
       "id": "asteroidmining:2026_am2",
       "name": "(2026 AM2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -342019,7 +342019,7 @@
     {
       "id": "asteroidmining:2025_sh2",
       "name": "(2025 SH2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -342425,7 +342425,7 @@
     {
       "id": "asteroidmining:37695_1995_wt10",
       "name": "37695 (1995 WT10)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -342948,7 +342948,7 @@
     {
       "id": "asteroidmining:2025_sn127",
       "name": "(2025 SN127)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -343191,7 +343191,7 @@
     {
       "id": "asteroidmining:2025_uj",
       "name": "(2025 UJ)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -344104,7 +344104,7 @@
     {
       "id": "asteroidmining:2025_ry6",
       "name": "(2025 RY6)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -344300,7 +344300,7 @@
     {
       "id": "asteroidmining:37904_1998_fu68",
       "name": "37904 (1998 FU68)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -344550,7 +344550,7 @@
     {
       "id": "asteroidmining:2021_rs197",
       "name": "(2021 RS197)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -345114,7 +345114,7 @@
     {
       "id": "asteroidmining:2017_ah26",
       "name": "(2017 AH26)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -348876,7 +348876,7 @@
     {
       "id": "asteroidmining:2025_pa16",
       "name": "(2025 PA16)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -349361,7 +349361,7 @@
     {
       "id": "asteroidmining:2026_ah3",
       "name": "(2026 AH3)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -349905,7 +349905,7 @@
     {
       "id": "asteroidmining:2019_uq204",
       "name": "(2019 UQ204)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -350332,7 +350332,7 @@
     {
       "id": "asteroidmining:2015_pu197",
       "name": "(2015 PU197)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -350423,7 +350423,7 @@
     {
       "id": "asteroidmining:2025_sd29",
       "name": "(2025 SD29)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -350599,7 +350599,7 @@
     {
       "id": "asteroidmining:37525_5127_t-3",
       "name": "37525 (5127 T-3)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -350873,7 +350873,7 @@
     {
       "id": "asteroidmining:2020_ss126",
       "name": "(2020 SS126)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -351043,7 +351043,7 @@
     {
       "id": "asteroidmining:2015_vu175",
       "name": "(2015 VU175)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -351213,7 +351213,7 @@
     {
       "id": "asteroidmining:2015_ot109",
       "name": "(2015 OT109)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -351513,7 +351513,7 @@
     {
       "id": "asteroidmining:2026_am4",
       "name": "(2026 AM4)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -351722,7 +351722,7 @@
     {
       "id": "asteroidmining:2020_qa89",
       "name": "(2020 QA89)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -352150,7 +352150,7 @@
     {
       "id": "asteroidmining:2020_by94",
       "name": "(2020 BY94)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -352248,7 +352248,7 @@
     {
       "id": "asteroidmining:2016_ac285",
       "name": "(2016 AC285)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -358122,7 +358122,7 @@
     {
       "id": "asteroidmining:37377_2001_vp46",
       "name": "37377 (2001 VP46)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -358319,7 +358319,7 @@
     {
       "id": "asteroidmining:2016_tg106",
       "name": "(2016 TG106)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -359873,7 +359873,7 @@
     {
       "id": "asteroidmining:2025_qx38",
       "name": "(2025 QX38)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -361336,7 +361336,7 @@
     {
       "id": "asteroidmining:2025_rc2",
       "name": "(2025 RC2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -361814,7 +361814,7 @@
     {
       "id": "asteroidmining:2024_cs29",
       "name": "(2024 CS29)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -362606,7 +362606,7 @@
     {
       "id": "asteroidmining:2017_av28",
       "name": "(2017 AV28)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -362861,7 +362861,7 @@
     {
       "id": "asteroidmining:2020_rn122",
       "name": "(2020 RN122)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -363491,7 +363491,7 @@
     {
       "id": "asteroidmining:2021_tj88",
       "name": "(2021 TJ88)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -363746,7 +363746,7 @@
     {
       "id": "asteroidmining:38337_1999_rp136",
       "name": "38337 (1999 RP136)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -365471,7 +365471,7 @@
     {
       "id": "asteroidmining:2025_nx10",
       "name": "(2025 NX10)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -366567,7 +366567,7 @@
     {
       "id": "asteroidmining:2021_um39",
       "name": "(2021 UM39)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -366671,7 +366671,7 @@
     {
       "id": "asteroidmining:2016_el335",
       "name": "(2016 EL335)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -368387,7 +368387,7 @@
     {
       "id": "asteroidmining:38723_2000_qt129",
       "name": "38723 (2000 QT129)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -369240,7 +369240,7 @@
     {
       "id": "asteroidmining:2015_hu233",
       "name": "(2015 HU233)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -369686,7 +369686,7 @@
     {
       "id": "asteroidmining:2015_ro286",
       "name": "(2015 RO286)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -370072,7 +370072,7 @@
     {
       "id": "asteroidmining:37736_jandl_1996_vu6",
       "name": "37736 Jandl (1996 VU6)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -370682,7 +370682,7 @@
     {
       "id": "asteroidmining:38158_1999_js72",
       "name": "38158 (1999 JS72)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -370839,7 +370839,7 @@
     {
       "id": "asteroidmining:2025_np2",
       "name": "(2025 NP2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -371253,7 +371253,7 @@
     {
       "id": "asteroidmining:2016_ro53",
       "name": "(2016 RO53)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -371608,7 +371608,7 @@
     {
       "id": "asteroidmining:2010_uf135",
       "name": "(2010 UF135)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -372343,7 +372343,7 @@
     {
       "id": "asteroidmining:2025_om2",
       "name": "(2025 OM2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -372650,7 +372650,7 @@
     {
       "id": "asteroidmining:2025_xx18",
       "name": "(2025 XX18)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -373259,7 +373259,7 @@
     {
       "id": "asteroidmining:2017_sn405",
       "name": "(2017 SN405)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -373692,7 +373692,7 @@
     {
       "id": "asteroidmining:37887_1998_fq58",
       "name": "37887 (1998 FQ58)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -374229,7 +374229,7 @@
     {
       "id": "asteroidmining:37549_1981_et30",
       "name": "37549 (1981 ET30)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -374333,7 +374333,7 @@
     {
       "id": "asteroidmining:37909_1998_ft79",
       "name": "37909 (1998 FT79)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -374509,7 +374509,7 @@
     {
       "id": "asteroidmining:2010_al147",
       "name": "(2010 AL147)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -375171,7 +375171,7 @@
     {
       "id": "asteroidmining:2012_dc129",
       "name": "(2012 DC129)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -376476,7 +376476,7 @@
     {
       "id": "asteroidmining:2026_as3",
       "name": "(2026 AS3)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -376765,7 +376765,7 @@
     {
       "id": "asteroidmining:2018_px76",
       "name": "(2018 PX76)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -376856,7 +376856,7 @@
     {
       "id": "asteroidmining:2025_un2",
       "name": "(2025 UN2)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -380697,7 +380697,7 @@
     {
       "id": "asteroidmining:2025_qk1",
       "name": "(2025 QK1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -380854,7 +380854,7 @@
     {
       "id": "asteroidmining:2016_rf53",
       "name": "(2016 RF53)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -381607,7 +381607,7 @@
     {
       "id": "asteroidmining:2019_je111",
       "name": "(2019 JE111)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -381894,7 +381894,7 @@
     {
       "id": "asteroidmining:2016_ph141",
       "name": "(2016 PH141)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -382116,7 +382116,7 @@
     {
       "id": "asteroidmining:2021_ub38",
       "name": "(2021 UB38)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -382516,7 +382516,7 @@
     {
       "id": "asteroidmining:2015_tc392",
       "name": "(2015 TC392)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -384202,7 +384202,7 @@
     {
       "id": "asteroidmining:2016_vr23",
       "name": "(2016 VR23)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -385514,7 +385514,7 @@
     {
       "id": "asteroidmining:2026_ax4",
       "name": "(2026 AX4)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -385618,7 +385618,7 @@
     {
       "id": "asteroidmining:2020_bs108",
       "name": "(2020 BS108)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -385874,7 +385874,7 @@
     {
       "id": "asteroidmining:2025_yn4",
       "name": "(2025 YN4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -385978,7 +385978,7 @@
     {
       "id": "asteroidmining:38059_1999_co38",
       "name": "38059 (1999 CO38)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -388036,7 +388036,7 @@
     {
       "id": "asteroidmining:2025_ul1",
       "name": "(2025 UL1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -388949,7 +388949,7 @@
     {
       "id": "asteroidmining:2025_vm5",
       "name": "(2025 VM5)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -389158,7 +389158,7 @@
     {
       "id": "asteroidmining:2009_wq235",
       "name": "(2009 WQ235)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -389675,7 +389675,7 @@
     {
       "id": "asteroidmining:2015_vg175",
       "name": "(2015 VG175)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -389877,7 +389877,7 @@
     {
       "id": "asteroidmining:2016_cl326",
       "name": "(2016 CL326)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -390927,7 +390927,7 @@
     {
       "id": "asteroidmining:2025_yd1",
       "name": "(2025 YD1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -391681,7 +391681,7 @@
     {
       "id": "asteroidmining:2021_rr176",
       "name": "(2021 RR176)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -391877,7 +391877,7 @@
     {
       "id": "asteroidmining:38654_2000_ok27",
       "name": "38654 (2000 OK27)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -393433,7 +393433,7 @@
     {
       "id": "asteroidmining:37193_2000_wf73",
       "name": "37193 (2000 WF73)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -394075,7 +394075,7 @@
     {
       "id": "asteroidmining:2016_bc107",
       "name": "(2016 BC107)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -395012,7 +395012,7 @@
     {
       "id": "asteroidmining:2017_bt144",
       "name": "(2017 BT144)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -396304,7 +396304,7 @@
     {
       "id": "asteroidmining:2022_hy11",
       "name": "(2022 HY11)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -398170,7 +398170,7 @@
     {
       "id": "asteroidmining:2015_gw18",
       "name": "(2015 GW18)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -399056,7 +399056,7 @@
     {
       "id": "asteroidmining:2016_gw330",
       "name": "(2016 GW330)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -399396,7 +399396,7 @@
     {
       "id": "asteroidmining:2025_vu9",
       "name": "(2025 VU9)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -399723,7 +399723,7 @@
     {
       "id": "asteroidmining:2025_yq8",
       "name": "(2025 YQ8)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -400647,7 +400647,7 @@
     {
       "id": "asteroidmining:2010_wo80",
       "name": "(2010 WO80)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -402693,7 +402693,7 @@
     {
       "id": "asteroidmining:2016_tm186",
       "name": "(2016 TM186)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -402961,7 +402961,7 @@
     {
       "id": "asteroidmining:2018_nq41",
       "name": "(2018 NQ41)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -403427,7 +403427,7 @@
     {
       "id": "asteroidmining:2015_xz424",
       "name": "(2015 XZ424)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -403839,7 +403839,7 @@
     {
       "id": "asteroidmining:38113_1999_jb30",
       "name": "38113 (1999 JB30)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -404035,7 +404035,7 @@
     {
       "id": "asteroidmining:37753_1997_co13",
       "name": "37753 (1997 CO13)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -404310,7 +404310,7 @@
     {
       "id": "asteroidmining:2021_tl107",
       "name": "(2021 TL107)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -405741,7 +405741,7 @@
     {
       "id": "asteroidmining:2012_vj141",
       "name": "(2012 VJ141)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -406855,7 +406855,7 @@
     {
       "id": "asteroidmining:38653_2000_ot22",
       "name": "38653 (2000 OT22)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -407019,7 +407019,7 @@
     {
       "id": "asteroidmining:2016_pv133",
       "name": "(2016 PV133)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -407537,7 +407537,7 @@
     {
       "id": "asteroidmining:2017_dc125",
       "name": "(2017 DC125)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -407641,7 +407641,7 @@
     {
       "id": "asteroidmining:2015_fx32",
       "name": "(2015 FX32)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -409092,7 +409092,7 @@
     {
       "id": "asteroidmining:2019_gr139",
       "name": "(2019 GR139)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -409552,7 +409552,7 @@
     {
       "id": "asteroidmining:2015_bz630",
       "name": "(2015 BZ630)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -409643,7 +409643,7 @@
     {
       "id": "asteroidmining:2016_pb143",
       "name": "(2016 PB143)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -410806,7 +410806,7 @@
     {
       "id": "asteroidmining:2016_al282",
       "name": "(2016 AL282)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -411028,7 +411028,7 @@
     {
       "id": "asteroidmining:2025_vy3",
       "name": "(2025 VY3)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -411368,7 +411368,7 @@
     {
       "id": "asteroidmining:2015_to467",
       "name": "(2015 TO467)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -411564,7 +411564,7 @@
     {
       "id": "asteroidmining:2025_rr",
       "name": "(2025 RR)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -412666,7 +412666,7 @@
     {
       "id": "asteroidmining:37106_2000_uc101",
       "name": "37106 (2000 UC101)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -413229,7 +413229,7 @@
     {
       "id": "asteroidmining:2017_eo26",
       "name": "(2017 EO26)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -415133,7 +415133,7 @@
     {
       "id": "asteroidmining:2016_sv68",
       "name": "(2016 SV68)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -415526,7 +415526,7 @@
     {
       "id": "asteroidmining:2014_qs16",
       "name": "(2014 QS16)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -416551,7 +416551,7 @@
     {
       "id": "asteroidmining:2020_uw54",
       "name": "(2020 UW54)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -416812,7 +416812,7 @@
     {
       "id": "asteroidmining:2025_qf36",
       "name": "(2025 QF36)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -417001,7 +417001,7 @@
     {
       "id": "asteroidmining:2015_kv300",
       "name": "(2015 KV300)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -417577,7 +417577,7 @@
     {
       "id": "asteroidmining:2015_rs285",
       "name": "(2015 RS285)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -421039,7 +421039,7 @@
     {
       "id": "asteroidmining:2019_gc135",
       "name": "(2019 GC135)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -421301,7 +421301,7 @@
     {
       "id": "asteroidmining:2020_pj87",
       "name": "(2020 PJ87)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -421563,7 +421563,7 @@
     {
       "id": "asteroidmining:2025_so2",
       "name": "(2025 SO2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -421779,7 +421779,7 @@
     {
       "id": "asteroidmining:2015_oo110",
       "name": "(2015 OO110)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -423468,7 +423468,7 @@
     {
       "id": "asteroidmining:2016_cy327",
       "name": "(2016 CY327)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -423946,7 +423946,7 @@
     {
       "id": "asteroidmining:2014_ex53",
       "name": "(2014 EX53)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -424307,7 +424307,7 @@
     {
       "id": "asteroidmining:2021_ty95",
       "name": "(2021 TY95)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -424464,7 +424464,7 @@
     {
       "id": "asteroidmining:38131_1999_jr47",
       "name": "38131 (1999 JR47)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -424562,7 +424562,7 @@
     {
       "id": "asteroidmining:2020_ux54",
       "name": "(2020 UX54)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -424653,7 +424653,7 @@
     {
       "id": "asteroidmining:2016_nv99",
       "name": "(2016 NV99)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -424993,7 +424993,7 @@
     {
       "id": "asteroidmining:2025_qp41",
       "name": "(2025 QP41)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -425398,7 +425398,7 @@
     {
       "id": "asteroidmining:2025_vo1",
       "name": "(2025 VO1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -428204,7 +428204,7 @@
     {
       "id": "asteroidmining:2025_ox3",
       "name": "(2025 OX3)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -430605,7 +430605,7 @@
     {
       "id": "asteroidmining:2016_ae286",
       "name": "(2016 AE286)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -431969,7 +431969,7 @@
     {
       "id": "asteroidmining:36944_2000_sd249",
       "name": "36944 (2000 SD249)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -432738,7 +432738,7 @@
     {
       "id": "asteroidmining:37389_2001_wr38",
       "name": "37389 (2001 WR38)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -432842,7 +432842,7 @@
     {
       "id": "asteroidmining:2022_bf23",
       "name": "(2022 BF23)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -433190,7 +433190,7 @@
     {
       "id": "asteroidmining:2015_hf231",
       "name": "(2015 HF231)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -433662,7 +433662,7 @@
     {
       "id": "asteroidmining:2017_bk144",
       "name": "(2017 BK144)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -433969,7 +433969,7 @@
     {
       "id": "asteroidmining:2016_sk67",
       "name": "(2016 SK67)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -434573,7 +434573,7 @@
     {
       "id": "asteroidmining:37126_2000_vx15",
       "name": "37126 (2000 VX15)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -434664,7 +434664,7 @@
     {
       "id": "asteroidmining:2025_ul66",
       "name": "(2025 UL66)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -435236,7 +435236,7 @@
     {
       "id": "asteroidmining:2016_cp327",
       "name": "(2016 CP327)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -438299,7 +438299,7 @@
     {
       "id": "asteroidmining:2016_su65",
       "name": "(2016 SU65)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -439177,7 +439177,7 @@
     {
       "id": "asteroidmining:2026_am3",
       "name": "(2026 AM3)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -440292,7 +440292,7 @@
     {
       "id": "asteroidmining:2019_gl140",
       "name": "(2019 GL140)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -440468,7 +440468,7 @@
     {
       "id": "asteroidmining:2016_ay286",
       "name": "(2016 AY286)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -441354,7 +441354,7 @@
     {
       "id": "asteroidmining:2025_uz2",
       "name": "(2025 UZ2)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -441458,7 +441458,7 @@
     {
       "id": "asteroidmining:2015_qb20",
       "name": "(2015 QB20)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -442462,7 +442462,7 @@
     {
       "id": "asteroidmining:2025_oy8",
       "name": "(2025 OY8)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -442717,7 +442717,7 @@
     {
       "id": "asteroidmining:2010_ae151",
       "name": "(2010 AE151)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -443176,7 +443176,7 @@
     {
       "id": "asteroidmining:37798_1997_wu24",
       "name": "37798 (1997 WU24)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -444313,7 +444313,7 @@
     {
       "id": "asteroidmining:2016_ct327",
       "name": "(2016 CT327)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -445057,7 +445057,7 @@
     {
       "id": "asteroidmining:2015_wp23",
       "name": "(2015 WP23)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -445155,7 +445155,7 @@
     {
       "id": "asteroidmining:37373_2001_vm34",
       "name": "37373 (2001 VM34)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -445364,7 +445364,7 @@
     {
       "id": "asteroidmining:2019_kc54",
       "name": "(2019 KC54)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -446420,7 +446420,7 @@
     {
       "id": "asteroidmining:2016_ls72",
       "name": "(2016 LS72)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -446832,7 +446832,7 @@
     {
       "id": "asteroidmining:2015_vt175",
       "name": "(2015 VT175)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -447166,7 +447166,7 @@
     {
       "id": "asteroidmining:2017_cn37",
       "name": "(2017 CN37)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -447257,7 +447257,7 @@
     {
       "id": "asteroidmining:2016_py139",
       "name": "(2016 PY139)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -448457,7 +448457,7 @@
     {
       "id": "asteroidmining:2021_qe89",
       "name": "(2021 QE89)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -449222,7 +449222,7 @@
     {
       "id": "asteroidmining:2021_uq45",
       "name": "(2021 UQ45)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -449320,7 +449320,7 @@
     {
       "id": "asteroidmining:38672_2000_pn7",
       "name": "38672 (2000 PN7)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -449411,7 +449411,7 @@
     {
       "id": "asteroidmining:37068_2000_uz49",
       "name": "37068 (2000 UZ49)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -449731,7 +449731,7 @@
     {
       "id": "asteroidmining:2025_wp40",
       "name": "(2025 WP40)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -449835,7 +449835,7 @@
     {
       "id": "asteroidmining:2020_ra120",
       "name": "(2020 RA120)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -451694,7 +451694,7 @@
     {
       "id": "asteroidmining:38703_2000_qr72",
       "name": "38703 (2000 QR72)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -452554,7 +452554,7 @@
     {
       "id": "asteroidmining:2016_ns100",
       "name": "(2016 NS100)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -453066,7 +453066,7 @@
     {
       "id": "asteroidmining:2021_pz149",
       "name": "(2021 PZ149)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -453327,7 +453327,7 @@
     {
       "id": "asteroidmining:2015_ks4",
       "name": "(2015 KS4)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -457341,7 +457341,7 @@
     {
       "id": "asteroidmining:37477_1110_t-1",
       "name": "37477 (1110 T-1)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -457518,7 +457518,7 @@
     {
       "id": "asteroidmining:2021_tz150",
       "name": "(2021 TZ150)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -458279,7 +458279,7 @@
     {
       "id": "asteroidmining:2016_rv52",
       "name": "(2016 RV52)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -458744,7 +458744,7 @@
     {
       "id": "asteroidmining:2015_hd239",
       "name": "(2015 HD239)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -459150,7 +459150,7 @@
     {
       "id": "asteroidmining:2016_nr97",
       "name": "(2016 NR97)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -459563,7 +459563,7 @@
     {
       "id": "asteroidmining:38719_2000_qq127",
       "name": "38719 (2000 QQ127)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -459806,7 +459806,7 @@
     {
       "id": "asteroidmining:2012_qm75",
       "name": "(2012 QM75)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -460198,7 +460198,7 @@
     {
       "id": "asteroidmining:2015_rw285",
       "name": "(2015 RW285)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -461063,7 +461063,7 @@
     {
       "id": "asteroidmining:2025_qh",
       "name": "(2025 QH)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -461154,7 +461154,7 @@
     {
       "id": "asteroidmining:2016_sq65",
       "name": "(2016 SQ65)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -461245,7 +461245,7 @@
     {
       "id": "asteroidmining:2016_hu39",
       "name": "(2016 HU39)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -462404,7 +462404,7 @@
     {
       "id": "asteroidmining:2025_rp3",
       "name": "(2025 RP3)",
-      "texture": "asteroidmining:space/asteroid_1",
+      "texture": "asteroidmining:space/ore_asteroid_1",
       "diameter": 1,
       "composition": [
         {
@@ -462580,7 +462580,7 @@
     {
       "id": "asteroidmining:2025_ov4",
       "name": "(2025 OV4)",
-      "texture": "asteroidmining:space/asteroid_2",
+      "texture": "asteroidmining:space/organic_asteroid_1",
       "diameter": 1,
       "composition": [
         {

@@ -50,6 +50,7 @@ public class RocketLaunchManager extends SavedData {
     private static final float LANDING_MAX_PITCH_DEGREES = 8.0F;
     private static final double LANDING_PITCH_START_ABOVE_LANDING = 60.0D;
     private static final double LANDING_FORCE_UPRIGHT_ABOVE_LANDING = 6.0D;
+    private static final double LANDING_SOUND_FADE_HEIGHT = 4.0D;
 
     private static final Codec<RocketFlight> ROCKET_FLIGHT_CODEC = RecordCodecBuilder.create(instance -> instance.group(
         UUIDUtil.CODEC.fieldOf("id").forGetter(flight -> flight.id),
@@ -233,6 +234,8 @@ public class RocketLaunchManager extends SavedData {
         final BlockStructureEntity rocket = this.getOrRespawnRocket(level, launch, launch.rocketX, launch.rocketY, launch.rocketZ);
 
         final double heightAboveLanding = rocket.getY() - launch.landingY;
+        final double soundProgress = Mth.clamp(heightAboveLanding / LANDING_SOUND_FADE_HEIGHT, 0.0D, 1.0D);
+        rocket.setEngineSoundVolume((float) smoothStep(soundProgress));
         final double pitchHeightProgress = Mth.clamp(
             (heightAboveLanding - LANDING_FORCE_UPRIGHT_ABOVE_LANDING) / (LANDING_PITCH_START_ABOVE_LANDING - LANDING_FORCE_UPRIGHT_ABOVE_LANDING),
             0.0D,

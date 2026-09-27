@@ -42,6 +42,7 @@
   },
 
   "M": {
+    "textures": ["asteroidmining:space/ore_asteroid_1"],
     "analogue": "iron_nickel_meteorite",
     "items": {
       "minecraft:raw_iron": [0.35, 0.70],
@@ -81,6 +82,7 @@
   },
 
   "D": {
+    "textures": ["asteroidmining:space/organic_asteroid_1"],
     "analogue": "organic_rich_outer_belt",
     "items": {
       "minecraft:coal": [0.12, 0.30],
